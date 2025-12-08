@@ -1,6 +1,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { GoogleGenAI, Chat, GenerateContentResponse } from "@google/genai";
+import { GoogleGenerativeAI, ChatSession } from "@google/generative-ai";
 import { MessageSquare, X, Send, Sparkles, User, Bot, Globe } from 'lucide-react';
 import { CAR_DB } from '../constants';
 import { ChatMessage } from '../types';
@@ -14,56 +14,60 @@ export default function ChatWidget() {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const chatRef = useRef<Chat | null>(null);
+  const chatSessionRef = useRef<ChatSession | null>(null);
 
   // Initialize Chat Session on Open (or lazily)
   useEffect(() => {
-    if (isOpen && !chatRef.current) {
-        try {
-            const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-            
-            const context = `
-            Você é o "Consultor EletriBrasil", um assistente especialista no mercado brasileiro de carros elétricos.
-            Use os dados fornecidos abaixo (Tabela PBEV 2025) como base principal.
-            
-            Dados dos Veículos:
-            ${JSON.stringify(CAR_DB)}
-            
-            IMPORTANTE:
-            - Você possui acesso à Busca do Google (Search Grounding).
-            - Use a Busca do Google para encontrar informações atualizadas que não estejam nos dados acima (ex: notícias recentes, variações de preço, lançamentos, detalhes técnicos específicos).
-            - Se a informação do banco de dados parecer desatualizada ou se o usuário perguntar sobre algo fora do banco de dados, use a busca.
-            
-            Instruções de Resposta:
-            1. Seja conciso e direto.
-            2. Sempre mencione preços e autonomia quando relevante.
-            3. Compare carros lado a lado se pedido.
-            4. Responda em formato de texto simples ou markdown básico (negrito).
-            5. Seja educado e prestativo.
-            `;
-            
-            chatRef.current = ai.chats.create({
-              model: 'gemini-2.5-flash',
-              config: {
-                systemInstruction: context,
-                tools: [{ googleSearch: {} }],
-              },
-            });
-        } catch (error) {
-            console.error("Failed to initialize chat", error);
+    if (isOpen && !chatSessionRef.current) {
+      try {
+        // Access API Key using Vite's import.meta.env standard
+        const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+
+        if (!apiKey) {
+          console.error("Gemini API Key is missing. Check .env.local");
+          setMessages(prev => [...prev, { role: 'model', text: 'Erro de Configuração: API Key não encontrada. Verifique o arquivo .env.local.' }]);
+          return;
         }
+
+        const genAI = new GoogleGenerativeAI(apiKey);
+        const model = genAI.getGenerativeModel({
+          model: "gemini-2.5-flash",
+          systemInstruction: `
+                Você é o "Consultor EletriBrasil", um assistente especialista no mercado brasileiro de carros elétricos.
+                Use os dados fornecidos abaixo (Tabela PBEV 2025) como base principal.
+                
+                Dados dos Veículos:
+                ${JSON.stringify(CAR_DB)}
+                
+                Instruções de Resposta:
+                1. Seja conciso e direto.
+                2. Sempre mencione preços e autonomia quando relevante.
+                3. Compare carros lado a lado se pedido.
+                4. Responda em formato de texto simples ou markdown básico (negrito).
+                5. Seja educado e prestativo.
+                `
+        });
+
+        chatSessionRef.current = model.startChat({
+          history: [],
+        });
+
+      } catch (error) {
+        console.error("DEBUG: Failed to initialize chat", error);
+        setMessages(prev => [...prev, { role: 'model', text: `Erro técnico: ${(error as Error).message}` }]);
+      }
     }
   }, [isOpen]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     if (isOpen) {
-        inputRef.current?.focus();
+      inputRef.current?.focus();
     }
   }, [messages, isOpen]);
 
   const handleSendMessage = async () => {
-    if (!inputValue.trim() || isLoading || !chatRef.current) return;
+    if (!inputValue.trim() || isLoading || !chatSessionRef.current) return;
 
     const userMsg = inputValue.trim();
     setMessages(prev => [...prev, { role: 'user', text: userMsg }]);
@@ -71,18 +75,15 @@ export default function ChatWidget() {
     setIsLoading(true);
 
     try {
-      const response: GenerateContentResponse = await chatRef.current.sendMessage({ message: userMsg });
-      const text = response.text || "Desculpe, não consegui entender.";
-      
-      // Extract grounding sources
-      const sources = response.candidates?.[0]?.groundingMetadata?.groundingChunks
-        ?.map(c => c.web)
-        .filter(w => w) as { uri: string; title: string }[] | undefined;
+      const result = await chatSessionRef.current.sendMessage(userMsg);
+      const response = await result.response;
+      const text = response.text();
 
-      setMessages(prev => [...prev, { role: 'model', text, sources }]);
+      setMessages(prev => [...prev, { role: 'model', text }]);
     } catch (error) {
       console.error(error);
-      setMessages(prev => [...prev, { role: 'model', text: "Ocorreu um erro ao conectar com o consultor." }]);
+      const errorMessage = (error as Error).message || "Erro desconhecido";
+      setMessages(prev => [...prev, { role: 'model', text: `Erro ao conectar: ${errorMessage}` }]);
     } finally {
       setIsLoading(false);
     }
@@ -105,12 +106,12 @@ export default function ChatWidget() {
                 <Sparkles className="text-yellow-300 w-4 h-4" />
               </div>
               <div>
-                <h3 className="text-white font-bold text-sm">Consultor EletriBrasil</h3>
+                <h3 className="text-white font-bold text-sm">Consultor EletriBrasil v4.0 (Gemini 2.5)</h3>
                 <p className="text-blue-100 text-[10px] font-medium">Powered by Gemini</p>
               </div>
             </div>
-            <button 
-              onClick={() => setIsOpen(false)} 
+            <button
+              onClick={() => setIsOpen(false)}
               className="text-white/80 hover:text-white transition"
             >
               <X className="w-5 h-5" />
@@ -129,43 +130,42 @@ export default function ChatWidget() {
                   )}
                 </div>
                 <div className="flex flex-col max-w-[85%]">
-                    <div 
-                    className={`p-3 rounded-2xl shadow-sm text-sm leading-relaxed ${
-                        msg.role === 'user' 
-                        ? 'bg-blue-600 text-white rounded-tr-none' 
-                        : 'bg-white border border-slate-200 text-slate-700 rounded-tl-none'
-                    }`}
-                    dangerouslySetInnerHTML={{ 
-                        __html: msg.text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>') 
+                  <div
+                    className={`p-3 rounded-2xl shadow-sm text-sm leading-relaxed ${msg.role === 'user'
+                      ? 'bg-blue-600 text-white rounded-tr-none'
+                      : 'bg-white border border-slate-200 text-slate-700 rounded-tl-none'
+                      }`}
+                    dangerouslySetInnerHTML={{
+                      __html: msg.text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>')
                     }}
-                    />
-                    
-                    {/* Search Grounding Sources */}
-                    {msg.role === 'model' && msg.sources && msg.sources.length > 0 && (
-                        <div className="mt-2 ml-1">
-                            <p className="text-[10px] uppercase font-bold text-slate-400 mb-1 flex items-center gap-1">
-                                <Globe className="w-3 h-3" /> Fontes
-                            </p>
-                            <div className="flex flex-wrap gap-2">
-                                {msg.sources.map((source, i) => (
-                                    <a 
-                                        key={i} 
-                                        href={source.uri} 
-                                        target="_blank" 
-                                        rel="noopener noreferrer"
-                                        className="text-[10px] bg-blue-50 text-blue-600 border border-blue-100 px-2 py-1 rounded-md hover:bg-blue-100 hover:underline truncate max-w-[150px]"
-                                        title={source.title}
-                                    >
-                                        {source.title || new URL(source.uri).hostname}
-                                    </a>
-                                ))}
-                            </div>
-                        </div>
-                    )}
+                  />
+
+                  {/* Search Grounding Sources */}
+                  {msg.role === 'model' && msg.sources && msg.sources.length > 0 && (
+                    <div className="mt-2 ml-1">
+                      <p className="text-[10px] uppercase font-bold text-slate-400 mb-1 flex items-center gap-1">
+                        <Globe className="w-3 h-3" /> Fontes
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {msg.sources.map((source, i) => (
+                          <a
+                            key={i}
+                            href={source.uri}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[10px] bg-blue-50 text-blue-600 border border-blue-100 px-2 py-1 rounded-md hover:bg-blue-100 hover:underline truncate max-w-[150px]"
+                            title={source.title}
+                          >
+                            {source.title || new URL(source.uri).hostname}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
-            
+
             {isLoading && (
               <div className="flex gap-3">
                 <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
@@ -184,17 +184,17 @@ export default function ChatWidget() {
           {/* Input */}
           <div className="p-3 bg-white border-t border-slate-200">
             <div className="relative">
-              <input 
+              <input
                 ref={inputRef}
-                type="text" 
+                type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={handleKeyDown}
                 disabled={isLoading}
-                placeholder="Ex: Qual a autonomia real do Dolphin?" 
+                placeholder="Ex: Qual a autonomia real do Dolphin?"
                 className="w-full bg-slate-100 border-0 rounded-full pl-4 pr-12 py-3 text-sm focus:ring-2 focus:ring-blue-500 focus:bg-white transition outline-none disabled:opacity-50"
               />
-              <button 
+              <button
                 onClick={handleSendMessage}
                 disabled={!inputValue.trim() || isLoading}
                 className="absolute right-2 top-1.5 bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-blue-700 transition shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
@@ -208,12 +208,12 @@ export default function ChatWidget() {
 
       {/* Toggle Button */}
       {!isOpen && (
-        <button 
-            onClick={() => setIsOpen(true)}
-            className="group flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-full shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-blue-500/30"
+        <button
+          onClick={() => setIsOpen(true)}
+          className="group flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-full shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-blue-500/30"
         >
-            <span className="font-bold hidden group-hover:inline-block transition-all text-sm">Consultor IA</span>
-            <MessageSquare className="w-6 h-6" />
+          <span className="font-bold hidden group-hover:inline-block transition-all text-sm">Consultor IA</span>
+          <MessageSquare className="w-6 h-6" />
         </button>
       )}
     </div>
