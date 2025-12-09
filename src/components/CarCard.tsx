@@ -16,7 +16,7 @@ interface CarCardProps {
 const CarCard: React.FC<CarCardProps> = ({ car, onClick, isSelectedForCompare, onToggleCompare, isFavorite, onToggleFavorite }) => {
   const isLux = car.cat === "Luxo";
   const isCom = car.cat === "Comercial";
-  const isNew = ["Neta", "Geely", "Kia", "Chevrolet", "Omoda", "GAC", "Zeekr"].includes(car.brand) || car.model.includes("Captiva") || car.model.includes("Buzz");
+  const isNew = (["Neta", "Geely", "Kia", "Chevrolet", "Omoda", "GAC", "Zeekr", "GWM"].includes(car.brand) && !["Ora 03 Skin BEV48", "Ora 03 GT BEV63"].includes(car.model)) || car.model.includes("Captiva") || car.model.includes("Buzz");
 
   // Simple state machine: Loading -> Loaded OR Error
   const [isLoading, setIsLoading] = useState(true);
