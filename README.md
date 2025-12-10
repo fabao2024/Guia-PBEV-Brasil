@@ -65,7 +65,16 @@ Open your browser at `http://localhost:5173`.
 - **Styling**: Tailwind CSS 4
 - **AI**: Google Gemini SDK (using `gemini-2.5-flash-lite`)
 
-### 5. Project Metrics
+### 5. Deployment & Public URL
+For detailed deployment instructions (including Google Cloud Run and Public URL generation), please refer to **[DEPLOY.md](DEPLOY.md)**.
+
+**Quick Cloud Run Command:**
+```bash
+gcloud builds submit --tag gcr.io/PROJECT_ID/guia-pbev .
+gcloud run deploy guia-pbev --image gcr.io/PROJECT_ID/guia-pbev --platform managed --allow-unauthenticated
+```
+
+### 6. Project Metrics
 - **Performance**: ~3s build time (Vite/ESBuild)
 - **Database**: 63+ Vehicles registered
 - **Assets**: 56 Local optimized images
@@ -130,7 +139,16 @@ Acesse no seu navegador: `http://localhost:5173`.
 - **Estilos**: Tailwind CSS 4
 - **IA**: Google Gemini SDK (usando `gemini-2.5-flash-lite`)
 
-### 5. Métricas do Projeto
+### 5. Deploy & URL Pública
+Para instruções detalhadas de deploy (incluindo Google Cloud Run e como gerar URL Pública), consulte o arquivo **[DEPLOY.md](DEPLOY.md)**.
+
+**Comando Rápido Cloud Run:**
+```bash
+gcloud builds submit --tag gcr.io/ID_DO_PROJETO/guia-pbev .
+gcloud run deploy guia-pbev --image gcr.io/ID_DO_PROJETO/guia-pbev --platform managed --allow-unauthenticated
+```
+
+### 6. Métricas do Projeto
 - **Performance**: Tempo de build de ~3s (Vite/ESBuild)
 - **Banco de Dados**: 63+ Veículos registrados
 - **Assets**: 56 Imagens locais otimizadas
