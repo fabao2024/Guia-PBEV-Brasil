@@ -6,6 +6,9 @@ import { CAR_DB } from '../constants';
 import { ChatMessage } from '../types';
 
 export default function ChatWidget() {
+  const enableAI = import.meta.env.VITE_ENABLE_AI !== 'false';
+  if (!enableAI) return null;
+
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
     { role: 'model', text: 'Olá! Sou seu especialista em carros elétricos. Tenho acesso a todos os dados da tabela PBEV 2025. Pergunte-me sobre comparativos, autonomia ou preços!' }
