@@ -49,6 +49,24 @@ Since local Docker builds can be tricky on Windows/OneDrive, we use **Cloud Buil
    The terminal will output your public URL:
    `Service URL: https://guia-pbev-xyz.us-central1.run.app`
 
+   `Service URL: https://guia-pbev-xyz.us-central1.run.app`
+
+### 3. Cloud Costs & Maintenance 💰
+**Is it free?**
+Yes, for most use cases! Google Cloud Run has a generous **Free Tier**:
+- **Compute**: First 2 million requests/month are free.
+- **Storage**: 500MB of Artifact Registry storage is free.
+
+**Monitoring & Maintenance:**
+1. **Check Costs**: Visit [Google Cloud Billing](https://console.cloud.google.com/billing) to monitor usage.
+2. **Clean Up Storage**: Every deploy creates a new image version. To save space (and stay free), delete old images occasionally:
+   ```powershell
+   # List images
+   gcloud container images list-tags gcr.io/YOUR_PROJECT_ID/guia-pbev
+   # Delete old version
+   gcloud container images delete gcr.io/YOUR_PROJECT_ID/guia-pbev@sha256:OLD_DIGEST
+   ```
+
 ---
 
 ## 🇧🇷 Instruções em Português
@@ -92,6 +110,20 @@ Como builds locais do Docker podem falhar no Windows/OneDrive, usamos o **Cloud 
    gcloud run deploy guia-pbev --image gcr.io/SEU_ID_DO_PROJETO/guia-pbev --region us-central1 --allow-unauthenticated
    ```
 
-5. **Sucesso**:
-   O terminal exibirá sua URL pública:
    `Service URL: https://guia-pbev-xyz.us-central1.run.app`
+
+### 3. Custos e Manutenção 💰
+**É gratuito?**
+Sim, para a maioria dos casos! O Google Cloud Run tem um **Nível Gratuito** generoso:
+- **Computação**: Primeiros 2 milhões de requisições/mês são grátis.
+- **Armazenamento**: 500MB de armazenamento no Artifact Registry são grátis.
+
+**Monitoramento e Limpeza:**
+1. **Verificar Custos**: Acesse o [Google Cloud Billing](https://console.cloud.google.com/billing) para monitorar.
+2. **Limpar Armazenamento**: Cada deploy cria uma nova versão da imagem. Para economizar espaço (e manter-se grátis), apague versões antigas ocasionalmente:
+   ```powershell
+   # Listar imagens
+   gcloud container images list-tags gcr.io/SEU_ID_DO_PROJETO/guia-pbev
+   # Deletar versão antiga
+   gcloud container images delete gcr.io/SEU_ID_DO_PROJETO/guia-pbev@sha256:DIGEST_ANTIGO
+   ```
