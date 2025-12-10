@@ -31,7 +31,7 @@ export default function ChatWidget() {
 
         const genAI = new GoogleGenerativeAI(apiKey);
         const model = genAI.getGenerativeModel({
-          model: "gemini-2.5-flash",
+          model: "gemini-2.5-flash-lite",
           systemInstruction: `
                 Você é o "Consultor EletricarBrasil", um assistente especialista no mercado brasileiro de carros elétricos.
                 Use os dados fornecidos abaixo (Tabela PBEV 2025) como base principal.
@@ -109,7 +109,7 @@ export default function ChatWidget() {
                 <Sparkles className="text-yellow-300 w-4 h-4" />
               </div>
               <div>
-                <h3 className="text-white font-bold text-sm">Consultor EletriBrasil v4.0 (Gemini 2.5)</h3>
+                <h3 className="text-white font-bold text-sm">Consultor EletriBrasil v4.0 (Gemini 2.5 Lite)</h3>
                 <p className="text-blue-100 text-[10px] font-medium">Powered by Gemini</p>
               </div>
             </div>
