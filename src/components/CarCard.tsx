@@ -97,7 +97,7 @@ const CarCard: React.FC<CarCardProps> = ({ car, onClick, isSelectedForCompare, o
         {!hasError && (
           <img
             src={car.img.startsWith('/car-images/')
-              ? car.img
+              ? `${import.meta.env.BASE_URL}${car.img.substring(1)}`
               : `https://images.weserv.nl/?url=${encodeURIComponent(car.img.replace(/^https?:\/\//, ''))}&w=800&q=80&output=webp`
             }
             alt={car.model}
