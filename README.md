@@ -69,7 +69,7 @@ Open your browser at `http://localhost:5173`.
 For detailed deployment instructions, seeing **[DEPLOY.md](DEPLOY.md)**.
 
 **Options:**
-1.  **GitHub Pages**: Automated, Free, **Static Only (No AI)**.
+1.  **GitHub Pages**: Automated, Free, **Static Only (No AI)**. [Live Demo](https://fabao2024.github.io/Guia-PBEV-Brasil/)
 2.  **Google Cloud Run**: Full features (includes AI), Containerized.
 
 **Quick Cloud Run Command:**
@@ -147,7 +147,7 @@ Acesse no seu navegador: `http://localhost:5173`.
 Para instruções detalhadas de deploy, consulte o arquivo **[DEPLOY.md](DEPLOY.md)**.
 
 **Opções:**
-1.  **GitHub Pages**: Automatizado, Grátis, **Apenas Estático (Sem IA)**.
+1.  **GitHub Pages**: Automatizado, Grátis, **Apenas Estático (Sem IA)**. [Demo em Tempo Real](https://fabao2024.github.io/Guia-PBEV-Brasil/)
 2.  **Google Cloud Run**: Completo (inclui IA), Containerizado.
 
 **Comando Rápido Cloud Run:**
