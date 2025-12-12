@@ -12,8 +12,7 @@ To deploy the site *without* the AI Chat Widget, set this environment variable:
 VITE_ENABLE_AI=false
 ```
 
-VITE_ENABLE_AI=false
-```
+
 
 ### 2. GitHub Pages (Easiest & Automated)
 For a public site **without AI** and **zero configuration**, we have set up an automated workflow.
@@ -90,8 +89,7 @@ Para fazer deploy sem o Chatbot de IA, defina esta variável de ambiente:
 VITE_ENABLE_AI=false
 ```
 
-VITE_ENABLE_AI=false
-```
+
 
 ### 2. GitHub Pages (Mais Fácil e Automatizado)
 Para um site público **sem IA** e **zero configuração**, configuramos um fluxo automatizado.
