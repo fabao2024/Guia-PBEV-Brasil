@@ -12,7 +12,20 @@ To deploy the site *without* the AI Chat Widget, set this environment variable:
 VITE_ENABLE_AI=false
 ```
 
-### 2. Google Cloud Run (Verified Method)
+VITE_ENABLE_AI=false
+```
+
+### 2. GitHub Pages (Easiest & Automated)
+For a public site **without AI** and **zero configuration**, we have set up an automated workflow.
+1. Push your changes to GitHub.
+2. Go to your Repository Settings > **Pages**.
+3. Under "Build and deployment", select **Source**: `Deploy from a branch`.
+4. Select Branch: `gh-pages` and folder `/ (root)`.
+5. Click **Save**.
+   
+Your site will be live at: `https://YOUR_USERNAME.github.io/Guia-PBEV-Brasil/`
+
+### 3. Google Cloud Run (Containerized)
 Since local Docker builds can be tricky on Windows/OneDrive, we use **Cloud Build** to build the container remotely on Google's servers.
 
 **Prerequisites:**
@@ -77,7 +90,20 @@ Para fazer deploy sem o Chatbot de IA, defina esta variável de ambiente:
 VITE_ENABLE_AI=false
 ```
 
-### 2. Google Cloud Run (Método Verificado)
+VITE_ENABLE_AI=false
+```
+
+### 2. GitHub Pages (Mais Fácil e Automatizado)
+Para um site público **sem IA** e **zero configuração**, configuramos um fluxo automatizado.
+1. Envie suas alterações para o GitHub.
+2. Vá nas Configurações do Repositório (Settings) > **Pages**.
+3. Em "Build and deployment", selecione **Source**: `Deploy from a branch`.
+4. Selecione a Branch: `gh-pages` e a pasta `/ (root)`.
+5. Clique em **Save**.
+   
+Seu site estará online em: `https://SEU_USUARIO.github.io/Guia-PBEV-Brasil/`
+
+### 3. Google Cloud Run (Método Verificado)
 Como builds locais do Docker podem falhar no Windows/OneDrive, usamos o **Cloud Build** para construir o container remotamente nos servidores do Google.
 
 **Pré-requisitos:**

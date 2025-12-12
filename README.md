@@ -66,7 +66,7 @@ Open your browser at `http://localhost:5173`.
 - **AI**: Google Gemini SDK (using `gemini-2.5-flash-lite`)
 
 ### 5. Deployment & Public URL
-For detailed deployment instructions (including Google Cloud Run and Public URL generation), please refer to **[DEPLOY.md](DEPLOY.md)**.
+For detailed deployment instructions (including **GitHub Pages**, Google Cloud Run, and Public URL generation), please refer to **[DEPLOY.md](DEPLOY.md)**.
 
 **Quick Cloud Run Command:**
 ```bash
@@ -140,7 +140,7 @@ Acesse no seu navegador: `http://localhost:5173`.
 - **IA**: Google Gemini SDK (usando `gemini-2.5-flash-lite`)
 
 ### 5. Deploy & URL Pública
-Para instruções detalhadas de deploy (incluindo Google Cloud Run e como gerar URL Pública), consulte o arquivo **[DEPLOY.md](DEPLOY.md)**.
+Para instruções detalhadas de deploy (incluindo **GitHub Pages**, Google Cloud Run e como gerar URL Pública), consulte o arquivo **[DEPLOY.md](DEPLOY.md)**.
 
 **Comando Rápido Cloud Run:**
 ```bash
