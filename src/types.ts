@@ -6,6 +6,8 @@ export interface Car {
   range: number;
   cat: string;
   img: string;
+  power?: number; // cv
+  torque?: number; // kgfm
 }
 
 export interface FilterState {

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Car } from '../types';
-import { X, Check, Minus, Map, Battery, Car as CarIcon, DollarSign, Zap } from 'lucide-react';
+import { X, Check, Minus, Map, Battery, Car as CarIcon, DollarSign, Zap, Gauge, Activity } from 'lucide-react';
 
 interface ComparisonModalProps {
   cars: Car[];
@@ -58,6 +58,8 @@ export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonM
                <div className="font-bold text-slate-400 text-xs uppercase tracking-wider h-10 flex items-center">Modelo</div>
                <div className="font-bold text-slate-400 text-xs uppercase tracking-wider h-10 flex items-center">Preço</div>
                <div className="font-bold text-slate-400 text-xs uppercase tracking-wider h-10 flex items-center">Autonomia</div>
+               <div className="font-bold text-slate-400 text-xs uppercase tracking-wider h-10 flex items-center">Potência</div>
+               <div className="font-bold text-slate-400 text-xs uppercase tracking-wider h-10 flex items-center">Torque</div>
                <div className="font-bold text-slate-400 text-xs uppercase tracking-wider h-10 flex items-center">Categoria</div>
                <div className="font-bold text-slate-400 text-xs uppercase tracking-wider h-10 flex items-center">Recursos</div>
             </div>
@@ -77,9 +79,12 @@ export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonM
 
                  {/* Image */}
                  <div className="h-40 rounded-xl overflow-hidden bg-slate-100 relative">
-                    <img 
-                        src={car.img} 
-                        alt={car.model} 
+                    <img
+                        src={car.img.startsWith('/car-images/')
+                          ? `${import.meta.env.BASE_URL}${car.img.substring(1)}`
+                          : car.img
+                        }
+                        alt={car.model}
                         className="w-full h-full object-cover animate-in fade-in duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-3">
@@ -103,6 +108,20 @@ export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonM
                     <span className="font-bold text-slate-700 flex items-center gap-1">
                         <Map className="w-4 h-4 text-slate-400" />
                         {car.range} km
+                    </span>
+                 </div>
+
+                 <div className="h-10 flex items-center">
+                    <span className="font-bold text-slate-700 flex items-center gap-1">
+                        <Gauge className="w-4 h-4 text-slate-400" />
+                        {car.power ? `${car.power} cv` : 'N/D'}
+                    </span>
+                 </div>
+
+                 <div className="h-10 flex items-center">
+                    <span className="font-bold text-slate-700 flex items-center gap-1">
+                        <Activity className="w-4 h-4 text-slate-400" />
+                        {car.torque ? `${car.torque} kgfm` : 'N/D'}
                     </span>
                  </div>
 
