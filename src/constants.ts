@@ -26,7 +26,9 @@ export const BRAND_URLS: Record<string, string> = {
   "Ford": "https://www.ford.com.br",
   "Porsche": "https://www.porsche.com/brazil/pt",
   "Audi": "https://www.audi.com.br",
-  "Volkswagen": "https://www.vw.com.br"
+  "Volkswagen": "https://www.vw.com.br",
+  "MG Motor": "https://mgmotoroficial.com.br",
+  "Leapmotor": "https://www.leapmotor.com.br"
 };
 
 // Image Strategy:
@@ -103,16 +105,20 @@ export const CAR_DB: Car[] = [
   { model: "Ora 03 Skin BEV58", brand: "GWM", price: 169000, range: 315, cat: "Compacto", img: "/car-images/ora 03 skin bev58.webp", power: 171, torque: 25.5 },
   { model: "Ora 03 GT BEV63", brand: "GWM", price: 189000, range: 295, cat: "Compacto", img: "/car-images/ora 03 GT BEV63.webp", power: 171, torque: 25.5 },
   { model: "Spark EUV", brand: "Chevrolet", price: 159990, range: 258, cat: "Compacto", img: "/car-images/Spark EUV.avif", power: 102, torque: 18.4 },
-  { model: "Dolphin GS", brand: "BYD", price: 149990, range: 291, cat: "Compacto", img: "/car-images/Dolphin-GS.jpg", power: 95, torque: 18.3 },
+  { model: "Dolphin GS", brand: "BYD", price: 149990, range: 291, cat: "Compacto", img: "/car-images/dolphin-gs.jpg", power: 95, torque: 18.3 },
   { model: "500e Icon", brand: "Fiat", price: 214990, range: 227, cat: "Compacto", img: "/car-images/500e.webp", power: 118, torque: 22.4 },
   { model: "e-208 GT", brand: "Peugeot", price: 225990, range: 220, cat: "Compacto", img: "/car-images/e-208.jpg", power: 136, torque: 26.5 },
   { model: "Cooper E", brand: "Mini", price: 260990, range: 246, cat: "Compacto", img: "/car-images/cooper e.avif", power: 184, torque: 29.6 },
+  { model: "Dolphin Plus", brand: "BYD", price: 184000, range: 330, cat: "Compacto", img: "/car-images/dolphin-plus.jpg", power: 204, torque: 31.6 },
 
 
   // 2. SUVS & SEDANS MÉDIOS
   { model: "Aion ES", brand: "GAC", price: 170990, range: 314, cat: "Sedan", img: "/car-images/aion-es.jpg", power: 136, torque: 23 },
   { model: "Yuan Pro", brand: "BYD", price: 182900, range: 250, cat: "SUV", img: "/car-images/yuan-pro.jpg", power: 177, torque: 29.5 },
   { model: "Aion Y Elite", brand: "GAC", price: 184900, range: 318, cat: "SUV", img: "/car-images/aion-y.jpg", power: 136, torque: 23 },
+  { model: "Aion V Elite", brand: "GAC", price: 219000, range: 389, cat: "SUV", img: "/car-images/aion-v.jpg", power: 204, torque: 24.5 },
+  { model: "B10 BEV", brand: "Leapmotor", price: 173000, range: 288, cat: "SUV", img: "/car-images/leapmotor-b10.jpg", power: 218, torque: 24.5 },
+  { model: "C10 BEV", brand: "Leapmotor", price: 189990, range: 338, cat: "SUV", img: "/car-images/leapmotor-c10.jpg", power: 218, torque: 32.6 },
   { model: "Captiva EV", brand: "Chevrolet", price: 199990, range: 304, cat: "SUV", img: "/car-images/captiva-ev.jpg", power: 201, torque: 31.6 },
   { model: "Omoda 5 EV", brand: "Omoda", price: 209990, range: 345, cat: "SUV", img: "/car-images/omoda-5.jpg", power: 204, torque: 34.7 },
   { model: "EX5 Max", brand: "Geely", price: 215800, range: 349, cat: "SUV", img: "/car-images/ex5-max.jpg", power: 218, torque: 32.6 },
@@ -162,5 +168,13 @@ export const CAR_DB: Car[] = [
   { model: "eT3", brand: "BYD", price: 229990, range: 180, cat: "Comercial", img: "/car-images/et3.jpg", power: 136, torque: 21.4 },
   { model: "e-Expert", brand: "Peugeot", price: 329990, range: 289, cat: "Comercial", img: "/car-images/e-expert.jpg", power: 136, torque: 26.5 },
   { model: "e-Scudo", brand: "Fiat", price: 329990, range: 289, cat: "Comercial", img: "/car-images/e-scudo.jpg", power: 136, torque: 26.5 },
-  { model: "e-Jumpy", brand: "Citroen", price: 329990, range: 289, cat: "Comercial", img: "/car-images/e-jumpy.jpg", power: 136, torque: 26.5 }
+  { model: "e-Jumpy", brand: "Citroen", price: 329990, range: 289, cat: "Comercial", img: "/car-images/e-jumpy.jpg", power: 136, torque: 26.5 },
+
+  // 5. MG MOTOR
+  { model: "MG4 Comfort", brand: "MG Motor", price: 169600, range: 364, cat: "Compacto", img: "/car-images/mg4-comfort.jpg", power: 204, torque: 25.5 },
+  { model: "MG4 Luxury", brand: "MG Motor", price: 189800, range: 364, cat: "Compacto", img: "/car-images/mg4-luxury.jpg", power: 204, torque: 25.5 },
+  { model: "MG4 XPower", brand: "MG Motor", price: 229800, range: 279, cat: "Compacto", img: "/car-images/mg4-xpower.jpg", power: 435, torque: 60 },
+  { model: "MGS5 Comfort", brand: "MG Motor", price: 195800, range: 351, cat: "SUV", img: "/car-images/mgs5-comfort.jpg", power: 205, torque: 35.7 },
+  { model: "MGS5 Luxury", brand: "MG Motor", price: 219800, range: 351, cat: "SUV", img: "/car-images/mgs5.jpg", power: 205, torque: 35.7 },
+  { model: "Cyberster", brand: "MG Motor", price: 499800, range: 342, cat: "Luxo", img: "/car-images/cyberster.jpg", power: 510, torque: 74 }
 ];

@@ -2,8 +2,38 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenerativeAI, ChatSession } from "@google/generative-ai";
 import { MessageSquare, X, Send, Sparkles, User, Bot, Globe } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
 import { CAR_DB } from '../constants';
 import { ChatMessage } from '../types';
+import { sanitizeChatInput, validateChatInput } from '../utils/sanitize';
+import { useRateLimit } from '../hooks/useRateLimit';
+
+function buildCarSummary(): string {
+  const totalCars = CAR_DB.length;
+  const brands = [...new Set(CAR_DB.map(c => c.brand))];
+  const categories = [...new Set(CAR_DB.map(c => c.cat))];
+  const priceRange = {
+    min: Math.min(...CAR_DB.map(c => c.price)),
+    max: Math.max(...CAR_DB.map(c => c.price)),
+  };
+  const rangeRange = {
+    min: Math.min(...CAR_DB.map(c => c.range)),
+    max: Math.max(...CAR_DB.map(c => c.range)),
+  };
+
+  const carList = CAR_DB.map(c =>
+    `${c.brand} ${c.model}: R$${c.price.toLocaleString('pt-BR')}, ${c.range}km, ${c.cat}${c.power ? `, ${c.power}cv` : ''}${c.torque ? `, ${c.torque}kgfm` : ''}`
+  ).join('\n');
+
+  return `Total: ${totalCars} veículos
+Marcas: ${brands.join(', ')}
+Categorias: ${categories.join(', ')}
+Faixa de preço: R$${priceRange.min.toLocaleString('pt-BR')} - R$${priceRange.max.toLocaleString('pt-BR')}
+Faixa de autonomia: ${rangeRange.min}km - ${rangeRange.max}km
+
+Lista de veículos:
+${carList}`;
+}
 
 export default function ChatWidget() {
   const enableAI = import.meta.env.VITE_ENABLE_AI !== 'false';
@@ -18,12 +48,12 @@ export default function ChatWidget() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const chatSessionRef = useRef<ChatSession | null>(null);
+  const { checkRateLimit, recordRequest } = useRateLimit();
 
   // Initialize Chat Session on Open (or lazily)
   useEffect(() => {
     if (isOpen && !chatSessionRef.current) {
       try {
-        // Access API Key using Vite's import.meta.env standard
         const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
 
         if (!apiKey) {
@@ -38,10 +68,10 @@ export default function ChatWidget() {
           systemInstruction: `
                 Você é o "Consultor EletricarBrasil", um assistente especialista no mercado brasileiro de carros elétricos.
                 Use os dados fornecidos abaixo (Tabela PBEV 2025) como base principal.
-                
+
                 Dados dos Veículos:
-                ${JSON.stringify(CAR_DB)}
-                
+                ${buildCarSummary()}
+
                 Instruções de Resposta:
                 1. Seja conciso e direto.
                 2. Sempre mencione preços e autonomia quando relevante.
@@ -75,13 +105,33 @@ export default function ChatWidget() {
   const handleSendMessage = async () => {
     if (!inputValue.trim() || isLoading || !chatSessionRef.current) return;
 
-    const userMsg = inputValue.trim();
-    setMessages(prev => [...prev, { role: 'user', text: userMsg }]);
+    // Rate limiting
+    const rateLimitResult = checkRateLimit();
+    if (!rateLimitResult.allowed) {
+      const seconds = Math.ceil(rateLimitResult.retryAfterMs / 1000);
+      setMessages(prev => [...prev, {
+        role: 'model',
+        text: `Você está enviando mensagens muito rápido. Aguarde ${seconds} segundos.`
+      }]);
+      return;
+    }
+
+    // Sanitize and validate
+    const sanitized = sanitizeChatInput(inputValue);
+    const validation = validateChatInput(sanitized);
+    if (!validation.valid) {
+      setMessages(prev => [...prev, { role: 'model', text: validation.error! }]);
+      setInputValue('');
+      return;
+    }
+
+    setMessages(prev => [...prev, { role: 'user', text: sanitized }]);
     setInputValue('');
     setIsLoading(true);
+    recordRequest();
 
     try {
-      const result = await chatSessionRef.current.sendMessage(userMsg);
+      const result = await chatSessionRef.current.sendMessage(sanitized);
       const response = await result.response;
       const text = response.text();
 
@@ -141,10 +191,19 @@ export default function ChatWidget() {
                       ? 'bg-blue-600 text-white rounded-tr-none'
                       : 'bg-white border border-slate-200 text-slate-700 rounded-tl-none'
                       }`}
-                    dangerouslySetInnerHTML={{
-                      __html: msg.text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>')
-                    }}
-                  />
+                  >
+                    <ReactMarkdown
+                      components={{
+                        p: ({ children }) => <p className="mb-1 last:mb-0">{children}</p>,
+                        strong: ({ children }) => <strong className="font-bold">{children}</strong>,
+                        ul: ({ children }) => <ul className="list-disc ml-4 mb-1">{children}</ul>,
+                        ol: ({ children }) => <ol className="list-decimal ml-4 mb-1">{children}</ol>,
+                        li: ({ children }) => <li className="mb-0.5">{children}</li>,
+                      }}
+                    >
+                      {msg.text}
+                    </ReactMarkdown>
+                  </div>
 
                   {/* Search Grounding Sources */}
                   {msg.role === 'model' && msg.sources && msg.sources.length > 0 && (
@@ -198,6 +257,7 @@ export default function ChatWidget() {
                 onKeyDown={handleKeyDown}
                 disabled={isLoading}
                 placeholder="Ex: Qual a autonomia real do Dolphin?"
+                maxLength={1000}
                 className="w-full bg-slate-100 border-0 rounded-full pl-4 pr-12 py-3 text-sm focus:ring-2 focus:ring-blue-500 focus:bg-white transition outline-none disabled:opacity-50"
               />
               <button
