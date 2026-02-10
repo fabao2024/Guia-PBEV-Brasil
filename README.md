@@ -71,8 +71,8 @@ Open your browser at `http://localhost:5173`.
 For detailed deployment instructions, seeing **[DEPLOY.md](DEPLOY.md)**.
 
 **Options:**
-1.  **GitHub Pages**: Automated, Free, **Static Only (No AI)**. [Live Demo](https://fabao2024.github.io/Guia-PBEV-Brasil/)
-2.  **Google Cloud Run**: Full features (includes AI), Containerized.
+1.  **GitHub Pages**: Automated, Free, includes AI chatbot. [Live Demo](https://fabao2024.github.io/Guia-PBEV-Brasil/)
+2.  **Google Cloud Run**: Full features, Containerized.
 
 **Quick Cloud Run Command:**
 ```bash
@@ -80,7 +80,23 @@ gcloud builds submit --tag gcr.io/PROJECT_ID/guia-pbev .
 gcloud run deploy guia-pbev --image gcr.io/PROJECT_ID/guia-pbev --platform managed --allow-unauthenticated
 ```
 
-### 6. Project Metrics
+### 6. Using the AI Chatbot on GitHub Pages
+The AI chatbot works on the live GitHub Pages site. Users provide their own free Google Gemini API key:
+
+1. Click the **AI Consultant** button (bottom-right corner)
+2. The setup screen will appear with instructions
+3. Click **"Get Free Key"** to open [Google AI Studio](https://aistudio.google.com/app/apikey)
+4. Sign in with your Google account and click **"Create API Key"**
+5. Copy the key and paste it into the input field on the chat widget
+6. Click **Save** — the chatbot is now ready to use
+
+**Notes:**
+- Your API key is stored **only in your browser** (localStorage) and is never sent to any server other than Google's API
+- The Google Gemini free tier allows **15 requests/minute** and **1 million tokens/day**
+- You can change or remove your key at any time using the gear icon in the chat header
+- The chatbot supports both **Portuguese** and **English**, matching the selected UI language
+
+### 7. Project Metrics
 - **Performance**: ~4s build time (Vite/ESBuild)
 - **Database**: 73 Vehicles registered (10+ brands)
 - **Assets**: 73 Local optimized images (real car photos)
@@ -153,8 +169,8 @@ Acesse no seu navegador: `http://localhost:5173`.
 Para instruções detalhadas de deploy, consulte o arquivo **[DEPLOY.md](DEPLOY.md)**.
 
 **Opções:**
-1.  **GitHub Pages**: Automatizado, Grátis, **Apenas Estático (Sem IA)**. [Demo em Tempo Real](https://fabao2024.github.io/Guia-PBEV-Brasil/)
-2.  **Google Cloud Run**: Completo (inclui IA), Containerizado.
+1.  **GitHub Pages**: Automatizado, Grátis, inclui chatbot IA. [Demo em Tempo Real](https://fabao2024.github.io/Guia-PBEV-Brasil/)
+2.  **Google Cloud Run**: Completo, Containerizado.
 
 **Comando Rápido Cloud Run:**
 ```bash
@@ -162,7 +178,23 @@ gcloud builds submit --tag gcr.io/ID_DO_PROJETO/guia-pbev .
 gcloud run deploy guia-pbev --image gcr.io/ID_DO_PROJETO/guia-pbev --platform managed --allow-unauthenticated
 ```
 
-### 6. Métricas do Projeto
+### 6. Usando o Chatbot IA no GitHub Pages
+O chatbot IA funciona no site publicado no GitHub Pages. Os usuários fornecem sua própria chave gratuita do Google Gemini:
+
+1. Clique no botão **Consultor IA** (canto inferior direito)
+2. A tela de configuração aparecerá com instruções
+3. Clique em **"Obter Chave Gratuita"** para abrir o [Google AI Studio](https://aistudio.google.com/app/apikey)
+4. Faça login com sua conta Google e clique em **"Create API Key"**
+5. Copie a chave e cole no campo de entrada do chat
+6. Clique em **Salvar** — o chatbot está pronto para uso
+
+**Observações:**
+- Sua chave API é armazenada **apenas no seu navegador** (localStorage) e nunca é enviada a nenhum servidor além da API do Google
+- O plano gratuito do Google Gemini permite **15 requisições/minuto** e **1 milhão de tokens/dia**
+- Você pode alterar ou remover sua chave a qualquer momento usando o ícone de engrenagem no cabeçalho do chat
+- O chatbot suporta **Português** e **Inglês**, acompanhando o idioma selecionado na interface
+
+### 7. Métricas do Projeto
 - **Performance**: Tempo de build de ~4s (Vite/ESBuild)
 - **Banco de Dados**: 73 Veículos registrados (10+ marcas)
 - **Assets**: 73 Imagens locais otimizadas (fotos reais)

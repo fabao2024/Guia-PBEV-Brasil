@@ -94,7 +94,21 @@
     "headerSubtitle": "Powered by Gemini",
     "placeholder": "E.g.: What is the real range of the Dolphin?",
     "toggleLabel": "AI Consultant",
-    "sources": "Sources"
+    "sources": "Sources",
+    "setupTitle": "Setup AI Assistant",
+    "setupDesc": "To use the AI assistant, you need a free Google Gemini API key.",
+    "setupStep1": "Go to Google AI Studio and sign in with your Google account",
+    "setupStep2": "Click \"Create API Key\" and copy the key",
+    "setupStep3": "Paste it below and click Save",
+    "getKey": "Get Free Key",
+    "pasteKey": "Paste your API key here...",
+    "saveKey": "Save",
+    "keyPrivacy": "Your key is stored only in your browser and is never sent to our servers.",
+    "changeKey": "Change API Key",
+    "removeKey": "Remove Key",
+    "invalidKey": "Invalid key. Please check and try again.",
+    "keyRemoved": "API key removed.",
+    "cancel": "Cancel"
   },
   "empty": {
     "noFavorites": "No favorites found",

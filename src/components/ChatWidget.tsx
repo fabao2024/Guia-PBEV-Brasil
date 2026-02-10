@@ -2,12 +2,18 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { GoogleGenerativeAI, ChatSession } from "@google/generative-ai";
-import { MessageSquare, X, Send, Sparkles, User, Bot, Globe } from 'lucide-react';
+import { MessageSquare, X, Send, Sparkles, User, Bot, Globe, Settings, ExternalLink, Key, Trash2 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { CAR_DB } from '../constants';
 import { ChatMessage } from '../types';
 import { sanitizeChatInput, validateChatInput } from '../utils/sanitize';
 import { useRateLimit } from '../hooks/useRateLimit';
+
+const API_KEY_STORAGE = 'gemini-api-key';
+
+function getApiKey(): string {
+  return import.meta.env.VITE_GEMINI_API_KEY || localStorage.getItem(API_KEY_STORAGE) || '';
+}
 
 function buildCarSummary(lang: string): string {
   const isEn = lang === 'en';
@@ -54,6 +60,10 @@ export default function ChatWidget() {
 
   const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
+  const [apiKey, setApiKey] = useState(getApiKey);
+  const [keyInput, setKeyInput] = useState('');
+  const [showSettings, setShowSettings] = useState(false);
+  const [keyError, setKeyError] = useState('');
   const [messages, setMessages] = useState<ChatMessage[]>([
     { role: 'model', text: t('chat.welcome') }
   ]);
@@ -64,6 +74,8 @@ export default function ChatWidget() {
   const chatSessionRef = useRef<ChatSession | null>(null);
   const langRef = useRef(i18n.language);
   const { checkRateLimit, recordRequest } = useRateLimit();
+
+  const hasKey = apiKey.length > 0;
 
   // Reset chat session when language changes
   useEffect(() => {
@@ -76,16 +88,8 @@ export default function ChatWidget() {
 
   // Initialize Chat Session on Open (or lazily)
   useEffect(() => {
-    if (isOpen && !chatSessionRef.current) {
+    if (isOpen && hasKey && !chatSessionRef.current) {
       try {
-        const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-
-        if (!apiKey) {
-          console.error("Gemini API Key is missing. Check .env.local");
-          setMessages(prev => [...prev, { role: 'model', text: t('chat.configError') }]);
-          return;
-        }
-
         const isEn = i18n.language === 'en';
         const systemPrompt = isEn
           ? `You are the "EletriBrasil Consultant", an expert assistant on the Brazilian electric vehicle market.
@@ -135,14 +139,37 @@ Instruções de Resposta:
         setMessages(prev => [...prev, { role: 'model', text: t('chat.techError', { message: (error as Error).message }) }]);
       }
     }
-  }, [isOpen, i18n.language]);
+  }, [isOpen, apiKey, i18n.language]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-    if (isOpen) {
+    if (isOpen && hasKey) {
       inputRef.current?.focus();
     }
-  }, [messages, isOpen]);
+  }, [messages, isOpen, hasKey]);
+
+  const handleSaveKey = () => {
+    const trimmed = keyInput.trim();
+    if (!trimmed || trimmed.length < 10) {
+      setKeyError(t('chat.invalidKey'));
+      return;
+    }
+    localStorage.setItem(API_KEY_STORAGE, trimmed);
+    setApiKey(trimmed);
+    setKeyInput('');
+    setKeyError('');
+    setShowSettings(false);
+    chatSessionRef.current = null;
+    setMessages([{ role: 'model', text: t('chat.welcome') }]);
+  };
+
+  const handleRemoveKey = () => {
+    localStorage.removeItem(API_KEY_STORAGE);
+    setApiKey(import.meta.env.VITE_GEMINI_API_KEY || '');
+    chatSessionRef.current = null;
+    setShowSettings(false);
+    setMessages([{ role: 'model', text: t('chat.welcome') }]);
+  };
 
   const handleSendMessage = async () => {
     if (!inputValue.trim() || isLoading || !chatSessionRef.current) return;
@@ -193,6 +220,128 @@ Instruções de Resposta:
     }
   };
 
+  const handleKeyInputKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleSaveKey();
+    }
+  };
+
+  // Setup screen when no API key is available
+  const renderSetupScreen = () => (
+    <div className="flex-1 overflow-y-auto p-5 bg-slate-50 flex flex-col">
+      <div className="flex-1 flex flex-col items-center justify-center text-center">
+        <div className="bg-blue-100 p-4 rounded-full mb-4">
+          <Key className="w-8 h-8 text-blue-600" />
+        </div>
+        <h3 className="text-lg font-bold text-slate-800 mb-2">{t('chat.setupTitle')}</h3>
+        <p className="text-sm text-slate-500 mb-6">{t('chat.setupDesc')}</p>
+
+        <div className="w-full text-left space-y-3 mb-6">
+          <div className="flex gap-3 items-start">
+            <span className="bg-blue-600 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+            <p className="text-sm text-slate-600">{t('chat.setupStep1')}</p>
+          </div>
+          <div className="flex gap-3 items-start">
+            <span className="bg-blue-600 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+            <p className="text-sm text-slate-600">{t('chat.setupStep2')}</p>
+          </div>
+          <div className="flex gap-3 items-start">
+            <span className="bg-blue-600 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+            <p className="text-sm text-slate-600">{t('chat.setupStep3')}</p>
+          </div>
+        </div>
+
+        <a
+          href="https://aistudio.google.com/app/apikey"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all mb-4 no-underline"
+        >
+          <ExternalLink className="w-4 h-4" />
+          {t('chat.getKey')}
+        </a>
+
+        <div className="w-full relative mb-2">
+          <input
+            type="password"
+            value={keyInput}
+            onChange={(e) => { setKeyInput(e.target.value); setKeyError(''); }}
+            onKeyDown={handleKeyInputKeyDown}
+            placeholder={t('chat.pasteKey')}
+            className="w-full bg-white border border-slate-200 rounded-xl pl-4 pr-20 py-3 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition outline-none"
+          />
+          <button
+            onClick={handleSaveKey}
+            disabled={!keyInput.trim()}
+            className="absolute right-2 top-1.5 bg-blue-600 text-white px-4 py-1.5 rounded-lg text-sm font-bold hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {t('chat.saveKey')}
+          </button>
+        </div>
+
+        {keyError && (
+          <p className="text-xs text-red-500 font-medium mb-2">{keyError}</p>
+        )}
+
+        <p className="text-[10px] text-slate-400 leading-relaxed">{t('chat.keyPrivacy')}</p>
+      </div>
+    </div>
+  );
+
+  // Settings overlay for changing/removing key
+  const renderSettings = () => (
+    <div className="flex-1 overflow-y-auto p-5 bg-slate-50 flex flex-col">
+      <div className="flex-1 flex flex-col items-center justify-center text-center">
+        <div className="bg-slate-100 p-4 rounded-full mb-4">
+          <Settings className="w-8 h-8 text-slate-600" />
+        </div>
+        <h3 className="text-lg font-bold text-slate-800 mb-2">{t('chat.changeKey')}</h3>
+
+        <div className="w-full relative mb-3 mt-4">
+          <input
+            type="password"
+            value={keyInput}
+            onChange={(e) => { setKeyInput(e.target.value); setKeyError(''); }}
+            onKeyDown={handleKeyInputKeyDown}
+            placeholder={t('chat.pasteKey')}
+            className="w-full bg-white border border-slate-200 rounded-xl pl-4 pr-20 py-3 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition outline-none"
+          />
+          <button
+            onClick={handleSaveKey}
+            disabled={!keyInput.trim()}
+            className="absolute right-2 top-1.5 bg-blue-600 text-white px-4 py-1.5 rounded-lg text-sm font-bold hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {t('chat.saveKey')}
+          </button>
+        </div>
+
+        {keyError && (
+          <p className="text-xs text-red-500 font-medium mb-2">{keyError}</p>
+        )}
+
+        <div className="flex gap-3 w-full mt-4">
+          <button
+            onClick={() => { setShowSettings(false); setKeyInput(''); setKeyError(''); }}
+            className="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-3 rounded-xl transition-all text-sm"
+          >
+            {t('chat.cancel')}
+          </button>
+          {!import.meta.env.VITE_GEMINI_API_KEY && (
+            <button
+              onClick={handleRemoveKey}
+              className="flex-1 bg-red-50 hover:bg-red-100 text-red-600 font-bold py-3 rounded-xl transition-all text-sm flex items-center justify-center gap-2"
+            >
+              <Trash2 className="w-4 h-4" />
+              {t('chat.removeKey')}
+            </button>
+          )}
+        </div>
+
+        <p className="text-[10px] text-slate-400 leading-relaxed mt-4">{t('chat.keyPrivacy')}</p>
+      </div>
+    </div>
+  );
+
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
       {isOpen && (
@@ -208,109 +357,125 @@ Instruções de Resposta:
                 <p className="text-blue-100 text-[10px] font-medium">{t('chat.headerSubtitle')}</p>
               </div>
             </div>
-            <button
-              onClick={() => setIsOpen(false)}
-              className="text-white/80 hover:text-white transition"
-            >
-              <X className="w-5 h-5" />
-            </button>
-          </div>
-
-          {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-4 bg-slate-50 space-y-4">
-            {messages.map((msg, idx) => (
-              <div key={idx} className={`flex gap-3 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${msg.role === 'user' ? 'bg-indigo-100' : 'bg-blue-100'}`}>
-                  {msg.role === 'user' ? (
-                    <User className="w-4 h-4 text-indigo-600" />
-                  ) : (
-                    <Bot className="w-4 h-4 text-blue-600" />
-                  )}
-                </div>
-                <div className="flex flex-col max-w-[85%]">
-                  <div
-                    className={`p-3 rounded-2xl shadow-sm text-sm leading-relaxed ${msg.role === 'user'
-                      ? 'bg-blue-600 text-white rounded-tr-none'
-                      : 'bg-white border border-slate-200 text-slate-700 rounded-tl-none'
-                      }`}
-                  >
-                    <ReactMarkdown
-                      components={{
-                        p: ({ children }) => <p className="mb-1 last:mb-0">{children}</p>,
-                        strong: ({ children }) => <strong className="font-bold">{children}</strong>,
-                        ul: ({ children }) => <ul className="list-disc ml-4 mb-1">{children}</ul>,
-                        ol: ({ children }) => <ol className="list-decimal ml-4 mb-1">{children}</ol>,
-                        li: ({ children }) => <li className="mb-0.5">{children}</li>,
-                      }}
-                    >
-                      {msg.text}
-                    </ReactMarkdown>
-                  </div>
-
-                  {/* Search Grounding Sources */}
-                  {msg.role === 'model' && msg.sources && msg.sources.length > 0 && (
-                    <div className="mt-2 ml-1">
-                      <p className="text-[10px] uppercase font-bold text-slate-400 mb-1 flex items-center gap-1">
-                        <Globe className="w-3 h-3" /> {t('chat.sources')}
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {msg.sources.map((source, i) => (
-                          <a
-                            key={i}
-                            href={source.uri}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-[10px] bg-blue-50 text-blue-600 border border-blue-100 px-2 py-1 rounded-md hover:bg-blue-100 hover:underline truncate max-w-[150px]"
-                            title={source.title}
-                          >
-                            {source.title || new URL(source.uri).hostname}
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-
-            {isLoading && (
-              <div className="flex gap-3">
-                <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                  <Bot className="w-4 h-4 text-blue-600" />
-                </div>
-                <div className="bg-white border border-slate-200 p-4 rounded-2xl rounded-tl-none shadow-sm flex gap-1 items-center h-10">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce [animation-delay:-0.32s]"></div>
-                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce [animation-delay:-0.16s]"></div>
-                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"></div>
-                </div>
-              </div>
-            )}
-            <div ref={messagesEndRef} />
-          </div>
-
-          {/* Input */}
-          <div className="p-3 bg-white border-t border-slate-200">
-            <div className="relative">
-              <input
-                ref={inputRef}
-                type="text"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                onKeyDown={handleKeyDown}
-                disabled={isLoading}
-                placeholder={t('chat.placeholder')}
-                maxLength={1000}
-                className="w-full bg-slate-100 border-0 rounded-full pl-4 pr-12 py-3 text-sm focus:ring-2 focus:ring-blue-500 focus:bg-white transition outline-none disabled:opacity-50"
-              />
+            <div className="flex items-center gap-1">
+              {hasKey && (
+                <button
+                  onClick={() => setShowSettings(!showSettings)}
+                  className="text-white/60 hover:text-white transition p-1"
+                  title={t('chat.changeKey')}
+                >
+                  <Settings className="w-4 h-4" />
+                </button>
+              )}
               <button
-                onClick={handleSendMessage}
-                disabled={!inputValue.trim() || isLoading}
-                className="absolute right-2 top-1.5 bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-blue-700 transition shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                onClick={() => { setIsOpen(false); setShowSettings(false); }}
+                className="text-white/80 hover:text-white transition"
               >
-                <Send className="w-4 h-4" />
+                <X className="w-5 h-5" />
               </button>
             </div>
           </div>
+
+          {/* Content: Setup / Settings / Chat */}
+          {!hasKey ? renderSetupScreen() : showSettings ? renderSettings() : (
+            <>
+              {/* Messages */}
+              <div className="flex-1 overflow-y-auto p-4 bg-slate-50 space-y-4">
+                {messages.map((msg, idx) => (
+                  <div key={idx} className={`flex gap-3 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${msg.role === 'user' ? 'bg-indigo-100' : 'bg-blue-100'}`}>
+                      {msg.role === 'user' ? (
+                        <User className="w-4 h-4 text-indigo-600" />
+                      ) : (
+                        <Bot className="w-4 h-4 text-blue-600" />
+                      )}
+                    </div>
+                    <div className="flex flex-col max-w-[85%]">
+                      <div
+                        className={`p-3 rounded-2xl shadow-sm text-sm leading-relaxed ${msg.role === 'user'
+                          ? 'bg-blue-600 text-white rounded-tr-none'
+                          : 'bg-white border border-slate-200 text-slate-700 rounded-tl-none'
+                          }`}
+                      >
+                        <ReactMarkdown
+                          components={{
+                            p: ({ children }) => <p className="mb-1 last:mb-0">{children}</p>,
+                            strong: ({ children }) => <strong className="font-bold">{children}</strong>,
+                            ul: ({ children }) => <ul className="list-disc ml-4 mb-1">{children}</ul>,
+                            ol: ({ children }) => <ol className="list-decimal ml-4 mb-1">{children}</ol>,
+                            li: ({ children }) => <li className="mb-0.5">{children}</li>,
+                          }}
+                        >
+                          {msg.text}
+                        </ReactMarkdown>
+                      </div>
+
+                      {/* Search Grounding Sources */}
+                      {msg.role === 'model' && msg.sources && msg.sources.length > 0 && (
+                        <div className="mt-2 ml-1">
+                          <p className="text-[10px] uppercase font-bold text-slate-400 mb-1 flex items-center gap-1">
+                            <Globe className="w-3 h-3" /> {t('chat.sources')}
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {msg.sources.map((source, i) => (
+                              <a
+                                key={i}
+                                href={source.uri}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-[10px] bg-blue-50 text-blue-600 border border-blue-100 px-2 py-1 rounded-md hover:bg-blue-100 hover:underline truncate max-w-[150px]"
+                                title={source.title}
+                              >
+                                {source.title || new URL(source.uri).hostname}
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+
+                {isLoading && (
+                  <div className="flex gap-3">
+                    <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                      <Bot className="w-4 h-4 text-blue-600" />
+                    </div>
+                    <div className="bg-white border border-slate-200 p-4 rounded-2xl rounded-tl-none shadow-sm flex gap-1 items-center h-10">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce [animation-delay:-0.32s]"></div>
+                      <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce [animation-delay:-0.16s]"></div>
+                      <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"></div>
+                    </div>
+                  </div>
+                )}
+                <div ref={messagesEndRef} />
+              </div>
+
+              {/* Input */}
+              <div className="p-3 bg-white border-t border-slate-200">
+                <div className="relative">
+                  <input
+                    ref={inputRef}
+                    type="text"
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                    disabled={isLoading}
+                    placeholder={t('chat.placeholder')}
+                    maxLength={1000}
+                    className="w-full bg-slate-100 border-0 rounded-full pl-4 pr-12 py-3 text-sm focus:ring-2 focus:ring-blue-500 focus:bg-white transition outline-none disabled:opacity-50"
+                  />
+                  <button
+                    onClick={handleSendMessage}
+                    disabled={!inputValue.trim() || isLoading}
+                    className="absolute right-2 top-1.5 bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-blue-700 transition shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    <Send className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            </>
+          )}
         </div>
       )}
 

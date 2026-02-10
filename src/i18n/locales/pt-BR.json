@@ -94,7 +94,21 @@
     "headerSubtitle": "Powered by Gemini",
     "placeholder": "Ex: Qual a autonomia real do Dolphin?",
     "toggleLabel": "Consultor IA",
-    "sources": "Fontes"
+    "sources": "Fontes",
+    "setupTitle": "Configurar Assistente IA",
+    "setupDesc": "Para usar o assistente IA, você precisa de uma chave gratuita do Google Gemini.",
+    "setupStep1": "Acesse o Google AI Studio e faça login com sua conta Google",
+    "setupStep2": "Clique em \"Create API Key\" e copie a chave",
+    "setupStep3": "Cole a chave abaixo e clique em Salvar",
+    "getKey": "Obter Chave Gratuita",
+    "pasteKey": "Cole sua chave API aqui...",
+    "saveKey": "Salvar",
+    "keyPrivacy": "Sua chave é armazenada apenas no seu navegador e nunca é enviada aos nossos servidores.",
+    "changeKey": "Alterar Chave API",
+    "removeKey": "Remover Chave",
+    "invalidKey": "Chave inválida. Verifique e tente novamente.",
+    "keyRemoved": "Chave API removida.",
+    "cancel": "Cancelar"
   },
   "empty": {
     "noFavorites": "Nenhum favorito encontrado",
