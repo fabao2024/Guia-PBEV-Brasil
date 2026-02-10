@@ -40,16 +40,15 @@ npm install
 ```
 
 **Step 3: Environment Setup**
-Create a file named `.env` in the root folder. You can copy the example if available, or create it from scratch:
+Create a file named `.env.local` in the root folder:
 ```env
 VITE_GEMINI_API_KEY=your_api_key_here
 ```
 *Note: Replace `your_api_key_here` with your actual Google Gemini API key.*
 
-**Step 4: Verify Assets (Optional)**
-The project uses local images. If they are missing from `public/car-images`, run the download script (Windows PowerShell):
-```powershell
-./download_final.ps1
+**Step 4: Run Tests (Optional)**
+```bash
+npm run test:run
 ```
 
 **Step 5: Run Local Server**
@@ -61,9 +60,12 @@ Open your browser at `http://localhost:5173`.
 
 ### 4. Technical Stack
 - **Framework**: React 19 + TypeScript
-- **Build**: Vite 5
+- **Build**: Vite 6
 - **Styling**: Tailwind CSS 4
 - **AI**: Google Gemini SDK (using `gemini-2.5-flash-lite`)
+- **i18n**: i18next + react-i18next (Portuguese / English)
+- **Testing**: Vitest + Testing Library + happy-dom (57 tests)
+- **Security**: Input sanitization, XSS protection (react-markdown), rate limiting, prompt injection detection
 
 ### 5. Deployment & Public URL
 For detailed deployment instructions, seeing **[DEPLOY.md](DEPLOY.md)**.
@@ -79,10 +81,12 @@ gcloud run deploy guia-pbev --image gcr.io/PROJECT_ID/guia-pbev --platform manag
 ```
 
 ### 6. Project Metrics
-- **Performance**: ~3s build time (Vite/ESBuild)
-- **Database**: 63+ Vehicles registered
-- **Assets**: 56 Local optimized images
+- **Performance**: ~4s build time (Vite/ESBuild)
+- **Database**: 73 Vehicles registered (10+ brands)
+- **Assets**: 73 Local optimized images (real car photos)
 - **AI Model**: Gemini 2.5 Flash Lite (Verified)
+- **Tests**: 57 tests across 7 test suites
+- **i18n**: 2 languages (PT-BR, EN)
 
 ---
 
@@ -118,16 +122,15 @@ npm install
 ```
 
 **Passo 3: Configuração de Ambiente**
-Crie um arquivo chamado `.env` na raiz do projeto. Adicione sua chave de API nele:
+Crie um arquivo chamado `.env.local` na raiz do projeto:
 ```env
 VITE_GEMINI_API_KEY=sua_chave_api_aqui
 ```
 *Nota: Substitua `sua_chave_api_aqui` pela chave real que você gerou no Google AI Studio.*
 
-**Passo 4: Verificar Imagens (Opcional)**
-O projeto usa imagens locais. Se a pasta `public/car-images` estiver vazia, execute o script de automação (Windows PowerShell):
-```powershell
-./download_final.ps1
+**Passo 4: Executar Testes (Opcional)**
+```bash
+npm run test:run
 ```
 
 **Passo 5: Iniciar Servidor Local**
@@ -139,9 +142,12 @@ Acesse no seu navegador: `http://localhost:5173`.
 
 ### 4. Stack Tecnológica
 - **Framework**: React 19 + TypeScript
-- **Build**: Vite 5
+- **Build**: Vite 6
 - **Estilos**: Tailwind CSS 4
 - **IA**: Google Gemini SDK (usando `gemini-2.5-flash-lite`)
+- **i18n**: i18next + react-i18next (Português / Inglês)
+- **Testes**: Vitest + Testing Library + happy-dom (57 testes)
+- **Segurança**: Sanitização de input, proteção XSS (react-markdown), rate limiting, detecção de prompt injection
 
 ### 5. Deploy & URL Pública
 Para instruções detalhadas de deploy, consulte o arquivo **[DEPLOY.md](DEPLOY.md)**.
@@ -157,7 +163,9 @@ gcloud run deploy guia-pbev --image gcr.io/ID_DO_PROJETO/guia-pbev --platform ma
 ```
 
 ### 6. Métricas do Projeto
-- **Performance**: Tempo de build de ~3s (Vite/ESBuild)
-- **Banco de Dados**: 63+ Veículos registrados
-- **Assets**: 56 Imagens locais otimizadas
+- **Performance**: Tempo de build de ~4s (Vite/ESBuild)
+- **Banco de Dados**: 73 Veículos registrados (10+ marcas)
+- **Assets**: 73 Imagens locais otimizadas (fotos reais)
 - **Modelo IA**: Gemini 2.5 Flash Lite (Verificado)
+- **Testes**: 57 testes em 7 suítes
+- **i18n**: 2 idiomas (PT-BR, EN)
