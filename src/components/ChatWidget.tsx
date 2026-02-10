@@ -55,9 +55,6 @@ ${carList}`;
 }
 
 export default function ChatWidget() {
-  const enableAI = import.meta.env.VITE_ENABLE_AI !== 'false';
-  if (!enableAI) return null;
-
   const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [apiKey, setApiKey] = useState(getApiKey);

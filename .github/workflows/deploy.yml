@@ -37,13 +37,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install and Build (No AI)
+      - name: Install and Build
         run: |
           npm ci
           npm run build
-        env:
-          VITE_ENABLE_AI: 'false'
-          # Base path is already configured in vite.config.ts
+        # Base path is already configured in vite.config.ts
 
       - name: Deploy to gh-pages
         uses: JamesIves/github-pages-deploy-action@v4
