@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Car } from '../types';
 import { BRAND_URLS } from '../constants';
 import { Map, Car as CarIcon, Scale, Check, ImageOff, ExternalLink, Heart } from 'lucide-react';
@@ -14,6 +15,7 @@ interface CarCardProps {
 }
 
 const CarCard: React.FC<CarCardProps> = ({ car, onClick, isSelectedForCompare, onToggleCompare, isFavorite, onToggleFavorite }) => {
+  const { t } = useTranslation();
   const isLux = car.cat === "Luxo";
   const isCom = car.cat === "Comercial";
   const isNew = (["Neta", "Geely", "Kia", "Chevrolet", "Omoda", "GAC", "Zeekr", "GWM"].includes(car.brand) && !["Ora 03 Skin BEV48", "Ora 03 GT BEV63"].includes(car.model)) || car.model.includes("Captiva") || car.model.includes("Buzz");
@@ -38,7 +40,7 @@ const CarCard: React.FC<CarCardProps> = ({ car, onClick, isSelectedForCompare, o
           ? 'bg-blue-600 border-blue-600 text-white'
           : 'bg-white/90 backdrop-blur border-slate-200 text-slate-400 hover:text-blue-600 hover:border-blue-300'
           }`}
-        title={isSelectedForCompare ? "Remover da comparação" : "Comparar"}
+        title={isSelectedForCompare ? t('card.removeCompare') : t('card.compare')}
       >
         {isSelectedForCompare ? <Check className="w-4 h-4" /> : <Scale className="w-4 h-4" />}
       </button>
@@ -50,7 +52,7 @@ const CarCard: React.FC<CarCardProps> = ({ car, onClick, isSelectedForCompare, o
         rel="noopener noreferrer"
         onClick={(e) => e.stopPropagation()}
         className="absolute top-3 left-12 z-20 p-1.5 rounded-lg border shadow-sm bg-white/90 backdrop-blur border-slate-200 text-slate-400 hover:text-blue-600 hover:border-blue-300 transition-all"
-        title={`Site Oficial ${car.brand}`}
+        title={t('card.officialSite', { brand: car.brand })}
       >
         <ExternalLink className="w-4 h-4" />
       </a>
@@ -62,7 +64,7 @@ const CarCard: React.FC<CarCardProps> = ({ car, onClick, isSelectedForCompare, o
           ? 'bg-red-50 border-red-200 text-red-500'
           : 'bg-white/90 backdrop-blur border-slate-200 text-slate-400 hover:text-red-500 hover:border-red-200'
           }`}
-        title={isFavorite ? "Remover dos favoritos" : "Adicionar aos favoritos"}
+        title={isFavorite ? t('card.removeFavorite') : t('card.addFavorite')}
       >
         <Heart className={`w-4 h-4 ${isFavorite ? 'fill-current' : ''}`} />
       </button>
@@ -71,9 +73,9 @@ const CarCard: React.FC<CarCardProps> = ({ car, onClick, isSelectedForCompare, o
       <div className="relative pb-[56.25%] overflow-hidden bg-slate-100">
         {/* Badges - Moved down to allow space for Heart Button */}
         <div className="absolute top-12 right-3 z-10 flex gap-1 flex-wrap justify-end pl-2">
-          {isLux && <span className="text-[10px] px-2 py-1 rounded font-bold uppercase tracking-wide bg-slate-900 text-yellow-400 shadow-sm">Premium</span>}
-          {isCom && <span className="text-[10px] px-2 py-1 rounded font-bold uppercase tracking-wide bg-slate-600 text-white shadow-sm">Comercial</span>}
-          {isNew && <span className="text-[10px] px-2 py-1 rounded font-bold uppercase tracking-wide bg-blue-600 text-white shadow-sm">Novidade</span>}
+          {isLux && <span className="text-[10px] px-2 py-1 rounded font-bold uppercase tracking-wide bg-slate-900 text-yellow-400 shadow-sm">{t('card.premium')}</span>}
+          {isCom && <span className="text-[10px] px-2 py-1 rounded font-bold uppercase tracking-wide bg-slate-600 text-white shadow-sm">{t('card.commercial')}</span>}
+          {isNew && <span className="text-[10px] px-2 py-1 rounded font-bold uppercase tracking-wide bg-blue-600 text-white shadow-sm">{t('card.newBadge')}</span>}
         </div>
 
         {/* Loading Placeholder (Skeleton) */}
@@ -88,7 +90,7 @@ const CarCard: React.FC<CarCardProps> = ({ car, onClick, isSelectedForCompare, o
           <div className="absolute inset-0 bg-slate-100 flex items-center justify-center z-0">
             <div className="flex flex-col items-center text-slate-400">
               <ImageOff className="w-8 h-8 mb-1" />
-              <span className="text-[10px] font-bold uppercase">Indisponível</span>
+              <span className="text-[10px] font-bold uppercase">{t('card.unavailable')}</span>
             </div>
           </div>
         )}
@@ -117,23 +119,23 @@ const CarCard: React.FC<CarCardProps> = ({ car, onClick, isSelectedForCompare, o
       {/* Content */}
       <div className="p-5 flex-1 flex flex-col">
         <div className="flex justify-between items-baseline mb-4 pb-4 border-b border-slate-100">
-          <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Preço Estimado</span>
+          <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">{t('card.estimatedPrice')}</span>
           <span className="text-xl font-bold text-blue-600">R$ {car.price.toLocaleString('pt-BR')}</span>
         </div>
 
         <div className="grid grid-cols-2 gap-4 text-sm mt-auto">
           <div className="flex flex-col bg-slate-50 p-2 rounded-lg border border-slate-100">
-            <span className="text-[10px] text-slate-400 font-bold uppercase mb-1">Autonomia</span>
+            <span className="text-[10px] text-slate-400 font-bold uppercase mb-1">{t('card.rangeLabel')}</span>
             <span className="font-bold text-slate-700 flex items-center">
               <Map className="w-3 h-3 text-blue-400 mr-2" />
               {car.range} km
             </span>
           </div>
           <div className="flex flex-col bg-slate-50 p-2 rounded-lg border border-slate-100">
-            <span className="text-[10px] text-slate-400 font-bold uppercase mb-1">Categoria</span>
+            <span className="text-[10px] text-slate-400 font-bold uppercase mb-1">{t('card.categoryLabel')}</span>
             <span className="font-bold text-slate-700 flex items-center">
               <CarIcon className="w-3 h-3 text-blue-400 mr-2" />
-              {car.cat}
+              {t(`categories.${car.cat}`)}
             </span>
           </div>
         </div>

@@ -1,5 +1,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { GoogleGenerativeAI, ChatSession } from "@google/generative-ai";
 import { MessageSquare, X, Send, Sparkles, User, Bot, Globe } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
@@ -8,7 +9,8 @@ import { ChatMessage } from '../types';
 import { sanitizeChatInput, validateChatInput } from '../utils/sanitize';
 import { useRateLimit } from '../hooks/useRateLimit';
 
-function buildCarSummary(): string {
+function buildCarSummary(lang: string): string {
+  const isEn = lang === 'en';
   const totalCars = CAR_DB.length;
   const brands = [...new Set(CAR_DB.map(c => c.brand))];
   const categories = [...new Set(CAR_DB.map(c => c.cat))];
@@ -25,6 +27,17 @@ function buildCarSummary(): string {
     `${c.brand} ${c.model}: R$${c.price.toLocaleString('pt-BR')}, ${c.range}km, ${c.cat}${c.power ? `, ${c.power}cv` : ''}${c.torque ? `, ${c.torque}kgfm` : ''}`
   ).join('\n');
 
+  if (isEn) {
+    return `Total: ${totalCars} vehicles
+Brands: ${brands.join(', ')}
+Categories: ${categories.join(', ')}
+Price range: R$${priceRange.min.toLocaleString('pt-BR')} - R$${priceRange.max.toLocaleString('pt-BR')}
+Range: ${rangeRange.min}km - ${rangeRange.max}km
+
+Vehicle list:
+${carList}`;
+  }
+
   return `Total: ${totalCars} veículos
 Marcas: ${brands.join(', ')}
 Categorias: ${categories.join(', ')}
@@ -39,16 +52,27 @@ export default function ChatWidget() {
   const enableAI = import.meta.env.VITE_ENABLE_AI !== 'false';
   if (!enableAI) return null;
 
+  const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { role: 'model', text: 'Olá! Sou seu especialista em carros elétricos. Tenho acesso a todos os dados da tabela PBEV 2025. Pergunte-me sobre comparativos, autonomia ou preços!' }
+    { role: 'model', text: t('chat.welcome') }
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const chatSessionRef = useRef<ChatSession | null>(null);
+  const langRef = useRef(i18n.language);
   const { checkRateLimit, recordRequest } = useRateLimit();
+
+  // Reset chat session when language changes
+  useEffect(() => {
+    if (langRef.current !== i18n.language) {
+      langRef.current = i18n.language;
+      chatSessionRef.current = null;
+      setMessages([{ role: 'model', text: t('chat.welcome') }]);
+    }
+  }, [i18n.language, t]);
 
   // Initialize Chat Session on Open (or lazily)
   useEffect(() => {
@@ -58,30 +82,48 @@ export default function ChatWidget() {
 
         if (!apiKey) {
           console.error("Gemini API Key is missing. Check .env.local");
-          setMessages(prev => [...prev, { role: 'model', text: 'Erro de Configuração: API Key não encontrada. Verifique o arquivo .env.local.' }]);
+          setMessages(prev => [...prev, { role: 'model', text: t('chat.configError') }]);
           return;
         }
+
+        const isEn = i18n.language === 'en';
+        const systemPrompt = isEn
+          ? `You are the "EletriBrasil Consultant", an expert assistant on the Brazilian electric vehicle market.
+Use the data provided below (PBEV 2025 Table) as your primary source.
+
+Vehicle Data:
+${buildCarSummary('en')}
+
+Response Instructions:
+1. Be concise and direct.
+2. Always mention prices and range when relevant.
+3. Compare cars side by side if requested.
+4. Respond in plain text or basic markdown (bold).
+5. Be polite and helpful.
+6. Only answer based on the provided data and do not make assumptions.
+7. If the user asks about a vehicle not in the table, respond that you don't have data on it.
+8. If the user asks about a topic other than electric vehicles, respond that you don't have data on that topic.
+9. Always respond in English.`
+          : `Você é o "Consultor EletricarBrasil", um assistente especialista no mercado brasileiro de carros elétricos.
+Use os dados fornecidos abaixo (Tabela PBEV 2025) como base principal.
+
+Dados dos Veículos:
+${buildCarSummary('pt-BR')}
+
+Instruções de Resposta:
+1. Seja conciso e direto.
+2. Sempre mencione preços e autonomia quando relevante.
+3. Compare carros lado a lado se pedido.
+4. Responda em formato de texto simples ou markdown básico (negrito).
+5. Seja educado e prestativo.
+6. Somente responda sobre os dados fornecidos e não faça suposições.
+7. Se o usuário perguntar sobre um veículo que não existe na tabela, responda que não temos dados sobre ele.
+8. Se o usuário perguntar sobre outro assunto além de veículos elétricos, responda que não temos dados sobre esse assunto.`;
 
         const genAI = new GoogleGenerativeAI(apiKey);
         const model = genAI.getGenerativeModel({
           model: "gemini-2.5-flash-lite",
-          systemInstruction: `
-                Você é o "Consultor EletricarBrasil", um assistente especialista no mercado brasileiro de carros elétricos.
-                Use os dados fornecidos abaixo (Tabela PBEV 2025) como base principal.
-
-                Dados dos Veículos:
-                ${buildCarSummary()}
-
-                Instruções de Resposta:
-                1. Seja conciso e direto.
-                2. Sempre mencione preços e autonomia quando relevante.
-                3. Compare carros lado a lado se pedido.
-                4. Responda em formato de texto simples ou markdown básico (negrito).
-                5. Seja educado e prestativo.
-                6. Somente responda sobre os dados fornecidos e não faça suposições.
-                7. Se o usuário perguntar sobre um veículo que não existe na tabela, responda que não temos dados sobre ele.
-                8. Se o usuário perguntar sobre outro assunto além de veículos elétricos, responda que não temos dados sobre esse assunto.
-                                `
+          systemInstruction: systemPrompt
         });
 
         chatSessionRef.current = model.startChat({
@@ -90,10 +132,10 @@ export default function ChatWidget() {
 
       } catch (error) {
         console.error("DEBUG: Failed to initialize chat", error);
-        setMessages(prev => [...prev, { role: 'model', text: `Erro técnico: ${(error as Error).message}` }]);
+        setMessages(prev => [...prev, { role: 'model', text: t('chat.techError', { message: (error as Error).message }) }]);
       }
     }
-  }, [isOpen]);
+  }, [isOpen, i18n.language]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -111,14 +153,14 @@ export default function ChatWidget() {
       const seconds = Math.ceil(rateLimitResult.retryAfterMs / 1000);
       setMessages(prev => [...prev, {
         role: 'model',
-        text: `Você está enviando mensagens muito rápido. Aguarde ${seconds} segundos.`
+        text: t('chat.rateLimit', { seconds })
       }]);
       return;
     }
 
     // Sanitize and validate
     const sanitized = sanitizeChatInput(inputValue);
-    const validation = validateChatInput(sanitized);
+    const validation = validateChatInput(sanitized, i18n.language);
     if (!validation.valid) {
       setMessages(prev => [...prev, { role: 'model', text: validation.error! }]);
       setInputValue('');
@@ -138,8 +180,8 @@ export default function ChatWidget() {
       setMessages(prev => [...prev, { role: 'model', text }]);
     } catch (error) {
       console.error(error);
-      const errorMessage = (error as Error).message || "Erro desconhecido";
-      setMessages(prev => [...prev, { role: 'model', text: `Erro ao conectar: ${errorMessage}` }]);
+      const errorMessage = (error as Error).message || "Unknown error";
+      setMessages(prev => [...prev, { role: 'model', text: t('chat.connectError', { message: errorMessage }) }]);
     } finally {
       setIsLoading(false);
     }
@@ -162,8 +204,8 @@ export default function ChatWidget() {
                 <Sparkles className="text-yellow-300 w-4 h-4" />
               </div>
               <div>
-                <h3 className="text-white font-bold text-sm">Consultor EletriBrasil v4.0 (Gemini 2.5 Lite)</h3>
-                <p className="text-blue-100 text-[10px] font-medium">Powered by Gemini</p>
+                <h3 className="text-white font-bold text-sm">{t('chat.headerTitle')}</h3>
+                <p className="text-blue-100 text-[10px] font-medium">{t('chat.headerSubtitle')}</p>
               </div>
             </div>
             <button
@@ -209,7 +251,7 @@ export default function ChatWidget() {
                   {msg.role === 'model' && msg.sources && msg.sources.length > 0 && (
                     <div className="mt-2 ml-1">
                       <p className="text-[10px] uppercase font-bold text-slate-400 mb-1 flex items-center gap-1">
-                        <Globe className="w-3 h-3" /> Fontes
+                        <Globe className="w-3 h-3" /> {t('chat.sources')}
                       </p>
                       <div className="flex flex-wrap gap-2">
                         {msg.sources.map((source, i) => (
@@ -256,7 +298,7 @@ export default function ChatWidget() {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={handleKeyDown}
                 disabled={isLoading}
-                placeholder="Ex: Qual a autonomia real do Dolphin?"
+                placeholder={t('chat.placeholder')}
                 maxLength={1000}
                 className="w-full bg-slate-100 border-0 rounded-full pl-4 pr-12 py-3 text-sm focus:ring-2 focus:ring-blue-500 focus:bg-white transition outline-none disabled:opacity-50"
               />
@@ -278,7 +320,7 @@ export default function ChatWidget() {
           onClick={() => setIsOpen(true)}
           className="group flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-full shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-blue-500/30"
         >
-          <span className="font-bold hidden group-hover:inline-block transition-all text-sm">Consultor IA</span>
+          <span className="font-bold hidden group-hover:inline-block transition-all text-sm">{t('chat.toggleLabel')}</span>
           <MessageSquare className="w-6 h-6" />
         </button>
       )}

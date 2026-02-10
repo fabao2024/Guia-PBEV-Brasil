@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { SlidersHorizontal, X } from 'lucide-react';
 import { FilterState } from '../types';
 
@@ -12,7 +13,8 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClose }: SidebarProps) {
-  
+  const { t } = useTranslation();
+
   const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilters(prev => ({ ...prev, maxPrice: Number(e.target.value) }));
   };
@@ -64,11 +66,11 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
       
       <div className="flex justify-between items-center mb-8">
         <h2 className="font-bold text-slate-800 flex items-center gap-2 text-lg">
-          <SlidersHorizontal className="text-blue-600 w-5 h-5" /> Filtros
+          <SlidersHorizontal className="text-blue-600 w-5 h-5" /> {t('sidebar.filters')}
         </h2>
         <div className="flex items-center gap-2">
             <button onClick={clearFilters} className="text-xs font-bold text-blue-600 hover:text-blue-800 uppercase bg-blue-50 px-3 py-1 rounded-full transition-colors">
-            Limpar
+            {t('sidebar.clear')}
             </button>
             <button onClick={onClose} className="md:hidden text-slate-400 hover:text-slate-600">
                 <X className="w-6 h-6" />
@@ -78,7 +80,7 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
 
       {/* Price Filter */}
       <div className="mb-10">
-        <label className="block text-xs font-bold text-slate-400 uppercase mb-3 tracking-wider">Preço Máximo</label>
+        <label className="block text-xs font-bold text-slate-400 uppercase mb-3 tracking-wider">{t('sidebar.maxPrice')}</label>
         <div className="flex items-baseline gap-1 mb-4">
           <span className="text-2xl font-black text-slate-800 tracking-tight">{formatPrice(filters.maxPrice)}</span>
         </div>
@@ -99,7 +101,7 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
 
       {/* Range Filter */}
       <div className="mb-10">
-        <label className="block text-xs font-bold text-slate-400 uppercase mb-3 tracking-wider">Autonomia (PBEV)</label>
+        <label className="block text-xs font-bold text-slate-400 uppercase mb-3 tracking-wider">{t('sidebar.range')}</label>
         <div className="flex items-baseline gap-1 mb-4">
           <span className="text-2xl font-black text-slate-800 tracking-tight">{filters.minRange} km</span>
         </div>
@@ -120,7 +122,7 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
 
       {/* Category Filter */}
       <div className="mb-10">
-        <label className="block text-xs font-bold text-slate-400 uppercase mb-4 tracking-wider">Categoria</label>
+        <label className="block text-xs font-bold text-slate-400 uppercase mb-4 tracking-wider">{t('sidebar.category')}</label>
         <div className="space-y-3">
           {categories.map(cat => (
              <label key={cat} className="flex items-center gap-3 cursor-pointer group hover:bg-slate-50 p-2 -ml-2 rounded-lg transition-colors">
@@ -131,10 +133,10 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
                     className="w-5 h-5 rounded text-blue-600 focus:ring-blue-500 border-slate-300 transition cursor-pointer"
                 />
                 <span className={`text-sm font-medium transition group-hover:text-blue-600 ${filters.categories.includes(cat) ? 'text-blue-700' : 'text-slate-600'}`}>
-                    {cat === "Compacto" ? "Compacto / Urbano" : 
-                     cat === "SUV" ? "SUV / Crossover" : 
-                     cat === "Luxo" ? "Luxo / Performance" : 
-                     cat === "Comercial" ? "Comercial / Van" : cat}
+                    {cat === "Compacto" ? t('sidebar.catCompact') :
+                     cat === "SUV" ? t('sidebar.catSUV') :
+                     cat === "Luxo" ? t('sidebar.catLuxury') :
+                     cat === "Comercial" ? t('sidebar.catCommercial') : cat}
                 </span>
             </label>
           ))}
@@ -143,7 +145,7 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
 
       {/* Brands Filter */}
       <div>
-        <label className="block text-xs font-bold text-slate-400 uppercase mb-4 tracking-wider">Marcas</label>
+        <label className="block text-xs font-bold text-slate-400 uppercase mb-4 tracking-wider">{t('sidebar.brands')}</label>
         <div className="space-y-2 max-h-80 overflow-y-auto pr-2 custom-scrollbar">
           {allBrands.map(brand => (
              <label key={brand} className="flex items-center gap-3 cursor-pointer group hover:bg-slate-50 p-1.5 -ml-1.5 rounded-lg transition-colors">

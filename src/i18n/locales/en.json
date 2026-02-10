@@ -1,0 +1,130 @@
+{
+  "categories": {
+    "Compacto": "Compact",
+    "SUV": "SUV",
+    "Sedan": "Sedan",
+    "Luxo": "Luxury",
+    "Comercial": "Commercial"
+  },
+  "header": {
+    "subtitle": "Official Catalog & AI",
+    "favorites": "Favorites",
+    "viewFavorites": "View Favorites",
+    "vehiclesInDb": "Vehicles in Database",
+    "print": "Print"
+  },
+  "sidebar": {
+    "filters": "Filters",
+    "clear": "Clear",
+    "maxPrice": "Max Price",
+    "range": "Range (PBEV)",
+    "category": "Category",
+    "brands": "Brands",
+    "catCompact": "Compact / Urban",
+    "catSUV": "SUV / Crossover",
+    "catSedan": "Sedan",
+    "catLuxury": "Luxury / Performance",
+    "catCommercial": "Commercial / Van"
+  },
+  "card": {
+    "compare": "Compare",
+    "removeCompare": "Remove from comparison",
+    "officialSite": "Official Site {{brand}}",
+    "removeFavorite": "Remove from favorites",
+    "addFavorite": "Add to favorites",
+    "premium": "Premium",
+    "commercial": "Commercial",
+    "newBadge": "New",
+    "unavailable": "Unavailable",
+    "estimatedPrice": "Estimated Price",
+    "rangeLabel": "Range",
+    "categoryLabel": "Category"
+  },
+  "details": {
+    "imageUnavailable": "Image+Unavailable",
+    "exteriorMain": "Main Exterior",
+    "favorite": "Favorite",
+    "estimatedPrice": "Estimated Price",
+    "rangePBEV": "PBEV Range",
+    "power": "Power",
+    "torque": "Torque",
+    "notAvailable": "N/A",
+    "segmentHighlights": "Segment Highlights",
+    "comparing": "Comparing",
+    "compare": "Compare",
+    "removeFavorite": "Remove Favorite",
+    "addFavorite": "Favorite",
+    "interested": "I'm Interested",
+    "features": {
+      "compact": ["HD Infotainment System", "Rear Camera", "Smartphone Integration", "Parking Sensors", "Urban Emergency Braking"],
+      "suv": ["Adaptive Cruise Control", "Electric Tailgate", "Full LED Headlights", "Lane Keep Assist", "Blind Spot Monitoring"],
+      "luxury": ["Premium Surround Sound System", "Panoramic Sunroof", "Electric & Massage Seats", "Level 2+ Autonomous Driving", "Adaptive Air Suspension"],
+      "commercial": ["Extended Load Capacity", "Fleet Management System", "Reinforced Load Floor", "180° Door Opening", "DC Fast Charging"],
+      "default": ["Digital Air Conditioning", "One-Touch Power Windows", "Power Steering", "ABS with EBD", "6 Airbags"]
+    }
+  },
+  "comparison": {
+    "title": "Vehicle Comparison",
+    "subtitle": "Side by Side",
+    "remove": "Remove",
+    "model": "Model",
+    "price": "Price",
+    "range": "Range",
+    "power": "Power",
+    "torque": "Torque",
+    "category": "Category",
+    "features": "Features",
+    "emptySlot": "Empty Slot",
+    "footer": "Comparison based on PBEV 2025 data.",
+    "featureList": {
+      "compact": ["HD Infotainment", "Rear Camera", "Parking Sensors"],
+      "suv": ["Adaptive Cruise", "Electric Tailgate", "LED Headlights"],
+      "luxury": ["Surround Sound", "Panoramic Roof", "Autonomous Driving"],
+      "commercial": ["Extended Load", "Fleet Management", "Reinforced Floor"],
+      "default": ["Digital A/C", "One-Touch Windows", "Power Steering"]
+    }
+  },
+  "chat": {
+    "welcome": "Hello! I'm your electric car specialist. I have access to all PBEV 2025 data. Ask me about comparisons, range, or prices!",
+    "rateLimit": "You're sending messages too fast. Please wait {{seconds}} seconds.",
+    "configError": "Configuration Error: API Key not found. Check the .env.local file.",
+    "techError": "Technical error: {{message}}",
+    "connectError": "Connection error: {{message}}",
+    "headerTitle": "EletriBrasil Consultant v4.0 (Gemini 2.5 Lite)",
+    "headerSubtitle": "Powered by Gemini",
+    "placeholder": "E.g.: What is the real range of the Dolphin?",
+    "toggleLabel": "AI Consultant",
+    "sources": "Sources"
+  },
+  "empty": {
+    "noFavorites": "No favorites found",
+    "noVehicles": "No vehicles found",
+    "noFavoritesDesc": "You haven't added any vehicles to your favorites yet.",
+    "noVehiclesDesc": "No vehicles match the selected filters. Try increasing the price range or reducing the minimum range.",
+    "backToCatalog": "Back to catalog",
+    "clearFilters": "Clear all filters",
+    "myFavorites": "My Favorites",
+    "showingSaved": "Showing saved vehicles only",
+    "viewAll": "View All"
+  },
+  "footer": {
+    "dataSource": "Data Source:",
+    "dataDesc": "PBEV 2025 Table (Inmetro) + Market Research (November/2025).",
+    "disclaimer": "Standard PBEV range. Illustrative images of global models."
+  },
+  "compareBar": {
+    "compare": "Compare",
+    "selectedOf3": "{{count}} of 3 selected",
+    "clear": "Clear",
+    "compareNow": "Compare Now"
+  },
+  "filterMobile": {
+    "filterVehicles": "Filter Vehicles"
+  },
+  "validation": {
+    "empty": "Message cannot be empty.",
+    "tooShort": "Message is too short.",
+    "tooLong": "Message cannot exceed {{max}} characters.",
+    "notAllowed": "Message not allowed."
+  }
+}

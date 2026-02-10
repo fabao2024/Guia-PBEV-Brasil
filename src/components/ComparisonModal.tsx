@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Car } from '../types';
 import { X, Check, Minus, Map, Battery, Car as CarIcon, DollarSign, Zap, Gauge, Activity } from 'lucide-react';
 
@@ -10,15 +11,11 @@ interface ComparisonModalProps {
 }
 
 export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonModalProps) {
-  // Helper to generate features (duplicated logic for consistency)
-  const getFeatures = (cat: string) => {
-    switch(cat) {
-      case 'Compacto': return ['Multimídia HD', 'Câmera Ré', 'Sensor Estac.'];
-      case 'SUV': return ['Piloto Adaptativo', 'Porta-malas Elét.', 'Faróis LED'];
-      case 'Luxo': return ['Som Surround', 'Teto Panorâmico', 'Direção Autônoma'];
-      case 'Comercial': return ['Carga Ampliada', 'Gestão Frota', 'Piso Reforçado'];
-      default: return ['Ar Digital', 'Vidros One-Touch', 'Direção Assistida'];
-    }
+  const { t } = useTranslation();
+
+  const getFeatures = (cat: string): string[] => {
+    const key = cat === 'Compacto' ? 'compact' : cat === 'SUV' ? 'suv' : cat === 'Luxo' ? 'luxury' : cat === 'Comercial' ? 'commercial' : 'default';
+    return t(`comparison.featureList.${key}`, { returnObjects: true }) as string[];
   };
 
   return (
@@ -36,8 +33,8 @@ export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonM
                 <Zap className="w-6 h-6 text-blue-600" />
              </div>
              <div>
-                <h2 className="text-xl font-bold text-slate-900">Comparativo de Veículos</h2>
-                <p className="text-xs text-slate-500 font-medium uppercase tracking-wide">Lado a Lado</p>
+                <h2 className="text-xl font-bold text-slate-900">{t('comparison.title')}</h2>
+                <p className="text-xs text-slate-500 font-medium uppercase tracking-wide">{t('comparison.subtitle')}</p>
              </div>
           </div>
           <button 
@@ -55,13 +52,13 @@ export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonM
             {/* LABELS COLUMN */}
             <div className="flex flex-col gap-4 py-4 pr-4">
                <div className="h-40"></div> {/* Spacer for Images */}
-               <div className="font-bold text-slate-400 text-xs uppercase tracking-wider h-10 flex items-center">Modelo</div>
-               <div className="font-bold text-slate-400 text-xs uppercase tracking-wider h-10 flex items-center">Preço</div>
-               <div className="font-bold text-slate-400 text-xs uppercase tracking-wider h-10 flex items-center">Autonomia</div>
-               <div className="font-bold text-slate-400 text-xs uppercase tracking-wider h-10 flex items-center">Potência</div>
-               <div className="font-bold text-slate-400 text-xs uppercase tracking-wider h-10 flex items-center">Torque</div>
-               <div className="font-bold text-slate-400 text-xs uppercase tracking-wider h-10 flex items-center">Categoria</div>
-               <div className="font-bold text-slate-400 text-xs uppercase tracking-wider h-10 flex items-center">Recursos</div>
+               <div className="font-bold text-slate-400 text-xs uppercase tracking-wider h-10 flex items-center">{t('comparison.model')}</div>
+               <div className="font-bold text-slate-400 text-xs uppercase tracking-wider h-10 flex items-center">{t('comparison.price')}</div>
+               <div className="font-bold text-slate-400 text-xs uppercase tracking-wider h-10 flex items-center">{t('comparison.range')}</div>
+               <div className="font-bold text-slate-400 text-xs uppercase tracking-wider h-10 flex items-center">{t('comparison.power')}</div>
+               <div className="font-bold text-slate-400 text-xs uppercase tracking-wider h-10 flex items-center">{t('comparison.torque')}</div>
+               <div className="font-bold text-slate-400 text-xs uppercase tracking-wider h-10 flex items-center">{t('comparison.category')}</div>
+               <div className="font-bold text-slate-400 text-xs uppercase tracking-wider h-10 flex items-center">{t('comparison.features')}</div>
             </div>
 
             {/* CAR COLUMNS */}
@@ -72,7 +69,7 @@ export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonM
                  <button 
                     onClick={() => onRemove(car)}
                     className="absolute top-2 right-2 text-slate-300 hover:text-red-500 bg-white rounded-full p-1 border border-slate-100 shadow-sm opacity-0 group-hover:opacity-100 transition-all z-10"
-                    title="Remover"
+                    title={t('comparison.remove')}
                  >
                     <X className="w-4 h-4" />
                  </button>
@@ -114,20 +111,20 @@ export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonM
                  <div className="h-10 flex items-center">
                     <span className="font-bold text-slate-700 flex items-center gap-1">
                         <Gauge className="w-4 h-4 text-slate-400" />
-                        {car.power ? `${car.power} cv` : 'N/D'}
+                        {car.power ? `${car.power} cv` : t('details.notAvailable')}
                     </span>
                  </div>
 
                  <div className="h-10 flex items-center">
                     <span className="font-bold text-slate-700 flex items-center gap-1">
                         <Activity className="w-4 h-4 text-slate-400" />
-                        {car.torque ? `${car.torque} kgfm` : 'N/D'}
+                        {car.torque ? `${car.torque} kgfm` : t('details.notAvailable')}
                     </span>
                  </div>
 
                  <div className="h-10 flex items-center">
                     <span className="px-2 py-1 bg-slate-100 rounded text-xs font-bold text-slate-600 uppercase">
-                        {car.cat}
+                        {t(`categories.${car.cat}`)}
                     </span>
                  </div>
 
@@ -150,7 +147,7 @@ export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonM
                     <div className="bg-slate-50 p-4 rounded-full">
                          <Minus className="w-6 h-6" />
                     </div>
-                    <span className="text-sm font-medium">Espaço Vazio</span>
+                    <span className="text-sm font-medium">{t('comparison.emptySlot')}</span>
                 </div>
             )}
             
@@ -158,7 +155,7 @@ export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonM
         </div>
 
         <div className="p-4 bg-slate-50 border-t border-slate-200 text-center text-xs text-slate-400">
-            Comparativo gerado com base nos dados PBEV 2025.
+            {t('comparison.footer')}
         </div>
       </div>
     </div>

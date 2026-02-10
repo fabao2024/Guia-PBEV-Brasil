@@ -1,10 +1,12 @@
 import React, { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { CAR_DB } from './constants';
 import Sidebar from './components/Sidebar';
 import CarCard from './components/CarCard';
 import ChatWidget from './components/ChatWidget';
 import CarDetailsModal from './components/CarDetailsModal';
 import ComparisonModal from './components/ComparisonModal';
+import LanguageToggle from './components/LanguageToggle';
 import { Zap, Printer, Search, SlidersHorizontal, Scale, X, ArrowRight, Heart } from 'lucide-react';
 import { useCarFilter } from './hooks/useCarFilter';
 import { useFavorites } from './hooks/useFavorites';
@@ -12,6 +14,7 @@ import { useCompare } from './hooks/useCompare';
 import { Car } from './types';
 
 export default function App() {
+  const { t } = useTranslation();
   const { filters, setFilters, allBrands, resetFilters } = useCarFilter(CAR_DB);
   const { favorites, showFavoritesOnly, setShowFavoritesOnly, toggleFavorite } = useFavorites();
   const {
@@ -62,7 +65,7 @@ export default function App() {
             </div>
             <div>
               <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">PBEV <span className="text-blue-600">2025</span></h1>
-              <p className="text-xs text-slate-500 font-bold uppercase tracking-widest">Catálogo Oficial & IA</p>
+              <p className="text-xs text-slate-500 font-bold uppercase tracking-widest">{t('header.subtitle')}</p>
             </div>
           </div>
 
@@ -70,24 +73,25 @@ export default function App() {
             <button
               onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
               className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-all border ${showFavoritesOnly ? 'bg-red-50 border-red-200 text-red-600' : 'bg-white border-slate-200 text-slate-500 hover:text-red-500'}`}
-              title="Ver Favoritos"
+              title={t('header.viewFavorites')}
             >
               <Heart className={`w-5 h-5 ${showFavoritesOnly ? 'fill-current' : ''}`} />
-              <span className="text-sm font-bold hidden sm:inline">Favoritos</span>
+              <span className="text-sm font-bold hidden sm:inline">{t('header.favorites')}</span>
               {favorites.length > 0 && (
                 <span className="bg-red-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">{favorites.length}</span>
               )}
             </button>
             <div className="h-6 w-px bg-slate-200 hidden md:block"></div>
             <div className="hidden md:block text-right">
-              <div className="text-xs text-slate-400 uppercase font-bold tracking-wider">Veículos na Base</div>
+              <div className="text-xs text-slate-400 uppercase font-bold tracking-wider">{t('header.vehiclesInDb')}</div>
               <div className="text-2xl font-black text-slate-800 leading-none">{filteredCars.length}</div>
             </div>
             <div className="h-10 w-px bg-slate-200 hidden md:block"></div>
+            <LanguageToggle />
             <button
               onClick={() => window.print()}
               className="text-slate-400 hover:text-blue-600 transition p-2"
-              title="Imprimir"
+              title={t('header.print')}
             >
               <Printer className="w-6 h-6" />
             </button>
@@ -115,7 +119,7 @@ export default function App() {
               onClick={() => setIsSidebarOpen(true)}
               className="w-full bg-white/90 backdrop-blur border border-slate-300 text-slate-700 font-bold py-3 rounded-xl shadow-sm flex items-center justify-center gap-2 hover:bg-white"
             >
-              <SlidersHorizontal className="w-5 h-5" /> Filtrar Veículos
+              <SlidersHorizontal className="w-5 h-5" /> {t('filterMobile.filterVehicles')}
             </button>
           </div>
 
@@ -127,15 +131,15 @@ export default function App() {
                   <Heart className="w-5 h-5 text-red-600 fill-current" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-slate-800">Meus Favoritos</h3>
-                  <p className="text-sm text-slate-500">Exibindo apenas veículos salvos</p>
+                  <h3 className="font-bold text-slate-800">{t('empty.myFavorites')}</h3>
+                  <p className="text-sm text-slate-500">{t('empty.showingSaved')}</p>
                 </div>
               </div>
               <button
                 onClick={() => setShowFavoritesOnly(false)}
                 className="text-sm font-bold text-red-600 hover:underline"
               >
-                Ver Todos
+                {t('empty.viewAll')}
               </button>
             </div>
           )}
@@ -166,25 +170,25 @@ export default function App() {
                 )}
               </div>
               <h3 className="text-2xl font-bold text-slate-800 mb-2">
-                {showFavoritesOnly ? "Nenhum favorito encontrado" : "Nenhum veículo encontrado"}
+                {showFavoritesOnly ? t('empty.noFavorites') : t('empty.noVehicles')}
               </h3>
               <p className="text-slate-500 max-w-md mx-auto">
                 {showFavoritesOnly
-                  ? "Você ainda não marcou nenhum veículo como favorito."
-                  : "Não encontramos veículos com os filtros selecionados. Tente aumentar a faixa de preço ou reduzir a autonomia mínima."}
+                  ? t('empty.noFavoritesDesc')
+                  : t('empty.noVehiclesDesc')}
               </p>
               <button
                 onClick={handleResetFilters}
                 className="mt-6 text-blue-600 font-bold hover:underline"
               >
-                {showFavoritesOnly ? "Voltar para o catálogo" : "Limpar todos os filtros"}
+                {showFavoritesOnly ? t('empty.backToCatalog') : t('empty.clearFilters')}
               </button>
             </div>
           )}
 
           <footer className="mt-auto text-center text-xs text-slate-400 border-t border-slate-200 pt-8 pb-8">
-            <p><strong>Fonte de Dados:</strong> Tabela PBEV 2025 (Inmetro) + Pesquisa de Mercado (Novembro/2025).</p>
-            <p className="mt-1">Autonomia padrão PBEV. Imagens ilustrativas dos modelos globais.</p>
+            <p><strong>{t('footer.dataSource')}</strong> {t('footer.dataDesc')}</p>
+            <p className="mt-1">{t('footer.disclaimer')}</p>
           </footer>
         </main>
 
@@ -198,8 +202,8 @@ export default function App() {
                     <Scale className="w-5 h-5 text-blue-600" />
                   </div>
                   <div className="hidden sm:block">
-                    <p className="text-xs font-bold text-slate-400 uppercase tracking-wide">Comparar</p>
-                    <p className="text-sm font-bold text-slate-800">{compareList.length} de 3 selecionados</p>
+                    <p className="text-xs font-bold text-slate-400 uppercase tracking-wide">{t('compareBar.compare')}</p>
+                    <p className="text-sm font-bold text-slate-800">{t('compareBar.selectedOf3', { count: compareList.length })}</p>
                   </div>
                 </div>
 
@@ -222,13 +226,13 @@ export default function App() {
                   onClick={clearCompare}
                   className="text-xs font-bold text-slate-500 hover:text-red-500 uppercase tracking-wide px-3 py-2 transition-colors hidden sm:block"
                 >
-                  Limpar
+                  {t('compareBar.clear')}
                 </button>
                 <button
                   onClick={() => setIsCompareModalOpen(true)}
                   className="bg-blue-600 hover:bg-blue-700 text-white pl-4 pr-3 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2 shadow-lg shadow-blue-200 transition-all active:scale-95"
                 >
-                  Comparar Agora <ArrowRight className="w-4 h-4" />
+                  {t('compareBar.compareNow')} <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
             </div>

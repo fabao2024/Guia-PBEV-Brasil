@@ -11,6 +11,21 @@ const INJECTION_PATTERNS = [
   /disregard\s+(all\s+)?(previous|prior)/i,
 ];
 
+const MESSAGES: Record<string, Record<string, string>> = {
+  'pt-BR': {
+    empty: 'A mensagem não pode estar vazia.',
+    tooShort: 'A mensagem é muito curta.',
+    tooLong: `A mensagem não pode ter mais de ${MAX_INPUT_LENGTH} caracteres.`,
+    notAllowed: 'Mensagem não permitida.',
+  },
+  en: {
+    empty: 'Message cannot be empty.',
+    tooShort: 'Message is too short.',
+    tooLong: `Message cannot exceed ${MAX_INPUT_LENGTH} characters.`,
+    notAllowed: 'Message not allowed.',
+  },
+};
+
 export function sanitizeChatInput(input: string): string {
   let sanitized = input.replace(/<[^>]*>/g, '');
   sanitized = sanitized.trim();
@@ -25,22 +40,24 @@ export interface ValidationResult {
   error?: string;
 }
 
-export function validateChatInput(input: string): ValidationResult {
+export function validateChatInput(input: string, lang: string = 'pt-BR'): ValidationResult {
+  const msg = MESSAGES[lang] || MESSAGES['pt-BR'];
+
   if (!input || input.trim().length === 0) {
-    return { valid: false, error: 'A mensagem não pode estar vazia.' };
+    return { valid: false, error: msg.empty };
   }
 
   if (input.trim().length < MIN_INPUT_LENGTH) {
-    return { valid: false, error: 'A mensagem é muito curta.' };
+    return { valid: false, error: msg.tooShort };
   }
 
   if (input.length > MAX_INPUT_LENGTH) {
-    return { valid: false, error: `A mensagem não pode ter mais de ${MAX_INPUT_LENGTH} caracteres.` };
+    return { valid: false, error: msg.tooLong };
   }
 
   for (const pattern of INJECTION_PATTERNS) {
     if (pattern.test(input)) {
-      return { valid: false, error: 'Mensagem não permitida.' };
+      return { valid: false, error: msg.notAllowed };
     }
   }
 

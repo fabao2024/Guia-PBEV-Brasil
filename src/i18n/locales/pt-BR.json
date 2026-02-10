@@ -1,0 +1,130 @@
+{
+  "categories": {
+    "Compacto": "Compacto",
+    "SUV": "SUV",
+    "Sedan": "Sedan",
+    "Luxo": "Luxo",
+    "Comercial": "Comercial"
+  },
+  "header": {
+    "subtitle": "Catálogo Oficial & IA",
+    "favorites": "Favoritos",
+    "viewFavorites": "Ver Favoritos",
+    "vehiclesInDb": "Veículos na Base",
+    "print": "Imprimir"
+  },
+  "sidebar": {
+    "filters": "Filtros",
+    "clear": "Limpar",
+    "maxPrice": "Preço Máximo",
+    "range": "Autonomia (PBEV)",
+    "category": "Categoria",
+    "brands": "Marcas",
+    "catCompact": "Compacto / Urbano",
+    "catSUV": "SUV / Crossover",
+    "catSedan": "Sedan",
+    "catLuxury": "Luxo / Performance",
+    "catCommercial": "Comercial / Van"
+  },
+  "card": {
+    "compare": "Comparar",
+    "removeCompare": "Remover da comparação",
+    "officialSite": "Site Oficial {{brand}}",
+    "removeFavorite": "Remover dos favoritos",
+    "addFavorite": "Adicionar aos favoritos",
+    "premium": "Premium",
+    "commercial": "Comercial",
+    "newBadge": "Novidade",
+    "unavailable": "Indisponível",
+    "estimatedPrice": "Preço Estimado",
+    "rangeLabel": "Autonomia",
+    "categoryLabel": "Categoria"
+  },
+  "details": {
+    "imageUnavailable": "Imagem+Indisponível",
+    "exteriorMain": "Exterior Principal",
+    "favorite": "Favorito",
+    "estimatedPrice": "Preço Estimado",
+    "rangePBEV": "Autonomia PBEV",
+    "power": "Potência",
+    "torque": "Torque",
+    "notAvailable": "N/D",
+    "segmentHighlights": "Destaques do Segmento",
+    "comparing": "Comparando",
+    "compare": "Comparar",
+    "removeFavorite": "Remover Favorito",
+    "addFavorite": "Favoritar",
+    "interested": "Tenho Interesse",
+    "features": {
+      "compact": ["Central Multimídia HD", "Câmera de Ré", "Integração Smartphone", "Sensor de Estacionamento", "Frenagem de Emergência Urbana"],
+      "suv": ["Piloto Automático Adaptativo", "Porta-malas Elétrico", "Faróis Full LED", "Assistente de Permanência em Faixa", "Monitoramento de Ponto Cego"],
+      "luxury": ["Sistema de Som Premium Surround", "Teto Solar Panorâmico", "Bancos com Ajuste Elétrico e Massagem", "Direção Autônoma Nível 2+", "Suspensão a Ar Adaptativa"],
+      "commercial": ["Capacidade de Carga Ampliada", "Sistema de Gestão de Frota", "Piso de Carga Reforçado", "Abertura de Portas 180°", "Carregamento Rápido DC"],
+      "default": ["Ar Condicionado Digital", "Vidros Elétricos One-Touch", "Direção Assistida", "Freios ABS com EBD", "6 Airbags"]
+    }
+  },
+  "comparison": {
+    "title": "Comparativo de Veículos",
+    "subtitle": "Lado a Lado",
+    "remove": "Remover",
+    "model": "Modelo",
+    "price": "Preço",
+    "range": "Autonomia",
+    "power": "Potência",
+    "torque": "Torque",
+    "category": "Categoria",
+    "features": "Recursos",
+    "emptySlot": "Espaço Vazio",
+    "footer": "Comparativo gerado com base nos dados PBEV 2025.",
+    "featureList": {
+      "compact": ["Multimídia HD", "Câmera Ré", "Sensor Estac."],
+      "suv": ["Piloto Adaptativo", "Porta-malas Elét.", "Faróis LED"],
+      "luxury": ["Som Surround", "Teto Panorâmico", "Direção Autônoma"],
+      "commercial": ["Carga Ampliada", "Gestão Frota", "Piso Reforçado"],
+      "default": ["Ar Digital", "Vidros One-Touch", "Direção Assistida"]
+    }
+  },
+  "chat": {
+    "welcome": "Olá! Sou seu especialista em carros elétricos. Tenho acesso a todos os dados da tabela PBEV 2025. Pergunte-me sobre comparativos, autonomia ou preços!",
+    "rateLimit": "Você está enviando mensagens muito rápido. Aguarde {{seconds}} segundos.",
+    "configError": "Erro de Configuração: API Key não encontrada. Verifique o arquivo .env.local.",
+    "techError": "Erro técnico: {{message}}",
+    "connectError": "Erro ao conectar: {{message}}",
+    "headerTitle": "Consultor EletriBrasil v4.0 (Gemini 2.5 Lite)",
+    "headerSubtitle": "Powered by Gemini",
+    "placeholder": "Ex: Qual a autonomia real do Dolphin?",
+    "toggleLabel": "Consultor IA",
+    "sources": "Fontes"
+  },
+  "empty": {
+    "noFavorites": "Nenhum favorito encontrado",
+    "noVehicles": "Nenhum veículo encontrado",
+    "noFavoritesDesc": "Você ainda não marcou nenhum veículo como favorito.",
+    "noVehiclesDesc": "Não encontramos veículos com os filtros selecionados. Tente aumentar a faixa de preço ou reduzir a autonomia mínima.",
+    "backToCatalog": "Voltar para o catálogo",
+    "clearFilters": "Limpar todos os filtros",
+    "myFavorites": "Meus Favoritos",
+    "showingSaved": "Exibindo apenas veículos salvos",
+    "viewAll": "Ver Todos"
+  },
+  "footer": {
+    "dataSource": "Fonte de Dados:",
+    "dataDesc": "Tabela PBEV 2025 (Inmetro) + Pesquisa de Mercado (Novembro/2025).",
+    "disclaimer": "Autonomia padrão PBEV. Imagens ilustrativas dos modelos globais."
+  },
+  "compareBar": {
+    "compare": "Comparar",
+    "selectedOf3": "{{count}} de 3 selecionados",
+    "clear": "Limpar",
+    "compareNow": "Comparar Agora"
+  },
+  "filterMobile": {
+    "filterVehicles": "Filtrar Veículos"
+  },
+  "validation": {
+    "empty": "A mensagem não pode estar vazia.",
+    "tooShort": "A mensagem é muito curta.",
+    "tooLong": "A mensagem não pode ter mais de {{max}} caracteres.",
+    "notAllowed": "Mensagem não permitida."
+  }
+}
