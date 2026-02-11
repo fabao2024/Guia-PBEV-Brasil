@@ -2,13 +2,28 @@ const MAX_INPUT_LENGTH = 1000;
 const MIN_INPUT_LENGTH = 2;
 
 const INJECTION_PATTERNS = [
+  // English patterns
   /ignore\s+(all\s+)?(previous|prior|above)\s+(instructions|prompts)/i,
   /you\s+are\s+now\s+/i,
   /act\s+as\s+(a\s+)?different/i,
   /system\s*:\s*/i,
   /\bprompt\s+injection\b/i,
-  /reveal\s+(your|the)\s+(system|initial)\s+(prompt|instructions)/i,
+  /reveal\s+(your|the)\s+(system|initial|full)\s+(prompt|instructions)/i,
   /disregard\s+(all\s+)?(previous|prior)/i,
+  /forget\s+(everything|all|your)/i,
+  /do\s+not\s+follow\s+(your|the|any)/i,
+  /repeat\s+(everything|all(\s+the\s+text)?)\s+(above|before)/i,
+  /\bDAN\b.*mode/i,
+  /let'?s\s+role\s*play/i,
+  /output\s+(your|the)\s+(system|initial|full)/i,
+  /what\s+(are|were)\s+(your|the)\s+(rules|instructions|prompt)/i,
+  // Portuguese patterns
+  /ignore\s+todas\s+as\s+instru/i,
+  /esqueça\s+tudo/i,
+  /não\s+siga\s+(as|suas)\s+instru/i,
+  /repita\s+(tudo|todo\s+o\s+texto)\s+(acima|anterior)/i,
+  /revele\s+(seu|o)\s+(prompt|instrução|instruções)/i,
+  /quais\s+são\s+suas\s+(regras|instruções)/i,
 ];
 
 const MESSAGES: Record<string, Record<string, string>> = {
