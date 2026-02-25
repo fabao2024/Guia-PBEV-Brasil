@@ -44,6 +44,7 @@ Download-Image "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Sehol_
 Download-Image "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Nissan_Ariya_%28Japan%29_front_view.jpg/800px-Nissan_Ariya_%28Japan%29_front_view.jpg" "public/car-images/ariya.jpg"
 Download-Image "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Zeekr_X_001.jpg/800px-Zeekr_X_001.jpg" "public/car-images/zeekr-x.jpg"
 Download-Image "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/BMW_iX3_Premier_Edition_in_Piemont_Red.jpg/800px-BMW_iX3_Premier_Edition_in_Piemont_Red.jpg" "public/car-images/ix3.jpg"
+Download-Image "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Aion_Hyper_HT.jpg/800px-Aion_Hyper_HT.jpg" "public/car-images/hyptec-ht.jpg"
 
 # Batch 3 & 4
 Download-Image "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/BYD_Seal_001.jpg/800px-BYD_Seal_001.jpg" "public/car-images/seal.jpg"

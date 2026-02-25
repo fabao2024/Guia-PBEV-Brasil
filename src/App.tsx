@@ -7,7 +7,9 @@ import ChatWidget from './components/ChatWidget';
 import CarDetailsModal from './components/CarDetailsModal';
 import ComparisonModal from './components/ComparisonModal';
 import LanguageToggle from './components/LanguageToggle';
-import { Zap, Printer, Search, SlidersHorizontal, Scale, X, ArrowRight, Heart } from 'lucide-react';
+import AddVehicleModal from './components/AddVehicleModal';
+import SuccessModal from './components/SuccessModal';
+import { Zap, Printer, Search, SlidersHorizontal, Scale, X, ArrowRight, Heart, Plus } from 'lucide-react';
 import { useCarFilter } from './hooks/useCarFilter';
 import { useFavorites } from './hooks/useFavorites';
 import { useCompare } from './hooks/useCompare';
@@ -30,8 +32,13 @@ export default function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [selectedCar, setSelectedCar] = useState<Car | null>(null);
 
+  // New States for Add Vehicle Feature
+  const [userCars, setUserCars] = useState<Car[]>([]);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+
   const filteredCars = useMemo(() => {
-    let cars = CAR_DB;
+    let cars = [...CAR_DB, ...userCars];
 
     // First filter by favorites if enabled
     if (showFavoritesOnly) {
@@ -51,6 +58,12 @@ export default function App() {
   const handleResetFilters = () => {
     resetFilters();
     setShowFavoritesOnly(false);
+  };
+
+  const handleAddCar = (newCar: Car) => {
+    setUserCars(prev => [newCar, ...prev]);
+    setIsAddModalOpen(false);
+    setIsSuccessModalOpen(true);
   };
 
   return (
@@ -88,9 +101,18 @@ export default function App() {
             </div>
             <div className="h-10 w-px bg-slate-200 hidden md:block"></div>
             <LanguageToggle />
+            <div className="h-6 w-px bg-slate-200 hidden sm:block"></div>
+            <button
+              onClick={() => setIsAddModalOpen(true)}
+              className="flex items-center gap-2 bg-[#80ec13] hover:bg-[#6bd60f] text-slate-900 px-3 sm:px-4 py-2 rounded-xl font-bold transition-all shadow-sm"
+              title={t('addVehicle.headerBtn', 'Adicionar Veículo')}
+            >
+              <Plus className="w-5 h-5" />
+              <span className="hidden sm:inline">{t('addVehicle.headerBtn', 'Adicionar')}</span>
+            </button>
             <button
               onClick={() => window.print()}
-              className="text-slate-400 hover:text-blue-600 transition p-2"
+              className="text-slate-400 hover:text-blue-600 transition p-2 ml-1"
               title={t('header.print')}
             >
               <Printer className="w-6 h-6" />
@@ -259,6 +281,24 @@ export default function App() {
             onRemove={(car) => {
               removeFromCompare(car);
               if (compareList.length <= 1) setIsCompareModalOpen(false);
+            }}
+          />
+        )}
+
+        {/* Add Vehicle Modal */}
+        <AddVehicleModal
+          isOpen={isAddModalOpen}
+          onClose={() => setIsAddModalOpen(false)}
+          onAdd={handleAddCar}
+        />
+
+        {/* Success Modal */}
+        {isSuccessModalOpen && (
+          <SuccessModal
+            onGoToCatalog={() => setIsSuccessModalOpen(false)}
+            onAddAnother={() => {
+              setIsSuccessModalOpen(false);
+              setIsAddModalOpen(true);
             }}
           />
         )}

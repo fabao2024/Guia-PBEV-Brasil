@@ -1,6 +1,6 @@
 # Complete Car List (PBEV 2025 Database)
 
-Total Vehicles: 63
+Total Vehicles: 64
 
 | Maker | Model | Category | Price (BRL) | Range (km) | Image Path |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -56,6 +56,7 @@ Total Vehicles: 63
 | **BMW** | iX xDrive40 | Luxo | R$ 699.950 | 329 | `/car-images/ix.jpg` |
 | **Porsche** | Taycan 4S | Luxo | R$ 745.000 | 340 | `/car-images/taycan.jpg` |
 | **Kia** | EV9 GT-Line | Luxo | R$ 749.990 | 434 | `/car-images/ev9.jpg` |
+| **GAC** | Hyptec HT | Luxo | R$ 359.990 | 362 | `/car-images/hyptec-ht.jpg` |
 | **Mercedes-Benz** | EQS 450+ | Luxo | R$ 999.900 | 516 | `/car-images/eqs.jpg` |
 | **Audi** | e-tron GT | Luxo | R$ 769.990 | 318 | `/car-images/etron-gt.jpg` |
 | **BMW** | i7 xDrive60 | Luxo | R$ 1.321.950 | 479 | `/car-images/i7.jpg` |

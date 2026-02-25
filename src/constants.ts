@@ -156,6 +156,7 @@ export const CAR_DB: Car[] = [
   { model: "iX xDrive40", brand: "BMW", price: 699950, range: 329, cat: "Luxo", img: "/car-images/ix.jpg", power: 326, torque: 64.2 },
   { model: "Taycan 4S", brand: "Porsche", price: 745000, range: 340, cat: "Luxo", img: "/car-images/taycan.jpg", power: 530, torque: 65.3 },
   { model: "EV9 GT-Line", brand: "Kia", price: 749990, range: 434, cat: "Luxo", img: "/car-images/ev9.jpg", power: 384, torque: 71.4 },
+  { model: "Hyptec HT", brand: "GAC", price: 359990, range: 362, cat: "Luxo", img: "/car-images/hyptec-ht.jpg", power: 340, torque: 43.8 },
   { model: "EQS 450+", brand: "Mercedes-Benz", price: 999900, range: 516, cat: "Luxo", img: "/car-images/eqs.jpg", power: 333, torque: 57.9 },
   { model: "e-tron GT", brand: "Audi", price: 769990, range: 318, cat: "Luxo", img: "/car-images/etron-gt.jpg", power: 530, torque: 65.3 },
   { model: "i7 xDrive60", brand: "BMW", price: 1321950, range: 479, cat: "Luxo", img: "/car-images/i7.jpg", power: 544, torque: 76 },

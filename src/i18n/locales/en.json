@@ -56,11 +56,41 @@
     "addFavorite": "Favorite",
     "interested": "I'm Interested",
     "features": {
-      "compact": ["HD Infotainment System", "Rear Camera", "Smartphone Integration", "Parking Sensors", "Urban Emergency Braking"],
-      "suv": ["Adaptive Cruise Control", "Electric Tailgate", "Full LED Headlights", "Lane Keep Assist", "Blind Spot Monitoring"],
-      "luxury": ["Premium Surround Sound System", "Panoramic Sunroof", "Electric & Massage Seats", "Level 2+ Autonomous Driving", "Adaptive Air Suspension"],
-      "commercial": ["Extended Load Capacity", "Fleet Management System", "Reinforced Load Floor", "180° Door Opening", "DC Fast Charging"],
-      "default": ["Digital Air Conditioning", "One-Touch Power Windows", "Power Steering", "ABS with EBD", "6 Airbags"]
+      "compact": [
+        "HD Infotainment System",
+        "Rear Camera",
+        "Smartphone Integration",
+        "Parking Sensors",
+        "Urban Emergency Braking"
+      ],
+      "suv": [
+        "Adaptive Cruise Control",
+        "Electric Tailgate",
+        "Full LED Headlights",
+        "Lane Keep Assist",
+        "Blind Spot Monitoring"
+      ],
+      "luxury": [
+        "Premium Surround Sound System",
+        "Panoramic Sunroof",
+        "Electric & Massage Seats",
+        "Level 2+ Autonomous Driving",
+        "Adaptive Air Suspension"
+      ],
+      "commercial": [
+        "Extended Load Capacity",
+        "Fleet Management System",
+        "Reinforced Load Floor",
+        "180° Door Opening",
+        "DC Fast Charging"
+      ],
+      "default": [
+        "Digital Air Conditioning",
+        "One-Touch Power Windows",
+        "Power Steering",
+        "ABS with EBD",
+        "6 Airbags"
+      ]
     }
   },
   "comparison": {
@@ -77,11 +107,31 @@
     "emptySlot": "Empty Slot",
     "footer": "Comparison based on PBEV 2025 data.",
     "featureList": {
-      "compact": ["HD Infotainment", "Rear Camera", "Parking Sensors"],
-      "suv": ["Adaptive Cruise", "Electric Tailgate", "LED Headlights"],
-      "luxury": ["Surround Sound", "Panoramic Roof", "Autonomous Driving"],
-      "commercial": ["Extended Load", "Fleet Management", "Reinforced Floor"],
-      "default": ["Digital A/C", "One-Touch Windows", "Power Steering"]
+      "compact": [
+        "HD Infotainment",
+        "Rear Camera",
+        "Parking Sensors"
+      ],
+      "suv": [
+        "Adaptive Cruise",
+        "Electric Tailgate",
+        "LED Headlights"
+      ],
+      "luxury": [
+        "Surround Sound",
+        "Panoramic Roof",
+        "Autonomous Driving"
+      ],
+      "commercial": [
+        "Extended Load",
+        "Fleet Management",
+        "Reinforced Floor"
+      ],
+      "default": [
+        "Digital A/C",
+        "One-Touch Windows",
+        "Power Steering"
+      ]
     }
   },
   "chat": {
@@ -140,5 +190,27 @@
     "tooShort": "Message is too short.",
     "tooLong": "Message cannot exceed {{max}} characters.",
     "notAllowed": "Message not allowed."
+  },
+  "addVehicle": {
+    "title": "Add New Vehicle",
+    "subtitle": "Enter the electric model data for simulation in the catalog.",
+    "model": "Model",
+    "brand": "Brand",
+    "price": "Price (R$)",
+    "range": "PBEV Range (km)",
+    "category": "Category",
+    "imageUrl": "Image URL (Optional)",
+    "optionalInfo": "Technical Info (Optional)",
+    "power": "Power (cv)",
+    "torque": "Torque (kgfm)",
+    "cancel": "Cancel",
+    "submit": "Add Vehicle",
+    "required": "Required field",
+    "invalidNumber": "Invalid value",
+    "successTitle": "Vehicle successfully added!",
+    "successMessage": "The vehicle was included in your current session and is now available in the catalog.",
+    "viewInCatalog": "View in Catalog",
+    "addAnother": "Add Another",
+    "headerBtn": "Add"
   }
 }

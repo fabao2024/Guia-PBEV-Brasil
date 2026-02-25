@@ -56,11 +56,41 @@
     "addFavorite": "Favoritar",
     "interested": "Tenho Interesse",
     "features": {
-      "compact": ["Central Multimídia HD", "Câmera de Ré", "Integração Smartphone", "Sensor de Estacionamento", "Frenagem de Emergência Urbana"],
-      "suv": ["Piloto Automático Adaptativo", "Porta-malas Elétrico", "Faróis Full LED", "Assistente de Permanência em Faixa", "Monitoramento de Ponto Cego"],
-      "luxury": ["Sistema de Som Premium Surround", "Teto Solar Panorâmico", "Bancos com Ajuste Elétrico e Massagem", "Direção Autônoma Nível 2+", "Suspensão a Ar Adaptativa"],
-      "commercial": ["Capacidade de Carga Ampliada", "Sistema de Gestão de Frota", "Piso de Carga Reforçado", "Abertura de Portas 180°", "Carregamento Rápido DC"],
-      "default": ["Ar Condicionado Digital", "Vidros Elétricos One-Touch", "Direção Assistida", "Freios ABS com EBD", "6 Airbags"]
+      "compact": [
+        "Central Multimídia HD",
+        "Câmera de Ré",
+        "Integração Smartphone",
+        "Sensor de Estacionamento",
+        "Frenagem de Emergência Urbana"
+      ],
+      "suv": [
+        "Piloto Automático Adaptativo",
+        "Porta-malas Elétrico",
+        "Faróis Full LED",
+        "Assistente de Permanência em Faixa",
+        "Monitoramento de Ponto Cego"
+      ],
+      "luxury": [
+        "Sistema de Som Premium Surround",
+        "Teto Solar Panorâmico",
+        "Bancos com Ajuste Elétrico e Massagem",
+        "Direção Autônoma Nível 2+",
+        "Suspensão a Ar Adaptativa"
+      ],
+      "commercial": [
+        "Capacidade de Carga Ampliada",
+        "Sistema de Gestão de Frota",
+        "Piso de Carga Reforçado",
+        "Abertura de Portas 180°",
+        "Carregamento Rápido DC"
+      ],
+      "default": [
+        "Ar Condicionado Digital",
+        "Vidros Elétricos One-Touch",
+        "Direção Assistida",
+        "Freios ABS com EBD",
+        "6 Airbags"
+      ]
     }
   },
   "comparison": {
@@ -77,11 +107,31 @@
     "emptySlot": "Espaço Vazio",
     "footer": "Comparativo gerado com base nos dados PBEV 2025.",
     "featureList": {
-      "compact": ["Multimídia HD", "Câmera Ré", "Sensor Estac."],
-      "suv": ["Piloto Adaptativo", "Porta-malas Elét.", "Faróis LED"],
-      "luxury": ["Som Surround", "Teto Panorâmico", "Direção Autônoma"],
-      "commercial": ["Carga Ampliada", "Gestão Frota", "Piso Reforçado"],
-      "default": ["Ar Digital", "Vidros One-Touch", "Direção Assistida"]
+      "compact": [
+        "Multimídia HD",
+        "Câmera Ré",
+        "Sensor Estac."
+      ],
+      "suv": [
+        "Piloto Adaptativo",
+        "Porta-malas Elét.",
+        "Faróis LED"
+      ],
+      "luxury": [
+        "Som Surround",
+        "Teto Panorâmico",
+        "Direção Autônoma"
+      ],
+      "commercial": [
+        "Carga Ampliada",
+        "Gestão Frota",
+        "Piso Reforçado"
+      ],
+      "default": [
+        "Ar Digital",
+        "Vidros One-Touch",
+        "Direção Assistida"
+      ]
     }
   },
   "chat": {
@@ -140,5 +190,27 @@
     "tooShort": "A mensagem é muito curta.",
     "tooLong": "A mensagem não pode ter mais de {{max}} caracteres.",
     "notAllowed": "Mensagem não permitida."
+  },
+  "addVehicle": {
+    "title": "Adicionar Novo Veículo",
+    "subtitle": "Insira os dados do modelo elétrico para simulação no catálogo.",
+    "model": "Modelo",
+    "brand": "Marca",
+    "price": "Preço (R$)",
+    "range": "Autonomia PBEV (km)",
+    "category": "Categoria",
+    "imageUrl": "URL da Imagem (Opcional)",
+    "optionalInfo": "Informação Técnica (Opcional)",
+    "power": "Potência (cv)",
+    "torque": "Torque (kgfm)",
+    "cancel": "Cancelar",
+    "submit": "Adicionar Veículo",
+    "required": "Campo obrigatório",
+    "invalidNumber": "Valor inválido",
+    "successTitle": "Veículo adicionado com sucesso!",
+    "successMessage": "O veículo foi incluído na sua sessão atual e já está disponível no catálogo.",
+    "viewInCatalog": "Ver no Catálogo",
+    "addAnother": "Adicionar Outro",
+    "headerBtn": "Adicionar"
   }
 }
