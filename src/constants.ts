@@ -140,12 +140,12 @@ export const CAR_DB: Car[] = [
   { model: "Neta X 500", brand: "Neta", price: 214900, range: 317, cat: "SUV", img: "/car-images/neta-x.jpg", power: 163, torque: 21.4, traction: 'FWD' },
   { model: "E-JS4", brand: "JAC", price: 254900, range: 307, cat: "SUV", img: "/car-images/e-js4.png", power: 150, torque: 34.7, traction: 'FWD' },
   { model: "Ariya", brand: "Nissan", price: 350000, range: 400, cat: "SUV", img: "/car-images/ariya.jpg", power: 242, torque: 30.6, traction: 'AWD' },
-  { model: "Zeekr X", brand: "Zeekr", price: 272000, range: 332, cat: "SUV", img: "/car-images/zeekr-x.jpg", power: 272, torque: 39, traction: 'AWD' },
+  { model: "Zeekr X", brand: "Zeekr", price: 272000, range: 332, cat: "SUV", img: "/car-images/zeekr-x.webp", power: 272, torque: 39, traction: 'AWD' },
   { model: "iX3", brand: "BMW", price: 500950, range: 381, cat: "Luxo", img: "/car-images/ix3.jpg", power: 286, torque: 40.8, traction: 'RWD' },
 
   // 3. LUXO & PERFORMANCE
   { model: "Seal AWD", brand: "BYD", price: 249990, range: 372, cat: "Sedan", img: "/car-images/seal.jpg", power: 531, torque: 60.2, traction: 'AWD' },
-  { model: "001 Premium", brand: "Zeekr", price: 428000, range: 426, cat: "Luxo", img: "/car-images/zeekr-001.jpg", power: 544, torque: 70, traction: 'AWD' },
+  { model: "001 Premium", brand: "Zeekr", price: 428000, range: 426, cat: "Luxo", img: "/car-images/zeekr-001.webp", power: 544, torque: 70, traction: 'AWD' },
   { model: "i4 eDrive35", brand: "BMW", price: 449950, range: 422, cat: "Luxo", img: "/car-images/i4.jpg", power: 286, torque: 40.8, traction: 'RWD' },
   { model: "Mustang Mach-E", brand: "Ford", price: 486000, range: 379, cat: "Luxo", img: "/car-images/mach-e.jpg", power: 487, torque: 87.7, traction: 'AWD' },
   { model: "Blazer EV RS", brand: "Chevrolet", price: 489000, range: 483, cat: "Luxo", img: "/car-images/blazer-ev.jpg", power: 347, torque: 44.9, traction: 'RWD' },
