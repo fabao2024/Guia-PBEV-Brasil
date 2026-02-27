@@ -38,7 +38,12 @@
     "unavailable": "Unavailable",
     "estimatedPrice": "Estimated Price",
     "rangeLabel": "Range",
-    "categoryLabel": "Category"
+    "categoryLabel": "Category",
+    "buyBtn": "I want this car",
+    "batteryInfo": "Battery (kWh)",
+    "speedInfo": "Top Speed",
+    "accelInfo": "0-100 km/h",
+    "traction": "Drivetrain"
   },
   "details": {
     "imageUnavailable": "Image+Unavailable",
@@ -212,5 +217,35 @@
     "viewInCatalog": "View in Catalog",
     "addAnother": "Add Another",
     "headerBtn": "Add"
+  },
+  "simulator": {
+    "title": "Annual Savings Simulator",
+    "titlePBEV": "PBEV 2025",
+    "settingsTitle": "Advanced Settings",
+    "settingsDesc": "Adjust the price you pay per kWh on your electricity bill or at charging stations for a more accurate calculation.",
+    "monthlyKms": "Kms Driven per Month",
+    "gasPrice": "Gasoline Price",
+    "kwhPrice": "Energy Price",
+    "bestSavings": "Best\nSavings",
+    "selectVehicle": "Select Vehicle",
+    "selectAVehicle": "Select a vehicle",
+    "save": "Save",
+    "perYear": "/year",
+    "energyCost": "Energy Cost (Month):",
+    "fuelCost": "Fuel Cost:",
+    "costPerKm": "Cost per km:",
+    "efficiency": "Efficiency:",
+    "headerBtn": "Simulator",
+    "disclaimer": "*Values calculated based on PBEV 2025 categories."
+  },
+  "advancedFilters": {
+    "title": "Advanced Filters PBEV 2025",
+    "clearFilters": "Clear Filters",
+    "brand": "Brand",
+    "priceRange": "Price Range",
+    "rangePBEV": "PBEV Range",
+    "tractionType": "Traction Type",
+    "category": "Category",
+    "seeResults": "See {{count}} Results"
   }
 }

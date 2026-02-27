@@ -13,11 +13,11 @@ export default function LanguageToggle() {
   return (
     <button
       onClick={toggle}
-      className="flex items-center gap-1.5 px-3 py-2 rounded-lg border border-slate-200 bg-white text-slate-500 hover:border-blue-300 hover:text-blue-600 transition-all"
+      className="flex items-center gap-2 px-4 py-2 rounded-xl border border-white/10 bg-black/50 backdrop-blur-md text-[#a0a0a0] hover:border-[#00b4ff]/50 hover:text-[#00b4ff] hover:bg-black/80 transition-all font-black uppercase tracking-widest shadow-[0_0_10px_rgba(0,0,0,0.5)]"
       title={isEn ? 'Mudar para Português' : 'Switch to English'}
     >
       <Globe className="w-4 h-4" />
-      <span className="text-xs font-bold uppercase tracking-wide">
+      <span className="text-[10px]">
         {isEn ? 'EN' : 'PT'}
       </span>
     </button>

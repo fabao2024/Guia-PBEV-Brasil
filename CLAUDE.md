@@ -32,7 +32,9 @@ src/
 │   ├── ChatWidget.tsx   # AI chatbot + API key setup screen
 │   ├── ComparisonModal.tsx  # Side-by-side comparison (max 3)
 │   ├── LanguageToggle.tsx   # PT/EN toggle button
-│   └── Sidebar.tsx      # Filters: price, range, category, brand
+│   ├── Sidebar.tsx      # Filters: price, range, category, brand
+│   ├── AdvancedFiltersModal.tsx # Full-screen filter panel (brand, price, range, traction, category)
+│   └── SavingsSimulatorModal.tsx # Annual savings calculator vs. gasoline (default export — unlike others)
 ├── hooks/
 │   ├── useCarFilter.ts  # Filter state (price, range, categories, brands)
 │   ├── useCompare.ts    # Comparison list (max 3 cars)
@@ -55,7 +57,7 @@ src/
 
 ### i18n
 - All user-facing strings use `t('namespace.key')` from `useTranslation()`
-- Translation keys organized by component: `header.*`, `sidebar.*`, `card.*`, `details.*`, `chat.*`, `comparison.*`, `empty.*`, `footer.*`
+- Translation keys organized by component: `header.*`, `sidebar.*`, `card.*`, `details.*`, `chat.*`, `comparison.*`, `empty.*`, `footer.*`, `simulator.*`, `advancedFilters.*`
 - Arrays (feature lists) use `t('key', { returnObjects: true }) as string[]`
 - Category translation: `t(\`categories.${car.cat}\`)` — maps data values (Compacto, SUV, Luxo, Comercial) to display labels
 - Language saved to `localStorage('lang')`, defaults to `pt-BR`
@@ -81,7 +83,8 @@ src/
 - react-markdown for safe rendering of AI responses
 
 ### Data
-- `CAR_DB` in `constants.ts`: array of `Car` objects with model, brand, price, range, cat, img, power?, torque?
+- `CAR_DB` in `constants.ts`: array of `Car` objects with model, brand, price, range, cat, img, power?, torque?, traction?
+- `traction` values: `'FWD' | 'RWD' | 'AWD'` (optional; bulk-assigned via one-off `add_traction.js` script)
 - `BRAND_URLS`: maps brand names to official Brazilian websites
 - Categories: `Compacto`, `SUV`, `Sedan`, `Luxo`, `Comercial`
 - Prices in BRL (R$), range in km (PBEV/Inmetro certified)
@@ -107,3 +110,7 @@ VITE_GEMINI_API_KEY=your_key   # Optional on GitHub Pages (users provide their o
 - GitHub Pages base path: always use `import.meta.env.BASE_URL` for asset URLs
 - `car.cat` stores Portuguese category names — always translate with `t(\`categories.${car.cat}\`)`
 - `.env.local` is gitignored (pattern `*.local`) — rename to `.env.local.bak` to test the API key setup screen locally
+- Brand/accent color is `#00b4ff` (neon cyan, RGB `0,180,255`) — use for interactive highlights and hover states
+- Use `.custom-scrollbar-dark` class on scrollable containers for consistent dark-mode scrollbars
+- `SavingsSimulatorModal` uses `export default` — all other components use named exports
+- One-off Node.js scripts at project root (`add_traction.js`, `replace.js`) used for bulk data edits; safe to delete after use

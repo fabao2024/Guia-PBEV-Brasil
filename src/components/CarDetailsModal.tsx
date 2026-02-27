@@ -1,9 +1,8 @@
-
-import React, { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Car } from '../types';
 import { BRAND_URLS } from '../constants';
-import { X, Map, Car as CarIcon, Battery, Zap, CheckCircle2, DollarSign, ChevronLeft, ChevronRight, Image as ImageIcon, Scale, Check, Loader2, Heart, Gauge, Activity } from 'lucide-react';
+import { X, BatteryCharging, Zap, CheckCircle2, ChevronLeft, ChevronRight, Image as ImageIcon, Scale, Check, Heart, ArrowUpRight } from 'lucide-react';
 
 interface CarDetailsModalProps {
     car: Car;
@@ -14,54 +13,55 @@ interface CarDetailsModalProps {
     onToggleFavorite: () => void;
 }
 
+const MAX_RANGE_KM = 700;
+
+const CAT_ACCENT: Record<string, { color: string; bg: string }> = {
+    Luxo:      { color: '#f5c842', bg: 'rgba(245,200,66,0.07)'  },
+    SUV:       { color: '#ff8c52', bg: 'rgba(255,107,43,0.07)'  },
+    Compacto:  { color: '#00b4ff', bg: 'rgba(0,180,255,0.07)'   },
+    Sedan:     { color: '#b87aff', bg: 'rgba(157,78,255,0.07)'  },
+    Comercial: { color: '#8899aa', bg: 'rgba(136,153,170,0.07)' },
+};
+
+const TRACTION_STYLE: Record<string, { color: string; bg: string }> = {
+    AWD: { color: '#00e5a0', bg: 'rgba(0,229,160,0.09)'   },
+    RWD: { color: '#ff7070', bg: 'rgba(255,112,112,0.09)' },
+    FWD: { color: '#60c8ff', bg: 'rgba(96,200,255,0.09)'  },
+};
+
 export default function CarDetailsModal({ car, onClose, isSelectedForCompare, onToggleCompare, isFavorite, onToggleFavorite }: CarDetailsModalProps) {
     const { t } = useTranslation();
 
     const gallery = [
         car.img.startsWith('/car-images/')
             ? `${import.meta.env.BASE_URL}${car.img.substring(1)}`
-            : car.img
+            : car.img.includes('wikimedia.org')
+                ? car.img
+                : `https://images.weserv.nl/?url=${encodeURIComponent(car.img.replace(/^https?:\/\//, ''))}&w=800&q=80&output=webp`,
     ];
 
     const [currentIdx, setCurrentIdx] = useState(0);
     const [isImgLoading, setIsImgLoading] = useState(true);
     const [failedImages, setFailedImages] = useState<Set<number>>(new Set());
-    const fallbackImg = `https://placehold.co/600x400/e2e8f0/94a3b8?text=${t('details.imageUnavailable')}`;
+    const fallbackImg = `https://placehold.co/600x400/09090e/1c1e26?text=${t('details.imageUnavailable')}`;
 
-    const nextImage = useCallback(() => {
-        setCurrentIdx((prev) => (prev + 1) % gallery.length);
-    }, [gallery.length]);
+    const nextImage = useCallback(() => setCurrentIdx(p => (p + 1) % gallery.length), [gallery.length]);
+    const prevImage = useCallback(() => setCurrentIdx(p => (p - 1 + gallery.length) % gallery.length), [gallery.length]);
 
-    const prevImage = useCallback(() => {
-        setCurrentIdx((prev) => (prev - 1 + gallery.length) % gallery.length);
-    }, [gallery.length]);
-
-    // Reset loading state whenever image index changes
-    useEffect(() => {
-        setIsImgLoading(true);
-    }, [currentIdx]);
+    useEffect(() => { setIsImgLoading(true); }, [currentIdx]);
 
     useEffect(() => {
-        const handleKeyDown = (e: KeyboardEvent) => {
+        const handle = (e: KeyboardEvent) => {
             if (e.key === 'Escape') onClose();
             if (e.key === 'ArrowRight') nextImage();
             if (e.key === 'ArrowLeft') prevImage();
         };
-        window.addEventListener('keydown', handleKeyDown);
-        return () => window.removeEventListener('keydown', handleKeyDown);
+        window.addEventListener('keydown', handle);
+        return () => window.removeEventListener('keydown', handle);
     }, [onClose, nextImage, prevImage]);
 
-    const handleImageError = (index: number) => {
-        // If error, we switch to fallback. We keep loading true until fallback loads.
-        setFailedImages(prev => {
-            const newSet = new Set(prev);
-            newSet.add(index);
-            return newSet;
-        });
-    };
-
-    const handleImageLoad = () => {
-        setIsImgLoading(false);
+    const handleImageError = (idx: number) => {
+        setFailedImages(prev => { const s = new Set(prev); s.add(idx); return s; });
     };
 
     const getFeatures = (cat: string): string[] => {
@@ -71,199 +71,321 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
 
     const features = getFeatures(car.cat);
     const activeImageSrc = failedImages.has(currentIdx) ? fallbackImg : gallery[currentIdx];
+    const brandUrl = BRAND_URLS[car.brand] || `https://www.google.com/search?q=${encodeURIComponent(car.brand + ' ' + car.model + ' comprar')}`;
 
-    const getImageLabel = (idx: number) => {
-        return t('details.exteriorMain');
-    };
-
-    const brandUrl = BRAND_URLS[car.brand] || `https://www.google.com/search?q=${encodeURIComponent(car.brand + " " + car.model + " comprar")}`;
+    const accent = CAT_ACCENT[car.cat] ?? CAT_ACCENT['Compacto'];
+    const tractionStyle = car.traction ? TRACTION_STYLE[car.traction] : null;
+    const estimatedPower = car.power ?? Math.round(car.price / 3000);
+    const rangePercent = Math.min(Math.round((car.range / MAX_RANGE_KM) * 100), 100);
 
     return (
         <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6">
-            <div
-                className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity"
-                onClick={onClose}
-            />
-            <div className="bg-white w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl relative z-10 animate-in fade-in zoom-in-95 duration-200 flex flex-col md:flex-row overflow-hidden ring-1 ring-slate-900/5">
+            <div className="absolute inset-0 bg-black/80 backdrop-blur-md" onClick={onClose} />
 
-                {/* Close Button */}
+            <div
+                className="w-full max-w-5xl max-h-[90vh] relative z-10 flex flex-col md:flex-row overflow-hidden rounded-3xl"
+                style={{
+                    background: '#08090e',
+                    border: `1px solid ${accent.color}22`,
+                    boxShadow: `0 0 60px ${accent.color}18, 0 32px 80px rgba(0,0,0,0.85)`,
+                }}
+            >
+                {/* Close */}
                 <button
                     onClick={onClose}
-                    className="absolute top-4 right-4 z-20 bg-black/20 hover:bg-black/40 backdrop-blur-md text-white md:text-slate-500 md:bg-white md:hover:bg-slate-100 md:shadow-sm p-2 rounded-full transition-all"
+                    className="absolute top-4 right-4 z-30 p-2 rounded-full transition-all backdrop-blur-sm hover:brightness-125"
+                    style={{ background: 'rgba(0,0,0,0.5)', border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.6)' }}
                 >
-                    <X className="w-6 h-6" />
+                    <X className="w-5 h-5" />
                 </button>
 
-                {/* Carousel / Image Section */}
-                <div className="w-full md:w-1/2 bg-slate-100 relative min-h-[300px] md:min-h-full group select-none flex flex-col justify-center bg-zinc-900">
+                {/* ── LEFT: IMAGE PANEL ── */}
+                <div
+                    className="w-full md:w-1/2 relative select-none flex flex-col justify-center"
+                    style={{
+                        minHeight: 300,
+                        background: `linear-gradient(165deg, ${accent.bg} 0%, #09090e 35%)`,
+                        borderRight: '1px solid rgba(255,255,255,0.05)',
+                    }}
+                >
+                    {/* Category accent strip on left edge */}
+                    <div
+                        className="absolute left-0 top-0 bottom-0 w-[2px] z-10 pointer-events-none"
+                        style={{ background: `linear-gradient(to bottom, ${accent.color}, ${accent.color}00 60%)` }}
+                    />
 
-                    {/* Main Image */}
-                    <div className="absolute inset-0 w-full h-full flex items-center justify-center">
+                    {/* Ambient glows */}
+                    <div
+                        className="absolute inset-0 pointer-events-none"
+                        style={{ background: `radial-gradient(ellipse 65% 65% at 50% 100%, ${accent.color}1e, transparent)` }}
+                    />
+                    <div
+                        className="absolute inset-0 pointer-events-none opacity-20"
+                        style={{ background: `radial-gradient(ellipse 50% 50% at 50% 0%, ${accent.color}18, transparent)` }}
+                    />
 
-                        {/* Loading Spinner / Placeholder */}
-                        {isImgLoading && (
-                            <div className="absolute inset-0 bg-zinc-800 animate-pulse flex items-center justify-center z-0">
-                                <Loader2 className="w-10 h-10 text-zinc-600 animate-spin" />
-                            </div>
-                        )}
+                    {/* Loading */}
+                    {isImgLoading && (
+                        <div className="absolute inset-0 flex items-center justify-center z-0">
+                            <div
+                                className="w-10 h-10 rounded-full border-2 animate-spin"
+                                style={{ borderColor: `${accent.color}25`, borderTopColor: `${accent.color}90` }}
+                            />
+                        </div>
+                    )}
 
+                    {/* Image */}
+                    <div className="relative z-10 w-full flex items-center justify-center px-8 py-10">
                         <img
-                            key={activeImageSrc} // Remount if source changes (e.g. to fallback) to re-trigger load events cleanly
+                            key={activeImageSrc}
                             src={activeImageSrc}
                             alt={`${car.model} view ${currentIdx + 1}`}
                             loading="lazy"
                             referrerPolicy="no-referrer"
-                            onLoad={handleImageLoad}
+                            onLoad={() => setIsImgLoading(false)}
                             onError={() => handleImageError(currentIdx)}
-                            className={`w-full h-full object-cover transition-opacity duration-500 ${isImgLoading ? 'opacity-0' : 'opacity-100'}`}
+                            className={`w-full max-w-lg object-contain drop-shadow-2xl transition-opacity duration-500 ${isImgLoading ? 'opacity-0' : 'opacity-100'}`}
                         />
-
-                        {/* Gradient Overlays */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
                     </div>
 
-                    {/* Navigation Controls */}
+                    {/* Fade to bg at bottom */}
+                    <div
+                        className="absolute inset-x-0 bottom-0 h-16 pointer-events-none z-20"
+                        style={{ background: 'linear-gradient(to bottom, transparent, #08090e)' }}
+                    />
+
+                    {/* Gallery nav */}
                     {gallery.length > 1 && (
                         <>
                             <button
-                                onClick={(e) => { e.stopPropagation(); prevImage(); }}
-                                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/30 backdrop-blur-md text-white p-3 rounded-full transition-all hover:scale-110 border border-white/20"
+                                onClick={e => { e.stopPropagation(); prevImage(); }}
+                                className="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full backdrop-blur-sm transition-all hover:scale-110"
+                                style={{ background: 'rgba(0,0,0,0.45)', border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.6)' }}
                             >
                                 <ChevronLeft className="w-6 h-6" />
                             </button>
                             <button
-                                onClick={(e) => { e.stopPropagation(); nextImage(); }}
-                                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/30 backdrop-blur-md text-white p-3 rounded-full transition-all hover:scale-110 border border-white/20"
+                                onClick={e => { e.stopPropagation(); nextImage(); }}
+                                className="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full backdrop-blur-sm transition-all hover:scale-110"
+                                style={{ background: 'rgba(0,0,0,0.45)', border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.6)' }}
                             >
                                 <ChevronRight className="w-6 h-6" />
                             </button>
-
-                            {/* Dots Indicator */}
-                            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-30">
                                 {gallery.map((_, idx) => (
                                     <button
                                         key={idx}
-                                        onClick={(e) => { e.stopPropagation(); setCurrentIdx(idx); }}
-                                        className={`h-1.5 rounded-full transition-all shadow-sm ${idx === currentIdx
-                                            ? 'bg-white w-8'
-                                            : 'bg-white/40 hover:bg-white/70 w-2'
-                                            }`}
+                                        onClick={e => { e.stopPropagation(); setCurrentIdx(idx); }}
+                                        className="h-1.5 rounded-full transition-all"
+                                        style={{
+                                            width: idx === currentIdx ? 32 : 8,
+                                            background: idx === currentIdx ? accent.color : 'rgba(255,255,255,0.3)',
+                                        }}
                                     />
                                 ))}
                             </div>
                         </>
                     )}
 
-                    {/* Mobile Title Overlay */}
-                    <div className="absolute bottom-8 left-6 text-white md:hidden pointer-events-none z-10">
-                        <p className="text-sm font-bold uppercase tracking-wider opacity-80 mb-1">{car.brand}</p>
-                        <h2 className="text-3xl font-extrabold shadow-black drop-shadow-md">{car.model}</h2>
-                    </div>
-
-                    {/* Image Counter Badge */}
                     {gallery.length > 1 && (
-                        <div className="absolute top-4 left-4 bg-black/40 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-2 pointer-events-none border border-white/10">
+                        <div
+                            className="absolute top-4 left-6 z-30 flex items-center gap-2 text-xs font-bold px-3 py-1.5 rounded-full pointer-events-none"
+                            style={{ background: 'rgba(0,0,0,0.4)', border: `1px solid ${accent.color}25`, color: accent.color }}
+                        >
                             <ImageIcon className="w-3.5 h-3.5" />
-                            <span>{getImageLabel(currentIdx)}</span>
-                            <span className="opacity-50">|</span>
-                            <span>{currentIdx + 1}/{gallery.length}</span>
+                            <span>{t('details.exteriorMain')}</span>
+                            <span style={{ color: 'rgba(255,255,255,0.3)' }}>|</span>
+                            <span className="text-white">{currentIdx + 1}/{gallery.length}</span>
                         </div>
                     )}
                 </div>
 
-                {/* Details Section */}
-                <div className="w-full md:w-1/2 p-6 md:p-10 bg-white flex flex-col">
-                    <div className="hidden md:block mb-6">
-                        <div className="flex items-center gap-3 mb-2">
-                            <span className="px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-600 text-[10px] font-bold uppercase tracking-wide border border-slate-200">{t(`categories.${car.cat}`)}</span>
-                            <span className="text-sm font-bold text-blue-600 uppercase tracking-wider">{car.brand}</span>
-                            {isFavorite && (
-                                <span className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide bg-red-50 text-red-500 border border-red-100 px-2.5 py-0.5 rounded-md">
-                                    <Heart className="w-3 h-3 fill-current" /> {t('details.favorite')}
-                                </span>
-                            )}
-                        </div>
-                        <h2 className="text-4xl font-black text-slate-900 tracking-tight leading-tight">{car.model}</h2>
+                {/* ── RIGHT: DETAILS PANEL ── */}
+                <div className="w-full md:w-1/2 flex flex-col p-6 md:p-8 overflow-y-auto custom-scrollbar-dark">
+
+                    {/* Category + brand + favorite badge */}
+                    <div className="flex items-center gap-2 mb-2 flex-wrap">
+                        <span
+                            className="text-[9px] px-2.5 py-1 rounded-full font-bold uppercase tracking-widest"
+                            style={{ background: accent.bg, color: accent.color, border: `1px solid ${accent.color}28` }}
+                        >
+                            {t(`categories.${car.cat}`)}
+                        </span>
+                        <span className="text-xs font-bold uppercase tracking-widest" style={{ color: accent.color }}>
+                            {car.brand}
+                        </span>
+                        {isFavorite && (
+                            <span
+                                className="flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
+                                style={{ background: 'rgba(239,68,68,0.1)', color: '#ef4444', border: '1px solid rgba(239,68,68,0.25)' }}
+                            >
+                                <Heart className="w-3 h-3 fill-current" /> {t('details.favorite')}
+                            </span>
+                        )}
                     </div>
 
-                    {/* Key Specs Grid */}
-                    <div className="grid grid-cols-2 gap-4 mb-8">
-                        <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100">
-                            <p className="text-xs font-bold text-slate-400 uppercase tracking-wide mb-2 flex items-center gap-1.5">
-                                <DollarSign className="w-3.5 h-3.5" /> {t('details.estimatedPrice')}
-                            </p>
-                            <p className="text-2xl font-bold text-blue-600">
-                                {car.price >= 1000000 ? `R$ ${(car.price / 1000000).toFixed(1)} mi` : `R$ ${(car.price / 1000).toFixed(0)}k`}
-                            </p>
+                    {/* Model name */}
+                    <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight leading-none mb-5">
+                        {car.model}
+                    </h2>
+
+                    {/* Divider */}
+                    <div className="h-px w-full mb-5" style={{ background: 'rgba(255,255,255,0.06)' }} />
+
+                    {/* Range bar */}
+                    <div className="mb-5">
+                        <div className="flex items-center justify-between mb-2">
+                            <span
+                                className="text-[9px] uppercase tracking-widest font-medium flex items-center gap-1.5"
+                                style={{ color: 'rgba(255,255,255,0.3)' }}
+                            >
+                                <BatteryCharging className="w-3.5 h-3.5" />
+                                {t('card.rangeLabel', 'Autonomia')} PBEV
+                            </span>
+                            <span className="text-lg font-black text-white leading-none">
+                                {car.range}
+                                <span className="text-xs font-normal ml-1" style={{ color: 'rgba(255,255,255,0.35)' }}>km</span>
+                            </span>
                         </div>
-                        <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100">
-                            <p className="text-xs font-bold text-slate-400 uppercase tracking-wide mb-2 flex items-center gap-1.5">
-                                <Map className="w-3.5 h-3.5" /> {t('details.rangePBEV')}
-                            </p>
-                            <p className="text-2xl font-bold text-slate-800">{car.range} km</p>
+                        <div className="w-full h-1 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
+                            <div
+                                className="h-full rounded-full"
+                                style={{ width: `${rangePercent}%`, background: `linear-gradient(90deg, ${accent.color}55, ${accent.color})` }}
+                            />
                         </div>
-                        <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100">
-                            <p className="text-xs font-bold text-slate-400 uppercase tracking-wide mb-2 flex items-center gap-1.5">
-                                <Zap className="w-3.5 h-3.5" /> {t('details.power')}
-                            </p>
-                            <p className="text-2xl font-bold text-slate-800">
-                                {car.power ? `${car.power} cv` : t('details.notAvailable')}
-                            </p>
+                    </div>
+
+                    {/* Power + Traction + Torque chips */}
+                    <div className="flex gap-3 mb-5">
+                        <div
+                            className={`${tractionStyle || car.torque ? 'flex-1' : 'w-full'} rounded-xl px-4 py-3`}
+                            style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
+                        >
+                            <div className="text-[9px] uppercase tracking-widest mb-1" style={{ color: 'rgba(255,255,255,0.28)' }}>
+                                {t('details.power', 'Potência')}
+                            </div>
+                            <div className="text-xl font-black text-white leading-none">
+                                {estimatedPower}
+                                <span className="text-sm font-normal ml-1" style={{ color: 'rgba(255,255,255,0.35)' }}>cv</span>
+                            </div>
                         </div>
-                        <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100">
-                            <p className="text-xs font-bold text-slate-400 uppercase tracking-wide mb-2 flex items-center gap-1.5">
-                                <Activity className="w-3.5 h-3.5" /> {t('details.torque')}
-                            </p>
-                            <p className="text-2xl font-bold text-slate-800">
-                                {car.torque ? `${car.torque} kgfm` : t('details.notAvailable')}
-                            </p>
-                        </div>        </div>
-                    {/* Features */}
-                    <div className="mb-8 flex-1">
-                        <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2 text-sm uppercase tracking-wide">
-                            <Zap className="w-4 h-4 text-amber-500 fill-amber-500" /> {t('details.segmentHighlights')}
+                        {tractionStyle && (
+                            <div
+                                className="rounded-xl px-4 py-3"
+                                style={{ background: tractionStyle.bg, border: `1px solid ${tractionStyle.color}22` }}
+                            >
+                                <div className="text-[9px] uppercase tracking-widest mb-1" style={{ color: `${tractionStyle.color}65` }}>
+                                    {t('card.traction', 'Tração')}
+                                </div>
+                                <div className="text-xl font-black leading-none" style={{ color: tractionStyle.color }}>
+                                    {car.traction}
+                                </div>
+                            </div>
+                        )}
+                        {car.torque && (
+                            <div
+                                className="rounded-xl px-4 py-3"
+                                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
+                            >
+                                <div className="text-[9px] uppercase tracking-widest mb-1" style={{ color: 'rgba(255,255,255,0.28)' }}>
+                                    {t('details.torque', 'Torque')}
+                                </div>
+                                <div className="text-xl font-black text-white leading-none">
+                                    {car.torque}
+                                    <span className="text-sm font-normal ml-1" style={{ color: 'rgba(255,255,255,0.35)' }}>kgfm</span>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Divider */}
+                    <div className="h-px w-full mb-5" style={{ background: 'rgba(255,255,255,0.06)' }} />
+
+                    {/* Features list */}
+                    <div className="flex-1 mb-6">
+                        <h3
+                            className="text-[9px] font-bold uppercase tracking-widest mb-4 flex items-center gap-2"
+                            style={{ color: accent.color }}
+                        >
+                            <Zap className="w-3.5 h-3.5" />
+                            {t('details.segmentHighlights')}
                         </h3>
-                        <ul className="space-y-3">
+                        <ul className="space-y-2">
                             {features.map((feature, idx) => (
-                                <li key={idx} className="flex items-start gap-3 text-sm text-slate-600">
-                                    <CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
-                                    <span className="leading-snug">{feature}</span>
+                                <li
+                                    key={idx}
+                                    className="flex items-start gap-3 text-sm text-white/60 py-2.5 px-3 rounded-xl transition-colors hover:text-white/80"
+                                    style={{ background: 'rgba(255,255,255,0.025)', border: '1px solid rgba(255,255,255,0.05)' }}
+                                >
+                                    <CheckCircle2
+                                        className="w-4 h-4 flex-shrink-0 mt-0.5"
+                                        style={{ color: accent.color }}
+                                    />
+                                    <span className="leading-relaxed">{feature}</span>
                                 </li>
                             ))}
                         </ul>
                     </div>
 
-                    {/* CTA & Compare */}
-                    <div className="flex gap-3">
-                        <button
-                            onClick={onToggleCompare}
-                            className={`flex-1 py-4 rounded-xl transition-all font-bold flex items-center justify-center gap-2 border-2 ${isSelectedForCompare
-                                ? 'bg-blue-50 border-blue-600 text-blue-700'
-                                : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300'
-                                }`}
+                    {/* Price + Actions */}
+                    <div className="flex flex-col gap-3 mt-auto">
+                        {/* Price plate */}
+                        <div
+                            className="flex items-center justify-between px-5 py-4 rounded-2xl relative overflow-hidden"
+                            style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${accent.color}25` }}
                         >
-                            {isSelectedForCompare ? <Check className="w-5 h-5" /> : <Scale className="w-5 h-5" />}
-                            {isSelectedForCompare ? t('details.comparing') : t('details.compare')}
-                        </button>
-                        <button
-                            onClick={onToggleFavorite}
-                            className={`w-14 py-4 rounded-xl transition-all font-bold flex items-center justify-center border-2 ${isFavorite
-                                ? 'bg-red-50 border-red-200 text-red-500'
-                                : 'bg-white border-slate-200 text-slate-400 hover:text-red-500 hover:border-red-200'
-                                }`}
-                            title={isFavorite ? t('details.removeFavorite') : t('details.addFavorite')}
-                        >
-                            <Heart className={`w-5 h-5 ${isFavorite ? 'fill-current' : ''}`} />
-                        </button>
-                        <a
-                            href={brandUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex-[2] bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 rounded-xl transition-all shadow-xl shadow-slate-200 active:scale-[0.98] flex items-center justify-center gap-2 group no-underline"
-                        >
-                            {t('details.interested')}
-                            <Zap className="w-4 h-4 text-yellow-400 group-hover:animate-pulse" />
-                        </a>
+                            <div
+                                className="absolute inset-0 pointer-events-none opacity-30"
+                                style={{ background: `radial-gradient(ellipse 60% 80% at 0% 50%, ${accent.color}12, transparent)` }}
+                            />
+                            <span className="text-[9px] font-bold uppercase tracking-widest relative z-10" style={{ color: 'rgba(255,255,255,0.35)' }}>
+                                {t('details.estimatedPrice')}
+                            </span>
+                            <span className="text-2xl font-black tracking-tight relative z-10" style={{ color: '#00b4ff' }}>
+                                R$ {car.price.toLocaleString('pt-BR')}
+                            </span>
+                        </div>
+
+                        {/* Action buttons */}
+                        <div className="flex gap-2.5">
+                            <button
+                                onClick={onToggleCompare}
+                                className="flex-[1.5] py-3.5 rounded-2xl transition-all font-bold uppercase tracking-wider text-[10px] flex items-center justify-center gap-2"
+                                style={isSelectedForCompare
+                                    ? { background: `${accent.color}15`, border: `1px solid ${accent.color}50`, color: accent.color }
+                                    : { background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.6)' }
+                                }
+                            >
+                                {isSelectedForCompare ? <Check className="w-4 h-4" /> : <Scale className="w-4 h-4" />}
+                                {isSelectedForCompare ? t('details.comparing') : t('details.compare')}
+                            </button>
+
+                            <button
+                                onClick={onToggleFavorite}
+                                className="py-3.5 px-4 rounded-2xl transition-all font-bold flex items-center justify-center"
+                                style={isFavorite
+                                    ? { background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.4)', color: '#ef4444' }
+                                    : { background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.5)' }
+                                }
+                                title={isFavorite ? t('details.removeFavorite') : t('details.addFavorite')}
+                            >
+                                <Heart className={`w-5 h-5 ${isFavorite ? 'fill-current' : ''}`} />
+                            </button>
+
+                            <a
+                                href={brandUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex-[2] text-white font-black uppercase tracking-wider text-xs py-3.5 rounded-2xl transition-all hover:brightness-110 active:scale-[0.98] flex items-center justify-center gap-2 no-underline"
+                                style={{
+                                    background: 'linear-gradient(135deg, #006ce5, #00b4ff)',
+                                    boxShadow: '0 4px 16px rgba(0,180,255,0.3)',
+                                }}
+                            >
+                                <span>{t('card.buyBtn')}</span>
+                                <ArrowUpRight className="w-4 h-4" />
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

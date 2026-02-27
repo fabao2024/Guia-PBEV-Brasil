@@ -31,7 +31,7 @@ export default function SuccessModal({ onGoToCatalog, onAddAnother }: SuccessMod
                 <div className="flex flex-col w-full gap-3">
                     <button
                         onClick={onGoToCatalog}
-                        className="w-full bg-[#80ec13] hover:bg-[#6bd60f] text-slate-900 font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-colors shadow-lg shadow-[#80ec13]/30"
+                        className="w-full bg-[#00b4ff] hover:bg-[#6bd60f] text-slate-900 font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-colors shadow-lg shadow-[#00b4ff]/30"
                     >
                         <Car className="w-5 h-5" />
                         {t('addVehicle.viewInCatalog', 'Ver no Catálogo')}

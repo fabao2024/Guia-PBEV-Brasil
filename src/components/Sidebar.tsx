@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { SlidersHorizontal, X } from 'lucide-react';
@@ -25,7 +24,7 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
 
   const handleCategoryChange = (cat: string) => {
     setFilters(prev => {
-      const newCats = prev.categories.includes(cat) 
+      const newCats = prev.categories.includes(cat)
         ? prev.categories.filter(c => c !== cat)
         : [...prev.categories, cat];
       return { ...prev, categories: newCats };
@@ -34,7 +33,7 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
 
   const handleBrandChange = (brand: string) => {
     setFilters(prev => {
-      const newBrands = prev.brands.includes(brand) 
+      const newBrands = prev.brands.includes(brand)
         ? prev.brands.filter(b => b !== brand)
         : [...prev.brands, brand];
       return { ...prev, brands: newBrands };
@@ -51,113 +50,113 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
   };
 
   const formatPrice = (val: number) => {
-    return val >= 1500000 ? "R$ 1.5M+" : `R$ ${(val/1000).toFixed(0)}k`;
+    return val >= 1500000 ? "R$ 1.5M+" : `R$ ${(val / 1000).toFixed(0)}k`;
   };
 
-  const baseClasses = "bg-white border-r border-slate-200 overflow-y-auto p-6 shadow-[4px_0_24px_rgba(0,0,0,0.02)] z-40 transition-transform duration-300 ease-in-out";
-  const responsiveClasses = isOpen 
-    ? "fixed inset-0 w-full md:w-80 translate-x-0" 
+  const baseClasses = "bg-[#0a0b12]/90 backdrop-blur-xl border-r border-[#00b4ff]/10 overflow-y-auto p-6 shadow-[10px_0_30px_rgba(0,0,0,0.5)] z-40 transition-transform duration-300 ease-in-out custom-scrollbar-dark";
+  const responsiveClasses = isOpen
+    ? "fixed inset-0 w-full md:w-80 translate-x-0"
     : "fixed inset-0 w-full md:w-80 -translate-x-full md:relative md:translate-x-0 md:block hidden";
 
   const categories = ["Compacto", "SUV", "Sedan", "Luxo", "Comercial"];
 
   return (
     <aside className={`${baseClasses} ${responsiveClasses}`}>
-      
+
       <div className="flex justify-between items-center mb-8">
-        <h2 className="font-bold text-slate-800 flex items-center gap-2 text-lg">
-          <SlidersHorizontal className="text-blue-600 w-5 h-5" /> {t('sidebar.filters')}
+        <h2 className="font-black text-white flex items-center gap-3 text-lg tracking-wide uppercase">
+          <SlidersHorizontal className="text-[#00b4ff] w-5 h-5 drop-shadow-[0_0_5px_rgba(0,180,255,0.5)]" /> {t('sidebar.filters')}
         </h2>
         <div className="flex items-center gap-2">
-            <button onClick={clearFilters} className="text-xs font-bold text-blue-600 hover:text-blue-800 uppercase bg-blue-50 px-3 py-1 rounded-full transition-colors">
+          <button onClick={clearFilters} className="text-xs font-black text-[#00b4ff] hover:bg-[#00b4ff] hover:text-black uppercase bg-[#00b4ff]/10 px-3 py-1.5 rounded-full transition-all border border-[#00b4ff]/30 tracking-wider">
             {t('sidebar.clear')}
-            </button>
-            <button onClick={onClose} className="md:hidden text-slate-400 hover:text-slate-600">
-                <X className="w-6 h-6" />
-            </button>
+          </button>
+          <button onClick={onClose} className="md:hidden text-[#666666] hover:text-[#00b4ff] transition-colors bg-white/5 p-1.5 rounded-lg border border-white/10">
+            <X className="w-5 h-5" />
+          </button>
         </div>
       </div>
 
       {/* Price Filter */}
       <div className="mb-10">
-        <label className="block text-xs font-bold text-slate-400 uppercase mb-3 tracking-wider">{t('sidebar.maxPrice')}</label>
+        <label className="block text-xs font-black text-[#a0a0a0] uppercase mb-4 tracking-widest">{t('sidebar.maxPrice')}</label>
         <div className="flex items-baseline gap-1 mb-4">
-          <span className="text-2xl font-black text-slate-800 tracking-tight">{formatPrice(filters.maxPrice)}</span>
+          <span className="text-3xl font-black text-white tracking-tighter drop-shadow-md">{formatPrice(filters.maxPrice)}</span>
         </div>
-        <input 
-          type="range" 
-          min="100000" 
-          max="1500000" 
-          step="50000" 
-          value={filters.maxPrice} 
+        <input
+          type="range"
+          min="100000"
+          max="1500000"
+          step="50000"
+          value={filters.maxPrice}
           onChange={handlePriceChange}
-          className="w-full accent-blue-600 h-1 bg-slate-200 rounded-lg appearance-none cursor-pointer"
+          className="w-full accent-[#00b4ff] h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer"
         />
-        <div className="flex justify-between text-[10px] text-slate-400 mt-2 font-medium">
-            <span>R$ 100k</span>
-            <span>R$ 1.5M</span>
+        <div className="flex justify-between text-[10px] text-[#666666] mt-3 font-black tracking-wider uppercase">
+          <span>R$ 100k</span>
+          <span>R$ 1.5M</span>
         </div>
       </div>
 
       {/* Range Filter */}
       <div className="mb-10">
-        <label className="block text-xs font-bold text-slate-400 uppercase mb-3 tracking-wider">{t('sidebar.range')}</label>
+        <label className="block text-xs font-black text-[#a0a0a0] uppercase mb-4 tracking-widest">{t('sidebar.range')}</label>
         <div className="flex items-baseline gap-1 mb-4">
-          <span className="text-2xl font-black text-slate-800 tracking-tight">{filters.minRange} km</span>
+          <span className="text-3xl font-black text-white tracking-tighter drop-shadow-md">{filters.minRange} <span className="text-lg text-[#00b4ff]">km</span></span>
         </div>
-        <input 
-          type="range" 
-          min="100" 
-          max="600" 
-          step="10" 
-          value={filters.minRange} 
+        <input
+          type="range"
+          min="100"
+          max="600"
+          step="10"
+          value={filters.minRange}
           onChange={handleRangeChange}
-          className="w-full accent-blue-600 h-1 bg-slate-200 rounded-lg appearance-none cursor-pointer"
+          className="w-full accent-[#00b4ff] h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer"
         />
-        <div className="flex justify-between text-[10px] text-slate-400 mt-2 font-medium">
-            <span>100 km</span>
-            <span>600 km+</span>
+        <div className="flex justify-between text-[10px] text-[#666666] mt-3 font-black tracking-wider uppercase">
+          <span>100 km</span>
+          <span>600 km+</span>
         </div>
       </div>
 
       {/* Category Filter */}
       <div className="mb-10">
-        <label className="block text-xs font-bold text-slate-400 uppercase mb-4 tracking-wider">{t('sidebar.category')}</label>
+        <label className="block text-xs font-black text-[#a0a0a0] uppercase mb-4 tracking-widest">{t('sidebar.category')}</label>
         <div className="space-y-3">
           {categories.map(cat => (
-             <label key={cat} className="flex items-center gap-3 cursor-pointer group hover:bg-slate-50 p-2 -ml-2 rounded-lg transition-colors">
-                <input 
-                    type="checkbox" 
-                    checked={filters.categories.includes(cat)}
-                    onChange={() => handleCategoryChange(cat)}
-                    className="w-5 h-5 rounded text-blue-600 focus:ring-blue-500 border-slate-300 transition cursor-pointer"
-                />
-                <span className={`text-sm font-medium transition group-hover:text-blue-600 ${filters.categories.includes(cat) ? 'text-blue-700' : 'text-slate-600'}`}>
-                    {cat === "Compacto" ? t('sidebar.catCompact') :
-                     cat === "SUV" ? t('sidebar.catSUV') :
-                     cat === "Luxo" ? t('sidebar.catLuxury') :
-                     cat === "Comercial" ? t('sidebar.catCommercial') : cat}
-                </span>
+            <label key={cat} className={`flex items-center gap-3 cursor-pointer group hover:bg-white/5 p-3 -ml-3 rounded-xl transition-all border border-transparent hover:border-white/10 ${filters.categories.includes(cat) ? 'bg-[#00b4ff]/5 border-[#00b4ff]/20 shadow-[0_0_10px_rgba(0,180,255,0.05)]' : ''}`}>
+              <input
+                type="checkbox"
+                checked={filters.categories.includes(cat)}
+                onChange={() => handleCategoryChange(cat)}
+                className="w-5 h-5 rounded text-[#00b4ff] focus:ring-[#00b4ff] bg-black/50 border-white/20 transition cursor-pointer checked:bg-[#00b4ff] checked:border-[#00b4ff]"
+              />
+              <span className={`text-sm font-bold tracking-wide transition-colors ${filters.categories.includes(cat) ? 'text-[#00b4ff] drop-shadow-[0_0_5px_rgba(0,180,255,0.3)]' : 'text-white/70 group-hover:text-white'}`}>
+                {cat === "Compacto" ? t('sidebar.catCompact') :
+                  cat === "SUV" ? t('sidebar.catSUV') :
+                    cat === "Luxo" ? t('sidebar.catLuxury') :
+                      cat === "Comercial" ? t('sidebar.catCommercial') : cat}
+              </span>
             </label>
           ))}
         </div>
       </div>
 
       {/* Brands Filter */}
-      <div>
-        <label className="block text-xs font-bold text-slate-400 uppercase mb-4 tracking-wider">{t('sidebar.brands')}</label>
-        <div className="space-y-2 max-h-80 overflow-y-auto pr-2 custom-scrollbar">
+      <div className="mb-6">
+        <label className="block text-xs font-black text-[#a0a0a0] uppercase mb-4 tracking-widest">{t('sidebar.brands')}</label>
+        <div className="space-y-2 max-h-80 overflow-y-auto pr-2 custom-scrollbar-dark">
           {allBrands.map(brand => (
-             <label key={brand} className="flex items-center gap-3 cursor-pointer group hover:bg-slate-50 p-1.5 -ml-1.5 rounded-lg transition-colors">
-                <input 
-                    type="checkbox" 
-                    checked={filters.brands.includes(brand)}
-                    onChange={() => handleBrandChange(brand)}
-                    className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300 transition cursor-pointer"
-                />
-                <span className={`text-sm font-medium transition ${filters.brands.includes(brand) ? 'text-blue-700' : 'text-slate-600'}`}>
-                    {brand}
-                </span>
+            <label key={brand} className={`flex items-center gap-3 cursor-pointer group p-2 -ml-2 rounded-xl transition-all border border-transparent hover:border-white/10 ${filters.brands.includes(brand) ? 'bg-[#00b4ff]/5 border-[#00b4ff]/20 shadow-[0_0_10px_rgba(0,180,255,0.05)]' : 'hover:bg-white/5'}`}>
+              <input
+                type="checkbox"
+                checked={filters.brands.includes(brand)}
+                onChange={() => handleBrandChange(brand)}
+                className="w-4.5 h-4.5 rounded text-[#00b4ff] focus:ring-[#00b4ff] bg-black/50 border-white/20 transition cursor-pointer checked:bg-[#00b4ff] checked:border-[#00b4ff]"
+              />
+              <span className={`text-sm font-bold tracking-wide transition-colors ${filters.brands.includes(brand) ? 'text-[#00b4ff]' : 'text-white/70 group-hover:text-white'}`}>
+                {brand}
+              </span>
             </label>
           ))}
         </div>

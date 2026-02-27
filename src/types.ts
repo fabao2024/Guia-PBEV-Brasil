@@ -8,6 +8,7 @@ export interface Car {
   img: string;
   power?: number; // cv
   torque?: number; // kgfm
+  traction?: 'FWD' | 'RWD' | 'AWD';
 }
 
 export interface FilterState {

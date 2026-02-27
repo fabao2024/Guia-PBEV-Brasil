@@ -38,7 +38,12 @@
     "unavailable": "Indisponível",
     "estimatedPrice": "Preço Estimado",
     "rangeLabel": "Autonomia",
-    "categoryLabel": "Categoria"
+    "categoryLabel": "Categoria",
+    "buyBtn": "Quero este carro",
+    "batteryInfo": "Bateria (kWh)",
+    "speedInfo": "Velocidade Máx",
+    "accelInfo": "0-100 km/h",
+    "traction": "Tração"
   },
   "details": {
     "imageUnavailable": "Imagem+Indisponível",
@@ -212,5 +217,35 @@
     "viewInCatalog": "Ver no Catálogo",
     "addAnother": "Adicionar Outro",
     "headerBtn": "Adicionar"
+  },
+  "simulator": {
+    "title": "Simulador de Economia Anual",
+    "titlePBEV": "PBEV 2025",
+    "settingsTitle": "Configurações Avançadas",
+    "settingsDesc": "Ajuste o valor que você paga pelo kWh na sua conta de luz ou em eletropostos para um cálculo mais preciso.",
+    "monthlyKms": "Kms Rodados por Mês",
+    "gasPrice": "Preço da Gasolina",
+    "kwhPrice": "Preço da Energia",
+    "bestSavings": "Best\nSavings",
+    "selectVehicle": "Selecionar Veículo",
+    "selectAVehicle": "Selecione um veículo",
+    "save": "Economize",
+    "perYear": "/ano",
+    "energyCost": "Custo Energia (Mês):",
+    "fuelCost": "Custo Combustível:",
+    "costPerKm": "Custo por km:",
+    "efficiency": "Eficiência:",
+    "headerBtn": "Simulador",
+    "disclaimer": "*Valores calculados com base em categorias PBEV 2025."
+  },
+  "advancedFilters": {
+    "title": "Filtros Avançados PBEV 2025",
+    "clearFilters": "Limpar Filtros",
+    "brand": "Marca",
+    "priceRange": "Faixa de Preço",
+    "rangePBEV": "Autonomia PBEV",
+    "tractionType": "Tipo de Tração",
+    "category": "Categoria",
+    "seeResults": "Ver {{count}} Resultados"
   }
 }
