@@ -11,10 +11,10 @@ import { useRateLimit } from '../hooks/useRateLimit';
 
 const API_KEY_STORAGE = 'gemini-api-key';
 
-// Canary token — embedded in the system prompt with instructions to never output it.
+// Canary token — generated fresh each page load, embedded in the system prompt.
 // If this string appears in any model response, the system prompt was leaked and the
-// session is immediately reset.
-const CANARY_TOKEN = 'PBEV-SID-3K7X-2025';
+// session is immediately reset. Runtime generation avoids hardcoded secrets in source.
+const CANARY_TOKEN = `PBEV-${crypto.randomUUID().split('-')[0].toUpperCase()}`;
 
 function getApiKey(): string {
   return import.meta.env.VITE_GEMINI_API_KEY || localStorage.getItem(API_KEY_STORAGE) || '';
