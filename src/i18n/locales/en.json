@@ -1,5 +1,6 @@
 {
   "categories": {
+    "Urbano": "Urban",
     "Compacto": "Compact",
     "SUV": "SUV",
     "Sedan": "Sedan",
@@ -7,6 +8,7 @@
     "Comercial": "Commercial"
   },
   "header": {
+    "titleSuffix": "Brazil",
     "subtitle": "Official Catalog & AI",
     "favorites": "Favorites",
     "viewFavorites": "View Favorites",
@@ -20,7 +22,8 @@
     "range": "Range (PBEV)",
     "category": "Category",
     "brands": "Brands",
-    "catCompact": "Compact / Urban",
+    "catUrban": "Urban / City",
+    "catCompact": "Compact",
     "catSUV": "SUV / Crossover",
     "catSedan": "Sedan",
     "catLuxury": "Luxury / Performance",
@@ -61,6 +64,13 @@
     "addFavorite": "Favorite",
     "interested": "I'm Interested",
     "features": {
+      "urban": [
+        "Infotainment with CarPlay/Android Auto",
+        "Rear Camera",
+        "Auto Emergency Braking (AEB)",
+        "LFP Battery (long durability)",
+        "AC and DC Charging"
+      ],
       "compact": [
         "HD Infotainment System",
         "Rear Camera",
@@ -112,6 +122,11 @@
     "emptySlot": "Empty Slot",
     "footer": "Comparison based on PBEV 2025 data.",
     "featureList": {
+      "urban": [
+        "Infotainment w/ CarPlay",
+        "Rear Camera",
+        "Urban AEB"
+      ],
       "compact": [
         "HD Infotainment",
         "Rear Camera",
@@ -220,7 +235,7 @@
   },
   "simulator": {
     "title": "Annual Savings Simulator",
-    "titlePBEV": "PBEV 2025",
+    "titlePBEV": "PBEV Brazil",
     "settingsTitle": "Advanced Settings",
     "settingsDesc": "Adjust the price you pay per kWh on your electricity bill or at charging stations for a more accurate calculation.",
     "monthlyKms": "Kms Driven per Month",
@@ -235,6 +250,9 @@
     "fuelCost": "Fuel Cost:",
     "costPerKm": "Cost per km:",
     "efficiency": "Efficiency:",
+    "dcKwhPrice": "DC Fast Energy Price",
+    "dcPercent": "% Charges via DC Fast",
+    "blendedRate": "Blended Rate",
     "headerBtn": "Simulator",
     "disclaimer": "*Values calculated based on PBEV 2025 categories."
   },

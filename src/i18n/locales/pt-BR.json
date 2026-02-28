@@ -1,5 +1,6 @@
 {
   "categories": {
+    "Urbano": "Urbano",
     "Compacto": "Compacto",
     "SUV": "SUV",
     "Sedan": "Sedan",
@@ -7,6 +8,7 @@
     "Comercial": "Comercial"
   },
   "header": {
+    "titleSuffix": "Brasil",
     "subtitle": "Catálogo Oficial & IA",
     "favorites": "Favoritos",
     "viewFavorites": "Ver Favoritos",
@@ -20,7 +22,8 @@
     "range": "Autonomia (PBEV)",
     "category": "Categoria",
     "brands": "Marcas",
-    "catCompact": "Compacto / Urbano",
+    "catUrban": "Urbano / Cidade",
+    "catCompact": "Compacto",
     "catSUV": "SUV / Crossover",
     "catSedan": "Sedan",
     "catLuxury": "Luxo / Performance",
@@ -61,6 +64,13 @@
     "addFavorite": "Favoritar",
     "interested": "Tenho Interesse",
     "features": {
+      "urban": [
+        "Multimídia com CarPlay/Android Auto",
+        "Câmera de Ré",
+        "Frenagem Autônoma de Emergência (AEB)",
+        "Bateria LFP (longa durabilidade)",
+        "Carregamento AC e DC"
+      ],
       "compact": [
         "Central Multimídia HD",
         "Câmera de Ré",
@@ -112,6 +122,11 @@
     "emptySlot": "Espaço Vazio",
     "footer": "Comparativo gerado com base nos dados PBEV 2025.",
     "featureList": {
+      "urban": [
+        "Multimídia c/ CarPlay",
+        "Câmera Ré",
+        "AEB Urbano"
+      ],
       "compact": [
         "Multimídia HD",
         "Câmera Ré",
@@ -220,7 +235,7 @@
   },
   "simulator": {
     "title": "Simulador de Economia Anual",
-    "titlePBEV": "PBEV 2025",
+    "titlePBEV": "PBEV Brasil",
     "settingsTitle": "Configurações Avançadas",
     "settingsDesc": "Ajuste o valor que você paga pelo kWh na sua conta de luz ou em eletropostos para um cálculo mais preciso.",
     "monthlyKms": "Kms Rodados por Mês",
@@ -235,6 +250,9 @@
     "fuelCost": "Custo Combustível:",
     "costPerKm": "Custo por km:",
     "efficiency": "Eficiência:",
+    "dcKwhPrice": "Preço Energia DC Fast",
+    "dcPercent": "% Recargas em DC Fast",
+    "blendedRate": "Taxa Combinada",
     "headerBtn": "Simulador",
     "disclaimer": "*Valores calculados com base em categorias PBEV 2025."
   },

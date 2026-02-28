@@ -58,7 +58,7 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
     ? "fixed inset-0 w-full md:w-80 translate-x-0"
     : "fixed inset-0 w-full md:w-80 -translate-x-full md:relative md:translate-x-0 md:block hidden";
 
-  const categories = ["Compacto", "SUV", "Sedan", "Luxo", "Comercial"];
+  const categories = ["Urbano", "Compacto", "SUV", "Sedan", "Luxo", "Comercial"];
 
   return (
     <aside className={`${baseClasses} ${responsiveClasses}`}>
@@ -132,10 +132,11 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
                 className="w-5 h-5 rounded text-[#00b4ff] focus:ring-[#00b4ff] bg-black/50 border-white/20 transition cursor-pointer checked:bg-[#00b4ff] checked:border-[#00b4ff]"
               />
               <span className={`text-sm font-bold tracking-wide transition-colors ${filters.categories.includes(cat) ? 'text-[#00b4ff] drop-shadow-[0_0_5px_rgba(0,180,255,0.3)]' : 'text-white/70 group-hover:text-white'}`}>
-                {cat === "Compacto" ? t('sidebar.catCompact') :
-                  cat === "SUV" ? t('sidebar.catSUV') :
-                    cat === "Luxo" ? t('sidebar.catLuxury') :
-                      cat === "Comercial" ? t('sidebar.catCommercial') : cat}
+                {cat === "Urbano" ? t('sidebar.catUrban') :
+                  cat === "Compacto" ? t('sidebar.catCompact') :
+                    cat === "SUV" ? t('sidebar.catSUV') :
+                      cat === "Luxo" ? t('sidebar.catLuxury') :
+                        cat === "Comercial" ? t('sidebar.catCommercial') : cat}
               </span>
             </label>
           ))}

@@ -96,7 +96,7 @@ const getBrandImage = (brand: string): string => {
 export const CAR_DB: Car[] = [
   // 1. COMPACTOS & HATCHES
   {
-    model: "Kwid E-Tech", brand: "Renault", price: 99990, range: 185, cat: "Compacto",
+    model: "Kwid E-Tech", brand: "Renault", price: 99990, range: 180, cat: "Urbano",
     img: "/car-images/renault-kwid-e-tech-2026-diagonal-dianteira.avif",
     power: 65, torque: 11.5, traction: 'FWD', battery: 26.8,
     features: [
@@ -111,7 +111,7 @@ export const CAR_DB: Car[] = [
     ]
   },
   {
-    model: "iCar EQ", brand: "CAOA Chery", price: 119990, range: 197, cat: "Compacto",
+    model: "iCar EQ", brand: "CAOA Chery", price: 119990, range: 197, cat: "Urbano",
     img: "/car-images/chery-icar.webp",
     power: 61, torque: 15.3, traction: 'RWD', battery: 30.8,
     features: [
@@ -126,7 +126,7 @@ export const CAR_DB: Car[] = [
     ]
   },
   {
-    model: "E-JS1", brand: "JAC", price: 119900, range: 181, cat: "Compacto",
+    model: "E-JS1", brand: "JAC", price: 119900, range: 181, cat: "Urbano",
     img: "/car-images/e-js1.png",
     power: 62, torque: 15.3, traction: 'FWD', battery: 30.2,
     features: [
@@ -141,7 +141,7 @@ export const CAR_DB: Car[] = [
     ]
   },
   {
-    model: "Dolphin Mini", brand: "BYD", price: 119990, range: 280, cat: "Compacto",
+    model: "Dolphin Mini GS", brand: "BYD", price: 119990, range: 280, cat: "Urbano",
     img: "/car-images/Dolphin-mini.png",
     power: 75, torque: 13.8, traction: 'FWD', battery: 38,
     features: [

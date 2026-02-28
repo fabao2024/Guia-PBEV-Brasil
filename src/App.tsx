@@ -84,7 +84,7 @@ export default function App() {
               <Zap className="w-5 h-5 md:w-6 md:h-6 fill-current animate-pulse opacity-90" />
             </div>
             <div>
-              <h1 className="text-lg md:text-2xl font-black text-white tracking-tight leading-none">PBEV <span className="text-[#00b4ff]">2025</span></h1>
+              <h1 className="text-lg md:text-2xl font-black text-white tracking-tight leading-none">PBEV <span className="text-[#00b4ff]">{t('header.titleSuffix')}</span></h1>
               <p className="hidden md:block text-xs text-[#a0a0a0] font-bold uppercase tracking-widest mt-0.5">{t('header.subtitle')}</p>
             </div>
           </div>

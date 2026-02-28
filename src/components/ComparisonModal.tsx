@@ -14,7 +14,7 @@ export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonM
    const { t } = useTranslation();
 
    const getFallbackFeatures = (cat: string): string[] => {
-      const key = cat === 'Compacto' ? 'compact' : cat === 'SUV' ? 'suv' : cat === 'Luxo' ? 'luxury' : cat === 'Comercial' ? 'commercial' : 'default';
+      const key = cat === 'Urbano' ? 'urban' : cat === 'Compacto' ? 'compact' : cat === 'SUV' ? 'suv' : cat === 'Luxo' ? 'luxury' : cat === 'Comercial' ? 'commercial' : 'default';
       return t(`comparison.featureList.${key}`, { returnObjects: true }) as string[];
    };
    const getCarFeatures = (car: Car): string[] =>

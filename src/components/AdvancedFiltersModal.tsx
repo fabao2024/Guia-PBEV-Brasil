@@ -85,7 +85,7 @@ export const AdvancedFiltersModal: React.FC<AdvancedFiltersModalProps> = ({
     };
 
     const allTractionTypes = ['FWD', 'RWD', 'AWD'];
-    const allCategories = ['Compacto', 'SUV', 'Sedan', 'Luxo', 'Comercial'];
+    const allCategories = ['Urbano', 'Compacto', 'SUV', 'Sedan', 'Luxo', 'Comercial'];
 
     return (
         <div className="fixed inset-0 z-[100] flex flex-col justify-end lg:justify-center items-center p-0 lg:p-4 animate-in fade-in duration-300">
