@@ -64,12 +64,15 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
         setFailedImages(prev => { const s = new Set(prev); s.add(idx); return s; });
     };
 
-    const getFeatures = (cat: string): string[] => {
-        const key = cat === 'Compacto' ? 'compact' : cat === 'SUV' ? 'suv' : cat === 'Luxo' ? 'luxury' : cat === 'Comercial' ? 'commercial' : 'default';
-        return t(`details.features.${key}`, { returnObjects: true }) as string[];
+    const getFeatures = (car: Car): string[] => {
+        if (car.features && car.features.length > 0) {
+            return car.features.map(key => t(`featureLabels.${key}`));
+        }
+        const catKey = car.cat === 'Compacto' ? 'compact' : car.cat === 'SUV' ? 'suv' : car.cat === 'Luxo' ? 'luxury' : car.cat === 'Comercial' ? 'commercial' : 'default';
+        return t(`details.features.${catKey}`, { returnObjects: true }) as string[];
     };
 
-    const features = getFeatures(car.cat);
+    const features = getFeatures(car);
     const activeImageSrc = failedImages.has(currentIdx) ? fallbackImg : gallery[currentIdx];
     const brandUrl = BRAND_URLS[car.brand] || `https://www.google.com/search?q=${encodeURIComponent(car.brand + ' ' + car.model + ' comprar')}`;
 

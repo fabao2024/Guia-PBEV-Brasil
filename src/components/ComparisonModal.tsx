@@ -13,9 +13,12 @@ interface ComparisonModalProps {
 export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonModalProps) {
    const { t } = useTranslation();
 
-   const getFeatures = (cat: string): string[] => {
-      const key = cat === 'Compacto' ? 'compact' : cat === 'SUV' ? 'suv' : cat === 'Luxo' ? 'luxury' : cat === 'Comercial' ? 'commercial' : 'default';
-      return t(`comparison.featureList.${key}`, { returnObjects: true }) as string[];
+   const getFeatures = (car: Car): string[] => {
+      if (car.features && car.features.length > 0) {
+         return car.features.map(key => t(`featureLabels.${key}`));
+      }
+      const catKey = car.cat === 'Compacto' ? 'compact' : car.cat === 'SUV' ? 'suv' : car.cat === 'Luxo' ? 'luxury' : car.cat === 'Comercial' ? 'commercial' : 'default';
+      return t(`comparison.featureList.${catKey}`, { returnObjects: true }) as string[];
    };
 
    return (
@@ -136,7 +139,7 @@ export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonM
 
                         <div className="flex-1 mt-4 border-t border-white/5 pt-4">
                            <ul className="space-y-3">
-                              {getFeatures(car.cat).map((feat, i) => (
+                              {getFeatures(car).map((feat, i) => (
                                  <li key={i} className="flex items-start gap-3 text-xs text-[#a0a0a0] font-medium leading-relaxed">
                                     <Check className="w-4 h-4 text-[#00b4ff] mt-0.5 flex-shrink-0 drop-shadow-[0_0_3px_rgba(0,180,255,0.4)]" />
                                     {feat}

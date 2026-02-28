@@ -54,7 +54,7 @@
     "power": "Potência",
     "torque": "Torque",
     "notAvailable": "N/D",
-    "segmentHighlights": "Destaques do Segmento",
+    "segmentHighlights": "Equipamentos",
     "comparing": "Comparando",
     "compare": "Comparar",
     "removeFavorite": "Remover Favorito",
@@ -237,6 +237,22 @@
     "efficiency": "Eficiência:",
     "headerBtn": "Simulador",
     "disclaimer": "*Valores calculados com base em categorias PBEV 2025."
+  },
+  "featureLabels": {
+    "camera_re": "Câmera de Ré",
+    "camera_360": "Câmera 360°",
+    "sensor_estac": "Sensores de Estacionamento",
+    "lane_assist": "Assistente de Faixa",
+    "ponto_cego": "Monitor de Ponto Cego",
+    "cruise_adaptativo": "Piloto Automático Adaptativo",
+    "frenagem_auto": "Frenagem Autônoma de Emergência",
+    "v2l": "Tecnologia V2L",
+    "carregamento_dc": "Carregamento Rápido DC",
+    "bomba_calor": "Bomba de Calor",
+    "precondicionamento": "Pré-condicionamento",
+    "ota": "Atualizações OTA",
+    "teto_panoramico": "Teto Panorâmico",
+    "ar_digital": "Ar-Cond. Digital Bizona"
   },
   "advancedFilters": {
     "title": "Filtros Avançados PBEV 2025",
