@@ -54,7 +54,7 @@
     "power": "Power",
     "torque": "Torque",
     "notAvailable": "N/A",
-    "segmentHighlights": "Segment Highlights",
+    "segmentHighlights": "Features",
     "comparing": "Comparing",
     "compare": "Compare",
     "removeFavorite": "Remove Favorite",
@@ -237,6 +237,22 @@
     "efficiency": "Efficiency:",
     "headerBtn": "Simulator",
     "disclaimer": "*Values calculated based on PBEV 2025 categories."
+  },
+  "featureLabels": {
+    "camera_re": "Rear Camera",
+    "camera_360": "360° Camera",
+    "sensor_estac": "Parking Sensors",
+    "lane_assist": "Lane Keep Assist",
+    "ponto_cego": "Blind Spot Monitor",
+    "cruise_adaptativo": "Adaptive Cruise Control",
+    "frenagem_auto": "Auto Emergency Braking",
+    "v2l": "V2L Technology",
+    "carregamento_dc": "DC Fast Charging",
+    "bomba_calor": "Heat Pump",
+    "precondicionamento": "Pre-conditioning",
+    "ota": "OTA Updates",
+    "teto_panoramico": "Panoramic Roof",
+    "ar_digital": "Dual-Zone Digital A/C"
   },
   "advancedFilters": {
     "title": "Advanced Filters PBEV 2025",

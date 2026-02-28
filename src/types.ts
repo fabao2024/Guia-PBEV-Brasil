@@ -9,6 +9,7 @@ export interface Car {
   power?: number; // cv
   torque?: number; // kgfm
   traction?: 'FWD' | 'RWD' | 'AWD';
+  features?: string[]; // feature keys — translated via t(`featureLabels.${key}`)
 }
 
 export interface FilterState {
