@@ -13,10 +13,12 @@ interface ComparisonModalProps {
 export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonModalProps) {
    const { t } = useTranslation();
 
-   const getFeatures = (cat: string): string[] => {
+   const getFallbackFeatures = (cat: string): string[] => {
       const key = cat === 'Compacto' ? 'compact' : cat === 'SUV' ? 'suv' : cat === 'Luxo' ? 'luxury' : cat === 'Comercial' ? 'commercial' : 'default';
       return t(`comparison.featureList.${key}`, { returnObjects: true }) as string[];
    };
+   const getCarFeatures = (car: Car): string[] =>
+      (car.features && car.features.length > 0) ? car.features : getFallbackFeatures(car.cat);
 
    return (
       <div className="fixed inset-0 z-[70] flex items-center justify-center p-0 sm:p-4 md:p-6">
@@ -62,6 +64,7 @@ export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonM
                      <div className="font-black text-[#666666] text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.range')}</div>
                      <div className="font-black text-[#666666] text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.power')}</div>
                      <div className="font-black text-[#666666] text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.torque')}</div>
+                     <div className="font-black text-[#666666] text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.battery', 'Bateria')}</div>
                      <div className="font-black text-[#666666] text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.category')}</div>
                      <div className="font-black text-[#666666] text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.features')}</div>
                   </div>
@@ -129,6 +132,13 @@ export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonM
                         </div>
 
                         <div className="h-10 flex items-center">
+                           <span className="font-bold text-white flex items-center gap-1.5">
+                              <Battery className="w-4 h-4 text-[#00b4ff]" />
+                              {car.battery ? `${car.battery} kWh` : <span className="text-[#666666] font-bold uppercase tracking-widest text-xs">{t('details.notAvailable')}</span>}
+                           </span>
+                        </div>
+
+                        <div className="h-10 flex items-center">
                            <span className="px-2.5 py-1 bg-black/50 border border-white/10 rounded-lg text-[10px] font-black text-[#a0a0a0] uppercase tracking-widest">
                               {t(`categories.${car.cat}`)}
                            </span>
@@ -136,7 +146,7 @@ export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonM
 
                         <div className="flex-1 mt-4 border-t border-white/5 pt-4">
                            <ul className="space-y-3">
-                              {getFeatures(car.cat).map((feat, i) => (
+                              {getCarFeatures(car).map((feat, i) => (
                                  <li key={i} className="flex items-start gap-3 text-xs text-[#a0a0a0] font-medium leading-relaxed">
                                     <Check className="w-4 h-4 text-[#00b4ff] mt-0.5 flex-shrink-0 drop-shadow-[0_0_3px_rgba(0,180,255,0.4)]" />
                                     {feat}

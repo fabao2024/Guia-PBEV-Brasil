@@ -64,12 +64,12 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
         setFailedImages(prev => { const s = new Set(prev); s.add(idx); return s; });
     };
 
-    const getFeatures = (cat: string): string[] => {
+    const getFallbackFeatures = (cat: string): string[] => {
         const key = cat === 'Compacto' ? 'compact' : cat === 'SUV' ? 'suv' : cat === 'Luxo' ? 'luxury' : cat === 'Comercial' ? 'commercial' : 'default';
         return t(`details.features.${key}`, { returnObjects: true }) as string[];
     };
 
-    const features = getFeatures(car.cat);
+    const features = (car.features && car.features.length > 0) ? car.features : getFallbackFeatures(car.cat);
     const activeImageSrc = failedImages.has(currentIdx) ? fallbackImg : gallery[currentIdx];
     const brandUrl = BRAND_URLS[car.brand] || `https://www.google.com/search?q=${encodeURIComponent(car.brand + ' ' + car.model + ' comprar')}`;
 
@@ -255,10 +255,10 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                         </div>
                     </div>
 
-                    {/* Power + Traction + Torque chips */}
-                    <div className="flex gap-3 mb-5">
+                    {/* Power + Traction + Torque + Battery chips */}
+                    <div className="grid grid-cols-2 gap-2 mb-5">
                         <div
-                            className={`${tractionStyle || car.torque ? 'flex-1' : 'w-full'} rounded-xl px-4 py-3`}
+                            className="rounded-xl px-4 py-3"
                             style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
                         >
                             <div className="text-[9px] uppercase tracking-widest mb-1" style={{ color: 'rgba(255,255,255,0.28)' }}>
@@ -296,6 +296,20 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                                 </div>
                             </div>
                         )}
+                        {car.battery && (
+                            <div
+                                className="rounded-xl px-4 py-3"
+                                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
+                            >
+                                <div className="text-[9px] uppercase tracking-widest mb-1" style={{ color: 'rgba(255,255,255,0.28)' }}>
+                                    {t('details.battery', 'Bateria')}
+                                </div>
+                                <div className="text-xl font-black text-white leading-none">
+                                    {car.battery}
+                                    <span className="text-sm font-normal ml-1" style={{ color: 'rgba(255,255,255,0.35)' }}>kWh</span>
+                                </div>
+                            </div>
+                        )}
                     </div>
 
                     {/* Divider */}
@@ -308,7 +322,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                             style={{ color: accent.color }}
                         >
                             <Zap className="w-3.5 h-3.5" />
-                            {t('details.segmentHighlights')}
+                            {t('details.featuresTitle', 'Equipamentos & Tecnologia')}
                         </h3>
                         <ul className="space-y-2">
                             {features.map((feature, idx) => (

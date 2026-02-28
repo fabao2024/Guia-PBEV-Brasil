@@ -9,6 +9,8 @@ export interface Car {
   power?: number; // cv
   torque?: number; // kgfm
   traction?: 'FWD' | 'RWD' | 'AWD';
+  battery?: number; // kWh
+  features?: string[]; // model-specific feature list
 }
 
 export interface FilterState {
