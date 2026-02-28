@@ -40,7 +40,7 @@ describe('CAR_DB data integrity', () => {
   });
 
   it('every car should have a valid category', () => {
-    const validCategories = ['Compacto', 'SUV', 'Sedan', 'Luxo', 'Comercial'];
+    const validCategories = ['Urbano', 'Compacto', 'SUV', 'Sedan', 'Luxo', 'Comercial'];
     for (const car of CAR_DB) {
       expect(validCategories).toContain(car.cat);
     }
