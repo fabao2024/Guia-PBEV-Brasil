@@ -57,9 +57,10 @@ src/
 
 ### i18n
 - All user-facing strings use `t('namespace.key')` from `useTranslation()`
-- Translation keys organized by component: `header.*`, `sidebar.*`, `card.*`, `details.*`, `chat.*`, `comparison.*`, `empty.*`, `footer.*`, `simulator.*`, `advancedFilters.*`
+- Translation keys organized by component: `header.*`, `sidebar.*`, `card.*`, `details.*`, `chat.*`, `comparison.*`, `empty.*`, `footer.*`, `simulator.*`, `advancedFilters.*`, `featureLabels.*`
 - Arrays (feature lists) use `t('key', { returnObjects: true }) as string[]`
 - Category translation: `t(\`categories.${car.cat}\`)` — maps data values (Compacto, SUV, Luxo, Comercial) to display labels
+- Feature translation: `t(\`featureLabels.${key}\`)` — maps feature keys to display labels (14 keys defined)
 - Language saved to `localStorage('lang')`, defaults to `pt-BR`
 
 ### Images
@@ -83,8 +84,9 @@ src/
 - react-markdown for safe rendering of AI responses
 
 ### Data
-- `CAR_DB` in `constants.ts`: array of `Car` objects with model, brand, price, range, cat, img, power?, torque?, traction?
+- `CAR_DB` in `constants.ts`: array of `Car` objects with model, brand, price, range, cat, img, power?, torque?, traction?, features?
 - `traction` values: `'FWD' | 'RWD' | 'AWD'` (optional; bulk-assigned via one-off `add_traction.js` script)
+- `features`: per-car array of feature keys (e.g. `['camera_360', 'lane_assist', 'v2l']`) — all 73 cars have this populated
 - `BRAND_URLS`: maps brand names to official Brazilian websites
 - Categories: `Compacto`, `SUV`, `Sedan`, `Luxo`, `Comercial`
 - Prices in BRL (R$), range in km (PBEV/Inmetro certified)
@@ -93,7 +95,7 @@ src/
 - Tests live in `__tests__/` folders next to source files
 - Setup file: `src/test/setup.ts` (mocks: matchMedia, IntersectionObserver, localStorage cleanup)
 - i18n mock: tests mock `react-i18next` with passthrough `t(key)` function
-- 7 test suites, 57 tests total
+- 7 test suites, 70 tests total
 
 ## Deployment
 - **GitHub Pages**: automated via `.github/workflows/deploy.yml` on push to `main`
@@ -114,3 +116,5 @@ VITE_GEMINI_API_KEY=your_key   # Optional on GitHub Pages (users provide their o
 - Use `.custom-scrollbar-dark` class on scrollable containers for consistent dark-mode scrollbars
 - `SavingsSimulatorModal` uses `export default` — all other components use named exports
 - One-off Node.js scripts at project root (`add_traction.js`, `replace.js`) used for bulk data edits; safe to delete after use
+- `car.features` keys must match entries in `featureLabels` in both `pt-BR.json` and `en.json` — undefined keys render as the raw key string
+- `details.segmentHighlights` label is "Equipamentos" (PT) / "Features" (EN) — reflects per-car data, not segment averages
