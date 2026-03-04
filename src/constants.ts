@@ -306,6 +306,36 @@ export const CAR_DB: Car[] = [
     ]
   },
   {
+    model: "JCW-E", brand: "Mini", price: 330990, range: 306, cat: "Compacto",
+    img: "/car-images/mini-jcw-e.jpg",
+    power: 258, torque: 34.6, traction: 'FWD', battery: 54.2,
+    features: [
+      "Bateria NMC 54,2 kWh",
+      "Carregamento AC 11 kW / DC 95 kW",
+      "Tela circular OLED 9,44\" com MINI OS 9 (CarPlay e Android Auto)",
+      "6 airbags",
+      "ADAS: ACC + AEB + alerta de faixa + BSM",
+      "JCW Launch Control: 0-100 km/h em 6,5 s",
+      "Modos de condução Go Kart e JCW com steering sharpener",
+      "Visual exclusivo JCW: bancos esportivos, freios vermelhos e rodas 18\""
+    ]
+  },
+  {
+    model: "Aceman SE", brand: "Mini", price: 304990, range: 270, cat: "Compacto",
+    img: "/car-images/mini-aceman.jpg",
+    power: 218, torque: 33.6, traction: 'FWD', battery: 54.2,
+    features: [
+      "Bateria NMC 54,2 kWh",
+      "Carregamento AC 11 kW / DC 95 kW",
+      "Tela circular OLED 9,44\" com MINI OS 9 (CarPlay e Android Auto)",
+      "6 airbags",
+      "ADAS: ACC + AEB + alerta de faixa + câmera de ré",
+      "Teto panorâmico com tiras LED personalizáveis",
+      "SUV compacto com 1.265L de porta-malas",
+      "Modos de condução Go Kart + suspensão esportiva"
+    ]
+  },
+  {
     model: "Dolphin Plus", brand: "BYD", price: 184000, range: 330, cat: "Compacto",
     img: "/car-images/dolphin-plus.jpg",
     power: 204, torque: 31.6, traction: 'FWD', battery: 60.4,
@@ -354,7 +384,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Aion Y Elite", brand: "GAC", price: 184900, range: 318, cat: "SUV",
-    img: "/car-images/aion-y.jpg",
+    img: "/car-images/aion-y.webp",
     power: 136, torque: 23, traction: 'FWD', battery: 63.2,
     features: [
       "Bateria NMC 63,2 kWh",
@@ -519,7 +549,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Megane E-Tech", brand: "Renault", price: 279900, range: 337, cat: "SUV",
-    img: "/car-images/megane-etech.jpg",
+    img: "/car-images/megane-etech.webp",
     power: 220, torque: 30.6, traction: 'FWD', battery: 60,
     features: [
       "Bateria NMC 60 kWh",
@@ -608,7 +638,37 @@ export const CAR_DB: Car[] = [
     ]
   },
   {
-    model: "iX1 eDrive20", brand: "BMW", price: 359950, range: 332, cat: "SUV",
+    model: "EX90 Twin", brand: "Volvo", price: 849990, range: 459, cat: "SUV",
+    img: "/car-images/volvo-ex90.jpg",
+    power: 408, torque: 78.5, traction: 'AWD', battery: 111,
+    features: [
+      "Bateria NMC 111 kWh",
+      "Carregamento AC 11 kW / DC 250 kW",
+      "Tela central Google 14,5\" com Android Automotive integrado",
+      "9 airbags + LiDAR Luminar (sensor laser para piloto autônomo)",
+      "Pilot Assist: ACC + LCC + AEB + BSM + câmera 360°",
+      "V2G/V2L – saída de energia para cargas externas (até 6 kW)",
+      "7 lugares com bancos dianteiros aquecidos, ventilados e com massagem",
+      "Som Bowers & Wilkins premium (25 alto-falantes) + teto panorâmico"
+    ]
+  },
+  {
+    model: "iX2 xDrive30", brand: "BMW", price: 495950, range: 327, cat: "SUV",
+    img: "/car-images/bmw-ix2.jpg",
+    power: 313, torque: 49.9, traction: 'AWD', battery: 64.8,
+    features: [
+      "Bateria NMC 64,8 kWh",
+      "Carregamento AC 11 kW / DC 130 kW",
+      "BMW Curved Display: painel 10,25\" + tela 10,7\" com iDrive 9",
+      "6 airbags",
+      "BMW Driving Assistant Professional: ACC + LCC + AEB + BSM + Park Pilot",
+      "SUV coupê com teto inclinado e design esportivo",
+      "Bancos aquecidos e ventilados + som Harman Kardon",
+      "Teto panorâmico + 0-100 km/h em 5,6 s"
+    ]
+  },
+  {
+    model: "iX1 eDrive20", brand: "BMW", price: 359950, range: 345, cat: "SUV",
     img: "/car-images/ix1.jpg",
     power: 204, torque: 25.5, traction: 'FWD', battery: 64.7,
     features: [
@@ -668,7 +728,7 @@ export const CAR_DB: Car[] = [
     ]
   },
   {
-    model: "EQB 250", brand: "Mercedes-Benz", price: 405900, range: 290, cat: "Luxo",
+    model: "EQB 250", brand: "Mercedes-Benz", price: 405900, range: 376, cat: "Luxo",
     img: "/car-images/eqb-250.jpg",
     power: 190, torque: 38.2, traction: 'FWD', battery: 66.5,
     features: [
@@ -743,6 +803,21 @@ export const CAR_DB: Car[] = [
     ]
   },
   {
+    model: "7X", brand: "Zeekr", price: 448000, range: 423, cat: "SUV",
+    img: "/car-images/zeekr-7x.png",
+    power: 646, torque: 72.4, traction: 'AWD', battery: 100,
+    features: [
+      "Bateria NCM CATL 100 kWh – Arquitetura 800V",
+      "Carregamento AC 11 kW / DC 200 kW (5 min = 150 km)",
+      "Tela central 15,4\" + painel 13,8\" com ZEEKR OS",
+      "7 airbags",
+      "ADAS: ACC + LCC + AEB + BSM + câmera 360° + NZP (Zeekr Navigation Pilot)",
+      "SUV coupê com portas de abertura elétrica automática",
+      "Bancos ventilados e com massagem + som premium 23 alto-falantes",
+      "0-100 km/h em 3,8 s + plataforma SEA"
+    ]
+  },
+  {
     model: "iX3", brand: "BMW", price: 500950, range: 381, cat: "Luxo",
     img: "/car-images/ix3.jpg",
     power: 286, torque: 40.8, traction: 'RWD', battery: 74,
@@ -791,7 +866,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "i4 eDrive35", brand: "BMW", price: 449950, range: 422, cat: "Luxo",
-    img: "/car-images/i4.jpg",
+    img: "/car-images/bmw-i4-edrive35.webp",
     power: 286, torque: 40.8, traction: 'RWD', battery: 70,
     features: [
       "Bateria NMC 70 kWh",
@@ -835,7 +910,7 @@ export const CAR_DB: Car[] = [
     ]
   },
   {
-    model: "Tan EV", brand: "BYD", price: 529800, range: 309, cat: "Luxo",
+    model: "Tan EV", brand: "BYD", price: 529800, range: 430, cat: "Luxo",
     img: "/car-images/tan-ev.jpg",
     power: 517, torque: 69.3, traction: 'AWD', battery: 108.8,
     features: [
@@ -895,6 +970,66 @@ export const CAR_DB: Car[] = [
     ]
   },
   {
+    model: "A6 Sportback e-tron", brand: "Audi", price: 649990, range: 445, cat: "Luxo",
+    img: "/car-images/audi-a6-etron.png",
+    power: 367, torque: 55.1, traction: 'RWD', battery: 94.9,
+    features: [
+      "Bateria NMC 94,9 kWh – Plataforma PPE 800V (Premium Platform Electric)",
+      "Carregamento AC 11 kW / DC 270 kW (10-80% em 21 min)",
+      "Audi Virtual Cockpit Plus 11,9\" + MMI Panorâmico 14,5\" + tela do passageiro 10,9\"",
+      "8 airbags",
+      "Audi Pre Sense: ACC + LCC + AEB + BSM + câmera 360° com estacionamento remoto",
+      "Cx 0,21 – sedã elétrico mais aerodinâmico da história da Audi",
+      "Som Bang & Olufsen 3D (20 alto-falantes) + teto panorâmico",
+      "0-100 km/h em 5,4 s + atualização OTA"
+    ]
+  },
+  {
+    model: "Q6 e-tron", brand: "Audi", price: 529990, range: 411, cat: "Luxo",
+    img: "/car-images/audi-q6-etron.jpg",
+    power: 299, torque: 47.6, traction: 'AWD', battery: 94.9,
+    features: [
+      "Bateria NMC 94,9 kWh – Plataforma PPE 800V",
+      "Carregamento AC 11 kW / DC 270 kW (10-80% em 21 min)",
+      "Audi Virtual Cockpit Plus 11,9\" + MMI Panorâmico 14,5\" + tela do passageiro 10,9\"",
+      "8 airbags",
+      "Audi Pre Sense: ACC + LCC + AEB + BSM + câmera 360°",
+      "Suspensão pneumática adaptativa com nivelamento automático",
+      "Bancos S Line com ventilação, aquecimento + som Bang & Olufsen",
+      "Teto panorâmico + atualização OTA + 0-100 km/h em 5,9 s"
+    ]
+  },
+  {
+    model: "Q6 Sportback e-tron", brand: "Audi", price: 569990, range: 427, cat: "Luxo",
+    img: "/car-images/audi-q6-sportback.jpg",
+    power: 299, torque: 47.6, traction: 'AWD', battery: 94.9,
+    features: [
+      "Bateria NMC 94,9 kWh – Plataforma PPE 800V",
+      "Carregamento AC 11 kW / DC 270 kW (10-80% em 21 min)",
+      "Design SUV coupê com Cx 0,26 (mais aerodinâmico que o Q6 convencional)",
+      "8 airbags",
+      "Audi Pre Sense: ACC + LCC + AEB + BSM + câmera 360°",
+      "Audi Virtual Cockpit Plus 11,9\" + MMI Panorâmico 14,5\"",
+      "Bancos S Line com ventilação + som Bang & Olufsen 3D",
+      "Teto panorâmico + atualização OTA + 0-100 km/h em 5,9 s"
+    ]
+  },
+  {
+    model: "SQ6 Sportback e-tron", brand: "Audi", price: 684990, range: 428, cat: "Luxo",
+    img: "/car-images/audi-sq6-sportback.png",
+    power: 367, torque: 76.5, traction: 'AWD', battery: 100,
+    features: [
+      "Bateria NMC 100 kWh – Plataforma PPE 800V",
+      "Carregamento AC 11 kW / DC 270 kW (10-80% em 21 min)",
+      "Para-choque S exclusivo, saídas de ar maiores e rodas 21\"",
+      "8 airbags",
+      "Audi Pre Sense Sport: ACC + LCC + AEB + BSM + câmera 360°",
+      "Suspensão S esportiva com amortecimento adaptativo",
+      "Bancos S com ventilação, aquecimento e massagem + som Bang & Olufsen",
+      "0-100 km/h em 4,4 s + Launch Control + atualização OTA"
+    ]
+  },
+  {
     model: "iX xDrive40", brand: "BMW", price: 699950, range: 329, cat: "Luxo",
     img: "/car-images/ix.jpg",
     power: 326, torque: 64.2, traction: 'AWD', battery: 71,
@@ -910,7 +1045,22 @@ export const CAR_DB: Car[] = [
     ]
   },
   {
-    model: "Taycan 4S", brand: "Porsche", price: 745000, range: 340, cat: "Luxo",
+    model: "i5 M60", brand: "BMW", price: 794950, range: 393, cat: "Luxo",
+    img: "/car-images/bmw-i5-m60.webp",
+    power: 601, torque: 83.6, traction: 'AWD', battery: 84,
+    features: [
+      "Bateria NMC 84 kWh",
+      "Carregamento AC 11 kW / DC 205 kW",
+      "BMW Curved Display 12,3\" + 14,9\" com iDrive 8.5",
+      "6 airbags",
+      "BMW Driving Assistant Professional: ACC + LCC + AEB + BSM + Park Pilot remoto",
+      "M Track Mode com torque vetorial (0-100 km/h em 3,8 s)",
+      "Bancos M esportivos com ventilação e massagem + som Bowers & Wilkins Diamond",
+      "Suspensão adaptativa M + teto panorâmico + atualização OTA"
+    ]
+  },
+  {
+    model: "Taycan 4S", brand: "Porsche", price: 745000, range: 415, cat: "Luxo",
     img: "/car-images/taycan.jpg",
     power: 530, torque: 65.3, traction: 'AWD', battery: 93.4,
     features: [
@@ -940,7 +1090,7 @@ export const CAR_DB: Car[] = [
     ]
   },
   {
-    model: "Hyptec HT", brand: "GAC", price: 359990, range: 362, cat: "Luxo",
+    model: "Hyptec HT", brand: "GAC", price: 359990, range: 431, cat: "Luxo",
     img: "/car-images/hyptec-ht.jpg",
     power: 340, torque: 43.8, traction: 'RWD', battery: 80,
     features: [
@@ -985,7 +1135,7 @@ export const CAR_DB: Car[] = [
     ]
   },
   {
-    model: "i7 xDrive60", brand: "BMW", price: 1321950, range: 479, cat: "Luxo",
+    model: "i7 xDrive60", brand: "BMW", price: 1321950, range: 467, cat: "Luxo",
     img: "/car-images/i7.jpg",
     power: 544, torque: 76, traction: 'AWD', battery: 101.7,
     features: [
@@ -1001,7 +1151,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "EQE 300 SUV", brand: "Mercedes-Benz", price: 698900, range: 367, cat: "Luxo",
-    img: "/car-images/eqe-suv.jpg",
+    img: "/car-images/eqe-suv.webp",
     power: 245, torque: 56.1, traction: 'RWD', battery: 90,
     features: [
       "Bateria NMC 90 kWh",
@@ -1015,10 +1165,41 @@ export const CAR_DB: Car[] = [
     ]
   },
 
+  {
+    model: "Cayenne EV", brand: "Porsche", price: 900000, range: 493, cat: "Luxo",
+    img: "/car-images/cayenne-ev.jpg",
+    power: 435, torque: 85, traction: 'AWD', battery: 113.2,
+    features: [
+      "Bateria NMC 113,2 kWh – Plataforma 800V Porsche",
+      "Carregamento AC 11 kW / DC 320 kW (10-80% em menos de 16 min)",
+      "Porsche Communication Management: tela 12,3\" + painel 12,6\" + tela do passageiro 10,9\"",
+      "8 airbags",
+      "Porsche InnoDrive avançado: ACC + LCC + AEB + BSM + Night Vision",
+      "Câmera Surround 360° + suspensão pneumática ativa",
+      "Bancos esportivos com ventilação, massagem + som BOSE ou Burmester opcional",
+      "0-100 km/h em 4,5 s + atualização OTA"
+    ]
+  },
+  {
+    model: "G 580 EQ", brand: "Mercedes-Benz", price: 1100000, range: 369, cat: "Luxo",
+    img: "/car-images/mercedes-g580-eq.jpg",
+    power: 587, torque: 116.2, traction: 'AWD', battery: 116,
+    features: [
+      "Bateria NMC 116 kWh com quatro motores elétricos independentes (um por roda)",
+      "Carregamento AC 11 kW / DC 200 kW",
+      "MBUX: tela central 12,3\" + painel digital 12,3\"",
+      "8 airbags",
+      "G-Turn: rotação 360° sobre o próprio eixo (exclusivo off-road elétrico)",
+      "DISTRONIC Plus: ACC + LCC + AEB + BSM + câmera 360°",
+      "Bancos Nappa multicontour com massagem + som Burmester 3D",
+      "0-100 km/h em 4,7 s + torque vetorial por roda para off-road extremo"
+    ]
+  },
+
   // 4. COMERCIAIS & VANS
   {
-    model: "e-Transit", brand: "Ford", price: 542000, range: 260, cat: "Comercial",
-    img: "/car-images/etransit.jpg",
+    model: "e-Transit", brand: "Ford", price: 542000, range: 203, cat: "Comercial",
+    img: "/car-images/etransit.avif",
     power: 198, torque: 43.8, traction: 'RWD', battery: 68,
     features: [
       "Bateria NMC 68 kWh",
@@ -1033,7 +1214,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Kangoo E-Tech", brand: "Renault", price: 259000, range: 210, cat: "Comercial",
-    img: "/car-images/kangoo-etech.jpg",
+    img: "/car-images/kangoo-etech.webp",
     power: 120, torque: 25, traction: 'FWD', battery: 45,
     features: [
       "Bateria NMC 45 kWh",
@@ -1062,7 +1243,7 @@ export const CAR_DB: Car[] = [
     ]
   },
   {
-    model: "eT3", brand: "BYD", price: 229990, range: 180, cat: "Comercial",
+    model: "eT3", brand: "BYD", price: 229990, range: 170, cat: "Comercial",
     img: "/car-images/et3.jpg",
     power: 136, torque: 21.4, traction: 'FWD', battery: 50.3,
     features: [
@@ -1077,7 +1258,7 @@ export const CAR_DB: Car[] = [
     ]
   },
   {
-    model: "e-Expert", brand: "Peugeot", price: 329990, range: 289, cat: "Comercial",
+    model: "e-Expert", brand: "Peugeot", price: 329990, range: 258, cat: "Comercial",
     img: "/car-images/e-expert.jpg",
     power: 136, torque: 26.5, traction: 'FWD', battery: 75,
     features: [
@@ -1107,7 +1288,7 @@ export const CAR_DB: Car[] = [
     ]
   },
   {
-    model: "e-Jumpy", brand: "Citroen", price: 329990, range: 289, cat: "Comercial",
+    model: "e-Jumpy", brand: "Citroen", price: 329990, range: 258, cat: "Comercial",
     img: "/car-images/e-jumpy.jpg",
     power: 136, torque: 26.5, traction: 'FWD', battery: 75,
     features: [
