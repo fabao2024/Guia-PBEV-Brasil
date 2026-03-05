@@ -158,7 +158,7 @@
     }
   },
   "chat": {
-    "welcome": "Hello! I'm your electric car specialist. I have access to all PBEV 2025 data. Ask me about comparisons, range, or prices!",
+    "welcome": "Hello! I'm your electric car specialist. I have access to all PBEV data from INMETRO. Ask me about comparisons, range, or prices!",
     "rateLimit": "You're sending messages too fast. Please wait {{seconds}} seconds.",
     "configError": "Configuration Error: API Key not found. Check the .env.local file.",
     "techError": "Technical error: {{message}}",
@@ -181,7 +181,13 @@
     "removeKey": "Remove Key",
     "invalidKey": "Invalid key. Please check and try again.",
     "keyRemoved": "API key removed.",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "chipFindEV": "🔍 Help me choose an EV",
+    "chipSimulate": "💰 Simulate my savings",
+    "chipBestRange": "⚡ Which have the best range?",
+    "chipFindEVMsg": "I want help choosing the ideal EV for me",
+    "chipSimulateMsg": "How can I calculate my savings by switching to an electric car?",
+    "chipBestRangeMsg": "Which EVs have the longest range available in Brazil?"
   },
   "empty": {
     "noFavorites": "No favorites found",

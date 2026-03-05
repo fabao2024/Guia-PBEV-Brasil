@@ -158,7 +158,7 @@
     }
   },
   "chat": {
-    "welcome": "Olá! Sou seu especialista em carros elétricos. Tenho acesso a todos os dados da tabela PBEV 2025. Pergunte-me sobre comparativos, autonomia ou preços!",
+    "welcome": "Olá! Sou seu especialista em carros elétricos. Tenho acesso a todos os dados da tabela PBEV do INMETRO. Pergunte-me sobre comparativos, autonomia ou preços!",
     "rateLimit": "Você está enviando mensagens muito rápido. Aguarde {{seconds}} segundos.",
     "configError": "Erro de Configuração: API Key não encontrada. Verifique o arquivo .env.local.",
     "techError": "Erro técnico: {{message}}",
@@ -181,7 +181,13 @@
     "removeKey": "Remover Chave",
     "invalidKey": "Chave inválida. Verifique e tente novamente.",
     "keyRemoved": "Chave API removida.",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "chipFindEV": "🔍 Me ajude a escolher um EV",
+    "chipSimulate": "💰 Simular minha economia",
+    "chipBestRange": "⚡ Quais têm mais autonomia?",
+    "chipFindEVMsg": "Quero ajuda para escolher o EV ideal para mim",
+    "chipSimulateMsg": "Como posso calcular minha economia ao trocar para um elétrico?",
+    "chipBestRangeMsg": "Quais são os EVs com maior autonomia disponíveis no Brasil?"
   },
   "empty": {
     "noFavorites": "Nenhum favorito encontrado",
