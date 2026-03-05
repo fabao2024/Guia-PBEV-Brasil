@@ -27,7 +27,8 @@
     "catSUV": "SUV / Crossover",
     "catSedan": "Sedan",
     "catLuxury": "Luxury / Performance",
-    "catCommercial": "Commercial / Van"
+    "catCommercial": "Commercial / Van",
+    "newOnly": "New Models"
   },
   "card": {
     "compare": "Compare",
@@ -46,7 +47,9 @@
     "batteryInfo": "Battery (kWh)",
     "speedInfo": "Top Speed",
     "accelInfo": "0-100 km/h",
-    "traction": "Drivetrain"
+    "traction": "Drivetrain",
+    "share": "Share",
+    "shareCopied": "Copied!"
   },
   "details": {
     "imageUnavailable": "Image+Unavailable",

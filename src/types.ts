@@ -18,6 +18,7 @@ export interface FilterState {
   minRange: number;
   categories: string[];
   brands: string[];
+  showNew: boolean;
 }
 
 export interface ChatMessage {

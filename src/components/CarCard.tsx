@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Car } from '../types';
-import { BRAND_URLS } from '../constants';
+import { BRAND_URLS, isCarNew } from '../constants';
 import { Check, ImageOff, ExternalLink, Heart, BatteryCharging, Scale, ArrowUpRight } from 'lucide-react';
 
 interface CarCardProps {
@@ -39,10 +39,7 @@ const CarCard: React.FC<CarCardProps> = ({
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
-  const isNew = (
-    ['Neta', 'Geely', 'Kia', 'Chevrolet', 'Omoda', 'GAC', 'Zeekr', 'GWM'].includes(car.brand) &&
-    !['Ora 03 Skin BEV48', 'Ora 03 GT BEV63'].includes(car.model)
-  ) || car.model.includes('Captiva') || car.model.includes('Buzz');
+  const isNew = isCarNew(car);
 
   const brandUrl = BRAND_URLS[car.brand] || `https://www.google.com/search?q=${encodeURIComponent(car.brand + ' Brasil')}`;
   const rangePercent = Math.min(Math.round((car.range / MAX_RANGE_KM) * 100), 100);

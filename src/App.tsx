@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { CAR_DB } from './constants';
+import { CAR_DB, isCarNew } from './constants';
 import Sidebar from './components/Sidebar';
 import CarCard from './components/CarCard';
 import ChatWidget from './components/ChatWidget';
@@ -52,6 +52,7 @@ export default function App() {
       if (car.range < filters.minRange) return false;
       if (filters.brands.length > 0 && !filters.brands.includes(car.brand)) return false;
       if (filters.categories.length > 0 && !filters.categories.includes(car.cat)) return false;
+      if (filters.showNew && !isCarNew(car)) return false;
       return true;
     });
   }, [filters, showFavoritesOnly, favorites, userCars]);

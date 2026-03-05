@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Car } from '../types';
 import { BRAND_URLS } from '../constants';
-import { X, BatteryCharging, Zap, CheckCircle2, ChevronLeft, ChevronRight, Image as ImageIcon, Scale, Check, Heart, ArrowUpRight } from 'lucide-react';
+import { X, BatteryCharging, Zap, CheckCircle2, ChevronLeft, ChevronRight, Image as ImageIcon, Scale, Check, Heart, ArrowUpRight, Share2 } from 'lucide-react';
 
 interface CarDetailsModalProps {
     car: Car;
@@ -42,6 +42,23 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
 
     const [currentIdx, setCurrentIdx] = useState(0);
     const [isImgLoading, setIsImgLoading] = useState(true);
+    const [copied, setCopied] = useState(false);
+
+    const handleShare = async () => {
+        const price = car.price.toLocaleString('pt-BR');
+        const payload = {
+            title: car.model,
+            text: `${car.model} – R$ ${price} – ${car.range}km | Guia PBEV`,
+            url: window.location.href,
+        };
+        if (navigator.share) {
+            try { await navigator.share(payload); } catch { /* user cancelled */ }
+        } else {
+            await navigator.clipboard.writeText(window.location.href);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        }
+    };
     const [failedImages, setFailedImages] = useState<Set<number>>(new Set());
     const fallbackImg = `https://placehold.co/600x400/09090e/1c1e26?text=${t('details.imageUnavailable')}`;
 
@@ -384,6 +401,16 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                                 title={isFavorite ? t('details.removeFavorite') : t('details.addFavorite')}
                             >
                                 <Heart className={`w-5 h-5 ${isFavorite ? 'fill-current' : ''}`} />
+                            </button>
+
+                            <button
+                                onClick={handleShare}
+                                className="py-3.5 px-4 rounded-2xl transition-all font-bold flex items-center justify-center gap-1.5 text-[10px] uppercase tracking-wider"
+                                style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.5)' }}
+                                title={t('card.share')}
+                            >
+                                <Share2 className="w-4 h-4" />
+                                <span className="hidden sm:inline">{copied ? t('card.shareCopied') : t('card.share')}</span>
                             </button>
 
                             <a

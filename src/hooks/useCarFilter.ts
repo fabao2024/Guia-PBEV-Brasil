@@ -6,7 +6,8 @@ export function useCarFilter(initialCars: Car[]) {
         maxPrice: 1500000,
         minRange: 100,
         categories: [],
-        brands: []
+        brands: [],
+        showNew: false
     });
 
     const allBrands = useMemo(() => {
@@ -18,7 +19,8 @@ export function useCarFilter(initialCars: Car[]) {
             maxPrice: 1500000,
             minRange: 100,
             categories: [],
-            brands: []
+            brands: [],
+            showNew: false
         });
     };
 

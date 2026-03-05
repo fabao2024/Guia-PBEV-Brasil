@@ -1,6 +1,12 @@
 
 import { Car } from './types';
 
+export const isCarNew = (car: Car): boolean =>
+  (['Neta', 'Geely', 'Kia', 'Chevrolet', 'Omoda', 'GAC', 'Zeekr', 'GWM'].includes(car.brand) &&
+    !['Ora 03 Skin BEV48', 'Ora 03 GT BEV63'].includes(car.model))
+  || car.model.includes('Captiva')
+  || car.model.includes('Buzz');
+
 export const BRAND_URLS: Record<string, string> = {
   "Renault": "https://www.renault.com.br",
   "CAOA Chery": "https://caoachery.com.br",
