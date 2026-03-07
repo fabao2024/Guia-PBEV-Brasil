@@ -164,10 +164,10 @@ export const CAR_DB: Car[] = [
   {
     model: "EX2 Max", brand: "Geely", price: 135100, range: 289, cat: "Compacto",
     img: "/car-images/geely-ex2-max.jpg",
-    power: 116, torque: 15.3, traction: 'FWD', battery: 41,
+    power: 116, torque: 15.3, traction: 'FWD', battery: 39.4,
     features: [
-      "Bateria NMC 41 kWh",
-      "Carregamento AC 7 kW / DC 50 kW",
+      "Bateria LFP de 39,4 kWh",
+      "Carregamento AC 7 kW / DC 70 kW",
       "Tela central 10,25\" com CarPlay e Android Auto",
       "6 airbags",
       "ADAS: ACC + AEB + alerta de saída de faixa",
@@ -197,9 +197,9 @@ export const CAR_DB: Car[] = [
     power: 171, torque: 25.5, traction: 'FWD', battery: 48,
     features: [
       "Bateria LFP 48 kWh",
-      "Carregamento AC 6,6 kW / DC 80 kW",
+      "Carregamento AC 11 kW / DC 64 kW",
       "Tela central 12,3\" com CarPlay e Android Auto",
-      "6 airbags",
+      "7 airbags",
       "ADAS: ACC com Stop&Go + AEB",
       "Câmera de ré",
       "Design retrô estilo vintage",
@@ -209,12 +209,12 @@ export const CAR_DB: Car[] = [
   {
     model: "Ora 03 Skin BEV58", brand: "GWM", price: 169000, range: 315, cat: "Compacto",
     img: "/car-images/ora 03 skin bev58.webp",
-    power: 171, torque: 25.5, traction: 'FWD', battery: 63,
+    power: 171, torque: 25.5, traction: 'FWD', battery: 58,
     features: [
-      "Bateria LFP 63 kWh (maior autonomia da linha Skin)",
-      "Carregamento AC 11 kW / DC 80 kW",
+      "Bateria LFP 58 kWh (maior autonomia da linha Skin)",
+      "Carregamento AC 11 kW / DC 64 kW",
       "Tela central 12,3\" com CarPlay e Android Auto",
-      "6 airbags",
+      "7 airbags",
       "ADAS: ACC + AEB + alerta de ponto cego (BSM)",
       "Câmera 360°",
       "Teto solar panorâmico",
@@ -226,23 +226,23 @@ export const CAR_DB: Car[] = [
     img: "/car-images/ora 03 GT BEV63.webp",
     power: 171, torque: 25.5, traction: 'FWD', battery: 63,
     features: [
-      "Bateria LFP 63 kWh",
-      "Carregamento AC 11 kW / DC 80 kW",
+      "Bateria NMC 63 kWh",
+      "Carregamento AC 11 kW / DC 67 kW",
       "Tela central 12,3\" com CarPlay e Android Auto",
-      "6 airbags",
+      "7 airbags",
       "ADAS Nível 2: ACC + manutenção de faixa (LCC) + AEB + BSM",
       "Câmera 360° surround view",
-      "Bancos aquecidos",
+      "Bancos aquecidos e ventilados com massagem",
       "Design esportivo GT com difusor traseiro"
     ]
   },
   {
     model: "Spark EUV", brand: "Chevrolet", price: 159990, range: 258, cat: "Compacto",
     img: "/car-images/Spark EUV.avif",
-    power: 102, torque: 18.4, traction: 'FWD', battery: 65,
+    power: 102, torque: 18.4, traction: 'FWD', battery: 42,
     features: [
-      "Bateria 65 kWh",
-      "Carregamento AC 11 kW / DC 80 kW",
+      "Bateria de LFP de 42 kWh",
+      "Carregamento AC 6,6 kW / DC 50 kW",
       "Tela Infotainment 10,2\" com CarPlay sem fio e Android Auto",
       "6 airbags",
       "Super Cruise: piloto automático mãos livres em rodovias mapeadas",
@@ -347,7 +347,7 @@ export const CAR_DB: Car[] = [
     power: 204, torque: 31.6, traction: 'FWD', battery: 60.4,
     features: [
       "Bateria LFP Blade 60,4 kWh",
-      "Carregamento AC 11 kW / DC 88 kW",
+      "Carregamento AC 11 kW / DC 80 kW",
       "Tela 12,8\" rotativa com BYD DiLink 4.0 (CarPlay e Android Auto)",
       "6 airbags",
       "DiPilot Nível 2: ACC + LCC + AEB + LKA + alerta de ponto cego (BSM)",
@@ -379,7 +379,7 @@ export const CAR_DB: Car[] = [
     power: 177, torque: 29.5, traction: 'FWD', battery: 45,
     features: [
       "Bateria LFP Blade 45 kWh",
-      "Carregamento AC 7 kW / DC 80 kW",
+      "Carregamento AC 7 kW / DC 60 kW",
       "Tela 12,8\" rotativa com BYD DiLink (CarPlay e Android Auto)",
       "6 airbags",
       "DiPilot: ACC + AEB + manutenção de faixa (LKA)",
@@ -393,8 +393,8 @@ export const CAR_DB: Car[] = [
     img: "/car-images/aion-y.webp",
     power: 136, torque: 23, traction: 'FWD', battery: 63.2,
     features: [
-      "Bateria NMC 63,2 kWh",
-      "Carregamento AC 6,6 kW / DC 70 kW",
+      "Bateria LFP 63,2 kWh",
+      "Carregamento AC 6,6 kW / DC 75 kW",
       "Tela central 14,6\" com CarPlay e Android Auto",
       "6 airbags",
       "ADAS Nível 2: ACC + LCC + AEB + LKA",
@@ -406,10 +406,10 @@ export const CAR_DB: Car[] = [
   {
     model: "Aion V Elite", brand: "GAC", price: 219000, range: 389, cat: "SUV",
     img: "/car-images/aion-v.jpg",
-    power: 204, torque: 24.5, traction: 'FWD', battery: 80,
+    power: 204, torque: 24.5, traction: 'FWD', battery: 75,
     features: [
-      "Bateria NMC 80 kWh",
-      "Carregamento AC 11 kW / DC 120 kW",
+      "Bateria LFP 75 kWh",
+      "Carregamento AC 11 kW / DC 180 kW",
       "Tela central 14,6\" com CarPlay e Android Auto",
       "6 airbags",
       "ADAS Nível 2+: ACC + LCC + AEB + alerta de ponto cego (BSM) + câmera 360°",
@@ -468,7 +468,7 @@ export const CAR_DB: Car[] = [
     img: "/car-images/omoda-5.jpg",
     power: 204, torque: 34.7, traction: 'FWD', battery: 61,
     features: [
-      "Bateria NMC 61 kWh",
+      "Bateria LFP Blade de 61 kWh",
       "Carregamento AC 11 kW / DC 80 kW",
       "Tela central 15,6\" com CarPlay e Android Auto",
       "6 airbags",
@@ -483,8 +483,8 @@ export const CAR_DB: Car[] = [
     img: "/car-images/ex5-max.jpg",
     power: 218, torque: 32.6, traction: 'FWD', battery: 60.1,
     features: [
-      "Bateria NMC 60,1 kWh",
-      "Carregamento AC 11 kW / DC 80 kW",
+      "Bateria LFP de 60,2 kWh",
+      "Carregamento AC 11 kW / DC 160 kW",
       "Tela dupla 12,3\" (painel + central) com CarPlay e Android Auto",
       "6 airbags",
       "ADAS: ACC + LCC + AEB + LKA + alerta de ponto cego (BSM)",
@@ -514,7 +514,7 @@ export const CAR_DB: Car[] = [
     power: 204, torque: 31.6, traction: 'FWD', battery: 60.5,
     features: [
       "Bateria LFP Blade 60,5 kWh",
-      "Carregamento AC 7 kW / DC 80 kW",
+      "Carregamento AC 7 kW / DC 88 kW",
       "Tela 12,8\" rotativa com BYD DiLink 4.0 (CarPlay e Android Auto)",
       "6 airbags",
       "DiPilot: ACC + LCC + AEB + LKA + alerta de ponto cego (BSM)",

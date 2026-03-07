@@ -12,7 +12,7 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
     const { t } = useTranslation();
 
     const [kms, setKms] = useState<number>(1500);
-    const [gasPrice, setGasPrice] = useState<number>(6.45);
+    const [gasPrice, setGasPrice] = useState<number>(6.00);
     const [kwhPrice, setKwhPrice] = useState<number>(1.00);
     const [dcKwhPrice, setDcKwhPrice] = useState<number>(2.50);
     const [dcPercent, setDcPercent] = useState<number>(20);
