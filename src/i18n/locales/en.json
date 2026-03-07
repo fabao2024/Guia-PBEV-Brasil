@@ -182,6 +182,7 @@
     "invalidKey": "Invalid key. Please check and try again.",
     "keyRemoved": "API key removed.",
     "cancel": "Cancel",
+    "orTryQuiz": "Or try without an API key:",
     "chipFindEV": "🔍 Help me choose an EV",
     "chipSimulate": "💰 Simulate my savings",
     "chipBestRange": "⚡ Which have the best range?",

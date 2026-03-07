@@ -28,3 +28,7 @@ dist-ssr
 
 # Dev utility scripts
 scripts/
+
+# Private planning docs
+ROADMAP.md
+ROADMAP.en.md

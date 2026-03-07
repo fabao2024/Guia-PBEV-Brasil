@@ -182,6 +182,7 @@
     "invalidKey": "Chave inválida. Verifique e tente novamente.",
     "keyRemoved": "Chave API removida.",
     "cancel": "Cancelar",
+    "orTryQuiz": "Ou experimente sem precisar de chave:",
     "chipFindEV": "🔍 Me ajude a escolher um EV",
     "chipSimulate": "💰 Simular minha economia",
     "chipBestRange": "⚡ Quais têm mais autonomia?",
