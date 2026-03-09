@@ -282,6 +282,14 @@
     "teto_panoramico": "Teto Panorâmico",
     "ar_digital": "Ar-Cond. Digital Bizona"
   },
+  "search": {
+    "placeholder": "Buscar por modelo, marca ou categoria...",
+    "clearSearch": "Limpar busca",
+    "resultsFor": "{{count}} resultado para \"{{query}}\"",
+    "resultsFor_plural": "{{count}} resultados para \"{{query}}\"",
+    "noResults": "Nenhum resultado para \"{{query}}\"",
+    "noResultsWithFilters": "Sem resultados para a busca e filtros ativos"
+  },
   "advancedFilters": {
     "title": "Filtros Avançados PBEV 2025",
     "clearFilters": "Limpar Filtros",

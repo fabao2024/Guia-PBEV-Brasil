@@ -14,6 +14,7 @@ import { Zap, Printer, Search, SlidersHorizontal, Scale, X, ArrowRight, Heart, P
 import { useCarFilter } from './hooks/useCarFilter';
 import { useFavorites } from './hooks/useFavorites';
 import { useCompare } from './hooks/useCompare';
+import { useSearch } from './hooks/useSearch';
 import { Car } from './types';
 
 export default function App() {
@@ -39,8 +40,11 @@ export default function App() {
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [isSimulatorModalOpen, setIsSimulatorModalOpen] = useState(false);
 
+  const allCars = useMemo(() => [...CAR_DB, ...userCars], [userCars]);
+  const { query, setQuery, searchResults, clearSearch, isSearching } = useSearch(allCars);
+
   const filteredCars = useMemo(() => {
-    let cars = [...CAR_DB, ...userCars];
+    let cars = searchResults;
 
     // First filter by favorites if enabled
     if (showFavoritesOnly) {
@@ -55,12 +59,13 @@ export default function App() {
       if (filters.showNew && !isCarNew(car)) return false;
       return true;
     });
-  }, [filters, showFavoritesOnly, favorites, userCars]);
+  }, [filters, showFavoritesOnly, favorites, searchResults]);
 
-  // Combined reset for filters and favorites mode
+  // Combined reset for filters, favorites mode and search
   const handleResetFilters = () => {
     resetFilters();
     setShowFavoritesOnly(false);
+    clearSearch();
   };
 
   const handleAddCar = (newCar: Car) => {
@@ -180,6 +185,37 @@ export default function App() {
             </button>
           </div>
 
+          {/* Search Bar */}
+          <div className="mb-4 relative">
+            <div className="relative flex items-center">
+              <Search className={`absolute left-4 w-4 h-4 transition-colors pointer-events-none ${query.length > 0 ? 'text-[#00b4ff]' : 'text-[#555]'}`} />
+              <input
+                type="search"
+                autoComplete="off"
+                value={query}
+                onChange={e => setQuery(e.target.value)}
+                placeholder={t('search.placeholder')}
+                className="w-full bg-[#0a0b12]/80 backdrop-blur-xl border border-white/10 rounded-xl pl-11 pr-10 py-3 text-white placeholder-[#555] text-sm focus:outline-none focus:border-[#00b4ff]/50 focus:ring-1 focus:ring-[#00b4ff]/30 transition-all"
+              />
+              {query.length > 0 && (
+                <button
+                  onClick={clearSearch}
+                  className="absolute right-3 text-[#666] hover:text-white transition-colors"
+                  title={t('search.clearSearch')}
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+            </div>
+            {isSearching && (
+              <p className="text-xs text-[#a0a0a0] mt-1.5 ml-1">
+                {filteredCars.length > 0
+                  ? t('search.resultsFor', { count: filteredCars.length, query: query.trim() })
+                  : t('search.noResults', { query: query.trim() })}
+              </p>
+            )}
+          </div>
+
           {/* Favorites Header Info */}
           {showFavoritesOnly && (
             <div className="mb-6 flex items-center justify-between bg-[#00b4ff]/5 border border-[#00b4ff]/20 p-5 rounded-2xl backdrop-blur-md">
@@ -233,7 +269,9 @@ export default function App() {
               <p className="text-[#a0a0a0] max-w-md mx-auto text-lg">
                 {showFavoritesOnly
                   ? t('empty.noFavoritesDesc')
-                  : t('empty.noVehiclesDesc')}
+                  : isSearching
+                    ? t('search.noResultsWithFilters')
+                    : t('empty.noVehiclesDesc')}
               </p>
               <button
                 onClick={handleResetFilters}

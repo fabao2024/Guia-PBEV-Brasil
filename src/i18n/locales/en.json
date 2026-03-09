@@ -282,6 +282,14 @@
     "teto_panoramico": "Panoramic Roof",
     "ar_digital": "Dual-Zone Digital A/C"
   },
+  "search": {
+    "placeholder": "Search by model, brand or category...",
+    "clearSearch": "Clear search",
+    "resultsFor": "{{count}} result for \"{{query}}\"",
+    "resultsFor_plural": "{{count}} results for \"{{query}}\"",
+    "noResults": "No results for \"{{query}}\"",
+    "noResultsWithFilters": "No results for the active search and filters"
+  },
   "advancedFilters": {
     "title": "Advanced Filters PBEV 2025",
     "clearFilters": "Clear Filters",
