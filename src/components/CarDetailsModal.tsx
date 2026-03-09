@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Car } from '../types';
 import { BRAND_URLS } from '../constants';
 import { useJsonLd } from '../hooks/useJsonLd';
+import { useMeta } from '../hooks/useMeta';
 import { X, BatteryCharging, Zap, CheckCircle2, ChevronLeft, ChevronRight, Image as ImageIcon, Scale, Check, Heart, ArrowUpRight, Share2 } from 'lucide-react';
 
 interface CarDetailsModalProps {
@@ -68,6 +69,13 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
       ]}),
     }), [car, gallery]);
     useJsonLd(productSchema);
+
+    useMeta({
+      title: `${car.brand} ${car.model} — R$ ${car.price.toLocaleString('pt-BR')} | Guia PBEV Brasil`,
+      description: `${car.brand} ${car.model}: autonomia PBEV ${car.range} km, categoria ${car.cat}${car.power ? `, ${car.power} cv` : ''}${car.battery ? `, bateria ${car.battery} kWh` : ''}. Preço estimado R$ ${car.price.toLocaleString('pt-BR')}.`,
+      image: gallery[0],
+      url: window.location.href,
+    });
 
     const handleShare = async () => {
         const price = car.price.toLocaleString('pt-BR');
