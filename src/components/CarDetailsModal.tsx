@@ -1,7 +1,8 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Car } from '../types';
 import { BRAND_URLS } from '../constants';
+import { useJsonLd } from '../hooks/useJsonLd';
 import { X, BatteryCharging, Zap, CheckCircle2, ChevronLeft, ChevronRight, Image as ImageIcon, Scale, Check, Heart, ArrowUpRight, Share2 } from 'lucide-react';
 
 interface CarDetailsModalProps {
@@ -43,6 +44,30 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
     const [currentIdx, setCurrentIdx] = useState(0);
     const [isImgLoading, setIsImgLoading] = useState(true);
     const [copied, setCopied] = useState(false);
+
+    const productSchema = useMemo(() => ({
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      name: `${car.brand} ${car.model}`,
+      description: `Carro elétrico ${car.brand} ${car.model} — Autonomia PBEV: ${car.range} km | Categoria: ${car.cat} | Preço estimado: R$ ${car.price.toLocaleString('pt-BR')}`,
+      brand: { '@type': 'Brand', name: car.brand },
+      image: gallery[0],
+      url: BRAND_URLS[car.brand] ?? window.location.href,
+      offers: {
+        '@type': 'Offer',
+        price: car.price,
+        priceCurrency: 'BRL',
+        availability: 'https://schema.org/InStock',
+        priceValidUntil: new Date(new Date().getFullYear() + 1, 0, 1).toISOString().split('T')[0],
+      },
+      ...(car.power && { additionalProperty: [
+        { '@type': 'PropertyValue', name: 'Potência', value: `${car.power} cv`, unitCode: 'HWP' },
+        { '@type': 'PropertyValue', name: 'Autonomia PBEV', value: `${car.range} km`, unitCode: 'KMT' },
+        ...(car.battery ? [{ '@type': 'PropertyValue', name: 'Bateria', value: `${car.battery} kWh` }] : []),
+        ...(car.traction ? [{ '@type': 'PropertyValue', name: 'Tração', value: car.traction }] : []),
+      ]}),
+    }), [car, gallery]);
+    useJsonLd(productSchema);
 
     const handleShare = async () => {
         const price = car.price.toLocaleString('pt-BR');

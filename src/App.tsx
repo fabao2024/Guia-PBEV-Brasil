@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { CAR_DB, isCarNew } from './constants';
+import { CAR_DB, isCarNew, BRAND_URLS } from './constants';
 import Sidebar from './components/Sidebar';
 import CarCard from './components/CarCard';
 import ChatWidget from './components/ChatWidget';
@@ -15,6 +15,7 @@ import { useCarFilter } from './hooks/useCarFilter';
 import { useFavorites } from './hooks/useFavorites';
 import { useCompare } from './hooks/useCompare';
 import { useSearch } from './hooks/useSearch';
+import { useJsonLd } from './hooks/useJsonLd';
 import { Car } from './types';
 
 export default function App() {
@@ -42,6 +43,21 @@ export default function App() {
 
   const allCars = useMemo(() => [...CAR_DB, ...userCars], [userCars]);
   const { query, setQuery, searchResults, clearSearch, isSearching } = useSearch(allCars);
+
+  const catalogSchema = useMemo(() => ({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Catálogo de Carros Elétricos PBEV Brasil',
+    description: `${allCars.length} veículos elétricos certificados pelo PBEV/INMETRO disponíveis no Brasil`,
+    numberOfItems: allCars.length,
+    itemListElement: allCars.map((car, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: `${car.brand} ${car.model}`,
+      url: BRAND_URLS[car.brand] ?? 'https://guia-pbev-brasil.github.io/Guia-PBEV-Brasil/',
+    })),
+  }), [allCars]);
+  useJsonLd(catalogSchema);
 
   const filteredCars = useMemo(() => {
     let cars = searchResults;
@@ -188,14 +204,14 @@ export default function App() {
           {/* Search Bar */}
           <div className="mb-4 relative">
             <div className="relative flex items-center">
-              <Search className={`absolute left-4 w-4 h-4 transition-colors pointer-events-none ${query.length > 0 ? 'text-[#00b4ff]' : 'text-[#555]'}`} />
+              <Search className={`absolute left-4 w-4 h-4 transition-colors pointer-events-none ${query.length > 0 ? 'text-[#00b4ff]' : 'text-[#888]'}`} />
               <input
                 type="search"
                 autoComplete="off"
                 value={query}
                 onChange={e => setQuery(e.target.value)}
                 placeholder={t('search.placeholder')}
-                className="w-full bg-[#0a0b12]/80 backdrop-blur-xl border border-white/10 rounded-xl pl-11 pr-10 py-3 text-white placeholder-[#555] text-sm focus:outline-none focus:border-[#00b4ff]/50 focus:ring-1 focus:ring-[#00b4ff]/30 transition-all"
+                className="w-full bg-[#0a0b12]/80 backdrop-blur-xl border border-white/10 rounded-xl pl-11 pr-10 py-3 text-white placeholder-[#888] text-sm focus:outline-none focus:border-[#00b4ff]/50 focus:ring-1 focus:ring-[#00b4ff]/30 transition-all"
               />
               {query.length > 0 && (
                 <button
