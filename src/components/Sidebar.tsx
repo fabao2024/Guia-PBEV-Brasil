@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { SlidersHorizontal, X } from 'lucide-react';
 import { FilterState } from '../types';
+import { track } from '../utils/analytics';
 
 interface SidebarProps {
   filters: FilterState;
@@ -24,18 +25,18 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
 
   const handleCategoryChange = (cat: string) => {
     setFilters(prev => {
-      const newCats = prev.categories.includes(cat)
-        ? prev.categories.filter(c => c !== cat)
-        : [...prev.categories, cat];
+      const adding = !prev.categories.includes(cat);
+      const newCats = adding ? [...prev.categories, cat] : prev.categories.filter(c => c !== cat);
+      if (adding) track('Filter Applied', { filter_type: 'category', value: cat });
       return { ...prev, categories: newCats };
     });
   };
 
   const handleBrandChange = (brand: string) => {
     setFilters(prev => {
-      const newBrands = prev.brands.includes(brand)
-        ? prev.brands.filter(b => b !== brand)
-        : [...prev.brands, brand];
+      const adding = !prev.brands.includes(brand);
+      const newBrands = adding ? [...prev.brands, brand] : prev.brands.filter(b => b !== brand);
+      if (adding) track('Filter Applied', { filter_type: 'brand', value: brand });
       return { ...prev, brands: newBrands };
     });
   };
@@ -91,6 +92,8 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
           step="50000"
           value={filters.maxPrice}
           onChange={handlePriceChange}
+          onMouseUp={(e) => track('Filter Applied', { filter_type: 'price', value: Number((e.target as HTMLInputElement).value) })}
+          onTouchEnd={(e) => track('Filter Applied', { filter_type: 'price', value: Number((e.target as HTMLInputElement).value) })}
           className="w-full accent-[#00b4ff] h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer"
         />
         <div className="flex justify-between text-[10px] text-[#666666] mt-3 font-black tracking-wider uppercase">
@@ -112,6 +115,8 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
           step="10"
           value={filters.minRange}
           onChange={handleRangeChange}
+          onMouseUp={(e) => track('Filter Applied', { filter_type: 'range', value: Number((e.target as HTMLInputElement).value) })}
+          onTouchEnd={(e) => track('Filter Applied', { filter_type: 'range', value: Number((e.target as HTMLInputElement).value) })}
           className="w-full accent-[#00b4ff] h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer"
         />
         <div className="flex justify-between text-[10px] text-[#666666] mt-3 font-black tracking-wider uppercase">

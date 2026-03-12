@@ -17,6 +17,7 @@ import { useCompare } from './hooks/useCompare';
 import { useSearch } from './hooks/useSearch';
 import { useJsonLd } from './hooks/useJsonLd';
 import { Car } from './types';
+import { track } from './utils/analytics';
 
 export default function App() {
   const { t } = useTranslation();
@@ -259,7 +260,7 @@ export default function App() {
               <CarCard
                 key={`${car.model}-${index}`}
                 car={car}
-                onClick={() => setSelectedCar(car)}
+                onClick={() => { setSelectedCar(car); track('Car Details Open', { model: car.model, brand: car.brand, category: car.cat }); }}
                 isSelectedForCompare={!!compareList.find(c => c.model === car.model)}
                 onToggleCompare={(e) => { e.stopPropagation(); toggleCompare(car); }}
                 isFavorite={favorites.includes(car.model)}
@@ -352,7 +353,7 @@ export default function App() {
                   {t('compareBar.clear')}
                 </button>
                 <button
-                  onClick={() => setIsCompareModalOpen(true)}
+                  onClick={() => { setIsCompareModalOpen(true); track('Comparison Start', { models: compareList.map(c => c.model).join(','), count: compareList.length }); }}
                   className="bg-transparent border border-[#00b4ff] text-[#00b4ff] hover:bg-[#00b4ff] hover:text-black pl-5 pr-4 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2 transition-all active:scale-95 uppercase tracking-wide"
                 >
                   {t('compareBar.compareNow')} <ArrowRight className="w-4 h-4" />

@@ -6,6 +6,7 @@ import { useJsonLd } from '../hooks/useJsonLd';
 import { useMeta } from '../hooks/useMeta';
 import { X, BatteryCharging, Zap, CheckCircle2, ChevronLeft, ChevronRight, Image as ImageIcon, Scale, Check, Heart, ArrowUpRight, Share2, ChevronDown, Award } from 'lucide-react';
 import { IPVA_BY_STATE, calcIpva, STANDARD_COMBUSTION_IPVA_RATE, IPVA_DATA_UPDATED } from '../constants/ipvaByState';
+import { track } from '../utils/analytics';
 
 interface CarDetailsModalProps {
     car: Car;
@@ -130,7 +131,9 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
 
     const features = (car.features && car.features.length > 0) ? car.features : getFallbackFeatures(car.cat);
     const activeImageSrc = failedImages.has(currentIdx) ? fallbackImg : gallery[currentIdx];
-    const brandUrl = BRAND_URLS[car.brand] || `https://www.google.com/search?q=${encodeURIComponent(car.brand + ' ' + car.model + ' comprar')}`;
+    const brandUrlBase = BRAND_URLS[car.brand] || `https://www.google.com/search?q=${encodeURIComponent(car.brand + ' ' + car.model + ' comprar')}`;
+    const utmParams = `utm_source=guiapbev&utm_medium=referral&utm_campaign=lead&utm_content=${encodeURIComponent(car.model.toLowerCase().replace(/\s+/g, '-'))}`;
+    const brandUrl = `${brandUrlBase}${brandUrlBase.includes('?') ? '&' : '?'}${utmParams}`;
 
     const accent = CAT_ACCENT[car.cat] ?? CAT_ACCENT['Compacto'];
     const tractionStyle = car.traction ? TRACTION_STYLE[car.traction] : null;
@@ -561,6 +564,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                                 href={brandUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                onClick={() => track('Lead Click', { model: car.model, brand: car.brand })}
                                 className="flex-[2] text-white font-black uppercase tracking-wider text-xs py-3.5 rounded-2xl transition-all hover:brightness-110 active:scale-[0.98] flex items-center justify-center gap-2 no-underline"
                                 style={{
                                     background: 'linear-gradient(135deg, #006ce5, #00b4ff)',

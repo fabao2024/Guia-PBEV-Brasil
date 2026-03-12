@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronDown } from 'lucide-react';
 import { CAR_DB } from '../constants';
 import { Car } from '../types';
 import { IPVA_BY_STATE, calcIpva, STANDARD_COMBUSTION_IPVA_RATE, IPVA_DATA_UPDATED } from '../constants/ipvaByState';
+import { track } from '../utils/analytics';
 
 interface SavingsSimulatorModalProps {
     onClose: () => void;
@@ -25,6 +26,10 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
     useEffect(() => {
         localStorage.setItem('selectedState', selectedState);
     }, [selectedState]);
+
+    useEffect(() => {
+        track('Simulator Used', { state: selectedState });
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const handleCurrencyChange = (newCurrency: 'BRL' | 'USD') => {
         if (currency === newCurrency) return;
