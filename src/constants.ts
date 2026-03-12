@@ -114,7 +114,8 @@ export const CAR_DB: Car[] = [
       "Câmera de ré",
       "Ar-condicionado automático",
       "Montagem nacional (São José dos Pinhais - PR)"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.44,
   },
   {
     model: "iCar EQ", brand: "CAOA Chery", price: 119990, range: 197, cat: "Urbano",
@@ -144,7 +145,8 @@ export const CAR_DB: Car[] = [
       "Sensores de estacionamento",
       "Partida sem chave (keyless entry)",
       "Ar-condicionado automático"
-    ]
+    ],
+    pbeRating: 'E', energyMJkm: 0.5,
   },
   {
     model: "Dolphin Mini GS", brand: "BYD", price: 119990, range: 280, cat: "Urbano",
@@ -159,7 +161,8 @@ export const CAR_DB: Car[] = [
       "Câmera de ré",
       "Controle de cruzeiro adaptativo (ACC)",
       "Atualização de software OTA"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.39,
   },
   {
     model: "EX2 Max", brand: "Geely", price: 135100, range: 289, cat: "Compacto",
@@ -174,7 +177,8 @@ export const CAR_DB: Car[] = [
       "Câmera de ré",
       "Sensores de estacionamento dianteiros e traseiros",
       "Faróis LED full"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.39,
   },
   {
     model: "Aya Luxury", brand: "Neta", price: 149900, range: 263, cat: "Compacto",
@@ -204,7 +208,8 @@ export const CAR_DB: Car[] = [
       "Câmera de ré",
       "Design retrô estilo vintage",
       "Ar-condicionado automático bizona"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.51,
   },
   {
     model: "Ora 03 Skin BEV58", brand: "GWM", price: 169000, range: 315, cat: "Compacto",
@@ -219,7 +224,8 @@ export const CAR_DB: Car[] = [
       "Câmera 360°",
       "Teto solar panorâmico",
       "Design retrô com acabamento premium"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.51,
   },
   {
     model: "Ora 03 GT BEV63", brand: "GWM", price: 189000, range: 295, cat: "Compacto",
@@ -234,7 +240,8 @@ export const CAR_DB: Car[] = [
       "Câmera 360° surround view",
       "Bancos aquecidos e ventilados com massagem",
       "Design esportivo GT com difusor traseiro"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.51,
   },
   {
     model: "Spark EUV", brand: "Chevrolet", price: 159990, range: 258, cat: "Compacto",
@@ -249,7 +256,8 @@ export const CAR_DB: Car[] = [
       "ADAS: ACC + LCC + AEB + câmera de ré HD",
       "OnStar conectado (telemetria e assistência remota)",
       "Atualização de software OTA"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.5,
   },
   {
     model: "Dolphin GS", brand: "BYD", price: 149990, range: 291, cat: "Compacto",
@@ -264,7 +272,8 @@ export const CAR_DB: Car[] = [
       "Câmera de ré",
       "Faróis LED full com DRL",
       "Atualização OTA"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.51,
   },
   {
     model: "500e Icon", brand: "Fiat", price: 214990, range: 227, cat: "Compacto",
@@ -279,7 +288,8 @@ export const CAR_DB: Car[] = [
       "Câmera 360° surround view",
       "Design icônico italiano (Fiat 500 clássico releitura EV)",
       "Teto de lona disponível (Cabrio)"
-    ]
+    ],
+    pbeRating: 'C', energyMJkm: 0.46,
   },
   {
     model: "e-208 GT", brand: "Peugeot", price: 225990, range: 220, cat: "Compacto",
@@ -294,7 +304,8 @@ export const CAR_DB: Car[] = [
       "Câmera de ré 180°",
       "Bancos esportivos GT com revestimento em Alcantara",
       "Faróis de matriz LED (Full LED)"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.59,
   },
   {
     model: "Cooper E", brand: "Mini", price: 260990, range: 246, cat: "Compacto",
@@ -309,7 +320,8 @@ export const CAR_DB: Car[] = [
       "Modos de condução Go Kart (experiência esportiva)",
       "Experiência sonora imersiva (motor e aceleração simulados)",
       "Design icônico Mini premium com acabamentos exclusivos"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.48,
   },
   {
     model: "JCW-E", brand: "Mini", price: 330990, range: 306, cat: "Compacto",
@@ -324,7 +336,8 @@ export const CAR_DB: Car[] = [
       "JCW Launch Control: 0-100 km/h em 6,5 s",
       "Modos de condução Go Kart e JCW com steering sharpener",
       "Visual exclusivo JCW: bancos esportivos, freios vermelhos e rodas 18\""
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.5,
   },
   {
     model: "Aceman SE", brand: "Mini", price: 304990, range: 270, cat: "Compacto",
@@ -339,7 +352,8 @@ export const CAR_DB: Car[] = [
       "Teto panorâmico com tiras LED personalizáveis",
       "SUV compacto com 1.265L de porta-malas",
       "Modos de condução Go Kart + suspensão esportiva"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.52,
   },
   {
     model: "Dolphin Plus", brand: "BYD", price: 184000, range: 330, cat: "Compacto",
@@ -354,7 +368,8 @@ export const CAR_DB: Car[] = [
       "Câmera 360° surround view",
       "V2L – Vehicle-to-Load (carrega dispositivos externos)",
       "Bancos aquecidos + Atualização OTA"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.51,
   },
 
   // 2. SUVS & SEDANS MÉDIOS
@@ -386,7 +401,8 @@ export const CAR_DB: Car[] = [
       "Câmera de ré",
       "Sensores de estacionamento dianteiros e traseiros",
       "Atualização OTA"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.51,
   },
   {
     model: "Aion Y Elite", brand: "GAC", price: 184900, range: 318, cat: "SUV",
@@ -401,7 +417,8 @@ export const CAR_DB: Car[] = [
       "Câmera 360° com radar de proximidade",
       "Teto solar panorâmico",
       "Chave virtual NFC + atualização OTA"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.57,
   },
   {
     model: "Aion V Elite", brand: "GAC", price: 219000, range: 389, cat: "SUV",
@@ -446,7 +463,8 @@ export const CAR_DB: Car[] = [
       "Câmera 360° surround view",
       "Teto solar panorâmico elétrico",
       "Atualização OTA"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.61,
   },
   {
     model: "Captiva EV", brand: "Chevrolet", price: 199990, range: 304, cat: "SUV",
@@ -476,7 +494,8 @@ export const CAR_DB: Car[] = [
       "Câmera 360° surround view",
       "Teto solar panorâmico elétrico",
       "Design esportivo coupe-SUV com faróis divididos"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.51,
   },
   {
     model: "EX5 Max", brand: "Geely", price: 215800, range: 349, cat: "SUV",
@@ -521,7 +540,8 @@ export const CAR_DB: Car[] = [
       "Câmera 360° surround view",
       "Bancos aquecidos",
       "Atualização OTA"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.56,
   },
   {
     model: "EX30", brand: "Volvo", price: 229950, range: 250, cat: "SUV",
@@ -536,7 +556,8 @@ export const CAR_DB: Car[] = [
       "ADAS: AEB + alerta de colisão + câmera de ré",
       "Interior em materiais reciclados e sustentáveis",
       "Atualização OTA"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.57,
   },
   {
     model: "e-2008", brand: "Peugeot", price: 269990, range: 261, cat: "SUV",
@@ -551,7 +572,8 @@ export const CAR_DB: Car[] = [
       "Câmera de ré 180° + sensores de estacionamento",
       "Teto panorâmico com cortina elétrica",
       "Faróis Full LED com assinatura luminosa Peugeot"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.55,
   },
   {
     model: "Megane E-Tech", brand: "Renault", price: 279900, range: 337, cat: "SUV",
@@ -566,7 +588,8 @@ export const CAR_DB: Car[] = [
       "Câmera de ré + sensores de estacionamento",
       "Bancos aquecidos e ventilados",
       "Atualização OTA"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.51,
   },
   {
     model: "Countryman SE", brand: "Mini", price: 340990, range: 320, cat: "SUV",
@@ -581,7 +604,8 @@ export const CAR_DB: Car[] = [
       "Modo Go Kart com torque vetorial AWD",
       "Teto panorâmico elétrico",
       "Bancos aquecidos e ventilados"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.61,
   },
   {
     model: "Equinox EV", brand: "Chevrolet", price: 349990, range: 443, cat: "SUV",
@@ -626,7 +650,8 @@ export const CAR_DB: Car[] = [
       "Câmera 360° surround view",
       "Bancos aquecidos e ventilados + teto solar panorâmico",
       "Atualização OTA"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.59,
   },
   {
     model: "EC40 (C40)", brand: "Volvo", price: 359950, range: 385, cat: "SUV",
@@ -641,7 +666,8 @@ export const CAR_DB: Car[] = [
       "Câmera 360° surround view",
       "Design fastback coupé (teto fixo de vidro, sem abertura)",
       "Bancos aquecidos + acabamento sem couro (interior vegan)"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.59,
   },
   {
     model: "EX90 Twin", brand: "Volvo", price: 849990, range: 459, cat: "SUV",
@@ -656,7 +682,8 @@ export const CAR_DB: Car[] = [
       "V2G/V2L – saída de energia para cargas externas (até 6 kW)",
       "7 lugares com bancos dianteiros aquecidos, ventilados e com massagem",
       "Som Bowers & Wilkins premium (25 alto-falantes) + teto panorâmico"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.68,
   },
   {
     model: "iX2 xDrive30", brand: "BMW", price: 495950, range: 327, cat: "SUV",
@@ -671,7 +698,8 @@ export const CAR_DB: Car[] = [
       "SUV coupê com teto inclinado e design esportivo",
       "Bancos aquecidos e ventilados + som Harman Kardon",
       "Teto panorâmico + 0-100 km/h em 5,6 s"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.59,
   },
   {
     model: "iX1 eDrive20", brand: "BMW", price: 359950, range: 345, cat: "SUV",
@@ -686,7 +714,8 @@ export const CAR_DB: Car[] = [
       "Câmera de ré",
       "Bancos aquecidos",
       "Som Harman Kardon (opcional)"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.55,
   },
   {
     model: "EV5 Land", brand: "Kia", price: 389990, range: 402, cat: "SUV",
@@ -701,7 +730,8 @@ export const CAR_DB: Car[] = [
       "V2L – Vehicle-to-Load (até 3,6 kW externos)",
       "Câmera 360°",
       "Bancos aquecidos e ventilados + teto solar panorâmico"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.6,
   },
   {
     model: "Ioniq 5", brand: "Hyundai", price: 394990, range: 374, cat: "SUV",
@@ -746,7 +776,8 @@ export const CAR_DB: Car[] = [
       "Câmera 360°",
       "7 lugares (3ª fileira rebatível)",
       "Bancos aquecidos + Hey Mercedes"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.53,
   },
   {
     model: "Neta X 500", brand: "Neta", price: 214900, range: 317, cat: "SUV",
@@ -776,7 +807,8 @@ export const CAR_DB: Car[] = [
       "Câmera 360° surround view",
       "Bancos de couro aquecidos",
       "Teto solar + porta-malas elétrico"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.47,
   },
   {
     model: "Ariya", brand: "Nissan", price: 350000, range: 400, cat: "SUV",
@@ -806,7 +838,8 @@ export const CAR_DB: Car[] = [
       "Tração AWD dual motor 272 cv de alto desempenho",
       "Bancos aquecidos e ventilados + teto solar panorâmico",
       "Atualização OTA"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.59,
   },
   {
     model: "7X", brand: "Zeekr", price: 448000, range: 423, cat: "SUV",
@@ -821,7 +854,8 @@ export const CAR_DB: Car[] = [
       "SUV coupê com portas de abertura elétrica automática",
       "Bancos ventilados e com massagem + som premium 23 alto-falantes",
       "0-100 km/h em 3,8 s + plataforma SEA"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.64,
   },
   {
     model: "iX3", brand: "BMW", price: 500950, range: 381, cat: "Luxo",
@@ -868,7 +902,8 @@ export const CAR_DB: Car[] = [
       "AWD dual motor 544 cv (0-100 km/h em ~3,8 s)",
       "Bancos aquecidos, ventilados e com massagem",
       "Teto panorâmico elétrico + som premium Yamaha + atualização OTA"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.63,
   },
   {
     model: "i4 eDrive35", brand: "BMW", price: 449950, range: 422, cat: "Luxo",
@@ -958,7 +993,8 @@ export const CAR_DB: Car[] = [
       "Câmera 360° Surround View + Night Vision",
       "Bancos esportivos com ajuste pneumático, aquecimento e ventilação",
       "Suspensão pneumática Porsche Active Ride + som BOSE/Burmester opcional"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.61,
   },
   {
     model: "Q8 e-tron", brand: "Audi", price: 699000, range: 332, cat: "Luxo",
@@ -988,7 +1024,8 @@ export const CAR_DB: Car[] = [
       "Cx 0,21 – sedã elétrico mais aerodinâmico da história da Audi",
       "Som Bang & Olufsen 3D (20 alto-falantes) + teto panorâmico",
       "0-100 km/h em 5,4 s + atualização OTA"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.59,
   },
   {
     model: "Q6 e-tron", brand: "Audi", price: 529990, range: 411, cat: "Luxo",
@@ -1003,7 +1040,8 @@ export const CAR_DB: Car[] = [
       "Suspensão pneumática adaptativa com nivelamento automático",
       "Bancos S Line com ventilação, aquecimento + som Bang & Olufsen",
       "Teto panorâmico + atualização OTA + 0-100 km/h em 5,9 s"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.64,
   },
   {
     model: "Q6 Sportback e-tron", brand: "Audi", price: 569990, range: 427, cat: "Luxo",
@@ -1018,7 +1056,8 @@ export const CAR_DB: Car[] = [
       "Audi Virtual Cockpit Plus 11,9\" + MMI Panorâmico 14,5\"",
       "Bancos S Line com ventilação + som Bang & Olufsen 3D",
       "Teto panorâmico + atualização OTA + 0-100 km/h em 5,9 s"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.64,
   },
   {
     model: "SQ6 Sportback e-tron", brand: "Audi", price: 684990, range: 428, cat: "Luxo",
@@ -1033,7 +1072,8 @@ export const CAR_DB: Car[] = [
       "Suspensão S esportiva com amortecimento adaptativo",
       "Bancos S com ventilação, aquecimento e massagem + som Bang & Olufsen",
       "0-100 km/h em 4,4 s + Launch Control + atualização OTA"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.64,
   },
   {
     model: "iX xDrive40", brand: "BMW", price: 699950, range: 329, cat: "Luxo",
@@ -1078,7 +1118,8 @@ export const CAR_DB: Car[] = [
       "Câmera Surround 360°",
       "Bancos esportivos GT com ventilação e massagem + som BOSE/Burmester Diamond 3D",
       "Suspensão pneumática com controle ativo + 0-100 km/h em 4,0 s"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.69,
   },
   {
     model: "EV9 GT-Line", brand: "Kia", price: 749990, range: 434, cat: "Luxo",
@@ -1184,7 +1225,8 @@ export const CAR_DB: Car[] = [
       "Câmera Surround 360° + suspensão pneumática ativa",
       "Bancos esportivos com ventilação, massagem + som BOSE ou Burmester opcional",
       "0-100 km/h em 4,5 s + atualização OTA"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.63,
   },
   {
     model: "G 580 EQ", brand: "Mercedes-Benz", price: 1100000, range: 369, cat: "Luxo",
@@ -1199,7 +1241,8 @@ export const CAR_DB: Car[] = [
       "DISTRONIC Plus: ACC + LCC + AEB + BSM + câmera 360°",
       "Bancos Nappa multicontour com massagem + som Burmester 3D",
       "0-100 km/h em 4,7 s + torque vetorial por roda para off-road extremo"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.88,
   },
 
   // 4. COMERCIAIS & VANS
@@ -1216,7 +1259,8 @@ export const CAR_DB: Car[] = [
       "Pro Power Onboard: 2,4 kW para ferramentas elétricas",
       "FordPass Pro: gestão de frota conectada",
       "Capacidade de carga 758-1.032 kg (furgão, chassi ou plataforma)"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 1.02,
   },
   {
     model: "Kangoo E-Tech", brand: "Renault", price: 259000, range: 210, cat: "Comercial",
@@ -1231,7 +1275,8 @@ export const CAR_DB: Car[] = [
       "Câmera de ré",
       "Open Sesame: porta traseira swing de 180°",
       "Capacidade de carga até 775 kg + porta lateral deslizante dupla"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.6,
   },
   {
     model: "ID.Buzz", brand: "Volkswagen", price: 340000, range: 341, cat: "Comercial",
@@ -1261,7 +1306,8 @@ export const CAR_DB: Car[] = [
       "Capacidade de carga 800 kg (furgão compacto urbano)",
       "Refrigeração da cabine para motoristas",
       "Atualização OTA – ideal para logística urbana de última milha"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.71,
   },
   {
     model: "e-Expert", brand: "Peugeot", price: 329990, range: 258, cat: "Comercial",
@@ -1276,7 +1322,8 @@ export const CAR_DB: Car[] = [
       "Drive Assist Plus: ACC + alerta de mudança de faixa (LCA)",
       "Capacidade de carga 1.000 kg + porta traseira dupla",
       "Conectividade de frota PSA Fleet"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.75,
   },
   {
     model: "e-Scudo", brand: "Fiat", price: 329990, range: 289, cat: "Comercial",
@@ -1306,7 +1353,8 @@ export const CAR_DB: Car[] = [
       "Drive Assist: ACC + alerta de mudança de faixa (LCA)",
       "Capacidade de carga 1.000 kg + porta lateral deslizante elétrica",
       "Plataforma compartilhada Stellantis (e-Expert / e-Jumpy / e-Scudo)"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.75,
   },
 
   // 5. MG MOTOR
@@ -1323,7 +1371,8 @@ export const CAR_DB: Car[] = [
       "Câmera de ré",
       "Motor traseiro RWD de alto desempenho",
       "Design esportivo hatch"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.59,
   },
   {
     model: "MG4 Luxury", brand: "MG Motor", price: 189800, range: 364, cat: "Compacto",
@@ -1338,7 +1387,8 @@ export const CAR_DB: Car[] = [
       "Câmera 360° surround view",
       "Teto solar panorâmico + bancos aquecidos",
       "Plataforma MSP (Motor Skateboard Platform)"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.59,
   },
   {
     model: "MG4 XPower", brand: "MG Motor", price: 229800, range: 279, cat: "Compacto",
@@ -1353,7 +1403,8 @@ export const CAR_DB: Car[] = [
       "AWD dual motor 435 cv (0-100 km/h em 3,8 s)",
       "Freios Brembo + modo Trophy (pista) + câmera 360°",
       "Atualização OTA"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.59,
   },
   {
     model: "MGS5 Comfort", brand: "MG Motor", price: 195800, range: 351, cat: "SUV",
@@ -1368,7 +1419,8 @@ export const CAR_DB: Car[] = [
       "Sensores de estacionamento dianteiros e traseiros",
       "Design SUV robusto com visual agressivo",
       "Faróis LED full"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.51,
   },
   {
     model: "MGS5 Luxury", brand: "MG Motor", price: 219800, range: 351, cat: "SUV",
@@ -1383,7 +1435,8 @@ export const CAR_DB: Car[] = [
       "Teto solar panorâmico",
       "Bancos aquecidos e ventilados",
       "Interior premium com iluminação ambiente"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.51,
   },
   {
     model: "Cyberster", brand: "MG Motor", price: 499800, range: 342, cat: "Luxo",
@@ -1398,6 +1451,7 @@ export const CAR_DB: Car[] = [
       "Capota retrátil elétrica em 9 segundos (roadster 2 lugares)",
       "AWD dual motor 510 cv (0-100 km/h em 3,2 s)",
       "Bancos Alcantara com aquecimento + design roadster esportivo clássico"
-    ]
+    ],
+    pbeRating: 'A', energyMJkm: 0.56,
   }
 ];

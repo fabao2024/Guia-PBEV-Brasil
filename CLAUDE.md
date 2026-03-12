@@ -117,6 +117,13 @@ src/
 VITE_GEMINI_API_KEY=your_key   # Optional on GitHub Pages (users provide their own)
 ```
 
+## Workflow Rules
+- **Before starting any task**, read `ROADMAP.md` and check:
+  1. Is this already built? (✅ in status table or sprint) — if yes, say so and do not duplicate.
+  2. Is this a variation of something already built? — if yes, treat it as an enhancement to the existing item, not a new one.
+  3. Is this genuinely new? — if yes, add it to the backlog or current sprint before building.
+- **After completing any task that changes code**, update `ROADMAP.md` automatically (no need to be asked): mark items ✅, add a `> Resumo técnico` block to the current sprint, and update the status table if applicable.
+
 ## Gotchas
 - Windows bash paths: use `/c/Users/...` not `C:\Users\...`
 - GitHub Pages base path: always use `import.meta.env.BASE_URL` for asset URLs

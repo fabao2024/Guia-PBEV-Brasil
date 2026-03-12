@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { ChevronLeft, ChevronDown } from 'lucide-react';
 import { CAR_DB } from '../constants';
 import { Car } from '../types';
+import { IPVA_BY_STATE, calcIpva, STANDARD_COMBUSTION_IPVA_RATE, IPVA_DATA_UPDATED } from '../constants/ipvaByState';
 
 interface SavingsSimulatorModalProps {
     onClose: () => void;
@@ -17,6 +18,13 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
     const [dcKwhPrice, setDcKwhPrice] = useState<number>(2.50);
     const [dcPercent, setDcPercent] = useState<number>(20);
     const [currency, setCurrency] = useState<'BRL' | 'USD'>('BRL');
+    const [selectedState, setSelectedState] = useState<string>(
+        () => localStorage.getItem('selectedState') ?? 'SP'
+    );
+
+    useEffect(() => {
+        localStorage.setItem('selectedState', selectedState);
+    }, [selectedState]);
 
     const handleCurrencyChange = (newCurrency: 'BRL' | 'USD') => {
         if (currency === newCurrency) return;
@@ -204,6 +212,36 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                                 {t('simulator.blendedRate')}: {currencySymbol} {blendedKwhPrice.toFixed(2).replace('.', ',')}/kWh
                             </p>
                         </div>
+
+                        {/* State selector for IPVA */}
+                        <div>
+                            <div className="flex justify-between items-center mb-3">
+                                <span className="text-white text-sm lg:text-base">{t('ipva.title')}</span>
+                                <div className="bg-white/10 px-3 py-1 rounded-full border border-white/20 text-white font-mono text-sm">
+                                    {(() => {
+                                        const s = IPVA_BY_STATE.find(s => s.abbr === selectedState);
+                                        return s ? (s.bevRate === 0 ? 'Isento' : `${(s.bevRate * 100).toFixed(1)}%`) : '—';
+                                    })()}
+                                </div>
+                            </div>
+                            <div className="relative">
+                                <select
+                                    value={selectedState}
+                                    onChange={e => setSelectedState(e.target.value)}
+                                    className="w-full appearance-none bg-[#1a1a1a] border border-white/20 text-white text-sm font-bold rounded-xl px-4 py-3 pr-8 focus:outline-none focus:border-[#00b4ff] transition-colors"
+                                >
+                                    {IPVA_BY_STATE.map(s => (
+                                        <option key={s.abbr} value={s.abbr} style={{ background: '#1a1a1a' }}>
+                                            {s.abbr} — {s.name} · {s.bevRate === 0 ? 'Isento' : `${(s.bevRate * 100).toFixed(1)}%`}
+                                        </option>
+                                    ))}
+                                </select>
+                                <ChevronDown className="w-4 h-4 text-[#a0a0a0] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                            </div>
+                            <p className="text-[10px] text-[#555] mt-2 text-right">
+                                {'⚠'} Dados de {IPVA_DATA_UPDATED}. Consulte a Sefaz do seu estado.
+                            </p>
+                        </div>
                     </div>
 
                     {/* Car Columns */}
@@ -218,6 +256,11 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                             const monthlySavings = gasCost - evCost;
                             const annualSavings = monthlySavings * 12;
                             const costPerKm = kms > 0 ? evCost / kms : 0;
+
+                            const ipvaStateInfo = IPVA_BY_STATE.find(s => s.abbr === selectedState) ?? IPVA_BY_STATE.find(s => s.abbr === 'SP')!;
+                            const annualIpvaBev = car ? calcIpva(car.price, ipvaStateInfo) : 0;
+                            const annualIpvaCombustion = car ? Math.round(car.price * STANDARD_COMBUSTION_IPVA_RATE) : 0;
+                            const ipvaSavings = annualIpvaCombustion - annualIpvaBev;
 
                             const maxCost = Math.max(gasCost, 1000);
                             const evHeight = car ? `${(evCost / maxCost) * 100}%` : '5%';
@@ -303,6 +346,26 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                                                 <p className="text-white font-black text-lg md:text-xl mb-3">{currencySymbol} {costPerKm.toFixed(2).replace('.', ',')}</p>
                                                 <p className="text-xs text-[#a0a0a0] mb-0.5">{t('simulator.efficiency')}</p>
                                                 <p className="text-white font-bold text-sm">{efficiency} kWh/100km</p>
+
+                                                {/* IPVA row */}
+                                                <div className="w-full mt-3 pt-3 border-t border-white/10">
+                                                    <p className="text-xs text-[#a0a0a0] mb-0.5">
+                                                        {t('ipva.annualIpva')} · {selectedState} · <span className="text-white/60">{ipvaStateInfo.bevRate === 0 ? 'Isento' : `${(ipvaStateInfo.bevRate * 100).toFixed(1)}%`}</span>
+                                                    </p>
+                                                    <p className="font-black text-base" style={{ color: annualIpvaBev === 0 ? '#00e5a0' : 'white' }}>
+                                                        {annualIpvaBev === 0 ? t('ipva.exempt') : `R$ ${annualIpvaBev.toLocaleString('pt-BR')}`}
+                                                    </p>
+                                                    {ipvaSavings > 0 && (
+                                                        <p className="text-[10px] text-[#00e5a0]">
+                                                            ↓ R$ {ipvaSavings.toLocaleString('pt-BR')} {t('ipva.savingsVsCombustion')}
+                                                        </p>
+                                                    )}
+                                                    {ipvaStateInfo.condition && (
+                                                        <p className="text-[10px] mt-0.5 leading-tight" style={{ color: 'rgba(255,255,255,0.3)' }}>
+                                                            {ipvaStateInfo.condition}
+                                                        </p>
+                                                    )}
+                                                </div>
                                             </div>
                                         </>
                                     )}

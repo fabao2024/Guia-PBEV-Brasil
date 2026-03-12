@@ -299,5 +299,26 @@
     "tractionType": "Traction Type",
     "category": "Category",
     "seeResults": "See {{count}} Results"
+  },
+  "ipva": {
+    "title": "IPVA 2026 (Vehicle Tax)",
+    "selectState": "Select State",
+    "annualIpva": "Estimated annual IPVA",
+    "exempt": "Exempt",
+    "condition": "Condition",
+    "savingsVsCombustion": "savings vs. combustion",
+    "bevRate": "EV rate:",
+    "noData": "Data not available",
+    "alwaysBRL": "Always in R$ (state tax)",
+    "ipvaSavings": "IPVA Savings"
+  },
+  "pbe": {
+    "title": "PBE / INMETRO Certification",
+    "rating": "PBE Rating",
+    "energy": "Energy Consumption",
+    "energyUnit": "MJ/km",
+    "conpet": "CONPET Seal",
+    "conpetYes": "Yes",
+    "conpetNo": "No"
   }
 }

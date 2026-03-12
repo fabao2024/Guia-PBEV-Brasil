@@ -11,6 +11,9 @@ export interface Car {
   traction?: 'FWD' | 'RWD' | 'AWD';
   battery?: number; // kWh
   features?: string[]; // model-specific feature list
+  pbeRating?: 'A' | 'B' | 'C' | 'D' | 'E';
+  energyMJkm?: number;
+  conpetSeal?: boolean;
 }
 
 export interface FilterState {
