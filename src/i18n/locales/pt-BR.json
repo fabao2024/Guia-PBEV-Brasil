@@ -66,6 +66,8 @@
     "removeFavorite": "Remover Favorito",
     "addFavorite": "Favoritar",
     "interested": "Tenho Interesse",
+    "insuranceBtn": "Cotar seguro EV",
+    "insuranceTip": "Seguros com benefícios exclusivos para elétricos",
     "features": {
       "urban": [
         "Multimídia com CarPlay/Android Auto",
@@ -204,7 +206,8 @@
   "footer": {
     "dataSource": "Fonte de Dados:",
     "dataDesc": "Tabela PBEV 2025 (Inmetro) + Pesquisa de Mercado (Novembro/2025).",
-    "disclaimer": "Autonomia padrão PBEV. Imagens ilustrativas dos modelos globais."
+    "disclaimer": "Autonomia padrão PBEV. Imagens ilustrativas dos modelos globais.",
+    "privacy": "Política de Privacidade"
   },
   "compareBar": {
     "compare": "Comparar",

@@ -302,6 +302,16 @@ export default function App() {
           <footer className="mt-auto text-center text-xs text-[#444444] border-t border-white/10 pt-8 pb-8">
             <p><strong className="text-[#666666]">{t('footer.dataSource')}</strong> {t('footer.dataDesc')}</p>
             <p className="mt-2 text-[#333333]">{t('footer.disclaimer')}</p>
+            <p className="mt-3">
+              <a
+                href={`${import.meta.env.BASE_URL}privacy.html`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#333333] hover:text-[#00b4ff] transition-colors"
+              >
+                {t('footer.privacy')}
+              </a>
+            </p>
           </footer>
         </main>
 

@@ -1,10 +1,10 @@
 import { useEffect, useState, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Car } from '../types';
-import { BRAND_URLS } from '../constants';
+import { BRAND_URLS, INSURANCE_AFFILIATE_URL } from '../constants';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { useMeta } from '../hooks/useMeta';
-import { X, BatteryCharging, Zap, CheckCircle2, ChevronLeft, ChevronRight, Image as ImageIcon, Scale, Check, Heart, ArrowUpRight, Share2, ChevronDown, Award } from 'lucide-react';
+import { X, BatteryCharging, Zap, CheckCircle2, ChevronLeft, ChevronRight, Image as ImageIcon, Scale, Check, Heart, ArrowUpRight, Share2, ChevronDown, Award, Shield } from 'lucide-react';
 import { IPVA_BY_STATE, calcIpva, STANDARD_COMBUSTION_IPVA_RATE, IPVA_DATA_UPDATED } from '../constants/ipvaByState';
 import { track } from '../utils/analytics';
 
@@ -575,6 +575,25 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                                 <ArrowUpRight className="w-4 h-4" />
                             </a>
                         </div>
+
+                        {/* Insurance CTA */}
+                        <a
+                            href={`${INSURANCE_AFFILIATE_URL}?utm_source=guiapbev&utm_medium=referral&utm_campaign=insurance&utm_content=${encodeURIComponent(car.model.toLowerCase().replace(/\s+/g, '-'))}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => track('Insurance Quote Click', { model: car.model, brand: car.brand })}
+                            className="w-full py-3 rounded-2xl transition-all font-bold uppercase tracking-wider text-[10px] flex items-center justify-center gap-2 no-underline hover:brightness-110 active:scale-[0.99]"
+                            style={{
+                                background: 'rgba(0,229,160,0.07)',
+                                border: '1px solid rgba(0,229,160,0.25)',
+                                color: '#00e5a0',
+                            }}
+                            title={t('details.insuranceTip')}
+                        >
+                            <Shield className="w-4 h-4" />
+                            <span>{t('details.insuranceBtn')}</span>
+                            <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
+                        </a>
                     </div>
                 </div>
             </div>

@@ -66,6 +66,8 @@
     "removeFavorite": "Remove Favorite",
     "addFavorite": "Favorite",
     "interested": "I'm Interested",
+    "insuranceBtn": "Get EV Insurance Quote",
+    "insuranceTip": "Insurance with exclusive benefits for electric vehicles",
     "features": {
       "urban": [
         "Infotainment with CarPlay/Android Auto",
@@ -204,7 +206,8 @@
   "footer": {
     "dataSource": "Data Source:",
     "dataDesc": "PBEV 2025 Table (Inmetro) + Market Research (November/2025).",
-    "disclaimer": "Standard PBEV range. Illustrative images of global models."
+    "disclaimer": "Standard PBEV range. Illustrative images of global models.",
+    "privacy": "Privacy Policy"
   },
   "compareBar": {
     "compare": "Compare",

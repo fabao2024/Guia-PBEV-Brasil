@@ -7,6 +7,9 @@ export const isCarNew = (car: Car): boolean =>
   || car.model.includes('Captiva')
   || car.model.includes('Buzz');
 
+// TODO: replace with Porto Seguro / Tokio Marine / Bradesco affiliate link when partnership is confirmed
+export const INSURANCE_AFFILIATE_URL = 'https://www.portoseguro.com.br/seguro-automovel';
+
 export const BRAND_URLS: Record<string, string> = {
   "Renault": "https://www.renault.com.br",
   "CAOA Chery": "https://caoachery.com.br",
