@@ -2,7 +2,7 @@
 <img width="1200" alt="Guia PBEV Banner" src="public/repo-banner.png" />
 </div>
 
-# Guia PBEV 2025 - Catalog & AI Assistant
+# Guia PBEV Brasil - Catalog & AI Assistant
 
 Progressive Web App (PWA compliant) developed for the Brazilian automotive market, focused on Battery Electric Vehicles (BEV) from the 2025 Brazilian Vehicle Labeling Program (PBEV). The project combines a high-performance interactive catalog with an LLM-based virtual assistant.
 
