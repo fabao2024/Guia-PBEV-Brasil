@@ -542,6 +542,10 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
 
                                         {/* Financing summary */}
                                         <div className="px-5 pb-4 flex flex-wrap gap-3">
+                                            <div className="rounded-xl px-3 py-2 text-center" style={{ background: 'rgba(0,180,255,0.07)', border: '1px solid rgba(0,180,255,0.18)' }}>
+                                                <p className="text-[9px] uppercase tracking-widest mb-0.5" style={{ color: 'rgba(0,180,255,0.6)' }}>{t('details.estimatedPrice')}</p>
+                                                <p className="text-sm font-black" style={{ color: '#00b4ff' }}>{fmtBRL(car.price)}</p>
+                                            </div>
                                             <div className="bg-white/4 rounded-xl px-3 py-2 text-center">
                                                 <p className="text-[9px] uppercase tracking-widest text-white/30 mb-0.5">{t('simulator.downPayment')}</p>
                                                 <p className="text-sm font-black text-white">{fmtBRL(car.price * downPaymentPct / 100)}</p>
