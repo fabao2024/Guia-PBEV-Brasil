@@ -2,7 +2,7 @@
 <img width="1200" alt="Guia PBEV Banner" src="public/repo-banner.png" />
 </div>
 
-# Guia PBEV 2025 - EV Catalog & AI Assistant / Catálogo de VEs e Assistente IA
+# Guia PBEV Brasil - EV Catalog & AI Assistant / Catálogo de VEs e Assistente IA
 
 **[🇺🇸 English](#-english-instructions) | [🇧🇷 Português](#-instruções-em-português)**
 
