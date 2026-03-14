@@ -8,7 +8,11 @@ import { track } from '../utils/analytics';
 import { calcTCO, TCOResult } from '../utils/tco';
 
 function drawTCOImage(car: Car, tco: TCOResult, selectedState: string): string {
-    const W = 900, H = 560;
+    const tableTop = 166;
+    const rowH = 34;
+    const numDataRows = 5;
+    const tableHeight = rowH + numDataRows * rowH * 2 + rowH; // header + data pairs + savings
+    const W = 900, H = tableTop + tableHeight + 48; // 48px for footer
     const canvas = document.createElement('canvas');
     canvas.width = W; canvas.height = H;
     const ctx = canvas.getContext('2d')!;
@@ -63,9 +67,7 @@ function drawTCOImage(car: Car, tco: TCOResult, selectedState: string): string {
     ctx.fillText(`R$ ${tco.totalSavings5y.toLocaleString('pt-BR')}`, 552, 130);
 
     // Table setup
-    const tableTop = 166;
     const colW = 120;
-    const rowH = 34;
     const labelW = 130;
     const cols = ['', 'Ano 1', 'Ano 2', 'Ano 3', 'Ano 4', 'Ano 5', 'Total 5a'];
 
