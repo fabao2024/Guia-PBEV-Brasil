@@ -16,6 +16,7 @@ type Tab = 'savings' | 'tco';
 export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModalProps) {
     const { t } = useTranslation();
     const tcoRef = useRef<HTMLDivElement>(null);
+    const [isExporting, setIsExporting] = useState(false);
 
     // ── Shared state ──────────────────────────────────────────────────────────
     const [tab, setTab] = useState<Tab>('savings');
@@ -95,12 +96,16 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
 
     const handleExportTCO = useCallback(async () => {
         if (!tcoRef.current) return;
+        setIsExporting(true);
         try {
             const html2canvas = (await import('html2canvas')).default;
             const canvas = await html2canvas(tcoRef.current, {
                 backgroundColor: '#0a0b12',
                 scale: 2,
                 useCORS: true,
+                allowTaint: true,
+                logging: false,
+                ignoreElements: el => el.tagName === 'BUTTON',
             });
             const link = document.createElement('a');
             link.download = `tco-guiapbev-${Date.now()}.png`;
@@ -108,7 +113,10 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
             link.click();
             track('TCO Export', { cars: selectedCars.filter(Boolean).map(c => c!.model).join(',') });
         } catch (e) {
-            console.error('Export failed', e);
+            console.error('TCO export failed:', e);
+            alert('Não foi possível exportar. Tente novamente.');
+        } finally {
+            setIsExporting(false);
         }
     }, [selectedCars]);
 
@@ -499,11 +507,12 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                             {/* Export button */}
                             <button
                                 onClick={handleExportTCO}
-                                className="w-full py-3.5 rounded-2xl font-bold uppercase tracking-wider text-xs flex items-center justify-center gap-2 transition-all hover:brightness-110 active:scale-[0.99]"
+                                disabled={isExporting}
+                                className="w-full py-3.5 rounded-2xl font-bold uppercase tracking-wider text-xs flex items-center justify-center gap-2 transition-all hover:brightness-110 active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed"
                                 style={{ background: 'rgba(0,229,160,0.08)', border: '1px solid rgba(0,229,160,0.25)', color: '#00e5a0' }}
                             >
-                                <Download className="w-4 h-4" />
-                                {t('simulator.exportBtn')}
+                                <Download className={`w-4 h-4 ${isExporting ? 'animate-bounce' : ''}`} />
+                                {isExporting ? 'Gerando imagem...' : t('simulator.exportBtn')}
                             </button>
 
                             <p className="text-center text-[10px] text-[#444] uppercase tracking-widest">{t('simulator.tcoDisclaimer')}</p>
