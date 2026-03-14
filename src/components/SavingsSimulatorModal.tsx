@@ -235,7 +235,7 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                                         <span className="text-white text-sm">{t('simulator.downPayment')}</span>
                                         <div className="bg-white/10 px-3 py-1 rounded-full border border-white/20 text-white font-mono text-sm">{downPaymentPct}%</div>
                                     </div>
-                                    <input type="range" min="0" max="50" step="5" value={downPaymentPct} onChange={e => setDownPaymentPct(Number(e.target.value))} className={sliderThumbClasses} style={makeSliderStyle(downPaymentPct, 0, 50)} />
+                                    <input type="range" min="0" max="70" step="5" value={downPaymentPct} onChange={e => setDownPaymentPct(Number(e.target.value))} className={sliderThumbClasses} style={makeSliderStyle(downPaymentPct, 0, 70)} />
                                 </div>
 
                                 <div>
@@ -243,7 +243,7 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                                         <span className="text-white text-sm">{t('simulator.loanRate')}</span>
                                         <div className="bg-white/10 px-3 py-1 rounded-full border border-white/20 text-white font-mono text-sm">{loanRate.toFixed(2).replace('.', ',')}%</div>
                                     </div>
-                                    <input type="range" min="0.5" max="5" step="0.01" value={loanRate} onChange={e => setLoanRate(Number(e.target.value))} className={sliderThumbClasses} style={makeSliderStyle(loanRate, 0.5, 5)} />
+                                    <input type="range" min="0" max="5" step="0.01" value={loanRate} onChange={e => setLoanRate(Number(e.target.value))} className={sliderThumbClasses} style={makeSliderStyle(loanRate, 0, 5)} />
                                 </div>
 
                                 <div>
