@@ -7,6 +7,151 @@ import { IPVA_BY_STATE, calcIpva, STANDARD_COMBUSTION_IPVA_RATE, IPVA_DATA_UPDAT
 import { track } from '../utils/analytics';
 import { calcTCO, TCOResult } from '../utils/tco';
 
+function drawTCOImage(car: Car, tco: TCOResult, selectedState: string): string {
+    const W = 900, H = 560;
+    const canvas = document.createElement('canvas');
+    canvas.width = W; canvas.height = H;
+    const ctx = canvas.getContext('2d')!;
+
+    // Background
+    ctx.fillStyle = '#08090e';
+    ctx.fillRect(0, 0, W, H);
+
+    // Header bar
+    const grad = ctx.createLinearGradient(0, 0, W, 0);
+    grad.addColorStop(0, '#006ce5'); grad.addColorStop(1, '#00b4ff');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, W, 6);
+
+    // Title
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 22px system-ui, sans-serif';
+    ctx.fillText(`${car.brand} ${car.model} — TCO 5 Anos`, 32, 48);
+    ctx.fillStyle = '#00b4ff';
+    ctx.font = '13px system-ui, sans-serif';
+    ctx.fillText(`Custo Total de Propriedade vs. combustão equivalente (${car.cat}) · Estado: ${selectedState}`, 32, 70);
+
+    // Financing summary
+    ctx.fillStyle = 'rgba(255,255,255,0.06)';
+    ctx.roundRect(32, 88, 260, 52, 10);
+    ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,0.3)';
+    ctx.font = '10px system-ui, sans-serif';
+    ctx.fillText('PARCELA MENSAL', 44, 106);
+    ctx.fillStyle = '#00b4ff';
+    ctx.font = 'bold 18px system-ui, sans-serif';
+    ctx.fillText(`R$ ${tco.monthlyPayment.toLocaleString('pt-BR')}`, 44, 128);
+
+    ctx.fillStyle = 'rgba(255,255,255,0.06)';
+    ctx.roundRect(306, 88, 220, 52, 10);
+    ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,0.3)';
+    ctx.font = '10px system-ui, sans-serif';
+    ctx.fillText('JUROS TOTAIS', 318, 106);
+    ctx.fillStyle = '#ff8c52';
+    ctx.font = 'bold 18px system-ui, sans-serif';
+    ctx.fillText(`R$ ${tco.totalInterestPaid.toLocaleString('pt-BR')}`, 318, 128);
+
+    ctx.fillStyle = 'rgba(0,229,160,0.12)';
+    ctx.roundRect(540, 88, 328, 52, 10);
+    ctx.fill();
+    ctx.fillStyle = 'rgba(0,229,160,0.6)';
+    ctx.font = '10px system-ui, sans-serif';
+    ctx.fillText('ECONOMIA EM 5 ANOS', 552, 106);
+    ctx.fillStyle = '#00e5a0';
+    ctx.font = 'bold 22px system-ui, sans-serif';
+    ctx.fillText(`R$ ${tco.totalSavings5y.toLocaleString('pt-BR')}`, 552, 130);
+
+    // Table setup
+    const tableTop = 166;
+    const colW = 120;
+    const rowH = 34;
+    const labelW = 130;
+    const cols = ['', 'Ano 1', 'Ano 2', 'Ano 3', 'Ano 4', 'Ano 5', 'Total 5a'];
+
+    // Header row
+    ctx.fillStyle = 'rgba(255,255,255,0.05)';
+    ctx.fillRect(32, tableTop, W - 64, rowH);
+    cols.forEach((col, i) => {
+        ctx.fillStyle = 'rgba(255,255,255,0.4)';
+        ctx.font = 'bold 11px system-ui, sans-serif';
+        const x = i === 0 ? 44 : labelW + 32 + (i - 1) * colW + colW / 2;
+        if (i === 0) ctx.textAlign = 'left'; else ctx.textAlign = 'center';
+        ctx.fillText(col, x, tableTop + 22);
+    });
+    ctx.textAlign = 'left';
+
+    const rows: { label: string; evKey: keyof typeof tco.years[0]; combKey: keyof typeof tco.years[0] }[] = [
+        { label: 'Energia',       evKey: 'energyEV',    combKey: 'energyComb'    },
+        { label: 'Seguro',        evKey: 'insuranceEV', combKey: 'insuranceComb' },
+        { label: 'Manutenção',    evKey: 'maintEV',     combKey: 'maintComb'     },
+        { label: 'IPVA',          evKey: 'ipvaEV',      combKey: 'ipvaComb'      },
+        { label: 'Financiamento', evKey: 'financingEV', combKey: 'financingEV'   },
+    ];
+
+    rows.forEach((row, ri) => {
+        const yEV   = tableTop + rowH + ri * (rowH * 2);
+        const yComb = yEV + rowH;
+
+        // EV row
+        ctx.fillStyle = ri % 2 === 0 ? 'rgba(255,255,255,0.02)' : 'transparent';
+        ctx.fillRect(32, yEV, W - 64, rowH);
+        ctx.fillStyle = '#00b4ff';
+        ctx.font = 'bold 11px system-ui, sans-serif';
+        ctx.fillText(row.label, 44, yEV + 22);
+
+        // Comb row
+        ctx.fillStyle = ri % 2 === 0 ? 'rgba(255,255,255,0.015)' : 'transparent';
+        ctx.fillRect(32, yComb, W - 64, rowH);
+
+        const total5yEV   = tco.years.reduce((s, y) => s + (y[row.evKey]   as number), 0);
+        const total5yComb = tco.years.reduce((s, y) => s + (y[row.combKey] as number), 0);
+
+        [0, 1, 2, 3, 4].forEach(yi => {
+            const x = labelW + 32 + yi * colW + colW / 2;
+            ctx.textAlign = 'center';
+            ctx.fillStyle = '#00b4ff'; ctx.font = '11px system-ui, sans-serif';
+            ctx.fillText(`R$${Math.round(tco.years[yi][row.evKey] as number).toLocaleString('pt-BR')}`, x, yEV + 22);
+            ctx.fillStyle = 'rgba(255,255,255,0.35)'; ctx.font = '11px system-ui, sans-serif';
+            ctx.fillText(`R$${Math.round(tco.years[yi][row.combKey] as number).toLocaleString('pt-BR')}`, x, yComb + 22);
+        });
+        // Total col
+        const tx = labelW + 32 + 5 * colW + colW / 2;
+        ctx.fillStyle = '#00b4ff'; ctx.font = 'bold 11px system-ui, sans-serif';
+        ctx.fillText(`R$${Math.round(total5yEV).toLocaleString('pt-BR')}`, tx, yEV + 22);
+        ctx.fillStyle = 'rgba(255,255,255,0.35)'; ctx.font = '11px system-ui, sans-serif';
+        ctx.fillText(`R$${Math.round(total5yComb).toLocaleString('pt-BR')}`, tx, yComb + 22);
+        ctx.textAlign = 'left';
+    });
+
+    // Savings row
+    const savingsY = tableTop + rowH + rows.length * rowH * 2;
+    ctx.fillStyle = 'rgba(0,229,160,0.08)';
+    ctx.fillRect(32, savingsY, W - 64, rowH);
+    ctx.strokeStyle = 'rgba(0,229,160,0.2)';
+    ctx.strokeRect(32, savingsY, W - 64, rowH);
+    ctx.fillStyle = '#00e5a0'; ctx.font = 'bold 12px system-ui, sans-serif';
+    ctx.fillText('Economia EV', 44, savingsY + 22);
+    tco.years.forEach((y, yi) => {
+        ctx.textAlign = 'center';
+        const x = labelW + 32 + yi * colW + colW / 2;
+        ctx.fillStyle = '#00e5a0'; ctx.font = 'bold 11px system-ui, sans-serif';
+        ctx.fillText(`R$${Math.round(y.savingsEV).toLocaleString('pt-BR')}`, x, savingsY + 22);
+    });
+    ctx.textAlign = 'center';
+    const tx = labelW + 32 + 5 * colW + colW / 2;
+    ctx.fillStyle = '#00e5a0'; ctx.font = 'bold 13px system-ui, sans-serif';
+    ctx.fillText(`R$${tco.totalSavings5y.toLocaleString('pt-BR')}`, tx, savingsY + 22);
+    ctx.textAlign = 'left';
+
+    // Footer
+    ctx.fillStyle = 'rgba(255,255,255,0.18)';
+    ctx.font = '10px system-ui, sans-serif';
+    ctx.fillText('guiapbev.cloud · Estimativas baseadas em médias de mercado. Consulte seguradora e concessionária para valores reais.', 32, H - 16);
+
+    return canvas.toDataURL('image/png');
+}
+
 interface SavingsSimulatorModalProps {
     onClose: () => void;
 }
@@ -94,31 +239,27 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
     });
     const sliderThumbClasses = "w-full h-1.5 rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:shadow-[0_0_10px_rgba(0,180,255,0.5)] [&::-webkit-slider-thumb]:cursor-pointer";
 
-    const handleExportTCO = useCallback(async () => {
-        if (!tcoRef.current) return;
+    const handleExportTCO = useCallback(() => {
+        const cars = selectedCars.filter(Boolean) as Car[];
+        if (cars.length === 0) return;
         setIsExporting(true);
         try {
-            const html2canvas = (await import('html2canvas')).default;
-            const canvas = await html2canvas(tcoRef.current, {
-                backgroundColor: '#0a0b12',
-                scale: 2,
-                useCORS: true,
-                allowTaint: true,
-                logging: false,
-                ignoreElements: el => el.tagName === 'BUTTON',
+            cars.forEach(car => {
+                const tco = calcTCO(car, { kms, gasPrice, blendedKwhPrice, downPaymentPct, loanRateMonthly: loanRate, loanMonths, selectedState });
+                const dataUrl = drawTCOImage(car, tco, selectedState);
+                const link = document.createElement('a');
+                link.download = `tco-${car.model.toLowerCase().replace(/\s+/g, '-')}.png`;
+                link.href = dataUrl;
+                link.click();
             });
-            const link = document.createElement('a');
-            link.download = `tco-guiapbev-${Date.now()}.png`;
-            link.href = canvas.toDataURL('image/png');
-            link.click();
-            track('TCO Export', { cars: selectedCars.filter(Boolean).map(c => c!.model).join(',') });
+            track('TCO Export', { cars: cars.map(c => c.model).join(',') });
         } catch (e) {
             console.error('TCO export failed:', e);
             alert('Não foi possível exportar. Tente novamente.');
         } finally {
             setIsExporting(false);
         }
-    }, [selectedCars]);
+    }, [selectedCars, kms, gasPrice, blendedKwhPrice, downPaymentPct, loanRate, loanMonths, selectedState]);
 
     const fmtBRL = (v: number) => `R$ ${Math.round(v).toLocaleString('pt-BR')}`;
 
