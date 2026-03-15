@@ -112,7 +112,7 @@ export function calcTCO(car: Car, params: TCOParams): TCOResult {
     const totalComb = annualEnergyComb + insuranceComb + cat.maintComb + ipvaComb + financingAnnual;
 
     years.push({
-      year, evValue, combValue,
+      year: y, evValue, combValue,
       energyEV: annualEnergyEV, energyComb: annualEnergyComb,
       insuranceEV, insuranceComb,
       maintEV: cat.maintEV, maintComb: cat.maintComb,
