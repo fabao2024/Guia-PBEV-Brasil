@@ -325,7 +325,7 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                                 <span className="text-white text-sm">{t('simulator.gasPrice')} /L</span>
                                 <div className="bg-white/10 px-3 py-1 rounded-full border border-white/20 text-white font-mono text-sm">{currencySymbol} {gasPrice.toFixed(2).replace('.', ',')}</div>
                             </div>
-                            <input type="range" min="1" max="10" step="0.01" value={gasPrice} onChange={e => setGasPrice(Number(e.target.value))} className={sliderThumbClasses} style={makeSliderStyle(gasPrice, 1, 10)} />
+                            <input type="range" min="1" max="10" step="0.05" value={gasPrice} onChange={e => setGasPrice(Number(e.target.value))} className={sliderThumbClasses} style={makeSliderStyle(gasPrice, 1, 10)} />
                         </div>
 
                         <div>
@@ -333,7 +333,7 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                                 <span className="text-white text-sm">{t('simulator.kwhPrice')} (AC) /kWh</span>
                                 <div className="bg-white/10 px-3 py-1 rounded-full border border-white/20 text-white font-mono text-sm">{currencySymbol} {kwhPrice.toFixed(2).replace('.', ',')}</div>
                             </div>
-                            <input type="range" min="0" max="10" step="0.01" value={kwhPrice} onChange={e => setKwhPrice(Number(e.target.value))} className={sliderThumbClasses} style={makeSliderStyle(kwhPrice, 0, 10)} />
+                            <input type="range" min="0" max="10" step="0.05" value={kwhPrice} onChange={e => setKwhPrice(Number(e.target.value))} className={sliderThumbClasses} style={makeSliderStyle(kwhPrice, 0, 10)} />
                         </div>
 
                         <div>
@@ -341,7 +341,7 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                                 <span className="text-white text-sm">{t('simulator.dcKwhPrice')} /kWh</span>
                                 <div className="bg-white/10 px-3 py-1 rounded-full border border-white/20 text-white font-mono text-sm">{currencySymbol} {dcKwhPrice.toFixed(2).replace('.', ',')}</div>
                             </div>
-                            <input type="range" min="0" max="10" step="0.01" value={dcKwhPrice} onChange={e => setDcKwhPrice(Number(e.target.value))} className={sliderThumbClasses} style={makeSliderStyle(dcKwhPrice, 0, 10)} />
+                            <input type="range" min="0" max="10" step="0.05" value={dcKwhPrice} onChange={e => setDcKwhPrice(Number(e.target.value))} className={sliderThumbClasses} style={makeSliderStyle(dcKwhPrice, 0, 10)} />
                         </div>
 
                         <div>
@@ -349,7 +349,7 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                                 <span className="text-white text-sm">{t('simulator.dcPercent')}</span>
                                 <div className="bg-white/10 px-3 py-1 rounded-full border border-white/20 text-white font-mono text-sm">{dcPercent}%</div>
                             </div>
-                            <input type="range" min="0" max="100" step="1" value={dcPercent} onChange={e => setDcPercent(Number(e.target.value))} className={sliderThumbClasses} style={makeSliderStyle(dcPercent, 0, 100)} />
+                            <input type="range" min="0" max="100" step="5" value={dcPercent} onChange={e => setDcPercent(Number(e.target.value))} className={sliderThumbClasses} style={makeSliderStyle(dcPercent, 0, 100)} />
                             <p className="text-[10px] text-[#666666] mt-2 text-right">
                                 {t('simulator.blendedRate')}: {currencySymbol} {blendedKwhPrice.toFixed(2).replace('.', ',')}/kWh
                             </p>
