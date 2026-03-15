@@ -30,7 +30,7 @@ function drawTCOImage(car: Car, tco: TCOResult, selectedState: string): string {
     // Title
     ctx.fillStyle = '#ffffff';
     ctx.font = 'bold 22px system-ui, sans-serif';
-    ctx.fillText(`${car.brand} ${car.model} — TCO 5 Anos`, 32, 48);
+    ctx.fillText(`${car.brand} ${car.model} — TCO 4 Anos`, 32, 48);
     ctx.fillStyle = '#00b4ff';
     ctx.font = '13px system-ui, sans-serif';
     ctx.fillText(`Custo Total de Propriedade vs. combustão equivalente (${car.cat}) · Estado: ${selectedState}`, 32, 70);
@@ -61,15 +61,15 @@ function drawTCOImage(car: Car, tco: TCOResult, selectedState: string): string {
     ctx.fill();
     ctx.fillStyle = 'rgba(0,229,160,0.6)';
     ctx.font = '10px system-ui, sans-serif';
-    ctx.fillText('ECONOMIA EM 5 ANOS', 552, 106);
+    ctx.fillText('ECONOMIA EM 4 ANOS', 552, 106);
     ctx.fillStyle = '#00e5a0';
     ctx.font = 'bold 22px system-ui, sans-serif';
-    ctx.fillText(`R$ ${tco.totalSavings5y.toLocaleString('pt-BR')}`, 552, 130);
+    ctx.fillText(`R$ ${tco.totalSavings4y.toLocaleString('pt-BR')}`, 552, 130);
 
     // Table setup
-    const colW = 120;
-    const labelW = 130;
-    const cols = ['', 'Ano 1', 'Ano 2', 'Ano 3', 'Ano 4', 'Ano 5', 'Total 5a'];
+    const colW = 140;
+    const labelW = 150;
+    const cols = ['', 'Ano 1', 'Ano 2', 'Ano 3', 'Ano 4', 'Total 4a'];
 
     // Header row
     ctx.fillStyle = 'rgba(255,255,255,0.05)';
@@ -84,11 +84,11 @@ function drawTCOImage(car: Car, tco: TCOResult, selectedState: string): string {
     ctx.textAlign = 'left';
 
     const rows: { label: string; evKey: keyof typeof tco.years[0]; combKey: keyof typeof tco.years[0] }[] = [
-        { label: 'Energia',       evKey: 'energyEV',    combKey: 'energyComb'    },
-        { label: 'Seguro',        evKey: 'insuranceEV', combKey: 'insuranceComb' },
-        { label: 'Manutenção',    evKey: 'maintEV',     combKey: 'maintComb'     },
-        { label: 'IPVA',          evKey: 'ipvaEV',      combKey: 'ipvaComb'      },
-        { label: 'Financiamento', evKey: 'financingEV', combKey: 'financingEV'   },
+        { label: 'Energia',       evKey: 'energyEV',      combKey: 'energyComb'    },
+        { label: 'Seguro',        evKey: 'insuranceEV',   combKey: 'insuranceComb' },
+        { label: 'Manutenção',    evKey: 'maintEV',       combKey: 'maintComb'     },
+        { label: 'IPVA',          evKey: 'ipvaEV',        combKey: 'ipvaComb'      },
+        { label: 'Financiamento', evKey: 'financingAnnual', combKey: 'financingAnnual' },
     ];
 
     rows.forEach((row, ri) => {
@@ -109,7 +109,7 @@ function drawTCOImage(car: Car, tco: TCOResult, selectedState: string): string {
         const total5yEV   = tco.years.reduce((s, y) => s + (y[row.evKey]   as number), 0);
         const total5yComb = tco.years.reduce((s, y) => s + (y[row.combKey] as number), 0);
 
-        [0, 1, 2, 3, 4].forEach(yi => {
+        [0, 1, 2, 3].forEach(yi => {
             const x = labelW + 32 + yi * colW + colW / 2;
             ctx.textAlign = 'center';
             ctx.fillStyle = '#00b4ff'; ctx.font = '11px system-ui, sans-serif';
@@ -118,7 +118,7 @@ function drawTCOImage(car: Car, tco: TCOResult, selectedState: string): string {
             ctx.fillText(`R$${Math.round(tco.years[yi][row.combKey] as number).toLocaleString('pt-BR')}`, x, yComb + 22);
         });
         // Total col
-        const tx = labelW + 32 + 5 * colW + colW / 2;
+        const tx = labelW + 32 + 4 * colW + colW / 2;
         ctx.fillStyle = '#00b4ff'; ctx.font = 'bold 11px system-ui, sans-serif';
         ctx.fillText(`R$${Math.round(total5yEV).toLocaleString('pt-BR')}`, tx, yEV + 22);
         ctx.fillStyle = 'rgba(255,255,255,0.35)'; ctx.font = '11px system-ui, sans-serif';
@@ -141,9 +141,9 @@ function drawTCOImage(car: Car, tco: TCOResult, selectedState: string): string {
         ctx.fillText(`R$${Math.round(y.savingsEV).toLocaleString('pt-BR')}`, x, savingsY + 22);
     });
     ctx.textAlign = 'center';
-    const tx = labelW + 32 + 5 * colW + colW / 2;
+    const tx2 = labelW + 32 + 4 * colW + colW / 2;
     ctx.fillStyle = '#00e5a0'; ctx.font = 'bold 13px system-ui, sans-serif';
-    ctx.fillText(`R$${tco.totalSavings5y.toLocaleString('pt-BR')}`, tx, savingsY + 22);
+    ctx.fillText(`R$${tco.totalSavings4y.toLocaleString('pt-BR')}`, tx2, savingsY + 22);
     ctx.textAlign = 'left';
 
     // Footer
@@ -560,7 +560,7 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                                             </div>
                                         </div>
 
-                                        {/* 5-year table */}
+                                        {/* 4-year table */}
                                         <div className="overflow-x-auto px-5 pb-5">
                                             <table className="w-full text-xs min-w-[480px]">
                                                 <thead>
@@ -580,12 +580,15 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                                                         { label: ROW_LABELS[1], evKey: 'insuranceEV', combKey: 'insuranceComb' },
                                                         { label: ROW_LABELS[2], evKey: 'maintEV', combKey: 'maintComb' },
                                                         { label: ROW_LABELS[3], evKey: 'ipvaEV', combKey: 'ipvaComb' },
-                                                        { label: ROW_LABELS[4], evKey: 'financingEV', combKey: 'financingEV' },
+                                                        { label: ROW_LABELS[4], evKey: 'financingAnnual', combKey: 'financingAnnual' },
                                                     ] as { label: string; evKey: keyof typeof tco.years[0]; combKey: keyof typeof tco.years[0] }[]).map(row => (
                                                         <React.Fragment key={row.label}>
                                                             {/* EV row */}
                                                             <tr className="border-t border-white/5">
-                                                                <td className="py-1.5 pr-3 text-[#00b4ff] font-bold text-[10px]" rowSpan={2}>{row.label}</td>
+                                                                <td className="py-1 pr-3 w-28">
+                                                                    <div className="text-[#00b4ff] font-bold text-[10px]">{row.label}</div>
+                                                                    <div className="text-[9px] text-[#00b4ff]/50 mt-0.5">EV</div>
+                                                                </td>
                                                                 {tco.years.map(y => (
                                                                     <td key={y.year} className="text-center py-1 px-2 text-[#00b4ff] font-medium">
                                                                         {fmtBRL(y[row.evKey] as number)}
@@ -597,6 +600,9 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                                                             </tr>
                                                             {/* Combustion row */}
                                                             <tr>
+                                                                <td className="py-1 pr-3">
+                                                                    <div className="text-[9px] text-white/25">Comb.</div>
+                                                                </td>
                                                                 {tco.years.map(y => (
                                                                     <td key={y.year} className="text-center py-1 px-2 text-white/35 font-medium">
                                                                         {fmtBRL(y[row.combKey] as number)}
@@ -619,8 +625,8 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                                                             </td>
                                                         ))}
                                                         <td className="text-center py-2 px-2">
-                                                            <div className="text-[#00b4ff] font-black">{fmtBRL(tco.totalEV5y)}</div>
-                                                            <div className="text-white/35 text-[10px]">{fmtBRL(tco.totalComb5y)}</div>
+                                                            <div className="text-[#00b4ff] font-black">{fmtBRL(tco.totalEV4y)}</div>
+                                                            <div className="text-white/35 text-[10px]">{fmtBRL(tco.totalComb4y)}</div>
                                                         </td>
                                                     </tr>
 
@@ -630,7 +636,7 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                                                         {tco.years.map(y => (
                                                             <td key={y.year} className="text-center py-2 px-2 font-black text-[#00e5a0]">{fmtBRL(y.savingsEV)}</td>
                                                         ))}
-                                                        <td className="text-center py-2 px-2 font-black text-[#00e5a0] text-sm">{fmtBRL(tco.totalSavings5y)}</td>
+                                                        <td className="text-center py-2 px-2 font-black text-[#00e5a0] text-sm">{fmtBRL(tco.totalSavings4y)}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
