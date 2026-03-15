@@ -565,7 +565,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={() => track('Lead Click', { model: car.model, brand: car.brand })}
-                                className="flex-[2] text-white font-black uppercase tracking-wider text-xs py-3.5 rounded-2xl transition-all hover:brightness-110 active:scale-[0.98] flex items-center justify-center gap-2 no-underline"
+                                className="flex-[2] text-white font-black tracking-normal text-xs py-3.5 rounded-2xl transition-all hover:brightness-110 active:scale-[0.98] flex items-center justify-center gap-1.5 no-underline whitespace-nowrap"
                                 style={{
                                     background: 'linear-gradient(135deg, #006ce5, #00b4ff)',
                                     boxShadow: '0 4px 16px rgba(0,180,255,0.3)',
@@ -575,6 +575,11 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                                 <ArrowUpRight className="w-4 h-4" />
                             </a>
                         </div>
+
+                        {/* Not a seller disclaimer */}
+                        <p className="text-center text-[10px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.25)' }}>
+                            ℹ️ {t('details.notASeller')}
+                        </p>
 
                         {/* Insurance CTA */}
                         <a

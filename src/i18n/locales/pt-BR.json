@@ -43,7 +43,7 @@
     "estimatedPrice": "Preço Estimado",
     "rangeLabel": "Autonomia",
     "categoryLabel": "Categoria",
-    "buyBtn": "Quero este carro",
+    "buyBtn": "Ir para site oficial",
     "batteryInfo": "Bateria (kWh)",
     "speedInfo": "Velocidade Máx",
     "accelInfo": "0-100 km/h",
@@ -66,6 +66,7 @@
     "removeFavorite": "Remover Favorito",
     "addFavorite": "Favoritar",
     "interested": "Tenho Interesse",
+    "notASeller": "Somos um catálogo de consulta. Não vendemos carros — você será redirecionado ao site oficial da montadora.",
     "insuranceBtn": "Cotar seguro EV",
     "insuranceTip": "Seguros com benefícios exclusivos para elétricos",
     "features": {
@@ -205,7 +206,7 @@
   },
   "footer": {
     "dataSource": "Fonte de Dados:",
-    "dataDesc": "Tabela PBEV 2025 (Inmetro) + Pesquisa de Mercado (Novembro/2025).",
+    "dataDesc": "Tabela PBEV (Inmetro) + Pesquisa de Mercado.",
     "disclaimer": "Autonomia padrão PBEV. Imagens ilustrativas dos modelos globais.",
     "privacy": "Política de Privacidade"
   },

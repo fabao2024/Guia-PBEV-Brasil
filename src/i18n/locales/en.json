@@ -43,7 +43,7 @@
     "estimatedPrice": "Estimated Price",
     "rangeLabel": "Range",
     "categoryLabel": "Category",
-    "buyBtn": "I want this car",
+    "buyBtn": "Go to official site",
     "batteryInfo": "Battery (kWh)",
     "speedInfo": "Top Speed",
     "accelInfo": "0-100 km/h",
@@ -66,6 +66,7 @@
     "removeFavorite": "Remove Favorite",
     "addFavorite": "Favorite",
     "interested": "I'm Interested",
+    "notASeller": "We are a research catalog. We don't sell cars — you will be redirected to the manufacturer's official website.",
     "insuranceBtn": "Get EV Insurance Quote",
     "insuranceTip": "Insurance with exclusive benefits for electric vehicles",
     "features": {
@@ -205,7 +206,7 @@
   },
   "footer": {
     "dataSource": "Data Source:",
-    "dataDesc": "PBEV 2025 Table (Inmetro) + Market Research (November/2025).",
+    "dataDesc": "PBEV Table (Inmetro) + Market Research.",
     "disclaimer": "Standard PBEV range. Illustrative images of global models.",
     "privacy": "Privacy Policy"
   },
