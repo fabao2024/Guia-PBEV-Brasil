@@ -49,7 +49,7 @@ export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonM
 
             {/* Mobile horizontal scroll hint */}
             <div className="sm:hidden flex items-center justify-center gap-2 py-2 bg-[#050505] border-b border-white/5">
-               <span className="text-[10px] text-white/25 font-medium tracking-wider">← deslize para comparar →</span>
+               <span className="text-[10px] text-white/25 font-medium tracking-wider">{t('comparison.mobileScrollHint')}</span>
             </div>
 
             {/* Comparison Table Container */}
