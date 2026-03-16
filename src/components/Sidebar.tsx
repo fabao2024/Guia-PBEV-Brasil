@@ -94,7 +94,7 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
           onChange={handlePriceChange}
           onMouseUp={(e) => track('Filter Applied', { filter_type: 'price', value: Number((e.target as HTMLInputElement).value) })}
           onTouchEnd={(e) => track('Filter Applied', { filter_type: 'price', value: Number((e.target as HTMLInputElement).value) })}
-          className="w-full accent-[#00b4ff] h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer"
+          className="w-full accent-[#00b4ff] h-2 bg-white/10 rounded-lg appearance-none cursor-pointer"
         />
         <div className="flex justify-between text-[10px] text-[#666666] mt-3 font-black tracking-wider uppercase">
           <span>R$ 100k</span>
@@ -117,7 +117,7 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
           onChange={handleRangeChange}
           onMouseUp={(e) => track('Filter Applied', { filter_type: 'range', value: Number((e.target as HTMLInputElement).value) })}
           onTouchEnd={(e) => track('Filter Applied', { filter_type: 'range', value: Number((e.target as HTMLInputElement).value) })}
-          className="w-full accent-[#00b4ff] h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer"
+          className="w-full accent-[#00b4ff] h-2 bg-white/10 rounded-lg appearance-none cursor-pointer"
         />
         <div className="flex justify-between text-[10px] text-[#666666] mt-3 font-black tracking-wider uppercase">
           <span>100 km</span>

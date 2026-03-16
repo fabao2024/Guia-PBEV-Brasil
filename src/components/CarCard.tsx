@@ -123,42 +123,42 @@ const CarCard: React.FC<CarCardProps> = ({
         )}
 
         {/* Action buttons — top left cluster */}
-        <div className="absolute top-3 left-3 z-30 flex gap-1.5">
+        <div className="absolute top-2.5 left-2.5 z-30 flex gap-1.5">
           <button
             onClick={onToggleCompare}
-            className="p-1.5 rounded-lg border backdrop-blur-sm transition-all"
+            className="p-2 rounded-lg border backdrop-blur-sm transition-all min-w-[36px] min-h-[36px] flex items-center justify-center"
             style={isSelectedForCompare
               ? { background: '#00b4ff', borderColor: '#00b4ff', color: '#000' }
               : { background: 'rgba(5,5,12,0.55)', borderColor: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.45)' }
             }
             title={isSelectedForCompare ? t('card.removeCompare') : t('card.compare')}
           >
-            {isSelectedForCompare ? <Check className="w-3.5 h-3.5" /> : <Scale className="w-3.5 h-3.5" />}
+            {isSelectedForCompare ? <Check className="w-4 h-4" /> : <Scale className="w-4 h-4" />}
           </button>
           <a
             href={brandUrl}
             target="_blank"
             rel="noopener noreferrer"
             onClick={e => e.stopPropagation()}
-            className="p-1.5 rounded-lg border backdrop-blur-sm transition-all"
+            className="p-2 rounded-lg border backdrop-blur-sm transition-all min-w-[36px] min-h-[36px] flex items-center justify-center"
             style={{ background: 'rgba(5,5,12,0.55)', borderColor: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.45)' }}
             title={t('card.officialSite', { brand: car.brand })}
           >
-            <ExternalLink className="w-3.5 h-3.5" />
+            <ExternalLink className="w-4 h-4" />
           </a>
         </div>
 
         {/* Favorite — top right */}
         <button
           onClick={onToggleFavorite}
-          className="absolute top-3 right-3 z-30 p-1.5 rounded-lg border backdrop-blur-sm transition-all"
+          className="absolute top-2.5 right-2.5 z-30 p-2 rounded-lg border backdrop-blur-sm transition-all min-w-[36px] min-h-[36px] flex items-center justify-center"
           style={isFavorite
             ? { background: 'rgba(5,5,12,0.6)', borderColor: 'rgba(239,68,68,0.5)', color: '#ef4444' }
             : { background: 'rgba(5,5,12,0.55)', borderColor: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.45)' }
           }
           title={isFavorite ? t('card.removeFavorite') : t('card.addFavorite')}
         >
-          <Heart className={`w-3.5 h-3.5 ${isFavorite ? 'fill-current' : ''}`} />
+          <Heart className={`w-4 h-4 ${isFavorite ? 'fill-current' : ''}`} />
         </button>
 
         {/* NEW badge — positioned left of the favorite button */}

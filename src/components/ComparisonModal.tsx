@@ -49,29 +49,29 @@ export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonM
 
             {/* Mobile horizontal scroll hint */}
             <div className="sm:hidden flex items-center justify-center gap-2 py-2 bg-[#050505] border-b border-white/5">
-               <span className="text-[10px] text-white/25 font-medium tracking-wider">← deslize para ver todos →</span>
+               <span className="text-[10px] text-white/25 font-medium tracking-wider">← deslize para comparar →</span>
             </div>
 
             {/* Comparison Table Container */}
-            <div className="flex-1 overflow-auto bg-[#050505] p-4 sm:p-6 custom-scrollbar-dark">
-               <div className="min-w-[800px] grid" style={{ gridTemplateColumns: `150px repeat(${cars.length}, minmax(240px, 1fr))` }}>
+            <div className="flex-1 overflow-auto bg-[#050505] p-4 sm:p-6 custom-scrollbar-dark scroll-smooth">
+               <div className="grid snap-x snap-mandatory sm:snap-none" style={{ gridTemplateColumns: `80px repeat(${cars.length}, minmax(min(72vw,240px), 1fr))`, minWidth: 'max(560px, 100%)' }}>
 
                   {/* LABELS COLUMN */}
-                  <div className="flex flex-col gap-4 py-4 pr-4">
+                  <div className="flex flex-col gap-4 py-4 pr-2 sm:pr-4">
                      <div className="h-40"></div> {/* Spacer for Images */}
-                     <div className="font-black text-[#666666] text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.model')}</div>
-                     <div className="font-black text-[#666666] text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.price')}</div>
-                     <div className="font-black text-[#666666] text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.range')}</div>
-                     <div className="font-black text-[#666666] text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.power')}</div>
-                     <div className="font-black text-[#666666] text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.torque')}</div>
-                     <div className="font-black text-[#666666] text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.battery', 'Bateria')}</div>
-                     <div className="font-black text-[#666666] text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.category')}</div>
-                     <div className="font-black text-[#666666] text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.features')}</div>
+                     <div className="font-black text-[#666666] text-[9px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.model')}</div>
+                     <div className="font-black text-[#666666] text-[9px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.price')}</div>
+                     <div className="font-black text-[#666666] text-[9px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.range')}</div>
+                     <div className="font-black text-[#666666] text-[9px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.power')}</div>
+                     <div className="font-black text-[#666666] text-[9px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.torque')}</div>
+                     <div className="font-black text-[#666666] text-[9px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.battery', 'Bateria')}</div>
+                     <div className="font-black text-[#666666] text-[9px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.category')}</div>
+                     <div className="font-black text-[#666666] text-[9px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.features')}</div>
                   </div>
 
                   {/* CAR COLUMNS */}
                   {cars.map((car, idx) => (
-                     <div key={idx} className="flex flex-col gap-4 bg-[#111111] p-5 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/5 mx-2 relative group hover:border-[#00b4ff]/30 hover:shadow-[0_0_20px_rgba(0,180,255,0.1)] transition-all">
+                     <div key={idx} className="flex flex-col gap-4 bg-[#111111] p-5 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/5 mx-2 relative group hover:border-[#00b4ff]/30 hover:shadow-[0_0_20px_rgba(0,180,255,0.1)] transition-all snap-start">
 
                         {/* Remove Button */}
                         <button
