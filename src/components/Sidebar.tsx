@@ -129,6 +129,7 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
       <div className="mb-10">
         <button
           onClick={() => setFilters(prev => ({ ...prev, showNew: !prev.showNew }))}
+          title={t('sidebar.newOnlyTooltip')}
           className="w-full py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-widest transition-all border"
           style={filters.showNew
             ? { background: 'rgba(0,180,255,0.12)', borderColor: 'rgba(0,180,255,0.4)', color: '#00b4ff' }

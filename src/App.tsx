@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CAR_DB, isCarNew, BRAND_URLS } from './constants';
 import Sidebar from './components/Sidebar';
@@ -35,6 +35,20 @@ export default function App() {
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [selectedCar, setSelectedCar] = useState<Car | null>(null);
+  const [toast, setToast] = useState<string | null>(null);
+  const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const showToast = (msg: string) => {
+    if (toastTimer.current) clearTimeout(toastTimer.current);
+    setToast(msg);
+    toastTimer.current = setTimeout(() => setToast(null), 2500);
+  };
+
+  const handleToggleFavorite = (car: Car) => {
+    const wasFav = favorites.includes(car.model);
+    toggleFavorite(car);
+    showToast(wasFav ? t('card.toastRemoved') : t('card.toastAdded'));
+  };
 
   // New States for Add Vehicle Feature
   const [userCars, setUserCars] = useState<Car[]>([]);
@@ -264,7 +278,7 @@ export default function App() {
                 isSelectedForCompare={!!compareList.find(c => c.model === car.model)}
                 onToggleCompare={(e) => { e.stopPropagation(); toggleCompare(car); }}
                 isFavorite={favorites.includes(car.model)}
-                onToggleFavorite={(e) => { e.stopPropagation(); toggleFavorite(car); }}
+                onToggleFavorite={(e) => { e.stopPropagation(); handleToggleFavorite(car); }}
               />
             ))}
           </div>
@@ -381,7 +395,7 @@ export default function App() {
             isSelectedForCompare={!!compareList.find(c => c.model === selectedCar.model)}
             onToggleCompare={() => toggleCompare(selectedCar)}
             isFavorite={favorites.includes(selectedCar.model)}
-            onToggleFavorite={() => toggleFavorite(selectedCar)}
+            onToggleFavorite={() => handleToggleFavorite(selectedCar)}
           />
         )}
 
@@ -424,6 +438,15 @@ export default function App() {
 
         {/* AI CHAT */}
         <ChatWidget compareBarVisible={compareList.length > 0} />
+
+        {/* Favorite toast */}
+        {toast && (
+          <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[200] animate-in fade-in slide-in-from-bottom-4 duration-300 pointer-events-none">
+            <div className="bg-[#1a1a1a] border border-white/10 text-white text-sm font-medium px-5 py-3 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.6)] backdrop-blur-md whitespace-nowrap">
+              {toast}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

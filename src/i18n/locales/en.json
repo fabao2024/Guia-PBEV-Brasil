@@ -28,7 +28,8 @@
     "catSedan": "Sedan",
     "catLuxury": "Luxury / Performance",
     "catCommercial": "Commercial / Van",
-    "newOnly": "New Models"
+    "newOnly": "New Models",
+    "newOnlyTooltip": "Models launched or updated in the last 12 months"
   },
   "card": {
     "compare": "Compare",
@@ -49,7 +50,9 @@
     "accelInfo": "0-100 km/h",
     "traction": "Drivetrain",
     "share": "Share",
-    "shareCopied": "Copied!"
+    "shareCopied": "Copied!",
+    "toastAdded": "❤️ Added to favorites",
+    "toastRemoved": "Removed from favorites"
   },
   "details": {
     "imageUnavailable": "Image+Unavailable",
@@ -186,7 +189,7 @@
     "invalidKey": "Invalid key. Please check and try again.",
     "keyRemoved": "API key removed.",
     "cancel": "Cancel",
-    "orTryQuiz": "Or try without an API key:",
+    "orTryQuiz": "Or use the Recommendation Assistant (no AI):",
     "chipFindEV": "🔍 Help me choose an EV",
     "chipSimulate": "💰 Simulate my savings",
     "chipBestRange": "⚡ Which have the best range?",

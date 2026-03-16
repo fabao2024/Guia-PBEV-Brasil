@@ -28,7 +28,8 @@
     "catSedan": "Sedan",
     "catLuxury": "Luxo / Performance",
     "catCommercial": "Comercial / Van",
-    "newOnly": "Novidades"
+    "newOnly": "Novidades",
+    "newOnlyTooltip": "Modelos lançados ou atualizados nos últimos 12 meses"
   },
   "card": {
     "compare": "Comparar",
@@ -49,7 +50,9 @@
     "accelInfo": "0-100 km/h",
     "traction": "Tração",
     "share": "Compartilhar",
-    "shareCopied": "Copiado!"
+    "shareCopied": "Copiado!",
+    "toastAdded": "❤️ Adicionado aos favoritos",
+    "toastRemoved": "Removido dos favoritos"
   },
   "details": {
     "imageUnavailable": "Imagem+Indisponível",
@@ -186,7 +189,7 @@
     "invalidKey": "Chave inválida. Verifique e tente novamente.",
     "keyRemoved": "Chave API removida.",
     "cancel": "Cancelar",
-    "orTryQuiz": "Ou experimente sem precisar de chave:",
+    "orTryQuiz": "Ou use o Assistente de Recomendação (sem IA):",
     "chipFindEV": "🔍 Me ajude a escolher um EV",
     "chipSimulate": "💰 Simular minha economia",
     "chipBestRange": "⚡ Quais têm mais autonomia?",
