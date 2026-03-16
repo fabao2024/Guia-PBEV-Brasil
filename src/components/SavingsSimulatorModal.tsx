@@ -330,7 +330,7 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                         <div>
                             <div className="flex justify-between items-center mb-3">
                                 <div className="flex items-center gap-2">
-                                    <span className="text-white text-sm">{fuelType === 'ethanol' ? t('simulator.ethanolPrice') : t('simulator.gasPrice')} /L</span>
+                                    <span className="text-white text-sm">{fuelType === 'ethanol' ? t('simulator.ethanolPrice') : t('simulator.gasPrice')}</span>
                                     <div className="flex bg-[#1a1a1a] rounded-lg p-0.5 border border-white/10">
                                         <button onClick={() => setFuelType('gasoline')} className={`px-2.5 py-1 rounded-md text-[10px] font-bold transition-all ${fuelType === 'gasoline' ? 'bg-[#ff8c52] text-black' : 'text-[#a0a0a0] hover:text-white'}`}>{t('simulator.gasoline')}</button>
                                         <button onClick={() => setFuelType('ethanol')} className={`px-2.5 py-1 rounded-md text-[10px] font-bold transition-all ${fuelType === 'ethanol' ? 'bg-[#00e5a0] text-black' : 'text-[#a0a0a0] hover:text-white'}`}>{t('simulator.ethanol')}</button>
