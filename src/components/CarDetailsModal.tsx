@@ -151,7 +151,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
 
     return (
         <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6">
-            <div className="absolute inset-0 bg-black/80 backdrop-blur-md" onClick={onClose} />
+            <div className="fixed inset-0 bg-black/80 backdrop-blur-md" onClick={onClose} />
 
             <div
                 className="w-full max-w-5xl max-h-[90vh] relative z-10 flex flex-col md:flex-row overflow-hidden rounded-3xl"

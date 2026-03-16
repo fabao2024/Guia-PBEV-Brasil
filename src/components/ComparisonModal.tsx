@@ -23,7 +23,7 @@ export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonM
    return (
       <div className="fixed inset-0 z-[70] flex items-center justify-center p-0 sm:p-4 md:p-6">
          <div
-            className="absolute inset-0 bg-black/80 backdrop-blur-md transition-opacity"
+            className="fixed inset-0 bg-black/80 backdrop-blur-md transition-opacity"
             onClick={onClose}
          />
          <div className="bg-black w-full max-w-6xl h-full sm:h-auto sm:max-h-[90vh] overflow-hidden rounded-none sm:rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.8)] relative z-10 flex flex-col animate-in fade-in zoom-in-95 duration-200 border-0 sm:border border-white/10">

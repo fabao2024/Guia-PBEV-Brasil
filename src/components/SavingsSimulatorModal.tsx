@@ -270,7 +270,7 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
 
     return (
         <div className="fixed inset-0 z-[70] flex items-start justify-center overflow-y-auto p-0 sm:p-6">
-            <div className="absolute inset-0 bg-black/90 backdrop-blur-md" onClick={onClose} />
+            <div className="fixed inset-0 bg-black/90 backdrop-blur-md" onClick={onClose} />
             <div className="bg-[#0a0b12] w-full sm:max-w-md md:max-w-4xl sm:rounded-[40px] shadow-[0_0_50px_rgba(0,180,255,0.15)] relative z-10 flex flex-col border border-white/5 mx-auto my-0 sm:my-6">
 
                 <div className="absolute inset-0 opacity-10 pointer-events-none sm:rounded-[40px]" style={{

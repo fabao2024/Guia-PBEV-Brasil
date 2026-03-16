@@ -90,7 +90,7 @@ export const AdvancedFiltersModal: React.FC<AdvancedFiltersModalProps> = ({
     return (
         <div className="fixed inset-0 z-[100] flex flex-col justify-end lg:justify-center items-center p-0 lg:p-4 animate-in fade-in duration-300">
             {/* Backdrop */}
-            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
+            <div className="fixed inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
 
             {/* Modal Container */}
             <div className="relative w-full lg:w-[480px] h-[90vh] lg:h-auto max-h-[90vh] bg-gradient-to-b from-[#1a1c23] to-[#0f1115] border border-white/10 rounded-t-3xl lg:rounded-3xl shadow-[0_0_50px_rgba(0,180,255,0.15)] flex flex-col overflow-hidden animate-in slide-in-from-bottom-8 lg:slide-in-from-bottom-4 duration-300">
