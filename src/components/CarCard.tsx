@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Car } from '../types';
 import { BRAND_URLS, isCarNew } from '../constants';
-import { Check, ImageOff, ExternalLink, Heart, BatteryCharging, Scale, ArrowUpRight } from 'lucide-react';
+import { Check, ImageOff, Heart, BatteryCharging, Scale, ArrowUpRight } from 'lucide-react';
 
 interface CarCardProps {
   car: Car;
@@ -135,17 +135,6 @@ const CarCard: React.FC<CarCardProps> = ({
           >
             {isSelectedForCompare ? <Check className="w-4 h-4" /> : <Scale className="w-4 h-4" />}
           </button>
-          <a
-            href={brandUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={e => e.stopPropagation()}
-            className="p-2 rounded-lg border backdrop-blur-sm transition-all min-w-[36px] min-h-[36px] flex items-center justify-center"
-            style={{ background: 'rgba(5,5,12,0.55)', borderColor: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.45)' }}
-            title={t('card.officialSite', { brand: car.brand })}
-          >
-            <ExternalLink className="w-4 h-4" />
-          </a>
         </div>
 
         {/* Favorite — top right */}
