@@ -385,9 +385,22 @@ Instruções de Resposta:
     setIsLoading(true);
     recordRequest();
 
+    const sendWithRetry = async (text: string, maxRetries = 3) => {
+      for (let attempt = 0; attempt < maxRetries; attempt++) {
+        try {
+          return await chatSessionRef.current!.sendMessage(text);
+        } catch (err) {
+          const msg = (err as Error).message ?? '';
+          const isRetryable = msg.includes('503') || msg.includes('high demand') || msg.includes('429');
+          if (!isRetryable || attempt === maxRetries - 1) throw err;
+          await new Promise(res => setTimeout(res, 1000 * Math.pow(2, attempt)));
+        }
+      }
+    };
+
     try {
-      const result = await chatSessionRef.current.sendMessage(sanitized);
-      const response = await result.response;
+      const result = await sendWithRetry(sanitized);
+      const response = await result!.response;
       const responseText = response.text();
 
       // Canary check — if the model echoed the confidential token, the system prompt
@@ -406,8 +419,14 @@ Instruções de Resposta:
       setMessages(prev => [...prev, { role: 'model', text: responseText }]);
     } catch (error) {
       console.error(error);
-      const errorMessage = (error as Error).message || "Unknown error";
-      setMessages(prev => [...prev, { role: 'model', text: t('chat.connectError', { message: errorMessage }) }]);
+      const errorMessage = (error as Error).message ?? '';
+      const isOverloaded = errorMessage.includes('503') || errorMessage.includes('high demand');
+      const friendlyMsg = isOverloaded
+        ? (i18n.language === 'en'
+            ? '⚠️ The AI is under heavy load right now. Please try again in a few seconds.'
+            : '⚠️ O serviço de IA está sobrecarregado no momento. Tente novamente em alguns segundos.')
+        : t('chat.connectError', { message: errorMessage });
+      setMessages(prev => [...prev, { role: 'model', text: friendlyMsg }]);
     } finally {
       setIsLoading(false);
     }
