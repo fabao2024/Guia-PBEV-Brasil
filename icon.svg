@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background -->
+  <rect width="512" height="512" rx="96" fill="#0a0a0a"/>
+  <!-- Bolt / Zap icon (EV symbol) -->
+  <polygon points="296,64 176,280 256,280 216,448 336,232 256,232" fill="#00b4ff"/>
+</svg>

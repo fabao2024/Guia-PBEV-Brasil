@@ -1,0 +1,35 @@
+{
+  "name": "Guia PBEV Brasil",
+  "short_name": "Guia PBEV",
+  "description": "Catálogo completo dos elétricos homologados no Brasil — autonomia, preços e simulador de economia.",
+  "start_url": "/Guia-PBEV-Brasil/",
+  "scope": "/Guia-PBEV-Brasil/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0a0a0a",
+  "theme_color": "#00b4ff",
+  "lang": "pt-BR",
+  "categories": ["automotive", "utilities"],
+  "icons": [
+    {
+      "src": "/Guia-PBEV-Brasil/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/Guia-PBEV-Brasil/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/Guia-PBEV-Brasil/repo-banner.png",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Catálogo de EVs homologados no Brasil"
+    }
+  ]
+}
