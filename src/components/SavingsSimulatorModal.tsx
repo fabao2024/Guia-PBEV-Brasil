@@ -348,7 +348,7 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
 
                         <div>
                             <div className="flex justify-between items-center mb-3">
-                                <span className="text-white text-sm">{t('simulator.kwhPrice')} (AC) /kWh</span>
+                                <span className="text-white text-sm">{t('simulator.kwhPrice')} /kWh</span>
                                 <div className="bg-white/10 px-3 py-1 rounded-full border border-white/20 text-white font-mono text-sm">{currencySymbol} {kwhPrice.toFixed(2).replace('.', ',')}</div>
                             </div>
                             <input type="range" min="0" max="10" step="0.05" value={kwhPrice} onChange={e => setKwhPrice(Number(e.target.value))} className={sliderThumbClasses} style={makeSliderStyle(kwhPrice, 0, 10)} />
