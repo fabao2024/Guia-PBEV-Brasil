@@ -248,8 +248,8 @@
     "headerBtn": "Adicionar"
   },
   "simulator": {
-    "title": "Simulador de Economia Anual",
-    "titlePBEV": "PBEV Brasil",
+    "title": "Carro Elétrico vale a pena pra você?",
+    "titlePBEV": "GUIA PBEV Brasil",
     "settingsTitle": "Configurações Avançadas",
     "settingsDesc": "Ajuste o valor que você paga pelo kWh na sua conta de luz ou em eletropostos para um cálculo mais preciso.",
     "monthlyKms": "Quilômetros percorridos/mês",
@@ -268,8 +268,8 @@
     "dcPercent": "% de uso das Recargas Rápidas (DC)",
     "blendedRate": "Taxa Combinada",
     "headerBtn": "Simulador",
-    "disclaimer": "*Valores calculados com base em categorias PBEV 2025.",
-    "tcoTab": "TCO · 4 Anos",
+    "disclaimer": "*A economia é calculada comparando o EV escolhido com um veículo a combustão equivalente da mesma categoria (Urbano, SUV, Sedan etc.), usando eficiência certificada pelo Inmetro (PBEV 2026). Resultados variam conforme estilo de condução.",
+    "tcoTab": "Custo Total 4 Anos",
     "savingsTab": "Economia Mensal",
     "gasoline": "Gasolina",
     "ethanol": "Etanol",

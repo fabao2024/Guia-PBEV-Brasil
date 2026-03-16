@@ -248,8 +248,8 @@
     "headerBtn": "Add"
   },
   "simulator": {
-    "title": "Annual Savings Simulator",
-    "titlePBEV": "PBEV Brazil",
+    "title": "Is an Electric Car worth it for you?",
+    "titlePBEV": "GUIA PBEV Brasil",
     "settingsTitle": "Advanced Settings",
     "settingsDesc": "Adjust the price you pay per kWh on your electricity bill or at charging stations for a more accurate calculation.",
     "monthlyKms": "Kilometers driven/month",
@@ -268,8 +268,8 @@
     "dcPercent": "% use of Fast Charging (DC)",
     "blendedRate": "Blended Rate",
     "headerBtn": "Simulator",
-    "disclaimer": "*Values calculated based on PBEV 2025 categories.",
-    "tcoTab": "TCO · 4 Years",
+    "disclaimer": "*Savings are calculated by comparing the selected EV against an equivalent combustion vehicle in the same category (Urban, SUV, Sedan etc.), using efficiency certified by Inmetro (PBEV 2026). Results may vary with driving style.",
+    "tcoTab": "Total Cost 4 Years",
     "savingsTab": "Monthly Savings",
     "gasoline": "Gasoline",
     "ethanol": "Ethanol",

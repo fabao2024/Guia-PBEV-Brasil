@@ -286,7 +286,7 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                             <ChevronLeft className="w-6 h-6" />
                         </button>
                         <h2 className="text-xl md:text-2xl font-black text-white text-center leading-tight">
-                            {t('simulator.title')}<br /><span className="text-[#00b4ff]">{t('simulator.titlePBEV')}</span>
+                            {t('simulator.title')}<br /><span className="hidden md:inline text-[#00b4ff]">{t('simulator.titlePBEV')}</span>
                         </h2>
                         <div className="flex bg-[#1a1a1a] rounded-lg p-1 border border-white/10">
                             <button onClick={() => handleCurrencyChange('BRL')} className={`px-2 py-1 rounded-md text-xs font-bold transition-all ${currency === 'BRL' ? 'bg-[#00b4ff] text-black shadow-[0_0_10px_rgba(0,180,255,0.5)]' : 'text-[#a0a0a0] hover:text-white'}`}>R$</button>
