@@ -270,13 +270,13 @@ const CarCard: React.FC<CarCardProps> = ({
         <div className="mt-auto flex items-end gap-3 pt-0.5">
           <div className="flex-1 min-w-0">
             <div className="text-[8px] uppercase tracking-widest mb-0.5" style={{ color: 'rgba(255,255,255,0.22)' }}>
-              {t('comparison.price', 'Preço')}
+              {t('comparison.price', 'Preço')} · R$
             </div>
             <div
-              className="text-[1rem] font-black tracking-tight leading-none truncate"
+              className="text-[1.05rem] font-black tracking-tight leading-none truncate"
               style={{ color: '#00b4ff' }}
             >
-              R$&nbsp;{car.price.toLocaleString('pt-BR')}
+              {car.price.toLocaleString('pt-BR')}
             </div>
           </div>
           <button
