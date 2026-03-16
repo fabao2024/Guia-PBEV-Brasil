@@ -8,8 +8,21 @@ import { CAR_DB } from '../constants';
 import { Car, ChatMessage } from '../types';
 import { sanitizeChatInput, validateChatInput } from '../utils/sanitize';
 import { useRateLimit } from '../hooks/useRateLimit';
+import { FUEL_PRICES_BY_STATE, FUEL_PRICES_UPDATED } from '../constants/fuelPricesByState';
+import { ELECTRICITY_PRICES_BY_STATE, ELECTRICITY_PRICES_UPDATED } from '../constants/electricityPricesByState';
+import { IPVA_BY_STATE } from '../constants/ipvaByState';
 
 const API_KEY_STORAGE = 'gemini-api-key';
+
+function buildStateDataSummary(): string {
+  const lines = IPVA_BY_STATE.map(s => {
+    const fuel = FUEL_PRICES_BY_STATE[s.abbr];
+    const elec = ELECTRICITY_PRICES_BY_STATE[s.abbr];
+    const ipva = s.bevRate === 0 ? 'Isento' : `${(s.bevRate * 100).toFixed(1)}%`;
+    return `${s.abbr} (${s.name}): gas R$${fuel?.gasoline.toFixed(2)}/L | etanol R$${fuel?.ethanol.toFixed(2)}/L | energia R$${elec?.toFixed(2)}/kWh | IPVA EV ${ipva}`;
+  });
+  return `Dados por Estado (ANP ${FUEL_PRICES_UPDATED} | ANEEL ${ELECTRICITY_PRICES_UPDATED}):\n${lines.join('\n')}`;
+}
 
 const QUIZ_OPTIONS: Record<number, { pt: string[]; en: string[] }> = {
   1: { pt: ['Até 60km', '60–120km', 'Mais de 120km'], en: ['Up to 60km', '60–120km', 'Over 120km'] },
@@ -210,11 +223,11 @@ Vehicle Data:
 ${buildCarSummary('en')}
 
 Brazilian Market Context (use for savings/cost calculations):
-- Average gasoline price: R$6.00/L
-- Average ethanol price: R$4.40/L
-- Average residential electricity cost: R$1.00/kWh
 - Average public fast-charger cost: R$2.50/kWh
 - Annual average mileage in Brazil: ~18,000 km (1,500 km/month)
+- If the user mentions their state, use the exact prices from the table below instead of national averages.
+
+${buildStateDataSummary()}
 
 EV Efficiency Reference (same methodology as the in-app Savings Simulator):
 - Compact / Sedan: 14 kWh/100km | petrol equivalent: 11.0 km/L
@@ -255,11 +268,11 @@ Dados dos Veículos:
 ${buildCarSummary('pt-BR')}
 
 Contexto do Mercado Brasileiro (use para cálculos de economia e custo):
-- Preço médio da gasolina: R$6,00/L
-- Preço médio do etanol: R$4,40/L
-- Custo médio da energia residencial: R$1,00/kWh
 - Custo médio em eletropostos rápidos: R$2,50/kWh
 - Quilometragem mensal média no Brasil: ~1.500 km/mês (18.000 km/ano)
+- Se o usuário informar seu estado, use os preços exatos da tabela abaixo em vez das médias nacionais.
+
+${buildStateDataSummary()}
 
 Eficiência dos EVs (mesma metodologia do Simulador de Economia do app):
 - Compacto / Sedan: 14 kWh/100km | equivalente a combustão: 11,0 km/L
