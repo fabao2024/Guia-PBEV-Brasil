@@ -279,7 +279,11 @@ const CarCard: React.FC<CarCardProps> = ({
               {car.price.toLocaleString('pt-BR')}
             </div>
           </div>
-          <button
+          <a
+            href={brandUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={e => e.stopPropagation()}
             className="flex-shrink-0 flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2.5 rounded-xl font-bold text-xs text-white transition-all hover:brightness-110 active:scale-95 min-w-[36px] min-h-[36px] justify-center"
             style={{
               background: 'linear-gradient(135deg, #006ce5, #00b4ff)',
@@ -288,7 +292,7 @@ const CarCard: React.FC<CarCardProps> = ({
           >
             <span className="hidden sm:inline">{t('card.buyBtn')}</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
-          </button>
+          </a>
         </div>
       </div>
 
