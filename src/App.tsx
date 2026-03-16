@@ -185,7 +185,7 @@ export default function App() {
         <main className="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth relative w-full pb-32">
 
           {/* Mobile Action Row: Filter + Simulator */}
-          <div className="md:hidden mb-4 sticky top-0 z-30 flex gap-2">
+          <div className="md:hidden sticky top-0 z-30 flex gap-2 -mx-4 px-4 py-2 mb-2 bg-[#0a0a0a] border-b border-white/5">
             <button
               onClick={() => setIsSidebarOpen(true)}
               className="flex-1 bg-[#0e0f1a]/95 backdrop-blur-xl border border-white/10 text-white font-bold py-3 rounded-xl shadow-lg flex items-center justify-center gap-2 hover:bg-[#1a1a1a] active:scale-95 transition-all"
