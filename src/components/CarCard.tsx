@@ -25,6 +25,13 @@ const CAT_ACCENT: Record<string, { color: string; bg: string }> = {
   Comercial: { color: '#8899aa', bg: 'rgba(136,153,170,0.07)' },
 };
 
+// Traction tooltip labels
+const TRACTION_TITLE: Record<string, string> = {
+  AWD: 'Tração integral (4x4)',
+  RWD: 'Tração traseira',
+  FWD: 'Tração dianteira',
+};
+
 // Traction type visual coding
 const TRACTION_STYLE: Record<string, { color: string; bg: string }> = {
   AWD: { color: '#00e5a0', bg: 'rgba(0,229,160,0.09)'   },
@@ -243,6 +250,7 @@ const CarCard: React.FC<CarCardProps> = ({
           {tractionStyle && (
             <div
               className="rounded-xl px-3 py-2"
+              title={TRACTION_TITLE[car.traction ?? '']}
               style={{ background: tractionStyle.bg, border: `1px solid ${tractionStyle.color}22` }}
             >
               <div className="text-[8px] uppercase tracking-widest mb-0.5" style={{ color: `${tractionStyle.color}65` }}>

@@ -33,6 +33,12 @@ const TRACTION_STYLE: Record<string, { color: string; bg: string }> = {
     FWD: { color: '#60c8ff', bg: 'rgba(96,200,255,0.09)'  },
 };
 
+const TRACTION_TITLE: Record<string, string> = {
+    AWD: 'Tração integral (4x4)',
+    RWD: 'Tração traseira',
+    FWD: 'Tração dianteira',
+};
+
 export default function CarDetailsModal({ car, onClose, isSelectedForCompare, onToggleCompare, isFavorite, onToggleFavorite }: CarDetailsModalProps) {
     const { t } = useTranslation();
 
@@ -91,7 +97,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
         } else {
             await navigator.clipboard.writeText(window.location.href);
             setCopied(true);
-            setTimeout(() => setCopied(false), 2000);
+            setTimeout(() => setCopied(false), 3500);
         }
     };
     const [selectedState, setSelectedState] = useState<string>(
@@ -343,6 +349,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                         {tractionStyle && (
                             <div
                                 className="rounded-xl px-4 py-3"
+                                title={TRACTION_TITLE[car.traction ?? '']}
                                 style={{ background: tractionStyle.bg, border: `1px solid ${tractionStyle.color}22` }}
                             >
                                 <div className="text-[9px] uppercase tracking-widest mb-1" style={{ color: `${tractionStyle.color}65` }}>
@@ -377,7 +384,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                                 </div>
                                 <div className="text-xl font-black text-white leading-none">
                                     {car.battery}
-                                    <span className="text-sm font-normal ml-1" style={{ color: 'rgba(255,255,255,0.35)' }}>kWh</span>
+                                    <span className="text-sm font-normal ml-1" title="Quilowatt-hora — unidade de energia da bateria" style={{ color: 'rgba(255,255,255,0.35)' }}>kWh</span>
                                 </div>
                             </div>
                         )}
