@@ -315,6 +315,27 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                     {/* ── SHARED SLIDERS ─────────────────────────────────────────────────── */}
                     <div className="bg-[#111111]/80 backdrop-blur-md border-[2px] border-white/10 rounded-3xl p-5 md:p-6 mb-8 shadow-[inset_0_0_20px_rgba(255,255,255,0.05),0_0_30px_rgba(0,180,255,0.1)] space-y-6">
 
+                        {/* State selector */}
+                        <div>
+                            <div className="flex justify-between items-center mb-3">
+                                <span className="text-white text-sm">{t('ipva.title')}</span>
+                                <div className="bg-white/10 px-3 py-1 rounded-full border border-white/20 text-white font-mono text-sm">
+                                    {(() => { const s = IPVA_BY_STATE.find(s => s.abbr === selectedState); return s ? (s.bevRate === 0 ? 'Isento' : `${(s.bevRate * 100).toFixed(1)}%`) : '—'; })()}
+                                </div>
+                            </div>
+                            <div className="relative">
+                                <select value={selectedState} onChange={e => setSelectedState(e.target.value)} className="w-full appearance-none bg-[#1a1a1a] border border-white/20 text-white text-sm font-bold rounded-xl px-4 py-3 pr-8 focus:outline-none focus:border-[#00b4ff] transition-colors">
+                                    {IPVA_BY_STATE.map(s => (
+                                        <option key={s.abbr} value={s.abbr} style={{ background: '#1a1a1a' }}>
+                                            {s.abbr} — {s.name} · {s.bevRate === 0 ? 'Isento' : `${(s.bevRate * 100).toFixed(1)}%`}
+                                        </option>
+                                    ))}
+                                </select>
+                                <ChevronDown className="w-4 h-4 text-[#a0a0a0] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                            </div>
+                            <p className="text-[10px] text-[#555] mt-2 text-right">{'⚠'} Dados de {IPVA_DATA_UPDATED}. Consulte a Sefaz do seu estado.</p>
+                        </div>
+
                         <div>
                             <div className="flex justify-between items-center mb-3">
                                 <span className="text-white text-sm">{t('simulator.monthlyKms')}</span>
@@ -395,27 +416,6 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                             <p className="text-[10px] text-[#666666] mt-2 text-right">
                                 {t('simulator.blendedRate')}: {currencySymbol} {blendedKwhPrice.toFixed(2).replace('.', ',')}/kWh
                             </p>
-                        </div>
-
-                        {/* State selector */}
-                        <div>
-                            <div className="flex justify-between items-center mb-3">
-                                <span className="text-white text-sm">{t('ipva.title')}</span>
-                                <div className="bg-white/10 px-3 py-1 rounded-full border border-white/20 text-white font-mono text-sm">
-                                    {(() => { const s = IPVA_BY_STATE.find(s => s.abbr === selectedState); return s ? (s.bevRate === 0 ? 'Isento' : `${(s.bevRate * 100).toFixed(1)}%`) : '—'; })()}
-                                </div>
-                            </div>
-                            <div className="relative">
-                                <select value={selectedState} onChange={e => setSelectedState(e.target.value)} className="w-full appearance-none bg-[#1a1a1a] border border-white/20 text-white text-sm font-bold rounded-xl px-4 py-3 pr-8 focus:outline-none focus:border-[#00b4ff] transition-colors">
-                                    {IPVA_BY_STATE.map(s => (
-                                        <option key={s.abbr} value={s.abbr} style={{ background: '#1a1a1a' }}>
-                                            {s.abbr} — {s.name} · {s.bevRate === 0 ? 'Isento' : `${(s.bevRate * 100).toFixed(1)}%`}
-                                        </option>
-                                    ))}
-                                </select>
-                                <ChevronDown className="w-4 h-4 text-[#a0a0a0] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
-                            </div>
-                            <p className="text-[10px] text-[#555] mt-2 text-right">{'⚠'} Dados de {IPVA_DATA_UPDATED}. Consulte a Sefaz do seu estado.</p>
                         </div>
 
                     </div>
