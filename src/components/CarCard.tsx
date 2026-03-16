@@ -280,13 +280,13 @@ const CarCard: React.FC<CarCardProps> = ({
             </div>
           </div>
           <button
-            className="flex-shrink-0 flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl font-bold text-xs text-white transition-all hover:brightness-110 active:scale-95"
+            className="flex-shrink-0 flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2.5 rounded-xl font-bold text-xs text-white transition-all hover:brightness-110 active:scale-95 min-w-[36px] min-h-[36px] justify-center"
             style={{
               background: 'linear-gradient(135deg, #006ce5, #00b4ff)',
               boxShadow: '0 4px 16px rgba(0,180,255,0.28)',
             }}
           >
-            <span>{t('card.buyBtn')}</span>
+            <span className="hidden sm:inline">{t('card.buyBtn')}</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </button>
         </div>
