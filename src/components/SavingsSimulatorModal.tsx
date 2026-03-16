@@ -241,7 +241,8 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
     const makeSliderStyle = (value: number, min: number, max: number) => ({
         background: `linear-gradient(to right, #00b4ff ${(value - min) / (max - min) * 100}%, rgba(255,255,255,0.2) ${(value - min) / (max - min) * 100}%)`
     });
-    const sliderThumbClasses = "w-full h-1.5 rounded-lg appearance-none cursor-pointer touch-pan-y [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:shadow-[0_0_10px_rgba(0,180,255,0.5)] [&::-webkit-slider-thumb]:cursor-pointer";
+    const sliderThumbClasses = "hidden md:block w-full h-1.5 rounded-lg appearance-none cursor-pointer touch-pan-y [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:shadow-[0_0_10px_rgba(0,180,255,0.5)] [&::-webkit-slider-thumb]:cursor-pointer";
+    const stepBtn = "md:hidden w-8 h-8 flex items-center justify-center rounded-lg border border-white/15 bg-white/5 text-white font-bold text-base active:scale-95 transition-all select-none";
 
     const handleExportTCO = useCallback(() => {
         const cars = selectedCars.filter(Boolean) as Car[];
@@ -317,7 +318,11 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                         <div>
                             <div className="flex justify-between items-center mb-3">
                                 <span className="text-white text-sm">{t('simulator.monthlyKms')}</span>
-                                <div className="bg-white/10 px-3 py-1 rounded-full border border-white/20 text-white font-mono text-sm">{kms.toLocaleString()} km</div>
+                                <div className="flex items-center gap-1.5">
+                                    <button className={stepBtn} onClick={() => setKms(k => Math.max(100, k - 100))}>−</button>
+                                    <div className="bg-white/10 px-3 py-1 rounded-full border border-white/20 text-white font-mono text-sm">{kms.toLocaleString()} km</div>
+                                    <button className={stepBtn} onClick={() => setKms(k => Math.min(10000, k + 100))}>+</button>
+                                </div>
                             </div>
                             <input type="range" min="100" max="10000" step="100" value={kms} onChange={e => setKms(Number(e.target.value))} className={sliderThumbClasses} style={makeSliderStyle(kms, 100, 10000)} />
                         </div>
@@ -331,7 +336,11 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                                         <button onClick={() => setFuelType('ethanol')} className={`px-2.5 py-1 rounded-md text-[10px] font-bold transition-all ${fuelType === 'ethanol' ? 'bg-[#00e5a0] text-black' : 'text-[#a0a0a0] hover:text-white'}`}>{t('simulator.ethanol')}</button>
                                     </div>
                                 </div>
-                                <div className={`px-3 py-1 rounded-full font-mono text-sm transition-colors ${fuelType === 'ethanol' ? 'bg-[#00e5a0]/10 border border-[#00e5a0]/40 text-[#00e5a0]' : 'bg-[#ff8c52]/10 border border-[#ff8c52]/40 text-[#ff8c52]'}`}>{currencySymbol} {gasPrice.toFixed(2).replace('.', ',')}</div>
+                                <div className="flex items-center gap-1.5">
+                                    <button className={stepBtn} onClick={() => setGasPrice(p => Math.max(1, Math.round((p - 0.10) * 100) / 100))}>−</button>
+                                    <div className={`px-3 py-1 rounded-full font-mono text-sm transition-colors ${fuelType === 'ethanol' ? 'bg-[#00e5a0]/10 border border-[#00e5a0]/40 text-[#00e5a0]' : 'bg-[#ff8c52]/10 border border-[#ff8c52]/40 text-[#ff8c52]'}`}>{currencySymbol} {gasPrice.toFixed(2).replace('.', ',')}</div>
+                                    <button className={stepBtn} onClick={() => setGasPrice(p => Math.min(10, Math.round((p + 0.10) * 100) / 100))}>+</button>
+                                </div>
                             </div>
                             <input type="range" min="1" max="10" step="0.05" value={gasPrice} onChange={e => setGasPrice(Number(e.target.value))} className={sliderThumbClasses} style={makeSliderStyle(gasPrice, 1, 10)} />
                             {(() => {
@@ -349,7 +358,11 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                         <div>
                             <div className="flex justify-between items-center mb-3">
                                 <span className="text-white text-sm">{t('simulator.kwhPrice')} /kWh</span>
-                                <div className="bg-white/10 px-3 py-1 rounded-full border border-white/20 text-white font-mono text-sm">{currencySymbol} {kwhPrice.toFixed(2).replace('.', ',')}</div>
+                                <div className="flex items-center gap-1.5">
+                                    <button className={stepBtn} onClick={() => setKwhPrice(p => Math.max(0, Math.round((p - 0.05) * 100) / 100))}>−</button>
+                                    <div className="bg-white/10 px-3 py-1 rounded-full border border-white/20 text-white font-mono text-sm">{currencySymbol} {kwhPrice.toFixed(2).replace('.', ',')}</div>
+                                    <button className={stepBtn} onClick={() => setKwhPrice(p => Math.min(10, Math.round((p + 0.05) * 100) / 100))}>+</button>
+                                </div>
                             </div>
                             <input type="range" min="0" max="10" step="0.05" value={kwhPrice} onChange={e => setKwhPrice(Number(e.target.value))} className={sliderThumbClasses} style={makeSliderStyle(kwhPrice, 0, 10)} />
                             <p className="text-[10px] text-white/30 mt-1.5">
@@ -360,7 +373,11 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                         <div>
                             <div className="flex justify-between items-center mb-3">
                                 <span className="text-white text-sm">{t('simulator.dcKwhPrice')} /kWh</span>
-                                <div className="bg-white/10 px-3 py-1 rounded-full border border-white/20 text-white font-mono text-sm">{currencySymbol} {dcKwhPrice.toFixed(2).replace('.', ',')}</div>
+                                <div className="flex items-center gap-1.5">
+                                    <button className={stepBtn} onClick={() => setDcKwhPrice(p => Math.max(0, Math.round((p - 0.05) * 100) / 100))}>−</button>
+                                    <div className="bg-white/10 px-3 py-1 rounded-full border border-white/20 text-white font-mono text-sm">{currencySymbol} {dcKwhPrice.toFixed(2).replace('.', ',')}</div>
+                                    <button className={stepBtn} onClick={() => setDcKwhPrice(p => Math.min(10, Math.round((p + 0.05) * 100) / 100))}>+</button>
+                                </div>
                             </div>
                             <input type="range" min="0" max="10" step="0.05" value={dcKwhPrice} onChange={e => setDcKwhPrice(Number(e.target.value))} className={sliderThumbClasses} style={makeSliderStyle(dcKwhPrice, 0, 10)} />
                         </div>
@@ -368,7 +385,11 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                         <div>
                             <div className="flex justify-between items-center mb-3">
                                 <span className="text-white text-sm">{t('simulator.dcPercent')}</span>
-                                <div className="bg-white/10 px-3 py-1 rounded-full border border-white/20 text-white font-mono text-sm">{dcPercent}%</div>
+                                <div className="flex items-center gap-1.5">
+                                    <button className={stepBtn} onClick={() => setDcPercent(p => Math.max(0, p - 5))}>−</button>
+                                    <div className="bg-white/10 px-3 py-1 rounded-full border border-white/20 text-white font-mono text-sm">{dcPercent}%</div>
+                                    <button className={stepBtn} onClick={() => setDcPercent(p => Math.min(100, p + 5))}>+</button>
+                                </div>
                             </div>
                             <input type="range" min="0" max="100" step="5" value={dcPercent} onChange={e => setDcPercent(Number(e.target.value))} className={sliderThumbClasses} style={makeSliderStyle(dcPercent, 0, 100)} />
                             <p className="text-[10px] text-[#666666] mt-2 text-right">
