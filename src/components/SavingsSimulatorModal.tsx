@@ -841,18 +841,32 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                             <p className="flex gap-2"><span className="text-white/20">✗</span><span className="text-white/30 line-through">Seguro, Manutenção, Depreciação</span><span className="text-white/30 no-underline ml-1">→ veja a aba TCO 4 Anos.</span></p>
                                         </div>
                                     </div>
-                                    <div className="bg-white/3 rounded-xl p-3 space-y-2">
-                                        <p className="text-white/40 text-[10px] font-semibold uppercase tracking-wider">Preços de referência · {selectedState}</p>
-                                        <p className="text-white/25 text-[10px]">
-                                            <span className="text-white/40 font-semibold">{fuelType === 'ethanol' ? 'Etanol' : 'Gasolina'}:</span>{' '}
-                                            {currencySymbol} {getDefaultFuelPrice(selectedState, fuelType).toFixed(2).replace('.', ',')} /L · ANP {FUEL_PRICES_UPDATED}
-                                            {fuelType === 'ethanol' && <span className="text-[#00e5a0]/60"> · +30% consumo vs. gasolina</span>}
-                                        </p>
-                                        <p className="text-white/25 text-[10px]">
-                                            <span className="text-white/40 font-semibold">Energia residencial:</span>{' '}
-                                            {currencySymbol} {ELECTRICITY_PRICES_BY_STATE[selectedState]?.toFixed(2).replace('.', ',') ?? '—'} /kWh (B1 residencial, sem ICMS) · ANEEL {ELECTRICITY_PRICES_UPDATED}
-                                        </p>
-                                    </div>
+                                    {(() => {
+                                        const refFuel = getDefaultFuelPrice(selectedState, fuelType);
+                                        const refElec = ELECTRICITY_PRICES_BY_STATE[selectedState];
+                                        const fuelAdjusted = Math.abs(gasPrice - refFuel) > 0.01;
+                                        const elecAdjusted = refElec !== undefined && Math.abs(kwhPrice - refElec) > 0.01;
+                                        return (
+                                            <div className="bg-white/3 rounded-xl p-3 space-y-2">
+                                                <p className="text-white/40 text-[10px] font-semibold uppercase tracking-wider">Preços de referência · {selectedState}</p>
+                                                <p className="text-white/25 text-[10px]">
+                                                    <span className="text-white/40 font-semibold">{fuelType === 'ethanol' ? 'Etanol' : 'Gasolina'}:</span>{' '}
+                                                    {currencySymbol} {refFuel.toFixed(2).replace('.', ',')} /L · ANP {FUEL_PRICES_UPDATED}
+                                                    {fuelType === 'ethanol' && <span className="text-[#00e5a0]/60"> · +30% consumo vs. gasolina</span>}
+                                                    {fuelAdjusted && (
+                                                        <span className="ml-1.5 text-[#f5c842]">⚠ usando {currencySymbol} {gasPrice.toFixed(2).replace('.', ',')} /L (ajustado)</span>
+                                                    )}
+                                                </p>
+                                                <p className="text-white/25 text-[10px]">
+                                                    <span className="text-white/40 font-semibold">Energia residencial:</span>{' '}
+                                                    {currencySymbol} {refElec?.toFixed(2).replace('.', ',') ?? '—'} /kWh (B1 residencial, sem ICMS) · ANEEL {ELECTRICITY_PRICES_UPDATED}
+                                                    {elecAdjusted && (
+                                                        <span className="ml-1.5 text-[#f5c842]">⚠ usando {currencySymbol} {kwhPrice.toFixed(2).replace('.', ',')} /kWh (ajustado)</span>
+                                                    )}
+                                                </p>
+                                            </div>
+                                        );
+                                    })()}
                                     <div className="bg-white/3 rounded-xl p-3 space-y-2">
                                         <p className="text-white/40 text-[10px] font-semibold uppercase tracking-wider">Consumos médios estimados por categoria de veículo (fonte PBEV/INMETRO)</p>
                                         <p className="text-white/25 text-[10px]"><span className="text-white/40 font-semibold">Combustão:</span> categ. Urbano 12 km/L · categ. Compacto/Sedan 11 km/L · categ. SUV 9,5 km/L · categ. Luxo 8 km/L · categ. Comercial 7,5 km/L. Etanol: +30% consumo volumétrico (÷1,30).</p>
@@ -869,18 +883,32 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                             <p className="flex gap-2"><span className="text-[#00e5a0]">✓</span><span className="text-white/50"><strong className="text-white/70">Depreciação:</strong> EV 9,5% a.a. · Combustão 7,0% a.a. (linear, base para seguro e IPVA).</span></p>
                                         </div>
                                     </div>
-                                    <div className="bg-white/3 rounded-xl p-3 space-y-2">
-                                        <p className="text-white/40 text-[10px] font-semibold uppercase tracking-wider">Preços de referência · {selectedState}</p>
-                                        <p className="text-white/25 text-[10px]">
-                                            <span className="text-white/40 font-semibold">{fuelType === 'ethanol' ? 'Etanol' : 'Gasolina'}:</span>{' '}
-                                            {currencySymbol} {getDefaultFuelPrice(selectedState, fuelType).toFixed(2).replace('.', ',')} /L · ANP {FUEL_PRICES_UPDATED}
-                                            {fuelType === 'ethanol' && <span className="text-[#00e5a0]/60"> · +30% consumo vs. gasolina</span>}
-                                        </p>
-                                        <p className="text-white/25 text-[10px]">
-                                            <span className="text-white/40 font-semibold">Energia residencial:</span>{' '}
-                                            {currencySymbol} {ELECTRICITY_PRICES_BY_STATE[selectedState]?.toFixed(2).replace('.', ',') ?? '—'} /kWh (B1 residencial, sem ICMS) · ANEEL {ELECTRICITY_PRICES_UPDATED}
-                                        </p>
-                                    </div>
+                                    {(() => {
+                                        const refFuel = getDefaultFuelPrice(selectedState, fuelType);
+                                        const refElec = ELECTRICITY_PRICES_BY_STATE[selectedState];
+                                        const fuelAdjusted = Math.abs(gasPrice - refFuel) > 0.01;
+                                        const elecAdjusted = refElec !== undefined && Math.abs(kwhPrice - refElec) > 0.01;
+                                        return (
+                                            <div className="bg-white/3 rounded-xl p-3 space-y-2">
+                                                <p className="text-white/40 text-[10px] font-semibold uppercase tracking-wider">Preços de referência · {selectedState}</p>
+                                                <p className="text-white/25 text-[10px]">
+                                                    <span className="text-white/40 font-semibold">{fuelType === 'ethanol' ? 'Etanol' : 'Gasolina'}:</span>{' '}
+                                                    {currencySymbol} {refFuel.toFixed(2).replace('.', ',')} /L · ANP {FUEL_PRICES_UPDATED}
+                                                    {fuelType === 'ethanol' && <span className="text-[#00e5a0]/60"> · +30% consumo vs. gasolina</span>}
+                                                    {fuelAdjusted && (
+                                                        <span className="ml-1.5 text-[#f5c842]">⚠ usando {currencySymbol} {gasPrice.toFixed(2).replace('.', ',')} /L (ajustado)</span>
+                                                    )}
+                                                </p>
+                                                <p className="text-white/25 text-[10px]">
+                                                    <span className="text-white/40 font-semibold">Energia residencial:</span>{' '}
+                                                    {currencySymbol} {refElec?.toFixed(2).replace('.', ',') ?? '—'} /kWh (B1 residencial, sem ICMS) · ANEEL {ELECTRICITY_PRICES_UPDATED}
+                                                    {elecAdjusted && (
+                                                        <span className="ml-1.5 text-[#f5c842]">⚠ usando {currencySymbol} {kwhPrice.toFixed(2).replace('.', ',')} /kWh (ajustado)</span>
+                                                    )}
+                                                </p>
+                                            </div>
+                                        );
+                                    })()}
                                     <div className="bg-white/3 rounded-xl p-3 space-y-2">
                                         <p className="text-white/40 text-[10px] font-semibold uppercase tracking-wider">Consumos médios estimados por categoria de veículo (fonte PBEV/INMETRO)</p>
                                         <p className="text-white/25 text-[10px]"><span className="text-white/40 font-semibold">Combustão:</span> categ. Urbano 12 km/L · categ. Compacto/Sedan 11 km/L · categ. SUV 9,5 km/L · categ. Luxo 8 km/L · categ. Comercial 7,5 km/L. Etanol: +30% consumo volumétrico (÷1,30).</p>
