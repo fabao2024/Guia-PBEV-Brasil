@@ -2,202 +2,186 @@
 <img width="1200" alt="Guia PBEV Banner" src="public/repo-banner.png" />
 </div>
 
-# Guia PBEV Brasil - EV Catalog & AI Assistant / Catálogo de VEs e Assistente IA
+# Guia PBEV Brasil — Catálogo Oficial de Elétricos & IA
 
-**[🇺🇸 English](#-english-instructions) | [🇧🇷 Português](#-instruções-em-português)**
+**[🇺🇸 English](#-english) | [🇧🇷 Português](#-português)**
 
----
-
-## 🇺🇸 English Instructions
-
-### 1. Project Overview
-A Progressive Web App (PWA) for the Brazilian Electric Vehicle market, featuring a high-performance interactive catalog and a specialized LLM-based virtual assistant (Gemini).
-
-### 2. Tools & Prerequisites
-To reproduce/run this project, you need the following tools installed on your system:
-
-- **Operating System**: Windows 10/11, macOS, or Linux.
-- **Node.js**: Version 18.0 or higher. [Download Here](https://nodejs.org/)
-- **Package Manager**: `npm` (included with Node.js) or `pnpm`/`yarn`.
-- **Code Editor**: [Visual Studio Code](https://code.visualstudio.com/) (Recommended).
-- **Git**: For cloning the repository. [Download Here](https://git-scm.com/)
-- **Browser**: Chrome, Edge, or Firefox (latest versions).
-- **API Key**: A valid Google Gemini API Key. [Get it here](https://aistudio.google.com/app/apikey)
-
-### 3. Step-by-Step Installation
-
-**Step 1: Get the Code**
-Clone the repository to your local machine:
-```bash
-git clone <repository-url>
-cd Guia-PBEV-Brasil
-```
-
-**Step 2: Install Dependencies**
-Open the folder in your terminal (or VS Code) and run:
-```bash
-npm install
-```
-
-**Step 3: Environment Setup**
-Create a file named `.env.local` in the root folder:
-```env
-VITE_GEMINI_API_KEY=your_api_key_here
-```
-*Note: Replace `your_api_key_here` with your actual Google Gemini API key.*
-
-**Step 4: Run Tests (Optional)**
-```bash
-npm run test:run
-```
-
-**Step 5: Run Local Server**
-Start the development server:
-```bash
-npm run dev
-```
-Open your browser at `http://localhost:5173`.
-
-### 4. Technical Stack
-- **Framework**: React 19 + TypeScript
-- **Build**: Vite 6
-- **Styling**: Tailwind CSS 4
-- **AI**: Google Gemini SDK (using `gemini-2.5-flash-lite`)
-- **i18n**: i18next + react-i18next (Portuguese / English)
-- **Testing**: Vitest + Testing Library + happy-dom (57 tests)
-- **Security**: Input sanitization, XSS protection (react-markdown), rate limiting, prompt injection detection
-
-### 5. Deployment & Public URL
-For detailed deployment instructions, seeing **[DEPLOY.md](DEPLOY.md)**.
-
-**Options:**
-1.  **GitHub Pages**: Automated, Free, includes AI chatbot. [Live Demo](https://fabao2024.github.io/Guia-PBEV-Brasil/)
-2.  **Google Cloud Run**: Full features, Containerized.
-
-**Quick Cloud Run Command:**
-```bash
-gcloud builds submit --tag gcr.io/PROJECT_ID/guia-pbev .
-gcloud run deploy guia-pbev --image gcr.io/PROJECT_ID/guia-pbev --platform managed --allow-unauthenticated
-```
-
-### 6. Using the AI Chatbot on GitHub Pages
-The AI chatbot works on the live GitHub Pages site. Users provide their own free Google Gemini API key:
-
-1. Click the **AI Consultant** button (bottom-right corner)
-2. The setup screen will appear with instructions
-3. Click **"Get Free Key"** to open [Google AI Studio](https://aistudio.google.com/app/apikey)
-4. Sign in with your Google account and click **"Create API Key"**
-5. Copy the key and paste it into the input field on the chat widget
-6. Click **Save** — the chatbot is now ready to use
-
-**Notes:**
-- Your API key is stored **only in your browser** (localStorage) and is never sent to any server other than Google's API
-- The Google Gemini free tier allows **15 requests/minute** and **1 million tokens/day**
-- You can change or remove your key at any time using the gear icon in the chat header
-- The chatbot supports both **Portuguese** and **English**, matching the selected UI language
-
-### 7. Project Metrics
-- **Performance**: ~4s build time (Vite/ESBuild)
-- **Database**: 73 Vehicles registered (10+ brands)
-- **Assets**: 73 Local optimized images (real car photos)
-- **AI Model**: Gemini 2.5 Flash Lite (Verified)
-- **Tests**: 57 tests across 7 test suites
-- **i18n**: 2 languages (PT-BR, EN)
+> Site oficial: **[guiapbev.cloud](https://guiapbev.cloud)**
 
 ---
 
-## 🇧🇷 Instruções em Português
+## 🇧🇷 Português
 
-### 1. Visão Geral
-Aplicação Web Progressiva (PWA) desenvolvida para o mercado de carros elétricos (BEV) no Brasil, combinando um catálogo interativo e um assistente virtual especialista (Gemini).
+### Visão Geral
 
-### 2. Ferramentas e Pré-requisitos
-Para reproduzir ou executar este projeto, você precisa das seguintes ferramentas instaladas:
+Progressive Web App (PWA) para o mercado de veículos elétricos (BEV) no Brasil. Catálogo interativo com dados oficiais PBEV/INMETRO, assistente IA especializado (Gemini), simulador de economia e calculadora de TCO.
 
-- **Sistema Operacional**: Windows 10/11, macOS ou Linux.
-- **Node.js**: Versão 18.0 ou superior. [Baixar Aqui](https://nodejs.org/)
-- **Gerenciador de Pacotes**: `npm` (vem com Node.js), `pnpm` ou `yarn`.
-- **Editor de Código**: [Visual Studio Code](https://code.visualstudio.com/) (Recomendado).
-- **Git**: Para clonar o repositório. [Baixar Aqui](https://git-scm.com/)
-- **Navegador**: Chrome, Edge ou Firefox (versões recentes).
-- **Chave de API**: Uma chave válida do Google Gemini. [Obtenha aqui](https://aistudio.google.com/app/apikey)
+### Funcionalidades
 
-### 3. Instalação Passo a Passo
+| Funcionalidade | Descrição |
+|---|---|
+| 📋 Catálogo | 86 modelos BEV com filtros por preço, autonomia, categoria, marca e tração |
+| 🔍 Busca full-text | Busca instantânea por modelo, marca ou categoria (Fuse.js, tolerante a erros) |
+| ⚖️ Comparação | Comparativo lado a lado de até 3 veículos |
+| 💰 Simulador de Economia | Calcula economia mensal vs. combustão com IPVA real por estado |
+| 📊 TCO 4 anos | Custo total de propriedade: energia, seguro, manutenção, IPVA e depreciação |
+| 🤖 Assistente IA | Chat especializado em EVs com dados PBEV (Gemini 2.5 Flash Lite) |
+| 🏆 Quiz de Recomendação | Recomenda o EV ideal por perfil — 100% offline, sem chave de API |
+| 🏅 Certificação PBE | Rating PBE/INMETRO (A–E) e consumo em MJ/km por modelo |
+| 🧾 IPVA 2026 | Calculadora de IPVA nos 27 estados com isenções para EVs |
+| 📱 PWA | Instalável no Android e iOS, funciona como app nativo |
+| 🌐 Bilíngue | Interface completa em PT-BR e EN com toggle e persistência |
+| ❤️ Favoritos | Lista de favoritos com persistência em localStorage |
 
-**Passo 1: Baixar o Código**
-Clone o repositório em sua máquina:
-```bash
-git clone <url-do-repositorio>
-cd Guia-PBEV-Brasil
-```
+### Stack Tecnológica
 
-**Passo 2: Instalar Dependências**
-Abra a pasta no terminal (ou VS Code) e execute:
-```bash
-npm install
-```
-
-**Passo 3: Configuração de Ambiente**
-Crie um arquivo chamado `.env.local` na raiz do projeto:
-```env
-VITE_GEMINI_API_KEY=sua_chave_api_aqui
-```
-*Nota: Substitua `sua_chave_api_aqui` pela chave real que você gerou no Google AI Studio.*
-
-**Passo 4: Executar Testes (Opcional)**
-```bash
-npm run test:run
-```
-
-**Passo 5: Iniciar Servidor Local**
-Inicie o servidor de desenvolvimento:
-```bash
-npm run dev
-```
-Acesse no seu navegador: `http://localhost:5173`.
-
-### 4. Stack Tecnológica
-- **Framework**: React 19 + TypeScript
-- **Build**: Vite 6
+- **Framework**: React 19 + TypeScript (strict, ES2022)
+- **Build**: Vite 6 — deploy automático via GitHub Actions
 - **Estilos**: Tailwind CSS 4
-- **IA**: Google Gemini SDK (usando `gemini-2.5-flash-lite`)
-- **i18n**: i18next + react-i18next (Português / Inglês)
-- **Testes**: Vitest + Testing Library + happy-dom (57 testes)
-- **Segurança**: Sanitização de input, proteção XSS (react-markdown), rate limiting, detecção de prompt injection
+- **IA**: Google Generative AI SDK (`gemini-2.5-flash-lite`)
+- **i18n**: i18next + react-i18next (PT-BR padrão, EN)
+- **Testes**: Vitest 4 + Testing Library + happy-dom (70 testes)
+- **Segurança**: Sanitização XSS, rate limiting, detecção de prompt injection (12 padrões)
 
-### 5. Deploy & URL Pública
-Para instruções detalhadas de deploy, consulte o arquivo **[DEPLOY.md](DEPLOY.md)**.
+### Instalação e Execução Local
 
-**Opções:**
-1.  **GitHub Pages**: Automatizado, Grátis, inclui chatbot IA. [Demo em Tempo Real](https://fabao2024.github.io/Guia-PBEV-Brasil/)
-2.  **Google Cloud Run**: Completo, Containerizado.
+**Pré-requisitos:** Node.js 18+, npm, Git
 
-**Comando Rápido Cloud Run:**
 ```bash
-gcloud builds submit --tag gcr.io/ID_DO_PROJETO/guia-pbev .
-gcloud run deploy guia-pbev --image gcr.io/ID_DO_PROJETO/guia-pbev --platform managed --allow-unauthenticated
+# 1. Clonar o repositório
+git clone https://github.com/fabao2024/Guia-PBEV-Brasil.git
+cd Guia-PBEV-Brasil
+
+# 2. Instalar dependências
+npm install
+
+# 3. Configurar chave de API (opcional — só necessária para o chat IA)
+echo "VITE_GEMINI_API_KEY=sua_chave_aqui" > .env.local
+
+# 4. Iniciar servidor de desenvolvimento
+npm run dev
+# Acesse: http://localhost:3000
 ```
 
-### 6. Usando o Chatbot IA no GitHub Pages
-O chatbot IA funciona no site publicado no GitHub Pages. Os usuários fornecem sua própria chave gratuita do Google Gemini:
+> **Sem chave de API:** o catálogo, simulador, TCO e quiz funcionam normalmente. Apenas o chat IA requer a chave (usuário pode inserir a própria no site).
 
-1. Clique no botão **Consultor IA** (canto inferior direito)
-2. A tela de configuração aparecerá com instruções
-3. Clique em **"Obter Chave Gratuita"** para abrir o [Google AI Studio](https://aistudio.google.com/app/apikey)
-4. Faça login com sua conta Google e clique em **"Create API Key"**
-5. Copie a chave e cole no campo de entrada do chat
-6. Clique em **Salvar** — o chatbot está pronto para uso
+### Comandos Disponíveis
 
-**Observações:**
-- Sua chave API é armazenada **apenas no seu navegador** (localStorage) e nunca é enviada a nenhum servidor além da API do Google
-- O plano gratuito do Google Gemini permite **15 requisições/minuto** e **1 milhão de tokens/dia**
-- Você pode alterar ou remover sua chave a qualquer momento usando o ícone de engrenagem no cabeçalho do chat
-- O chatbot suporta **Português** e **Inglês**, acompanhando o idioma selecionado na interface
+```bash
+npm run dev           # Servidor local (porta 3000)
+npm run build         # Build de produção
+npm run test:run      # Rodar todos os 70 testes
+npm run test          # Modo watch
+npm run test:coverage # Relatório de cobertura
+npm run preview       # Preview do build de produção
+```
 
-### 7. Métricas do Projeto
-- **Performance**: Tempo de build de ~4s (Vite/ESBuild)
-- **Banco de Dados**: 73 Veículos registrados (10+ marcas)
-- **Assets**: 73 Imagens locais otimizadas (fotos reais)
-- **Modelo IA**: Gemini 2.5 Flash Lite (Verificado)
-- **Testes**: 57 testes em 7 suítes
-- **i18n**: 2 idiomas (PT-BR, EN)
+### Chave Gemini no Site Público
+
+No [guiapbev.cloud](https://guiapbev.cloud), usuários inserem sua própria chave gratuita:
+
+1. Clique em **Consultor IA** (canto inferior direito)
+2. Clique em **"Obter Chave Gratuita"** → [Google AI Studio](https://aistudio.google.com/app/apikey)
+3. Crie uma chave, cole no campo e clique em **Salvar**
+
+> A chave fica armazenada **apenas no seu navegador** (localStorage) — nunca é enviada a nenhum servidor nosso.
+
+### Métricas Atuais
+
+- **86 veículos** BEV cadastrados (26 marcas)
+- **54 modelos** com certificação PBE/INMETRO oficial
+- **27 estados** com dados de IPVA 2026 e tarifas ANP/ANEEL
+- **70 testes** automatizados em 7 suítes
+- **Build**: ~5s (Vite/ESBuild)
+
+### Deploy
+
+O deploy é automático via GitHub Actions a cada push na branch `main`. Para detalhes de infraestrutura (Docker, Cloud Run), ver [DEPLOY.md](DEPLOY.md).
+
+### Licença
+
+[Creative Commons BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) — uso não-comercial permitido com atribuição. Uso comercial requer autorização prévia.
+
+---
+
+## 🇺🇸 English
+
+### Overview
+
+Progressive Web App (PWA) for the Brazilian Electric Vehicle (BEV) market. Interactive catalog with official PBEV/INMETRO data, specialized AI assistant (Gemini), savings simulator and TCO calculator.
+
+### Features
+
+| Feature | Description |
+|---|---|
+| 📋 Catalog | 86 BEV models with filters by price, range, category, brand and drivetrain |
+| 🔍 Full-text Search | Instant search by model, brand or category (Fuse.js, typo-tolerant) |
+| ⚖️ Comparison | Side-by-side comparison of up to 3 vehicles |
+| 💰 Savings Simulator | Monthly savings vs. combustion with real state IPVA tax |
+| 📊 4-year TCO | Total cost of ownership: energy, insurance, maintenance, IPVA and depreciation |
+| 🤖 AI Assistant | EV-specialized chat with PBEV data (Gemini 2.5 Flash Lite) |
+| 🏆 Recommendation Quiz | Recommends the ideal EV by profile — 100% offline, no API key needed |
+| 🏅 PBE Certification | PBE/INMETRO rating (A–E) and energy consumption in MJ/km per model |
+| 🧾 IPVA 2026 | Vehicle tax calculator across all 27 Brazilian states with EV exemptions |
+| 📱 PWA | Installable on Android and iOS, works as a native app |
+| 🌐 Bilingual | Full PT-BR and EN interface with toggle and persistence |
+| ❤️ Favorites | Favorites list with localStorage persistence |
+
+### Tech Stack
+
+- **Framework**: React 19 + TypeScript (strict, ES2022)
+- **Build**: Vite 6 — automated deploy via GitHub Actions
+- **Styling**: Tailwind CSS 4
+- **AI**: Google Generative AI SDK (`gemini-2.5-flash-lite`)
+- **i18n**: i18next + react-i18next (PT-BR default, EN)
+- **Testing**: Vitest 4 + Testing Library + happy-dom (70 tests)
+- **Security**: XSS sanitization, rate limiting, prompt injection detection (12 patterns)
+
+### Local Setup
+
+**Prerequisites:** Node.js 18+, npm, Git
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/fabao2024/Guia-PBEV-Brasil.git
+cd Guia-PBEV-Brasil
+
+# 2. Install dependencies
+npm install
+
+# 3. Configure API key (optional — only needed for AI chat)
+echo "VITE_GEMINI_API_KEY=your_key_here" > .env.local
+
+# 4. Start development server
+npm run dev
+# Open: http://localhost:3000
+```
+
+> **Without an API key:** catalog, simulator, TCO and quiz work normally. Only the AI chat requires a key (users can enter their own on the site).
+
+### Available Commands
+
+```bash
+npm run dev           # Local server (port 3000)
+npm run build         # Production build
+npm run test:run      # Run all 70 tests
+npm run test          # Watch mode
+npm run test:coverage # Coverage report
+npm run preview       # Preview production build
+```
+
+### Current Metrics
+
+- **86 BEV vehicles** registered (26 brands)
+- **54 models** with official PBE/INMETRO certification
+- **27 states** with 2026 IPVA data and ANP/ANEEL tariffs
+- **70 automated tests** across 7 suites
+- **Build time**: ~5s (Vite/ESBuild)
+
+### Deployment
+
+Automated via GitHub Actions on every push to `main`. For infrastructure details (Docker, Cloud Run), see [DEPLOY.md](DEPLOY.md).
+
+### License
+
+[Creative Commons BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) — non-commercial use allowed with attribution. Commercial use requires prior authorization.
