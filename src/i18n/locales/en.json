@@ -299,7 +299,13 @@
     "deprNote": "Linear depreciation over 4 years: 9.5% p.a. (EV) and 7.0% p.a. (combustion).",
     "totalEV4y": "EV cost 4 years",
     "totalComb4y": "Combustion 4 years",
-    "totalSavings4y": "Total savings"
+    "totalSavings4y": "Total savings",
+    "customConsumptionTitle": "Custom consumption",
+    "customEvKwh": "EV consumption",
+    "customEvKwhHint": "Category default",
+    "customCombKmL": "ICE consumption",
+    "customCombKmLHint": "Category default",
+    "customConsumptionMultiNotice": "Category defaults used — select only 1 vehicle to customize consumption"
   },
   "featureLabels": {
     "camera_re": "Rear Camera",

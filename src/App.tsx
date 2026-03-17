@@ -35,6 +35,7 @@ export default function App() {
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [selectedCar, setSelectedCar] = useState<Car | null>(null);
+  const [lastViewedCar, setLastViewedCar] = useState<Car | null>(null);
   const [toast, setToast] = useState<string | null>(null);
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -274,7 +275,7 @@ export default function App() {
               <CarCard
                 key={`${car.model}-${index}`}
                 car={car}
-                onClick={() => { setSelectedCar(car); track('Car Details Open', { model: car.model, brand: car.brand, category: car.cat }); }}
+                onClick={() => { setSelectedCar(car); setLastViewedCar(car); track('Car Details Open', { model: car.model, brand: car.brand, category: car.cat }); }}
                 isSelectedForCompare={!!compareList.find(c => c.model === car.model)}
                 onToggleCompare={(e) => { e.stopPropagation(); toggleCompare(car); }}
                 isFavorite={favorites.includes(car.model)}
@@ -433,7 +434,16 @@ export default function App() {
 
         {/* Simulator Modal */}
         {isSimulatorModalOpen && (
-          <SavingsSimulatorModal onClose={() => setIsSimulatorModalOpen(false)} />
+          <SavingsSimulatorModal
+            onClose={() => setIsSimulatorModalOpen(false)}
+            initialCars={
+              compareList.length > 0
+                ? compareList
+                : lastViewedCar
+                  ? [lastViewedCar]
+                  : []
+            }
+          />
         )}
 
         {/* AI CHAT */}

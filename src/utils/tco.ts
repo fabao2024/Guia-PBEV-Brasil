@@ -9,6 +9,8 @@ export interface TCOParams {
   blendedKwhPrice: number; // R$/kWh (blended AC+DC)
   fuelType: FuelType;      // tipo de combustível
   selectedState: string;
+  customEvKwh?: number | null;   // override kWh/100km (já efetivo)
+  customCombKmL?: number | null; // override km/L (já efetivo, com etanol ajustado se aplicável)
 }
 
 // Depreciação linear ao longo de 4 anos
@@ -80,13 +82,13 @@ export function calcTCO(car: Car, params: TCOParams): TCOResult {
 
   const annualKms = params.kms * 12;
 
-  // Etanol consome 30% mais volume → efetivo km/L = combKmL / 1.30
-  const effectiveCombKmL = params.fuelType === 'ethanol'
-    ? cat.combKmL / ETHANOL_FACTOR
-    : cat.combKmL;
+  // Consumo efetivo: usa valor personalizado se fornecido, caso contrário padrão por categoria
+  const efficiencyKwh = params.customEvKwh ?? cat.efficiencyKwh;
+  const effectiveCombKmL = params.customCombKmL ??
+    (params.fuelType === 'ethanol' ? cat.combKmL / ETHANOL_FACTOR : cat.combKmL);
 
   // Energia anual — constante ao longo dos anos
-  const annualEnergyEV   = Math.round((annualKms / 100) * cat.efficiencyKwh * params.blendedKwhPrice);
+  const annualEnergyEV   = Math.round((annualKms / 100) * efficiencyKwh * params.blendedKwhPrice);
   const annualEnergyComb = annualKms > 0
     ? Math.round((annualKms / effectiveCombKmL) * params.gasPrice)
     : 0;

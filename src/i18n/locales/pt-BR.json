@@ -299,7 +299,13 @@
     "deprNote": "Depreciação linear em 4 anos: 9,5% a.a. (EV) e 7,0% a.a. (combustão).",
     "totalEV4y": "Custo EV 4 anos",
     "totalComb4y": "Combustão 4 anos",
-    "totalSavings4y": "Economia total"
+    "totalSavings4y": "Economia total",
+    "customConsumptionTitle": "Consumo personalizado",
+    "customEvKwh": "Consumo EV",
+    "customEvKwhHint": "Padrão por categoria",
+    "customCombKmL": "Consumo Combustão",
+    "customCombKmLHint": "Padrão por categoria",
+    "customConsumptionMultiNotice": "Consumo padrão por categoria — personalize selecionando apenas 1 veículo"
   },
   "featureLabels": {
     "camera_re": "Câmera de Ré",

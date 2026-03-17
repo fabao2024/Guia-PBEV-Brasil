@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ChevronLeft, ChevronDown, Download, TrendingDown, Zap } from 'lucide-react';
+import { ChevronLeft, ChevronDown, Download, TrendingDown, Zap, Info } from 'lucide-react';
 import { CAR_DB } from '../constants';
 import { Car } from '../types';
 import { IPVA_BY_STATE, calcIpva, STANDARD_COMBUSTION_IPVA_RATE, IPVA_DATA_UPDATED } from '../constants/ipvaByState';
@@ -155,14 +155,16 @@ function drawTCOImage(car: Car, tco: TCOResult, selectedState: string, fuelType:
 
 interface SavingsSimulatorModalProps {
     onClose: () => void;
+    initialCars?: Car[];
 }
 
 type Tab = 'savings' | 'tco';
 
-export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModalProps) {
+export default function SavingsSimulatorModal({ onClose, initialCars = [] }: SavingsSimulatorModalProps) {
     const { t } = useTranslation();
     const tcoRef = useRef<HTMLDivElement>(null);
     const [isExporting, setIsExporting] = useState(false);
+    const [methodologyOpen, setMethodologyOpen] = useState(false);
 
     // ── Shared state ──────────────────────────────────────────────────────────
     const [tab, setTab] = useState<Tab>('savings');
@@ -175,7 +177,16 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
     const [selectedState, setSelectedState] = useState<string>(
         () => localStorage.getItem('selectedState') ?? 'SP'
     );
-    const [selectedCars, setSelectedCars] = useState<(Car | null)[]>([null, null, null]);
+    const [selectedCars, setSelectedCars] = useState<(Car | null)[]>(() => {
+        // Priority: initialCars (compareList or lastViewed) → CAR_DB[0] in slot 1
+        const base = initialCars.length > 0 ? initialCars : [CAR_DB[0] ?? null];
+        return [base[0] ?? null, base[1] ?? null, base[2] ?? null];
+    });
+
+    // ── Custom consumption overrides — per-car (Option C) ────────────────────
+    const [customEvKwh, setCustomEvKwh] = useState<(number | null)[]>([null, null, null]);
+    const [customCombKmL, setCustomCombKmL] = useState<(number | null)[]>([null, null, null]);
+    const [customOpen, setCustomOpen] = useState<boolean[]>([false, false, false]);
 
     // ── Tipo de combustível ───────────────────────────────────────────────────
     const [fuelType, setFuelType] = useState<FuelType>('gasoline');
@@ -184,7 +195,7 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
     useEffect(() => { setGasPrice(getDefaultFuelPrice(selectedState, fuelType)); }, [selectedState, fuelType]);
     useEffect(() => { setKwhPrice(getDefaultElectricityPrice(selectedState)); }, [selectedState]);
     useEffect(() => { track('Simulator Used', { state: selectedState }); }, []); // eslint-disable-line react-hooks/exhaustive-deps
-    useEffect(() => { setSelectedCars([CAR_DB[0] || null, CAR_DB[1] || null, CAR_DB[2] || null]); }, []);
+
 
     const handleCurrencyChange = (newCurrency: 'BRL' | 'USD') => {
         if (currency === newCurrency) return;
@@ -206,18 +217,22 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
 
     const handleCarSelect = (index: number, model: string) => {
         const car = CAR_DB.find(c => c.model === model) || null;
-        const next = [...selectedCars];
-        next[index] = car;
-        setSelectedCars(next);
+        const next = [...selectedCars]; next[index] = car; setSelectedCars(next);
+        setCustomEvKwh(v => { const n = [...v]; n[index] = null; return n; });
+        setCustomCombKmL(v => { const n = [...v]; n[index] = null; return n; });
+        setCustomOpen(v => { const n = [...v]; n[index] = false; return n; });
     };
 
-    const getEfficiency = (car: Car) => {
+    const getEfficiency = (car: Car, idx: number) => {
+        const custom = customEvKwh[idx];
+        if (custom !== null) return custom;
         if (car.cat === 'Urbano') return 12;
         if (car.cat === 'SUV') return 16;
         if (car.cat === 'Luxo') return 21;
         if (car.cat === 'Comercial') return 22;
         return 14;
     };
+    // Returns BASE gasoline km/L by category (PBEV/INMETRO reference)
     const getCombustionKmL = (car: Car) => {
         if (car.cat === 'Urbano') return 12.0;
         if (car.cat === 'SUV') return 9.5;
@@ -225,14 +240,20 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
         if (car.cat === 'Comercial') return 7.5;
         return 11.0;
     };
+    // customCombKmL stores the EFFECTIVE value (already ethanol-adjusted when set).
+    const effectiveCombKmL = (car: Car, idx: number) => {
+        const custom = customCombKmL[idx];
+        if (custom !== null) return custom;
+        return fuelType === 'ethanol' ? getCombustionKmL(car) / ETHANOL_FACTOR : getCombustionKmL(car);
+    };
 
-    const effectiveCombKmL = (car: Car) =>
-        fuelType === 'ethanol' ? getCombustionKmL(car) / ETHANOL_FACTOR : getCombustionKmL(car);
+    // Reset all custom combustion values when fuel type changes
+    useEffect(() => { setCustomCombKmL([null, null, null]); }, [fuelType]);
 
-    const savingsArray = selectedCars.map(car => {
+    const savingsArray = selectedCars.map((car, idx) => {
         if (!car) return 0;
-        const evCost = Math.round((kms / 100) * getEfficiency(car) * blendedKwhPrice);
-        const gasCost = Math.round((kms / effectiveCombKmL(car)) * gasPrice);
+        const evCost = Math.round((kms / 100) * getEfficiency(car, idx) * blendedKwhPrice);
+        const gasCost = Math.round((kms / effectiveCombKmL(car, idx)) * gasPrice);
         return (gasCost - evCost) * 12;
     });
     const maxSavings = Math.max(...savingsArray);
@@ -250,7 +271,7 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
         setIsExporting(true);
         try {
             cars.forEach(car => {
-                const tco = calcTCO(car, { kms, gasPrice, blendedKwhPrice, fuelType, selectedState });
+                const tco = calcTCO(car, { kms, gasPrice, blendedKwhPrice, fuelType, selectedState, customEvKwh: customEvKwh[idx], customCombKmL: customCombKmL[idx] });
                 const dataUrl = drawTCOImage(car, tco, selectedState, fuelType);
                 const link = document.createElement('a');
                 link.download = `tco-${car.model.toLowerCase().replace(/\s+/g, '-')}.png`;
@@ -310,6 +331,20 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                             <TrendingDown className="w-3.5 h-3.5" />
                             {t('simulator.tcoTab')}
                         </button>
+                    </div>
+
+                    {/* ── METHODOLOGY BADGE ROW ──────────────────────────────────────────── */}
+                    <div className="flex items-center justify-center gap-1.5 -mt-3 mb-5 flex-wrap">
+                        {tab === 'savings' ? (<>
+                            <span className="flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ color: '#00b4ff', background: 'rgba(0,180,255,0.08)', border: '1px solid rgba(0,180,255,0.2)' }}><Zap className="w-2.5 h-2.5" />Energia</span>
+                            <span className="text-[10px] text-white/18 line-through px-1.5 py-0.5 rounded-full border border-white/6">Seguro</span>
+                            <span className="text-[10px] text-white/18 line-through px-1.5 py-0.5 rounded-full border border-white/6">Manutenção</span>
+                            <span className="flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full border border-white/10" style={{ color: 'rgba(255,255,255,0.35)' }}>IPVA <span className="text-[8px] opacity-60 ml-0.5">separado</span></span>
+                        </>) : (<>
+                            {['Energia','Seguro','Manutenção','IPVA'].map(label => (
+                                <span key={label} className="flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ color: '#00e5a0', background: 'rgba(0,229,160,0.08)', border: '1px solid rgba(0,229,160,0.2)' }}>{label}</span>
+                            ))}
+                        </>)}
                     </div>
 
                     {/* ── SHARED SLIDERS ─────────────────────────────────────────────────── */}
@@ -418,6 +453,7 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                             </p>
                         </div>
 
+
                     </div>
 
                     {/* ── TAB: ECONOMIA MENSAL ───────────────────────────────────────────── */}
@@ -425,8 +461,8 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                         <div className="flex flex-col md:flex-row gap-4">
                             {selectedCars.map((car, idx) => {
                                 const isBest = car && idx === bestIndex && maxSavings > 0;
-                                const efficiency = car ? getEfficiency(car) : 0;
-                                const combustionKmL = car ? effectiveCombKmL(car) : 0;
+                                const efficiency = car ? getEfficiency(car, idx) : 0;
+                                const combustionKmL = car ? effectiveCombKmL(car, idx) : 0;
                                 const evCost = car ? Math.round((kms / 100) * efficiency * blendedKwhPrice) : 0;
                                 const gasCost = car ? Math.round((kms / combustionKmL) * gasPrice) : 0;
                                 const monthlySavings = gasCost - evCost;
@@ -450,7 +486,7 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                                         <div className="w-full relative z-30 mb-4">
                                             <div className="relative">
                                                 <select className="w-full appearance-none bg-[#1a1a1a] border border-white/20 text-white text-sm font-bold rounded-xl px-4 py-3 pr-8 focus:outline-none focus:border-[#00b4ff] transition-colors truncate" value={car?.model || ""} onChange={e => handleCarSelect(idx, e.target.value)}>
-                                                    <option value="" disabled>{t('simulator.selectVehicle')}</option>
+                                                    <option value="">{t('simulator.selectVehicle')}</option>
                                                     {CAR_DB.map(c => <option key={c.model} value={c.model}>{c.brand} {c.model}</option>)}
                                                 </select>
                                                 <ChevronDown className="w-4 h-4 text-[#a0a0a0] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
@@ -506,6 +542,74 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                                                         <p className="font-black text-base" style={{ color: annualIpvaBev === 0 ? '#00e5a0' : 'white' }}>{annualIpvaBev === 0 ? t('ipva.exempt') : `R$ ${annualIpvaBev.toLocaleString('pt-BR')}`}</p>
                                                         {ipvaSavings > 0 && <p className="text-[10px] text-[#00e5a0]">↓ R$ {ipvaSavings.toLocaleString('pt-BR')} {t('ipva.savingsVsCombustion')}</p>}
                                                     </div>
+
+                                                    {/* ⚙ Mini consumo personalizado por card */}
+                                                    {(() => {
+                                                        const catEvKwh = (() => {
+                                                            if (car.cat === 'Urbano') return 12;
+                                                            if (car.cat === 'SUV') return 16;
+                                                            if (car.cat === 'Luxo') return 21;
+                                                            if (car.cat === 'Comercial') return 22;
+                                                            return 14;
+                                                        })();
+                                                        const catCombKmLGas = getCombustionKmL(car);
+                                                        const effectiveDefaultCombKmL = fuelType === 'ethanol'
+                                                            ? Math.round((catCombKmLGas / ETHANOL_FACTOR) * 10) / 10
+                                                            : catCombKmLGas;
+                                                        const evVal = customEvKwh[idx] ?? catEvKwh;
+                                                        const combVal = customCombKmL[idx] ?? effectiveDefaultCombKmL;
+                                                        const hasCustom = customEvKwh[idx] !== null || customCombKmL[idx] !== null;
+                                                        return (
+                                                            <div className="mt-3 pt-3 border-t border-white/8">
+                                                                <button
+                                                                    onClick={() => setCustomOpen(v => { const n = [...v]; n[idx] = !n[idx]; return n; })}
+                                                                    className="flex items-center justify-between w-full text-[10px] text-white/30 hover:text-white/55 transition-colors"
+                                                                >
+                                                                    <span className="flex items-center gap-1.5">
+                                                                        ⚙ Personalizar consumo
+                                                                        {hasCustom && <span className="w-1.5 h-1.5 rounded-full bg-[#00b4ff]" />}
+                                                                    </span>
+                                                                    <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${customOpen[idx] ? 'rotate-180' : ''}`} />
+                                                                </button>
+                                                                {customOpen[idx] && (
+                                                                    <div className="mt-3 space-y-3">
+                                                                        {/* EV */}
+                                                                        <div>
+                                                                            <div className="flex justify-between items-center mb-1.5">
+                                                                                <span className="text-white/50 text-[10px]">EV <span className="text-white/25">kWh/100km</span></span>
+                                                                                <div className="flex items-center gap-1">
+                                                                                    <button className={stepBtn} onClick={() => setCustomEvKwh(v => { const n=[...v]; n[idx]=Math.max(5,Math.round(((n[idx]??catEvKwh)-0.5)*10)/10); return n; })}>−</button>
+                                                                                    <div className="bg-[#00b4ff]/10 px-2 py-0.5 rounded-full border border-[#00b4ff]/25 text-[#00b4ff] font-mono text-[11px] flex items-center gap-1">
+                                                                                        {evVal.toFixed(1)}
+                                                                                        {customEvKwh[idx] !== null && <button onClick={() => setCustomEvKwh(v => { const n=[...v]; n[idx]=null; return n; })} className="text-white/30 hover:text-white/60" title="Resetar">↺</button>}
+                                                                                    </div>
+                                                                                    <button className={stepBtn} onClick={() => setCustomEvKwh(v => { const n=[...v]; n[idx]=Math.min(40,Math.round(((n[idx]??catEvKwh)+0.5)*10)/10); return n; })}>+</button>
+                                                                                </div>
+                                                                            </div>
+                                                                            <input type="range" min="5" max="40" step="0.5" value={evVal} onChange={e => setCustomEvKwh(v => { const n=[...v]; n[idx]=Number(e.target.value); return n; })} className={sliderThumbClasses} style={makeSliderStyle(evVal, 5, 40)} />
+                                                                            <p className="text-[9px] text-white/20 mt-1">PBEV/INMETRO · categ. {car.cat}: {catEvKwh} kWh/100km</p>
+                                                                        </div>
+                                                                        {/* Combustão */}
+                                                                        <div>
+                                                                            <div className="flex justify-between items-center mb-1.5">
+                                                                                <span className="text-white/50 text-[10px]">Combustão <span className="text-white/25">km/L · {fuelType === 'ethanol' ? 'etanol' : 'gasolina'}</span></span>
+                                                                                <div className="flex items-center gap-1">
+                                                                                    <button className={stepBtn} onClick={() => setCustomCombKmL(v => { const n=[...v]; n[idx]=Math.max(2,Math.round(((n[idx]??effectiveDefaultCombKmL)-0.5)*10)/10); return n; })}>−</button>
+                                                                                    <div className={`px-2 py-0.5 rounded-full font-mono text-[11px] flex items-center gap-1 transition-colors ${fuelType === 'ethanol' ? 'bg-[#00e5a0]/10 border border-[#00e5a0]/25 text-[#00e5a0]' : 'bg-[#ff8c52]/10 border border-[#ff8c52]/25 text-[#ff8c52]'}`}>
+                                                                                        {combVal.toFixed(1)}
+                                                                                        {customCombKmL[idx] !== null && <button onClick={() => setCustomCombKmL(v => { const n=[...v]; n[idx]=null; return n; })} className="text-white/30 hover:text-white/60" title="Resetar">↺</button>}
+                                                                                    </div>
+                                                                                    <button className={stepBtn} onClick={() => setCustomCombKmL(v => { const n=[...v]; n[idx]=Math.min(25,Math.round(((n[idx]??effectiveDefaultCombKmL)+0.5)*10)/10); return n; })}>+</button>
+                                                                                </div>
+                                                                            </div>
+                                                                            <input type="range" min="2" max="25" step="0.5" value={combVal} onChange={e => setCustomCombKmL(v => { const n=[...v]; n[idx]=Number(e.target.value); return n; })} className={sliderThumbClasses} style={makeSliderStyle(combVal, 2, 25)} />
+                                                                            <p className="text-[9px] text-white/20 mt-1">PBEV/INMETRO · categ. {car.cat}: {catCombKmLGas} km/L (gas){fuelType === 'ethanol' ? ` · ${effectiveDefaultCombKmL.toFixed(1)} km/L (etanol)` : ''}</p>
+                                                                        </div>
+                                                                    </div>
+                                                                )}
+                                                            </div>
+                                                        );
+                                                    })()}
                                                 </div>
                                             </>
                                         )}
@@ -524,7 +628,7 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                                         <div className="w-full relative z-30 mb-4">
                                             <div className="relative">
                                                 <select className="w-full appearance-none bg-[#1a1a1a] border border-white/20 text-white text-sm font-bold rounded-xl px-4 py-3 pr-8 focus:outline-none focus:border-[#00b4ff] transition-colors" value="" onChange={e => handleCarSelect(idx, e.target.value)}>
-                                                    <option value="" disabled>{t('simulator.selectVehicle')}</option>
+                                                    <option value="">{t('simulator.selectVehicle')}</option>
                                                     {CAR_DB.map(c => <option key={c.model} value={c.model}>{c.brand} {c.model}</option>)}
                                                 </select>
                                                 <ChevronDown className="w-4 h-4 text-[#a0a0a0] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
@@ -533,7 +637,7 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                                     </div>
                                 );
 
-                                const tco: TCOResult = calcTCO(car, { kms, gasPrice, blendedKwhPrice, fuelType, selectedState });
+                                const tco: TCOResult = calcTCO(car, { kms, gasPrice, blendedKwhPrice, fuelType, selectedState, customEvKwh: customEvKwh[idx], customCombKmL: customCombKmL[idx] });
                                 const isBest = idx === bestIndex;
 
                                 const ROW_LABELS = [
@@ -685,13 +789,82 @@ export default function SavingsSimulatorModal({ onClose }: SavingsSimulatorModal
                                 {isExporting ? 'Gerando imagem...' : t('simulator.exportBtn')}
                             </button>
 
-                            <p className="text-center text-[10px] text-[#444] uppercase tracking-widest">{t('simulator.tcoDisclaimer')}</p>
                         </div>
                     )}
 
-                    {tab === 'savings' && (
-                        <p className="text-center text-[10px] text-[#444444] mt-6 uppercase tracking-widest">{t('simulator.disclaimer')}</p>
-                    )}
+                    {/* ── COLLAPSIBLE METHODOLOGY NOTE ───────────────────────────────────── */}
+                    <div className="mt-6 rounded-2xl border border-white/8 overflow-hidden">
+                        <button
+                            onClick={() => setMethodologyOpen(o => !o)}
+                            className="w-full flex items-center justify-between px-4 py-3 text-white/35 hover:text-white/60 transition-colors"
+                        >
+                            <span className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider">
+                                <Info className="w-3.5 h-3.5" />
+                                Como este cálculo funciona
+                            </span>
+                            <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${methodologyOpen ? 'rotate-180' : ''}`} />
+                        </button>
+
+                        {methodologyOpen && (
+                            <div className="px-4 pb-4 space-y-4 text-[11px] leading-relaxed border-t border-white/6">
+                                {tab === 'savings' ? (<>
+                                    <div className="pt-3">
+                                        <p className="font-bold text-white/60 mb-2">Aba Economia Mensal — o que está incluído</p>
+                                        <div className="space-y-1.5">
+                                            <p className="flex gap-2"><span className="text-[#00b4ff]">✓</span><span className="text-white/50"><strong className="text-white/70">Energia/Combustível:</strong> base do cálculo. EV = (km ÷ 100) × kWh/100km × taxa mista; Combustão = (km ÷ km/L) × preço/L.</span></p>
+                                            <p className="flex gap-2"><span className="text-white/25">○</span><span className="text-white/35"><strong>IPVA:</strong> exibido separadamente por estado — não entra no número "Economize R$".</span></p>
+                                            <p className="flex gap-2"><span className="text-white/20">✗</span><span className="text-white/30 line-through">Seguro, Manutenção, Depreciação</span><span className="text-white/30 no-underline ml-1">→ veja a aba TCO 4 Anos.</span></p>
+                                        </div>
+                                    </div>
+                                    <div className="bg-white/3 rounded-xl p-3 space-y-2">
+                                        <p className="text-white/40 text-[10px] font-semibold uppercase tracking-wider">Preços de referência · {selectedState}</p>
+                                        <p className="text-white/25 text-[10px]">
+                                            <span className="text-white/40 font-semibold">{fuelType === 'ethanol' ? 'Etanol' : 'Gasolina'}:</span>{' '}
+                                            {currencySymbol} {getDefaultFuelPrice(selectedState, fuelType).toFixed(2).replace('.', ',')} /L · ANP {FUEL_PRICES_UPDATED}
+                                            {fuelType === 'ethanol' && <span className="text-[#00e5a0]/60"> · +30% consumo vs. gasolina</span>}
+                                        </p>
+                                        <p className="text-white/25 text-[10px]">
+                                            <span className="text-white/40 font-semibold">Energia residencial:</span>{' '}
+                                            {currencySymbol} {ELECTRICITY_PRICES_BY_STATE[selectedState]?.toFixed(2).replace('.', ',') ?? '—'} /kWh (B1 residencial, sem ICMS) · ANEEL {ELECTRICITY_PRICES_UPDATED}
+                                        </p>
+                                    </div>
+                                    <div className="bg-white/3 rounded-xl p-3 space-y-2">
+                                        <p className="text-white/40 text-[10px] font-semibold uppercase tracking-wider">Consumos médios estimados por categoria de veículo (fonte PBEV/INMETRO)</p>
+                                        <p className="text-white/25 text-[10px]"><span className="text-white/40 font-semibold">Combustão:</span> categ. Urbano 12 km/L · categ. Compacto/Sedan 11 km/L · categ. SUV 9,5 km/L · categ. Luxo 8 km/L · categ. Comercial 7,5 km/L. Etanol: +30% consumo volumétrico (÷1,30).</p>
+                                        <p className="text-white/25 text-[10px]"><span className="text-white/40 font-semibold">EV:</span> categ. Urbano 12 kWh/100km · categ. Compacto/Sedan 14 kWh/100km · categ. SUV 16 kWh/100km · categ. Luxo 21 kWh/100km · categ. Comercial 22 kWh/100km.</p>
+                                    </div>
+                                </>) : (<>
+                                    <div className="pt-3">
+                                        <p className="font-bold text-white/60 mb-2">Aba TCO 4 Anos — o que está incluído</p>
+                                        <div className="space-y-1.5">
+                                            <p className="flex gap-2"><span className="text-[#00e5a0]">✓</span><span className="text-white/50"><strong className="text-white/70">Energia:</strong> mesmo cálculo da aba mensal, anualizado (×12).</span></p>
+                                            <p className="flex gap-2"><span className="text-[#00e5a0]">✓</span><span className="text-white/50"><strong className="text-white/70">Seguro:</strong> 3,3% a.a. (EV) · 2,5% a.a. (combustão), sobre o valor depreciado de cada ano.</span></p>
+                                            <p className="flex gap-2"><span className="text-[#00e5a0]">✓</span><span className="text-white/50"><strong className="text-white/70">Manutenção:</strong> proporcional ao km — revisão a cada 20.000 km (EV) e 10.000 km (combustão). Sem troca de óleo para EV.</span></p>
+                                            <p className="flex gap-2"><span className="text-[#00e5a0]">✓</span><span className="text-white/50"><strong className="text-white/70">IPVA:</strong> calculado por estado sobre o valor depreciado do ano. Combustão: alíquota padrão SP 4%.</span></p>
+                                            <p className="flex gap-2"><span className="text-[#00e5a0]">✓</span><span className="text-white/50"><strong className="text-white/70">Depreciação:</strong> EV 9,5% a.a. · Combustão 7,0% a.a. (linear, base para seguro e IPVA).</span></p>
+                                        </div>
+                                    </div>
+                                    <div className="bg-white/3 rounded-xl p-3 space-y-2">
+                                        <p className="text-white/40 text-[10px] font-semibold uppercase tracking-wider">Preços de referência · {selectedState}</p>
+                                        <p className="text-white/25 text-[10px]">
+                                            <span className="text-white/40 font-semibold">{fuelType === 'ethanol' ? 'Etanol' : 'Gasolina'}:</span>{' '}
+                                            {currencySymbol} {getDefaultFuelPrice(selectedState, fuelType).toFixed(2).replace('.', ',')} /L · ANP {FUEL_PRICES_UPDATED}
+                                            {fuelType === 'ethanol' && <span className="text-[#00e5a0]/60"> · +30% consumo vs. gasolina</span>}
+                                        </p>
+                                        <p className="text-white/25 text-[10px]">
+                                            <span className="text-white/40 font-semibold">Energia residencial:</span>{' '}
+                                            {currencySymbol} {ELECTRICITY_PRICES_BY_STATE[selectedState]?.toFixed(2).replace('.', ',') ?? '—'} /kWh (B1 residencial, sem ICMS) · ANEEL {ELECTRICITY_PRICES_UPDATED}
+                                        </p>
+                                    </div>
+                                    <div className="bg-white/3 rounded-xl p-3 space-y-2">
+                                        <p className="text-white/40 text-[10px] font-semibold uppercase tracking-wider">Consumos médios estimados por categoria de veículo (fonte PBEV/INMETRO)</p>
+                                        <p className="text-white/25 text-[10px]"><span className="text-white/40 font-semibold">Combustão:</span> categ. Urbano 12 km/L · categ. Compacto/Sedan 11 km/L · categ. SUV 9,5 km/L · categ. Luxo 8 km/L · categ. Comercial 7,5 km/L. Etanol: +30% consumo volumétrico (÷1,30).</p>
+                                        <p className="text-white/25 text-[10px]"><span className="text-white/40 font-semibold">EV:</span> categ. Urbano 12 kWh/100km · categ. Compacto/Sedan 14 kWh/100km · categ. SUV 16 kWh/100km · categ. Luxo 21 kWh/100km · categ. Comercial 22 kWh/100km.</p>
+                                    </div>
+                                </>)}
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>
