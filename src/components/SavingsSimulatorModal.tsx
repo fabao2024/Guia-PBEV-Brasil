@@ -807,6 +807,31 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
 
                         {methodologyOpen && (
                             <div className="px-4 pb-4 space-y-4 text-[11px] leading-relaxed border-t border-white/6">
+
+                                {/* ⚠ Aviso de consumo personalizado ativo */}
+                                {(() => {
+                                    const active = selectedCars
+                                        .map((car, idx) => ({ car, idx, evKwh: customEvKwh[idx], combKmL: customCombKmL[idx] }))
+                                        .filter(({ car, evKwh, combKmL }) => car && (evKwh !== null || combKmL !== null));
+                                    if (active.length === 0) return null;
+                                    const totalActive = selectedCars.filter(Boolean).length;
+                                    return (
+                                        <div className="mt-3 rounded-xl p-3 space-y-2" style={{ background: 'rgba(0,180,255,0.06)', border: '1px solid rgba(0,180,255,0.18)' }}>
+                                            <p className="text-[10px] font-bold text-[#00b4ff]/70 uppercase tracking-wider">⚠ Consumo personalizado ativo</p>
+                                            {active.map(({ car, idx, evKwh, combKmL }) => (
+                                                <p key={idx} className="text-[10px] text-white/50">
+                                                    <span className="text-white/70 font-semibold">{car!.brand} {car!.model}</span>
+                                                    {evKwh !== null && <span> · EV: <span className="text-[#00b4ff]">{evKwh.toFixed(1)} kWh/100km</span></span>}
+                                                    {combKmL !== null && <span> · Comb.: <span className={fuelType === 'ethanol' ? 'text-[#00e5a0]' : 'text-[#ff8c52]'}>{combKmL.toFixed(1)} km/L</span></span>}
+                                                </p>
+                                            ))}
+                                            {active.length < totalActive && (
+                                                <p className="text-[9px] text-white/25">Os demais veículos usam os defaults PBEV/INMETRO por categoria.</p>
+                                            )}
+                                        </div>
+                                    );
+                                })()}
+
                                 {tab === 'savings' ? (<>
                                     <div className="pt-3">
                                         <p className="font-bold text-white/60 mb-2">Aba Economia Mensal — o que está incluído</p>
