@@ -1364,7 +1364,7 @@ export const CAR_DB: Car[] = [
   {
     model: "MG4 Comfort", brand: "MG Motor", price: 169600, range: 364, cat: "Compacto",
     img: "/car-images/mg4-comfort.jpg",
-    power: 204, torque: 25.5, traction: 'RWD', battery: 51,
+    power: 190, torque: 35, traction: 'RWD', battery: 51,
     features: [
       "Bateria NMC 51 kWh – Plataforma MSP (Motor Skateboard Platform)",
       "Carregamento AC 6,6 kW / DC 87 kW",
@@ -1380,7 +1380,7 @@ export const CAR_DB: Car[] = [
   {
     model: "MG4 Luxury", brand: "MG Motor", price: 189800, range: 364, cat: "Compacto",
     img: "/car-images/mg4-luxury.jpg",
-    power: 204, torque: 25.5, traction: 'RWD', battery: 64,
+    power: 190, torque: 35, traction: 'RWD', battery: 64,
     features: [
       "Bateria NMC 64 kWh (maior autonomia da linha MG4)",
       "Carregamento AC 6,6 kW / DC 140 kW",
