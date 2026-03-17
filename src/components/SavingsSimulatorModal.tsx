@@ -270,8 +270,10 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
         if (cars.length === 0) return;
         setIsExporting(true);
         try {
-            cars.forEach(car => {
-                const tco = calcTCO(car, { kms, gasPrice, blendedKwhPrice, fuelType, selectedState, customEvKwh: customEvKwh[idx], customCombKmL: customCombKmL[idx] });
+            cars.forEach((car, carI) => {
+                const origIdx = selectedCars.indexOf(car);
+                const slotIdx = origIdx >= 0 ? origIdx : carI;
+                const tco = calcTCO(car, { kms, gasPrice, blendedKwhPrice, fuelType, selectedState, customEvKwh: customEvKwh[slotIdx], customCombKmL: customCombKmL[slotIdx] });
                 const dataUrl = drawTCOImage(car, tco, selectedState, fuelType);
                 const link = document.createElement('a');
                 link.download = `tco-${car.model.toLowerCase().replace(/\s+/g, '-')}.png`;
