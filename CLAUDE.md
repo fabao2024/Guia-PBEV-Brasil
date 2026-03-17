@@ -122,7 +122,23 @@ VITE_GEMINI_API_KEY=your_key   # Optional on GitHub Pages (users provide their o
   1. Is this already built? (✅ in status table or sprint) — if yes, say so and do not duplicate.
   2. Is this a variation of something already built? — if yes, treat it as an enhancement to the existing item, not a new one.
   3. Is this genuinely new? — if yes, add it to the backlog or current sprint before building.
-- **After completing any task that changes code**, update `ROADMAP.md` automatically (no need to be asked): mark items ✅, add a `> Resumo técnico` block to the current sprint, and update the status table if applicable.
+- **After completing any task that changes code**, update both files automatically (no need to be asked):
+  - `ROADMAP.md`: mark items ✅, add a `> Resumo técnico` block to the current sprint, update the status table if applicable.
+  - `DEVLOG.md`: append a new entry under the current sprint using the template below. Always fill all 4 rows (Dev / Build / Testes / Commit). Use ✅ / ⚠️ / ❌ / — per the legend in DEVLOG.md.
+
+### DEVLOG entry template
+```markdown
+### [SX.Y-ID] Short description · DD/MM/YYYY
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | What was built / changed |
+| Build  | ✅ | `npm run build` result |
+| Testes | ✅ | Manual or automated — what was verified |
+| Commit | ✅ | `<hash>` |
+
+**Notas:** (optional — gotchas, follow-ups, decisions)
+```
 
 ## Gotchas
 - Windows bash paths: use `/c/Users/...` not `C:\Users\...`
