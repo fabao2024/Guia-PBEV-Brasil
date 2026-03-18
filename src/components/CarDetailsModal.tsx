@@ -137,7 +137,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
 
     const features = (car.features && car.features.length > 0) ? car.features : getFallbackFeatures(car.cat);
     const activeImageSrc = failedImages.has(currentIdx) ? fallbackImg : gallery[currentIdx];
-    const brandUrlBase = BRAND_URLS[car.brand] || `https://www.google.com/search?q=${encodeURIComponent(car.brand + ' ' + car.model + ' comprar')}`;
+    const brandUrlBase = car.url ?? BRAND_URLS[car.brand] ?? `https://www.google.com/search?q=${encodeURIComponent(car.brand + ' ' + car.model + ' comprar')}`;
     const utmParams = `utm_source=guiapbev&utm_medium=referral&utm_campaign=lead&utm_content=${encodeURIComponent(car.model.toLowerCase().replace(/\s+/g, '-'))}`;
     const brandUrl = `${brandUrlBase}${brandUrlBase.includes('?') ? '&' : '?'}${utmParams}`;
 

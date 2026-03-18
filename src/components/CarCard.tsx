@@ -48,7 +48,7 @@ const CarCard: React.FC<CarCardProps> = ({
 
   const isNew = isCarNew(car);
 
-  const brandUrl = BRAND_URLS[car.brand] || `https://www.google.com/search?q=${encodeURIComponent(car.brand + ' Brasil')}`;
+  const brandUrl = car.url ?? BRAND_URLS[car.brand] ?? `https://www.google.com/search?q=${encodeURIComponent(car.brand + ' Brasil')}`;
   const rangePercent = Math.min(Math.round((car.range / MAX_RANGE_KM) * 100), 100);
   const accent = CAT_ACCENT[car.cat] ?? CAT_ACCENT['Compacto'];
   const tractionStyle = car.traction ? TRACTION_STYLE[car.traction] : null;

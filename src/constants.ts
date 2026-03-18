@@ -1315,6 +1315,7 @@ export const CAR_DB: Car[] = [
   {
     model: "e-Expert", brand: "Peugeot", price: 329990, range: 258, cat: "Comercial",
     img: "/car-images/e-expert.jpg",
+    url: "https://carros.peugeot.com.br/gama/categoria/furgoes.html",
     power: 136, torque: 26.5, traction: 'FWD', battery: 75,
     features: [
       "Bateria NMC 75 kWh",
