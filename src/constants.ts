@@ -1366,7 +1366,7 @@ export const CAR_DB: Car[] = [
     img: "/car-images/mg4-comfort.jpg",
     power: 190, torque: 35, traction: 'RWD', battery: 64,
     features: [
-      "Bateria NMC 51 kWh – Plataforma MSP (Motor Skateboard Platform)",
+      "Bateria LFP 64 kWh (maior autonomia da linha MG4)",
       "Carregamento AC 6,6 kW / DC 87 kW",
       "Tela central 10,25\" com CarPlay e Android Auto",
       "6 airbags",
@@ -1382,7 +1382,7 @@ export const CAR_DB: Car[] = [
     img: "/car-images/mg4-luxury.jpg",
     power: 190, torque: 35, traction: 'RWD', battery: 64,
     features: [
-      "Bateria NMC 64 kWh (maior autonomia da linha MG4)",
+      "Bateria LFP 64 kWh (maior autonomia da linha MG4)",
       "Carregamento AC 6,6 kW / DC 140 kW",
       "Tela central 10,25\" com CarPlay e Android Auto",
       "6 airbags",
