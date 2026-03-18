@@ -41,6 +41,8 @@
     "commercial": "Comercial",
     "newBadge": "Novidade",
     "unavailable": "Indisponível",
+    "discontinued": "Fora de linha",
+    "discontinuedNote": "Modelo descontinuado no Brasil. Informações disponíveis apenas para referência.",
     "estimatedPrice": "Preço Estimado",
     "rangeLabel": "Autonomia",
     "categoryLabel": "Categoria",

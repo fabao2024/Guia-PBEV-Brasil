@@ -41,6 +41,8 @@
     "commercial": "Commercial",
     "newBadge": "New",
     "unavailable": "Unavailable",
+    "discontinued": "Discontinued",
+    "discontinuedNote": "Model discontinued in Brazil. Information available for reference only.",
     "estimatedPrice": "Estimated Price",
     "rangeLabel": "Range",
     "categoryLabel": "Category",

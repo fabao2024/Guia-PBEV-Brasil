@@ -157,6 +157,20 @@ const CarCard: React.FC<CarCardProps> = ({
           <Heart className={`w-4 h-4 ${isFavorite ? 'fill-current' : ''}`} />
         </button>
 
+        {/* DISCONTINUED badge */}
+        {car.discontinued && (
+          <span
+            className="absolute top-3 left-3 z-30 text-[8px] px-2 py-0.5 rounded font-bold uppercase tracking-widest"
+            style={{
+              background: 'rgba(239,68,68,0.15)',
+              color: '#ef4444',
+              border: '1px solid rgba(239,68,68,0.35)',
+            }}
+          >
+            {t('card.discontinued')}
+          </span>
+        )}
+
         {/* NEW badge — positioned left of the favorite button */}
         {isNew && (
           <span

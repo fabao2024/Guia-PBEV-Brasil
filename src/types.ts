@@ -10,8 +10,9 @@ export interface Car {
   torque?: number; // kgfm
   traction?: 'FWD' | 'RWD' | 'AWD';
   battery?: number; // kWh
-  url?: string;        // model-specific URL override (falls back to BRAND_URLS)
-  features?: string[]; // model-specific feature list
+  url?: string;          // model-specific URL override (falls back to BRAND_URLS)
+  discontinued?: boolean; // true = fora de linha no Brasil
+  features?: string[];   // model-specific feature list
   pbeRating?: 'A' | 'B' | 'C' | 'D' | 'E';
   energyMJkm?: number;
   conpetSeal?: boolean;

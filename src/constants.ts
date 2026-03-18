@@ -297,6 +297,7 @@ export const CAR_DB: Car[] = [
   {
     model: "e-208 GT", brand: "Peugeot", price: 225990, range: 220, cat: "Compacto",
     img: "/car-images/e-208.jpg",
+    discontinued: true,
     power: 136, torque: 26.5, traction: 'FWD', battery: 50,
     features: [
       "Bateria NMC 50 kWh",
@@ -565,6 +566,7 @@ export const CAR_DB: Car[] = [
   {
     model: "e-2008", brand: "Peugeot", price: 269990, range: 261, cat: "SUV",
     img: "/car-images/e-2008.jpg",
+    discontinued: true,
     power: 136, torque: 26.5, traction: 'FWD', battery: 50,
     features: [
       "Bateria NMC 50 kWh",

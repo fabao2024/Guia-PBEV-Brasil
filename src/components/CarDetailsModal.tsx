@@ -583,6 +583,13 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                             </a>
                         </div>
 
+                        {/* Discontinued notice */}
+                        {car.discontinued && (
+                            <p className="text-center text-[11px] leading-relaxed" style={{ color: 'rgba(239,68,68,0.7)' }}>
+                                ⚠ {t('card.discontinuedNote')}
+                            </p>
+                        )}
+
                         {/* Not a seller disclaimer */}
                         <p className="text-center text-[10px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.25)' }}>
                             ℹ️ {t('details.notASeller')}
