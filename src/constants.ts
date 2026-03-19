@@ -37,7 +37,8 @@ export const BRAND_URLS: Record<string, string> = {
   "Audi": "https://www.audi.com.br",
   "Volkswagen": "https://www.vw.com.br",
   "MG Motor": "https://mgmotoroficial.com.br",
-  "Leapmotor": "https://www.leapmotor.com.br"
+  "Leapmotor": "https://www.leapmotor.com.br",
+  "Suzuki": "https://www.suzukiveiculos.com.br"
 };
 
 // Image Strategy:
@@ -1459,5 +1460,27 @@ export const CAR_DB: Car[] = [
       "Bancos Alcantara com aquecimento + design roadster esportivo clássico"
     ],
     pbeRating: 'A', energyMJkm: 0.56,
+  },
+  {
+    model: 'e-Vitara',
+    brand: 'Suzuki',
+    price: 269990,
+    range: 293,
+    cat: 'SUV',
+    img: '/car-images/e-vitara.jpg',
+    power: 184,
+    torque: 31.2,
+    traction: 'AWD',
+    features: [
+      'Central multimídia 10,1" com Apple CarPlay/Android Auto',
+      'Painel digital 10,25"',
+      'Câmeras 360°',
+      'Teto solar',
+      'Ar-condicionado digital',
+      'Carregamento por indução',
+      'ADAS completo: ACC, AEB, LKA e alertas de ponto cego',
+      'Bateria 61 kWh íons de lítio',
+      'AWD dual motor 184 cv / 31,2 kgfm'
+    ],
   }
 ];
