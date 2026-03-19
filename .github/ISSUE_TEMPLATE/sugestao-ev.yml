@@ -1,0 +1,70 @@
+name: Sugestão de Novo EV
+description: Sugira um veículo elétrico para ser incluído no catálogo PBEV Brasil
+title: "[EV] "
+labels: ["sugestão-ev"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por contribuir! Preencha os dados abaixo e analisaremos a sugestão.
+        Após aprovação, o veículo será adicionado ao catálogo oficial em guiapbev.cloud.
+
+  - type: input
+    id: marca
+    attributes:
+      label: Marca
+      placeholder: ex. Toyota
+    validations:
+      required: true
+
+  - type: input
+    id: modelo
+    attributes:
+      label: Modelo
+      placeholder: ex. bZ4X
+    validations:
+      required: true
+
+  - type: input
+    id: preco
+    attributes:
+      label: Preço aproximado (R$)
+      placeholder: ex. 250000
+    validations:
+      required: true
+
+  - type: input
+    id: autonomia
+    attributes:
+      label: Autonomia PBEV ou estimada (km)
+      placeholder: ex. 400
+    validations:
+      required: true
+
+  - type: dropdown
+    id: categoria
+    attributes:
+      label: Categoria
+      options:
+        - Urbano
+        - Compacto
+        - SUV
+        - Sedan
+        - Luxo
+        - Comercial
+    validations:
+      required: true
+
+  - type: input
+    id: fonte
+    attributes:
+      label: Fonte / link de referência
+      placeholder: ex. https://www.toyota.com.br/bz4x
+    validations:
+      required: true
+
+  - type: textarea
+    id: observacoes
+    attributes:
+      label: Observações (opcional)
+      placeholder: Potência, bateria, tração, data de lançamento no Brasil, etc.

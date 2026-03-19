@@ -7,10 +7,8 @@ import ChatWidget from './components/ChatWidget';
 import CarDetailsModal from './components/CarDetailsModal';
 import ComparisonModal from './components/ComparisonModal';
 import LanguageToggle from './components/LanguageToggle';
-import AddVehicleModal from './components/AddVehicleModal';
-import SuccessModal from './components/SuccessModal';
 import SavingsSimulatorModal from './components/SavingsSimulatorModal';
-import { Zap, Printer, Search, SlidersHorizontal, Scale, X, ArrowRight, Heart, Plus, BarChart2 } from 'lucide-react';
+import { Zap, Printer, Search, SlidersHorizontal, Scale, X, ArrowRight, Heart, BarChart2, Lightbulb } from 'lucide-react';
 import { useCarFilter } from './hooks/useCarFilter';
 import { useFavorites } from './hooks/useFavorites';
 import { useCompare } from './hooks/useCompare';
@@ -51,28 +49,23 @@ export default function App() {
     showToast(wasFav ? t('card.toastRemoved') : t('card.toastAdded'));
   };
 
-  // New States for Add Vehicle Feature
-  const [userCars, setUserCars] = useState<Car[]>([]);
-  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [isSimulatorModalOpen, setIsSimulatorModalOpen] = useState(false);
 
-  const allCars = useMemo(() => [...CAR_DB, ...userCars], [userCars]);
-  const { query, setQuery, searchResults, clearSearch, isSearching } = useSearch(allCars);
+  const { query, setQuery, searchResults, clearSearch, isSearching } = useSearch(CAR_DB);
 
   const catalogSchema = useMemo(() => ({
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: 'Catálogo de Carros Elétricos PBEV Brasil',
-    description: `${allCars.length} veículos elétricos certificados pelo PBEV/INMETRO disponíveis no Brasil`,
-    numberOfItems: allCars.length,
-    itemListElement: allCars.map((car, i) => ({
+    description: `${CAR_DB.length} veículos elétricos certificados pelo PBEV/INMETRO disponíveis no Brasil`,
+    numberOfItems: CAR_DB.length,
+    itemListElement: CAR_DB.map((car, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name: `${car.brand} ${car.model}`,
       url: BRAND_URLS[car.brand] ?? 'https://guia-pbev-brasil.github.io/Guia-PBEV-Brasil/',
     })),
-  }), [allCars]);
+  }), []);
   useJsonLd(catalogSchema);
 
   const filteredCars = useMemo(() => {
@@ -98,12 +91,6 @@ export default function App() {
     resetFilters();
     setShowFavoritesOnly(false);
     clearSearch();
-  };
-
-  const handleAddCar = (newCar: Car) => {
-    setUserCars(prev => [newCar, ...prev]);
-    setIsAddModalOpen(false);
-    setIsSuccessModalOpen(true);
   };
 
   return (
@@ -163,15 +150,17 @@ export default function App() {
               {t('simulator.headerBtn', 'Simulador')}
             </button>
 
-            {/* Add vehicle */}
-            <button
-              onClick={() => setIsAddModalOpen(true)}
+            {/* Suggest EV */}
+            <a
+              href="https://github.com/fabao2024/Guia-PBEV-Brasil/issues/new?template=sugestao-ev.yml"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-1.5 bg-[#00b4ff] hover:bg-[#33c9ff] hover:-translate-y-0.5 text-black px-3 md:px-5 py-2 md:py-2.5 rounded-xl font-black transition-all shadow-[0_0_20px_rgba(0,180,255,0.3)]"
-              title={t('addVehicle.headerBtn', 'Adicionar Veículo')}
+              title={t('addVehicle.headerBtn')}
             >
-              <Plus className="w-4 h-4 md:w-5 md:h-5" />
-              <span className="hidden sm:inline uppercase text-sm tracking-wide">{t('addVehicle.headerBtn', 'Adicionar')}</span>
-            </button>
+              <Lightbulb className="w-4 h-4 md:w-5 md:h-5" />
+              <span className="hidden sm:inline uppercase text-sm tracking-wide">{t('addVehicle.headerBtn')}</span>
+            </a>
 
             {/* Print — desktop only */}
             <button
@@ -413,24 +402,6 @@ export default function App() {
         )}
 
 
-
-        {/* Add Vehicle Modal */}
-        <AddVehicleModal
-          isOpen={isAddModalOpen}
-          onClose={() => setIsAddModalOpen(false)}
-          onAdd={handleAddCar}
-        />
-
-        {/* Success Modal */}
-        {isSuccessModalOpen && (
-          <SuccessModal
-            onGoToCatalog={() => setIsSuccessModalOpen(false)}
-            onAddAnother={() => {
-              setIsSuccessModalOpen(false);
-              setIsAddModalOpen(true);
-            }}
-          />
-        )}
 
         {/* Simulator Modal */}
         {isSimulatorModalOpen && (
