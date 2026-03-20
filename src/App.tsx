@@ -119,6 +119,21 @@ export default function App() {
           {/* Actions */}
           <div className="flex items-center gap-2 md:gap-4 flex-shrink-0">
 
+            {/* Instagram */}
+            <a
+              href="https://instagram.com/guiapbevbrasil"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#a0a0a0] hover:text-[#E1306C] transition-colors p-2"
+              title="@guiapbevbrasil no Instagram"
+            >
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+
             {/* Favorites */}
             <button
               onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
@@ -334,7 +349,7 @@ export default function App() {
           <footer className="mt-auto text-center text-xs text-[#444444] border-t border-white/10 pt-8 pb-8">
             <p><strong className="text-[#666666]">{t('footer.dataSource')}</strong> {t('footer.dataDesc')}</p>
             <p className="mt-2 text-[#333333]">{t('footer.disclaimer')}</p>
-            <p className="mt-3">
+            <p className="mt-3 flex items-center justify-center gap-4">
               <a
                 href={`${import.meta.env.BASE_URL}privacy.html`}
                 target="_blank"
@@ -342,6 +357,20 @@ export default function App() {
                 className="text-[#333333] hover:text-[#00b4ff] transition-colors"
               >
                 {t('footer.privacy')}
+              </a>
+              <a
+                href="https://instagram.com/guiapbevbrasil"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-[#333333] hover:text-[#E1306C] transition-colors"
+                title="@guiapbevbrasil"
+              >
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <circle cx="12" cy="12" r="4"/>
+                  <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+                </svg>
+                @guiapbevbrasil
               </a>
             </p>
           </footer>
