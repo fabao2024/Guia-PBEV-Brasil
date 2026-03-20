@@ -177,6 +177,19 @@
 
 ---
 
+### [S7-A2] Fluxo de sugestão de EV via Consultor IA · 20/03/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | Chip `💡 Sugerir um EV` adicionado aos chips iniciais (PT-BR + EN). System prompt expandido com regras 14/15: fluxo conversacional de coleta (marca, modelo, preço, autonomia, categoria, fonte, observações). Guard rails: verificação de duplicata no catálogo, limites de preço (R$30k–5M) e autonomia (50–2000 km), rejeição de HTML/injeção. Marcador `SUGGEST_EV_READY` detectado no cliente, sanitizado e convertido em URL pré-preenchida do GitHub Issues. Botão "Enviar sugestão no GitHub" (verde-esmeralda) aparece após confirmação. Reset do `suggestData` em todos os pontos de reset do chat. |
+| Build  | ✅ | `npm run build` — sem erros |
+| Testes | ✅ | 76/76 passando |
+| Commit | ✅ | `ecf2133` |
+
+**Notas:** Complemento ao S7-A (botão de issue no header). O fluxo guiado pelo chat reduz fricção para usuários que não sabem como preencher uma issue manualmente.
+
+---
+
 ### [S7-B] Suzuki e-Vitara adicionado ao catálogo · 19/03/2026
 
 | Etapa  | Status | Detalhe |
