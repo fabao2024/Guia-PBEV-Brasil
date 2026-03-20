@@ -171,7 +171,7 @@ export const CAR_DB: Car[] = [
   {
     model: "Dolphin Mini GL", brand: "BYD", price: 118990, range: 224, cat: "Urbano",
     img: "/car-images/byd-dolphin-mini-gl.jpg",
-    traction: 'FWD', battery: 30.08,
+    power: 75, torque: 13.8, traction: 'FWD', battery: 30.08,
     features: [
       "Bateria LFP Blade 30,08 kWh",
       "Tela 10,1\" com BYD DiLink (CarPlay e Android Auto)",
