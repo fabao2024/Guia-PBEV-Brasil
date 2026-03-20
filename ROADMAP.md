@@ -467,6 +467,7 @@
 ### Sprint 7 — semana de 23/03/2026
 **Tema: UX avançado + Expansão do catálogo**
 - ✅ Fluxo de sugestão de EV via Consultor IA (chip no chat → coleta guiada → URL pré-preenchida do GitHub Issues)
+- ✅ Botão "Sugerir EV" redireciona para Consultor IA se usuário não tem conta GitHub
 - ✅ Suzuki e-Vitara adicionado ao catálogo (issue #2 — nova marca)
 - ✅ BYD Dolphin Mini GL adicionado ao catálogo (issue #3 — catálogo agora com 88 veículos, 27 marcas)
 - 🔲 Recomendação de terceiro carro após comparação

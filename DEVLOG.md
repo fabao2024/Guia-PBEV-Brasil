@@ -177,6 +177,17 @@
 
 ---
 
+### [S7-A3] Botão Sugerir EV → roteamento GitHub vs Consultor IA · 20/03/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | Botão `<a>` do header convertido para `<button>` + dropdown com 2 opções: "Tenho conta no GitHub" (abre Issues) e "Não tenho — usar o Consultor IA" (abre chat e dispara chip automaticamente). `ChatWidget` recebeu props `triggerSuggest` e `onTriggerSuggestHandled`. `useEffect` no widget abre o chat e envia `t('chat.chipSuggestEVMsg')` via `handleChipClick` com delay 600ms (aguarda session init). Novas chaves i18n `addVehicle.menuPrompt/menuGithub/menuChat` em PT-BR e EN. |
+| Build  | ✅ | `npm run build` — 6.35s, sem erros |
+| Testes | ✅ | 76/76 passando |
+| Commit | ✅ | `0240b8b` |
+
+---
+
 ### [S7-A2] Fluxo de sugestão de EV via Consultor IA · 20/03/2026
 
 | Etapa  | Status | Detalhe |
