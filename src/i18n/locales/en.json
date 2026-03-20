@@ -197,7 +197,9 @@
     "chipBestRange": "⚡ Which have the best range?",
     "chipFindEVMsg": "I want help choosing the ideal EV for me",
     "chipSimulateMsg": "How can I calculate my savings by switching to an electric car?",
-    "chipBestRangeMsg": "Which EVs have the longest range available in Brazil?"
+    "chipBestRangeMsg": "Which EVs have the longest range available in Brazil?",
+    "chipSuggestEV": "💡 Suggest an EV",
+    "chipSuggestEVMsg": "I want to suggest an electric vehicle for the catalog"
   },
   "empty": {
     "noFavorites": "No favorites found",

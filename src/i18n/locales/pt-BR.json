@@ -197,7 +197,9 @@
     "chipBestRange": "⚡ Quais têm mais autonomia?",
     "chipFindEVMsg": "Quero ajuda para escolher o EV ideal para mim",
     "chipSimulateMsg": "Como posso calcular minha economia ao trocar para um elétrico?",
-    "chipBestRangeMsg": "Quais são os EVs com maior autonomia disponíveis no Brasil?"
+    "chipBestRangeMsg": "Quais são os EVs com maior autonomia disponíveis no Brasil?",
+    "chipSuggestEV": "💡 Sugerir um EV",
+    "chipSuggestEVMsg": "Quero sugerir um veículo elétrico para o catálogo"
   },
   "empty": {
     "noFavorites": "Nenhum favorito encontrado",
