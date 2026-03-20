@@ -211,9 +211,11 @@ ${carList}`;
 
 interface ChatWidgetProps {
   compareBarVisible?: boolean;
+  triggerSuggest?: boolean;
+  onTriggerSuggestHandled?: () => void;
 }
 
-export default function ChatWidget({ compareBarVisible = false }: ChatWidgetProps) {
+export default function ChatWidget({ compareBarVisible = false, triggerSuggest = false, onTriggerSuggestHandled }: ChatWidgetProps) {
   const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [apiKey, setApiKey] = useState(getApiKey);
@@ -253,6 +255,19 @@ export default function ChatWidget({ compareBarVisible = false }: ChatWidgetProp
       setSuggestIssueURL('');
     }
   }, [i18n.language, t]);
+
+  // Auto-trigger suggest EV flow when requested from outside
+  useEffect(() => {
+    if (!triggerSuggest) return;
+    setIsOpen(true);
+    onTriggerSuggestHandled?.();
+    // Wait for session to initialize, then send the suggest chip message
+    const timer = setTimeout(async () => {
+      await handleChipClick(t('chat.chipSuggestEVMsg'));
+    }, 600);
+    return () => clearTimeout(timer);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [triggerSuggest]);
 
   // Initialize Chat Session on Open (or lazily)
   useEffect(() => {

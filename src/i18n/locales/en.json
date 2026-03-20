@@ -253,7 +253,10 @@
     "successMessage": "The vehicle was included in your current session and is now available in the catalog.",
     "viewInCatalog": "View in Catalog",
     "addAnother": "Add Another",
-    "headerBtn": "Suggest EV"
+    "headerBtn": "Suggest EV",
+    "menuPrompt": "How would you like to submit your suggestion?",
+    "menuGithub": "I have a GitHub account",
+    "menuChat": "No account — use the AI Consultant"
   },
   "simulator": {
     "title": "Is an Electric Car worth it for you?",

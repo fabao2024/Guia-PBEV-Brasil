@@ -253,7 +253,10 @@
     "successMessage": "O veículo foi incluído na sua sessão atual e já está disponível no catálogo.",
     "viewInCatalog": "Ver no Catálogo",
     "addAnother": "Adicionar Outro",
-    "headerBtn": "Sugerir EV"
+    "headerBtn": "Sugerir EV",
+    "menuPrompt": "Como prefere enviar a sugestão?",
+    "menuGithub": "Tenho conta no GitHub",
+    "menuChat": "Não tenho — usar o Consultor IA"
   },
   "simulator": {
     "title": "Carro Elétrico vale a pena pra você?",

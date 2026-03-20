@@ -50,6 +50,8 @@ export default function App() {
   };
 
   const [isSimulatorModalOpen, setIsSimulatorModalOpen] = useState(false);
+  const [showSuggestMenu, setShowSuggestMenu] = useState(false);
+  const [triggerSuggestChat, setTriggerSuggestChat] = useState(false);
 
   const { query, setQuery, searchResults, clearSearch, isSearching } = useSearch(CAR_DB);
 
@@ -151,16 +153,42 @@ export default function App() {
             </button>
 
             {/* Suggest EV */}
-            <a
-              href="https://github.com/fabao2024/Guia-PBEV-Brasil/issues/new?template=sugestao-ev.yml"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 bg-[#00b4ff] hover:bg-[#33c9ff] hover:-translate-y-0.5 text-black px-3 md:px-5 py-2 md:py-2.5 rounded-xl font-black transition-all shadow-[0_0_20px_rgba(0,180,255,0.3)]"
-              title={t('addVehicle.headerBtn')}
-            >
-              <Lightbulb className="w-4 h-4 md:w-5 md:h-5" />
-              <span className="hidden sm:inline uppercase text-sm tracking-wide">{t('addVehicle.headerBtn')}</span>
-            </a>
+            <div className="relative">
+              <button
+                onClick={() => setShowSuggestMenu(prev => !prev)}
+                className="flex items-center gap-1.5 bg-[#00b4ff] hover:bg-[#33c9ff] hover:-translate-y-0.5 text-black px-3 md:px-5 py-2 md:py-2.5 rounded-xl font-black transition-all shadow-[0_0_20px_rgba(0,180,255,0.3)]"
+                title={t('addVehicle.headerBtn')}
+              >
+                <Lightbulb className="w-4 h-4 md:w-5 md:h-5" />
+                <span className="hidden sm:inline uppercase text-sm tracking-wide">{t('addVehicle.headerBtn')}</span>
+              </button>
+
+              {showSuggestMenu && (
+                <>
+                  <div className="fixed inset-0 z-40" onClick={() => setShowSuggestMenu(false)} />
+                  <div className="absolute right-0 top-full mt-2 z-50 bg-[#1a1a1a] border border-white/10 rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.6)] p-4 w-64 flex flex-col gap-3">
+                    <p className="text-white/70 text-xs leading-relaxed">{t('addVehicle.menuPrompt', 'Tem conta no GitHub?')}</p>
+                    <a
+                      href="https://github.com/fabao2024/Guia-PBEV-Brasil/issues/new?template=sugestao-ev.yml"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setShowSuggestMenu(false)}
+                      className="flex items-center gap-2 px-4 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-white text-sm font-semibold transition-all"
+                    >
+                      <span>✅</span>
+                      <span>{t('addVehicle.menuGithub', 'Sim — abrir formulário GitHub')}</span>
+                    </a>
+                    <button
+                      onClick={() => { setShowSuggestMenu(false); setTriggerSuggestChat(true); }}
+                      className="flex items-center gap-2 px-4 py-2.5 bg-[#00b4ff]/10 hover:bg-[#00b4ff]/20 border border-[#00b4ff]/30 rounded-xl text-[#00b4ff] text-sm font-semibold transition-all"
+                    >
+                      <span>💬</span>
+                      <span>{t('addVehicle.menuChat', 'Não — usar o Consultor IA')}</span>
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
 
             {/* Print — desktop only */}
             <button
@@ -418,7 +446,11 @@ export default function App() {
         )}
 
         {/* AI CHAT */}
-        <ChatWidget compareBarVisible={compareList.length > 0} />
+        <ChatWidget
+          compareBarVisible={compareList.length > 0}
+          triggerSuggest={triggerSuggestChat}
+          onTriggerSuggestHandled={() => setTriggerSuggestChat(false)}
+        />
 
         {/* Favorite toast */}
         {toast && (
