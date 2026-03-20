@@ -102,7 +102,7 @@ export default function App() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#00b4ff]/10 rounded-full blur-[150px] pointer-events-none opacity-50"></div>
 
       {/* HEADER — single row on all sizes */}
-      <header className="bg-[#0a0b12]/80 backdrop-blur-xl border-b border-white/10 px-4 md:px-6 py-3 md:py-4 flex-shrink-0 z-20 shadow-lg relative">
+      <header className="bg-[#0a0b12]/80 backdrop-blur-xl border-b border-white/10 px-4 md:px-6 py-3 md:py-4 flex-shrink-0 z-[35] shadow-lg relative">
         <div className="max-w-[1600px] mx-auto w-full flex flex-row items-center justify-between gap-3">
 
           {/* Logo */}
