@@ -124,14 +124,15 @@ export default function App() {
               href="https://instagram.com/guiapbevbrasil"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#a0a0a0] hover:text-[#E1306C] transition-colors p-2"
               title="@guiapbevbrasil no Instagram"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-xl border border-white/10 bg-white/5 text-[#a0a0a0] hover:text-white hover:border-[#E1306C]/50 hover:bg-[#E1306C]/10 transition-all"
             >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                 <circle cx="12" cy="12" r="4"/>
                 <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
               </svg>
+              <span className="hidden md:inline text-xs font-semibold">@guiapbevbrasil</span>
             </a>
 
             {/* Favorites */}
@@ -349,7 +350,28 @@ export default function App() {
           <footer className="mt-auto text-center text-xs text-[#444444] border-t border-white/10 pt-8 pb-8">
             <p><strong className="text-[#666666]">{t('footer.dataSource')}</strong> {t('footer.dataDesc')}</p>
             <p className="mt-2 text-[#333333]">{t('footer.disclaimer')}</p>
-            <p className="mt-3 flex items-center justify-center gap-4">
+
+            {/* Instagram CTA */}
+            <div className="mt-6 flex justify-center">
+              <a
+                href="https://instagram.com/guiapbevbrasil"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl border border-white/10 bg-white/5 hover:border-[#E1306C]/50 hover:bg-[#E1306C]/10 transition-all group"
+              >
+                <svg className="w-5 h-5 text-[#E1306C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <circle cx="12" cy="12" r="4"/>
+                  <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+                </svg>
+                <div className="text-left">
+                  <div className="text-white font-semibold text-sm leading-none">@guiapbevbrasil</div>
+                  <div className="text-[#666666] text-[11px] mt-0.5 group-hover:text-[#a0a0a0] transition-colors">Siga no Instagram</div>
+                </div>
+              </a>
+            </div>
+
+            <p className="mt-4">
               <a
                 href={`${import.meta.env.BASE_URL}privacy.html`}
                 target="_blank"
@@ -357,20 +379,6 @@ export default function App() {
                 className="text-[#333333] hover:text-[#00b4ff] transition-colors"
               >
                 {t('footer.privacy')}
-              </a>
-              <a
-                href="https://instagram.com/guiapbevbrasil"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-[#333333] hover:text-[#E1306C] transition-colors"
-                title="@guiapbevbrasil"
-              >
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                  <circle cx="12" cy="12" r="4"/>
-                  <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
-                </svg>
-                @guiapbevbrasil
               </a>
             </p>
           </footer>
