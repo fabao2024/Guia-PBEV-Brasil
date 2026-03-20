@@ -176,3 +176,29 @@
 **Notas:** Decisão arquitetural — contribuições de usuários passam pelo crivo do mantenedor via issue; só entram no catálogo oficial após validação e execução da skill `/add-vehicle`.
 
 ---
+
+### [S7-B] Suzuki e-Vitara adicionado ao catálogo · 19/03/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | Nova entrada `Suzuki e-Vitara` em `CAR_DB` (SUV AWD, 184 cv / 31,2 kgfm, 61 kWh, 293 km PBEV, R$ 269.990). `BRAND_URLS` + nova marca Suzuki (`suzukiveiculos.com.br`). README atualizado: 87 veículos, 27 marcas. Imagem local `e-vitara.jpg`. |
+| Build  | ✅ | `npm run build` — sem erros |
+| Testes | ✅ | Veículo visível no catálogo; filtros SUV e AWD funcionando |
+| Commit | ✅ | `66b9c90` |
+
+**Notas:** Primeira entrada da marca Suzuki no catálogo. Adicionado via issue #2 da comunidade.
+
+---
+
+### [S7-C] BYD Dolphin Mini GL adicionado ao catálogo · 20/03/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | Nova entrada `BYD Dolphin Mini GL` em `CAR_DB` (Urbano FWD, 75 cv / 13,8 kgfm, LFP 30,08 kWh, 224 km PBEV, R$ 118.990). Imagem via CDN BYD Brasil (`byd-dolphin-mini-gl.jpg`). README atualizado: 88 veículos, 27 marcas. Fix subsequente adicionou `power` e `torque` ausentes no commit inicial. |
+| Build  | ✅ | `npm run build` — sem erros |
+| Testes | ✅ | Veículo visível; filtros Urbano e FWD funcionando |
+| Commit | ✅ | `f2e780c` + `b871050` (fix potência/torque) |
+
+**Notas:** Adicionado via issue #3 da comunidade. Fix de potência/torque necessário pois campos foram omitidos no commit inicial.
+
+---

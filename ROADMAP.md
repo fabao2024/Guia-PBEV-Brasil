@@ -465,10 +465,16 @@
 ---
 
 ### Sprint 7 — semana de 23/03/2026
-**Tema: UX avançado**
+**Tema: UX avançado + Expansão do catálogo**
+- ✅ Suzuki e-Vitara adicionado ao catálogo (issue #2 — nova marca)
+- ✅ BYD Dolphin Mini GL adicionado ao catálogo (issue #3 — catálogo agora com 88 veículos, 27 marcas)
 - 🔲 Recomendação de terceiro carro após comparação
 - 🔲 Histórico de preços (snapshot mensal em JSON)
 - 🔲 Badge "preço alterado" nos cards
+
+> **Resumo técnico — Sprint 7 (19–20/03/2026):**
+> **Suzuki e-Vitara:** primeira entrada da marca Suzuki. SUV AWD 184 cv / 31,2 kgfm, bateria 61 kWh, autonomia 293 km PBEV, R$ 269.990. `BRAND_URLS` atualizado com `suzukiveiculos.com.br`. Imagem local `e-vitara.jpg`.
+> **BYD Dolphin Mini GL:** versão GL da linha Dolphin Mini. Urbano FWD, bateria LFP 30,08 kWh, 75 cv / 13,8 kgfm, autonomia 224 km PBEV, R$ 118.990. Imagem via CDN BYD Brasil. Ambas as adições via fluxo de issues — skill `/add-vehicle` utilizada.
 
 ---
 
