@@ -169,6 +169,19 @@ export const CAR_DB: Car[] = [
     pbeRating: 'A', energyMJkm: 0.39,
   },
   {
+    model: "Dolphin Mini GL", brand: "BYD", price: 118990, range: 224, cat: "Urbano",
+    img: "/car-images/byd-dolphin-mini-gl.jpg",
+    traction: 'FWD', battery: 30.08,
+    features: [
+      "Bateria LFP Blade 30,08 kWh",
+      "Tela 10,1\" com BYD DiLink (CarPlay e Android Auto)",
+      "6 airbags",
+      "Câmera de ré",
+      "ADAS básico: AEB + alerta de colisão frontal",
+      "Atualização de software OTA"
+    ],
+  },
+  {
     model: "EX2 Max", brand: "Geely", price: 135100, range: 289, cat: "Compacto",
     img: "/car-images/geely-ex2-max.jpg",
     power: 116, torque: 15.3, traction: 'FWD', battery: 39.4,
