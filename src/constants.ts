@@ -799,6 +799,22 @@ export const CAR_DB: Car[] = [
     pbeRating: 'A', energyMJkm: 0.53,
   },
   {
+    model: "EQE 350", brand: "Mercedes-Benz", price: 649900, range: 421, cat: "Sedan",
+    img: "/car-images/eqe-350.jpg",
+    power: 320, torque: 56.5, traction: 'RWD', battery: 96,
+    features: [
+      "Bateria NMC 96 kWh",
+      "Carregamento AC 11 kW / DC 170 kW",
+      "MBUX Hyperscreen opcional (56\" curvo) ou tela central 12,8\"",
+      "7 airbags",
+      "DISTRONIC Plus: ACC + LCC + AEB + BSM + Park Pilot",
+      "Hey Mercedes (assistente de voz)",
+      "Suspensão AIRMATIC traseira",
+      "Carregamento bidirecional V2H",
+      "0–100 km/h em 6,4 s"
+    ],
+  },
+  {
     model: "Neta X 500", brand: "Neta", price: 214900, range: 317, cat: "SUV",
     img: "/car-images/neta-x.jpg",
     power: 163, torque: 21.4, traction: 'FWD', battery: 52,

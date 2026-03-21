@@ -88,7 +88,7 @@ No [guiapbev.cloud](https://guiapbev.cloud), usuários inserem sua própria chav
 
 ### Métricas Atuais
 
-- **88 veículos** BEV cadastrados (27 marcas)
+- **89 veículos** BEV cadastrados (27 marcas)
 - **54 modelos** com certificação PBE/INMETRO oficial
 - **27 estados** com dados de IPVA 2026 e tarifas ANP/ANEEL
 - **70 testes** automatizados em 7 suítes
@@ -114,7 +114,7 @@ Progressive Web App (PWA) for the Brazilian Electric Vehicle (BEV) market. Inter
 
 | Feature | Description |
 |---|---|
-| 📋 Catalog | 88 BEV models with filters by price, range, category, brand and drivetrain |
+| 📋 Catalog | 89 BEV models with filters by price, range, category, brand and drivetrain |
 | 🔍 Full-text Search | Instant search by model, brand or category (Fuse.js, typo-tolerant) |
 | ⚖️ Comparison | Side-by-side comparison of up to 3 vehicles |
 | 💰 Savings Simulator | Monthly savings vs. combustion with real state IPVA tax |
@@ -172,7 +172,7 @@ npm run preview       # Preview production build
 
 ### Current Metrics
 
-- **88 BEV vehicles** registered (27 brands)
+- **89 BEV vehicles** registered (27 brands)
 - **54 models** with official PBE/INMETRO certification
 - **27 states** with 2026 IPVA data and ANP/ANEEL tariffs
 - **70 automated tests** across 7 suites
