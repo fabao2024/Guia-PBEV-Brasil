@@ -1171,21 +1171,6 @@ export const CAR_DB: Car[] = [
     ]
   },
   {
-    model: "EQS 450+", brand: "Mercedes-Benz", price: 999900, range: 516, cat: "Luxo", discontinued: true,
-    img: "/car-images/eqs.jpg",
-    power: 333, torque: 57.9, traction: 'RWD', battery: 107.8,
-    features: [
-      "Bateria NMC 107,8 kWh",
-      "Carregamento AC 22 kW (trifásico) / DC 200 kW",
-      "MBUX Hyperscreen 56\" curva (painel + central + tela do passageiro integrados)",
-      "8 airbags",
-      "DRIVE PILOT (Nível 3 certificado – piloto autônomo em rodovias na Alemanha/EUA)",
-      "DISTRONIC Plus: ACC + LCC + AEB + BSM + Park Pilot remoto + Night View",
-      "Bancos de massagem execution + som Burmester 4D (31 alto-falantes)",
-      "Suspensão AIRMATIC ativa + chave NFC + interior em Nappa completo"
-    ]
-  },
-  {
     model: "e-tron GT", brand: "Audi", price: 769990, range: 318, cat: "Luxo",
     img: "/car-images/etron-gt.jpg",
     power: 530, torque: 65.3, traction: 'AWD', battery: 93.4,
@@ -1246,22 +1231,6 @@ export const CAR_DB: Car[] = [
       "0-100 km/h em 4,5 s + atualização OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.63,
-  },
-  {
-    model: "G 580 EQ", brand: "Mercedes-Benz", price: 1100000, range: 369, cat: "Luxo", discontinued: true,
-    img: "/car-images/mercedes-g580-eq.jpg",
-    power: 587, torque: 116.2, traction: 'AWD', battery: 116,
-    features: [
-      "Bateria NMC 116 kWh com quatro motores elétricos independentes (um por roda)",
-      "Carregamento AC 11 kW / DC 200 kW",
-      "MBUX: tela central 12,3\" + painel digital 12,3\"",
-      "8 airbags",
-      "G-Turn: rotação 360° sobre o próprio eixo (exclusivo off-road elétrico)",
-      "DISTRONIC Plus: ACC + LCC + AEB + BSM + câmera 360°",
-      "Bancos Nappa multicontour com massagem + som Burmester 3D",
-      "0-100 km/h em 4,7 s + torque vetorial por roda para off-road extremo"
-    ],
-    pbeRating: 'A', energyMJkm: 0.88,
   },
 
   // 4. COMERCIAIS & VANS
