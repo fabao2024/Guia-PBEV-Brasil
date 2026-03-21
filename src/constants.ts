@@ -531,7 +531,7 @@ export const CAR_DB: Car[] = [
     ]
   },
   {
-    model: "Kona EV", brand: "Hyundai", price: 219990, range: 252, cat: "SUV",
+    model: "Kona EV", brand: "Hyundai", price: 219990, range: 252, cat: "SUV", discontinued: true,
     img: "/car-images/kona-ev.jpg",
     power: 136, torque: 40.3, traction: 'FWD', battery: 39.2,
     features: [
