@@ -16,6 +16,24 @@
 
 ---
 
+## Notas de Pesquisa — Sprint 4 (Monetização)
+
+### Análise de seguradoras para afiliado de seguro EV · 21/03/2026
+
+Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADMAP Sprint 4:
+
+| Seguradora | Programa | Aceita site sem SUSEP | Status |
+|---|---|---|---|
+| Porto Seguro | Corretor oficial (nacional) | ❌ Exige SUSEP | Descartada |
+| Porto Seguro | Rede Tonziro (regional Bahia) | ⚠️ Aparentemente sim | Regional — não oficial |
+| Tokio Marine | Apenas corretor SUSEP | ❌ Exige SUSEP | Descartada |
+| Bradesco Seguros | Programa Recompensa / Lomadee | ❌ Lomadee pausado; Recompensa exige R$15k/mês + SUSEP | Descartada |
+| Minuto Seguros / Youse | Corretoras digitais intermediárias | ⚠️ Programas Lomadee inativados | Monitorar reativação |
+
+**Conclusão:** Trendseg permanece como único afiliado viável identificado. Porto Seguro, Tokio Marine e Bradesco exigem habilitação SUSEP de corretor — inviável para operação atual. Reavaliar Minuto Seguros/Youse se reativarem programas em plataformas de afiliados.
+
+---
+
 ## Sprint 5 — TCO Calculator · 14–15/03/2026
 
 ### [S5-A] TCO 4 anos com depreciação, seguro e manutenção

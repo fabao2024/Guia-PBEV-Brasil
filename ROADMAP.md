@@ -99,9 +99,15 @@
 - Esforço: muito baixo
 
 **Link de afiliado para seguros EV**
-- Porto Seguro, Tokio Marine e Bradesco têm seguro específico para EVs
-- CTA "Cotar seguro" no `CarDetailsModal`
-- Comissão: 10–15% do prêmio
+- CTA "Cotar seguro EV" já implementado no `CarDetailsModal` (Sprint 4) ✅
+- Afiliado atual: **Trendseg** — cadastro realizado em 12/03/2026, aguardando aprovação e link
+- Quando aprovado: substituir `INSURANCE_AFFILIATE_URL` em `src/constants.ts` (1 linha)
+
+**Análise de seguradoras alternativas (21/03/2026):**
+- **Porto Seguro**: exige SUSEP (corretor habilitado) — descartada. Programa regional "Rede Tonziro" (Bahia) abre para PF mas não é oficial nacional
+- **Tokio Marine**: exclusivo para corretores SUSEP, sem canal digital de afiliados — descartada
+- **Bradesco Seguros**: programa Lomadee pausado; "Programa Recompensa" exige R$15k/mês produção + SUSEP — descartada
+- **Alternativa a monitorar**: Minuto Seguros e Youse (corretoras digitais que agregam as 3) — já tiveram Lomadee, atualmente inativas; reavaliar se reativarem
 
 ---
 
