@@ -770,7 +770,7 @@ export const CAR_DB: Car[] = [
   {
     model: "EQA 250", brand: "Mercedes-Benz", price: 369900, range: 370, cat: "Luxo",
     img: "/car-images/eqa-250.jpg",
-    power: 190, torque: 38.2, traction: 'FWD', battery: 66.5,
+    power: 190, torque: 38.5, traction: 'FWD', battery: 66.5,
     features: [
       "Bateria NMC 66,5 kWh",
       "Carregamento AC 11 kW / DC 100 kW",
@@ -785,9 +785,9 @@ export const CAR_DB: Car[] = [
   {
     model: "EQB 250", brand: "Mercedes-Benz", price: 399900, range: 376, cat: "Luxo",
     img: "/car-images/eqb-250.jpg",
-    power: 190, torque: 38.2, traction: 'FWD', battery: 66.5,
+    power: 190, torque: 38.5, traction: 'FWD', battery: 70.5,
     features: [
-      "Bateria NMC 66,5 kWh",
+      "Bateria NMC 70,5 kWh",
       "Carregamento AC 11 kW / DC 100 kW",
       "MBUX: tela 10,25\" + painel digital 10,25\"",
       "7 airbags",
