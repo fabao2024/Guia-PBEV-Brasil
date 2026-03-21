@@ -505,6 +505,12 @@
 #### Backlog (sem data)
 - 🔲 Push notifications para favoritos (Cloudflare Workers)
 - 🔲 App nativo via Capacitor _(Fase 2 — junto com backend)_
+- 🔲 **White-label / licenciamento para terceiros** _(avaliar viabilidade antes de executar)_
+  - Opção A: venda de fork customizado (setup único R$500–1.500 + suporte opcional)
+  - Opção B: SaaS — cliente paga mensalidade, dados centralizados pelo criador (mais recorrente, sem transferir código)
+  - Riscos: concorrência direta no mesmo mercado, custo de suporte pós-entrega, reputação ligada à qualidade do site do cliente
+  - Pré-requisito técnico: `THEME.ts` centralizado + branch `white-label` limpa (estimado ~4h)
+  - **Decisão pendente:** comparar ROI vs. plano de monetização atual (afiliados + leads + AdSense)
 - 🔲 API pública documentada (B2B)
 - 🔲 Newsletter "EletriBrasil Insider" no Substack
 - 🔲 EV Route Planner (OpenStreetMap + autonomia)
