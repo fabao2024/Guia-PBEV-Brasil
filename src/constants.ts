@@ -768,7 +768,7 @@ export const CAR_DB: Car[] = [
     ]
   },
   {
-    model: "EQA 250", brand: "Mercedes-Benz", price: 399900, range: 370, cat: "Luxo",
+    model: "EQA 250", brand: "Mercedes-Benz", price: 369900, range: 370, cat: "Luxo",
     img: "/car-images/eqa-250.jpg",
     power: 190, torque: 38.2, traction: 'FWD', battery: 66.5,
     features: [
@@ -783,7 +783,7 @@ export const CAR_DB: Car[] = [
     ]
   },
   {
-    model: "EQB 250", brand: "Mercedes-Benz", price: 405900, range: 376, cat: "Luxo",
+    model: "EQB 250", brand: "Mercedes-Benz", price: 399900, range: 376, cat: "Luxo",
     img: "/car-images/eqb-250.jpg",
     power: 190, torque: 38.2, traction: 'FWD', battery: 66.5,
     features: [
@@ -1171,7 +1171,7 @@ export const CAR_DB: Car[] = [
     ]
   },
   {
-    model: "EQS 450+", brand: "Mercedes-Benz", price: 999900, range: 516, cat: "Luxo",
+    model: "EQS 450+", brand: "Mercedes-Benz", price: 999900, range: 516, cat: "Luxo", discontinued: true,
     img: "/car-images/eqs.jpg",
     power: 333, torque: 57.9, traction: 'RWD', battery: 107.8,
     features: [
@@ -1248,7 +1248,7 @@ export const CAR_DB: Car[] = [
     pbeRating: 'A', energyMJkm: 0.63,
   },
   {
-    model: "G 580 EQ", brand: "Mercedes-Benz", price: 1100000, range: 369, cat: "Luxo",
+    model: "G 580 EQ", brand: "Mercedes-Benz", price: 1100000, range: 369, cat: "Luxo", discontinued: true,
     img: "/car-images/mercedes-g580-eq.jpg",
     power: 587, torque: 116.2, traction: 'AWD', battery: 116,
     features: [
