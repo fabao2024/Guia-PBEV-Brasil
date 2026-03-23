@@ -160,7 +160,7 @@ const CarCard: React.FC<CarCardProps> = ({
         {/* DISCONTINUED badge */}
         {car.discontinued && (
           <span
-            className="absolute top-3 left-3 z-30 text-[8px] px-2 py-0.5 rounded font-bold uppercase tracking-widest"
+            className="absolute top-3 left-3 z-30 text-[9px] px-2 py-0.5 rounded font-bold uppercase tracking-widest"
             style={{
               background: 'rgba(239,68,68,0.15)',
               color: '#ef4444',
@@ -174,7 +174,7 @@ const CarCard: React.FC<CarCardProps> = ({
         {/* NEW badge — positioned left of the favorite button */}
         {isNew && (
           <span
-            className="absolute top-3 z-30 text-[8px] px-2 py-0.5 rounded font-bold uppercase tracking-widest"
+            className="absolute top-3 z-30 text-[9px] px-2 py-0.5 rounded font-bold uppercase tracking-widest"
             style={{
               right: '2.85rem',
               background: 'rgba(0,180,255,0.14)',
@@ -205,7 +205,7 @@ const CarCard: React.FC<CarCardProps> = ({
             {car.brand}
           </span>
           <span
-            className="text-[8px] px-2 py-0.5 rounded-full font-semibold uppercase tracking-[0.08em]"
+            className="text-[10px] px-2 py-0.5 rounded-full font-semibold uppercase tracking-[0.08em]"
             style={{ background: accent.bg, color: accent.color, border: `1px solid ${accent.color}28` }}
           >
             {t(`categories.${car.cat}`)}
@@ -224,7 +224,7 @@ const CarCard: React.FC<CarCardProps> = ({
         <div>
           <div className="flex items-center justify-between mb-1.5">
             <span
-              className="text-[9px] uppercase tracking-widest font-medium flex items-center gap-1"
+              className="text-[10px] uppercase tracking-widest font-medium flex items-center gap-1"
               style={{ color: 'rgba(255,255,255,0.3)' }}
             >
               <BatteryCharging className="w-3 h-3" />
@@ -232,7 +232,7 @@ const CarCard: React.FC<CarCardProps> = ({
             </span>
             <span className="text-sm font-black text-white leading-none">
               {car.range}
-              <span className="text-[9px] font-normal ml-0.5" style={{ color: 'rgba(255,255,255,0.35)' }}>km</span>
+              <span className="text-[10px] font-normal ml-0.5" style={{ color: 'rgba(255,255,255,0.35)' }}>km</span>
             </span>
           </div>
           {/* Filled progress bar */}
@@ -253,12 +253,12 @@ const CarCard: React.FC<CarCardProps> = ({
             className={`${tractionStyle ? 'flex-1' : 'w-full'} rounded-xl px-3 py-2`}
             style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)' }}
           >
-            <div className="text-[8px] uppercase tracking-widest mb-0.5" style={{ color: 'rgba(255,255,255,0.25)' }}>
+            <div className="text-[10px] uppercase tracking-widest mb-0.5" style={{ color: 'rgba(255,255,255,0.25)' }}>
               {t('details.power', 'Potência')}
             </div>
             <div className="text-sm font-black text-white leading-none">
               {estimatedPower}
-              <span className="text-[9px] font-normal ml-0.5" style={{ color: 'rgba(255,255,255,0.35)' }}>cv</span>
+              <span className="text-[10px] font-normal ml-0.5" style={{ color: 'rgba(255,255,255,0.35)' }}>cv</span>
             </div>
           </div>
           {tractionStyle && (
@@ -267,7 +267,7 @@ const CarCard: React.FC<CarCardProps> = ({
               title={TRACTION_TITLE[car.traction ?? '']}
               style={{ background: tractionStyle.bg, border: `1px solid ${tractionStyle.color}22` }}
             >
-              <div className="text-[8px] uppercase tracking-widest mb-0.5" style={{ color: `${tractionStyle.color}65` }}>
+              <div className="text-[10px] uppercase tracking-widest mb-0.5" style={{ color: `${tractionStyle.color}65` }}>
                 {t('card.traction')}
               </div>
               <div className="text-sm font-black leading-none" style={{ color: tractionStyle.color }}>
@@ -280,7 +280,7 @@ const CarCard: React.FC<CarCardProps> = ({
         {/* Price + CTA */}
         <div className="mt-auto flex items-end gap-3 pt-0.5">
           <div className="flex-1 min-w-0">
-            <div className="text-[8px] uppercase tracking-widest mb-0.5" style={{ color: 'rgba(255,255,255,0.22)' }}>
+            <div className="text-[10px] uppercase tracking-widest mb-0.5" style={{ color: 'rgba(255,255,255,0.22)' }}>
               {t('comparison.price', 'Preço')} · R$
             </div>
             <div
