@@ -131,7 +131,7 @@
     "category": "Categoria",
     "features": "Equipamentos",
     "emptySlot": "Espaço Vazio",
-    "footer": "Comparativo gerado com base nos dados PBEV 2025.",
+    "footer": "Specs baseados na tabela PBEV/INMETRO · Preços indicativos e sujeitos a alteração sem aviso prévio.",
     "mobileScrollHint": "← deslize para comparar →",
     "featureList": {
       "urban": [

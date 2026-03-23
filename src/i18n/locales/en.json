@@ -131,7 +131,7 @@
     "category": "Category",
     "features": "Equipment",
     "emptySlot": "Empty Slot",
-    "footer": "Comparison based on PBEV 2025 data.",
+    "footer": "Specs based on PBEV/INMETRO table · Prices are indicative and subject to change without notice.",
     "mobileScrollHint": "← swipe to compare →",
     "featureList": {
       "urban": [
