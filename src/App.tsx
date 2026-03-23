@@ -162,7 +162,7 @@ export default function App() {
             {/* Simulator — desktop only (mobile has it in the sticky bar below) */}
             <button
               onClick={() => setIsSimulatorModalOpen(true)}
-              className="hidden md:flex items-center gap-2 px-4 py-2.5 bg-[#00b4ff] hover:bg-[#33c9ff] hover:-translate-y-0.5 text-black rounded-xl font-black transition-all shadow-[0_0_20px_rgba(0,180,255,0.3)] uppercase tracking-widest text-[10px]"
+              className="hidden md:flex items-center gap-2 px-4 py-2.5 bg-[#00b4ff] hover:bg-[#33c9ff] hover:-translate-y-0.5 text-black rounded-xl font-black transition-all shadow-[0_0_20px_rgba(0,180,255,0.3)] uppercase tracking-widest text-xs"
             >
               <BarChart2 className="w-4 h-4" />
               {t('simulator.headerBtn', 'Simulador')}
