@@ -338,13 +338,13 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                     {/* ── METHODOLOGY BADGE ROW ──────────────────────────────────────────── */}
                     <div className="flex items-center justify-center gap-1.5 -mt-3 mb-5 flex-wrap">
                         {tab === 'savings' ? (<>
-                            <span className="flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ color: '#00b4ff', background: 'rgba(0,180,255,0.08)', border: '1px solid rgba(0,180,255,0.2)' }}><Zap className="w-2.5 h-2.5" />Energia</span>
-                            <span className="text-[10px] text-white/18 line-through px-1.5 py-0.5 rounded-full border border-white/6">Seguro</span>
-                            <span className="text-[10px] text-white/18 line-through px-1.5 py-0.5 rounded-full border border-white/6">Manutenção</span>
-                            <span className="flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full border border-white/10" style={{ color: 'rgba(255,255,255,0.35)' }}>IPVA <span className="text-[8px] opacity-60 ml-0.5">separado</span></span>
+                            <span className="flex items-center gap-1 text-xs font-bold px-2 py-0.5 rounded-full" style={{ color: '#00b4ff', background: 'rgba(0,180,255,0.08)', border: '1px solid rgba(0,180,255,0.2)' }}><Zap className="w-2.5 h-2.5" />Energia</span>
+                            <span className="text-xs text-white/18 line-through px-1.5 py-0.5 rounded-full border border-white/6">Seguro</span>
+                            <span className="text-xs text-white/18 line-through px-1.5 py-0.5 rounded-full border border-white/6">Manutenção</span>
+                            <span className="flex items-center gap-1 text-xs px-2 py-0.5 rounded-full border border-white/10" style={{ color: 'rgba(255,255,255,0.35)' }}>IPVA <span className="text-[9px] opacity-60 ml-0.5">separado</span></span>
                         </>) : (<>
                             {['Energia','Seguro','Manutenção','IPVA'].map(label => (
-                                <span key={label} className="flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ color: '#00e5a0', background: 'rgba(0,229,160,0.08)', border: '1px solid rgba(0,229,160,0.2)' }}>{label}</span>
+                                <span key={label} className="flex items-center gap-1 text-xs font-bold px-2 py-0.5 rounded-full" style={{ color: '#00e5a0', background: 'rgba(0,229,160,0.08)', border: '1px solid rgba(0,229,160,0.2)' }}>{label}</span>
                             ))}
                         </>)}
                     </div>
@@ -370,7 +370,7 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                 </select>
                                 <ChevronDown className="w-4 h-4 text-[#a0a0a0] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                             </div>
-                            <p className="text-[10px] text-[#555] mt-2 text-right">{'⚠'} Dados de {IPVA_DATA_UPDATED}. Consulte a Sefaz do seu estado.</p>
+                            <p className="text-xs text-[#555] mt-2 text-right">{'⚠'} Dados de {IPVA_DATA_UPDATED}. Consulte a Sefaz do seu estado.</p>
                         </div>
 
                         <div>
@@ -390,8 +390,8 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                 <div className="flex items-center gap-2">
                                     <span className="text-white text-sm">{fuelType === 'ethanol' ? t('simulator.ethanolPrice') : t('simulator.gasPrice')}</span>
                                     <div className="flex bg-[#1a1a1a] rounded-lg p-0.5 border border-white/10">
-                                        <button onClick={() => setFuelType('gasoline')} className={`px-2.5 py-1 rounded-md text-[10px] font-bold transition-all ${fuelType === 'gasoline' ? 'bg-[#ff8c52] text-black' : 'text-[#a0a0a0] hover:text-white'}`}>{t('simulator.gasoline')}</button>
-                                        <button onClick={() => setFuelType('ethanol')} className={`px-2.5 py-1 rounded-md text-[10px] font-bold transition-all ${fuelType === 'ethanol' ? 'bg-[#00e5a0] text-black' : 'text-[#a0a0a0] hover:text-white'}`}>{t('simulator.ethanol')}</button>
+                                        <button onClick={() => setFuelType('gasoline')} className={`px-2.5 py-1 rounded-md text-xs font-bold transition-all ${fuelType === 'gasoline' ? 'bg-[#ff8c52] text-black' : 'text-[#a0a0a0] hover:text-white'}`}>{t('simulator.gasoline')}</button>
+                                        <button onClick={() => setFuelType('ethanol')} className={`px-2.5 py-1 rounded-md text-xs font-bold transition-all ${fuelType === 'ethanol' ? 'bg-[#00e5a0] text-black' : 'text-[#a0a0a0] hover:text-white'}`}>{t('simulator.ethanol')}</button>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-1.5">
@@ -405,7 +405,7 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                 const ref = getDefaultFuelPrice(selectedState, fuelType);
                                 const label = fuelType === 'ethanol' ? 'etanol' : 'gasolina';
                                 return (
-                                    <p className="text-[10px] text-white/30 mt-1.5">
+                                    <p className="text-xs text-white/30 mt-1.5">
                                         Média {selectedState}: {currencySymbol} {ref.toFixed(2).replace('.', ',')} /L ({label}) · ANP {FUEL_PRICES_UPDATED}
                                         {fuelType === 'ethanol' && <span className="text-[#00e5a0]/60"> · +30% consumo vs. gasolina</span>}
                                     </p>
@@ -423,7 +423,7 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                 </div>
                             </div>
                             <input type="range" min="0" max="10" step="0.05" value={kwhPrice} onChange={e => setKwhPrice(Number(e.target.value))} className={sliderThumbClasses} style={makeSliderStyle(kwhPrice, 0, 10)} />
-                            <p className="text-[10px] text-white/30 mt-1.5">
+                            <p className="text-xs text-white/30 mt-1.5">
                                 Média {selectedState}: {currencySymbol} {ELECTRICITY_PRICES_BY_STATE[selectedState]?.toFixed(2).replace('.', ',') ?? '—'} /kWh (B1 residencial, sem ICMS) · ANEEL {ELECTRICITY_PRICES_UPDATED}
                             </p>
                         </div>
@@ -450,7 +450,7 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                 </div>
                             </div>
                             <input type="range" min="0" max="100" step="5" value={dcPercent} onChange={e => setDcPercent(Number(e.target.value))} className={sliderThumbClasses} style={makeSliderStyle(dcPercent, 0, 100)} />
-                            <p className="text-[10px] text-[#666666] mt-2 text-right">
+                            <p className="text-xs text-[#666666] mt-2 text-right">
                                 {t('simulator.blendedRate')}: {currencySymbol} {blendedKwhPrice.toFixed(2).replace('.', ',')}/kWh
                             </p>
                         </div>
@@ -535,7 +535,7 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                                             <p className="text-sm font-black text-[#00b4ff]">{currencySymbol} {costPerKm.toFixed(2).replace('.', ',')}/km</p>
                                                         </div>
                                                         <div className="flex-1 bg-white/4 rounded-xl px-2 py-2">
-                                                            <p className="text-[9px] uppercase tracking-widest text-white/30 mb-0.5">{fuelType === 'ethanol' ? 'Etanol' : 'Comb.'} · {combustionKmL.toFixed(1)} km/L</p>
+                                                            <p className="text-[10px] uppercase tracking-widest text-white/30 mb-0.5">{fuelType === 'ethanol' ? 'Etanol' : 'Comb.'} · {combustionKmL.toFixed(1)} km/L</p>
                                                             <p className="text-sm font-black text-white/60">{currencySymbol} {(gasCost / kms).toFixed(2).replace('.', ',')}/km</p>
                                                         </div>
                                                     </div>
@@ -666,19 +666,19 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                         {/* TCO summary tiles */}
                                         <div className="px-5 pb-4 flex flex-wrap gap-3">
                                             <div className="bg-white/4 rounded-xl px-3 py-2 text-center">
-                                                <p className="text-[9px] uppercase tracking-widest text-white/30 mb-0.5">{t('details.estimatedPrice')}</p>
+                                                <p className="text-[10px] uppercase tracking-widest text-white/30 mb-0.5">{t('details.estimatedPrice')}</p>
                                                 <p className="text-sm font-black text-white">{fmtBRL(car.price)}</p>
                                             </div>
                                             <div className="rounded-xl px-3 py-2 text-center" style={{ background: 'rgba(0,180,255,0.07)', border: '1px solid rgba(0,180,255,0.18)' }}>
-                                                <p className="text-[9px] uppercase tracking-widest mb-0.5" style={{ color: 'rgba(0,180,255,0.6)' }}>{t('simulator.totalEV4y')}</p>
+                                                <p className="text-[10px] uppercase tracking-widest mb-0.5" style={{ color: 'rgba(0,180,255,0.6)' }}>{t('simulator.totalEV4y')}</p>
                                                 <p className="text-sm font-black" style={{ color: '#00b4ff' }}>{fmtBRL(tco.totalEV4y)}</p>
                                             </div>
                                             <div className="bg-white/4 rounded-xl px-3 py-2 text-center">
-                                                <p className="text-[9px] uppercase tracking-widest text-white/30 mb-0.5">{t('simulator.totalComb4y')}</p>
+                                                <p className="text-[10px] uppercase tracking-widest text-white/30 mb-0.5">{t('simulator.totalComb4y')}</p>
                                                 <p className="text-sm font-black text-white/60">{fmtBRL(tco.totalComb4y)}</p>
                                             </div>
                                             <div className="rounded-xl px-3 py-2 text-center" style={{ background: 'rgba(0,229,160,0.07)', border: '1px solid rgba(0,229,160,0.2)' }}>
-                                                <p className="text-[9px] uppercase tracking-widest mb-0.5 text-[#00e5a0]/60">{t('simulator.totalSavings4y')}</p>
+                                                <p className="text-[10px] uppercase tracking-widest mb-0.5 text-[#00e5a0]/60">{t('simulator.totalSavings4y')}</p>
                                                 <p className="text-sm font-black text-[#00e5a0]">{fmtBRL(tco.totalSavings4y)}</p>
                                             </div>
                                         </div>
@@ -688,13 +688,13 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                             <table className="w-full text-xs min-w-[480px]">
                                                 <thead>
                                                     <tr>
-                                                        <th className="text-left text-[9px] uppercase tracking-widest text-white/30 py-2 pr-3 font-medium w-28" />
+                                                        <th className="text-left text-[10px] uppercase tracking-widest text-white/30 py-2 pr-3 font-medium w-28" />
                                                         {tco.years.map(y => (
-                                                            <th key={y.year} className="text-center text-[9px] uppercase tracking-widest text-white/40 py-2 px-2 font-medium">
+                                                            <th key={y.year} className="text-center text-[10px] uppercase tracking-widest text-white/40 py-2 px-2 font-medium">
                                                                 {t('simulator.year')} {y.year}
                                                             </th>
                                                         ))}
-                                                        <th className="text-center text-[9px] uppercase tracking-widest text-white/40 py-2 px-2 font-bold">{t('simulator.total5y')}</th>
+                                                        <th className="text-center text-[10px] uppercase tracking-widest text-white/40 py-2 px-2 font-bold">{t('simulator.total5y')}</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -708,8 +708,8 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                                             {/* EV row */}
                                                             <tr className="border-t border-white/5">
                                                                 <td className="py-1 pr-3 w-28">
-                                                                    <div className="text-[#00b4ff] font-bold text-[10px]">{row.label}</div>
-                                                                    <div className="text-[9px] text-[#00b4ff]/50 mt-0.5">EV</div>
+                                                                    <div className="text-[#00b4ff] font-bold text-xs">{row.label}</div>
+                                                                    <div className="text-[10px] text-[#00b4ff]/50 mt-0.5">EV</div>
                                                                 </td>
                                                                 {tco.years.map(y => (
                                                                     <td key={y.year} className="text-center py-1 px-2 text-[#00b4ff] font-medium">
@@ -723,7 +723,7 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                                             {/* Combustion row */}
                                                             <tr>
                                                                 <td className="py-1 pr-3">
-                                                                    <div className="text-[9px] text-white/25">Comb.</div>
+                                                                    <div className="text-[10px] text-white/25">Comb.</div>
                                                                 </td>
                                                                 {tco.years.map(y => (
                                                                     <td key={y.year} className="text-center py-1 px-2 text-white/35 font-medium">
@@ -739,22 +739,22 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
 
                                                     {/* Total row */}
                                                     <tr className="border-t-2 border-white/15">
-                                                        <td className="py-2 pr-3 font-black text-[10px] uppercase tracking-wider text-white">{ROW_LABELS[4]}</td>
+                                                        <td className="py-2 pr-3 font-black text-xs uppercase tracking-wider text-white">{ROW_LABELS[4]}</td>
                                                         {tco.years.map(y => (
                                                             <td key={y.year} className="text-center py-2 px-2">
                                                                 <div className="text-[#00b4ff] font-black">{fmtBRL(y.totalEV)}</div>
-                                                                <div className="text-white/35 text-[10px]">{fmtBRL(y.totalComb)}</div>
+                                                                <div className="text-white/35 text-xs">{fmtBRL(y.totalComb)}</div>
                                                             </td>
                                                         ))}
                                                         <td className="text-center py-2 px-2">
                                                             <div className="text-[#00b4ff] font-black">{fmtBRL(tco.totalEV4y)}</div>
-                                                            <div className="text-white/35 text-[10px]">{fmtBRL(tco.totalComb4y)}</div>
+                                                            <div className="text-white/35 text-xs">{fmtBRL(tco.totalComb4y)}</div>
                                                         </td>
                                                     </tr>
 
                                                     {/* Savings row */}
                                                     <tr className="border-t border-[#00e5a0]/20 bg-[#00e5a0]/5">
-                                                        <td className="py-2 pr-3 font-black text-[10px] uppercase tracking-wider text-[#00e5a0]">{t('simulator.savingsRow')}</td>
+                                                        <td className="py-2 pr-3 font-black text-xs uppercase tracking-wider text-[#00e5a0]">{t('simulator.savingsRow')}</td>
                                                         {tco.years.map(y => (
                                                             <td key={y.year} className="text-center py-2 px-2 font-black text-[#00e5a0]">{fmtBRL(y.savingsEV)}</td>
                                                         ))}
@@ -765,16 +765,16 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                         </div>
 
                                         {/* Legend */}
-                                        <div className="px-5 pb-4 flex gap-4 text-[10px]">
+                                        <div className="px-5 pb-4 flex gap-4 text-xs">
                                             <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[#00b4ff]" />{car.brand} {car.model} (EV)</span>
                                             <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-white/30" />{t('simulator.combustionEquiv')} {car.cat}</span>
                                         </div>
 
                                         {/* Notes */}
                                         <div className="px-5 pb-4 space-y-1">
-                                            <p className="text-[10px] text-white/25">{t('simulator.deprNote')}</p>
-                                            <p className="text-[10px] text-white/25">{t('simulator.insNote')}</p>
-                                            <p className="text-[10px] text-white/25">{t('simulator.maintNote')}</p>
+                                            <p className="text-xs text-white/25">{t('simulator.deprNote')}</p>
+                                            <p className="text-xs text-white/25">{t('simulator.insNote')}</p>
+                                            <p className="text-xs text-white/25">{t('simulator.maintNote')}</p>
                                         </div>
                                     </div>
                                 );
@@ -800,7 +800,7 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                             onClick={() => setMethodologyOpen(o => !o)}
                             className="w-full flex items-center justify-between px-4 py-3 text-white/35 hover:text-white/60 transition-colors"
                         >
-                            <span className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider">
+                            <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider">
                                 <Info className="w-3.5 h-3.5" />
                                 Como este cálculo funciona
                             </span>
@@ -808,7 +808,7 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                         </button>
 
                         {methodologyOpen && (
-                            <div className="px-4 pb-4 space-y-4 text-[11px] leading-relaxed border-t border-white/6">
+                            <div className="px-4 pb-4 space-y-4 text-xs leading-relaxed border-t border-white/6">
 
                                 {/* ⚠ Aviso de consumo personalizado ativo */}
                                 {(() => {
@@ -850,8 +850,8 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                         const elecAdjusted = refElec !== undefined && Math.abs(kwhPrice - refElec) > 0.01;
                                         return (
                                             <div className="bg-white/3 rounded-xl p-3 space-y-2">
-                                                <p className="text-white/40 text-[10px] font-semibold uppercase tracking-wider">Preços de referência · {selectedState}</p>
-                                                <p className="text-white/25 text-[10px]">
+                                                <p className="text-white/40 text-xs font-semibold uppercase tracking-wider">Preços de referência · {selectedState}</p>
+                                                <p className="text-white/25 text-xs">
                                                     <span className="text-white/40 font-semibold">{fuelType === 'ethanol' ? 'Etanol' : 'Gasolina'}:</span>{' '}
                                                     {currencySymbol} {refFuel.toFixed(2).replace('.', ',')} /L · ANP {FUEL_PRICES_UPDATED}
                                                     {fuelType === 'ethanol' && <span className="text-[#00e5a0]/60"> · +30% consumo vs. gasolina</span>}
@@ -859,7 +859,7 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                                         <span className="ml-1.5 text-[#f5c842]">⚠ usando {currencySymbol} {gasPrice.toFixed(2).replace('.', ',')} /L (ajustado)</span>
                                                     )}
                                                 </p>
-                                                <p className="text-white/25 text-[10px]">
+                                                <p className="text-white/25 text-xs">
                                                     <span className="text-white/40 font-semibold">Energia residencial:</span>{' '}
                                                     {currencySymbol} {refElec?.toFixed(2).replace('.', ',') ?? '—'} /kWh (B1 residencial, sem ICMS) · ANEEL {ELECTRICITY_PRICES_UPDATED}
                                                     {elecAdjusted && (
@@ -870,9 +870,9 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                         );
                                     })()}
                                     <div className="bg-white/3 rounded-xl p-3 space-y-2">
-                                        <p className="text-white/40 text-[10px] font-semibold uppercase tracking-wider">Consumos médios estimados por categoria de veículo (fonte PBEV/INMETRO)</p>
-                                        <p className="text-white/25 text-[10px]"><span className="text-white/40 font-semibold">Combustão:</span> categ. Urbano 12 km/L · categ. Compacto/Sedan 11 km/L · categ. SUV 9,5 km/L · categ. Luxo 8 km/L · categ. Comercial 7,5 km/L. Etanol: +30% consumo volumétrico (÷1,30).</p>
-                                        <p className="text-white/25 text-[10px]"><span className="text-white/40 font-semibold">EV:</span> categ. Urbano 12 kWh/100km · categ. Compacto/Sedan 14 kWh/100km · categ. SUV 16 kWh/100km · categ. Luxo 21 kWh/100km · categ. Comercial 22 kWh/100km.</p>
+                                        <p className="text-white/40 text-xs font-semibold uppercase tracking-wider">Consumos médios estimados por categoria de veículo (fonte PBEV/INMETRO)</p>
+                                        <p className="text-white/25 text-xs"><span className="text-white/40 font-semibold">Combustão:</span> categ. Urbano 12 km/L · categ. Compacto/Sedan 11 km/L · categ. SUV 9,5 km/L · categ. Luxo 8 km/L · categ. Comercial 7,5 km/L. Etanol: +30% consumo volumétrico (÷1,30).</p>
+                                        <p className="text-white/25 text-xs"><span className="text-white/40 font-semibold">EV:</span> categ. Urbano 12 kWh/100km · categ. Compacto/Sedan 14 kWh/100km · categ. SUV 16 kWh/100km · categ. Luxo 21 kWh/100km · categ. Comercial 22 kWh/100km.</p>
                                     </div>
                                 </>) : (<>
                                     <div className="pt-3">
@@ -892,8 +892,8 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                         const elecAdjusted = refElec !== undefined && Math.abs(kwhPrice - refElec) > 0.01;
                                         return (
                                             <div className="bg-white/3 rounded-xl p-3 space-y-2">
-                                                <p className="text-white/40 text-[10px] font-semibold uppercase tracking-wider">Preços de referência · {selectedState}</p>
-                                                <p className="text-white/25 text-[10px]">
+                                                <p className="text-white/40 text-xs font-semibold uppercase tracking-wider">Preços de referência · {selectedState}</p>
+                                                <p className="text-white/25 text-xs">
                                                     <span className="text-white/40 font-semibold">{fuelType === 'ethanol' ? 'Etanol' : 'Gasolina'}:</span>{' '}
                                                     {currencySymbol} {refFuel.toFixed(2).replace('.', ',')} /L · ANP {FUEL_PRICES_UPDATED}
                                                     {fuelType === 'ethanol' && <span className="text-[#00e5a0]/60"> · +30% consumo vs. gasolina</span>}
@@ -901,7 +901,7 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                                         <span className="ml-1.5 text-[#f5c842]">⚠ usando {currencySymbol} {gasPrice.toFixed(2).replace('.', ',')} /L (ajustado)</span>
                                                     )}
                                                 </p>
-                                                <p className="text-white/25 text-[10px]">
+                                                <p className="text-white/25 text-xs">
                                                     <span className="text-white/40 font-semibold">Energia residencial:</span>{' '}
                                                     {currencySymbol} {refElec?.toFixed(2).replace('.', ',') ?? '—'} /kWh (B1 residencial, sem ICMS) · ANEEL {ELECTRICITY_PRICES_UPDATED}
                                                     {elecAdjusted && (
@@ -912,9 +912,9 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                         );
                                     })()}
                                     <div className="bg-white/3 rounded-xl p-3 space-y-2">
-                                        <p className="text-white/40 text-[10px] font-semibold uppercase tracking-wider">Consumos médios estimados por categoria de veículo (fonte PBEV/INMETRO)</p>
-                                        <p className="text-white/25 text-[10px]"><span className="text-white/40 font-semibold">Combustão:</span> categ. Urbano 12 km/L · categ. Compacto/Sedan 11 km/L · categ. SUV 9,5 km/L · categ. Luxo 8 km/L · categ. Comercial 7,5 km/L. Etanol: +30% consumo volumétrico (÷1,30).</p>
-                                        <p className="text-white/25 text-[10px]"><span className="text-white/40 font-semibold">EV:</span> categ. Urbano 12 kWh/100km · categ. Compacto/Sedan 14 kWh/100km · categ. SUV 16 kWh/100km · categ. Luxo 21 kWh/100km · categ. Comercial 22 kWh/100km.</p>
+                                        <p className="text-white/40 text-xs font-semibold uppercase tracking-wider">Consumos médios estimados por categoria de veículo (fonte PBEV/INMETRO)</p>
+                                        <p className="text-white/25 text-xs"><span className="text-white/40 font-semibold">Combustão:</span> categ. Urbano 12 km/L · categ. Compacto/Sedan 11 km/L · categ. SUV 9,5 km/L · categ. Luxo 8 km/L · categ. Comercial 7,5 km/L. Etanol: +30% consumo volumétrico (÷1,30).</p>
+                                        <p className="text-white/25 text-xs"><span className="text-white/40 font-semibold">EV:</span> categ. Urbano 12 kWh/100km · categ. Compacto/Sedan 14 kWh/100km · categ. SUV 16 kWh/100km · categ. Luxo 21 kWh/100km · categ. Comercial 22 kWh/100km.</p>
                                     </div>
                                 </>)}
                             </div>

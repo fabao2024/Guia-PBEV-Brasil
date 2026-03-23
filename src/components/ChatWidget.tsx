@@ -726,7 +726,7 @@ SUGGEST_EV_READY:{"brand":"MARCA","model":"MODELO","price":"PRECO","range":"AUTO
         <div className="w-full space-y-1.5 mb-3">
           {[t('chat.setupStep1'), t('chat.setupStep2'), t('chat.setupStep3')].map((step, i) => (
             <div key={i} className="flex gap-2 items-start">
-              <span className="bg-[#00b4ff]/20 text-[#00b4ff] text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">{i + 1}</span>
+              <span className="bg-[#00b4ff]/20 text-[#00b4ff] text-xs font-bold w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">{i + 1}</span>
               <p className="text-xs text-gray-300 leading-snug">{step}</p>
             </div>
           ))}
@@ -761,8 +761,8 @@ SUGGEST_EV_READY:{"brand":"MARCA","model":"MODELO","price":"PRECO","range":"AUTO
             {t('chat.saveKey')}
           </button>
         </div>
-        {keyError && <p className="text-[10px] text-red-400 font-medium mb-1">{keyError}</p>}
-        <p className="text-[10px] text-slate-500 leading-relaxed">{t('chat.keyPrivacy')}</p>
+        {keyError && <p className="text-xs text-red-400 font-medium mb-1">{keyError}</p>}
+        <p className="text-xs text-slate-500 leading-relaxed">{t('chat.keyPrivacy')}</p>
       </div>
 
       {/* Bottom: quiz option — always visible */}
@@ -827,7 +827,7 @@ SUGGEST_EV_READY:{"brand":"MARCA","model":"MODELO","price":"PRECO","range":"AUTO
           )}
         </div>
 
-        <p className="text-[10px] text-slate-400 leading-relaxed mt-4">{t('chat.keyPrivacy')}</p>
+        <p className="text-xs text-slate-400 leading-relaxed mt-4">{t('chat.keyPrivacy')}</p>
       </div>
     </div>
   );
@@ -844,7 +844,7 @@ SUGGEST_EV_READY:{"brand":"MARCA","model":"MODELO","price":"PRECO","range":"AUTO
               </div>
               <div>
                 <h3 className="text-white font-bold text-sm">{t('chat.headerTitle')}</h3>
-                <p className="text-blue-100 text-[10px] font-medium">{t('chat.headerSubtitle')}</p>
+                <p className="text-blue-100 text-xs font-medium">{t('chat.headerSubtitle')}</p>
               </div>
             </div>
             <div className="flex items-center gap-1">
@@ -903,7 +903,7 @@ SUGGEST_EV_READY:{"brand":"MARCA","model":"MODELO","price":"PRECO","range":"AUTO
                       {/* Search Grounding Sources */}
                       {msg.role === 'model' && msg.sources && msg.sources.length > 0 && (
                         <div className="mt-2 ml-1">
-                          <p className="text-[10px] uppercase font-bold text-slate-400 mb-1 flex items-center gap-1">
+                          <p className="text-xs uppercase font-bold text-slate-400 mb-1 flex items-center gap-1">
                             <Globe className="w-3 h-3" /> {t('chat.sources')}
                           </p>
                           <div className="flex flex-wrap gap-2">
@@ -913,7 +913,7 @@ SUGGEST_EV_READY:{"brand":"MARCA","model":"MODELO","price":"PRECO","range":"AUTO
                                 href={source.uri}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-[10px] bg-blue-50 text-[#00b4ff] border border-blue-100 px-2 py-1 rounded-md hover:bg-[#00b4ff]/10 hover:underline truncate max-w-[150px]"
+                                className="text-xs bg-blue-50 text-[#00b4ff] border border-blue-100 px-2 py-1 rounded-md hover:bg-[#00b4ff]/10 hover:underline truncate max-w-[150px]"
                                 title={source.title}
                               >
                                 {source.title || new URL(source.uri).hostname}
@@ -947,7 +947,7 @@ SUGGEST_EV_READY:{"brand":"MARCA","model":"MODELO","price":"PRECO","range":"AUTO
 
                 {quizStep >= 1 && quizStep <= 5 && !isLoading && messages.length > 0 && messages[messages.length - 1].role === 'model' && (
                   <div className="pl-11 space-y-1.5">
-                    <p className="text-[10px] uppercase font-bold text-slate-400">
+                    <p className="text-xs uppercase font-bold text-slate-400">
                       {i18n.language === 'en' ? `Step ${quizStep} of 5` : `Passo ${quizStep} de 5`}
                     </p>
                     <div className="flex flex-wrap gap-2">
@@ -987,7 +987,7 @@ SUGGEST_EV_READY:{"brand":"MARCA","model":"MODELO","price":"PRECO","range":"AUTO
                       <ExternalLink className="w-3.5 h-3.5" />
                       {i18n.language === 'en' ? 'Submit suggestion on GitHub' : 'Enviar sugestão no GitHub'}
                     </a>
-                    <p className="text-[10px] text-white/30 ml-1">
+                    <p className="text-xs text-white/30 ml-1">
                       {i18n.language === 'en'
                         ? 'Opens GitHub with pre-filled data. Review before confirming.'
                         : 'Abre o GitHub com os dados pré-preenchidos. Revise antes de confirmar.'}
