@@ -846,6 +846,21 @@ export const CAR_DB: Car[] = [
     pbeRating: 'A', energyMJkm: 0.47,
   },
   {
+    model: "E-J7", brand: "JAC", price: 259900, range: 249, cat: "Sedan",
+    img: "/car-images/jac-ej7.jpg",
+    power: 193, torque: 34.7, traction: 'FWD', battery: 50,
+    features: [
+      "Bateria LFP 50 kWh (>2.000 ciclos completos)",
+      "Carregamento AC: 20–100% em 6h40 / DC: 20–100% em 1h",
+      "i-Pedal com regeneração de energia",
+      "Câmera 360° com visão 3D",
+      "Teto solar panorâmico",
+      "Tela multimídia 13\" com CarPlay e Android Auto",
+      "Entrada sem chave (keyless entry)",
+      "0–100 km/h em 5,9s"
+    ],
+  },
+  {
     model: "Ariya", brand: "Nissan", price: 350000, range: 400, cat: "SUV",
     img: "/car-images/ariya.jpg",
     power: 242, torque: 30.6, traction: 'AWD', battery: 87,
