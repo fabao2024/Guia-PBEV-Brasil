@@ -209,6 +209,116 @@ Lista de veículos:
 ${carList}`;
 }
 
+// ── RAG: query decomposition + metadata filtering ────────────────────────────
+interface QueryFilters {
+  maxPrice?: number;
+  minRange?: number;
+  categories?: string[];
+  brands?: string[];
+  traction?: string[];
+}
+
+function extractQueryFilters(query: string, lang: string): QueryFilters {
+  const isEn = lang === 'en';
+  const lower = query.toLowerCase();
+  const filters: QueryFilters = {};
+
+  // Parse numeric tokens: "200k", "200.000" (BR), "200,000" (US), "200 mil"
+  function parseAmount(raw: string): number {
+    const s = raw.replace(/\s/g, '').toLowerCase();
+    // Remove BR thousands dots (e.g. "200.000" → "200000") but keep decimal commas
+    const cleaned = s
+      .replace(/\.(?=\d{3}(?!\d))/g, '')
+      .replace(',', '.');
+    const val = parseFloat(cleaned.replace(/[^0-9.]/g, ''));
+    if (s.endsWith('k')) return val * 1000;
+    if (s.startsWith('mil') || s.endsWith('mil')) return val * 1000;
+    return val;
+  }
+
+  // Max price
+  const maxPriceRx = isEn
+    ? /(?:under|below|less than|up to|max(?:imum)?|no more than)\s*r?\$?\s*([\d.,]+\s*k?)/i
+    : /(?:menos de|até|abaixo de|no máximo|máximo de)\s*r?\$?\s*([\d.,]+\s*(?:mil|k)?)/i;
+  const maxPriceM = lower.match(maxPriceRx);
+  if (maxPriceM) {
+    const val = parseAmount(maxPriceM[1]);
+    if (val >= 30_000 && val <= 5_000_000) filters.maxPrice = val;
+  }
+
+  // Min range
+  const minRangeRx = isEn
+    ? /(?:more than|at least|over|min(?:imum)?)\s*([\d]+)\s*km/i
+    : /(?:mais de|pelo menos|acima de|mínimo de|no mínimo)\s*([\d]+)\s*km/i;
+  const minRangeM = lower.match(minRangeRx);
+  if (minRangeM) {
+    const val = parseInt(minRangeM[1]);
+    if (val >= 50 && val <= 2000) filters.minRange = val;
+  }
+
+  // Category
+  const catKws: Record<string, string[]> = {
+    'SUV':       ['suv', 'crossover', 'utilitário esportivo'],
+    'Sedan':     ['sedan', 'berlina'],
+    'Compacto':  isEn ? ['compact', 'hatch', 'hatchback'] : ['compacto', 'hatch', 'hatchback'],
+    'Urbano':    isEn ? ['urban', 'city car', 'city'] : ['urbano', 'citadino', 'pequeno'],
+    'Luxo':      isEn ? ['luxury', 'premium', 'executive'] : ['luxo', 'premium', 'executivo', 'luxuoso'],
+    'Comercial': isEn ? ['commercial', 'van', 'cargo', 'fleet'] : ['comercial', 'van', 'carga', 'frota'],
+  };
+  const foundCats = Object.entries(catKws)
+    .filter(([, kws]) => kws.some(kw => lower.includes(kw)))
+    .map(([cat]) => cat);
+  if (foundCats.length > 0) filters.categories = foundCats;
+
+  // Brand (exact substring match against known brands)
+  const foundBrands = [...new Set(CAR_DB.map(c => c.brand))].filter(b =>
+    lower.includes(b.toLowerCase())
+  );
+  if (foundBrands.length > 0) filters.brands = foundBrands;
+
+  // Traction
+  const tractionKws: Array<[string[], 'FWD' | 'RWD' | 'AWD']> = [
+    [['fwd', 'tração dianteira', 'dianteira', 'front-wheel drive', 'front wheel'], 'FWD'],
+    [['rwd', 'tração traseira', 'traseira', 'rear-wheel drive', 'rear wheel'],     'RWD'],
+    [['awd', '4x4', 'tração integral', 'integral', 'all-wheel drive', 'all wheel',
+      'quattro', 'xdrive', '4matic', '4motion'], 'AWD'],
+  ];
+  const foundTraction = tractionKws
+    .filter(([kws]) => kws.some(kw => lower.includes(kw)))
+    .map(([, t]) => t);
+  if (foundTraction.length > 0) filters.traction = foundTraction;
+
+  return filters;
+}
+
+function retrieveRelevantCars(filters: QueryFilters): Car[] {
+  let results = CAR_DB.filter(c => !c.discontinued);
+  if (filters.maxPrice  !== undefined) results = results.filter(c => c.price <= filters.maxPrice!);
+  if (filters.minRange  !== undefined) results = results.filter(c => c.range >= filters.minRange!);
+  if (filters.categories?.length)      results = results.filter(c => filters.categories!.includes(c.cat));
+  if (filters.brands?.length)          results = results.filter(c => filters.brands!.some(b => b.toLowerCase() === c.brand.toLowerCase()));
+  if (filters.traction?.length)        results = results.filter(c => !!c.traction && filters.traction!.includes(c.traction));
+  return results.sort((a, b) => a.price - b.price);
+}
+
+function buildRagContext(query: string, lang: string): string | null {
+  const isEn = lang === 'en';
+  const filters = extractQueryFilters(query, lang);
+  if (Object.keys(filters).length === 0) return null;
+
+  const relevant = retrieveRelevantCars(filters);
+  if (relevant.length === 0 || relevant.length > 25) return null;
+
+  const lines = relevant.map(c =>
+    `- ${c.brand} ${c.model}: R$${c.price.toLocaleString('pt-BR')}, ${c.range}km, ${c.cat}${c.traction ? `, ${c.traction}` : ''}${c.power ? `, ${c.power}cv` : ''}`
+  ).join('\n');
+
+  return isEn
+    ? `[RAG — ${relevant.length} vehicle(s) matching query filters:]\n${lines}`
+    : `[RAG — ${relevant.length} veículo(s) correspondente(s) aos filtros da consulta:]\n${lines}`;
+}
+// ─────────────────────────────────────────────────────────────────────────────
+
 interface ChatWidgetProps {
   compareBarVisible?: boolean;
   triggerSuggest?: boolean;
@@ -484,7 +594,9 @@ SUGGEST_EV_READY:{"brand":"MARCA","model":"MODELO","price":"PRECO","range":"AUTO
     };
 
     try {
-      const result = await sendWithRetry(sanitized);
+      const ragContext = buildRagContext(sanitized, i18n.language);
+      const messageToSend = ragContext ? `${ragContext}\n\n${sanitized}` : sanitized;
+      const result = await sendWithRetry(messageToSend);
       const response = await result!.response;
       const responseText = response.text();
 
