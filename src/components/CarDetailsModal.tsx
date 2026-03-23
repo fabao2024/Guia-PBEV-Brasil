@@ -283,7 +283,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                     {/* Category + brand + favorite badge */}
                     <div className="flex items-center gap-2 mb-2 flex-wrap">
                         <span
-                            className="text-[9px] px-2.5 py-1 rounded-full font-bold uppercase tracking-widest"
+                            className="text-[10px] px-2.5 py-1 rounded-full font-bold uppercase tracking-widest"
                             style={{ background: accent.bg, color: accent.color, border: `1px solid ${accent.color}28` }}
                         >
                             {t(`categories.${car.cat}`)}
@@ -293,7 +293,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                         </span>
                         {isFavorite && (
                             <span
-                                className="flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
+                                className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
                                 style={{ background: 'rgba(239,68,68,0.1)', color: '#ef4444', border: '1px solid rgba(239,68,68,0.25)' }}
                             >
                                 <Heart className="w-3 h-3 fill-current" /> {t('details.favorite')}
@@ -313,7 +313,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                     <div className="mb-5">
                         <div className="flex items-center justify-between mb-2">
                             <span
-                                className="text-[9px] uppercase tracking-widest font-medium flex items-center gap-1.5"
+                                className="text-[10px] uppercase tracking-widest font-medium flex items-center gap-1.5"
                                 style={{ color: 'rgba(255,255,255,0.3)' }}
                             >
                                 <BatteryCharging className="w-3.5 h-3.5" />
@@ -338,7 +338,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                             className="rounded-xl px-4 py-3"
                             style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
                         >
-                            <div className="text-[9px] uppercase tracking-widest mb-1" style={{ color: 'rgba(255,255,255,0.28)' }}>
+                            <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: 'rgba(255,255,255,0.28)' }}>
                                 {t('details.power', 'Potência')}
                             </div>
                             <div className="text-xl font-black text-white leading-none">
@@ -352,7 +352,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                                 title={TRACTION_TITLE[car.traction ?? '']}
                                 style={{ background: tractionStyle.bg, border: `1px solid ${tractionStyle.color}22` }}
                             >
-                                <div className="text-[9px] uppercase tracking-widest mb-1" style={{ color: `${tractionStyle.color}65` }}>
+                                <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: `${tractionStyle.color}65` }}>
                                     {t('card.traction', 'Tração')}
                                 </div>
                                 <div className="text-xl font-black leading-none" style={{ color: tractionStyle.color }}>
@@ -365,7 +365,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                                 className="rounded-xl px-4 py-3"
                                 style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
                             >
-                                <div className="text-[9px] uppercase tracking-widest mb-1" style={{ color: 'rgba(255,255,255,0.28)' }}>
+                                <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: 'rgba(255,255,255,0.28)' }}>
                                     {t('details.torque', 'Torque')}
                                 </div>
                                 <div className="text-xl font-black text-white leading-none">
@@ -379,7 +379,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                                 className="rounded-xl px-4 py-3"
                                 style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
                             >
-                                <div className="text-[9px] uppercase tracking-widest mb-1" style={{ color: 'rgba(255,255,255,0.28)' }}>
+                                <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: 'rgba(255,255,255,0.28)' }}>
                                     {t('details.battery', 'Bateria')}
                                 </div>
                                 <div className="text-xl font-black text-white leading-none">
@@ -397,7 +397,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                     {car.pbeRating && (
                         <div className="mb-5">
                             <h3
-                                className="text-[9px] font-bold uppercase tracking-widest mb-3 flex items-center gap-2"
+                                className="text-[10px] font-bold uppercase tracking-widest mb-3 flex items-center gap-2"
                                 style={{ color: accent.color }}
                             >
                                 <Award className="w-3.5 h-3.5" />
@@ -413,12 +413,12 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                                 <div className="flex flex-col gap-1">
                                     <span className="text-xs font-bold text-white">{t('pbe.rating')}: {car.pbeRating}</span>
                                     {car.energyMJkm && (
-                                        <span className="text-[11px]" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                                        <span className="text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>
                                             {t('pbe.energy')}: <strong className="text-white">{car.energyMJkm} {t('pbe.energyUnit')}</strong>
                                         </span>
                                     )}
                                     {car.conpetSeal !== undefined && (
-                                        <span className="text-[11px]" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                                        <span className="text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>
                                             {t('pbe.conpet')}: <strong style={{ color: car.conpetSeal ? '#00e5a0' : 'rgba(255,255,255,0.4)' }}>
                                                 {car.conpetSeal ? t('pbe.conpetYes') : t('pbe.conpetNo')}
                                             </strong>
@@ -432,7 +432,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                     {/* IPVA 2026 */}
                     <div className="mb-5">
                         <h3
-                            className="text-[9px] font-bold uppercase tracking-widest mb-3 flex items-center gap-2"
+                            className="text-[10px] font-bold uppercase tracking-widest mb-3 flex items-center gap-2"
                             style={{ color: accent.color }}
                         >
                             {t('ipva.title')}
@@ -457,14 +457,14 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                             style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
                         >
                             <div>
-                                <div className="text-[9px] uppercase tracking-widest mb-0.5" style={{ color: 'rgba(255,255,255,0.28)' }}>
+                                <div className="text-[10px] uppercase tracking-widest mb-0.5" style={{ color: 'rgba(255,255,255,0.28)' }}>
                                     {t('ipva.annualIpva')}
                                 </div>
                                 <div className="text-xl font-black" style={{ color: annualIpva === 0 ? '#00e5a0' : 'white' }}>
                                     {annualIpva === 0 ? t('ipva.exempt') : `R$ ${annualIpva.toLocaleString('pt-BR')}`}
                                 </div>
                                 {ipvaSavings > 0 && (
-                                    <div className="text-[10px] mt-0.5" style={{ color: '#00e5a0' }}>
+                                    <div className="text-xs mt-0.5" style={{ color: '#00e5a0' }}>
                                         ↓ R$ {ipvaSavings.toLocaleString('pt-BR')} {t('ipva.savingsVsCombustion')}
                                     </div>
                                 )}
@@ -472,13 +472,13 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                             <div className="text-right" style={{ color: 'rgba(255,255,255,0.35)' }}>
                                 <div className="text-xs">{t('ipva.bevRate')} {(ipvaInfo.bevRate * 100).toFixed(1)}%</div>
                                 {ipvaInfo.condition && (
-                                    <div className="text-[10px] mt-1 max-w-[130px] leading-tight" style={{ color: 'rgba(255,255,255,0.28)' }}>
+                                    <div className="text-xs mt-1 max-w-[130px] leading-tight" style={{ color: 'rgba(255,255,255,0.28)' }}>
                                         {ipvaInfo.condition}
                                     </div>
                                 )}
                             </div>
                         </div>
-                        <p className="text-[10px] mt-2 text-right" style={{ color: 'rgba(255,255,255,0.2)' }}>
+                        <p className="text-xs mt-2 text-right" style={{ color: 'rgba(255,255,255,0.2)' }}>
                             {'⚠'} Dados de {IPVA_DATA_UPDATED}. Consulte a Sefaz do seu estado.
                         </p>
                     </div>
@@ -489,7 +489,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                     {/* Features list */}
                     <div className="flex-1 mb-6">
                         <h3
-                            className="text-[9px] font-bold uppercase tracking-widest mb-4 flex items-center gap-2"
+                            className="text-[10px] font-bold uppercase tracking-widest mb-4 flex items-center gap-2"
                             style={{ color: accent.color }}
                         >
                             <Zap className="w-3.5 h-3.5" />
@@ -523,7 +523,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                                 className="absolute inset-0 pointer-events-none opacity-30"
                                 style={{ background: `radial-gradient(ellipse 60% 80% at 0% 50%, ${accent.color}12, transparent)` }}
                             />
-                            <span className="text-[9px] font-bold uppercase tracking-widest relative z-10" style={{ color: 'rgba(255,255,255,0.35)' }}>
+                            <span className="text-[10px] font-bold uppercase tracking-widest relative z-10" style={{ color: 'rgba(255,255,255,0.35)' }}>
                                 {t('details.estimatedPrice')}
                             </span>
                             <span className="text-2xl font-black tracking-tight relative z-10" style={{ color: '#00b4ff' }}>
@@ -535,7 +535,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                         <div className="flex gap-2.5">
                             <button
                                 onClick={onToggleCompare}
-                                className="flex-[1.5] py-3.5 rounded-2xl transition-all font-bold uppercase tracking-wider text-[10px] flex items-center justify-center gap-2"
+                                className="flex-[1.5] py-3.5 rounded-2xl transition-all font-bold uppercase tracking-wider text-xs flex items-center justify-center gap-2"
                                 style={isSelectedForCompare
                                     ? { background: `${accent.color}15`, border: `1px solid ${accent.color}50`, color: accent.color }
                                     : { background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.6)' }
@@ -559,7 +559,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
 
                             <button
                                 onClick={handleShare}
-                                className="py-3.5 px-4 rounded-2xl transition-all font-bold flex items-center justify-center gap-1.5 text-[10px] uppercase tracking-wider"
+                                className="py-3.5 px-4 rounded-2xl transition-all font-bold flex items-center justify-center gap-1.5 text-xs uppercase tracking-wider"
                                 style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.5)' }}
                                 title={t('card.share')}
                             >
@@ -585,13 +585,13 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
 
                         {/* Discontinued notice */}
                         {car.discontinued && (
-                            <p className="text-center text-[11px] leading-relaxed" style={{ color: 'rgba(239,68,68,0.7)' }}>
+                            <p className="text-center text-xs leading-relaxed" style={{ color: 'rgba(239,68,68,0.7)' }}>
                                 ⚠ {t('card.discontinuedNote')}
                             </p>
                         )}
 
                         {/* Not a seller disclaimer */}
-                        <p className="text-center text-[10px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.25)' }}>
+                        <p className="text-center text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.25)' }}>
                             ℹ️ {t('details.notASeller')}
                         </p>
 
@@ -601,7 +601,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => track('Insurance Quote Click', { model: car.model, brand: car.brand })}
-                            className="w-full py-3 rounded-2xl transition-all font-bold uppercase tracking-wider text-[10px] flex items-center justify-center gap-2 no-underline hover:brightness-110 active:scale-[0.99]"
+                            className="w-full py-3 rounded-2xl transition-all font-bold uppercase tracking-wider text-xs flex items-center justify-center gap-2 no-underline hover:brightness-110 active:scale-[0.99]"
                             style={{
                                 background: 'rgba(0,229,160,0.07)',
                                 border: '1px solid rgba(0,229,160,0.25)',

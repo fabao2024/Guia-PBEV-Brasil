@@ -49,7 +49,7 @@ export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonM
 
             {/* Mobile horizontal scroll hint */}
             <div className="sm:hidden flex items-center justify-center gap-2 py-2 bg-[#050505] border-b border-white/5">
-               <span className="text-[10px] text-white/25 font-medium tracking-wider">{t('comparison.mobileScrollHint')}</span>
+               <span className="text-xs text-white/25 font-medium tracking-wider">{t('comparison.mobileScrollHint')}</span>
             </div>
 
             {/* Comparison Table Container */}
@@ -59,14 +59,14 @@ export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonM
                   {/* LABELS COLUMN */}
                   <div className="flex flex-col gap-4 py-4 pr-2 sm:pr-4">
                      <div className="h-40"></div> {/* Spacer for Images */}
-                     <div className="font-black text-[#666666] text-[9px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.model')}</div>
-                     <div className="font-black text-[#666666] text-[9px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.price')}</div>
-                     <div className="font-black text-[#666666] text-[9px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.range')}</div>
-                     <div className="font-black text-[#666666] text-[9px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.power')}</div>
-                     <div className="font-black text-[#666666] text-[9px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.torque')}</div>
-                     <div className="font-black text-[#666666] text-[9px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.battery', 'Bateria')}</div>
-                     <div className="font-black text-[#666666] text-[9px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.category')}</div>
-                     <div className="font-black text-[#666666] text-[9px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.features')}</div>
+                     <div className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.model')}</div>
+                     <div className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.price')}</div>
+                     <div className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.range')}</div>
+                     <div className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.power')}</div>
+                     <div className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.torque')}</div>
+                     <div className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.battery', 'Bateria')}</div>
+                     <div className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.category')}</div>
+                     <div className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.features')}</div>
                   </div>
 
                   {/* CAR COLUMNS */}
@@ -94,7 +94,7 @@ export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonM
                               className="w-full h-full object-cover animate-in fade-in duration-500 filter brightness-90 group-hover:brightness-100 transition-all"
                            />
                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
-                              <span className="text-[#a0a0a0] text-[10px] font-black uppercase tracking-widest">{car.brand}</span>
+                              <span className="text-[#a0a0a0] text-xs font-black uppercase tracking-widest">{car.brand}</span>
                            </div>
                         </div>
 
@@ -139,7 +139,7 @@ export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonM
                         </div>
 
                         <div className="h-10 flex items-center">
-                           <span className="px-2.5 py-1 bg-black/50 border border-white/10 rounded-lg text-[10px] font-black text-[#a0a0a0] uppercase tracking-widest">
+                           <span className="px-2.5 py-1 bg-black/50 border border-white/10 rounded-lg text-xs font-black text-[#a0a0a0] uppercase tracking-widest">
                               {t(`categories.${car.cat}`)}
                            </span>
                         </div>
@@ -170,7 +170,7 @@ export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonM
                </div>
             </div>
 
-            <div className="p-5 bg-black border-t border-white/10 text-center text-[10px] font-black text-[#666666] uppercase tracking-widest">
+            <div className="p-5 bg-black border-t border-white/10 text-center text-xs font-black text-[#666666] uppercase tracking-widest">
                {t('comparison.footer')}
             </div>
          </div>
