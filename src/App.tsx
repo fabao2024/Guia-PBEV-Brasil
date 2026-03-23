@@ -162,7 +162,7 @@ export default function App() {
             {/* Simulator — desktop only (mobile has it in the sticky bar below) */}
             <button
               onClick={() => setIsSimulatorModalOpen(true)}
-              className="hidden md:flex items-center gap-2 px-4 py-2 bg-[#00b4ff]/10 text-[#00b4ff] border border-[#00b4ff]/30 hover:bg-[#00b4ff]/20 rounded-xl font-black transition-all uppercase tracking-widest text-[10px]"
+              className="hidden md:flex items-center gap-2 px-4 py-2.5 bg-[#00b4ff] hover:bg-[#33c9ff] hover:-translate-y-0.5 text-black rounded-xl font-black transition-all shadow-[0_0_20px_rgba(0,180,255,0.3)] uppercase tracking-widest text-[10px]"
             >
               <BarChart2 className="w-4 h-4" />
               {t('simulator.headerBtn', 'Simulador')}
@@ -172,7 +172,7 @@ export default function App() {
             <div className="relative">
               <button
                 onClick={() => setShowSuggestMenu(prev => !prev)}
-                className="flex items-center gap-1.5 bg-[#00b4ff] hover:bg-[#33c9ff] hover:-translate-y-0.5 text-black px-3 md:px-5 py-2 md:py-2.5 rounded-xl font-black transition-all shadow-[0_0_20px_rgba(0,180,255,0.3)]"
+                className="flex items-center gap-1.5 bg-[#00b4ff]/10 hover:bg-[#00b4ff]/20 text-[#00b4ff] border border-[#00b4ff]/30 px-3 md:px-5 py-2 md:py-2.5 rounded-xl font-black transition-all"
                 title={t('addVehicle.headerBtn')}
               >
                 <Lightbulb className="w-4 h-4 md:w-5 md:h-5" />
