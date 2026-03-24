@@ -26,8 +26,9 @@ dist-ssr
 # Env
 .env
 
-# Dev utility scripts
-scripts/
+# Dev utility scripts (root-level only)
+/scripts/
+!.github/scripts/
 
 # Private planning docs
 ROADMAP.md
