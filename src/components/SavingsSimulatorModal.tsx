@@ -664,20 +664,20 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                         </div>
 
                                         {/* TCO summary tiles — row 1: operating costs */}
-                                        <div className="px-5 pb-2 flex flex-wrap gap-3">
-                                            <div className="bg-white/4 rounded-xl px-3 py-2 text-center">
+                                        <div className="px-5 pb-2 grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                                            <div className="bg-white/4 rounded-xl px-3 py-2.5 text-center">
                                                 <p className="text-[10px] uppercase tracking-widest text-white/30 mb-0.5">{t('details.estimatedPrice')}</p>
                                                 <p className="text-sm font-black text-white">{fmtBRL(car.price)}</p>
                                             </div>
-                                            <div className="rounded-xl px-3 py-2 text-center" style={{ background: 'rgba(0,180,255,0.07)', border: '1px solid rgba(0,180,255,0.18)' }}>
+                                            <div className="rounded-xl px-3 py-2.5 text-center" style={{ background: 'rgba(0,180,255,0.07)', border: '1px solid rgba(0,180,255,0.18)' }}>
                                                 <p className="text-[10px] uppercase tracking-widest mb-0.5" style={{ color: 'rgba(0,180,255,0.6)' }}>{t('simulator.totalEV4y')}</p>
                                                 <p className="text-sm font-black" style={{ color: '#00b4ff' }}>{fmtBRL(tco.totalEV4y)}</p>
                                             </div>
-                                            <div className="bg-white/4 rounded-xl px-3 py-2 text-center">
+                                            <div className="bg-white/4 rounded-xl px-3 py-2.5 text-center">
                                                 <p className="text-[10px] uppercase tracking-widest text-white/30 mb-0.5">{t('simulator.totalComb4y')}</p>
                                                 <p className="text-sm font-black text-white/60">{fmtBRL(tco.totalComb4y)}</p>
                                             </div>
-                                            <div className="rounded-xl px-3 py-2 text-center" style={{ background: 'rgba(0,229,160,0.07)', border: '1px solid rgba(0,229,160,0.2)' }}>
+                                            <div className="rounded-xl px-3 py-2.5 text-center" style={{ background: 'rgba(0,229,160,0.07)', border: '1px solid rgba(0,229,160,0.2)' }}>
                                                 <p className="text-[10px] uppercase tracking-widest mb-0.5 text-[#00e5a0]/60">{t('simulator.totalSavings4y')}</p>
                                                 <p className="text-sm font-black text-[#00e5a0]">{fmtBRL(tco.totalSavings4y)}</p>
                                             </div>
@@ -690,16 +690,16 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                                     {t('simulator.resaleTitle')}
                                                     <span className="text-white/20 cursor-help" title={t('simulator.resaleTooltip')}>ⓘ</span>
                                                 </p>
-                                                <div className="flex flex-wrap gap-3">
-                                                    <div className="rounded-lg px-3 py-1.5 text-center" style={{ background: 'rgba(0,180,255,0.06)', border: '1px solid rgba(0,180,255,0.14)' }}>
+                                                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                                                    <div className="rounded-lg px-3 py-2 text-center" style={{ background: 'rgba(0,180,255,0.06)', border: '1px solid rgba(0,180,255,0.14)' }}>
                                                         <p className="text-[10px] uppercase tracking-widest mb-0.5" style={{ color: 'rgba(0,180,255,0.5)' }}>{t('simulator.residualValueEV')}</p>
                                                         <p className="text-sm font-black" style={{ color: '#00b4ff' }}>{fmtBRL(tco.residualValueEV)}</p>
                                                     </div>
-                                                    <div className="bg-white/4 rounded-lg px-3 py-1.5 text-center">
+                                                    <div className="bg-white/4 rounded-lg px-3 py-2 text-center">
                                                         <p className="text-[10px] uppercase tracking-widest text-white/25 mb-0.5">{t('simulator.residualValueComb')}</p>
                                                         <p className="text-sm font-black text-white/50">{fmtBRL(tco.residualValueComb)}</p>
                                                     </div>
-                                                    <div className="rounded-lg px-3 py-1.5 text-center flex-1 min-w-[140px]" style={
+                                                    <div className="col-span-2 sm:col-span-1 rounded-lg px-3 py-2 text-center" style={
                                                         tco.netAdvantageEV > 0
                                                             ? { background: 'rgba(0,229,160,0.08)', border: '1px solid rgba(0,229,160,0.22)' }
                                                             : tco.netAdvantageEV < -5000
