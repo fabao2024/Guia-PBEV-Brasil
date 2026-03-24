@@ -1,5 +1,5 @@
 import { Car } from '../types';
-import { IPVA_BY_STATE, calcIpva, STANDARD_COMBUSTION_IPVA_RATE } from '../constants/ipvaByState';
+import { IPVA_BY_STATE, calcIpva } from '../constants/ipvaByState';
 
 export type FuelType = 'gasoline' | 'ethanol';
 
@@ -107,7 +107,7 @@ export function calcTCO(car: Car, params: TCOParams): TCOResult {
     const insuranceComb = Math.round(combValue * COMB_INS_RATE);
 
     const ipvaEV   = calcIpva(evValue, ipvaStateInfo);
-    const ipvaComb = Math.round(combValue * STANDARD_COMBUSTION_IPVA_RATE);
+    const ipvaComb = Math.round(combValue * ipvaStateInfo.standardRate);
 
     const totalEV   = annualEnergyEV   + insuranceEV   + annualMaintEV   + ipvaEV;
     const totalComb = annualEnergyComb + insuranceComb + annualMaintComb + ipvaComb;

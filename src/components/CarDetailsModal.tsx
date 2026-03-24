@@ -5,7 +5,7 @@ import { BRAND_URLS, INSURANCE_AFFILIATE_URL } from '../constants';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { useMeta } from '../hooks/useMeta';
 import { X, BatteryCharging, Zap, CheckCircle2, ChevronLeft, ChevronRight, Image as ImageIcon, Scale, Check, Heart, ArrowUpRight, Share2, ChevronDown, Award, Shield } from 'lucide-react';
-import { IPVA_BY_STATE, calcIpva, STANDARD_COMBUSTION_IPVA_RATE, IPVA_DATA_UPDATED } from '../constants/ipvaByState';
+import { IPVA_BY_STATE, calcIpva, IPVA_DATA_UPDATED } from '../constants/ipvaByState';
 import { track } from '../utils/analytics';
 
 interface CarDetailsModalProps {
@@ -148,7 +148,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
 
     const ipvaInfo = IPVA_BY_STATE.find(s => s.abbr === selectedState) ?? IPVA_BY_STATE.find(s => s.abbr === 'SP')!;
     const annualIpva = calcIpva(car.price, ipvaInfo);
-    const combustionIpva = Math.round(car.price * STANDARD_COMBUSTION_IPVA_RATE);
+    const combustionIpva = Math.round(car.price * ipvaInfo.standardRate);
     const ipvaSavings = combustionIpva - annualIpva;
 
     const PBE_COLORS: Record<string, string> = {

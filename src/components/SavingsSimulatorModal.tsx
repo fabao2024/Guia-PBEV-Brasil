@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { ChevronLeft, ChevronDown, Download, TrendingDown, Zap, Info } from 'lucide-react';
 import { CAR_DB } from '../constants';
 import { Car } from '../types';
-import { IPVA_BY_STATE, calcIpva, STANDARD_COMBUSTION_IPVA_RATE, IPVA_DATA_UPDATED } from '../constants/ipvaByState';
+import { IPVA_BY_STATE, calcIpva, IPVA_DATA_UPDATED } from '../constants/ipvaByState';
 import { FUEL_PRICES_BY_STATE, FUEL_PRICES_UPDATED, getDefaultFuelPrice } from '../constants/fuelPricesByState';
 import { ELECTRICITY_PRICES_BY_STATE, ELECTRICITY_PRICES_UPDATED, getDefaultElectricityPrice } from '../constants/electricityPricesByState';
 import { track } from '../utils/analytics';
@@ -472,7 +472,7 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                 const costPerKm = kms > 0 ? evCost / kms : 0;
                                 const ipvaStateInfo = IPVA_BY_STATE.find(s => s.abbr === selectedState) ?? IPVA_BY_STATE.find(s => s.abbr === 'SP')!;
                                 const annualIpvaBev = car ? calcIpva(car.price, ipvaStateInfo) : 0;
-                                const annualIpvaCombustion = car ? Math.round(car.price * STANDARD_COMBUSTION_IPVA_RATE) : 0;
+                                const annualIpvaCombustion = car ? Math.round(car.price * ipvaStateInfo.standardRate) : 0;
                                 const ipvaSavings = annualIpvaCombustion - annualIpvaBev;
                                 const maxCost = Math.max(gasCost, 1000);
                                 const evHeight = car ? `${(evCost / maxCost) * 100}%` : '5%';
