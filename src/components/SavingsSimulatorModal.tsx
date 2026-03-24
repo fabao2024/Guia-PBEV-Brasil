@@ -663,8 +663,8 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                             </div>
                                         </div>
 
-                                        {/* TCO summary tiles */}
-                                        <div className="px-5 pb-4 flex flex-wrap gap-3">
+                                        {/* TCO summary tiles — row 1: operating costs */}
+                                        <div className="px-5 pb-2 flex flex-wrap gap-3">
                                             <div className="bg-white/4 rounded-xl px-3 py-2 text-center">
                                                 <p className="text-[10px] uppercase tracking-widest text-white/30 mb-0.5">{t('details.estimatedPrice')}</p>
                                                 <p className="text-sm font-black text-white">{fmtBRL(car.price)}</p>
@@ -680,6 +680,46 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                             <div className="rounded-xl px-3 py-2 text-center" style={{ background: 'rgba(0,229,160,0.07)', border: '1px solid rgba(0,229,160,0.2)' }}>
                                                 <p className="text-[10px] uppercase tracking-widest mb-0.5 text-[#00e5a0]/60">{t('simulator.totalSavings4y')}</p>
                                                 <p className="text-sm font-black text-[#00e5a0]">{fmtBRL(tco.totalSavings4y)}</p>
+                                            </div>
+                                        </div>
+
+                                        {/* TCO summary tiles — row 2: resale & net position */}
+                                        <div className="px-5 pb-4">
+                                            <div className="rounded-xl border border-white/6 bg-white/2 px-3 py-2.5">
+                                                <p className="text-[10px] uppercase tracking-widest text-white/25 mb-2 flex items-center gap-1.5">
+                                                    {t('simulator.resaleTitle')}
+                                                    <span className="text-white/20 cursor-help" title={t('simulator.resaleTooltip')}>ⓘ</span>
+                                                </p>
+                                                <div className="flex flex-wrap gap-3">
+                                                    <div className="rounded-lg px-3 py-1.5 text-center" style={{ background: 'rgba(0,180,255,0.06)', border: '1px solid rgba(0,180,255,0.14)' }}>
+                                                        <p className="text-[10px] uppercase tracking-widest mb-0.5" style={{ color: 'rgba(0,180,255,0.5)' }}>{t('simulator.residualValueEV')}</p>
+                                                        <p className="text-sm font-black" style={{ color: '#00b4ff' }}>{fmtBRL(tco.residualValueEV)}</p>
+                                                    </div>
+                                                    <div className="bg-white/4 rounded-lg px-3 py-1.5 text-center">
+                                                        <p className="text-[10px] uppercase tracking-widest text-white/25 mb-0.5">{t('simulator.residualValueComb')}</p>
+                                                        <p className="text-sm font-black text-white/50">{fmtBRL(tco.residualValueComb)}</p>
+                                                    </div>
+                                                    <div className="rounded-lg px-3 py-1.5 text-center flex-1 min-w-[140px]" style={
+                                                        tco.netAdvantageEV > 0
+                                                            ? { background: 'rgba(0,229,160,0.08)', border: '1px solid rgba(0,229,160,0.22)' }
+                                                            : tco.netAdvantageEV < -5000
+                                                            ? { background: 'rgba(255,80,80,0.07)', border: '1px solid rgba(255,80,80,0.2)' }
+                                                            : { background: 'rgba(255,180,0,0.07)', border: '1px solid rgba(255,180,0,0.2)' }
+                                                    }>
+                                                        <p className="text-[10px] uppercase tracking-widest mb-0.5" style={
+                                                            tco.netAdvantageEV > 0 ? { color: 'rgba(0,229,160,0.6)' }
+                                                            : tco.netAdvantageEV < -5000 ? { color: 'rgba(255,100,100,0.7)' }
+                                                            : { color: 'rgba(255,200,0,0.7)' }
+                                                        }>{t('simulator.netAdvantageEV')}</p>
+                                                        <p className="text-sm font-black" style={
+                                                            tco.netAdvantageEV > 0 ? { color: '#00e5a0' }
+                                                            : tco.netAdvantageEV < -5000 ? { color: '#ff6464' }
+                                                            : { color: '#ffb800' }
+                                                        }>
+                                                            {tco.netAdvantageEV >= 0 ? '+' : ''}{fmtBRL(tco.netAdvantageEV)}
+                                                        </p>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 

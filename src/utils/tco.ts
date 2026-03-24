@@ -73,6 +73,10 @@ export interface TCOResult {
   totalSavings4y: number;
   costPerKmEV: number;   // R$/km TCO total
   costPerKmComb: number; // R$/km TCO total
+  // Resale analysis
+  residualValueEV: number;   // estimated resale value after 4 years (EV)
+  residualValueComb: number; // estimated resale value after 4 years (combustion)
+  netAdvantageEV: number;    // totalSavings4y − extra depreciation loss; positive = EV wins total
 }
 
 export function calcTCO(car: Car, params: TCOParams): TCOResult {
@@ -127,12 +131,22 @@ export function calcTCO(car: Car, params: TCOParams): TCOResult {
   const totalComb4y = years.reduce((s, y) => s + y.totalComb, 0);
   const totalKms4y  = annualKms * 4;
 
+  // Resale value at END of year 4 (after 4 full years of depreciation)
+  const residualValueEV   = Math.round(Math.max(0, car.price * (1 - EV_DEPR_ANNUAL   * 4)));
+  const residualValueComb = Math.round(Math.max(0, car.price * (1 - COMB_DEPR_ANNUAL * 4)));
+  const totalSavings4y    = totalComb4y - totalEV4y;
+  // Net advantage = operating savings minus the extra depreciation loss vs combustion
+  const netAdvantageEV = totalSavings4y - (residualValueComb - residualValueEV);
+
   return {
     years,
     totalEV4y,
     totalComb4y,
-    totalSavings4y: totalComb4y - totalEV4y,
+    totalSavings4y,
     costPerKmEV:   totalKms4y > 0 ? totalEV4y   / totalKms4y : 0,
     costPerKmComb: totalKms4y > 0 ? totalComb4y / totalKms4y : 0,
+    residualValueEV,
+    residualValueComb,
+    netAdvantageEV,
   };
 }
