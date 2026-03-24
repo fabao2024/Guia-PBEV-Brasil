@@ -173,7 +173,6 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
     const [kwhPrice, setKwhPrice] = useState<number>(() => getDefaultElectricityPrice(localStorage.getItem('selectedState') ?? 'SP'));
     const [dcKwhPrice, setDcKwhPrice] = useState<number>(2.50);
     const [dcPercent, setDcPercent] = useState<number>(20);
-    const [currency, setCurrency] = useState<'BRL' | 'USD'>('BRL');
     const [selectedState, setSelectedState] = useState<string>(
         () => localStorage.getItem('selectedState') ?? 'SP'
     );
@@ -197,22 +196,6 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
     useEffect(() => { track('Simulator Used', { state: selectedState }); }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
 
-    const handleCurrencyChange = (newCurrency: 'BRL' | 'USD') => {
-        if (currency === newCurrency) return;
-        const rate = 5.5;
-        if (newCurrency === 'USD') {
-            setGasPrice(Number((gasPrice / rate).toFixed(2)));
-            setKwhPrice(Number((kwhPrice / rate).toFixed(2)));
-            setDcKwhPrice(Number((dcKwhPrice / rate).toFixed(2)));
-        } else {
-            setGasPrice(Number((gasPrice * rate).toFixed(2)));
-            setKwhPrice(Number((kwhPrice * rate).toFixed(2)));
-            setDcKwhPrice(Number((dcKwhPrice * rate).toFixed(2)));
-        }
-        setCurrency(newCurrency);
-    };
-
-    const currencySymbol = currency === 'BRL' ? 'R$' : '$';
     const blendedKwhPrice = (kwhPrice * (1 - dcPercent / 100)) + (dcKwhPrice * (dcPercent / 100));
 
     const handleCarSelect = (index: number, model: string) => {
@@ -289,7 +272,7 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
         }
     }, [selectedCars, kms, gasPrice, blendedKwhPrice, fuelType, selectedState]);
 
-    const fmtBRL = (v: number) => `R$ ${Math.round(v).toLocaleString('pt-BR')}`;
+    const fmtNum = (v: number) => Math.round(v).toLocaleString('pt-BR');
 
     return (
         <div className="fixed inset-0 z-[70] flex items-start justify-center overflow-y-auto p-0 sm:p-6">
@@ -311,10 +294,7 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                         <h2 className="text-xl md:text-2xl font-black text-white text-center leading-tight">
                             {t('simulator.title')}<br /><span className="hidden md:inline text-[#00b4ff]">{t('simulator.titlePBEV')}</span>
                         </h2>
-                        <div className="flex bg-[#1a1a1a] rounded-lg p-1 border border-white/10">
-                            <button onClick={() => handleCurrencyChange('BRL')} className={`px-2 py-1 rounded-md text-xs font-bold transition-all ${currency === 'BRL' ? 'bg-[#00b4ff] text-black shadow-[0_0_10px_rgba(0,180,255,0.5)]' : 'text-[#a0a0a0] hover:text-white'}`}>R$</button>
-                            <button onClick={() => handleCurrencyChange('USD')} className={`px-2 py-1 rounded-md text-xs font-bold transition-all ${currency === 'USD' ? 'bg-[#00b4ff] text-black shadow-[0_0_10px_rgba(0,180,255,0.5)]' : 'text-[#a0a0a0] hover:text-white'}`}>$</button>
-                        </div>
+                        <div className="w-10" />
                     </div>
 
                     {/* Tab bar */}
@@ -396,7 +376,7 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                 </div>
                                 <div className="flex items-center gap-1.5">
                                     <button className={stepBtn} onClick={() => setGasPrice(p => Math.max(1, Math.round((p - 0.10) * 100) / 100))}>−</button>
-                                    <div className={`px-3 py-1 rounded-full font-mono text-sm transition-colors ${fuelType === 'ethanol' ? 'bg-[#00e5a0]/10 border border-[#00e5a0]/40 text-[#00e5a0]' : 'bg-[#ff8c52]/10 border border-[#ff8c52]/40 text-[#ff8c52]'}`}>{currencySymbol} {gasPrice.toFixed(2).replace('.', ',')}</div>
+                                    <div className={`px-3 py-1 rounded-full font-mono text-sm transition-colors ${fuelType === 'ethanol' ? 'bg-[#00e5a0]/10 border border-[#00e5a0]/40 text-[#00e5a0]' : 'bg-[#ff8c52]/10 border border-[#ff8c52]/40 text-[#ff8c52]'}`}>R$ {gasPrice.toFixed(2).replace('.', ',')}</div>
                                     <button className={stepBtn} onClick={() => setGasPrice(p => Math.min(10, Math.round((p + 0.10) * 100) / 100))}>+</button>
                                 </div>
                             </div>
@@ -406,7 +386,7 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                 const label = fuelType === 'ethanol' ? 'etanol' : 'gasolina';
                                 return (
                                     <p className="text-xs text-white/30 mt-1.5">
-                                        Média {selectedState}: {currencySymbol} {ref.toFixed(2).replace('.', ',')} /L ({label}) · ANP {FUEL_PRICES_UPDATED}
+                                        Média {selectedState}: R$ {ref.toFixed(2).replace('.', ',')} /L ({label}) · ANP {FUEL_PRICES_UPDATED}
                                         {fuelType === 'ethanol' && <span className="text-[#00e5a0]/60"> · +30% consumo vs. gasolina</span>}
                                     </p>
                                 );
@@ -418,13 +398,13 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                 <span className="text-white text-sm">{t('simulator.kwhPrice')} /kWh</span>
                                 <div className="flex items-center gap-1.5">
                                     <button className={stepBtn} onClick={() => setKwhPrice(p => Math.max(0, Math.round((p - 0.05) * 100) / 100))}>−</button>
-                                    <div className="bg-white/10 px-3 py-1 rounded-full border border-white/20 text-white font-mono text-sm">{currencySymbol} {kwhPrice.toFixed(2).replace('.', ',')}</div>
+                                    <div className="bg-white/10 px-3 py-1 rounded-full border border-white/20 text-white font-mono text-sm">R$ {kwhPrice.toFixed(2).replace('.', ',')}</div>
                                     <button className={stepBtn} onClick={() => setKwhPrice(p => Math.min(10, Math.round((p + 0.05) * 100) / 100))}>+</button>
                                 </div>
                             </div>
                             <input type="range" min="0" max="10" step="0.05" value={kwhPrice} onChange={e => setKwhPrice(Number(e.target.value))} className={sliderThumbClasses} style={makeSliderStyle(kwhPrice, 0, 10)} />
                             <p className="text-xs text-white/30 mt-1.5">
-                                Média {selectedState}: {currencySymbol} {ELECTRICITY_PRICES_BY_STATE[selectedState]?.toFixed(2).replace('.', ',') ?? '—'} /kWh (B1 residencial, sem ICMS) · ANEEL {ELECTRICITY_PRICES_UPDATED}
+                                Média {selectedState}: R$ {ELECTRICITY_PRICES_BY_STATE[selectedState]?.toFixed(2).replace('.', ',') ?? '—'} /kWh (B1 residencial, sem ICMS) · ANEEL {ELECTRICITY_PRICES_UPDATED}
                             </p>
                         </div>
 
@@ -433,7 +413,7 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                 <span className="text-white text-sm">{t('simulator.dcKwhPrice')} /kWh</span>
                                 <div className="flex items-center gap-1.5">
                                     <button className={stepBtn} onClick={() => setDcKwhPrice(p => Math.max(0, Math.round((p - 0.05) * 100) / 100))}>−</button>
-                                    <div className="bg-white/10 px-3 py-1 rounded-full border border-white/20 text-white font-mono text-sm">{currencySymbol} {dcKwhPrice.toFixed(2).replace('.', ',')}</div>
+                                    <div className="bg-white/10 px-3 py-1 rounded-full border border-white/20 text-white font-mono text-sm">R$ {dcKwhPrice.toFixed(2).replace('.', ',')}</div>
                                     <button className={stepBtn} onClick={() => setDcKwhPrice(p => Math.min(10, Math.round((p + 0.05) * 100) / 100))}>+</button>
                                 </div>
                             </div>
@@ -451,7 +431,7 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                             </div>
                             <input type="range" min="0" max="100" step="5" value={dcPercent} onChange={e => setDcPercent(Number(e.target.value))} className={sliderThumbClasses} style={makeSliderStyle(dcPercent, 0, 100)} />
                             <p className="text-xs text-[#666666] mt-2 text-right">
-                                {t('simulator.blendedRate')}: {currencySymbol} {blendedKwhPrice.toFixed(2).replace('.', ',')}/kWh
+                                {t('simulator.blendedRate')}: R$ {blendedKwhPrice.toFixed(2).replace('.', ',')}/kWh
                             </p>
                         </div>
 
@@ -506,7 +486,7 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                                 <div className="text-center mb-4 z-10">
                                                     <p className="text-sm text-white mb-1">{t('simulator.save')}</p>
                                                     <p className="text-2xl md:text-3xl font-black text-[#00b4ff]">
-                                                        {currencySymbol} {annualSavings.toLocaleString(currency === 'BRL' ? 'pt-BR' : 'en-US')}<span className="text-xs text-[#00b4ff]/80">{t('simulator.perYear')}</span>
+                                                        R$ {annualSavings.toLocaleString('pt-BR')}<span className="text-xs text-[#00b4ff]/80">{t('simulator.perYear')}</span>
                                                     </p>
                                                 </div>
                                                 <div className="flex items-end justify-center gap-3 md:gap-4 h-32 w-full mb-4 relative z-10">
@@ -521,22 +501,22 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                                 <div className="flex justify-between w-full text-center mb-4 z-10 gap-2">
                                                     <div className="flex-1">
                                                         <p className="text-[#a0a0a0] leading-tight text-xs">{t('simulator.energyCost')}</p>
-                                                        <p className="text-[#00b4ff] font-bold text-sm">{currencySymbol} {evCost.toLocaleString(currency === 'BRL' ? 'pt-BR' : 'en-US')}</p>
+                                                        <p className="text-[#00b4ff] font-bold text-sm">{evCost.toLocaleString('pt-BR')}</p>
                                                     </div>
                                                     <div className="flex-1">
                                                         <p className="text-[#a0a0a0] leading-tight text-xs">{t('simulator.fuelCost')}</p>
-                                                        <p className="text-[#a0a0a0] font-bold text-sm">{currencySymbol} {gasCost.toLocaleString(currency === 'BRL' ? 'pt-BR' : 'en-US')}</p>
+                                                        <p className="text-[#a0a0a0] font-bold text-sm">{gasCost.toLocaleString('pt-BR')}</p>
                                                     </div>
                                                 </div>
                                                 <div className="text-center w-full mt-auto z-10 pb-2">
                                                     <div className="flex gap-2 mb-3">
                                                         <div className="flex-1 rounded-xl px-2 py-2" style={{ background: 'rgba(0,180,255,0.07)', border: '1px solid rgba(0,180,255,0.18)' }}>
                                                             <p className="text-[9px] uppercase tracking-widest text-[#00b4ff]/60 mb-0.5">EV · {efficiency} kWh/100km</p>
-                                                            <p className="text-sm font-black text-[#00b4ff]">{currencySymbol} {costPerKm.toFixed(2).replace('.', ',')}/km</p>
+                                                            <p className="text-sm font-black text-[#00b4ff]">R$ {costPerKm.toFixed(2).replace('.', ',')}/km</p>
                                                         </div>
                                                         <div className="flex-1 bg-white/4 rounded-xl px-2 py-2">
                                                             <p className="text-[10px] uppercase tracking-widest text-white/30 mb-0.5">{fuelType === 'ethanol' ? 'Etanol' : 'Comb.'} · {combustionKmL.toFixed(1)} km/L</p>
-                                                            <p className="text-sm font-black text-white/60">{currencySymbol} {(gasCost / kms).toFixed(2).replace('.', ',')}/km</p>
+                                                            <p className="text-sm font-black text-white/60">R$ {(gasCost / kms).toFixed(2).replace('.', ',')}/km</p>
                                                         </div>
                                                     </div>
                                                     <div className="w-full mt-3 pt-3 border-t border-white/10">
@@ -666,20 +646,20 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                         {/* TCO summary tiles — row 1: operating costs */}
                                         <div className="px-5 pb-2 grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                                             <div className="bg-white/4 rounded-xl px-3 py-2.5 text-center">
-                                                <p className="text-[10px] uppercase tracking-widest text-white/30 mb-0.5">{t('details.estimatedPrice')}</p>
-                                                <p className="text-sm font-black text-white">{fmtBRL(car.price)}</p>
+                                                <p className="text-[10px] uppercase tracking-widest text-white/30 mb-0.5">{t('details.estimatedPrice')} <span className="text-white/15">R$</span></p>
+                                                <p className="text-sm font-black text-white">{fmtNum(car.price)}</p>
                                             </div>
                                             <div className="rounded-xl px-3 py-2.5 text-center" style={{ background: 'rgba(0,180,255,0.07)', border: '1px solid rgba(0,180,255,0.18)' }}>
                                                 <p className="text-[10px] uppercase tracking-widest mb-0.5" style={{ color: 'rgba(0,180,255,0.6)' }}>{t('simulator.totalEV4y')}</p>
-                                                <p className="text-sm font-black" style={{ color: '#00b4ff' }}>{fmtBRL(tco.totalEV4y)}</p>
+                                                <p className="text-sm font-black" style={{ color: '#00b4ff' }}>{fmtNum(tco.totalEV4y)}</p>
                                             </div>
                                             <div className="bg-white/4 rounded-xl px-3 py-2.5 text-center">
                                                 <p className="text-[10px] uppercase tracking-widest text-white/30 mb-0.5">{t('simulator.totalComb4y')}</p>
-                                                <p className="text-sm font-black text-white/60">{fmtBRL(tco.totalComb4y)}</p>
+                                                <p className="text-sm font-black text-white/60">{fmtNum(tco.totalComb4y)}</p>
                                             </div>
                                             <div className="rounded-xl px-3 py-2.5 text-center" style={{ background: 'rgba(0,229,160,0.07)', border: '1px solid rgba(0,229,160,0.2)' }}>
                                                 <p className="text-[10px] uppercase tracking-widest mb-0.5 text-[#00e5a0]/60">{t('simulator.totalSavings4y')}</p>
-                                                <p className="text-sm font-black text-[#00e5a0]">{fmtBRL(tco.totalSavings4y)}</p>
+                                                <p className="text-sm font-black text-[#00e5a0]">{fmtNum(tco.totalSavings4y)}</p>
                                             </div>
                                         </div>
 
@@ -693,11 +673,11 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
                                                     <div className="rounded-lg px-3 py-2 text-center" style={{ background: 'rgba(0,180,255,0.06)', border: '1px solid rgba(0,180,255,0.14)' }}>
                                                         <p className="text-[10px] uppercase tracking-widest mb-0.5" style={{ color: 'rgba(0,180,255,0.5)' }}>{t('simulator.residualValueEV')}</p>
-                                                        <p className="text-sm font-black" style={{ color: '#00b4ff' }}>{fmtBRL(tco.residualValueEV)}</p>
+                                                        <p className="text-sm font-black" style={{ color: '#00b4ff' }}>{fmtNum(tco.residualValueEV)}</p>
                                                     </div>
                                                     <div className="bg-white/4 rounded-lg px-3 py-2 text-center">
                                                         <p className="text-[10px] uppercase tracking-widest text-white/25 mb-0.5">{t('simulator.residualValueComb')}</p>
-                                                        <p className="text-sm font-black text-white/50">{fmtBRL(tco.residualValueComb)}</p>
+                                                        <p className="text-sm font-black text-white/50">{fmtNum(tco.residualValueComb)}</p>
                                                     </div>
                                                     <div className="col-span-2 sm:col-span-1 rounded-lg px-3 py-2 text-center" style={
                                                         tco.netAdvantageEV > 0
@@ -716,7 +696,7 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                                             : tco.netAdvantageEV < -5000 ? { color: '#ff6464' }
                                                             : { color: '#ffb800' }
                                                         }>
-                                                            {tco.netAdvantageEV >= 0 ? '+' : ''}{fmtBRL(tco.netAdvantageEV)}
+                                                            {tco.netAdvantageEV >= 0 ? '+' : ''}{fmtNum(tco.netAdvantageEV)}
                                                         </p>
                                                     </div>
                                                 </div>
@@ -728,7 +708,7 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                             <table className="w-full text-xs min-w-[480px]">
                                                 <thead>
                                                     <tr>
-                                                        <th className="text-left text-[10px] uppercase tracking-widest text-white/30 py-2 pr-3 font-medium w-28" />
+                                                        <th className="text-left text-[10px] uppercase tracking-widest text-white/25 py-2 pr-3 font-medium w-28">· R$</th>
                                                         {tco.years.map(y => (
                                                             <th key={y.year} className="text-center text-[10px] uppercase tracking-widest text-white/40 py-2 px-2 font-medium">
                                                                 {t('simulator.year')} {y.year}
@@ -753,11 +733,11 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                                                 </td>
                                                                 {tco.years.map(y => (
                                                                     <td key={y.year} className="text-center py-1 px-2 text-[#00b4ff] font-medium">
-                                                                        {fmtBRL(y[row.evKey] as number)}
+                                                                        {fmtNum(y[row.evKey] as number)}
                                                                     </td>
                                                                 ))}
                                                                 <td className="text-center py-1 px-2 text-[#00b4ff] font-bold">
-                                                                    {fmtBRL(tco.years.reduce((s, y) => s + (y[row.evKey] as number), 0))}
+                                                                    {fmtNum(tco.years.reduce((s, y) => s + (y[row.evKey] as number), 0))}
                                                                 </td>
                                                             </tr>
                                                             {/* Combustion row */}
@@ -767,11 +747,11 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                                                 </td>
                                                                 {tco.years.map(y => (
                                                                     <td key={y.year} className="text-center py-1 px-2 text-white/35 font-medium">
-                                                                        {fmtBRL(y[row.combKey] as number)}
+                                                                        {fmtNum(y[row.combKey] as number)}
                                                                     </td>
                                                                 ))}
                                                                 <td className="text-center py-1 px-2 text-white/35">
-                                                                    {fmtBRL(tco.years.reduce((s, y) => s + (y[row.combKey] as number), 0))}
+                                                                    {fmtNum(tco.years.reduce((s, y) => s + (y[row.combKey] as number), 0))}
                                                                 </td>
                                                             </tr>
                                                         </React.Fragment>
@@ -782,13 +762,13 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                                         <td className="py-2 pr-3 font-black text-xs uppercase tracking-wider text-white">{ROW_LABELS[4]}</td>
                                                         {tco.years.map(y => (
                                                             <td key={y.year} className="text-center py-2 px-2">
-                                                                <div className="text-[#00b4ff] font-black">{fmtBRL(y.totalEV)}</div>
-                                                                <div className="text-white/35 text-xs">{fmtBRL(y.totalComb)}</div>
+                                                                <div className="text-[#00b4ff] font-black">{fmtNum(y.totalEV)}</div>
+                                                                <div className="text-white/35 text-xs">{fmtNum(y.totalComb)}</div>
                                                             </td>
                                                         ))}
                                                         <td className="text-center py-2 px-2">
-                                                            <div className="text-[#00b4ff] font-black">{fmtBRL(tco.totalEV4y)}</div>
-                                                            <div className="text-white/35 text-xs">{fmtBRL(tco.totalComb4y)}</div>
+                                                            <div className="text-[#00b4ff] font-black">{fmtNum(tco.totalEV4y)}</div>
+                                                            <div className="text-white/35 text-xs">{fmtNum(tco.totalComb4y)}</div>
                                                         </td>
                                                     </tr>
 
@@ -796,9 +776,9 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                                     <tr className="border-t border-[#00e5a0]/20 bg-[#00e5a0]/5">
                                                         <td className="py-2 pr-3 font-black text-xs uppercase tracking-wider text-[#00e5a0]">{t('simulator.savingsRow')}</td>
                                                         {tco.years.map(y => (
-                                                            <td key={y.year} className="text-center py-2 px-2 font-black text-[#00e5a0]">{fmtBRL(y.savingsEV)}</td>
+                                                            <td key={y.year} className="text-center py-2 px-2 font-black text-[#00e5a0]">{fmtNum(y.savingsEV)}</td>
                                                         ))}
-                                                        <td className="text-center py-2 px-2 font-black text-[#00e5a0] text-sm">{fmtBRL(tco.totalSavings4y)}</td>
+                                                        <td className="text-center py-2 px-2 font-black text-[#00e5a0] text-sm">{fmtNum(tco.totalSavings4y)}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -893,17 +873,17 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                                 <p className="text-white/40 text-xs font-semibold uppercase tracking-wider">Preços de referência · {selectedState}</p>
                                                 <p className="text-white/25 text-xs">
                                                     <span className="text-white/40 font-semibold">{fuelType === 'ethanol' ? 'Etanol' : 'Gasolina'}:</span>{' '}
-                                                    {currencySymbol} {refFuel.toFixed(2).replace('.', ',')} /L · ANP {FUEL_PRICES_UPDATED}
+                                                    R$ {refFuel.toFixed(2).replace('.', ',')} /L · ANP {FUEL_PRICES_UPDATED}
                                                     {fuelType === 'ethanol' && <span className="text-[#00e5a0]/60"> · +30% consumo vs. gasolina</span>}
                                                     {fuelAdjusted && (
-                                                        <span className="ml-1.5 text-[#f5c842]">⚠ usando {currencySymbol} {gasPrice.toFixed(2).replace('.', ',')} /L (ajustado)</span>
+                                                        <span className="ml-1.5 text-[#f5c842]">⚠ usando R$ {gasPrice.toFixed(2).replace('.', ',')} /L (ajustado)</span>
                                                     )}
                                                 </p>
                                                 <p className="text-white/25 text-xs">
                                                     <span className="text-white/40 font-semibold">Energia residencial:</span>{' '}
-                                                    {currencySymbol} {refElec?.toFixed(2).replace('.', ',') ?? '—'} /kWh (B1 residencial, sem ICMS) · ANEEL {ELECTRICITY_PRICES_UPDATED}
+                                                    R$ {refElec?.toFixed(2).replace('.', ',') ?? '—'} /kWh (B1 residencial, sem ICMS) · ANEEL {ELECTRICITY_PRICES_UPDATED}
                                                     {elecAdjusted && (
-                                                        <span className="ml-1.5 text-[#f5c842]">⚠ usando {currencySymbol} {kwhPrice.toFixed(2).replace('.', ',')} /kWh (ajustado)</span>
+                                                        <span className="ml-1.5 text-[#f5c842]">⚠ usando R$ {kwhPrice.toFixed(2).replace('.', ',')} /kWh (ajustado)</span>
                                                     )}
                                                 </p>
                                             </div>
@@ -935,17 +915,17 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                                                 <p className="text-white/40 text-xs font-semibold uppercase tracking-wider">Preços de referência · {selectedState}</p>
                                                 <p className="text-white/25 text-xs">
                                                     <span className="text-white/40 font-semibold">{fuelType === 'ethanol' ? 'Etanol' : 'Gasolina'}:</span>{' '}
-                                                    {currencySymbol} {refFuel.toFixed(2).replace('.', ',')} /L · ANP {FUEL_PRICES_UPDATED}
+                                                    R$ {refFuel.toFixed(2).replace('.', ',')} /L · ANP {FUEL_PRICES_UPDATED}
                                                     {fuelType === 'ethanol' && <span className="text-[#00e5a0]/60"> · +30% consumo vs. gasolina</span>}
                                                     {fuelAdjusted && (
-                                                        <span className="ml-1.5 text-[#f5c842]">⚠ usando {currencySymbol} {gasPrice.toFixed(2).replace('.', ',')} /L (ajustado)</span>
+                                                        <span className="ml-1.5 text-[#f5c842]">⚠ usando R$ {gasPrice.toFixed(2).replace('.', ',')} /L (ajustado)</span>
                                                     )}
                                                 </p>
                                                 <p className="text-white/25 text-xs">
                                                     <span className="text-white/40 font-semibold">Energia residencial:</span>{' '}
-                                                    {currencySymbol} {refElec?.toFixed(2).replace('.', ',') ?? '—'} /kWh (B1 residencial, sem ICMS) · ANEEL {ELECTRICITY_PRICES_UPDATED}
+                                                    R$ {refElec?.toFixed(2).replace('.', ',') ?? '—'} /kWh (B1 residencial, sem ICMS) · ANEEL {ELECTRICITY_PRICES_UPDATED}
                                                     {elecAdjusted && (
-                                                        <span className="ml-1.5 text-[#f5c842]">⚠ usando {currencySymbol} {kwhPrice.toFixed(2).replace('.', ',')} /kWh (ajustado)</span>
+                                                        <span className="ml-1.5 text-[#f5c842]">⚠ usando R$ {kwhPrice.toFixed(2).replace('.', ',')} /kWh (ajustado)</span>
                                                     )}
                                                 </p>
                                             </div>
