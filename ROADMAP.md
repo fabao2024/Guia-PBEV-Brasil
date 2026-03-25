@@ -12,7 +12,7 @@
 | 4 | TCO Calculator (custo total de propriedade) | Feature | Médio | Alto | ✅ Concluído |
 | 5 | SEO com pre-rendering (vite-plugin-ssg) | Técnico | Médio | Alto | 🔲 Pendente |
 | 6 | EV Route Planner (autonomia + paradas de recarga) | Feature | Alto | Médio | 🔲 Pendente |
-| 7 | Histórico de preços por modelo | Dados | Médio | Médio | 🔲 Pendente |
+| 7 | Histórico de preços por modelo | Dados | Médio | Médio | ✅ Concluído |
 | 8 | Mapa de infraestrutura de recarga (dados ANEEL) | Dados | Médio | Médio | 🔲 Pendente |
 | 9 | Recomendação inteligente na comparação | UX | Baixo | Médio | 🔲 Pendente |
 | 10 | Push notifications para favoritos (preço/novidade) | UX | Alto | Médio | 🔲 Pendente |
@@ -52,10 +52,18 @@
 - Estimar paradas de recarga com base na autonomia do carro selecionado
 - Integrar OpenStreetMap (Leaflet) + dados PlugShare ou ANEEL
 
-### 7. Histórico de Preços
-- Snapshots mensais em JSON no repositório
-- Badge "preço alterado há X meses" nos cards
-- Alerta via PWA push para quedas de preço
+### 7. Histórico de Preços ✅
+- `src/constants/priceHistory.ts`: snapshot inicial março/2026 com 88 veículos
+- `getPriceDelta()` / `getLastSnapshot()` — utilitários para cálculo de variação
+- Badge ↓/↑ inline nos cards (`CarCard`) e no tile de preço do `CarDetailsModal`
+- Badge verde = queda, laranja = alta; tooltip com data do snapshot anterior
+- Para registrar novo snapshot: adicionar `{ date: 'YYYY-MM', price: NNN }` ao modelo em `priceHistory.ts`
+
+### 7.1 Automação mensal de dados ✅
+- `.github/workflows/monthly-maintenance.yml`: 3 jobs executados no dia 1 de cada mês
+  - `update-fuel-prices`: atualiza preços ANP via dados.gov.br e abre PR automático se valores mudarem
+  - `check-pbev`: detecta nova tabela PBEV no INMETRO e abre issue com link de download
+  - `create-maintenance-issue`: checklist de manutenção com resultado dos jobs automáticos
 
 ### 8. Mapa de Recarga (ANEEL)
 - Dados abertos do cadastro de eletropostos da ANEEL
@@ -476,13 +484,24 @@
 - ✅ Botão "Sugerir EV" redireciona para Consultor IA se usuário não tem conta GitHub
 - ✅ Suzuki e-Vitara adicionado ao catálogo (issue #2 — nova marca)
 - ✅ BYD Dolphin Mini GL adicionado ao catálogo (issue #3 — catálogo agora com 88 veículos, 27 marcas)
+- ✅ RAG no Consultor IA: query decomposition + metadata filtering client-side
+- ✅ UX tipografia: revisão completa de tamanhos de fonte (CarCard, CarDetailsModal, ComparisonModal, SavingsSimulatorModal, ChatWidget, App)
+- ✅ Logo corrigido: "PBEV Brasil" → "Guia PBEV Brasil"
+- ✅ Destaque invertido: Simulador = botão primário (cyan), Sugerir EV = secundário
+- ✅ JAC E-J7 adicionado ao catálogo (issue #5 — 90 veículos, 28 marcas)
+- ✅ GitHub Action semanal: processa issues `sugestão-ev` e abre PRs automaticamente
+- ✅ fix(tco): IPVA combustão corrigido — usa alíquota real do estado (não mais SP 4% fixo)
+- ✅ 11 alíquotas `standardRate` corrigidas em `ipvaByState.ts` (AC, BA, ES, GO, MS, PA, PB, PE, PR, SC, TO)
+- ✅ feat(tco): análise patrimonial de revenda — tiles residual EV/combustão + resultado líquido total
 - 🔲 Recomendação de terceiro carro após comparação
-- 🔲 Histórico de preços (snapshot mensal em JSON)
-- 🔲 Badge "preço alterado" nos cards
+- ✅ Histórico de preços (snapshot mensal em priceHistory.ts)
+- ✅ Badge "preço alterado" nos cards (↓ verde / ↑ laranja)
 
-> **Resumo técnico — Sprint 7 (19–20/03/2026):**
+> **Resumo técnico — Sprint 7 (19–24/03/2026):**
 > **Suzuki e-Vitara:** primeira entrada da marca Suzuki. SUV AWD 184 cv / 31,2 kgfm, bateria 61 kWh, autonomia 293 km PBEV, R$ 269.990. `BRAND_URLS` atualizado com `suzukiveiculos.com.br`. Imagem local `e-vitara.jpg`.
 > **BYD Dolphin Mini GL:** versão GL da linha Dolphin Mini. Urbano FWD, bateria LFP 30,08 kWh, 75 cv / 13,8 kgfm, autonomia 224 km PBEV, R$ 118.990. Imagem via CDN BYD Brasil. Ambas as adições via fluxo de issues — skill `/add-vehicle` utilizada.
+> **RAG:** `extractQueryFilters()` → `retrieveRelevantCars()` → `buildRagContext()` injetado silenciosamente em `doSend()`. Client-side puro, sem chamadas extras de API.
+> **fix IPVA TCO (24/03/2026):** `STANDARD_COMBUSTION_IPVA_RATE` (SP 4% hardcoded) substituído por `ipvaStateInfo.standardRate` em 3 locais (`tco.ts`, `SavingsSimulatorModal`, `CarDetailsModal`). Adicionalmente, 11 alíquotas corrigidas — maior erro: ES era 4%, real é 2%; PR alinhado a 1,9% (sem benefício EV em 2026). `commit 6875100`.
 
 ---
 

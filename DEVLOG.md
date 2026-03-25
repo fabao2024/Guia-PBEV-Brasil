@@ -244,3 +244,68 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 **Notas:** Adicionado via issue #3 da comunidade. Fix de potência/torque necessário pois campos foram omitidos no commit inicial.
 
 ---
+
+### [S7-D] fix(tco): IPVA combustão — alíquota real por estado · 24/03/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | Substituído `STANDARD_COMBUSTION_IPVA_RATE` (SP 4% fixo) por `ipvaStateInfo.standardRate` em 3 locais: `tco.ts` (ipvaComb), `SavingsSimulatorModal.tsx` (annualIpvaCombustion), `CarDetailsModal.tsx` (combustionIpva). Corrigidas 11 alíquotas `standardRate` em `ipvaByState.ts`: AC 3→2%, BA 3→2,5%, ES 4→2%, GO 3→3,75%, MS 3,5→3%, PA 3→2,5%, PB 3→2,5%, PE 3→2,4%, PR 3,5→1,9%, SC 3→2%, TO 3→2%. |
+| Build  | ✅ | `npm run build` — sem erros |
+| Testes | ✅ | 76 testes passando |
+| Commit | ✅ | `6875100` |
+
+**Notas:** Maior erro encontrado: ES tinha 4% (= SP) mas real é 2% — 2pp de diferença. PR alinhado a 1,9% (sem benefício EV em 2026 — bevRate = standardRate). Bug existia desde a implementação inicial do TCO; afetava qualquer estado diferente de SP.
+
+---
+
+### [S7-E] feat(tco): análise patrimonial de revenda · 24/03/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `TCOResult` ganha `residualValueEV` (62% do preço), `residualValueComb` (72%) e `netAdvantageEV` (economia operacional − perda extra de depreciação). `SavingsSimulatorModal`: segunda linha de tiles com residual EV (azul), residual combustão (cinza) e resultado líquido total (verde/amarelo/vermelho). Tooltip ⓘ com metodologia. i18n PT-BR e EN atualizados. |
+| Build  | ✅ | `npm run build` — sem erros |
+| Testes | ✅ | 76 testes passando |
+| Commit | ✅ | `ba70928` |
+
+**Notas:** netAdvantageEV positivo = EV vence mesmo incluindo depreciação mais rápida. Tile muda de cor dinamicamente: verde (EV vence), amarelo (margem < R$5k), vermelho (combustão vence no total). Limiar de -5000 escolhido para evitar vermelho em empates técnicos.
+
+---
+
+### [S7-F] feat: histórico de preços + badges de variação · 25/03/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `src/constants/priceHistory.ts`: snapshot 2026-03 com 88 veículos. `getPriceDelta()` / `getLastSnapshot()` utilitários. Badge ↓/↑ em `CarCard` (inline ao preço) e `CarDetailsModal` (tile de preço com tooltip de data). Nenhum badge exibido agora (preços coincidem com snapshot) — badges aparecerão quando preços mudarem. |
+| Build  | ✅ | `npm run build` — sem erros |
+| Testes | ✅ | 76 testes passando |
+| Commit | ✅ | `8424d3b` |
+
+**Notas:** Para registrar novo snapshot: adicionar `{ date: 'YYYY-MM', price: NNN }` ao array do modelo em `priceHistory.ts`. Apenas os carros com mudança de preço precisam de nova entrada. Badge verde = queda, laranja = alta.
+
+---
+
+### [S7-G] fix(tco): layout mobile, moeda única, nota IPVA dinâmica · 25/03/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | Tiles row 1: `grid-cols-2 sm:grid-cols-4` (sem flex-wrap). Tiles row 2 (residual): `grid-cols-2 sm:grid-cols-3` com `col-span-2 sm:col-span-1` no tile líquido. Removido toggle R$/USD (`currency` state, `currencySymbol`, `handleCurrencyChange`). `fmtBRL` removido; valores de tiles e tabela usam `fmtNum` (sem R$), labels fornecem contexto. Nota IPVA no colapsável agora dinâmica: exibe alíquotas reais do estado selecionado (EV isento vs % + combustão %). |
+| Build  | ✅ | `npm run build` — sem erros |
+| Testes | ✅ | 76 testes passando |
+| Commit | ✅ | `47ad605` `029d28e` `f448a77` |
+
+**Notas:** Toggle de moeda removido porque a taxa de câmbio hardcoded era imprecisa e o público-alvo é 100% brasileiro. Nota IPVA era hardcoded "SP 4%" mesmo após a implementação multi-estado.
+
+---
+
+### [S7-H] feat(ci): automação mensal — ANP + PBEV + lembrete · 25/03/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `.github/scripts/update-anp-prices.mjs`: busca CSV ANP no dados.gov.br, calcula médias gasolina/etanol por estado, atualiza `fuelPricesByState.ts` e abre PR se valores mudarem (threshold 0,01 R$/L). `.github/scripts/check-pbev-update.mjs`: scraping de 3 URLs do INMETRO/PBEV, detecta versão mais nova que `PBEV 2026_27_FEV-REV05` e abre issue com instruções pdfplumber. `.github/workflows/monthly-maintenance.yml` atualizado: 3 jobs (`update-fuel-prices`, `check-pbev`, `create-maintenance-issue`), `continue-on-error` nos jobs de dados. Workflow de lembrete anterior (`0c1d8a8`) integrado ao mesmo fluxo. |
+| Build  | ✅ | Node.js scripts — sem compilação necessária |
+| Testes | — | Scripts testados localmente; CI rodará no dia 1 de cada mês |
+| Commit | ✅ | `0c1d8a8` `10ba38b` |
+
+**Notas:** `update-anp-prices.mjs` usa exit 1 (bloqueia job, marcado `continue-on-error`). `check-pbev-update.mjs` usa exit 0 (não crítico — sites de governo instáveis). PR de preços ANP sempre passa por revisão humana antes do merge.
+
+---
