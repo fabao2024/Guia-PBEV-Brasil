@@ -1,17 +1,51 @@
 
-import React from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Car } from '../types';
-import { X, Check, Minus, Map, Battery, Car as CarIcon, DollarSign, Zap, Gauge, Activity } from 'lucide-react';
+import { X, Check, Minus, Map, Battery, Car as CarIcon, DollarSign, Zap, Gauge, Activity, Sparkles, RefreshCw, Plus } from 'lucide-react';
 
 interface ComparisonModalProps {
    cars: Car[];
+   allCars: Car[];
    onClose: () => void;
    onRemove: (car: Car) => void;
+   onAdd: (car: Car) => void;
 }
 
-export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonModalProps) {
+/**
+ * Scores candidates by proximity to the midpoint of the two compared cars.
+ * Lower score = better match.
+ */
+function getRecommendations(cars: Car[], allCars: Car[]): Car[] {
+   if (cars.length < 2) return [];
+   const excluded = new Set(cars.map(c => c.model));
+   const midPrice = cars.reduce((s, c) => s + c.price, 0) / cars.length;
+   const midRange = cars.reduce((s, c) => s + c.range, 0) / cars.length;
+   const cats = new Set(cars.map(c => c.cat));
+
+   return allCars
+      .filter(c => !excluded.has(c.model))
+      .map(c => {
+         const priceDiff = Math.abs(c.price - midPrice) / midPrice;
+         const rangeDiff = Math.abs(c.range - midRange) / midRange;
+         const catBonus = cats.has(c.cat) ? 0.15 : 0;
+         return { car: c, score: priceDiff * 0.5 + rangeDiff * 0.3 - catBonus };
+      })
+      .sort((a, b) => a.score - b.score)
+      .slice(0, 5)
+      .map(x => x.car);
+}
+
+export default function ComparisonModal({ cars, allCars, onClose, onRemove, onAdd }: ComparisonModalProps) {
    const { t } = useTranslation();
+   const [suggestionIdx, setSuggestionIdx] = useState(0);
+
+   const recommendations = useMemo(() => getRecommendations(cars, allCars), [cars, allCars]);
+
+   // Reset index when the compared cars (and therefore recommendations) change
+   useEffect(() => { setSuggestionIdx(0); }, [recommendations]);
+
+   const rec = recommendations[suggestionIdx] ?? null;
 
    const getFallbackFeatures = (cat: string): string[] => {
       const key = cat === 'Urbano' ? 'urban' : cat === 'Compacto' ? 'compact' : cat === 'SUV' ? 'suv' : cat === 'Luxo' ? 'luxury' : cat === 'Comercial' ? 'commercial' : 'default';
@@ -19,6 +53,13 @@ export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonM
    };
    const getCarFeatures = (car: Car): string[] =>
       (car.features && car.features.length > 0) ? car.features : getFallbackFeatures(car.cat);
+
+   const imgSrc = (car: Car) =>
+      car.img.startsWith('/car-images/')
+         ? `${import.meta.env.BASE_URL}${car.img.substring(1)}`
+         : car.img.includes('wikimedia.org')
+            ? car.img
+            : `https://images.weserv.nl/?url=${encodeURIComponent(car.img.replace(/^https?:\/\//, ''))}&w=400&q=80&output=webp`;
 
    return (
       <div className="fixed inset-0 z-[70] flex items-center justify-center p-0 sm:p-4 md:p-6">
@@ -54,7 +95,7 @@ export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonM
 
             {/* Comparison Table Container */}
             <div className="flex-1 overflow-auto bg-[#050505] p-4 sm:p-6 custom-scrollbar-dark scroll-smooth">
-               <div className="grid snap-x snap-mandatory sm:snap-none" style={{ gridTemplateColumns: `80px repeat(${cars.length}, minmax(min(72vw,240px), 1fr))`, minWidth: 'max(560px, 100%)' }}>
+               <div className="grid snap-x snap-mandatory sm:snap-none" style={{ gridTemplateColumns: `80px repeat(${cars.length}, minmax(min(72vw,240px), 1fr)) ${cars.length < 3 ? 'minmax(min(72vw,240px), 1fr)' : ''}`, minWidth: 'max(560px, 100%)' }}>
 
                   {/* LABELS COLUMN */}
                   <div className="flex flex-col gap-4 py-4 pr-2 sm:pr-4">
@@ -85,11 +126,7 @@ export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonM
                         {/* Image */}
                         <div className="h-40 rounded-xl overflow-hidden bg-[#000000] relative">
                            <img
-                              src={car.img.startsWith('/car-images/')
-                                 ? `${import.meta.env.BASE_URL}${car.img.substring(1)}`
-                                 : car.img.includes('wikimedia.org')
-                                    ? car.img
-                                    : `https://images.weserv.nl/?url=${encodeURIComponent(car.img.replace(/^https?:\/\//, ''))}&w=400&q=80&output=webp`}
+                              src={imgSrc(car)}
                               alt={car.model}
                               className="w-full h-full object-cover animate-in fade-in duration-500 filter brightness-90 group-hover:brightness-100 transition-all"
                            />
@@ -157,14 +194,112 @@ export default function ComparisonModal({ cars, onClose, onRemove }: ComparisonM
                      </div>
                   ))}
 
-                  {/* Empty Slots Filler */}
+                  {/* Empty Slot / Suggestion Card */}
                   {cars.length < 3 && (
-                     <div className="mx-2 rounded-3xl border-2 border-dashed border-white/10 flex flex-col items-center justify-center text-[#666666] gap-4 min-h-[400px] bg-white/5">
-                        <div className="bg-[#111111] p-5 rounded-full border border-white/5 shadow-inner">
-                           <Minus className="w-8 h-8 text-[#333333]" />
+                     cars.length === 2 && rec ? (
+                        /* ── Smart suggestion card ── */
+                        <div className="mx-2 flex flex-col bg-[#08080f] rounded-2xl border border-[#00b4ff]/20 shadow-[0_0_20px_rgba(0,180,255,0.06)] overflow-hidden min-h-[400px] relative group snap-start">
+
+                           {/* Suggestion badge */}
+                           <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 bg-[#00b4ff]/10 border border-[#00b4ff]/30 rounded-full px-2.5 py-1 pointer-events-none">
+                              <Sparkles className="w-3 h-3 text-[#00b4ff]" />
+                              <span className="text-[10px] font-black text-[#00b4ff] uppercase tracking-widest">{t('comparison.suggestion')}</span>
+                           </div>
+
+                           {/* Shuffle button */}
+                           {recommendations.length > 1 && (
+                              <button
+                                 onClick={() => setSuggestionIdx(i => (i + 1) % recommendations.length)}
+                                 className="absolute top-3 right-3 z-10 text-[#555555] hover:text-white bg-black/80 rounded-full p-1.5 border border-white/10 hover:border-white/30 transition-colors"
+                                 title={t('comparison.nextSuggestion')}
+                              >
+                                 <RefreshCw className="w-3.5 h-3.5" />
+                              </button>
+                           )}
+
+                           {/* Image */}
+                           <div className="h-40 bg-black relative overflow-hidden flex-shrink-0">
+                              <img
+                                 src={imgSrc(rec)}
+                                 alt={rec.model}
+                                 className="w-full h-full object-cover opacity-70 group-hover:opacity-90 transition-opacity duration-500"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-4">
+                                 <span className="text-[#a0a0a0] text-xs font-black uppercase tracking-widest">{rec.brand}</span>
+                              </div>
+                           </div>
+
+                           {/* Data rows — aligned with car columns */}
+                           <div className="flex flex-col gap-4 p-5 flex-1">
+                              <div className="h-10 flex items-center">
+                                 <span className="font-black text-white text-xl leading-tight drop-shadow-sm">{rec.model}</span>
+                              </div>
+
+                              <div className="h-10 flex items-center">
+                                 <span className="font-black text-[#00b4ff] flex items-center gap-1 drop-shadow-[0_0_5px_rgba(0,180,255,0.3)]">
+                                    <DollarSign className="w-4 h-4" />
+                                    {rec.price >= 1000000 ? `${(rec.price / 1000000).toFixed(1)} mi` : `${(rec.price / 1000).toFixed(0)}k`}
+                                 </span>
+                              </div>
+
+                              <div className="h-10 flex items-center">
+                                 <span className="font-bold text-white flex items-center gap-1.5">
+                                    <Map className="w-4 h-4 text-[#00b4ff]" />
+                                    {rec.range} <span className="text-[#a0a0a0] text-sm">km</span>
+                                 </span>
+                              </div>
+
+                              <div className="h-10 flex items-center">
+                                 <span className="font-bold text-white flex items-center gap-1.5">
+                                    <Gauge className="w-4 h-4 text-[#00b4ff]" />
+                                    {rec.power ? `${rec.power} cv` : <span className="text-[#666666] font-bold uppercase tracking-widest text-xs">{t('details.notAvailable')}</span>}
+                                 </span>
+                              </div>
+
+                              <div className="h-10 flex items-center">
+                                 <span className="font-bold text-white flex items-center gap-1.5">
+                                    <Activity className="w-4 h-4 text-[#00b4ff]" />
+                                    {rec.torque ? `${rec.torque} kgfm` : <span className="text-[#666666] font-bold uppercase tracking-widest text-xs">{t('details.notAvailable')}</span>}
+                                 </span>
+                              </div>
+
+                              <div className="h-10 flex items-center">
+                                 <span className="font-bold text-white flex items-center gap-1.5">
+                                    <Battery className="w-4 h-4 text-[#00b4ff]" />
+                                    {rec.battery ? `${rec.battery} kWh` : <span className="text-[#666666] font-bold uppercase tracking-widest text-xs">{t('details.notAvailable')}</span>}
+                                 </span>
+                              </div>
+
+                              <div className="h-10 flex items-center">
+                                 <span className="px-2.5 py-1 bg-black/50 border border-white/10 rounded-lg text-xs font-black text-[#a0a0a0] uppercase tracking-widest">
+                                    {t(`categories.${rec.cat}`)}
+                                 </span>
+                              </div>
+
+                              {/* Hint + Add button */}
+                              <div className="mt-4 border-t border-white/5 pt-4 flex flex-col gap-3">
+                                 <p className="text-[10px] text-[#444444] uppercase tracking-widest font-bold leading-relaxed">
+                                    {t('comparison.suggestionHint')}
+                                 </p>
+                                 <button
+                                    onClick={() => onAdd(rec)}
+                                    className="w-full py-3 bg-[#00b4ff]/10 hover:bg-[#00b4ff]/20 border border-[#00b4ff]/30 hover:border-[#00b4ff]/60 text-[#00b4ff] font-black text-xs uppercase tracking-widest rounded-xl transition-all flex items-center justify-center gap-2 shadow-[0_0_10px_rgba(0,180,255,0.1)] hover:shadow-[0_0_16px_rgba(0,180,255,0.2)]"
+                                 >
+                                    <Plus className="w-4 h-4" />
+                                    {t('comparison.addToCompare')}
+                                 </button>
+                              </div>
+                           </div>
                         </div>
-                        <span className="text-xs font-black uppercase tracking-widest">{t('comparison.emptySlot')}</span>
-                     </div>
+                     ) : (
+                        /* ── Generic empty slot (1 car or no recommendations) ── */
+                        <div className="mx-2 rounded-3xl border-2 border-dashed border-white/10 flex flex-col items-center justify-center text-[#666666] gap-4 min-h-[400px] bg-white/5">
+                           <div className="bg-[#111111] p-5 rounded-full border border-white/5 shadow-inner">
+                              <Minus className="w-8 h-8 text-[#333333]" />
+                           </div>
+                           <span className="text-xs font-black uppercase tracking-widest">{t('comparison.emptySlot')}</span>
+                        </div>
+                     )
                   )}
 
                </div>

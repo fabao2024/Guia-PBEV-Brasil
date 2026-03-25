@@ -458,11 +458,13 @@ export default function App() {
         {isCompareModalOpen && (
           <ComparisonModal
             cars={compareList}
+            allCars={CAR_DB}
             onClose={() => setIsCompareModalOpen(false)}
             onRemove={(car) => {
               removeFromCompare(car);
               if (compareList.length <= 1) setIsCompareModalOpen(false);
             }}
+            onAdd={(car) => toggleCompare(car)}
           />
         )}
 

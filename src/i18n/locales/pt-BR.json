@@ -131,6 +131,10 @@
     "category": "Categoria",
     "features": "Equipamentos",
     "emptySlot": "Espaço Vazio",
+    "suggestion": "Sugestão",
+    "suggestionHint": "Baseado no perfil dos carros comparados",
+    "addToCompare": "Adicionar à comparação",
+    "nextSuggestion": "Ver outra sugestão",
     "footer": "Specs baseados na tabela PBEV/INMETRO · Preços indicativos e sujeitos a alteração sem aviso prévio.",
     "mobileScrollHint": "← deslize para comparar →",
     "featureList": {
