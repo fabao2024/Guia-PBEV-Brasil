@@ -6,6 +6,7 @@ import { useJsonLd } from '../hooks/useJsonLd';
 import { useMeta } from '../hooks/useMeta';
 import { X, BatteryCharging, Zap, CheckCircle2, ChevronLeft, ChevronRight, Image as ImageIcon, Scale, Check, Heart, ArrowUpRight, Share2, ChevronDown, Award, Shield } from 'lucide-react';
 import { IPVA_BY_STATE, calcIpva, IPVA_DATA_UPDATED } from '../constants/ipvaByState';
+import { getPriceDelta, getLastSnapshot } from '../constants/priceHistory';
 import { track } from '../utils/analytics';
 
 interface CarDetailsModalProps {
@@ -147,6 +148,8 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
     const rangePercent = Math.min(Math.round((car.range / MAX_RANGE_KM) * 100), 100);
 
     const ipvaInfo = IPVA_BY_STATE.find(s => s.abbr === selectedState) ?? IPVA_BY_STATE.find(s => s.abbr === 'SP')!;
+    const priceDelta = getPriceDelta(car.model, car.price);
+    const lastSnapshot = getLastSnapshot(car.model);
     const annualIpva = calcIpva(car.price, ipvaInfo);
     const combustionIpva = Math.round(car.price * ipvaInfo.standardRate);
     const ipvaSavings = combustionIpva - annualIpva;
@@ -529,6 +532,18 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                             <span className="text-2xl font-black tracking-tight relative z-10" style={{ color: '#00b4ff' }}>
                                 R$ {car.price.toLocaleString('pt-BR')}
                             </span>
+                            {priceDelta !== null && (
+                                <span
+                                    className="text-[10px] font-bold px-2 py-0.5 rounded-full relative z-10 self-start"
+                                    style={priceDelta < 0
+                                        ? { background: 'rgba(0,229,160,0.12)', color: '#00e5a0', border: '1px solid rgba(0,229,160,0.28)' }
+                                        : { background: 'rgba(255,140,82,0.12)', color: '#ff8c52', border: '1px solid rgba(255,140,82,0.28)' }
+                                    }
+                                    title={`Desde ${lastSnapshot?.date ?? '—'}`}
+                                >
+                                    {priceDelta < 0 ? '↓' : '↑'} R$ {Math.abs(priceDelta).toLocaleString('pt-BR')}
+                                </span>
+                            )}
                         </div>
 
                         {/* Action buttons */}

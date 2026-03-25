@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Car } from '../types';
 import { BRAND_URLS, isCarNew } from '../constants';
+import { getPriceDelta } from '../constants/priceHistory';
 import { Check, ImageOff, Heart, BatteryCharging, Scale, ArrowUpRight } from 'lucide-react';
 
 interface CarCardProps {
@@ -47,6 +48,7 @@ const CarCard: React.FC<CarCardProps> = ({
   const [hasError, setHasError] = useState(false);
 
   const isNew = isCarNew(car);
+  const priceDelta = getPriceDelta(car.model, car.price);
 
   const brandUrl = car.url ?? BRAND_URLS[car.brand] ?? `https://www.google.com/search?q=${encodeURIComponent(car.brand + ' Brasil')}`;
   const rangePercent = Math.min(Math.round((car.range / MAX_RANGE_KM) * 100), 100);
@@ -283,11 +285,25 @@ const CarCard: React.FC<CarCardProps> = ({
             <div className="text-[10px] uppercase tracking-widest mb-0.5" style={{ color: 'rgba(255,255,255,0.22)' }}>
               {t('comparison.price', 'Preço')} · R$
             </div>
-            <div
-              className="text-[1.05rem] font-black tracking-tight leading-none truncate"
-              style={{ color: '#00b4ff' }}
-            >
-              {car.price.toLocaleString('pt-BR')}
+            <div className="flex items-baseline gap-2 flex-wrap">
+              <div
+                className="text-[1.05rem] font-black tracking-tight leading-none truncate"
+                style={{ color: '#00b4ff' }}
+              >
+                {car.price.toLocaleString('pt-BR')}
+              </div>
+              {priceDelta !== null && (
+                <span
+                  className="text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none"
+                  style={priceDelta < 0
+                    ? { background: 'rgba(0,229,160,0.12)', color: '#00e5a0', border: '1px solid rgba(0,229,160,0.28)' }
+                    : { background: 'rgba(255,140,82,0.12)', color: '#ff8c52', border: '1px solid rgba(255,140,82,0.28)' }
+                  }
+                  title={priceDelta < 0 ? 'Preço reduziu' : 'Preço aumentou'}
+                >
+                  {priceDelta < 0 ? '↓' : '↑'} {Math.abs(priceDelta).toLocaleString('pt-BR')}
+                </span>
+              )}
             </div>
           </div>
           <a
