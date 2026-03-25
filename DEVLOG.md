@@ -309,3 +309,16 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 **Notas:** `update-anp-prices.mjs` usa exit 1 (bloqueia job, marcado `continue-on-error`). `check-pbev-update.mjs` usa exit 0 (não crítico — sites de governo instáveis). PR de preços ANP sempre passa por revisão humana antes do merge.
 
 ---
+
+### [S7-I] feat(comparison): recomendação inteligente de 3º carro · 25/03/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `getRecommendations()` em `ComparisonModal.tsx`: score ponderado (preço 50%, autonomia 30%, categoria 15%) sobre todo o `CAR_DB`. Com 2 carros na comparação, o slot vazio exibe o melhor candidato com badge "Sugestão", botão ↻ (percorre top 5) e botão "+ Adicionar à comparação". Com 1 carro mantém placeholder genérico. Novas props `allCars` e `onAdd` em `ComparisonModalProps`. i18n PT-BR e EN atualizados. |
+| Build  | ✅ | `npm run build` — sem erros |
+| Testes | ✅ | 76/76 passando |
+| Commit | ✅ | `a94229c` |
+
+**Notas:** Score favorece carros no ponto médio entre os dois comparados — útil para indecisos. Botão ↻ cicla entre as 5 sugestões em loop. Nenhum dado de uso coletado; recomendação é puramente determinística (sem ML).
+
+---

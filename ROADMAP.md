@@ -14,7 +14,7 @@
 | 6 | EV Route Planner (autonomia + paradas de recarga) | Feature | Alto | Médio | 🔲 Pendente |
 | 7 | Histórico de preços por modelo | Dados | Médio | Médio | ✅ Concluído |
 | 8 | Mapa de infraestrutura de recarga (dados ANEEL) | Dados | Médio | Médio | 🔲 Pendente |
-| 9 | Recomendação inteligente na comparação | UX | Baixo | Médio | 🔲 Pendente |
+| 9 | Recomendação inteligente na comparação | UX | Baixo | Médio | ✅ Concluído |
 | 10 | Push notifications para favoritos (preço/novidade) | UX | Alto | Médio | 🔲 Pendente |
 | 11 | Analytics sem cookies — Plausible ou Umami | Técnico | Baixo | Médio | 🔲 Pendente |
 | 12 | Avaliações de donos (rating real-world) | Feature | Alto | Médio | 🔲 Pendente |
