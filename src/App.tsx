@@ -1,4 +1,5 @@
 import React, { useMemo, useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { CAR_DB, isCarNew, BRAND_URLS } from './constants';
 import Sidebar from './components/Sidebar';
@@ -61,11 +62,23 @@ export default function App() {
     name: 'Catálogo de Carros Elétricos PBEV Brasil',
     description: `${CAR_DB.length} veículos elétricos certificados pelo PBEV/INMETRO disponíveis no Brasil`,
     numberOfItems: CAR_DB.length,
+    url: 'https://guiapbev.cloud/',
     itemListElement: CAR_DB.map((car, i) => ({
       '@type': 'ListItem',
       position: i + 1,
-      name: `${car.brand} ${car.model}`,
-      url: BRAND_URLS[car.brand] ?? 'https://guia-pbev-brasil.github.io/Guia-PBEV-Brasil/',
+      item: {
+        '@type': 'Product',
+        name: `${car.brand} ${car.model}`,
+        brand: { '@type': 'Brand', name: car.brand },
+        description: `${car.cat} elétrico · ${car.range} km PBEV · R$ ${car.price.toLocaleString('pt-BR')}`,
+        offers: {
+          '@type': 'Offer',
+          priceCurrency: 'BRL',
+          price: car.price,
+          availability: 'https://schema.org/InStock',
+          url: BRAND_URLS[car.brand] ?? 'https://guiapbev.cloud/',
+        },
+      },
     })),
   }), []);
   useJsonLd(catalogSchema);
@@ -95,7 +108,31 @@ export default function App() {
     clearSearch();
   };
 
+  const helmetTitle = selectedCar
+    ? `${selectedCar.brand} ${selectedCar.model} — ${selectedCar.range} km PBEV | Guia PBEV Brasil`
+    : 'Guia PBEV Brasil — Elétricos Homologados';
+
+  const helmetDesc = selectedCar
+    ? `${selectedCar.brand} ${selectedCar.model}: autonomia ${selectedCar.range} km (PBEV/Inmetro), preço a partir de R$ ${selectedCar.price.toLocaleString('pt-BR')}. Compare com outros elétricos no Guia PBEV Brasil.`
+    : 'Guia completo dos 88 veículos elétricos homologados no Brasil pelo PBEV/Inmetro. Compare autonomia, preço e especificações.';
+
+  const helmetImage = selectedCar && selectedCar.img.startsWith('/car-images/')
+    ? `https://guiapbev.cloud${selectedCar.img}`
+    : 'https://guiapbev.cloud/og-cover.jpg';
+
   return (
+    <>
+    <Helmet>
+      <title>{helmetTitle}</title>
+      <meta name="description" content={helmetDesc} />
+      <meta property="og:title" content={helmetTitle} />
+      <meta property="og:description" content={helmetDesc} />
+      <meta property="og:image" content={helmetImage} />
+      <meta property="og:url" content="https://guiapbev.cloud/" />
+      <meta name="twitter:title" content={helmetTitle} />
+      <meta name="twitter:description" content={helmetDesc} />
+      <meta name="twitter:image" content={helmetImage} />
+    </Helmet>
     <div className="text-white h-screen flex flex-col overflow-hidden bg-black font-sans relative selection:bg-[#00b4ff] selection:text-black">
 
       {/* Background ambient light */}
@@ -501,5 +538,6 @@ export default function App() {
         )}
       </div>
     </div>
+    </>
   );
 }
