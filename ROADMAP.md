@@ -111,11 +111,15 @@
 - Afiliado atual: **Trendseg** — cadastro realizado em 12/03/2026, aguardando aprovação e link
 - Quando aprovado: substituir `INSURANCE_AFFILIATE_URL` em `src/constants.ts` (1 linha)
 
-**Análise de seguradoras alternativas (21/03/2026):**
-- **Porto Seguro**: exige SUSEP (corretor habilitado) — descartada. Programa regional "Rede Tonziro" (Bahia) abre para PF mas não é oficial nacional
-- **Tokio Marine**: exclusivo para corretores SUSEP, sem canal digital de afiliados — descartada
-- **Bradesco Seguros**: programa Lomadee pausado; "Programa Recompensa" exige R$15k/mês produção + SUSEP — descartada
-- **Alternativa a monitorar**: Minuto Seguros e Youse (corretoras digitais que agregam as 3) — já tiveram Lomadee, atualmente inativas; reavaliar se reativarem
+**Análise de seguradoras alternativas (26/03/2026):**
+- **Porto Seguro**: exige SUSEP — descartada para afiliado. Placeholder no `CarDetailsModal` mantido.
+- **Tokio Marine**: exclusivo para corretores SUSEP — descartada
+- **Bradesco Seguros**: programa Lomadee pausado; exige R$15k/mês + SUSEP — descartada
+- **Youse Negócios** ⭐ — canal B2B2C **sem SUSEP** para plataformas digitais; única seguradora com cobertura explícita de EVs (BYD, GWM); requer CNPJ + negociação comercial. Contato: `youse.com.br/seja-um-parceiro/` · **Ação: fazer pitch como catálogo EV / marketplace digital**
+- **Ituran Seguro EV** — produto 100% focado em EVs (rastreador + cobertura FIPE total); sem programa público de afiliado. Potencial para acordo CPL direto · **Ação: outreach comercial**
+- **Minuto Seguros / Lomadee** — pausado em mar/2026. Verificar mensalmente: `lomadee.com.br/anunciante/minuto-seguros`
+- **Afilio (rede CPA)** — maior rede de afiliados do Brasil; pode ter campanhas ativas de seguro auto não visíveis em buscas · **Ação: cadastrar e verificar dashboard**
+- **Pier Seguros** — R$150M+ faturados, crescimento rápido; oficialmente exige SUSEP mas receptivo a canais não tradicionais — contactar diretamente
 
 ---
 
