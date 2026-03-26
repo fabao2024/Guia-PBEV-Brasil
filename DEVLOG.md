@@ -322,3 +322,18 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 **Notas:** Score favorece carros no ponto médio entre os dois comparados — útil para indecisos. Botão ↻ cicla entre as 5 sugestões em loop. Nenhum dado de uso coletado; recomendação é puramente determinística (sem ML).
 
 ---
+
+## Sprint 8 — SEO A1 · 26/03/2026
+
+### [S8-A] feat(seo): meta tags dinâmicas, JSON-LD enriquecido, sitemap · 26/03/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `index.html`: domínio `guiapbev.cloud`, contagem 86→88, `<link rel="canonical">`. `react-helmet-async` instalado: `<Helmet>` em `App.tsx` atualiza `<title>`, description e OG/Twitter quando carro está aberto no modal — melhora compartilhamento social. JSON-LD `ItemList` enriquecido: cada `ListItem` expõe `Product` com `brand`, `offers.price`, `priceCurrency`. `public/sitemap.xml` (URL canônica) e `public/robots.txt` criados. Item 11 (Analytics) marcado ✅ — Plausible já estava implementado desde S6. |
+| Build  | ✅ | `npm run build` — sem erros |
+| Testes | ✅ | 76/76 passando |
+| Commit | ✅ | `872f37d` |
+
+**Notas:** SEO A2 (rotas individuais por carro com `react-router-dom` + `vite-plugin-prerender`) fica como sprint futura — alto impacto mas requer refatoração estrutural. A1 já melhora rich snippets, compartilhamento social e sinaliza ao Google a estrutura do catálogo via dados estruturados.
+
+---

@@ -16,7 +16,7 @@
 | 8 | Mapa de infraestrutura de recarga (dados ANEEL) | Dados | Médio | Médio | 🔲 Pendente |
 | 9 | Recomendação inteligente na comparação | UX | Baixo | Médio | ✅ Concluído |
 | 10 | Push notifications para favoritos (preço/novidade) | UX | Alto | Médio | 🔲 Pendente |
-| 11 | Analytics sem cookies — Plausible ou Umami | Técnico | Baixo | Médio | 🔲 Pendente |
+| 11 | Analytics sem cookies — Plausible ou Umami | Técnico | Baixo | Médio | ✅ Concluído |
 | 12 | Avaliações de donos (rating real-world) | Feature | Alto | Médio | 🔲 Pendente |
 | 13 | Sugestão de EV pela comunidade via GitHub Issues | Community | Baixo | Médio | ✅ Concluído |
 
@@ -41,11 +41,20 @@
 - Comparar EV vs. carro equivalente a combustão em 5 anos
 - Exportar como PDF ou link compartilhável
 
-### 5. SEO com Pre-rendering
-- Adicionar `Product` JSON-LD schema para cada veículo
-- `<title>` e meta tags dinâmicas por carro
-- Usar `vite-plugin-ssg` para gerar HTML estático
-- Impacto direto em tráfego orgânico (Google)
+### 5. SEO — Sprint 8 ✅ (A1) / 🔲 (A2 pendente)
+
+**A1 — concluído (mar/2026):**
+- `index.html`: domínio corrigido para `guiapbev.cloud`, contagem atualizada, `<link rel="canonical">`
+- `react-helmet-async`: `<title>`, description e OG tags dinâmicos quando modal de carro está aberto
+- JSON-LD `ItemList` enriquecido: cada carro expõe `Product` com preço, autonomia e marca
+- `public/sitemap.xml` + `public/robots.txt` adicionados
+- Plausible Analytics (self-hosted) marcado como ✅ — já implementado desde Sprint 6
+
+**A2 — pendente (alta complexidade):**
+- Rotas individuais por carro (`/carro/:slug`) com `react-router-dom`
+- `vite-plugin-prerender` para gerar HTML estático por página
+- Necessário para ranquear em buscas específicas por modelo ("BYD Seal preço Brasil")
+- Requer solução para GitHub Pages sem servidor (404.html hack)
 
 ### 6. EV Route Planner
 - Input: origem + destino
