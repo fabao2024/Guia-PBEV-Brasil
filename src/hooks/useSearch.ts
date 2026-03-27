@@ -8,7 +8,7 @@ const FUSE_OPTIONS: IFuseOptions<Car> = {
     { name: 'brand', weight: 0.3 },
     { name: 'cat',   weight: 0.1 },
   ],
-  threshold: 0.35,
+  threshold: 0.2,
   distance: 80,
   minMatchCharLength: 2,
   includeScore: true,
@@ -30,7 +30,9 @@ export function useSearch(cars: Car[]) {
   const searchResults = useMemo<Car[]>(() => {
     const trimmed = debouncedQuery.trim();
     if (trimmed.length < 2) return cars;
-    return fuse.search(trimmed).map(r => r.item);
+    return fuse.search(trimmed)
+      .filter(r => (r.score ?? 1) < 0.2)
+      .map(r => r.item);
   }, [debouncedQuery, fuse, cars]);
 
   const clearSearch = useCallback(() => setQuery(''), []);
