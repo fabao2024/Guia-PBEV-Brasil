@@ -285,7 +285,7 @@
     "headerBtn": "Simulator",
     "disclaimer": "*Savings are calculated by comparing the selected EV against an equivalent combustion vehicle in the same category (Urban, SUV, Sedan etc.), using efficiency certified by Inmetro (PBEV 2026). Results may vary with driving style.",
     "tcoTab": "Total Cost 4 Years",
-    "savingsTab": "Monthly Savings",
+    "savingsTab": "Monthly/Annual Savings",
     "gasoline": "Gasoline",
     "ethanol": "Ethanol",
     "gasPrice": "Price/Liter",

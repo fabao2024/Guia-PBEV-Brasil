@@ -285,7 +285,7 @@
     "headerBtn": "Simulador",
     "disclaimer": "*A economia é calculada comparando o EV escolhido com um veículo a combustão equivalente da mesma categoria (Urbano, SUV, Sedan etc.), usando eficiência certificada pelo Inmetro (PBEV 2026). Resultados variam conforme estilo de condução.",
     "tcoTab": "Custo Total 4 Anos",
-    "savingsTab": "Economia Mensal",
+    "savingsTab": "Economia Mensal/Anual",
     "gasoline": "Gasolina",
     "ethanol": "Etanol",
     "gasPrice": "Preço/Litro",
