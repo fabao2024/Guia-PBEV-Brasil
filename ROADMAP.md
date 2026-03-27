@@ -506,7 +506,7 @@
 - ✅ fix(tco): IPVA combustão corrigido — usa alíquota real do estado (não mais SP 4% fixo)
 - ✅ 11 alíquotas `standardRate` corrigidas em `ipvaByState.ts` (AC, BA, ES, GO, MS, PA, PB, PE, PR, SC, TO)
 - ✅ feat(tco): análise patrimonial de revenda — tiles residual EV/combustão + resultado líquido total
-- 🔲 Recomendação de terceiro carro após comparação
+- ✅ Recomendação de terceiro carro após comparação
 - ✅ Histórico de preços (snapshot mensal em priceHistory.ts)
 - ✅ Badge "preço alterado" nos cards (↓ verde / ↑ laranja)
 
@@ -518,7 +518,21 @@
 
 ---
 
-### Sprint 8 — semana de 30/03/2026
+### Sprint 8 — semana de 27/03/2026
+**Tema: SEO A1 + UX Quality**
+- ✅ SEO A1: meta tags dinâmicas, JSON-LD enriquecido, sitemap, canonical
+- ✅ fix(tco): manutenção calibrada com dados reais BR 2025 (BYD oficial)
+- ✅ UX: barra de filtros ativos com chips + "Limpar tudo"
+- ✅ fix(search): Fuse.js threshold 0.35→0.2, score filter explícito
+- ✅ i18n: aba "Economia Mensal" → "Economia Mensal/Anual"
+- ✅ feat(data+ui): garantia (anos) e velocidades de carregamento AC/DC em todos os 88 veículos
+
+> **Resumo técnico — Sprint 8 (27/03/2026):**
+> Foco em qualidade de dados e UX. SEO A1 com react-helmet-async, JSON-LD Product enriquecido, sitemap. Manutenção TCO corrigida (BYD plans oficiais). Barra de filtros ativos com chips inline. Fuse.js com threshold mais restrito elimina falsos positivos. Garantia e carregamento: 4 campos novos na interface `Car` (`warrantyYears`, `warrantyBatteryYears`, `chargeAC`, `chargeDC`) populados em todos os 88 carros via script; exibidos no modal de detalhes após tile de bateria.
+
+---
+
+### Sprint 9 — semana de 07/04/2026
 **Tema: Infraestrutura de recarga**
 - 🔲 Integrar dados abertos ANEEL (eletropostos)
 - 🔲 Mapa de calor por estado com Leaflet
@@ -526,7 +540,7 @@
 
 ---
 
-### Sprint 9 — semana de 07/04/2026
+### Sprint 10 — semana de 07/04/2026
 **Tema: Comunidade e avaliações**
 - 🔲 Formulário de avaliação de dono (autonomia real, recarga, qualidade)
 - 🔲 Backend: Supabase free tier

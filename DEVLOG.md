@@ -383,3 +383,16 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Commit | ✅ | `26ce60d` |
 
 ---
+
+### [S8-F] feat(data+ui): garantia e carregamento AC/DC nos detalhes do veículo · 27/03/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `types.ts`: 4 campos opcionais adicionados (`warrantyYears`, `warrantyBatteryYears`, `chargeAC`, `chargeDC`). `constants.ts`: todos 88 veículos populados via script `add_warranty_charging.cjs` (dados por marca: BYD 5+8a, BMW 5+8a, Mercedes 3+10a, Kia/MG 7+7a etc.; velocidades extraídas das features strings). `CarDetailsModal.tsx`: novo bloco "Garantia / Carregamento" após tile de bateria — garantia do veículo + bateria em anos; AC kW (branco) + DC kW (cyan). i18n: 6 novas chaves em `details.*` em pt-BR e en. |
+| Build  | ✅ | `npm run build` — 76/76 testes passando |
+| Testes | ✅ | 76/76 passando |
+| Commit | ✅ | `483b719` |
+
+**Notas:** Dados de garantia baseados em políticas oficiais por marca no Brasil. Dados de carga AC/DC extraídos das features strings já existentes em `CAR_DB`. DC em cyan (#00b4ff) para destaque visual na velocidade de recarga rápida.
+
+---
