@@ -338,6 +338,19 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 
 ---
 
+### [S8-C] fix(tco): custos de manutenção calibrados com dados reais BR 2025 · 27/03/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `tco.ts`: valores EV reduzidos 30–36% (Urbano 900→600, Compacto 1100→700, SUV 1800→1200, Sedan 1400→900, Luxo 3500→2800, Comercial 2500→2000). Combustão ajustada onde necessário (Urbano 1800→1400, Compacto 2200→1500, SUV 3200→2800, Luxo 5000→5500, Comercial 4000→4500). Disclaimer TCO expandido com exemplos por categoria e fonte. `maintNote` i18n PT-BR e EN atualizados. |
+| Build  | ✅ | `npm run build` — sem erros |
+| Testes | ✅ | 76/76 passando |
+| Commit | ✅ | `60f58a8` |
+
+**Notas:** Pesquisa baseada em planos oficiais BYD Brasil (Dolphin Mini, Dolphin, Seal, Song Plus EV), Volvo EX40 e dados de combustão (VW Polo, Jeep Compass, Mercedes Classe C/GLC). Intervalos mantidos (EV 20.000 km / Comb 10.000 km). Ratios EV vs. combustão continuam no intervalo 30–50% conforme literatura de mercado.
+
+---
+
 ### [S8-B] fix(i18n): aba "Economia Mensal" → "Economia Mensal/Anual" · 27/03/2026
 
 | Etapa  | Status | Detalhe |
