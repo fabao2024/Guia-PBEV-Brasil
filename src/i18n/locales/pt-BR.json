@@ -229,7 +229,12 @@
     "compareNow": "Comparar Agora"
   },
   "filterMobile": {
-    "filterVehicles": "Filtrar Veículos"
+    "filterVehicles": "Filtrar Veículos",
+    "activeFilters": "Filtros ativos",
+    "clearAll": "Limpar tudo",
+    "upToPrice": "até R$ {{value}}k",
+    "minRange": "mín. {{value}} km",
+    "newOnly": "Novidades"
   },
   "validation": {
     "empty": "A mensagem não pode estar vazia.",

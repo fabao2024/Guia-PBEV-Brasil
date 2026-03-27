@@ -229,7 +229,12 @@
     "compareNow": "Compare Now"
   },
   "filterMobile": {
-    "filterVehicles": "Filter Vehicles"
+    "filterVehicles": "Filter Vehicles",
+    "activeFilters": "Active filters",
+    "clearAll": "Clear all",
+    "upToPrice": "up to R$ {{value}}k",
+    "minRange": "min. {{value}} km",
+    "newOnly": "New arrivals"
   },
   "validation": {
     "empty": "Message cannot be empty.",

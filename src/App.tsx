@@ -9,7 +9,7 @@ import CarDetailsModal from './components/CarDetailsModal';
 import ComparisonModal from './components/ComparisonModal';
 import LanguageToggle from './components/LanguageToggle';
 import SavingsSimulatorModal from './components/SavingsSimulatorModal';
-import { Zap, Printer, Search, SlidersHorizontal, Scale, X, ArrowRight, Heart, BarChart2, Lightbulb } from 'lucide-react';
+import { Zap, Printer, Search, SlidersHorizontal, Scale, X, ArrowRight, Heart, BarChart2, Lightbulb, XCircle } from 'lucide-react';
 import { useCarFilter } from './hooks/useCarFilter';
 import { useFavorites } from './hooks/useFavorites';
 import { useCompare } from './hooks/useCompare';
@@ -107,6 +107,15 @@ export default function App() {
     setShowFavoritesOnly(false);
     clearSearch();
   };
+
+  // True when any filter (besides defaults) is active
+  const hasActiveFilters =
+    filters.brands.length > 0 ||
+    filters.categories.length > 0 ||
+    filters.maxPrice < 1500000 ||
+    filters.minRange > 100 ||
+    filters.showNew ||
+    isSearching;
 
   const helmetTitle = selectedCar
     ? `${selectedCar.brand} ${selectedCar.model} — ${selectedCar.range} km PBEV | Guia PBEV Brasil`
@@ -317,6 +326,43 @@ export default function App() {
               </p>
             )}
           </div>
+
+          {/* Active Filters Bar */}
+          {hasActiveFilters && (
+            <div className="flex items-center gap-2 mb-3 flex-wrap">
+              <div className="flex items-center gap-1.5 flex-wrap flex-1 min-w-0">
+                {filters.brands.map(b => (
+                  <span key={b} className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#00b4ff]/10 border border-[#00b4ff]/30 text-[#00b4ff] whitespace-nowrap">{b}</span>
+                ))}
+                {filters.categories.map(c => (
+                  <span key={c} className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-white/8 border border-white/15 text-white/70 whitespace-nowrap">{t(`categories.${c}`)}</span>
+                ))}
+                {filters.maxPrice < 1500000 && (
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-white/8 border border-white/15 text-white/70 whitespace-nowrap">
+                    {t('filterMobile.upToPrice', { value: Math.round(filters.maxPrice / 1000) })}
+                  </span>
+                )}
+                {filters.minRange > 100 && (
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-white/8 border border-white/15 text-white/70 whitespace-nowrap">
+                    {t('filterMobile.minRange', { value: filters.minRange })}
+                  </span>
+                )}
+                {filters.showNew && (
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-white/8 border border-white/15 text-white/70 whitespace-nowrap">{t('filterMobile.newOnly')}</span>
+                )}
+                {isSearching && (
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-white/8 border border-white/15 text-white/70 whitespace-nowrap">"{query}"</span>
+                )}
+              </div>
+              <button
+                onClick={handleResetFilters}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-black uppercase tracking-wider text-[#ef4444] bg-[#ef4444]/8 border border-[#ef4444]/25 hover:bg-[#ef4444]/15 hover:border-[#ef4444]/40 transition-all whitespace-nowrap flex-shrink-0"
+              >
+                <XCircle className="w-3.5 h-3.5" />
+                {t('filterMobile.clearAll')}
+              </button>
+            </div>
+          )}
 
           {/* Favorites Header Info */}
           {showFavoritesOnly && (
