@@ -396,3 +396,16 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 **Notas:** Dados de garantia baseados em políticas oficiais por marca no Brasil. Dados de carga AC/DC extraídos das features strings já existentes em `CAR_DB`. DC em cyan (#00b4ff) para destaque visual na velocidade de recarga rápida.
 
 ---
+
+### [S8-G] feat(ui): tempo estimado de carregamento no modal de detalhes · 27/03/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `calcChargeTime()` em `CarDetailsModal.tsx`: AC 0→100% = `bateria/kW/0.88`; DC 10→80% = `bateria×0.7/kW/0.65×60min`. Tile "Carregamento" reformulado: AC e DC em linhas separadas, tempo estimado à direita (AC branco, DC cyan). Nota disclaimer "AC 0→100% · DC 10→80% (estimativa)" em 9px. i18n: 2 novas chaves em PT-BR e EN. |
+| Build  | ✅ | `npm run build` — sem erros |
+| Testes | ✅ | 76/76 passando |
+| Commit | ✅ | `5c314ca` |
+
+**Notas:** Fórmula validada: BMW iX3 ~7h30/~32min (oficial 7.5h/34min ✓), Ioniq 5 ~20min (oficial 18min ✓), Megane E-Tech ~3h/~30min (oficial 3h/34min ✓). Fator 0.65 de potência média DC considera curva de taper do BMS acima de 60% SOC em sistemas 400V; carros 800V (Taycan, Macan, EV9) terão estimativa um pouco conservadora.
+
+---
