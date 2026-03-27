@@ -393,6 +393,43 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                         )}
                     </div>
 
+                    {/* Warranty & Charging row */}
+                    {(car.warrantyYears || car.chargeAC || car.chargeDC !== undefined) && (
+                        <div className="grid grid-cols-2 gap-2 mb-4">
+                            {car.warrantyYears && (
+                                <div className="rounded-xl px-4 py-3" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
+                                    <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: 'rgba(255,255,255,0.28)' }}>
+                                        {t('details.warrantyVehicle')}
+                                    </div>
+                                    <div className="text-xl font-black text-white leading-none">
+                                        {car.warrantyYears}
+                                        <span className="text-sm font-normal ml-1" style={{ color: 'rgba(255,255,255,0.35)' }}>{t('details.years')}</span>
+                                        {car.warrantyBatteryYears && (
+                                            <span className="block text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                                                {t('details.warrantyBattery')}: {car.warrantyBatteryYears} {t('details.years')}
+                                            </span>
+                                        )}
+                                    </div>
+                                </div>
+                            )}
+                            {(car.chargeAC || car.chargeDC !== undefined) && (
+                                <div className="rounded-xl px-4 py-3" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
+                                    <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: 'rgba(255,255,255,0.28)' }}>
+                                        {t('details.chargeAC')} / {t('details.chargeDC')}
+                                    </div>
+                                    <div className="text-base font-black text-white leading-none">
+                                        {car.chargeAC && <span>{car.chargeAC} <span className="text-sm font-normal" style={{ color: 'rgba(255,255,255,0.35)' }}>kW</span></span>}
+                                        {car.chargeAC && <span className="mx-1" style={{ color: 'rgba(255,255,255,0.25)' }}>·</span>}
+                                        {car.chargeDC === null
+                                            ? <span className="text-sm font-normal" style={{ color: 'rgba(255,255,255,0.4)' }}>{t('details.noFastCharge')}</span>
+                                            : car.chargeDC && <span style={{ color: '#00b4ff' }}>{car.chargeDC} <span className="text-sm font-normal" style={{ color: 'rgba(0,180,255,0.6)' }}>kW</span></span>
+                                        }
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    )}
+
                     {/* Divider */}
                     <div className="h-px w-full mb-5" style={{ background: 'rgba(255,255,255,0.06)' }} />
 

@@ -16,6 +16,10 @@ export interface Car {
   pbeRating?: 'A' | 'B' | 'C' | 'D' | 'E';
   energyMJkm?: number;
   conpetSeal?: boolean;
+  warrantyYears?: number;        // anos — garantia do veículo
+  warrantyBatteryYears?: number; // anos — garantia da bateria/motor elétrico
+  chargeAC?: number;             // kW — carregador AC onboard
+  chargeDC?: number | null;      // kW — carga rápida DC máxima (null = não suporta)
 }
 
 export interface FilterState {

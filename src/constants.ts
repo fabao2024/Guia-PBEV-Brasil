@@ -120,6 +120,7 @@ export const CAR_DB: Car[] = [
       "Montagem nacional (São José dos Pinhais - PR)"
     ],
     pbeRating: 'A', energyMJkm: 0.44,
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 30,
   },
   {
     model: "iCar EQ", brand: "CAOA Chery", price: 119990, range: 197, cat: "Urbano",
@@ -134,7 +135,8 @@ export const CAR_DB: Car[] = [
       "Câmera de ré",
       "Design retro-futurista inspirado em off-road",
       "Sensores de estacionamento dianteiros e traseiros"
-    ]
+    ],
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 50,
   },
   {
     model: "E-JS1", brand: "JAC", price: 119900, range: 181, cat: "Urbano",
@@ -151,6 +153,7 @@ export const CAR_DB: Car[] = [
       "Ar-condicionado automático"
     ],
     pbeRating: 'E', energyMJkm: 0.5,
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 40,
   },
   {
     model: "Dolphin Mini GS", brand: "BYD", price: 119990, range: 280, cat: "Urbano",
@@ -167,6 +170,7 @@ export const CAR_DB: Car[] = [
       "Atualização de software OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.39,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 30,
   },
   {
     model: "Dolphin Mini GL", brand: "BYD", price: 118990, range: 224, cat: "Urbano",
@@ -180,6 +184,7 @@ export const CAR_DB: Car[] = [
       "ADAS básico: AEB + alerta de colisão frontal",
       "Atualização de software OTA"
     ],
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 30,
   },
   {
     model: "EX2 Max", brand: "Geely", price: 135100, range: 289, cat: "Compacto",
@@ -196,6 +201,7 @@ export const CAR_DB: Car[] = [
       "Faróis LED full"
     ],
     pbeRating: 'A', energyMJkm: 0.39,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 70,
   },
   {
     model: "Aya Luxury", brand: "Neta", price: 149900, range: 263, cat: "Compacto",
@@ -210,7 +216,8 @@ export const CAR_DB: Car[] = [
       "Câmera 360° (surround view)",
       "Teto solar panorâmico",
       "Sensores de estacionamento"
-    ]
+    ],
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 80,
   },
   {
     model: "Ora 03 Skin BEV48", brand: "GWM", price: 154000, range: 232, cat: "Compacto",
@@ -227,6 +234,7 @@ export const CAR_DB: Car[] = [
       "Ar-condicionado automático bizona"
     ],
     pbeRating: 'A', energyMJkm: 0.51,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 64,
   },
   {
     model: "Ora 03 Skin BEV58", brand: "GWM", price: 169000, range: 315, cat: "Compacto",
@@ -243,6 +251,7 @@ export const CAR_DB: Car[] = [
       "Design retrô com acabamento premium"
     ],
     pbeRating: 'A', energyMJkm: 0.51,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 64,
   },
   {
     model: "Ora 03 GT BEV63", brand: "GWM", price: 189000, range: 295, cat: "Compacto",
@@ -259,6 +268,7 @@ export const CAR_DB: Car[] = [
       "Design esportivo GT com difusor traseiro"
     ],
     pbeRating: 'A', energyMJkm: 0.51,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 67,
   },
   {
     model: "Spark EUV", brand: "Chevrolet", price: 159990, range: 258, cat: "Compacto",
@@ -275,6 +285,7 @@ export const CAR_DB: Car[] = [
       "Atualização de software OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.5,
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 50,
   },
   {
     model: "Dolphin GS", brand: "BYD", price: 149990, range: 291, cat: "Compacto",
@@ -291,6 +302,7 @@ export const CAR_DB: Car[] = [
       "Atualização OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.51,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 60,
   },
   {
     model: "500e Icon", brand: "Fiat", price: 214990, range: 227, cat: "Compacto",
@@ -307,6 +319,7 @@ export const CAR_DB: Car[] = [
       "Teto de lona disponível (Cabrio)"
     ],
     pbeRating: 'C', energyMJkm: 0.46,
+    warrantyYears: 2, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 85,
   },
   {
     model: "e-208 GT", brand: "Peugeot", price: 225990, range: 220, cat: "Compacto",
@@ -324,6 +337,7 @@ export const CAR_DB: Car[] = [
       "Faróis de matriz LED (Full LED)"
     ],
     pbeRating: 'A', energyMJkm: 0.59,
+    warrantyYears: 2, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 100,
   },
   {
     model: "Cooper E", brand: "Mini", price: 260990, range: 246, cat: "Compacto",
@@ -340,6 +354,7 @@ export const CAR_DB: Car[] = [
       "Design icônico Mini premium com acabamentos exclusivos"
     ],
     pbeRating: 'A', energyMJkm: 0.48,
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 75,
   },
   {
     model: "JCW-E", brand: "Mini", price: 330990, range: 306, cat: "Compacto",
@@ -356,6 +371,7 @@ export const CAR_DB: Car[] = [
       "Visual exclusivo JCW: bancos esportivos, freios vermelhos e rodas 18\""
     ],
     pbeRating: 'A', energyMJkm: 0.5,
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 95,
   },
   {
     model: "Aceman SE", brand: "Mini", price: 304990, range: 270, cat: "Compacto",
@@ -372,6 +388,7 @@ export const CAR_DB: Car[] = [
       "Modos de condução Go Kart + suspensão esportiva"
     ],
     pbeRating: 'A', energyMJkm: 0.52,
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 95,
   },
   {
     model: "Dolphin Plus", brand: "BYD", price: 184000, range: 330, cat: "Compacto",
@@ -388,6 +405,7 @@ export const CAR_DB: Car[] = [
       "Bancos aquecidos + Atualização OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.51,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 80,
   },
 
   // 2. SUVS & SEDANS MÉDIOS
@@ -404,7 +422,8 @@ export const CAR_DB: Car[] = [
       "Painel digital 8,8\" + head-up display",
       "Ar-condicionado dual zone automático",
       "Chave virtual NFC"
-    ]
+    ],
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 70,
   },
   {
     model: "Yuan Pro", brand: "BYD", price: 182900, range: 250, cat: "SUV",
@@ -421,6 +440,7 @@ export const CAR_DB: Car[] = [
       "Atualização OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.51,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 60,
   },
   {
     model: "Aion Y Elite", brand: "GAC", price: 184900, range: 318, cat: "SUV",
@@ -437,6 +457,7 @@ export const CAR_DB: Car[] = [
       "Chave virtual NFC + atualização OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.57,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 75,
   },
   {
     model: "Aion V Elite", brand: "GAC", price: 219000, range: 389, cat: "SUV",
@@ -451,7 +472,8 @@ export const CAR_DB: Car[] = [
       "7 lugares com 3ª fileira retrátil",
       "Teto solar panorâmico elétrico",
       "Bancos elétricos com ajuste lombar"
-    ]
+    ],
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 180,
   },
   {
     model: "B10 BEV", brand: "Leapmotor", price: 173000, range: 288, cat: "SUV",
@@ -466,7 +488,8 @@ export const CAR_DB: Car[] = [
       "Câmera de ré",
       "Plataforma proprietária Leapmotor (LEAP 3.0)",
       "Motor traseiro RWD de alto torque"
-    ]
+    ],
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 60,
   },
   {
     model: "C10 BEV", brand: "Leapmotor", price: 189990, range: 338, cat: "SUV",
@@ -483,6 +506,7 @@ export const CAR_DB: Car[] = [
       "Atualização OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.61,
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 100,
   },
   {
     model: "Captiva EV", brand: "Chevrolet", price: 199990, range: 304, cat: "SUV",
@@ -497,7 +521,8 @@ export const CAR_DB: Car[] = [
       "Câmera de ré + sensores de estacionamento",
       "Espaço interno generoso para família (5 lugares confortáveis)",
       "OnStar conectado (assistência remota)"
-    ]
+    ],
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 80,
   },
   {
     model: "Omoda 5 EV", brand: "Omoda", price: 209990, range: 345, cat: "SUV",
@@ -514,6 +539,7 @@ export const CAR_DB: Car[] = [
       "Design esportivo coupe-SUV com faróis divididos"
     ],
     pbeRating: 'A', energyMJkm: 0.51,
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 80,
   },
   {
     model: "EX5 Max", brand: "Geely", price: 215800, range: 349, cat: "SUV",
@@ -528,7 +554,8 @@ export const CAR_DB: Car[] = [
       "Câmera 360°",
       "Head-up display (HUD)",
       "Bancos aquecidos e ventilados + teto solar"
-    ]
+    ],
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 160,
   },
   {
     model: "Kona EV", brand: "Hyundai", price: 219990, range: 252, cat: "SUV", discontinued: true,
@@ -543,7 +570,8 @@ export const CAR_DB: Car[] = [
       "V2L – Vehicle-to-Load (carrega dispositivos externos até 3,6 kW)",
       "Câmera de ré",
       "Faróis LED parametrizáveis"
-    ]
+    ],
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 100,
   },
   {
     model: "Yuan Plus", brand: "BYD", price: 229800, range: 294, cat: "SUV",
@@ -560,6 +588,7 @@ export const CAR_DB: Car[] = [
       "Atualização OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.56,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 88,
   },
   {
     model: "EX30", brand: "Volvo", price: 229950, range: 250, cat: "SUV",
@@ -576,6 +605,7 @@ export const CAR_DB: Car[] = [
       "Atualização OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.57,
+    warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 153,
   },
   {
     model: "e-2008", brand: "Peugeot", price: 269990, range: 261, cat: "SUV",
@@ -593,6 +623,7 @@ export const CAR_DB: Car[] = [
       "Faróis Full LED com assinatura luminosa Peugeot"
     ],
     pbeRating: 'A', energyMJkm: 0.55,
+    warrantyYears: 2, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 100,
   },
   {
     model: "Megane E-Tech", brand: "Renault", price: 279900, range: 337, cat: "SUV",
@@ -609,6 +640,7 @@ export const CAR_DB: Car[] = [
       "Atualização OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.51,
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 22, chargeDC: 130,
   },
   {
     model: "Countryman SE", brand: "Mini", price: 340990, range: 320, cat: "SUV",
@@ -625,6 +657,7 @@ export const CAR_DB: Car[] = [
       "Bancos aquecidos e ventilados"
     ],
     pbeRating: 'A', energyMJkm: 0.61,
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 130,
   },
   {
     model: "Equinox EV", brand: "Chevrolet", price: 349990, range: 443, cat: "SUV",
@@ -639,7 +672,8 @@ export const CAR_DB: Car[] = [
       "ADAS: ACC + LCC + AEB + BSM + câmera de ré HD",
       "OnStar conectado (telemetria, assistência remota, Wi-Fi)",
       "Atualização OTA"
-    ]
+    ],
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11.5, chargeDC: 150,
   },
   {
     model: "ID.4", brand: "Volkswagen", price: 320000, range: 370, cat: "SUV",
@@ -654,7 +688,8 @@ export const CAR_DB: Car[] = [
       "Head-up display (HUD) com realidade aumentada",
       "Câmera de ré",
       "Atualização OTA"
-    ]
+    ],
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 135,
   },
   {
     model: "EX40 (XC40)", brand: "Volvo", price: 342950, range: 385, cat: "SUV",
@@ -671,6 +706,7 @@ export const CAR_DB: Car[] = [
       "Atualização OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.59,
+    warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
   },
   {
     model: "EC40 (C40)", brand: "Volvo", price: 359950, range: 385, cat: "SUV",
@@ -687,6 +723,7 @@ export const CAR_DB: Car[] = [
       "Bancos aquecidos + acabamento sem couro (interior vegan)"
     ],
     pbeRating: 'A', energyMJkm: 0.59,
+    warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
   },
   {
     model: "EX90 Twin", brand: "Volvo", price: 849990, range: 459, cat: "SUV",
@@ -703,6 +740,7 @@ export const CAR_DB: Car[] = [
       "Som Bowers & Wilkins premium (25 alto-falantes) + teto panorâmico"
     ],
     pbeRating: 'A', energyMJkm: 0.68,
+    warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 250,
   },
   {
     model: "iX2 xDrive30", brand: "BMW", price: 495950, range: 327, cat: "SUV",
@@ -719,6 +757,7 @@ export const CAR_DB: Car[] = [
       "Teto panorâmico + 0-100 km/h em 5,6 s"
     ],
     pbeRating: 'A', energyMJkm: 0.59,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 130,
   },
   {
     model: "iX1 eDrive20", brand: "BMW", price: 359950, range: 345, cat: "SUV",
@@ -735,6 +774,7 @@ export const CAR_DB: Car[] = [
       "Som Harman Kardon (opcional)"
     ],
     pbeRating: 'A', energyMJkm: 0.55,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 130,
   },
   {
     model: "EV5 Land", brand: "Kia", price: 389990, range: 402, cat: "SUV",
@@ -751,6 +791,7 @@ export const CAR_DB: Car[] = [
       "Bancos aquecidos e ventilados + teto solar panorâmico"
     ],
     pbeRating: 'A', energyMJkm: 0.6,
+    warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 11, chargeDC: 135,
   },
   {
     model: "Ioniq 5", brand: "Hyundai", price: 394990, range: 374, cat: "SUV",
@@ -765,7 +806,8 @@ export const CAR_DB: Car[] = [
       "V2L – Vehicle-to-Load 6,6 kW (pode carregar outro carro ou alimentar casa)",
       "Câmera 360° surround view + câmera de estacionamento HD",
       "Bancos aquecidos, ventilados e com suporte lombar elétrico"
-    ]
+    ],
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 220,
   },
   {
     model: "EQA 250", brand: "Mercedes-Benz", price: 369900, range: 370, cat: "Luxo",
@@ -780,7 +822,8 @@ export const CAR_DB: Car[] = [
       "Câmera 360° surround view",
       "Bancos aquecidos e ventilados com ajuste elétrico",
       "Hey Mercedes (assistente de voz premium)"
-    ]
+    ],
+    warrantyYears: 3, warrantyBatteryYears: 10, chargeAC: 11, chargeDC: 100,
   },
   {
     model: "EQB 250", brand: "Mercedes-Benz", price: 399900, range: 376, cat: "Luxo",
@@ -797,6 +840,7 @@ export const CAR_DB: Car[] = [
       "Bancos aquecidos + Hey Mercedes"
     ],
     pbeRating: 'A', energyMJkm: 0.53,
+    warrantyYears: 3, warrantyBatteryYears: 10, chargeAC: 11, chargeDC: 100,
   },
   {
     model: "EQE 350", brand: "Mercedes-Benz", price: 649900, range: 421, cat: "Sedan",
@@ -813,6 +857,7 @@ export const CAR_DB: Car[] = [
       "Carregamento bidirecional V2H",
       "0–100 km/h em 6,4 s"
     ],
+    warrantyYears: 3, warrantyBatteryYears: 10, chargeAC: 11, chargeDC: 170,
   },
   {
     model: "Neta X 500", brand: "Neta", price: 214900, range: 317, cat: "SUV",
@@ -827,7 +872,8 @@ export const CAR_DB: Car[] = [
       "Câmera 360° surround view",
       "Teto solar panorâmico elétrico",
       "Porta-malas elétrico + atualização OTA"
-    ]
+    ],
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 80,
   },
   {
     model: "E-JS4", brand: "JAC", price: 254900, range: 307, cat: "SUV",
@@ -844,6 +890,7 @@ export const CAR_DB: Car[] = [
       "Teto solar + porta-malas elétrico"
     ],
     pbeRating: 'A', energyMJkm: 0.47,
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 80,
   },
   {
     model: "E-J7", brand: "JAC", price: 259900, range: 249, cat: "Sedan",
@@ -859,6 +906,7 @@ export const CAR_DB: Car[] = [
       "Entrada sem chave (keyless entry)",
       "0–100 km/h em 5,9s"
     ],
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 40,
   },
   {
     model: "Ariya", brand: "Nissan", price: 350000, range: 400, cat: "SUV",
@@ -873,7 +921,8 @@ export const CAR_DB: Car[] = [
       "Câmera 360° surround view",
       "Bancos aquecidos e ventilados (Zero-Gravity seats)",
       "Teto solar panorâmico"
-    ]
+    ],
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 7.4, chargeDC: 130,
   },
   {
     model: "Zeekr X", brand: "Zeekr", price: 272000, range: 332, cat: "SUV",
@@ -890,6 +939,7 @@ export const CAR_DB: Car[] = [
       "Atualização OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.59,
+    warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
   },
   {
     model: "7X", brand: "Zeekr", price: 448000, range: 423, cat: "SUV",
@@ -906,6 +956,7 @@ export const CAR_DB: Car[] = [
       "0-100 km/h em 3,8 s + plataforma SEA"
     ],
     pbeRating: 'A', energyMJkm: 0.64,
+    warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 200,
   },
   {
     model: "iX3", brand: "BMW", price: 500950, range: 381, cat: "Luxo",
@@ -920,7 +971,8 @@ export const CAR_DB: Car[] = [
       "Câmera 360°",
       "Bancos aquecidos e ventilados + teto panorâmico",
       "Som Harman Kardon premium + head-up display"
-    ]
+    ],
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
   },
 
   // 3. LUXO & PERFORMANCE
@@ -937,7 +989,8 @@ export const CAR_DB: Car[] = [
       "e-4WD com torque vetorial AWD (dual motor 531 cv, 0-100 em ~3,8 s)",
       "V2L – Vehicle-to-Load",
       "Bancos aquecidos e ventilados + som Dynaudio + atualização OTA"
-    ]
+    ],
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
   },
   {
     model: "001 Premium", brand: "Zeekr", price: 428000, range: 426, cat: "Luxo",
@@ -954,6 +1007,7 @@ export const CAR_DB: Car[] = [
       "Teto panorâmico elétrico + som premium Yamaha + atualização OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.63,
+    warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 200,
   },
   {
     model: "i4 eDrive35", brand: "BMW", price: 449950, range: 422, cat: "Luxo",
@@ -968,7 +1022,8 @@ export const CAR_DB: Car[] = [
       "Câmera 360°",
       "Bancos aquecidos e ventilados + head-up display",
       "Som Harman Kardon + design Gran Coupé aerodinâmico"
-    ]
+    ],
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 200,
   },
   {
     model: "Mustang Mach-E", brand: "Ford", price: 486000, range: 379, cat: "Luxo",
@@ -983,7 +1038,8 @@ export const CAR_DB: Car[] = [
       "ADAS: ACC + LCC + AEB + alerta de ponto cego (BSM)",
       "Bancos aquecidos e ventilados",
       "AWD dual motor 487 cv (0-100 km/h em ~3,7 s) + atualização OTA"
-    ]
+    ],
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
   },
   {
     model: "Blazer EV RS", brand: "Chevrolet", price: 489000, range: 483, cat: "Luxo",
@@ -998,7 +1054,8 @@ export const CAR_DB: Car[] = [
       "ADAS: ACC + LCC + AEB + BSM + câmera 360°",
       "Bancos RS aquecidos e ventilados + head-up display",
       "Modo RS esportivo + OnStar + atualização OTA"
-    ]
+    ],
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11.5, chargeDC: 150,
   },
   {
     model: "Tan EV", brand: "BYD", price: 529800, range: 430, cat: "Luxo",
@@ -1013,7 +1070,8 @@ export const CAR_DB: Car[] = [
       "6 lugares com bancos em couro com aquecimento e massagem",
       "Teto solar panorâmico elétrico + som Dynaudio premium",
       "AWD e-4WD dual motor + V2L + atualização OTA"
-    ]
+    ],
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 110,
   },
   {
     model: "Han EV", brand: "BYD", price: 539800, range: 349, cat: "Luxo",
@@ -1028,7 +1086,8 @@ export const CAR_DB: Car[] = [
       "Bancos elétricos com aquecimento, ventilação e massagem",
       "Teto solar panorâmico + som Dynaudio premium",
       "Chave NFC + AWD dual motor (0-100 km/h em ~3,9 s)"
-    ]
+    ],
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 120,
   },
   {
     model: "Macan EV", brand: "Porsche", price: 560000, range: 443, cat: "Luxo",
@@ -1045,6 +1104,7 @@ export const CAR_DB: Car[] = [
       "Suspensão pneumática Porsche Active Ride + som BOSE/Burmester opcional"
     ],
     pbeRating: 'A', energyMJkm: 0.61,
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 270,
   },
   {
     model: "Q8 e-tron", brand: "Audi", price: 699000, range: 332, cat: "Luxo",
@@ -1059,7 +1119,8 @@ export const CAR_DB: Car[] = [
       "Virtual Mirrors (câmeras substituindo espelhos retrovisores externos, opcional)",
       "Bancos Contour com ventilação e massagem + som Bang & Olufsen 3D",
       "Suspensão pneumática adaptativa + faróis Matrix LED + atualização OTA"
-    ]
+    ],
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 22, chargeDC: 170,
   },
   {
     model: "A6 Sportback e-tron", brand: "Audi", price: 649990, range: 445, cat: "Luxo",
@@ -1076,6 +1137,7 @@ export const CAR_DB: Car[] = [
       "0-100 km/h em 5,4 s + atualização OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.59,
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 270,
   },
   {
     model: "Q6 e-tron", brand: "Audi", price: 529990, range: 411, cat: "Luxo",
@@ -1092,6 +1154,7 @@ export const CAR_DB: Car[] = [
       "Teto panorâmico + atualização OTA + 0-100 km/h em 5,9 s"
     ],
     pbeRating: 'A', energyMJkm: 0.64,
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 270,
   },
   {
     model: "Q6 Sportback e-tron", brand: "Audi", price: 569990, range: 427, cat: "Luxo",
@@ -1108,6 +1171,7 @@ export const CAR_DB: Car[] = [
       "Teto panorâmico + atualização OTA + 0-100 km/h em 5,9 s"
     ],
     pbeRating: 'A', energyMJkm: 0.64,
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 270,
   },
   {
     model: "SQ6 Sportback e-tron", brand: "Audi", price: 684990, range: 428, cat: "Luxo",
@@ -1124,6 +1188,7 @@ export const CAR_DB: Car[] = [
       "0-100 km/h em 4,4 s + Launch Control + atualização OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.64,
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 270,
   },
   {
     model: "iX xDrive40", brand: "BMW", price: 699950, range: 329, cat: "Luxo",
@@ -1138,7 +1203,8 @@ export const CAR_DB: Car[] = [
       "Câmera 360° + câmera panorâmica traseira",
       "Bancos aquecidos, ventilados e com massagem",
       "Som Bowers & Wilkins Diamond (31 alto-falantes) + teto panorâmico cristal"
-    ]
+    ],
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 200,
   },
   {
     model: "i5 M60", brand: "BMW", price: 794950, range: 393, cat: "Luxo",
@@ -1153,7 +1219,8 @@ export const CAR_DB: Car[] = [
       "M Track Mode com torque vetorial (0-100 km/h em 3,8 s)",
       "Bancos M esportivos com ventilação e massagem + som Bowers & Wilkins Diamond",
       "Suspensão adaptativa M + teto panorâmico + atualização OTA"
-    ]
+    ],
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 205,
   },
   {
     model: "Taycan 4S", brand: "Porsche", price: 745000, range: 415, cat: "Luxo",
@@ -1170,6 +1237,7 @@ export const CAR_DB: Car[] = [
       "Suspensão pneumática com controle ativo + 0-100 km/h em 4,0 s"
     ],
     pbeRating: 'A', energyMJkm: 0.69,
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 270,
   },
   {
     model: "EV9 GT-Line", brand: "Kia", price: 749990, range: 434, cat: "Luxo",
@@ -1184,7 +1252,8 @@ export const CAR_DB: Car[] = [
       "V2G/V2L – 6,6 kW (pode alimentar residência ou outro veículo)",
       "7 lugares com bancos elétricos aquecidos e ventilados",
       "Som Meridian premium + atualização OTA"
-    ]
+    ],
+    warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 11, chargeDC: 240,
   },
   {
     model: "Hyptec HT", brand: "GAC", price: 359990, range: 431, cat: "Luxo",
@@ -1199,7 +1268,8 @@ export const CAR_DB: Car[] = [
       "Interior premium com iluminação ambiente 64 cores",
       "Bancos elétricos aquecidos e ventilados",
       "Som imersivo 12 alto-falantes + teto panorâmico elétrico + atualização OTA"
-    ]
+    ],
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
   },
   {
     model: "e-tron GT", brand: "Audi", price: 769990, range: 318, cat: "Luxo",
@@ -1214,7 +1284,8 @@ export const CAR_DB: Car[] = [
       "AWD com torque vetorial (0-100 km/h em 3,3 s no RS e-tron GT)",
       "Bancos esportivos com ventilação e massagem + som Bang & Olufsen 3D",
       "Suspensão pneumática ativa + atualização OTA"
-    ]
+    ],
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 270,
   },
   {
     model: "i7 xDrive60", brand: "BMW", price: 1321950, range: 467, cat: "Luxo",
@@ -1229,7 +1300,8 @@ export const CAR_DB: Car[] = [
       "Bancos executive traseiros: massagem, ventilação, reclinação total e otomana elétrica",
       "Som Bowers & Wilkins Diamond Surround (36 alto-falantes)",
       "Teto Sky Lounge LED panorâmico + chave de cristal iluminado + atualização OTA"
-    ]
+    ],
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 195,
   },
   {
     model: "EQE 300 SUV", brand: "Mercedes-Benz", price: 698900, range: 367, cat: "Luxo",
@@ -1244,7 +1316,8 @@ export const CAR_DB: Car[] = [
       "Câmera 360°",
       "Bancos multicontour com aquecimento e ventilação + som Burmester Premium",
       "Teto panorâmico + Hey Mercedes + atualização OTA"
-    ]
+    ],
+    warrantyYears: 3, warrantyBatteryYears: 10, chargeAC: 11, chargeDC: 170,
   },
 
   {
@@ -1262,6 +1335,7 @@ export const CAR_DB: Car[] = [
       "0-100 km/h em 4,5 s + atualização OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.63,
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 320,
   },
 
   // 4. COMERCIAIS & VANS
@@ -1280,6 +1354,7 @@ export const CAR_DB: Car[] = [
       "Capacidade de carga 758-1.032 kg (furgão, chassi ou plataforma)"
     ],
     pbeRating: 'A', energyMJkm: 1.02,
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11.3, chargeDC: 115,
   },
   {
     model: "Kangoo E-Tech", brand: "Renault", price: 259000, range: 210, cat: "Comercial",
@@ -1296,6 +1371,7 @@ export const CAR_DB: Car[] = [
       "Capacidade de carga até 775 kg + porta lateral deslizante dupla"
     ],
     pbeRating: 'A', energyMJkm: 0.6,
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 80,
   },
   {
     model: "ID.Buzz", brand: "Volkswagen", price: 340000, range: 341, cat: "Comercial",
@@ -1310,7 +1386,8 @@ export const CAR_DB: Car[] = [
       "Câmera 360°",
       "Design icônico Kombi elétrica + 7 lugares",
       "Teto solar panorâmico + bancos aquecidos + atualização OTA"
-    ]
+    ],
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 135,
   },
   {
     model: "eT3", brand: "BYD", price: 229990, range: 170, cat: "Comercial",
@@ -1327,6 +1404,7 @@ export const CAR_DB: Car[] = [
       "Atualização OTA – ideal para logística urbana de última milha"
     ],
     pbeRating: 'A', energyMJkm: 0.71,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 80,
   },
   {
     model: "e-Expert", brand: "Peugeot", price: 329990, range: 258, cat: "Comercial",
@@ -1344,6 +1422,7 @@ export const CAR_DB: Car[] = [
       "Conectividade de frota PSA Fleet"
     ],
     pbeRating: 'A', energyMJkm: 0.75,
+    warrantyYears: 2, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 100,
   },
   {
     model: "e-Scudo", brand: "Fiat", price: 329990, range: 289, cat: "Comercial",
@@ -1358,7 +1437,8 @@ export const CAR_DB: Car[] = [
       "Drive Assist: ACC + alerta de mudança de faixa (LCA)",
       "Capacidade de carga 1.000 kg",
       "Plataforma compartilhada Stellantis (e-Expert / e-Jumpy / e-Scudo)"
-    ]
+    ],
+    warrantyYears: 2, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 100,
   },
   {
     model: "e-Jumpy", brand: "Citroen", price: 329990, range: 258, cat: "Comercial",
@@ -1375,6 +1455,7 @@ export const CAR_DB: Car[] = [
       "Plataforma compartilhada Stellantis (e-Expert / e-Jumpy / e-Scudo)"
     ],
     pbeRating: 'A', energyMJkm: 0.75,
+    warrantyYears: 2, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 100,
   },
 
   // 5. MG MOTOR
@@ -1393,6 +1474,7 @@ export const CAR_DB: Car[] = [
       "Design esportivo hatch"
     ],
     pbeRating: 'A', energyMJkm: 0.59,
+    warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 6.6, chargeDC: 87,
   },
   {
     model: "MG4 Luxury", brand: "MG Motor", price: 189800, range: 364, cat: "Compacto",
@@ -1409,6 +1491,7 @@ export const CAR_DB: Car[] = [
       "Plataforma MSP (Motor Skateboard Platform)"
     ],
     pbeRating: 'A', energyMJkm: 0.59,
+    warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 6.6, chargeDC: 140,
   },
   {
     model: "MG4 XPower", brand: "MG Motor", price: 229800, range: 279, cat: "Compacto",
@@ -1425,6 +1508,7 @@ export const CAR_DB: Car[] = [
       "Atualização OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.59,
+    warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 6.6, chargeDC: 140,
   },
   {
     model: "MGS5 Comfort", brand: "MG Motor", price: 195800, range: 351, cat: "SUV",
@@ -1441,6 +1525,7 @@ export const CAR_DB: Car[] = [
       "Faróis LED full"
     ],
     pbeRating: 'A', energyMJkm: 0.51,
+    warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 6.6, chargeDC: 100,
   },
   {
     model: "MGS5 Luxury", brand: "MG Motor", price: 219800, range: 351, cat: "SUV",
@@ -1457,6 +1542,7 @@ export const CAR_DB: Car[] = [
       "Interior premium com iluminação ambiente"
     ],
     pbeRating: 'A', energyMJkm: 0.51,
+    warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 6.6, chargeDC: 100,
   },
   {
     model: "Cyberster", brand: "MG Motor", price: 499800, range: 342, cat: "Luxo",
@@ -1473,6 +1559,7 @@ export const CAR_DB: Car[] = [
       "Bancos Alcantara com aquecimento + design roadster esportivo clássico"
     ],
     pbeRating: 'A', energyMJkm: 0.56,
+    warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 6.6, chargeDC: 140,
   },
   {
     model: 'e-Vitara',
@@ -1495,5 +1582,6 @@ export const CAR_DB: Car[] = [
       'Bateria 61 kWh íons de lítio',
       'AWD dual motor 184 cv / 31,2 kgfm'
     ],
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 100,
   }
 ];
