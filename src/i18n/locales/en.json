@@ -306,7 +306,7 @@
     "exportBtn": "Export image",
     "tcoDisclaimer": "*Estimates based on market averages. Consult your insurer and dealer for real figures.",
     "insNote": "Insurance on depreciated vehicle value: 3.3% p.a. (EV) and 2.5% p.a. (combustion).",
-    "maintNote": "Maintenance proportional to km driven: service every 20,000 km (EV) and 10,000 km (combustion), no oil/filter changes for EV.",
+    "maintNote": "Maintenance proportional to km driven: service every 20,000 km (EV) and 10,000 km (combustion), no oil/filter changes for EV. Cost per service estimated by vehicle category — based on official BYD plans and BR market data 2025.",
     "deprNote": "Linear depreciation over 4 years: 9.5% p.a. (EV) and 7.0% p.a. (combustion).",
     "totalEV4y": "EV cost 4 years",
     "totalComb4y": "Combustion 4 years",

@@ -306,7 +306,7 @@
     "exportBtn": "Exportar imagem",
     "tcoDisclaimer": "*Estimativas baseadas em médias de mercado. Consulte seguradora e concessionária para valores reais.",
     "insNote": "Seguro calculado sobre o valor depreciado do veículo: 3,3% a.a. (EV) e 2,5% a.a. (combustão).",
-    "maintNote": "Manutenção proporcional ao km: revisão a cada 20.000 km (EV) e 10.000 km (combustão), sem trocas de óleo/filtros para EV.",
+    "maintNote": "Manutenção proporcional ao km: revisão a cada 20.000 km (EV) e 10.000 km (combustão), sem trocas de óleo/filtros para EV. Custo por revisão estimado pela categoria — planos oficiais BYD e dados de mercado BR 2025.",
     "deprNote": "Depreciação linear em 4 anos: 9,5% a.a. (EV) e 7,0% a.a. (combustão).",
     "totalEV4y": "Custo EV 4 anos",
     "totalComb4y": "Combustão 4 anos",

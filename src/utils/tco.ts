@@ -35,13 +35,15 @@ interface TCOCategory {
   efficiencyKwh: number;       // kWh/100km
 }
 
+// Custos de revisão baseados em planos oficiais BYD e dados de mercado BR 2025.
+// EV: BYD Dolphin Mini/Dolphin/Seal/Song; combustão: VW Polo, Jeep Compass, Mercedes Classe C/GLC.
 export const TCO_BY_CATEGORY: Record<string, TCOCategory> = {
-  Urbano:    { maintEVPerService: 900,  maintCombPerService: 1800, combKmL: 12.0, efficiencyKwh: 12 },
-  Compacto:  { maintEVPerService: 1100, maintCombPerService: 2200, combKmL: 11.0, efficiencyKwh: 14 },
-  SUV:       { maintEVPerService: 1800, maintCombPerService: 3200, combKmL: 9.5,  efficiencyKwh: 16 },
-  Sedan:     { maintEVPerService: 1400, maintCombPerService: 2600, combKmL: 11.0, efficiencyKwh: 14 },
-  Luxo:      { maintEVPerService: 3500, maintCombPerService: 5000, combKmL: 8.0,  efficiencyKwh: 21 },
-  Comercial: { maintEVPerService: 2500, maintCombPerService: 4000, combKmL: 7.5,  efficiencyKwh: 22 },
+  Urbano:    { maintEVPerService:  600, maintCombPerService: 1400, combKmL: 12.0, efficiencyKwh: 12 },
+  Compacto:  { maintEVPerService:  700, maintCombPerService: 1500, combKmL: 11.0, efficiencyKwh: 14 },
+  SUV:       { maintEVPerService: 1200, maintCombPerService: 2800, combKmL: 9.5,  efficiencyKwh: 16 },
+  Sedan:     { maintEVPerService:  900, maintCombPerService: 2600, combKmL: 11.0, efficiencyKwh: 14 },
+  Luxo:      { maintEVPerService: 2800, maintCombPerService: 5500, combKmL: 8.0,  efficiencyKwh: 21 },
+  Comercial: { maintEVPerService: 2000, maintCombPerService: 4500, combKmL: 7.5,  efficiencyKwh: 22 },
 };
 
 /** Valor depreciado no início do ano Y (1-based) */
