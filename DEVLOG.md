@@ -351,6 +351,28 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 
 ---
 
+### [S8-D] feat(ux): barra de filtros ativos com chips + Limpar tudo · 27/03/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | Barra aparece abaixo da busca quando qualquer filtro está ativo (`hasActiveFilters`). Chips: marcas (azul), categorias, preço máximo, autonomia mínima, novidades, query de busca. Botão "Limpar tudo" (vermelho) chama `handleResetFilters`. i18n PT-BR e EN com 5 novas chaves em `filterMobile`. |
+| Build  | ✅ | `npm run build` — sem erros |
+| Testes | ✅ | 76/76 passando |
+| Commit | ✅ | `f13e260` |
+
+---
+
+### [S8-E] fix(search): Fuse.js threshold 0.35→0.2, filtro por score · 27/03/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `threshold` reduzido de 0.35 para 0.2 em `useSearch.ts`. Adicionado `.filter(r => r.score < 0.2)` explícito nos resultados. Corrige falsos positivos — ex.: "ORA" retornava 21 resultados por subsequência fuzzy em vez dos GWM Ora. |
+| Build  | ✅ | `npm run build` — sem erros |
+| Testes | ✅ | 76/76 passando |
+| Commit | ✅ | `a236311` |
+
+---
+
 ### [S8-B] fix(i18n): aba "Economia Mensal" → "Economia Mensal/Anual" · 27/03/2026
 
 | Etapa  | Status | Detalhe |
