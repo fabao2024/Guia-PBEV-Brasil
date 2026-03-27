@@ -337,3 +337,14 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 **Notas:** SEO A2 (rotas individuais por carro com `react-router-dom` + `vite-plugin-prerender`) fica como sprint futura — alto impacto mas requer refatoração estrutural. A1 já melhora rich snippets, compartilhamento social e sinaliza ao Google a estrutura do catálogo via dados estruturados.
 
 ---
+
+### [S8-B] fix(i18n): aba "Economia Mensal" → "Economia Mensal/Anual" · 27/03/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `savingsTab` em `pt-BR.json` e `en.json` atualizados |
+| Build  | ✅ | `npm run build` — sem erros |
+| Testes | ✅ | 76/76 passando |
+| Commit | ✅ | `26ce60d` |
+
+---
