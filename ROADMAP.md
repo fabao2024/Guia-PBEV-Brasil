@@ -526,9 +526,10 @@
 - ✅ fix(search): Fuse.js threshold 0.35→0.2, score filter explícito
 - ✅ i18n: aba "Economia Mensal" → "Economia Mensal/Anual"
 - ✅ feat(data+ui): garantia (anos) e velocidades de carregamento AC/DC em todos os 88 veículos
+- ✅ feat(ui): tempo estimado de carregamento AC/DC calculado e exibido no modal de detalhes
 
 > **Resumo técnico — Sprint 8 (27/03/2026):**
-> Foco em qualidade de dados e UX. SEO A1 com react-helmet-async, JSON-LD Product enriquecido, sitemap. Manutenção TCO corrigida (BYD plans oficiais). Barra de filtros ativos com chips inline. Fuse.js com threshold mais restrito elimina falsos positivos. Garantia e carregamento: 4 campos novos na interface `Car` (`warrantyYears`, `warrantyBatteryYears`, `chargeAC`, `chargeDC`) populados em todos os 88 carros via script; exibidos no modal de detalhes após tile de bateria.
+> Foco em qualidade de dados e UX. SEO A1 com react-helmet-async, JSON-LD Product enriquecido, sitemap. Manutenção TCO corrigida (BYD plans oficiais). Barra de filtros ativos com chips inline. Fuse.js com threshold mais restrito elimina falsos positivos. Garantia e carregamento: 4 campos novos na interface `Car` (`warrantyYears`, `warrantyBatteryYears`, `chargeAC`, `chargeDC`) populados em todos os 88 carros via script; exibidos no modal de detalhes após tile de bateria. Tempo estimado de recarga calculado a partir da capacidade da bateria (`batteryCapacity`) dividida pela potência AC/DC — exibido em horas e minutos no mesmo tile.
 
 ---
 
