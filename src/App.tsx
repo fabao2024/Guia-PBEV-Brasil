@@ -1,4 +1,6 @@
 import React, { useMemo, useState, useEffect, useRef } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import CarDetailPage from './pages/CarDetailPage';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { CAR_DB, isCarNew, BRAND_URLS } from './constants';
@@ -129,7 +131,8 @@ export default function App() {
     ? `https://guiapbev.cloud${selectedCar.img}`
     : 'https://guiapbev.cloud/og-cover.jpg';
 
-  return (
+  // Inline catalog JSX — all state is available here in App()
+  const catalogContent = (
     <>
     <Helmet>
       <title>{helmetTitle}</title>
@@ -585,5 +588,12 @@ export default function App() {
       </div>
     </div>
     </>
+  );
+
+  return (
+    <Routes>
+      <Route path="/carro/:slug" element={<CarDetailPage />} />
+      <Route path="*" element={catalogContent} />
+    </Routes>
   );
 }
