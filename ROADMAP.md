@@ -41,7 +41,7 @@
 - Comparar EV vs. carro equivalente a combustão em 5 anos
 - Exportar como PDF ou link compartilhável
 
-### 5. SEO — Sprint 8 ✅ (A1) / 🔲 (A2 pendente)
+### 5. SEO — ✅ A1 + ✅ A2 concluídos
 
 **A1 — concluído (mar/2026):**
 - `index.html`: domínio corrigido para `guiapbev.cloud`, contagem atualizada, `<link rel="canonical">`
@@ -50,11 +50,12 @@
 - `public/sitemap.xml` + `public/robots.txt` adicionados
 - Plausible Analytics (self-hosted) marcado como ✅ — já implementado desde Sprint 6
 
-**A2 — pendente (alta complexidade):**
-- Rotas individuais por carro (`/carro/:slug`) com `react-router-dom`
-- `vite-plugin-prerender` para gerar HTML estático por página
-- Necessário para ranquear em buscas específicas por modelo ("BYD Seal preço Brasil")
-- Requer solução para GitHub Pages sem servidor (404.html hack)
+**A2 — concluído (31/03/2026):**
+- `react-router-dom` v7 instalado; `BrowserRouter` em `index.tsx`
+- `src/utils/slug.ts`: `toSlug()`, `findCarBySlug()`, `getCarUrl()`
+- `src/pages/CarDetailPage.tsx`: página dedicada `/carro/:slug` com SEO completo (Helmet, JSON-LD Product, OG tags, canonical por modelo), hero, specs, garantia, carregamento, PBE, IPVA interativo, features, CTAs
+- `public/404.html`: hack GitHub Pages para SPA routing sem servidor
+- Fix double-slash no decode do redirect `/?/path` → `/path`
 
 ### 6. EV Route Planner
 - Input: origem + destino
@@ -527,9 +528,10 @@
 - ✅ i18n: aba "Economia Mensal" → "Economia Mensal/Anual"
 - ✅ feat(data+ui): garantia (anos) e velocidades de carregamento AC/DC em todos os 88 veículos
 - ✅ feat(ui): tempo estimado de carregamento AC/DC calculado e exibido no modal de detalhes
+- ✅ feat(seo): SEO A2 — rotas individuais `/carro/:slug` com react-router-dom + 404 hack
 
-> **Resumo técnico — Sprint 8 (27/03/2026):**
-> Foco em qualidade de dados e UX. SEO A1 com react-helmet-async, JSON-LD Product enriquecido, sitemap. Manutenção TCO corrigida (BYD plans oficiais). Barra de filtros ativos com chips inline. Fuse.js com threshold mais restrito elimina falsos positivos. Garantia e carregamento: 4 campos novos na interface `Car` (`warrantyYears`, `warrantyBatteryYears`, `chargeAC`, `chargeDC`) populados em todos os 88 carros via script; exibidos no modal de detalhes após tile de bateria. Tempo estimado de recarga calculado a partir da capacidade da bateria (`batteryCapacity`) dividida pela potência AC/DC — exibido em horas e minutos no mesmo tile.
+> **Resumo técnico — Sprint 8 (27/03/2026 – 31/03/2026):**
+> Foco em qualidade de dados, UX e SEO. SEO A1 com react-helmet-async, JSON-LD Product enriquecido, sitemap. Manutenção TCO corrigida (BYD plans oficiais). Barra de filtros ativos com chips inline. Fuse.js com threshold mais restrito elimina falsos positivos. Garantia e carregamento: 4 campos novos na interface `Car` populados em todos os 88 carros; exibidos no modal e na página dedicada. Tempo estimado de recarga calculado por fórmula validada. SEO A2: `CarDetailPage.tsx` com rota `/carro/:slug`, JSON-LD Product por modelo, `404.html` hack para GitHub Pages sem servidor — permite indexação individual por modelo ("BYD Seal preço Brasil").
 
 ---
 

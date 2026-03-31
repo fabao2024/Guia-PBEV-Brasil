@@ -409,3 +409,16 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 **Notas:** Fórmula validada: BMW iX3 ~7h30/~32min (oficial 7.5h/34min ✓), Ioniq 5 ~20min (oficial 18min ✓), Megane E-Tech ~3h/~30min (oficial 3h/34min ✓). Fator 0.65 de potência média DC considera curva de taper do BMS acima de 60% SOC em sistemas 400V; carros 800V (Taycan, Macan, EV9) terão estimativa um pouco conservadora.
 
 ---
+
+### [S8-H] feat(seo): SEO A2 — rotas individuais por veículo · 31/03/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `react-router-dom` v7.13.2 instalado. `src/utils/slug.ts`: `toSlug()` (normaliza acentos, espaços → hífens), `findCarBySlug()`, `getCarUrl()`. `src/pages/CarDetailPage.tsx`: página completa `/carro/:slug` com hero (imagem + range bar + preço + delta histórico), specs grid, garantia/carregamento, PBE, IPVA interativo por estado, features list, CTAs marca + seguro, SEO full (Helmet title/desc/OG/twitter, JSON-LD Product, canonical). `public/404.html`: redirect hack GitHub Pages SPA (encode `/?/path`). `src/index.tsx`: `BrowserRouter` + decode do redirect; fix double-slash (`'/' + decoded` → `decoded`). `src/App.tsx`: `<Routes>` com `/carro/:slug` → `CarDetailPage` e `*` → catálogo. |
+| Build  | ✅ | `npm run build` — sem erros TypeScript |
+| Testes | ✅ | Build limpo; fluxo manual: `/carro/byd-seal` resolve corretamente |
+| Commit | ✅ | `12d0b68` |
+
+**Notas:** `vite.config.ts` já usava `base: '/'` (domínio customizado `guiapbev.cloud`), então `BrowserRouter` sem `basename` está correto. `CarDetailPage` reutiliza `calcChargeTime`, `IPVA_BY_STATE`, `getPriceDelta`, `track` e demais utilitários já existentes — sem duplicação. Próximo passo natural: gerar sitemap dinâmico com todas as URLs `/carro/:slug` para acelerar indexação.
+
+---
