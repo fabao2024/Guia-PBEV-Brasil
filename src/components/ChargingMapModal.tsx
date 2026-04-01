@@ -90,7 +90,7 @@ export const ChargingMapModal: React.FC<ChargingMapModalProps> = ({ onClose }) =
 
         circle._isEletroposto = true;
 
-        const gm = gmapsUrl(e.lat, e.lng);
+        const gm = gmapsUrl(e.lat, e.lng, e.nome, e.operador);
         const ps = plugshareUrl(e.lat, e.lng);
 
         circle.bindPopup(

@@ -165,10 +165,17 @@ export const OPERADOR_COLOR: Record<string, string> = {
 
 export const DEFAULT_OPERADOR_COLOR = '#888888';
 
-/** Gera link de navegação para o Google Maps */
-export const gmapsUrl = (lat: number, lng: number) =>
-  `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+/**
+ * Busca o carregador pelo nome + operador no Google Maps centrado nas coordenadas.
+ * Se a listing existir no Maps, aparece como primeiro resultado.
+ * Zoom 19 = quarteirão, praticamente isola o ponto.
+ */
+export const gmapsUrl = (lat: number, lng: number, nome: string, operador: string) =>
+  `https://www.google.com/maps/search/${encodeURIComponent(operador + ' ' + nome)}/@${lat},${lng},19z`;
 
-/** Gera link para ver o ponto no PlugShare (centraliza mapa no local) */
+/**
+ * Abre o PlugShare centralizado e com zoom máximo (19) nas coordenadas do ponto.
+ * Sem ID interno não é possível abrir a listing direta, mas zoom 19 isola o marcador.
+ */
 export const plugshareUrl = (lat: number, lng: number) =>
-  `https://www.plugshare.com/?latitude=${lat}&longitude=${lng}&zoomLevel=16`;
+  `https://www.plugshare.com/?latitude=${lat}&longitude=${lng}&zoomLevel=19`;
