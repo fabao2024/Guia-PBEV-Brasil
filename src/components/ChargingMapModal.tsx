@@ -18,6 +18,7 @@ export const ChargingMapModal: React.FC<ChargingMapModalProps> = ({ onClose }) =
   const { t } = useTranslation();
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<import('leaflet').Map | null>(null);
+  const [mapReady, setMapReady] = useState(false);
   const [minKw, setMinKw] = useState(0);
   const [selectedOp, setSelectedOp] = useState<string | null>(null);
 
@@ -47,6 +48,7 @@ export const ChargingMapModal: React.FC<ChargingMapModalProps> = ({ onClose }) =
       });
 
       mapInstanceRef.current = map;
+      setMapReady(true);
 
       L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
         attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/attributions">CARTO</a>',
@@ -65,7 +67,7 @@ export const ChargingMapModal: React.FC<ChargingMapModalProps> = ({ onClose }) =
   // Update markers whenever filters change
   useEffect(() => {
     const map = mapInstanceRef.current;
-    if (!map) return;
+    if (!mapReady || !map) return;
 
     import('leaflet').then((L) => {
       // Remove existing circle markers layer group if any
@@ -119,7 +121,7 @@ export const ChargingMapModal: React.FC<ChargingMapModalProps> = ({ onClose }) =
         circle.addTo(map);
       });
     });
-  }, [filtered.length, minKw, selectedOp]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [mapReady, filtered.length, minKw, selectedOp]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const totalDCKw = filtered.reduce((acc, e) => acc + e.potenciaDC, 0);
 
