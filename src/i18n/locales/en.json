@@ -29,7 +29,9 @@
     "catLuxury": "Luxury / Performance",
     "catCommercial": "Commercial / Van",
     "newOnly": "New Models",
-    "newOnlyTooltip": "Models launched or updated in the last 12 months"
+    "newOnlyTooltip": "Models launched or updated in the last 12 months",
+    "fastChargeOnly": "DC Fast Charge",
+    "fastChargeOnlyTooltip": "Only vehicles with DC fast charging support (CCS, CHAdeMO or similar)"
   },
   "card": {
     "compare": "Compare",
@@ -243,7 +245,8 @@
     "clearAll": "Clear all",
     "upToPrice": "up to R$ {{value}}k",
     "minRange": "min. {{value}} km",
-    "newOnly": "New arrivals"
+    "newOnly": "New arrivals",
+    "fastChargeOnly": "DC Fast Charge"
   },
   "validation": {
     "empty": "Message cannot be empty.",
@@ -382,6 +385,18 @@
     "noData": "Data not available",
     "alwaysBRL": "Always in R$ (state tax)",
     "ipvaSavings": "IPVA Savings"
+  },
+  "chargingMap": {
+    "title": "Charging Stations Map",
+    "subtitle": "Public charging infrastructure by state — Brazil",
+    "mapBtn": "EV Map",
+    "totalStations": "Total stations",
+    "dcStations": "DC fast charge",
+    "source": "Source: ANEEL dadosabertos.gov.br · Mar/2026",
+    "legend": "Legend",
+    "legendFew": "Few stations",
+    "legendMany": "Many stations",
+    "clickToSeeDetails": "Click circle for details"
   },
   "pbe": {
     "title": "PBE / INMETRO Certification",

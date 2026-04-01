@@ -47,7 +47,8 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
       minRange: 100,
       categories: [],
       brands: [],
-      showNew: false
+      showNew: false,
+      fastChargeOnly: false,
     });
   };
 
@@ -126,7 +127,7 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
       </div>
 
       {/* New Models Toggle */}
-      <div className="mb-10">
+      <div className="mb-4">
         <button
           onClick={() => setFilters(prev => ({ ...prev, showNew: !prev.showNew }))}
           title={t('sidebar.newOnlyTooltip')}
@@ -137,6 +138,21 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
           }
         >
           {t('sidebar.newOnly')}
+        </button>
+      </div>
+
+      {/* Fast Charge Toggle */}
+      <div className="mb-10">
+        <button
+          onClick={() => setFilters(prev => ({ ...prev, fastChargeOnly: !prev.fastChargeOnly }))}
+          title={t('sidebar.fastChargeOnlyTooltip')}
+          className="w-full py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-widest transition-all border"
+          style={filters.fastChargeOnly
+            ? { background: 'rgba(0,180,255,0.12)', borderColor: 'rgba(0,180,255,0.4)', color: '#00b4ff' }
+            : { background: 'rgba(255,255,255,0.04)', borderColor: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.5)' }
+          }
+        >
+          ⚡ {t('sidebar.fastChargeOnly')}
         </button>
       </div>
 

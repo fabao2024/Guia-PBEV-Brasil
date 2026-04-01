@@ -28,6 +28,7 @@ export interface FilterState {
   categories: string[];
   brands: string[];
   showNew: boolean;
+  fastChargeOnly: boolean;
 }
 
 export interface ChatMessage {

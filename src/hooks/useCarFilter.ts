@@ -7,7 +7,8 @@ export function useCarFilter(initialCars: Car[]) {
         minRange: 100,
         categories: [],
         brands: [],
-        showNew: false
+        showNew: false,
+        fastChargeOnly: false,
     });
 
     const allBrands = useMemo(() => {
@@ -20,7 +21,8 @@ export function useCarFilter(initialCars: Car[]) {
             minRange: 100,
             categories: [],
             brands: [],
-            showNew: false
+            showNew: false,
+            fastChargeOnly: false,
         });
     };
 

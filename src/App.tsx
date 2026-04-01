@@ -11,7 +11,8 @@ import CarDetailsModal from './components/CarDetailsModal';
 import ComparisonModal from './components/ComparisonModal';
 import LanguageToggle from './components/LanguageToggle';
 import SavingsSimulatorModal from './components/SavingsSimulatorModal';
-import { Zap, Printer, Search, SlidersHorizontal, Scale, X, ArrowRight, Heart, BarChart2, Lightbulb, XCircle } from 'lucide-react';
+import { ChargingMapModal } from './components/ChargingMapModal';
+import { Zap, Printer, Search, SlidersHorizontal, Scale, X, ArrowRight, Heart, BarChart2, Lightbulb, XCircle, MapPin } from 'lucide-react';
 import { useCarFilter } from './hooks/useCarFilter';
 import { useFavorites } from './hooks/useFavorites';
 import { useCompare } from './hooks/useCompare';
@@ -53,6 +54,7 @@ export default function App() {
   };
 
   const [isSimulatorModalOpen, setIsSimulatorModalOpen] = useState(false);
+  const [isChargingMapOpen, setIsChargingMapOpen] = useState(false);
   const [showSuggestMenu, setShowSuggestMenu] = useState(false);
   const [triggerSuggestChat, setTriggerSuggestChat] = useState(false);
 
@@ -99,6 +101,7 @@ export default function App() {
       if (filters.brands.length > 0 && !filters.brands.includes(car.brand)) return false;
       if (filters.categories.length > 0 && !filters.categories.includes(car.cat)) return false;
       if (filters.showNew && !isCarNew(car)) return false;
+      if (filters.fastChargeOnly && !car.chargeDC) return false;
       return true;
     });
   }, [filters, showFavoritesOnly, favorites, searchResults]);
@@ -117,6 +120,7 @@ export default function App() {
     filters.maxPrice < 1500000 ||
     filters.minRange > 100 ||
     filters.showNew ||
+    filters.fastChargeOnly ||
     isSearching;
 
   const helmetTitle = selectedCar
@@ -207,6 +211,16 @@ export default function App() {
             <div className="bg-white/5 border border-white/10 rounded-xl p-0.5">
               <LanguageToggle />
             </div>
+
+            {/* Charging Map — desktop only */}
+            <button
+              onClick={() => setIsChargingMapOpen(true)}
+              className="hidden md:flex items-center gap-2 px-4 py-2.5 bg-white/5 border border-white/10 hover:bg-[#00b4ff]/10 hover:border-[#00b4ff]/30 text-white/70 hover:text-[#00b4ff] rounded-xl font-bold transition-all text-xs"
+              title={t('chargingMap.title')}
+            >
+              <MapPin className="w-4 h-4" />
+              {t('chargingMap.mapBtn')}
+            </button>
 
             {/* Simulator — desktop only (mobile has it in the sticky bar below) */}
             <button
@@ -352,6 +366,9 @@ export default function App() {
                 )}
                 {filters.showNew && (
                   <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-white/8 border border-white/15 text-white/70 whitespace-nowrap">{t('filterMobile.newOnly')}</span>
+                )}
+                {filters.fastChargeOnly && (
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#00b4ff]/10 border border-[#00b4ff]/30 text-[#00b4ff] whitespace-nowrap">⚡ {t('filterMobile.fastChargeOnly')}</span>
                 )}
                 {isSearching && (
                   <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-white/8 border border-white/15 text-white/70 whitespace-nowrap">"{query}"</span>
@@ -568,6 +585,11 @@ export default function App() {
                   : []
             }
           />
+        )}
+
+        {/* Charging Map Modal */}
+        {isChargingMapOpen && (
+          <ChargingMapModal onClose={() => setIsChargingMapOpen(false)} />
         )}
 
         {/* AI CHAT */}

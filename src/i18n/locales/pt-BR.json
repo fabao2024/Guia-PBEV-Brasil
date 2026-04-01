@@ -29,7 +29,9 @@
     "catLuxury": "Luxo / Performance",
     "catCommercial": "Comercial / Van",
     "newOnly": "Novidades",
-    "newOnlyTooltip": "Modelos lançados ou atualizados nos últimos 12 meses"
+    "newOnlyTooltip": "Modelos lançados ou atualizados nos últimos 12 meses",
+    "fastChargeOnly": "Recarga Rápida DC",
+    "fastChargeOnlyTooltip": "Apenas veículos com suporte a carga rápida DC (CCS, CHAdeMO ou similar)"
   },
   "card": {
     "compare": "Comparar",
@@ -243,7 +245,8 @@
     "clearAll": "Limpar tudo",
     "upToPrice": "até R$ {{value}}k",
     "minRange": "mín. {{value}} km",
-    "newOnly": "Novidades"
+    "newOnly": "Novidades",
+    "fastChargeOnly": "Recarga Rápida DC"
   },
   "validation": {
     "empty": "A mensagem não pode estar vazia.",
@@ -382,6 +385,18 @@
     "noData": "Dados não disponíveis",
     "alwaysBRL": "Sempre em R$ (imposto estadual)",
     "ipvaSavings": "Economia IPVA"
+  },
+  "chargingMap": {
+    "title": "Mapa de Eletropostos",
+    "subtitle": "Infraestrutura pública de recarga por estado — Brasil",
+    "mapBtn": "Mapa EV",
+    "totalStations": "Total de pontos",
+    "dcStations": "Carga rápida DC",
+    "source": "Fonte: ANEEL dadosabertos.gov.br · Mar/2026",
+    "legend": "Legenda",
+    "legendFew": "Poucos pontos",
+    "legendMany": "Muitos pontos",
+    "clickToSeeDetails": "Clique no círculo para detalhes"
   },
   "pbe": {
     "title": "Certificação PBE / INMETRO",
