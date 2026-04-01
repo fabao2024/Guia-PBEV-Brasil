@@ -7,6 +7,24 @@
   }
 }
 
+/* Leaflet popup — dark theme */
+.leaflet-popup.dark-popup .leaflet-popup-content-wrapper {
+  background: #1a1c23 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6) !important;
+  color: #ccc !important;
+}
+.leaflet-popup.dark-popup .leaflet-popup-tip {
+  background: #1a1c23 !important;
+}
+.leaflet-popup.dark-popup .leaflet-popup-close-button {
+  color: #888 !important;
+}
+.leaflet-popup.dark-popup .leaflet-popup-content {
+  margin: 12px 14px !important;
+}
+
 /* Custom Scrollbar for Dark Mode */
 .custom-scrollbar-dark::-webkit-scrollbar {
   width: 6px;
