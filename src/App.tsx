@@ -212,14 +212,14 @@ export default function App() {
               <LanguageToggle />
             </div>
 
-            {/* Charging Map — desktop only */}
+            {/* Charging Map */}
             <button
               onClick={() => setIsChargingMapOpen(true)}
-              className="hidden md:flex items-center gap-2 px-4 py-2.5 bg-white/5 border border-white/10 hover:bg-[#00b4ff]/10 hover:border-[#00b4ff]/30 text-white/70 hover:text-[#00b4ff] rounded-xl font-bold transition-all text-xs"
+              className="flex items-center gap-2 px-3 md:px-4 py-2 md:py-2.5 bg-white/5 border border-white/10 hover:bg-[#00b4ff]/10 hover:border-[#00b4ff]/30 text-white/70 hover:text-[#00b4ff] rounded-xl font-bold transition-all text-xs"
               title={t('chargingMap.title')}
             >
               <MapPin className="w-4 h-4" />
-              {t('chargingMap.mapBtn')}
+              <span className="hidden sm:inline">{t('chargingMap.mapBtn')}</span>
             </button>
 
             {/* Simulator — desktop only (mobile has it in the sticky bar below) */}
@@ -295,7 +295,7 @@ export default function App() {
         {/* MAIN CONTENT */}
         <main className="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth relative w-full pb-32">
 
-          {/* Mobile Action Row: Filter + Simulator */}
+          {/* Mobile Action Row: Filter + Simulator + Mapa */}
           <div className="md:hidden sticky top-0 z-30 flex gap-2 -mx-4 px-4 py-2 mb-2 bg-[#0a0a0a] border-b border-white/5">
             <button
               onClick={() => setIsSidebarOpen(true)}
@@ -306,10 +306,18 @@ export default function App() {
             </button>
             <button
               onClick={() => setIsSimulatorModalOpen(true)}
-              className="bg-[#00b4ff]/10 border border-[#00b4ff]/30 text-[#00b4ff] font-black py-3 px-4 rounded-xl shadow-lg flex items-center justify-center gap-2 hover:bg-[#00b4ff]/20 active:scale-95 transition-all whitespace-nowrap"
+              className="bg-[#00b4ff]/10 border border-[#00b4ff]/30 text-[#00b4ff] font-black py-3 px-3 rounded-xl shadow-lg flex items-center justify-center gap-1.5 hover:bg-[#00b4ff]/20 active:scale-95 transition-all whitespace-nowrap"
             >
               <BarChart2 className="w-4 h-4" />
               <span className="text-[11px] uppercase tracking-wide font-black">{t('simulator.headerBtn', 'Simulador')}</span>
+            </button>
+            <button
+              onClick={() => setIsChargingMapOpen(true)}
+              className="bg-white/5 border border-white/10 text-white/70 font-black py-3 px-3 rounded-xl shadow-lg flex items-center justify-center gap-1.5 hover:bg-[#00b4ff]/10 hover:border-[#00b4ff]/30 hover:text-[#00b4ff] active:scale-95 transition-all whitespace-nowrap"
+              title={t('chargingMap.title')}
+            >
+              <MapPin className="w-4 h-4" />
+              <span className="text-[11px] uppercase tracking-wide font-black">{t('chargingMap.mapBtn')}</span>
             </button>
           </div>
 
