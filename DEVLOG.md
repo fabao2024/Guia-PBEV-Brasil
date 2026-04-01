@@ -410,6 +410,21 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 
 ---
 
+## Sprint 9 — Infraestrutura de Recarga · 01/04/2026
+
+### [S9-ABC] feat(sprint9): filtro DC + dados ANEEL + mapa Leaflet · 01/04/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | **S9-A** — `fastChargeOnly: boolean` adicionado a `FilterState` (types.ts), `useCarFilter` e `Sidebar` (toggle ⚡ Recarga Rápida DC); filtro `car.chargeDC != null` em App.tsx; chip na barra de filtros ativos; traduções PT/EN. **S9-B** — `src/data/eletropostos.ts`: snapshot ANEEL dadosabertos.gov.br mar/2026, 27 estados com total AC+DC e contagem DC, centroides geográficos, totalizadores Brasil. **S9-C** — `ChargingMapModal.tsx`: react-leaflet instalado (leaflet + react-leaflet + @types/leaflet); tiles CartoDB Dark Matter; `CircleMarker` por estado com raio/opacidade proporcionais ao volume; popup com contagem DC; label UF via `divIcon`; barra de stats (total e DC Brasil); botão "Mapa EV" no header desktop; CSS Leaflet via `@import "leaflet/dist/leaflet.css"` em index.css. |
+| Build  | ✅ | `npm run build` — 14.4s, sem erros TypeScript; chunk size warning benigno (Leaflet ~150kB split separado) |
+| Testes | ✅ | 76 testes passando (8 suites) |
+| Commit | ✅ | `cf773f9` |
+
+**Notas:** Dados ANEEL são snapshot estático (não chamada API em runtime) para evitar CORS e dependência de disponibilidade do portal. Ícone default do Leaflet corrigido via `L.Icon.Default.mergeOptions` (Vite quebra `_getIconUrl`). Mapa abre apenas no desktop via botão no header.
+
+---
+
 ### [S8-H] feat(seo): SEO A2 — rotas individuais por veículo · 31/03/2026
 
 | Etapa  | Status | Detalhe |

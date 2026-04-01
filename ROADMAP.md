@@ -537,9 +537,12 @@
 
 ### Sprint 9 — semana de 07/04/2026
 **Tema: Infraestrutura de recarga**
-- 🔲 Integrar dados abertos ANEEL (eletropostos)
-- 🔲 Mapa de calor por estado com Leaflet
-- 🔲 Filtro "suporta recarga rápida" cruzado com catálogo
+- ✅ Integrar dados abertos ANEEL (eletropostos)
+- ✅ Mapa de calor por estado com Leaflet
+- ✅ Filtro "suporta recarga rápida" cruzado com catálogo
+
+> **Resumo técnico — Sprint 9 (01/04/2026):**
+> S9-A: `fastChargeOnly` adicionado ao `FilterState`, toggle na sidebar (⚡ Recarga Rápida DC), chip na barra de filtros ativos, lógica `car.chargeDC != null`. S9-B: `src/data/eletropostos.ts` com snapshot ANEEL mar/2026 — 27 estados, total de pontos AC+DC e contagem DC, centroides geográficos. S9-C: `ChargingMapModal.tsx` com react-leaflet + tiles CartoDB Dark Matter; CircleMarker por estado com tamanho/opacidade proporcionais ao volume de pontos; popup com detalhes DC; label UF; barra de estatísticas (total e DC Brasil); botão "Mapa EV" no header desktop. CSS Leaflet importado via `index.css`.
 
 ---
 
