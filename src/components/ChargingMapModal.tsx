@@ -6,6 +6,8 @@ import {
   OPERADORES,
   OPERADOR_COLOR,
   DEFAULT_OPERADOR_COLOR,
+  gmapsUrl,
+  plugshareUrl,
 } from '../data/eletropostosData';
 
 interface ChargingMapModalProps {
@@ -88,14 +90,28 @@ export const ChargingMapModal: React.FC<ChargingMapModalProps> = ({ onClose }) =
 
         circle._isEletroposto = true;
 
+        const gm = gmapsUrl(e.lat, e.lng);
+        const ps = plugshareUrl(e.lat, e.lng);
+
         circle.bindPopup(
-          `<div style="font-family:sans-serif;min-width:180px;line-height:1.5;">
+          `<div style="font-family:sans-serif;min-width:200px;line-height:1.6;">
             <strong style="color:${color};font-size:13px;">${e.nome}</strong><br/>
-            <span style="color:#aaa;font-size:11px;">${e.cidade} — ${e.uf}</span><br/>
-            <hr style="border-color:rgba(255,255,255,0.1);margin:5px 0;"/>
-            <span style="color:#ccc;font-size:12px;">⚡ <b style="color:#fff;">${e.potenciaDC} kW</b> DC</span><br/>
-            <span style="color:#ccc;font-size:12px;">🔌 ${e.conector}</span><br/>
-            <span style="color:#888;font-size:11px;">Operador: ${e.operador}</span>
+            <span style="color:#aaa;font-size:11px;">${e.cidade} — ${e.uf}</span>
+            <hr style="border-color:rgba(255,255,255,0.1);margin:6px 0 5px;"/>
+            <div style="margin-bottom:4px;">
+              <span style="color:#ccc;font-size:12px;">⚡ <b style="color:#fff;">${e.potenciaDC} kW</b> DC &nbsp;·&nbsp; 🔌 ${e.conector}</span>
+            </div>
+            <div style="color:#888;font-size:11px;margin-bottom:8px;">Operador: ${e.operador}</div>
+            <div style="display:flex;gap:6px;">
+              <a href="${gm}" target="_blank" rel="noopener noreferrer"
+                 style="flex:1;text-align:center;padding:5px 0;background:#1a73e8;color:#fff;border-radius:6px;font-size:11px;font-weight:bold;text-decoration:none;">
+                📍 Google Maps
+              </a>
+              <a href="${ps}" target="_blank" rel="noopener noreferrer"
+                 style="flex:1;text-align:center;padding:5px 0;background:#2d7dd2;color:#fff;border-radius:6px;font-size:11px;font-weight:bold;text-decoration:none;">
+                🔌 PlugShare
+              </a>
+            </div>
           </div>`,
           { className: 'dark-popup' }
         );
