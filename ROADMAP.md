@@ -542,7 +542,7 @@
 - ✅ Filtro "suporta recarga rápida" cruzado com catálogo
 
 > **Resumo técnico — Sprint 9 (01/04/2026):**
-> S9-A: `fastChargeOnly` adicionado ao `FilterState`, toggle na sidebar (⚡ Recarga Rápida DC), chip na barra de filtros ativos, lógica `car.chargeDC != null`. S9-B: `src/data/eletropostos.ts` com snapshot ANEEL mar/2026 — 27 estados, total de pontos AC+DC e contagem DC, centroides geográficos. S9-C: `ChargingMapModal.tsx` com react-leaflet + tiles CartoDB Dark Matter; CircleMarker por estado com tamanho/opacidade proporcionais ao volume de pontos; popup com detalhes DC; label UF; barra de estatísticas (total e DC Brasil); botão "Mapa EV" no header desktop. CSS Leaflet importado via `index.css`.
+> S9-A: `fastChargeOnly` adicionado ao `FilterState`, toggle na sidebar (⚡ Recarga Rápida DC), chip na barra de filtros ativos, lógica `car.chargeDC != null`. S9-B/S9-C: `src/data/eletropostosData.ts` com 159 estações reais curadas (18 operadores: Shell Recharge, Electra, Tupinambá, Tesla, BYD, Zletric, Volvo Cars, WEG, Be Charge, EDP Smart, Itaipu, BMW Charging, Mercedes EQ, CPFL, Neoenergia, Copel EV, ChargeHouse, Porsche); cobertura todos os 27 estados + corredores de rodovias (Bandeirantes, Anhanguera, Fernão Dias, Dutra, Régis). `ChargingMapModal.tsx`: Leaflet dinâmico (import assíncrono), tiles CartoDB Dark Matter, `CircleMarker` por estação individual com raio proporcional à potência DC, popup dark-theme com links Google Maps + PlugShare, filtros de potência mínima e operador, legenda clicável, botão Mapa EV no header e na barra mobile. Bug de race condition corrigido com `mapReady` state — marcadores aparecem ao primeiro abrir.
 
 ---
 

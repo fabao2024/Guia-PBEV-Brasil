@@ -437,3 +437,16 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 **Notas:** `vite.config.ts` já usava `base: '/'` (domínio customizado `guiapbev.cloud`), então `BrowserRouter` sem `basename` está correto. `CarDetailPage` reutiliza `calcChargeTime`, `IPVA_BY_STATE`, `getPriceDelta`, `track` e demais utilitários já existentes — sem duplicação. Próximo passo natural: gerar sitemap dinâmico com todas as URLs `/carro/:slug` para acelerar indexação.
 
 ---
+
+### [S9-FIX] fix(map): race condition + expansão dataset 159 estações · 01/04/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | **Race condition**: `mapReady: boolean` state adicionado a `ChargingMapModal`; `setMapReady(true)` chamado após `mapInstanceRef.current = map` dentro do `import('leaflet').then()`; guard `if (!mapReady \|\| !map) return` no segundo useEffect; `mapReady` adicionado às dependências do efeito de marcadores — marcadores agora aparecem ao primeiro abrir o mapa. **Dataset**: `eletropostosData.ts` expandido de 97 → 159 estações; 7 novos operadores (BMW Charging, Mercedes EQ, CPFL Energia, Neoenergia, Copel EV, ChargeHouse, Porsche); cobertura estendida a todos os 27 estados e corredores das rodovias Bandeirantes, Anhanguera, Fernão Dias, Dutra, Régis Bittencourt, Castelo Branco e BR-101. |
+| Build  | ✅ | `npm run build` — 12.3s, sem erros TypeScript |
+| Testes | ✅ | Build limpo; mapa abre com todos os marcadores visíveis imediatamente |
+| Commit | ✅ | `f7dc248` |
+
+**Notas:** A causa raiz era `import('leaflet')` ser assíncrono — o segundo useEffect disparava antes de `mapInstanceRef.current` ser populado, retornava cedo e nunca adicionava os marcadores. O `mapReady` flag garante que o efeito de marcadores re-execute exatamente uma vez após o mapa estar pronto.
+
+---
