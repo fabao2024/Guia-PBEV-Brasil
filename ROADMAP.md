@@ -547,10 +547,13 @@
 ---
 
 ### Sprint 10 — semana de 07/04/2026
-**Tema: Comunidade e avaliações**
-- 🔲 Formulário de avaliação de dono (autonomia real, recarga, qualidade)
-- 🔲 Backend: Supabase free tier
-- 🔲 Score agregado nos cards
+**Tema: SEO & Tráfego**
+- ✅ Sitemap.xml dinâmico gerado em build-time (88 rotas /carro/:slug)
+- 🔲 Páginas de comparação SEO (/comparar/modelo-a-vs-modelo-b)
+- 🔲 Submeter sitemap no Google Search Console
+
+> **Resumo técnico — Sprint 10 (03/04/2026):**
+> `generate-sitemap.ts` na raiz do projeto: lê `CAR_DB`, gera `public/sitemap.xml` com 88 rotas `/carro/:slug` + 2 estáticas (`/` e `/privacidade`), `lastmod` = data do build, `priority` 1.0/0.8/0.3 por tipo. Integrado ao `npm run build` via `tsx generate-sitemap.ts && vite build` — sitemap sempre atualizado a cada deploy. `robots.txt` já existia e aponta para o sitemap.
 
 ---
 

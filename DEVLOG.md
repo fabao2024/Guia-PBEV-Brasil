@@ -450,3 +450,18 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 **Notas:** A causa raiz era `import('leaflet')` ser assíncrono — o segundo useEffect disparava antes de `mapInstanceRef.current` ser populado, retornava cedo e nunca adicionava os marcadores. O `mapReady` flag garante que o efeito de marcadores re-execute exatamente uma vez após o mapa estar pronto.
 
 ---
+
+## Sprint 10 — SEO & Tráfego · 03/04/2026
+
+### [S10-A] feat(seo): sitemap.xml dinâmico com 88 rotas · 03/04/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `generate-sitemap.ts` na raiz: lê `CAR_DB`, aplica `toSlug(brand, model)` inline, gera `public/sitemap.xml` com 88 rotas `/carro/:slug` + `/` + `/privacidade`; `lastmod` = data do build (ISO); `priority` 1.0 / 0.8 / 0.3 por tipo de rota. `tsx` instalado como devDependency. `package.json` build atualizado: `tsx generate-sitemap.ts && vite build`. |
+| Build  | ✅ | `npm run build` — script roda antes do Vite, sitemap gerado e copiado para `dist/` automaticamente |
+| Testes | ✅ | Output verificado: 88 veículos + 2 rotas estáticas; URLs corretas; `robots.txt` já aponta para sitemap |
+| Commit | ✅ | `ae85b0b` |
+
+**Notas:** A pasta `scripts/` estava no `.gitignore` (scripts de uso único anteriores). Script movido para a raiz do projeto. Próximo passo: submeter `https://guiapbev.cloud/sitemap.xml` no Google Search Console para acelerar indexação das 88 páginas individuais.
+
+---
