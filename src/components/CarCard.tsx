@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Car } from '../types';
-import { BRAND_URLS, isCarNew } from '../constants';
+import { BRAND_URLS, isCarNew, CAR_DB } from '../constants';
 import { getPriceDelta } from '../constants/priceHistory';
+import { toSlug } from '../utils/slug';
 import { Check, ImageOff, Heart, BatteryCharging, Scale, ArrowUpRight } from 'lucide-react';
 
 interface CarCardProps {
@@ -49,6 +51,13 @@ const CarCard: React.FC<CarCardProps> = ({
 
   const isNew = isCarNew(car);
   const priceDelta = getPriceDelta(car.model, car.price);
+
+  const carSlug = useMemo(() => toSlug(car.brand, car.model), [car.brand, car.model]);
+  const topSimilar = useMemo(() => {
+    return CAR_DB
+      .filter(c => c.cat === car.cat && toSlug(c.brand, c.model) !== carSlug)
+      .sort((a, b) => Math.abs(a.price - car.price) - Math.abs(b.price - car.price))[0];
+  }, [car.cat, car.price, carSlug]);
 
   const brandUrl = car.url ?? BRAND_URLS[car.brand] ?? `https://www.google.com/search?q=${encodeURIComponent(car.brand + ' Brasil')}`;
   const rangePercent = Math.min(Math.round((car.range / MAX_RANGE_KM) * 100), 100);
@@ -322,6 +331,19 @@ const CarCard: React.FC<CarCardProps> = ({
           </a>
         </div>
       </div>
+
+      {/* Compare link */}
+      {topSimilar && (
+        <div className="px-3 sm:px-4 pb-3" onClick={e => e.stopPropagation()}>
+          <Link
+            to={`/comparar/${carSlug}/${toSlug(topSimilar.brand, topSimilar.model)}`}
+            className="flex items-center justify-center gap-1.5 w-full py-1.5 rounded-lg text-[11px] text-white/30 hover:text-[#00b4ff] hover:bg-[#00b4ff]/5 transition-all border border-transparent hover:border-[#00b4ff]/15"
+          >
+            <Scale className="w-3 h-3" />
+            vs {topSimilar.brand} {topSimilar.model}
+          </Link>
+        </div>
+      )}
 
       {/* Inset glow when selected for comparison */}
       {isSelectedForCompare && (

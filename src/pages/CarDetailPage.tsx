@@ -88,6 +88,14 @@ export default function CarDetailPage() {
 
   const canonicalUrl = car ? `https://guiapbev.cloud/carro/${toSlug(car.brand, car.model)}` : 'https://guiapbev.cloud/';
 
+  const similarCars = useMemo(() => {
+    if (!car) return [];
+    return CAR_DB
+      .filter(c => c.cat === car.cat && toSlug(c.brand, c.model) !== slug)
+      .sort((a, b) => Math.abs(a.price - car.price) - Math.abs(b.price - car.price))
+      .slice(0, 4);
+  }, [car, slug]);
+
   const imgSrc = car
     ? car.img.startsWith('/car-images/')
       ? `${import.meta.env.BASE_URL}${car.img.substring(1)}`
@@ -621,6 +629,39 @@ export default function CarDetailPage() {
               ℹ️ {t('details.notASeller')}
             </p>
           </div>
+
+          {/* Compare with similar */}
+          {similarCars.length > 0 && (
+            <div className="mb-8">
+              <h2 className="text-white/40 text-xs uppercase tracking-widest mb-3 flex items-center gap-2">
+                <Scale className="w-3.5 h-3.5" /> Compare com similares
+              </h2>
+              <div className="grid grid-cols-2 gap-2">
+                {similarCars.map(similar => (
+                  <Link
+                    key={toSlug(similar.brand, similar.model)}
+                    to={`/comparar/${slug}/${toSlug(similar.brand, similar.model)}`}
+                    className="flex items-center gap-3 p-3 rounded-xl bg-white/3 border border-white/8 hover:border-[#00b4ff]/30 hover:bg-[#00b4ff]/5 transition-all group"
+                  >
+                    <img
+                      src={similar.img.startsWith('/car-images/')
+                        ? `${import.meta.env.BASE_URL}${similar.img.substring(1)}`
+                        : `https://images.weserv.nl/?url=${encodeURIComponent(similar.img.replace(/^https?:\/\//, ''))}&w=200&q=70&output=webp`}
+                      alt={`${similar.brand} ${similar.model}`}
+                      className="w-14 h-10 object-cover rounded-lg flex-shrink-0"
+                      loading="lazy"
+                    />
+                    <div className="min-w-0">
+                      <p className="text-white text-xs font-semibold truncate group-hover:text-[#00b4ff] transition-colors">
+                        {similar.brand} {similar.model}
+                      </p>
+                      <p className="text-white/40 text-[11px]">{similar.range} km · R$ {(similar.price / 1000).toFixed(0)}k</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Back to catalog */}
           <div className="text-center pb-8">
