@@ -465,3 +465,16 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 **Notas:** A pasta `scripts/` estava no `.gitignore` (scripts de uso único anteriores). Script movido para a raiz do projeto. Próximo passo: submeter `https://guiapbev.cloud/sitemap.xml` no Google Search Console para acelerar indexação das 88 páginas individuais.
 
 ---
+
+### [S10-B] feat(seo): páginas de comparação + GA4 + Search Console/Bing · 04/04/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `CompareDetailPage.tsx`: rota `/comparar/:slugA/:slugB`; tabela side-by-side com 10 métricas (preço, autonomia, potência, torque, bateria, AC, DC, garantia veículo/bateria, tração, PBE); destaque verde `#00e5a0` no vencedor por linha; links para fichas individuais; seção "outros comparativos" com 6 sugestões da mesma categoria. SEO: Helmet title/desc/OG/canonical, JSON-LD `ItemList`. `generate-sitemap.ts` expandido: +922 comparativos de pares mesma categoria (priority 0.6) → sitemap total: 1012 URLs. `App.tsx`: rota `/comparar/:slugA/:slugB` adicionada. GA4 `G-VNKWH74PL8` adicionado ao `index.html`. |
+| Build  | ✅ | `npm run build` — 9.2s, sem erros TypeScript |
+| Testes | ✅ | Build limpo; rota `/comparar/byd-seal/volvo-ex30` resolve corretamente |
+| Commit | ✅ | `a9fdfc3` |
+
+**Notas:** Sitemap submetido manualmente no Google Search Console e Bing Webmaster Tools. GA4 verificado em tempo real. 922 comparativos indexáveis = 922 novas oportunidades de entrada orgânica por buscas tipo "BYD Seal vs Volvo EX30".
+
+---
