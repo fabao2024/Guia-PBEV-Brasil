@@ -43,12 +43,26 @@ const carRoutes = CAR_DB.map(car =>
   url(`${BASE_URL}/carro/${toSlug(car.brand, car.model)}`, '0.8', 'monthly')
 );
 
+// Comparison pages: same-category pairs only
+const compareRoutes: string[] = [];
+const categories = [...new Set(CAR_DB.map(c => c.cat))];
+for (const cat of categories) {
+  const group = CAR_DB.filter(c => c.cat === cat);
+  for (let i = 0; i < group.length; i++) {
+    for (let j = i + 1; j < group.length; j++) {
+      const slugA = toSlug(group[i].brand, group[i].model);
+      const slugB = toSlug(group[j].brand, group[j].model);
+      compareRoutes.push(url(`${BASE_URL}/comparar/${slugA}/${slugB}`, '0.6', 'monthly'));
+    }
+  }
+}
+
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${[...staticRoutes, ...carRoutes].join('\n')}
+${[...staticRoutes, ...carRoutes, ...compareRoutes].join('\n')}
 </urlset>
 `;
 
 const outPath = resolve(__dirname, 'public/sitemap.xml');
 writeFileSync(outPath, sitemap, 'utf-8');
-console.log(`✅ sitemap.xml gerado — ${carRoutes.length} veículos + ${staticRoutes.length} rotas estáticas → ${outPath}`);
+console.log(`✅ sitemap.xml gerado — ${carRoutes.length} veículos + ${compareRoutes.length} comparativos + ${staticRoutes.length} estáticas → ${outPath}`);
