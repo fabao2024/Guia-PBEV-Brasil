@@ -387,16 +387,13 @@
     "ipvaSavings": "Economia IPVA"
   },
   "chargingMap": {
-    "title": "Mapa de Eletropostos",
-    "subtitle": "Infraestrutura pública de recarga por estado — Brasil",
+    "title": "Mapa de Eletropostos DC",
+    "subtitle": "Pontos de carga rápida — Brasil · dados públicos dos operadores",
     "mapBtn": "Mapa EV",
-    "totalStations": "Total de pontos",
-    "dcStations": "Carga rápida DC",
-    "source": "Fonte: ANEEL dadosabertos.gov.br · Mar/2026",
-    "legend": "Legenda",
-    "legendFew": "Poucos pontos",
-    "legendMany": "Muitos pontos",
-    "clickToSeeDetails": "Clique no círculo para detalhes"
+    "minPower": "Potência mín.",
+    "allOperators": "Todos os operadores",
+    "stations": "pontos",
+    "source": "Dados públicos dos operadores · Mar/2026 · Posições aprox."
   },
   "pbe": {
     "title": "Certificação PBE / INMETRO",

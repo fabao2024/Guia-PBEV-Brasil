@@ -387,16 +387,13 @@
     "ipvaSavings": "IPVA Savings"
   },
   "chargingMap": {
-    "title": "Charging Stations Map",
-    "subtitle": "Public charging infrastructure by state — Brazil",
+    "title": "DC Charging Stations Map",
+    "subtitle": "Fast charging points — Brazil · operator public data",
     "mapBtn": "EV Map",
-    "totalStations": "Total stations",
-    "dcStations": "DC fast charge",
-    "source": "Source: ANEEL dadosabertos.gov.br · Mar/2026",
-    "legend": "Legend",
-    "legendFew": "Few stations",
-    "legendMany": "Many stations",
-    "clickToSeeDetails": "Click circle for details"
+    "minPower": "Min power",
+    "allOperators": "All operators",
+    "stations": "stations",
+    "source": "Operator public data · Mar/2026 · Approx. locations"
   },
   "pbe": {
     "title": "PBE / INMETRO Certification",
