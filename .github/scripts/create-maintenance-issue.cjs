@@ -7,8 +7,17 @@
  * (compatível com actions/github-script@v7 usando script-path)
  */
 
+const { readFileSync, existsSync } = require('fs');
+
+function loadBrandLinksReport() {
+  const path = '/tmp/brand-links-report.json';
+  if (!existsSync(path)) return null;
+  try { return JSON.parse(readFileSync(path, 'utf-8')); } catch { return null; }
+}
+
 module.exports = async ({ github, context }) => {
   const now = new Date();
+  const brandReport = loadBrandLinksReport();
   const mes = now.toLocaleDateString('pt-BR', {
     month: 'long', year: 'numeric', timeZone: 'America/Sao_Paulo',
   });
@@ -67,7 +76,16 @@ module.exports = async ({ github, context }) => {
     '---',
     '',
     '### 🔗 Links e afiliados',
-    '- [ ] Verificar se links das marcas em `BRAND_URLS` estão funcionando',
+    ...(brandReport
+      ? brandReport.broken?.length
+        ? [
+            `> ⚠️ **${brandReport.broken.length} link(s) com problema detectado automaticamente:**`,
+            ...brandReport.broken.map(r => `> - **${r.brand}**: \`${r.url}\` — ${r.error ?? `HTTP ${r.status}`}`),
+            '',
+            '- [ ] Corrigir links quebrados acima em `BRAND_URLS` em `src/constants.ts`',
+          ]
+        : ['> ✅ Todos os links de marcas verificados e funcionando.']
+      : ['- [ ] Verificar se links das marcas em `BRAND_URLS` estão funcionando (verificação automática não rodou)']),
     '- [ ] Verificar status do afiliado Trendseg',
     '',
     '---',

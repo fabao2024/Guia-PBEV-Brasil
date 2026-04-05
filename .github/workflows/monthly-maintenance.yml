@@ -47,13 +47,40 @@ jobs:
         run: node .github/scripts/check-pbev-update.mjs
         continue-on-error: true   # Sites do governo são instáveis
 
-  # ── Job 3: Issue de lembrete com checklist ───────────────────────────────────
-  create-maintenance-issue:
+  # ── Job 3: Atualiza tarifas ANEEL automaticamente ───────────────────────────
+  update-aneel-tariffs:
     runs-on: ubuntu-latest
-    needs: [update-fuel-prices, check-pbev]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Atualizar tarifas energia elétrica (ANEEL B1)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node .github/scripts/update-aneel-tariffs.mjs
+        continue-on-error: true   # Site da ANEEL pode estar fora
+
+  # ── Job 4: Issue de lembrete com checklist ───────────────────────────────────
+  create-maintenance-issue:
+    runs-on: ubuntu-latest
+    needs: [update-fuel-prices, check-pbev, update-aneel-tariffs]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Verificar links das marcas
+        run: node .github/scripts/check-brand-links.mjs
+        continue-on-error: true   # Não bloqueia a issue se algum site estiver fora
 
       - name: Criar issue de manutenção mensal
         uses: actions/github-script@v7
