@@ -58,4 +58,4 @@ jobs:
       - name: Criar issue de manutenção mensal
         uses: actions/github-script@v7
         with:
-          script-path: .github/scripts/create-maintenance-issue.mjs
+          script-path: .github/scripts/create-maintenance-issue.cjs
