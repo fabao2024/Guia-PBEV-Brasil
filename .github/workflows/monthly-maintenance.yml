@@ -58,4 +58,6 @@ jobs:
       - name: Criar issue de manutenção mensal
         uses: actions/github-script@v7
         with:
-          script-path: .github/scripts/create-maintenance-issue.cjs
+          script: |
+            const fn = require('./.github/scripts/create-maintenance-issue.cjs');
+            await fn({ github, context });
