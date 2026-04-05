@@ -15,9 +15,16 @@ function loadBrandLinksReport() {
   try { return JSON.parse(readFileSync(path, 'utf-8')); } catch { return null; }
 }
 
+function loadEvNewsReport() {
+  const path = '/tmp/ev-news-report.json';
+  if (!existsSync(path)) return null;
+  try { return JSON.parse(readFileSync(path, 'utf-8')); } catch { return null; }
+}
+
 module.exports = async ({ github, context }) => {
   const now = new Date();
   const brandReport = loadBrandLinksReport();
+  const newsReport  = loadEvNewsReport();
   const mes = now.toLocaleDateString('pt-BR', {
     month: 'long', year: 'numeric', timeZone: 'America/Sao_Paulo',
   });
@@ -38,6 +45,7 @@ module.exports = async ({ github, context }) => {
     '| Job | O que faz | Como verificar |',
     '|-----|-----------|----------------|',
     '| **ANP preços combustível** | Baixa preços médios de gasolina/etanol da ANP e abre um **PR** se os valores mudaram | Veja a aba [Pull Requests](../../pulls) — se não há PR, os preços não mudaram ou o site da ANP estava fora |',
+    '| **ANEEL tarifas B1** | Busca tarifas residenciais por estado e abre um **PR** se mudaram ≥ R$0.01/kWh | Veja a aba [Pull Requests](../../pulls) — se não há PR, não houve variação ou a ANEEL estava fora |',
     '| **PBEV tabela INMETRO** | Verifica se há versão mais nova da tabela de certificação | Veja a aba [Issues](../../issues) — se não há issue separada, não há tabela nova |',
     '',
     '> ⚠️ Nenhum desses jobs altera o código diretamente sem sua revisão.',
@@ -47,7 +55,18 @@ module.exports = async ({ github, context }) => {
     '## O que você precisa fazer manualmente',
     '',
     '### 🚗 Catálogo de veículos',
-    '- [ ] Verificar se há novos EVs no mercado brasileiro (sites das marcas, PBEV, notícias)',
+    ...(newsReport?.items?.length
+      ? [
+          `> 🗞️ **${newsReport.items.length} notícia(s) sobre EVs nos últimos ${newsReport.daysBack} dias** — verifique se alguma anuncia novo modelo ou preço:`,
+          ...newsReport.items.slice(0, 10).map(i => `> - [${i.title}](${i.url}) _(${i.source} · ${i.date})_`),
+          ...(newsReport.items.length > 10 ? [`> - … e mais ${newsReport.items.length - 10} notícias`] : []),
+          '',
+          '- [ ] Revisar notícias acima e adicionar novos EVs ao catálogo se necessário',
+        ]
+      : newsReport
+        ? ['> ℹ️ Nenhuma notícia relevante sobre novos EVs encontrada nos últimos 35 dias.',
+           '- [ ] Verificar manualmente se há novos EVs no mercado (sites das marcas, PBEV)']
+        : ['- [ ] Verificar se há novos EVs no mercado brasileiro (sites das marcas, PBEV, notícias)']),
     '- [ ] Atualizar preços alterados em `src/constants.ts` (campo `price`)',
     '- [ ] Para cada preço alterado, adicionar entrada em `src/constants/priceHistory.ts`:',
     '  ```ts',
