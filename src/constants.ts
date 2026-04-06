@@ -592,7 +592,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Yuan Plus AWD", brand: "BYD", price: 269990, range: 397, cat: "SUV",
-    img: "/car-images/yuan-plus-awd.jpg", // TODO: adicionar imagem
+    img: "/car-images/byd-yuan-plus-awd.jpg",
     power: 449, torque: 56, traction: 'AWD', battery: 74.88,
     features: [
       "Motor duplo AWD 449 cv / 56 kgfm — 0–100 km/h em 3,9 s",
