@@ -5,7 +5,8 @@ export const isCarNew = (car: Car): boolean =>
   (['Neta', 'Geely', 'Kia', 'Chevrolet', 'Omoda', 'GAC', 'Zeekr', 'GWM'].includes(car.brand) &&
     !['Ora 03 Skin BEV48', 'Ora 03 GT BEV63'].includes(car.model))
   || car.model.includes('Captiva')
-  || car.model.includes('Buzz');
+  || car.model.includes('Buzz')
+  || car.model === 'Yuan Plus AWD';
 
 // TODO: replace with Trendseg affiliate link when approved
 export const INSURANCE_AFFILIATE_URL = 'https://www.portoseguro.com.br/seguro%20auto/';
@@ -595,7 +596,7 @@ export const CAR_DB: Car[] = [
     img: "/car-images/byd-yuan-plus-awd.jpg",
     power: 449, torque: 56, traction: 'AWD', battery: 74.88,
     features: [
-      "Motor duplo AWD 449 cv / 56 kgfm — 0–100 km/h em 3,9 s",
+      "2 motores elétricos (AWD) — 449 cv / 56 kgfm — 0–100 km/h em 3,9 s",
       "Bateria LFP Blade 74,88 kWh",
       "Carregamento AC 11 kW / DC 205 kW (10–80% em 25 min)",
       "Tela 15,6\" rotativa com BYD DiLink 4.0 (CarPlay e Android Auto)",
