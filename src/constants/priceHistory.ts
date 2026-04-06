@@ -39,6 +39,7 @@ export const PRICE_HISTORY: Record<string, PriceSnapshot[]> = {
   "EX5 Max": [{ date: '2026-03', price: 215800 }],
   "Kona EV": [{ date: '2026-03', price: 219990 }],
   "Yuan Plus": [{ date: '2026-03', price: 229800 }],
+  "Yuan Plus AWD": [{ date: '2026-04', price: 269990 }],
   "EX30": [{ date: '2026-03', price: 229950 }],
   "e-2008": [{ date: '2026-03', price: 269990 }],
   "Megane E-Tech": [{ date: '2026-03', price: 279900 }],

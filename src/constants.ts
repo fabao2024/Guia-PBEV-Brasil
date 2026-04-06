@@ -591,6 +591,23 @@ export const CAR_DB: Car[] = [
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 88,
   },
   {
+    model: "Yuan Plus AWD", brand: "BYD", price: 269990, range: 397, cat: "SUV",
+    img: "/car-images/yuan-plus-awd.jpg", // TODO: adicionar imagem
+    power: 449, torque: 56, traction: 'AWD', battery: 74.88,
+    features: [
+      "Motor duplo AWD 449 cv / 56 kgfm — 0–100 km/h em 3,9 s",
+      "Bateria LFP Blade 74,88 kWh",
+      "Carregamento AC 11 kW / DC 205 kW (10–80% em 25 min)",
+      "Tela 15,6\" rotativa com BYD DiLink 4.0 (CarPlay e Android Auto)",
+      "DiPilot: ACC + LCC + AEB + LKA + alerta de ponto cego (BSM)",
+      "Câmera 360° surround view",
+      "Bancos aquecidos",
+      "Atualização OTA"
+    ],
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 205,
+    // range estimado Inmetro: 530 km NEDC × 0,75 = 397 km
+  },
+  {
     model: "EX30", brand: "Volvo", price: 229950, range: 250, cat: "SUV",
     img: "/car-images/ex30.jpg",
     power: 272, torque: 35, traction: 'RWD', battery: 51,
