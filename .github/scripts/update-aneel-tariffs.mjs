@@ -198,9 +198,8 @@ function readCurrentTariffs() {
  * Gera conteúdo atualizado de electricityPricesByState.ts.
  */
 function buildFileContent(tariffs, resourceName, now) {
-  const monthLabel = now.toLocaleDateString('pt-BR', {
-    month: 'short', year: '2-digit', timeZone: 'America/Sao_Paulo',
-  }).replace('. ', '/').replace('.', '');
+  const monthLabel = now.toLocaleDateString('pt-BR', { month: 'short', timeZone: 'America/Sao_Paulo' })
+    .replace('.', '').trim() + '/' + String(now.getFullYear()).slice(-2);
   const isoDate = now.toISOString().split('T')[0];
 
   // Lê arquivo atual para preservar comentários de distribuidoras
@@ -227,9 +226,8 @@ function buildFileContent(tariffs, resourceName, now) {
 
 async function main() {
   const now = new Date();
-  const monthSlug = now.toLocaleDateString('pt-BR', {
-    month: 'short', year: '2-digit', timeZone: 'America/Sao_Paulo',
-  }).replace('. ', '-').replace('.', '');
+  const monthSlug = now.toLocaleDateString('pt-BR', { month: 'short', timeZone: 'America/Sao_Paulo' })
+    .replace('.', '').trim() + '-' + String(now.getFullYear()).slice(-2);
 
   const { url: csvUrl, name: resourceName } = await getLatestCsvUrl();
 

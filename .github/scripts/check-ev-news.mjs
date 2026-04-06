@@ -31,16 +31,23 @@ const FEEDS = [
 ];
 
 // ── Palavras-chave para filtrar artigos relevantes ────────────────────────────
+// Regra: artigo deve conter pelo menos 1 termo primário (EV-específico).
+// Marcas sozinhas NÃO qualificam — evita artigos sobre carros a combustão.
 
-const KEYWORDS = [
+const PRIMARY_KEYWORDS = [
   'elétrico', 'elétrica', 'elétricos', 'elétricas',
-  'bev', ' ev ', 'veículo elétrico', 'carro elétrico',
-  'lançamento', 'chega ao brasil', 'estreia', 'novo modelo',
-  'byd', 'volvo', 'bmw', 'hyundai', 'kia', 'volkswagen', 'vw id',
-  'renault', 'peugeot', 'citroen', 'fiat', 'chevrolet', 'ford',
-  'porsche', 'audi', 'mercedes', 'mini', 'nissan', 'zeekr',
-  'omoda', 'gwm', 'neta', 'gac', 'geely', 'jac', 'leapmotor', 'mg motor',
+  'veículo elétrico', 'carro elétrico',
+  'bev', 'reev', 'plug-in', 'plug in', 'zero emissão',
+  'recarga', 'carregamento', 'bateria de', 'autonomia de',
+  'vw id.', 'id.4', 'id.3', 'id.7', 'id.buzz',
+  'ioniq', 'ev6', 'ev9', 'niro ev',
+  'atto', 'dolphin', 'seal', 'han', 'tang', 'yuan',
 ];
+
+function isRelevant(title) {
+  const lower = title.toLowerCase();
+  return PRIMARY_KEYWORDS.some(kw => lower.includes(kw));
+}
 
 // ── RSS parser leve (sem dependências externas) ───────────────────────────────
 
@@ -81,11 +88,6 @@ function isRecent(dateStr) {
     const cutoff = Date.now() - DAYS_BACK * 24 * 60 * 60 * 1000;
     return d.getTime() > cutoff;
   } catch { return false; }
-}
-
-function isRelevant(title) {
-  const lower = title.toLowerCase();
-  return KEYWORDS.some(kw => lower.includes(kw));
 }
 
 function slugify(str) {

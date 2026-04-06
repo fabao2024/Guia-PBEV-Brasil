@@ -165,8 +165,8 @@ function readCurrentPrices() {
  * Gera o conteúdo atualizado de fuelPricesByState.ts.
  */
 function buildFileContent(prices, resourceName, now) {
-  const monthLabel = now.toLocaleDateString('pt-BR', { month: 'short', year: '2-digit', timeZone: 'America/Sao_Paulo' })
-    .replace('. ', '/').replace('.', '');
+  const monthLabel = now.toLocaleDateString('pt-BR', { month: 'short', timeZone: 'America/Sao_Paulo' })
+    .replace('.', '').trim() + '/' + String(now.getFullYear()).slice(-2);
   const isoDate = now.toISOString().split('T')[0];
 
   const lines = STATES
@@ -195,8 +195,8 @@ export function getDefaultFuelPrice(state: string, fuelType: 'gasoline' | 'ethan
 
 async function main() {
   const now = new Date();
-  const monthSlug = now.toLocaleDateString('pt-BR', { month: 'short', year: '2-digit', timeZone: 'America/Sao_Paulo' })
-    .replace('. ', '-').replace('.', '');
+  const monthSlug = now.toLocaleDateString('pt-BR', { month: 'short', timeZone: 'America/Sao_Paulo' })
+    .replace('.', '').trim() + '-' + String(now.getFullYear()).slice(-2);
 
   // 1. Obter URL do CSV
   const { url: csvUrl, name: resourceName } = await getLatestCsvUrl();

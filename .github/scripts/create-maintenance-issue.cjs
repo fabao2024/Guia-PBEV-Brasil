@@ -28,9 +28,8 @@ module.exports = async ({ github, context }) => {
   const mes = now.toLocaleDateString('pt-BR', {
     month: 'long', year: 'numeric', timeZone: 'America/Sao_Paulo',
   });
-  const mesAbrev = now.toLocaleDateString('pt-BR', {
-    month: 'short', year: '2-digit', timeZone: 'America/Sao_Paulo',
-  }).replace('. ', '/').replace('.', '');
+  const mesAbrev = now.toLocaleDateString('pt-BR', { month: 'short', timeZone: 'America/Sao_Paulo' })
+    .replace('.', '').trim() + '/' + String(now.getFullYear()).slice(-2);
   const yyyyMM = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
 
   const body = [

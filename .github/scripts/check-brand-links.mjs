@@ -42,8 +42,10 @@ async function checkUrl({ brand, url }) {
       },
     });
     clearTimeout(timer);
-    const ok = resp.status < 400;
-    return { brand, url, status: resp.status, ok };
+    // 403/405 = site bloqueia bots mas está no ar — não é link quebrado
+    const botBlocked = resp.status === 403 || resp.status === 405;
+    const ok = resp.status < 400 || botBlocked;
+    return { brand, url, status: resp.status, ok, botBlocked };
   } catch (err) {
     clearTimeout(timer);
     const isTimeout = err.name === 'AbortError';
