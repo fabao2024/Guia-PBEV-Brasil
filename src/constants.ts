@@ -408,6 +408,22 @@ export const CAR_DB: Car[] = [
     pbeRating: 'A', energyMJkm: 0.51,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 80,
   },
+  {
+    model: "Dolphin Special Edition", brand: "BYD", price: 159990, range: 300, cat: "Compacto",
+    img: "/car-images/dolphin-special-edition.webp",
+    power: 177, torque: 29, traction: 'FWD', battery: 45.12,
+    features: [
+      "Bateria LFP Blade 45,12 kWh",
+      "Carregamento AC 6,6 kW / DC 80 kW",
+      "Tela 12,8\" rotativa com BYD DiLink 4.0 (CarPlay e Android Auto)",
+      "6 airbags",
+      "ADAS 2.0: ACC + AEB + RCW + ELKA",
+      "Suspensão traseira multilink",
+      "Atualização OTA",
+      "Autonomia 300 km (estimativa Inmetro — fabricante)"
+    ],
+    warrantyYears: 6, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 80,
+  },
 
   // 2. SUVS & SEDANS MÉDIOS
   {

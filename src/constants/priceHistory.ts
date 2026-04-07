@@ -22,6 +22,7 @@ export const PRICE_HISTORY: Record<string, PriceSnapshot[]> = {
   "Ora 03 GT BEV63": [{ date: '2026-03', price: 189000 }],
   "Spark EUV": [{ date: '2026-03', price: 159990 }],
   "Dolphin GS": [{ date: '2026-03', price: 149990 }],
+  "Dolphin Special Edition": [{ date: '2026-04', price: 159990 }],
   "500e Icon": [{ date: '2026-03', price: 214990 }],
   "e-208 GT": [{ date: '2026-03', price: 225990 }],
   "Cooper E": [{ date: '2026-03', price: 260990 }],
