@@ -246,7 +246,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Ora 03 Skin BEV58", brand: "GWM", price: 169000, range: 315, cat: "Compacto",
-    img: "/car-images/ora 03 skin bev58.webp",
+    img: "/car-images/gwm-ora-skin-bev58.jpg",
     power: 171, torque: 25.5, traction: 'FWD', battery: 58,
     features: [
       "Bateria LFP 58 kWh (maior autonomia da linha Skin)",
