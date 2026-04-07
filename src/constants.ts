@@ -422,9 +422,11 @@ export const CAR_DB: Car[] = [
     features: [
       "Bateria LFP Blade 45,12 kWh",
       "Carregamento AC 6,6 kW / DC 80 kW",
-      "Tela 12,8\" rotativa com BYD DiLink 4.0 (CarPlay e Android Auto)",
+      "Tela 12,8\" com BYD DiLink 4.0 (CarPlay e Android Auto)",
       "6 airbags",
       "ADAS 2.0: ACC + AEB + RCW + ELKA",
+      "Bancos ventilados",
+      "Step no porta-malas",
       "Suspensão traseira multilink",
       "Atualização OTA",
       "Autonomia 300 km (estimativa Inmetro — fabricante)"
