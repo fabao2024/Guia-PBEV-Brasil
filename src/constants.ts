@@ -516,7 +516,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 60,
   },
   {
-    model: "C10 BEV", brand: "Leapmotor", price: 189990, range: 338, cat: "SUV",
+    model: "C10 BEV", brand: "Leapmotor", price: 204990, range: 338, cat: "SUV",
     img: "/car-images/leapmotor-c10.jpg",
     power: 218, torque: 32.6, traction: 'RWD', battery: 69.9,
     features: [
