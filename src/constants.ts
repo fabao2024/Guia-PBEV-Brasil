@@ -6,7 +6,8 @@ export const isCarNew = (car: Car): boolean =>
     !['Ora 03 Skin BEV48', 'Ora 03 GT BEV63'].includes(car.model))
   || car.model.includes('Captiva')
   || car.model.includes('Buzz')
-  || car.model === 'Yuan Plus AWD';
+  || car.model === 'Yuan Plus AWD'
+  || car.model === 'Dolphin Special Edition';
 
 // TODO: replace with Trendseg affiliate link when approved
 export const INSURANCE_AFFILIATE_URL = 'https://www.portoseguro.com.br/seguro%20auto/';
