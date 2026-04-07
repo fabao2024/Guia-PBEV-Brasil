@@ -617,7 +617,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 88,
   },
   {
-    model: "Yuan Plus AWD", brand: "BYD", price: 269990, range: 397, cat: "SUV",
+    model: "Yuan Plus AWD", brand: "BYD", price: 269990, range: 350, cat: "SUV",
     img: "/car-images/byd-yuan-plus-awd.jpg",
     power: 449, torque: 56, traction: 'AWD', battery: 74.88,
     features: [
@@ -631,7 +631,7 @@ export const CAR_DB: Car[] = [
       "Atualização OTA"
     ],
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 205,
-    // range estimado Inmetro: 530 km NEDC × 0,75 = 397 km
+    // range Inmetro: 350 km
   },
   {
     model: "EX30", brand: "Volvo", price: 229950, range: 250, cat: "SUV",
