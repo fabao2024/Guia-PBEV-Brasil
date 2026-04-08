@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-08T14:12:26.473Z",
+  "generated_at": "2026-04-08T17:36:36.776Z",
   "total": 91,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "cars": [
@@ -1033,7 +1033,7 @@
       "price": 309950,
       "range_km": 316,
       "category": "SUV",
-      "image_url": "https://guiapbev.cloud/car-images/ex30.jpg",
+      "image_url": "https://guiapbev.cloud/car-images/volvo-ex30-ultra.jpg",
       "traction": "AWD",
       "power_cv": 428,
       "torque_kgfm": 55.4,
