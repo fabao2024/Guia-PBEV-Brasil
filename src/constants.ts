@@ -279,7 +279,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 67,
   },
   {
-    model: "Spark EUV", brand: "Chevrolet", price: 159990, range: 258, cat: "Compacto",
+    model: "Spark EUV", brand: "Chevrolet", price: 159990, range: 258, cat: "Urbano",
     img: "/car-images/Spark EUV.avif",
     power: 102, torque: 18.4, traction: 'FWD', battery: 42,
     features: [
