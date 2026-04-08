@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-08T13:49:48.956Z",
-  "total": 90,
+  "generated_at": "2026-04-08T14:12:26.473Z",
+  "total": 91,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "cars": [
     {
@@ -1026,6 +1026,39 @@
       "discontinued": false,
       "slug": "volvo-ex30-plus",
       "detail_url": "https://guiapbev.cloud/carro/volvo-ex30-plus"
+    },
+    {
+      "model": "EX30 Ultra",
+      "brand": "Volvo",
+      "price": 309950,
+      "range_km": 316,
+      "category": "SUV",
+      "image_url": "https://guiapbev.cloud/car-images/ex30.jpg",
+      "traction": "AWD",
+      "power_cv": 428,
+      "torque_kgfm": 55.4,
+      "battery_kwh": 69,
+      "charge_ac_kw": 11,
+      "charge_dc_kw": 140,
+      "warranty_years": 4,
+      "warranty_battery_years": 8,
+      "pbe_rating": null,
+      "energy_mj_km": null,
+      "features": [
+        "2 motores elétricos (AWD) — 428 cv / 55,4 kgfm — 0–100 km/h em 3,6 s",
+        "Bateria NMC 69 kWh",
+        "Carregamento AC 11 kW / DC 140 kW (20–80% em 26 min)",
+        "Tela central 12,3\" com Google integrado nativo (Maps, Assistant, Play Store)",
+        "6 airbags",
+        "Pilot Assist: ACC + manutenção de faixa com apoio de direção",
+        "ADAS: AEB + alerta de colisão + câmera de ré",
+        "Interior em materiais reciclados e sustentáveis",
+        "Atualização OTA"
+      ],
+      "is_new": true,
+      "discontinued": false,
+      "slug": "volvo-ex30-ultra",
+      "detail_url": "https://guiapbev.cloud/carro/volvo-ex30-ultra"
     },
     {
       "model": "e-2008",
