@@ -577,6 +577,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://guiapbev.cloud/comparar/renault-kwid-e-tech/chevrolet-spark-euv</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://guiapbev.cloud/comparar/renault-kwid-e-tech/byd-dolphin-gs</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
@@ -601,6 +607,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://guiapbev.cloud/comparar/caoa-chery-icar-eq/chevrolet-spark-euv</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://guiapbev.cloud/comparar/caoa-chery-icar-eq/byd-dolphin-gs</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
@@ -619,6 +631,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://guiapbev.cloud/comparar/jac-e-js1/chevrolet-spark-euv</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://guiapbev.cloud/comparar/jac-e-js1/byd-dolphin-gs</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
@@ -631,13 +649,31 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://guiapbev.cloud/comparar/byd-dolphin-mini-gs/chevrolet-spark-euv</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://guiapbev.cloud/comparar/byd-dolphin-mini-gs/byd-dolphin-gs</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://guiapbev.cloud/comparar/byd-dolphin-mini-gl/chevrolet-spark-euv</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://guiapbev.cloud/comparar/byd-dolphin-mini-gl/byd-dolphin-gs</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://guiapbev.cloud/comparar/chevrolet-spark-euv/byd-dolphin-gs</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -662,12 +698,6 @@
   </url>
   <url>
     <loc>https://guiapbev.cloud/comparar/geely-ex2-max/gwm-ora-03-gt-bev63</loc>
-    <lastmod>2026-04-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://guiapbev.cloud/comparar/geely-ex2-max/chevrolet-spark-euv</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -751,12 +781,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://guiapbev.cloud/comparar/neta-aya-luxury/chevrolet-spark-euv</loc>
-    <lastmod>2026-04-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://guiapbev.cloud/comparar/neta-aya-luxury/fiat-500e-icon</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
@@ -829,12 +853,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://guiapbev.cloud/comparar/gwm-ora-03-skin-bev48/chevrolet-spark-euv</loc>
-    <lastmod>2026-04-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://guiapbev.cloud/comparar/gwm-ora-03-skin-bev48/fiat-500e-icon</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
@@ -901,12 +919,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://guiapbev.cloud/comparar/gwm-ora-03-skin-bev58/chevrolet-spark-euv</loc>
-    <lastmod>2026-04-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://guiapbev.cloud/comparar/gwm-ora-03-skin-bev58/fiat-500e-icon</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
@@ -967,12 +979,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://guiapbev.cloud/comparar/gwm-ora-03-gt-bev63/chevrolet-spark-euv</loc>
-    <lastmod>2026-04-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://guiapbev.cloud/comparar/gwm-ora-03-gt-bev63/fiat-500e-icon</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
@@ -1028,66 +1034,6 @@
   </url>
   <url>
     <loc>https://guiapbev.cloud/comparar/gwm-ora-03-gt-bev63/mg-motor-mg4-xpower</loc>
-    <lastmod>2026-04-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://guiapbev.cloud/comparar/chevrolet-spark-euv/fiat-500e-icon</loc>
-    <lastmod>2026-04-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://guiapbev.cloud/comparar/chevrolet-spark-euv/peugeot-e-208-gt</loc>
-    <lastmod>2026-04-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://guiapbev.cloud/comparar/chevrolet-spark-euv/mini-cooper-e</loc>
-    <lastmod>2026-04-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://guiapbev.cloud/comparar/chevrolet-spark-euv/mini-jcw-e</loc>
-    <lastmod>2026-04-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://guiapbev.cloud/comparar/chevrolet-spark-euv/mini-aceman-se</loc>
-    <lastmod>2026-04-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://guiapbev.cloud/comparar/chevrolet-spark-euv/byd-dolphin-plus</loc>
-    <lastmod>2026-04-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://guiapbev.cloud/comparar/chevrolet-spark-euv/byd-dolphin-special-edition</loc>
-    <lastmod>2026-04-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://guiapbev.cloud/comparar/chevrolet-spark-euv/mg-motor-mg4-comfort</loc>
-    <lastmod>2026-04-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://guiapbev.cloud/comparar/chevrolet-spark-euv/mg-motor-mg4-luxury</loc>
-    <lastmod>2026-04-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://guiapbev.cloud/comparar/chevrolet-spark-euv/mg-motor-mg4-xpower</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
