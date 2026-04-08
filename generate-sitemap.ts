@@ -1,15 +1,16 @@
 /**
  * generate-sitemap.ts
- * Runs at build time (before vite build) to produce public/sitemap.xml
- * with all vehicle detail pages + static routes.
+ * Runs at build time (before vite build) to produce:
+ *  - public/sitemap.xml  — all vehicle + comparison routes
+ *  - public/data/cars.json — full catalog as structured JSON (consumed by external systems)
  *
- * Usage: npx tsx scripts/generate-sitemap.ts
+ * Usage: npx tsx generate-sitemap.ts
  */
 
-import { writeFileSync } from 'fs';
+import { writeFileSync, mkdirSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { CAR_DB } from './src/constants';
+import { CAR_DB, isCarNew } from './src/constants';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -66,3 +67,41 @@ ${[...staticRoutes, ...carRoutes, ...compareRoutes].join('\n')}
 const outPath = resolve(__dirname, 'public/sitemap.xml');
 writeFileSync(outPath, sitemap, 'utf-8');
 console.log(`✅ sitemap.xml gerado — ${carRoutes.length} veículos + ${compareRoutes.length} comparativos + ${staticRoutes.length} estáticas → ${outPath}`);
+
+// ── Gera public/data/cars.json ────────────────────────────────────────────────
+
+const dataDir = resolve(__dirname, 'public/data');
+mkdirSync(dataDir, { recursive: true });
+
+const carsJson = {
+  generated_at: new Date().toISOString(),
+  total: CAR_DB.length,
+  base_image_url: 'https://guiapbev.cloud/car-images',
+  cars: CAR_DB.map(car => ({
+    model:                  car.model,
+    brand:                  car.brand,
+    price:                  car.price,
+    range_km:               car.range,
+    category:               car.cat,
+    image_url:              `https://guiapbev.cloud${car.img}`,
+    traction:               car.traction      ?? null,
+    power_cv:               car.power         ?? null,
+    torque_kgfm:            car.torque        ?? null,
+    battery_kwh:            car.battery       ?? null,
+    charge_ac_kw:           car.chargeAC      ?? null,
+    charge_dc_kw:           car.chargeDC      ?? null,
+    warranty_years:         car.warrantyYears ?? null,
+    warranty_battery_years: car.warrantyBatteryYears ?? null,
+    pbe_rating:             car.pbeRating     ?? null,
+    energy_mj_km:           car.energyMJkm    ?? null,
+    features:               car.features      ?? [],
+    is_new:                 isCarNew(car),
+    discontinued:           car.discontinued  ?? false,
+    slug:                   toSlug(car.brand, car.model),
+    detail_url:             `https://guiapbev.cloud/carro/${toSlug(car.brand, car.model)}`,
+  })),
+};
+
+const jsonPath = resolve(dataDir, 'cars.json');
+writeFileSync(jsonPath, JSON.stringify(carsJson, null, 2), 'utf-8');
+console.log(`✅ cars.json gerado — ${carsJson.total} veículos → ${jsonPath}`);
