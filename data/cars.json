@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-08T11:33:09.221Z",
+  "generated_at": "2026-04-08T13:49:48.956Z",
   "total": 90,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "cars": [
@@ -996,9 +996,9 @@
       "detail_url": "https://guiapbev.cloud/carro/byd-yuan-plus-awd"
     },
     {
-      "model": "EX30",
+      "model": "EX30 Plus",
       "brand": "Volvo",
-      "price": 229950,
+      "price": 239950,
       "range_km": 250,
       "category": "SUV",
       "image_url": "https://guiapbev.cloud/car-images/ex30.jpg",
@@ -1024,8 +1024,8 @@
       ],
       "is_new": false,
       "discontinued": false,
-      "slug": "volvo-ex30",
-      "detail_url": "https://guiapbev.cloud/carro/volvo-ex30"
+      "slug": "volvo-ex30-plus",
+      "detail_url": "https://guiapbev.cloud/carro/volvo-ex30-plus"
     },
     {
       "model": "e-2008",
