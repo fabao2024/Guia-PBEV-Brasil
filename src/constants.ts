@@ -653,7 +653,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "EX30 Ultra", brand: "Volvo", price: 309950, range: 316, cat: "SUV",
-    img: "/car-images/ex30.jpg",
+    img: "/car-images/volvo-ex30-ultra.jpg",
     power: 428, torque: 55.4, traction: 'AWD', battery: 69,
     features: [
       "2 motores elétricos (AWD) — 428 cv / 55,4 kgfm — 0–100 km/h em 3,6 s",
