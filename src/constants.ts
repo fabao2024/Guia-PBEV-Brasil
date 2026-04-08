@@ -634,7 +634,7 @@ export const CAR_DB: Car[] = [
     // range Inmetro: 350 km
   },
   {
-    model: "EX30", brand: "Volvo", price: 229950, range: 250, cat: "SUV",
+    model: "EX30 Plus", brand: "Volvo", price: 239950, range: 250, cat: "SUV",
     img: "/car-images/ex30.jpg",
     power: 272, torque: 35, traction: 'RWD', battery: 51,
     features: [
