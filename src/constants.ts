@@ -296,7 +296,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 50,
   },
   {
-    model: "Dolphin GS", brand: "BYD", price: 149990, range: 291, cat: "Compacto",
+    model: "Dolphin GS", brand: "BYD", price: 149990, range: 291, cat: "Urbano",
     img: "/car-images/dolphin-gs.jpg",
     power: 95, torque: 18.3, traction: 'FWD', battery: 44.9,
     features: [
