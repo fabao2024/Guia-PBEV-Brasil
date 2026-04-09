@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { X, MapPin, Zap, Filter } from 'lucide-react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
+import { X, MapPin, Zap, Filter, Loader2, AlertTriangle, Layers } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import {
   ELETROPOSTOS,
@@ -10,6 +10,114 @@ import {
   plugshareUrl,
 } from '../data/eletropostosData';
 
+// ── OCM types ────────────────────────────────────────────────────────────────
+
+interface OcmPoint {
+  id: number;
+  nome: string;
+  operador: string;
+  cidade: string;
+  uf: string;
+  lat: number;
+  lng: number;
+  potenciaDC: number;
+  conector: string;
+  source: 'local' | 'ocm';
+  vagas?: number; // number of connectors at the point
+}
+
+// DC connector type IDs in OpenChargeMap
+const DC_CONNECTION_TYPE_IDS = new Set([2, 27, 30, 32, 33, 1036, 1044]);
+
+function ocmConnectorName(id: number): string {
+  const map: Record<number, string> = {
+    2: 'CHAdeMO',
+    27: 'CCS2',
+    30: 'Supercharger',
+    32: 'GB/T',
+    33: 'CCS1',
+    1036: 'CCS2',
+    1044: 'Supercharger V3',
+  };
+  return map[id] ?? 'DC';
+}
+
+/** Distância plana aproximada em metros entre dois pontos (suficiente para dedup) */
+function distM(lat1: number, lng1: number, lat2: number, lng2: number): number {
+  const dlat = (lat1 - lat2) * 111_000;
+  const dlng = (lng1 - lng2) * 111_000 * Math.cos((lat1 * Math.PI) / 180);
+  return Math.sqrt(dlat * dlat + dlng * dlng);
+}
+
+const OCM_KEY = import.meta.env.VITE_OCM_KEY ?? '';
+const keyParam = OCM_KEY ? `&key=${OCM_KEY}` : '';
+
+async function fetchOcmPoints(): Promise<OcmPoint[]> {
+  const url =
+    `https://api.openchargemap.io/v3/poi/?output=json` +
+    `&countrycode=BR&minpowerkw=22&maxresults=5000` +
+    `&compact=true&verbose=false${keyParam}`;
+
+  const resp = await fetch(url, {
+    headers: { 'User-Agent': 'GuiaPBEV-Bot/1.0' },
+  });
+  if (!resp.ok) throw new Error(`OCM ${resp.status}`);
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const data: any[] = await resp.json();
+  const points: OcmPoint[] = [];
+
+  for (const poi of data) {
+    const addr = poi.AddressInfo;
+    if (!addr?.Latitude || !addr?.Longitude) continue;
+
+    // Find all DC connections ≥ 22 kW
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const dcConns = (poi.Connections ?? []).filter((c: any) => {
+      const isDC =
+        c.CurrentTypeID === 30 ||
+        DC_CONNECTION_TYPE_IDS.has(c.ConnectionTypeID);
+      return isDC && (c.PowerKW ?? 0) >= 22;
+    });
+    if (!dcConns.length) continue;
+
+    // Best (highest power) DC connection
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const best = dcConns.reduce((a: any, b: any) =>
+      (a.PowerKW ?? 0) >= (b.PowerKW ?? 0) ? a : b
+    );
+
+    // Total number of DC connectors at this point
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const vagas = dcConns.reduce((acc: number, c: any) => acc + (c.Quantity ?? 1), 0);
+
+    points.push({
+      id: poi.ID,
+      nome: addr.Title ?? 'Eletroposto',
+      operador: poi.OperatorInfo?.Title ?? 'Desconhecido',
+      cidade: addr.Town ?? addr.AddressLine2 ?? '',
+      uf: (addr.StateOrProvince ?? '').slice(0, 2).toUpperCase(),
+      lat: addr.Latitude,
+      lng: addr.Longitude,
+      potenciaDC: best.PowerKW ?? 22,
+      conector: ocmConnectorName(best.ConnectionTypeID),
+      source: 'ocm',
+      vagas,
+    });
+  }
+
+  return points;
+}
+
+/** De-duplica pontos OCM que já existem nos dados locais (≤ 120 m de distância) */
+function dedup(local: typeof ELETROPOSTOS, ocm: OcmPoint[]): OcmPoint[] {
+  return ocm.filter(
+    op => !local.some(lp => distM(lp.lat, lp.lng, op.lat, op.lng) < 120)
+  );
+}
+
+// ── Component ────────────────────────────────────────────────────────────────
+
 interface ChargingMapModalProps {
   onClose: () => void;
 }
@@ -19,18 +127,63 @@ export const ChargingMapModal: React.FC<ChargingMapModalProps> = ({ onClose }) =
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<import('leaflet').Map | null>(null);
   const [mapReady, setMapReady] = useState(false);
+
+  // Filters
   const [minKw, setMinKw] = useState(0);
   const [selectedOp, setSelectedOp] = useState<string | null>(null);
+  const [showOcm, setShowOcm] = useState(true);
 
-  const filtered = ELETROPOSTOS.filter(e =>
-    e.potenciaDC >= minKw &&
-    (!selectedOp || e.operador === selectedOp)
+  // OCM async state
+  const [ocmRaw, setOcmRaw] = useState<OcmPoint[]>([]);
+  const [ocmLoading, setOcmLoading] = useState(true);
+  const [ocmError, setOcmError] = useState<string | null>(null);
+
+  // Fetch OCM on mount
+  useEffect(() => {
+    fetchOcmPoints()
+      .then(pts => setOcmRaw(pts))
+      .catch(err => setOcmError(err.message))
+      .finally(() => setOcmLoading(false));
+  }, []);
+
+  // De-duplicated OCM points (memoized)
+  const ocmDeduped = useMemo(() => dedup(ELETROPOSTOS, ocmRaw), [ocmRaw]);
+
+  // Convert local points to unified OcmPoint shape for rendering
+  const localAsPoints = useMemo<OcmPoint[]>(
+    () =>
+      ELETROPOSTOS.map(e => ({
+        id: e.id,
+        nome: e.nome,
+        operador: e.operador,
+        cidade: e.cidade,
+        uf: e.uf,
+        lat: e.lat,
+        lng: e.lng,
+        potenciaDC: e.potenciaDC,
+        conector: e.conector,
+        source: 'local' as const,
+      })),
+    []
   );
+
+  // Filtered combined dataset
+  const filtered = useMemo(() => {
+    const local = localAsPoints.filter(
+      e => e.potenciaDC >= minKw && (!selectedOp || e.operador === selectedOp)
+    );
+    const ocm = showOcm
+      ? ocmDeduped.filter(e => e.potenciaDC >= minKw)
+      : [];
+    return [...local, ...ocm];
+  }, [localAsPoints, ocmDeduped, minKw, selectedOp, showOcm]);
+
+  // ── Init map ────────────────────────────────────────────────────────────
 
   useEffect(() => {
     if (!mapRef.current || mapInstanceRef.current) return;
 
-    import('leaflet').then((L) => {
+    import('leaflet').then(L => {
       delete (L.Icon.Default.prototype as unknown as Record<string, unknown>)._getIconUrl;
       L.Icon.Default.mergeOptions({
         iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
@@ -51,7 +204,8 @@ export const ChargingMapModal: React.FC<ChargingMapModalProps> = ({ onClose }) =
       setMapReady(true);
 
       L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/attributions">CARTO</a>',
+        attribution:
+          '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/attributions">CARTO</a>',
         maxZoom: 18,
       }).addTo(map);
     });
@@ -64,44 +218,54 @@ export const ChargingMapModal: React.FC<ChargingMapModalProps> = ({ onClose }) =
     };
   }, []);
 
-  // Update markers whenever filters change
+  // ── Update markers when filters or data change ────────────────────────
+
   useEffect(() => {
     const map = mapInstanceRef.current;
     if (!mapReady || !map) return;
 
-    import('leaflet').then((L) => {
-      // Remove existing circle markers layer group if any
-      map.eachLayer((layer) => {
+    import('leaflet').then(L => {
+      // Remove previous markers
+      map.eachLayer(layer => {
         if ((layer as unknown as { _isEletroposto?: boolean })._isEletroposto) {
           map.removeLayer(layer);
         }
       });
 
-      filtered.forEach((e) => {
-        const color = OPERADOR_COLOR[e.operador] ?? DEFAULT_OPERADOR_COLOR;
-        const radius = 5 + Math.round((e.potenciaDC / 350) * 9); // 5–14 px
+      filtered.forEach(e => {
+        const isOcm = e.source === 'ocm';
+        const color = OPERADOR_COLOR[e.operador] ?? (isOcm ? '#9ca3af' : DEFAULT_OPERADOR_COLOR);
+        const radius = Math.max(4, Math.min(14, 4 + Math.round((e.potenciaDC / 350) * 10)));
 
         const circle = L.circleMarker([e.lat, e.lng], {
           radius,
           fillColor: color,
-          color: '#ffffff',
-          weight: 1,
-          opacity: 0.9,
-          fillOpacity: 0.85,
+          color: isOcm ? '#ffffff55' : '#ffffff',
+          weight: isOcm ? 1 : 1.5,
+          opacity: isOcm ? 0.6 : 0.9,
+          fillOpacity: isOcm ? 0.55 : 0.85,
+          dashArray: isOcm ? '3 2' : undefined,
         }) as import('leaflet').CircleMarker & { _isEletroposto?: boolean };
 
         circle._isEletroposto = true;
 
         const gm = gmapsUrl(e.lat, e.lng, e.nome, e.operador);
         const ps = plugshareUrl(e.lat, e.lng);
+        const vagasTxt = e.vagas && e.vagas > 1 ? ` · ${e.vagas} conectores` : '';
+        const fonteTag = isOcm
+          ? `<span style="background:#374151;color:#9ca3af;border-radius:4px;padding:1px 5px;font-size:10px;">OpenChargeMap</span>`
+          : `<span style="background:#1e3a5f;color:#00b4ff;border-radius:4px;padding:1px 5px;font-size:10px;">Curado</span>`;
 
         circle.bindPopup(
-          `<div style="font-family:sans-serif;min-width:200px;line-height:1.6;">
-            <strong style="color:${color};font-size:13px;">${e.nome}</strong><br/>
-            <span style="color:#aaa;font-size:11px;">${e.cidade} — ${e.uf}</span>
+          `<div style="font-family:sans-serif;min-width:210px;line-height:1.6;">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:4px;">
+              <strong style="color:${color};font-size:13px;">${e.nome}</strong>
+              ${fonteTag}
+            </div>
+            <span style="color:#aaa;font-size:11px;">${e.cidade}${e.uf ? ` — ${e.uf}` : ''}</span>
             <hr style="border-color:rgba(255,255,255,0.1);margin:6px 0 5px;"/>
             <div style="margin-bottom:4px;">
-              <span style="color:#ccc;font-size:12px;">⚡ <b style="color:#fff;">${e.potenciaDC} kW</b> DC &nbsp;·&nbsp; 🔌 ${e.conector}</span>
+              <span style="color:#ccc;font-size:12px;">⚡ <b style="color:#fff;">${e.potenciaDC} kW</b> DC · 🔌 ${e.conector}${vagasTxt}</span>
             </div>
             <div style="color:#888;font-size:11px;margin-bottom:8px;">Operador: ${e.operador}</div>
             <div style="display:flex;gap:6px;">
@@ -121,9 +285,17 @@ export const ChargingMapModal: React.FC<ChargingMapModalProps> = ({ onClose }) =
         circle.addTo(map);
       });
     });
-  }, [mapReady, filtered.length, minKw, selectedOp]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [mapReady, filtered]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const totalDCKw = filtered.reduce((acc, e) => acc + e.potenciaDC, 0);
+  // ── Stats ─────────────────────────────────────────────────────────────
+
+  const localCount = filtered.filter(e => e.source === 'local').length;
+  const ocmCount = filtered.filter(e => e.source === 'ocm').length;
+  const avgKw = filtered.length > 0
+    ? Math.round(filtered.reduce((a, e) => a + e.potenciaDC, 0) / filtered.length)
+    : 0;
+
+  // ── Render ─────────────────────────────────────────────────────────────
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-0 md:p-4 animate-in fade-in duration-300">
@@ -149,6 +321,7 @@ export const ChargingMapModal: React.FC<ChargingMapModalProps> = ({ onClose }) =
 
         {/* Filters + Stats bar */}
         <div className="flex flex-wrap items-center gap-3 px-4 py-2.5 border-b border-white/5 bg-white/2 flex-shrink-0">
+
           {/* Potência mínima */}
           <div className="flex items-center gap-2">
             <Zap className="w-3.5 h-3.5 text-[#00b4ff] flex-shrink-0" />
@@ -159,16 +332,16 @@ export const ChargingMapModal: React.FC<ChargingMapModalProps> = ({ onClose }) =
               className="border border-white/10 rounded-lg text-white text-xs px-2 py-1 focus:outline-none focus:border-[#00b4ff]/50"
               style={{ backgroundColor: '#1a1c23', color: '#fff' }}
             >
-              <option value={0}   style={{ background: '#1a1c23', color: '#fff' }}>Todos</option>
+              <option value={0}   style={{ background: '#1a1c23', color: '#fff' }}>≥ 22 kW</option>
+              <option value={50}  style={{ background: '#1a1c23', color: '#fff' }}>≥ 50 kW</option>
               <option value={100} style={{ background: '#1a1c23', color: '#fff' }}>≥ 100 kW</option>
               <option value={150} style={{ background: '#1a1c23', color: '#fff' }}>≥ 150 kW</option>
               <option value={200} style={{ background: '#1a1c23', color: '#fff' }}>≥ 200 kW</option>
-              <option value={250} style={{ background: '#1a1c23', color: '#fff' }}>≥ 250 kW</option>
               <option value={350} style={{ background: '#1a1c23', color: '#fff' }}>350 kW</option>
             </select>
           </div>
 
-          {/* Operador */}
+          {/* Operador (apenas curados) */}
           <div className="flex items-center gap-2">
             <Filter className="w-3.5 h-3.5 text-white/40 flex-shrink-0" />
             <select
@@ -184,13 +357,36 @@ export const ChargingMapModal: React.FC<ChargingMapModalProps> = ({ onClose }) =
             </select>
           </div>
 
+          {/* Toggle OCM */}
+          <button
+            onClick={() => setShowOcm(v => !v)}
+            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg border text-xs transition-colors ${
+              showOcm
+                ? 'border-[#00b4ff]/40 bg-[#00b4ff]/10 text-[#00b4ff]'
+                : 'border-white/10 bg-white/5 text-white/40'
+            }`}
+          >
+            <Layers className="w-3 h-3" />
+            <span className="whitespace-nowrap">OpenChargeMap</span>
+            {ocmLoading && <Loader2 className="w-3 h-3 animate-spin ml-0.5" />}
+            {ocmError && <AlertTriangle className="w-3 h-3 text-amber-400 ml-0.5" />}
+          </button>
+
           {/* Stats */}
-          <div className="ml-auto flex items-center gap-4 flex-shrink-0">
+          <div className="ml-auto flex items-center gap-3 flex-shrink-0">
             <span className="text-white/50 text-xs whitespace-nowrap">
-              <span className="text-white font-bold">{filtered.length}</span> {t('chargingMap.stations')}
+              <span className="text-white font-bold">{localCount}</span>
+              <span className="text-white/30"> curados</span>
+              {showOcm && !ocmLoading && (
+                <>
+                  <span className="text-white/20 mx-1">+</span>
+                  <span className="text-[#9ca3af] font-bold">{ocmCount}</span>
+                  <span className="text-white/30"> OCM</span>
+                </>
+              )}
             </span>
             <span className="text-[#00b4ff]/70 text-xs whitespace-nowrap">
-              ⚡ avg <span className="text-[#00b4ff] font-bold">{filtered.length > 0 ? Math.round(totalDCKw / filtered.length) : 0} kW</span>
+              ⚡ avg <span className="text-[#00b4ff] font-bold">{avgKw} kW</span>
             </span>
           </div>
         </div>
@@ -198,6 +394,20 @@ export const ChargingMapModal: React.FC<ChargingMapModalProps> = ({ onClose }) =
         {/* Map */}
         <div className="flex-1 relative overflow-hidden">
           <div ref={mapRef} className="w-full h-full" />
+
+          {/* OCM loading overlay (subtle) */}
+          {ocmLoading && (
+            <div className="absolute bottom-3 left-3 flex items-center gap-2 bg-black/70 backdrop-blur-sm text-white/60 text-xs px-3 py-1.5 rounded-lg border border-white/10 pointer-events-none">
+              <Loader2 className="w-3 h-3 animate-spin text-[#00b4ff]" />
+              Carregando OpenChargeMap…
+            </div>
+          )}
+          {ocmError && (
+            <div className="absolute bottom-3 left-3 flex items-center gap-2 bg-black/70 backdrop-blur-sm text-amber-400/80 text-xs px-3 py-1.5 rounded-lg border border-amber-400/20 pointer-events-none">
+              <AlertTriangle className="w-3 h-3" />
+              OCM indisponível — exibindo dados curados
+            </div>
+          )}
         </div>
 
         {/* Legend */}
@@ -212,10 +422,15 @@ export const ChargingMapModal: React.FC<ChargingMapModalProps> = ({ onClose }) =
               <span className="text-[11px] text-white/60 hover:text-white/90">{op}</span>
             </button>
           ))}
+          {showOcm && !ocmLoading && ocmCount > 0 && (
+            <span className="flex items-center gap-1.5">
+              <span className="w-2.5 h-2.5 rounded-full flex-shrink-0 border border-dashed border-white/40" style={{ background: '#6b7280' }} />
+              <span className="text-[11px] text-white/40">OpenChargeMap ({ocmCount})</span>
+            </span>
+          )}
           <span className="ml-auto text-[10px] text-white/25 italic flex-shrink-0">{t('chargingMap.source')}</span>
         </div>
       </div>
-
     </div>
   );
 };
