@@ -1284,21 +1284,21 @@ export const CAR_DB: Car[] = [
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 205,
   },
   {
-    model: "Taycan 4S", brand: "Porsche", price: 745000, range: 415, cat: "Luxo",
-    img: "/car-images/taycan.jpg",
-    power: 530, torque: 65.3, traction: 'AWD', battery: 93.4,
+    model: "Taycan 4S", brand: "Porsche", price: 980000, range: 415, cat: "Luxo",
+    img: "/car-images/porsche-taycan.jpeg",
+    power: 598, torque: 65.3, traction: 'AWD', battery: 105,
     features: [
-      "Bateria NMC 93,4 kWh (Performance Battery Plus) – Plataforma 800V Porsche",
-      "Carregamento AC 11 kW / DC 270 kW (ultrarrápido 800V, 5 min = 100 km)",
+      "Bateria NMC 105,0 kWh (bruta) – Plataforma 800V Porsche",
+      "Carregamento AC 11 kW (0–100% em 11h) / DC 320 kW (10–80% em 18 min)",
       "Cockpit Porsche Advanced: tela 16,8\" + painel 12,6\" + tela do passageiro 10,9\"",
       "8 airbags",
       "Porsche InnoDrive avançado: ACC + LCC + AEB + BSM + Night Vision",
       "Câmera Surround 360°",
       "Bancos esportivos GT com ventilação e massagem + som BOSE/Burmester Diamond 3D",
-      "Suspensão pneumática com controle ativo + 0-100 km/h em 4,0 s"
+      "598 cv em overboost com controle de largada — 0–100 km/h em 3,8 s — Vmax 240 km/h"
     ],
     pbeRating: 'A', energyMJkm: 0.69,
-    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 270,
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 320,
   },
   {
     model: "EV9 GT-Line", brand: "Kia", price: 749990, range: 434, cat: "Luxo",

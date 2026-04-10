@@ -80,7 +80,7 @@ export const PRICE_HISTORY: Record<string, PriceSnapshot[]> = {
   "SQ6 Sportback e-tron": [{ date: '2026-03', price: 684990 }],
   "iX xDrive40": [{ date: '2026-03', price: 699950 }],
   "i5 M60": [{ date: '2026-03', price: 794950 }],
-  "Taycan 4S": [{ date: '2026-03', price: 745000 }],
+  "Taycan 4S": [{ date: '2026-03', price: 745000 }, { date: '2026-04', price: 980000 }],
   "EV9 GT-Line": [{ date: '2026-03', price: 749990 }],
   "Hyptec HT": [{ date: '2026-03', price: 359990 }],
   "e-tron GT": [{ date: '2026-03', price: 769990 }],
