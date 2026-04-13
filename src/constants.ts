@@ -658,7 +658,7 @@ export const CAR_DB: Car[] = [
     features: [
       "2 motores elétricos (AWD) — 428 cv / 55,4 kgfm — 0–100 km/h em 3,6 s",
       "Bateria NMC 69 kWh",
-      "Carregamento AC 11 kW / DC 140 kW (20–80% em 26 min)",
+      "Carregamento AC 11 kW / DC 153 kW (10–80% em ~27 min)",
       "Tela central 12,3\" com Google integrado nativo (Maps, Assistant, Play Store)",
       "6 airbags",
       "Pilot Assist: ACC + manutenção de faixa com apoio de direção",
@@ -666,7 +666,7 @@ export const CAR_DB: Car[] = [
       "Interior em materiais reciclados e sustentáveis",
       "Atualização OTA"
     ],
-    warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 140,
+    warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 153,
   },
   {
     model: "e-2008", brand: "Peugeot", price: 269990, range: 261, cat: "SUV",

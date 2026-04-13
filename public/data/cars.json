@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-08T11:27:08.886Z",
-  "total": 90,
+  "generated_at": "2026-04-13T13:48:29.424Z",
+  "total": 91,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "cars": [
     {
@@ -996,9 +996,9 @@
       "detail_url": "https://guiapbev.cloud/carro/byd-yuan-plus-awd"
     },
     {
-      "model": "EX30",
+      "model": "EX30 Plus",
       "brand": "Volvo",
-      "price": 229950,
+      "price": 239950,
       "range_km": 250,
       "category": "SUV",
       "image_url": "https://guiapbev.cloud/car-images/ex30.jpg",
@@ -1024,8 +1024,41 @@
       ],
       "is_new": false,
       "discontinued": false,
-      "slug": "volvo-ex30",
-      "detail_url": "https://guiapbev.cloud/carro/volvo-ex30"
+      "slug": "volvo-ex30-plus",
+      "detail_url": "https://guiapbev.cloud/carro/volvo-ex30-plus"
+    },
+    {
+      "model": "EX30 Ultra",
+      "brand": "Volvo",
+      "price": 309950,
+      "range_km": 316,
+      "category": "SUV",
+      "image_url": "https://guiapbev.cloud/car-images/volvo-ex30-ultra.jpg",
+      "traction": "AWD",
+      "power_cv": 428,
+      "torque_kgfm": 55.4,
+      "battery_kwh": 69,
+      "charge_ac_kw": 11,
+      "charge_dc_kw": 153,
+      "warranty_years": 4,
+      "warranty_battery_years": 8,
+      "pbe_rating": null,
+      "energy_mj_km": null,
+      "features": [
+        "2 motores elétricos (AWD) — 428 cv / 55,4 kgfm — 0–100 km/h em 3,6 s",
+        "Bateria NMC 69 kWh",
+        "Carregamento AC 11 kW / DC 153 kW (10–80% em ~27 min)",
+        "Tela central 12,3\" com Google integrado nativo (Maps, Assistant, Play Store)",
+        "6 airbags",
+        "Pilot Assist: ACC + manutenção de faixa com apoio de direção",
+        "ADAS: AEB + alerta de colisão + câmera de ré",
+        "Interior em materiais reciclados e sustentáveis",
+        "Atualização OTA"
+      ],
+      "is_new": true,
+      "discontinued": false,
+      "slug": "volvo-ex30-ultra",
+      "detail_url": "https://guiapbev.cloud/carro/volvo-ex30-ultra"
     },
     {
       "model": "e-2008",
@@ -2215,29 +2248,29 @@
     {
       "model": "Taycan 4S",
       "brand": "Porsche",
-      "price": 745000,
+      "price": 980000,
       "range_km": 415,
       "category": "Luxo",
-      "image_url": "https://guiapbev.cloud/car-images/taycan.jpg",
+      "image_url": "https://guiapbev.cloud/car-images/porsche-taycan.jpeg",
       "traction": "AWD",
-      "power_cv": 530,
+      "power_cv": 598,
       "torque_kgfm": 65.3,
-      "battery_kwh": 93.4,
+      "battery_kwh": 105,
       "charge_ac_kw": 11,
-      "charge_dc_kw": 270,
+      "charge_dc_kw": 320,
       "warranty_years": 3,
       "warranty_battery_years": 8,
       "pbe_rating": "A",
       "energy_mj_km": 0.69,
       "features": [
-        "Bateria NMC 93,4 kWh (Performance Battery Plus) – Plataforma 800V Porsche",
-        "Carregamento AC 11 kW / DC 270 kW (ultrarrápido 800V, 5 min = 100 km)",
+        "Bateria NMC 105,0 kWh (bruta) – Plataforma 800V Porsche",
+        "Carregamento AC 11 kW (0–100% em 11h) / DC 320 kW (10–80% em 18 min)",
         "Cockpit Porsche Advanced: tela 16,8\" + painel 12,6\" + tela do passageiro 10,9\"",
         "8 airbags",
         "Porsche InnoDrive avançado: ACC + LCC + AEB + BSM + Night Vision",
         "Câmera Surround 360°",
         "Bancos esportivos GT com ventilação e massagem + som BOSE/Burmester Diamond 3D",
-        "Suspensão pneumática com controle ativo + 0-100 km/h em 4,0 s"
+        "598 cv em overboost com controle de largada — 0–100 km/h em 3,8 s — Vmax 240 km/h"
       ],
       "is_new": false,
       "discontinued": false,
