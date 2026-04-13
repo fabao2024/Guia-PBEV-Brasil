@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-10T20:46:39.032Z",
+  "generated_at": "2026-04-13T14:12:13.992Z",
   "total": 91,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "cars": [
@@ -1039,7 +1039,7 @@
       "torque_kgfm": 55.4,
       "battery_kwh": 69,
       "charge_ac_kw": 11,
-      "charge_dc_kw": 140,
+      "charge_dc_kw": 153,
       "warranty_years": 4,
       "warranty_battery_years": 8,
       "pbe_rating": null,
@@ -1047,7 +1047,7 @@
       "features": [
         "2 motores elétricos (AWD) — 428 cv / 55,4 kgfm — 0–100 km/h em 3,6 s",
         "Bateria NMC 69 kWh",
-        "Carregamento AC 11 kW / DC 140 kW (20–80% em 26 min)",
+        "Carregamento AC 11 kW / DC 153 kW (10–80% em ~27 min)",
         "Tela central 12,3\" com Google integrado nativo (Maps, Assistant, Play Store)",
         "6 airbags",
         "Pilot Assist: ACC + manutenção de faixa com apoio de direção",
