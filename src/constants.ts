@@ -505,18 +505,18 @@ export const CAR_DB: Car[] = [
   {
     model: "B10 BEV", brand: "Leapmotor", price: 182990, range: 288, cat: "SUV",
     img: "/car-images/leapmotor-b10.jpg",
-    power: 218, torque: 24.5, traction: 'RWD', battery: 69,
+    power: 218, torque: 24, traction: 'RWD', battery: 56.2,
     features: [
-      "Bateria LFP 69 kWh",
-      "Carregamento AC 7 kW / DC 60 kW",
+      "Bateria LFP 56,2 kWh",
+      "Carregamento AC 11 kW / DC 80 kW",
       "Tela central 10,1\" com CarPlay e Android Auto",
-      "6 airbags",
+      "7 airbags",
       "ADAS: ACC + AEB + manutenção de faixa (LKA)",
       "Câmera de ré",
       "Plataforma proprietária Leapmotor (LEAP 3.0)",
       "Motor traseiro RWD de alto torque"
     ],
-    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 60,
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 80,
   },
   {
     model: "C10 BEV", brand: "Leapmotor", price: 204990, range: 338, cat: "SUV",
