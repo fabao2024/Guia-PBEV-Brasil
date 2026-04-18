@@ -264,10 +264,17 @@ export const OPERADOR_COLOR: Record<string, string> = {
 
 export const DEFAULT_OPERADOR_COLOR = '#888888';
 
-/** Busca o carregador pelo nome + operador no Google Maps (zoom 19 = quarteirão) */
-export const gmapsUrl = (lat: number, lng: number, nome: string, operador: string) =>
-  `https://www.google.com/maps/search/${encodeURIComponent(operador + ' ' + nome)}/@${lat},${lng},19z`;
+/**
+ * Abre Google Maps com pin fixado nas coordenadas exatas do eletroposto.
+ * "loc:lat,lng" é o único formato que garante pin sem busca textual.
+ */
+export const gmapsUrl = (lat: number, lng: number, _nome: string, _operador: string) =>
+  `https://maps.google.com/maps?q=loc:${lat},${lng}&z=19`;
 
-/** Abre PlugShare com zoom máximo nas coordenadas do ponto */
+/**
+ * Abre PlugShare centralizado nas coords do ponto (zoom 20 = máximo).
+ * Sem o ID interno do PlugShare não é possível selecionar o item diretamente;
+ * com zoom alto o pino fica visível na tela imediatamente.
+ */
 export const plugshareUrl = (lat: number, lng: number) =>
-  `https://www.plugshare.com/?latitude=${lat}&longitude=${lng}&zoomLevel=19`;
+  `https://www.plugshare.com/?latitude=${lat}&longitude=${lng}&zoomLevel=20`;

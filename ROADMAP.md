@@ -11,7 +11,7 @@
 | 3 | Busca full-text com Fuse.js | Técnico | Baixo | Alto | ✅ Concluído |
 | 4 | TCO Calculator (custo total de propriedade) | Feature | Médio | Alto | ✅ Concluído |
 | 5 | SEO com pre-rendering (vite-plugin-ssg) | Técnico | Médio | Alto | 🔲 Pendente |
-| 6 | EV Route Planner (autonomia + paradas de recarga) | Feature | Alto | Médio | 🔲 Pendente |
+| 6 | EV Route Planner (autonomia + paradas de recarga) | Feature | Alto | Médio | ✅ Concluído |
 | 7 | Histórico de preços por modelo | Dados | Médio | Médio | ✅ Concluído |
 | 8 | Mapa de infraestrutura de recarga (dados ANEEL) | Dados | Médio | Médio | 🔲 Pendente |
 | 9 | Recomendação inteligente na comparação | UX | Baixo | Médio | ✅ Concluído |
@@ -546,6 +546,27 @@
 
 ---
 
+### Sprint 11 — semana de 17/04/2026
+**Tema: EV Route Planner**
+- ✅ Planejador de rota EV completo — modal full-screen com mapa Leaflet (dark mode)
+- ✅ Geocoding via Nominatim (autocomplete, debounce 600ms, countrycodes=br)
+- ✅ Roteamento via OpenRouteService (ORS) — chave gratuita, rate limit 20 req/h
+- ✅ Algoritmo guloso de paradas: projeta eletropostos na rota, para no mais distante alcançável
+- ✅ 159 eletropostos DC ≥ 50 kW no dataset local (`eletropostosData.ts`)
+- ✅ Status em tempo real via OpenChargeMap (OCM) — chave opcional
+- ✅ Sliders de bateria: saída % / chegada % / autonomia por trecho (editável)
+- ✅ Condições de viagem: temperatura × relevo × condução → multiplicador sobre autonomia
+- ✅ Tempo estimado de carga por eletroposto (min/max DC do carro vs. potência do posto)
+- ✅ kWh a carregar por parada + kWh total consumido na viagem
+- ✅ % bateria ao chegar em cada parada e no destino
+- ✅ Bidirecional mapa↔painel: clicar marcador → rola card; "ver no mapa" → flyTo + popup
+- ✅ Aviso de tapering quando saída > 80% SoC
+
+> **Resumo técnico — Sprint 11 (17/04/2026):**
+> Novos arquivos: `src/types/routePlanner.ts`, `src/utils/routeGeometry.ts` (haversine, segmentação, projeção gulosa), `src/services/{nominatimService,orsService,ocmService}.ts`, `src/hooks/{useNominatimAutocomplete,useORSRoute,useRoutePlanner}.ts`, `src/components/RoutePlannerModal.tsx`. Algoritmo central: projeta todos os eletropostos dentro de `radiusKm` da polyline ORS, seleciona o mais distante alcançável (greedy) → paradas sempre em eletropostos reais, não em pontos matemáticos. Condições de viagem: `CONDITION_FACTORS` (temp × terrain × driving) aplicado sobre `effectiveRangeKm`. Bidirectional sync via `stopMarkersRef: Map<number, CircleMarker>`. 106 testes passando.
+
+---
+
 ### Sprint 10 — semana de 07/04/2026
 **Tema: SEO & Tráfego**
 - ✅ Sitemap.xml dinâmico gerado em build-time (88 rotas /carro/:slug)
@@ -569,7 +590,7 @@
   - **Decisão pendente:** comparar ROI vs. plano de monetização atual (afiliados + leads + AdSense)
 - 🔲 API pública documentada (B2B)
 - 🔲 Newsletter "EletriBrasil Insider" no Substack
-- 🔲 EV Route Planner (OpenStreetMap + autonomia)
+- ✅ **EV Route Planner** — concluído Sprint 11
 - 🔲 Expansão: Argentina, Chile, Colômbia
 
 ---

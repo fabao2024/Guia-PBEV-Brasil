@@ -13,7 +13,8 @@ import ComparisonModal from './components/ComparisonModal';
 import LanguageToggle from './components/LanguageToggle';
 import SavingsSimulatorModal from './components/SavingsSimulatorModal';
 import { ChargingMapModal } from './components/ChargingMapModal';
-import { Zap, Printer, Search, SlidersHorizontal, Scale, X, ArrowRight, Heart, BarChart2, Lightbulb, XCircle, MapPin } from 'lucide-react';
+import { RoutePlannerModal } from './components/RoutePlannerModal';
+import { Zap, Printer, Search, SlidersHorizontal, Scale, X, ArrowRight, Heart, BarChart2, Lightbulb, XCircle, MapPin, Route as RouteIcon } from 'lucide-react';
 import { useCarFilter } from './hooks/useCarFilter';
 import { useFavorites } from './hooks/useFavorites';
 import { useCompare } from './hooks/useCompare';
@@ -56,6 +57,7 @@ export default function App() {
 
   const [isSimulatorModalOpen, setIsSimulatorModalOpen] = useState(false);
   const [isChargingMapOpen, setIsChargingMapOpen] = useState(false);
+  const [isRoutePlannerOpen, setIsRoutePlannerOpen] = useState(false);
   const [showSuggestMenu, setShowSuggestMenu] = useState(false);
   const [triggerSuggestChat, setTriggerSuggestChat] = useState(false);
 
@@ -223,6 +225,16 @@ export default function App() {
               <span className="hidden sm:inline">{t('chargingMap.mapBtn')}</span>
             </button>
 
+            {/* Route Planner */}
+            <button
+              onClick={() => setIsRoutePlannerOpen(true)}
+              className="flex items-center gap-2 px-3 md:px-4 py-2 md:py-2.5 bg-white/5 border border-white/10 hover:bg-[#00b4ff]/10 hover:border-[#00b4ff]/30 text-white/70 hover:text-[#00b4ff] rounded-xl font-bold transition-all text-xs"
+              title="Planejar rota EV"
+            >
+              <RouteIcon className="w-4 h-4" />
+              <span className="hidden sm:inline">Rota EV</span>
+            </button>
+
             {/* Simulator — desktop only (mobile has it in the sticky bar below) */}
             <button
               onClick={() => setIsSimulatorModalOpen(true)}
@@ -319,6 +331,14 @@ export default function App() {
             >
               <MapPin className="w-4 h-4" />
               <span className="text-[11px] uppercase tracking-wide font-black">{t('chargingMap.mapBtn')}</span>
+            </button>
+            <button
+              onClick={() => setIsRoutePlannerOpen(true)}
+              className="bg-white/5 border border-white/10 text-white/70 font-black py-3 px-3 rounded-xl shadow-lg flex items-center justify-center gap-1.5 hover:bg-[#00b4ff]/10 hover:border-[#00b4ff]/30 hover:text-[#00b4ff] active:scale-95 transition-all whitespace-nowrap"
+              title="Planejar rota EV"
+            >
+              <RouteIcon className="w-4 h-4" />
+              <span className="text-[11px] uppercase tracking-wide font-black">Rota EV</span>
             </button>
           </div>
 
@@ -599,6 +619,11 @@ export default function App() {
         {/* Charging Map Modal */}
         {isChargingMapOpen && (
           <ChargingMapModal onClose={() => setIsChargingMapOpen(false)} />
+        )}
+
+        {/* Route Planner Modal */}
+        {isRoutePlannerOpen && (
+          <RoutePlannerModal onClose={() => setIsRoutePlannerOpen(false)} />
         )}
 
         {/* AI CHAT */}

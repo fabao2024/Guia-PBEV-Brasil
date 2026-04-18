@@ -451,6 +451,21 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 
 ---
 
+## Sprint 11 — EV Route Planner · 17/04/2026
+
+### [S11-A] feat(route-planner): planejador de rota EV completo · 17/04/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | Novos arquivos: `types/routePlanner.ts`, `utils/routeGeometry.ts`, `services/{nominatim,ors,ocm}Service.ts`, `hooks/{useNominatimAutocomplete,useORSRoute,useRoutePlanner}.ts`, `components/RoutePlannerModal.tsx`. Algoritmo guloso: projeta eletropostos na polyline ORS → para no mais distante alcançável (elimina paradas sem carregador). Condições de viagem (temp × relevo × condução). Bidirecional mapa↔painel. Tempo/kWh por parada. Status via OCM. |
+| Build  | ✅ | `npm run build` — sem erros TS, 106 testes passando |
+| Testes | ✅ | 30 testes em `routeGeometry.test.ts` (haversine, segmentação, projeção, guloso, gaps de cobertura); testado manualmente rota SP→RJ e SP→BH |
+| Commit | ✅ | pendente |
+
+**Notas:** Algoritmo antigo colocava paradas em pontos matemáticos arbitrários → muitos "Nenhum eletroposto DC". Novo algoritmo projeta os 159 eletropostos do dataset sobre a polyline e usa greedy furthest-reachable — paradas sempre em eletropostos reais. Gaps reais de cobertura (interior do nordeste, trechos isolados) ainda aparecem com aviso honesto. `gmapsUrl` corrigida para formato `?q=loc:lat,lng` (pin exato).
+
+---
+
 ## Sprint 10 — SEO & Tráfego · 03/04/2026
 
 ### [S10-A] feat(seo): sitemap.xml dinâmico com 88 rotas · 03/04/2026
