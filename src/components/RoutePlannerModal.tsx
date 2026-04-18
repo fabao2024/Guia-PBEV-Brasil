@@ -577,6 +577,27 @@ function RadiusSelector({ value, onChange }: { value: number; onChange: (v: numb
   );
 }
 
+// ─── Stop marker icon (divIcon com número) ────────────────────────────────────
+function makeStopIcon(L: typeof import('leaflet'), index: number, active: boolean) {
+  const bg    = active ? '#00b4ff' : '#ff8c52';
+  const color = active ? '#000'    : '#fff';
+  const size  = active ? 30        : 26;
+  return L.divIcon({
+    html: `<div style="
+      width:${size}px;height:${size}px;border-radius:50%;
+      background:${bg};border:2px solid rgba(255,255,255,0.85);
+      display:flex;align-items:center;justify-content:center;
+      color:${color};font-weight:900;font-size:11px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.55);
+      transition:all 0.25s;
+    ">${index}</div>`,
+    className: '',
+    iconSize:   [size, size],
+    iconAnchor: [size / 2, size / 2],
+    popupAnchor:[0, -(size / 2)],
+  });
+}
+
 // ─── Conditions Panel ─────────────────────────────────────────────────────────
 function ConditionRow<T extends string>({
   label, options, value, onChange,
@@ -666,7 +687,8 @@ export const RoutePlannerModal: React.FC<RoutePlannerModalProps> = ({ onClose })
   useTranslation();
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<import('leaflet').Map | null>(null);
-  const stopMarkersRef = useRef<Map<number, import('leaflet').CircleMarker>>(new Map());
+  const leafletRef = useRef<typeof import('leaflet') | null>(null);
+  const stopMarkersRef = useRef<Map<number, import('leaflet').Marker>>(new Map());
   const panelRef = useRef<HTMLDivElement>(null);
   const [mapReady, setMapReady] = useState(false);
   const [activeStopIndex, setActiveStopIndex] = useState<number | null>(null);
@@ -754,14 +776,13 @@ export const RoutePlannerModal: React.FC<RoutePlannerModalProps> = ({ onClose })
     setTimeout(() => marker.openPopup(), 650);
   };
 
-  // ── Update marker styles when activeStopIndex changes ───────────────────────
+  // ── Update marker icons when activeStopIndex changes ────────────────────────
   useEffect(() => {
+    const L = leafletRef.current;
+    if (!L) return;
     stopMarkersRef.current.forEach((marker, idx) => {
-      if (idx === activeStopIndex) {
-        marker.setStyle({ radius: 14, color: '#00b4ff', fillColor: '#00b4ff', fillOpacity: 1, weight: 3 });
-      } else {
-        marker.setStyle({ radius: 11, color: '#ff8c52', fillColor: '#ff8c52', fillOpacity: 0.9, weight: 2 });
-      }
+      const active = idx === activeStopIndex;
+      marker.setIcon(makeStopIcon(L, idx, active));
     });
   }, [activeStopIndex]);
 
@@ -772,6 +793,7 @@ export const RoutePlannerModal: React.FC<RoutePlannerModalProps> = ({ onClose })
     import('leaflet').then((L) => {
       delete (L.Icon.Default.prototype as unknown as Record<string, unknown>)._getIconUrl;
       if (!mapRef.current) return;
+      leafletRef.current = L;
 
       const map = L.map(mapRef.current, {
         center: [-15.8, -47.9],
@@ -834,8 +856,8 @@ export const RoutePlannerModal: React.FC<RoutePlannerModalProps> = ({ onClose })
 
       // Charging stop markers — stored in ref for bidirectional sync
       result.chargingStops.forEach((stop) => {
-        const marker = L.circleMarker(stop.position, {
-          radius: 11, color: '#ff8c52', fillColor: '#ff8c52', fillOpacity: 0.9, weight: 2,
+        const marker = L.marker(stop.position, {
+          icon: makeStopIcon(L, stop.index, false),
         });
         (marker as unknown as { _isRoute: boolean })._isRoute = true;
 
