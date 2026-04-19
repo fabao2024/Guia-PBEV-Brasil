@@ -18,6 +18,145 @@ interface RoutePlannerModalProps {
   onClose: () => void;
 }
 
+// ─── Cidades brasileiras — capitais + principais municípios por estado ────────
+// Ordenadas por UF para facilitar agrupamento no dropdown
+const CIDADES = [
+  // AC
+  { name: 'Rio Branco',          uf: 'AC', lat:  -9.9754, lng: -67.8249, capital: true  },
+  { name: 'Cruzeiro do Sul',     uf: 'AC', lat:  -7.6269, lng: -72.6726, capital: false },
+  // AL
+  { name: 'Maceió',              uf: 'AL', lat:  -9.6662, lng: -35.7356, capital: true  },
+  { name: 'Arapiraca',           uf: 'AL', lat:  -9.7528, lng: -36.6614, capital: false },
+  // AM
+  { name: 'Manaus',              uf: 'AM', lat:  -3.1190, lng: -60.0217, capital: true  },
+  { name: 'Parintins',           uf: 'AM', lat:  -2.6287, lng: -56.7358, capital: false },
+  // AP
+  { name: 'Macapá',              uf: 'AP', lat:   0.0355, lng: -51.0664, capital: true  },
+  { name: 'Santana',             uf: 'AP', lat:  -0.0581, lng: -51.1783, capital: false },
+  // BA
+  { name: 'Salvador',            uf: 'BA', lat: -12.9714, lng: -38.5014, capital: true  },
+  { name: 'Feira de Santana',    uf: 'BA', lat: -12.2664, lng: -38.9663, capital: false },
+  { name: 'Vitória da Conquista',uf: 'BA', lat: -14.8619, lng: -40.8444, capital: false },
+  { name: 'Ilhéus',              uf: 'BA', lat: -14.7892, lng: -39.0489, capital: false },
+  { name: 'Porto Seguro',        uf: 'BA', lat: -16.4497, lng: -39.0647, capital: false },
+  // CE
+  { name: 'Fortaleza',           uf: 'CE', lat:  -3.7172, lng: -38.5433, capital: true  },
+  { name: 'Caucaia',             uf: 'CE', lat:  -3.7361, lng: -38.6531, capital: false },
+  { name: 'Juazeiro do Norte',   uf: 'CE', lat:  -7.2136, lng: -39.3153, capital: false },
+  { name: 'Sobral',              uf: 'CE', lat:  -3.6880, lng: -40.3497, capital: false },
+  // DF
+  { name: 'Brasília',            uf: 'DF', lat: -15.7942, lng: -47.8822, capital: true  },
+  // ES
+  { name: 'Vitória',             uf: 'ES', lat: -20.3155, lng: -40.3128, capital: true  },
+  { name: 'Serra',               uf: 'ES', lat: -20.1289, lng: -40.3079, capital: false },
+  { name: 'Vila Velha',          uf: 'ES', lat: -20.3297, lng: -40.2922, capital: false },
+  { name: 'Guarapari',           uf: 'ES', lat: -20.6718, lng: -40.5006, capital: false },
+  // GO
+  { name: 'Goiânia',             uf: 'GO', lat: -16.6799, lng: -49.2556, capital: true  },
+  { name: 'Aparecida de Goiânia',uf: 'GO', lat: -16.8234, lng: -49.2479, capital: false },
+  { name: 'Anápolis',            uf: 'GO', lat: -16.3281, lng: -48.9534, capital: false },
+  { name: 'Rio Verde',           uf: 'GO', lat: -17.7981, lng: -50.9290, capital: false },
+  // MA
+  { name: 'São Luís',            uf: 'MA', lat:  -2.5307, lng: -44.3068, capital: true  },
+  { name: 'Imperatriz',          uf: 'MA', lat:  -5.5264, lng: -47.4919, capital: false },
+  // MG
+  { name: 'Belo Horizonte',      uf: 'MG', lat: -19.9191, lng: -43.9386, capital: true  },
+  { name: 'Contagem',            uf: 'MG', lat: -19.9317, lng: -44.0536, capital: false },
+  { name: 'Betim',               uf: 'MG', lat: -19.9681, lng: -44.1983, capital: false },
+  { name: 'Uberlândia',          uf: 'MG', lat: -18.9113, lng: -48.2622, capital: false },
+  { name: 'Juiz de Fora',        uf: 'MG', lat: -21.7642, lng: -43.3503, capital: false },
+  { name: 'Uberaba',             uf: 'MG', lat: -19.7489, lng: -47.9317, capital: false },
+  { name: 'Montes Claros',       uf: 'MG', lat: -16.7282, lng: -43.8634, capital: false },
+  { name: 'Poços de Caldas',     uf: 'MG', lat: -21.7872, lng: -46.5614, capital: false },
+  // MS
+  { name: 'Campo Grande',        uf: 'MS', lat: -20.4428, lng: -54.6461, capital: true  },
+  { name: 'Dourados',            uf: 'MS', lat: -22.2211, lng: -54.8056, capital: false },
+  { name: 'Corumbá',             uf: 'MS', lat: -19.0078, lng: -57.6539, capital: false },
+  // MT
+  { name: 'Cuiabá',              uf: 'MT', lat: -15.6014, lng: -56.0979, capital: true  },
+  { name: 'Várzea Grande',       uf: 'MT', lat: -15.6461, lng: -56.1322, capital: false },
+  { name: 'Rondonópolis',        uf: 'MT', lat: -16.4736, lng: -54.6358, capital: false },
+  // PA
+  { name: 'Belém',               uf: 'PA', lat:  -1.4558, lng: -48.5044, capital: true  },
+  { name: 'Ananindeua',          uf: 'PA', lat:  -1.3644, lng: -48.3722, capital: false },
+  { name: 'Santarém',            uf: 'PA', lat:  -2.4426, lng: -54.7082, capital: false },
+  { name: 'Marabá',              uf: 'PA', lat:  -5.3686, lng: -49.1178, capital: false },
+  // PB
+  { name: 'João Pessoa',         uf: 'PB', lat:  -7.1195, lng: -34.8450, capital: true  },
+  { name: 'Campina Grande',      uf: 'PB', lat:  -7.2306, lng: -35.8811, capital: false },
+  // PE
+  { name: 'Recife',              uf: 'PE', lat:  -8.0522, lng: -34.9286, capital: true  },
+  { name: 'Olinda',              uf: 'PE', lat:  -8.0089, lng: -34.8553, capital: false },
+  { name: 'Caruaru',             uf: 'PE', lat:  -8.2760, lng: -35.9753, capital: false },
+  { name: 'Petrolina',           uf: 'PE', lat:  -9.3986, lng: -40.5007, capital: false },
+  // PI
+  { name: 'Teresina',            uf: 'PI', lat:  -5.0892, lng: -42.8019, capital: true  },
+  { name: 'Parnaíba',            uf: 'PI', lat:  -2.9044, lng: -41.7767, capital: false },
+  // PR
+  { name: 'Curitiba',            uf: 'PR', lat: -25.4284, lng: -49.2733, capital: true  },
+  { name: 'Londrina',            uf: 'PR', lat: -23.3045, lng: -51.1696, capital: false },
+  { name: 'Maringá',             uf: 'PR', lat: -23.4205, lng: -51.9333, capital: false },
+  { name: 'Ponta Grossa',        uf: 'PR', lat: -25.0945, lng: -50.1633, capital: false },
+  { name: 'Cascavel',            uf: 'PR', lat: -24.9578, lng: -53.4595, capital: false },
+  { name: 'Foz do Iguaçu',       uf: 'PR', lat: -25.5478, lng: -54.5882, capital: false },
+  // RJ
+  { name: 'Rio de Janeiro',      uf: 'RJ', lat: -22.9068, lng: -43.1729, capital: true  },
+  { name: 'Niterói',             uf: 'RJ', lat: -22.8832, lng: -43.1036, capital: false },
+  { name: 'Duque de Caxias',     uf: 'RJ', lat: -22.7892, lng: -43.3119, capital: false },
+  { name: 'Nova Iguaçu',         uf: 'RJ', lat: -22.7592, lng: -43.4511, capital: false },
+  { name: 'Petrópolis',          uf: 'RJ', lat: -22.5050, lng: -43.1787, capital: false },
+  { name: 'Volta Redonda',       uf: 'RJ', lat: -22.5231, lng: -44.1040, capital: false },
+  { name: 'Campos dos Goytacazes',uf:'RJ', lat: -21.7542, lng: -41.3244, capital: false },
+  { name: 'Angra dos Reis',      uf: 'RJ', lat: -23.0067, lng: -44.3181, capital: false },
+  { name: 'Cabo Frio',           uf: 'RJ', lat: -22.8794, lng: -42.0189, capital: false },
+  // RN
+  { name: 'Natal',               uf: 'RN', lat:  -5.7945, lng: -35.2110, capital: true  },
+  { name: 'Mossoró',             uf: 'RN', lat:  -5.1878, lng: -37.3438, capital: false },
+  // RO
+  { name: 'Porto Velho',         uf: 'RO', lat:  -8.7612, lng: -63.9004, capital: true  },
+  { name: 'Ji-Paraná',           uf: 'RO', lat: -10.8781, lng: -61.9463, capital: false },
+  // RR
+  { name: 'Boa Vista',           uf: 'RR', lat:   2.8235, lng: -60.6758, capital: true  },
+  // RS
+  { name: 'Porto Alegre',        uf: 'RS', lat: -30.0346, lng: -51.2177, capital: true  },
+  { name: 'Caxias do Sul',       uf: 'RS', lat: -29.1681, lng: -51.1794, capital: false },
+  { name: 'Pelotas',             uf: 'RS', lat: -31.7719, lng: -52.3425, capital: false },
+  { name: 'Canoas',              uf: 'RS', lat: -29.9178, lng: -51.1839, capital: false },
+  { name: 'Santa Maria',         uf: 'RS', lat: -29.6842, lng: -53.8069, capital: false },
+  { name: 'Novo Hamburgo',       uf: 'RS', lat: -29.6783, lng: -51.1306, capital: false },
+  { name: 'São Leopoldo',        uf: 'RS', lat: -29.7594, lng: -51.1494, capital: false },
+  { name: 'Gramado',             uf: 'RS', lat: -29.3789, lng: -50.8753, capital: false },
+  // SC
+  { name: 'Florianópolis',       uf: 'SC', lat: -27.5954, lng: -48.5480, capital: true  },
+  { name: 'Joinville',           uf: 'SC', lat: -26.3044, lng: -48.8487, capital: false },
+  { name: 'Blumenau',            uf: 'SC', lat: -26.9195, lng: -49.0661, capital: false },
+  { name: 'Balneário Camboriú',  uf: 'SC', lat: -26.9781, lng: -48.6344, capital: false },
+  { name: 'Criciúma',            uf: 'SC', lat: -28.6775, lng: -49.3697, capital: false },
+  { name: 'Chapecó',             uf: 'SC', lat: -27.1007, lng: -52.6152, capital: false },
+  // SE
+  { name: 'Aracaju',             uf: 'SE', lat: -10.9472, lng: -37.0731, capital: true  },
+  // SP
+  { name: 'São Paulo',           uf: 'SP', lat: -23.5505, lng: -46.6333, capital: true  },
+  { name: 'Guarulhos',           uf: 'SP', lat: -23.4628, lng: -46.5333, capital: false },
+  { name: 'Campinas',            uf: 'SP', lat: -22.9056, lng: -47.0608, capital: false },
+  { name: 'São Bernardo do Campo',uf:'SP', lat: -23.6939, lng: -46.5650, capital: false },
+  { name: 'Santo André',         uf: 'SP', lat: -23.6639, lng: -46.5383, capital: false },
+  { name: 'Ribeirão Preto',      uf: 'SP', lat: -21.1767, lng: -47.8208, capital: false },
+  { name: 'São José dos Campos', uf: 'SP', lat: -23.1794, lng: -45.8869, capital: false },
+  { name: 'Santos',              uf: 'SP', lat: -23.9619, lng: -46.3044, capital: false },
+  { name: 'Sorocaba',            uf: 'SP', lat: -23.5015, lng: -47.4526, capital: false },
+  { name: 'Osasco',              uf: 'SP', lat: -23.5329, lng: -46.7919, capital: false },
+  { name: 'Mogi das Cruzes',     uf: 'SP', lat: -23.5228, lng: -46.1875, capital: false },
+  { name: 'Bauru',               uf: 'SP', lat: -22.3147, lng: -49.0608, capital: false },
+  { name: 'São José do Rio Preto',uf:'SP', lat: -20.8197, lng: -49.3794, capital: false },
+  { name: 'Limeira',             uf: 'SP', lat: -22.5636, lng: -47.4017, capital: false },
+  { name: 'Jundiaí',             uf: 'SP', lat: -23.1864, lng: -46.8964, capital: false },
+  { name: 'Piracicaba',          uf: 'SP', lat: -22.7253, lng: -47.6492, capital: false },
+  // TO
+  { name: 'Palmas',              uf: 'TO', lat: -10.2491, lng: -48.3243, capital: true  },
+  { name: 'Araguaína',           uf: 'TO', lat:  -7.1919, lng: -48.2044, capital: false },
+] as const;
+
 // ─── Operator app links ────────────────────────────────────────────────────────
 const OPERATOR_APPS: Record<string, { url: string; label: string }> = {
   'Shell Recharge':  { url: 'https://www.shell.com.br/motoristas/shell-recharge.html', label: 'Shell Recharge' },
@@ -109,6 +248,30 @@ function LocationInput({
   const [open, setOpen] = useState(false);
   const { suggestions, isLoading } = useNominatimAutocomplete(value, value.length >= 3);
 
+  const q = value.trim().toLowerCase();
+  // Filtra cidades: por nome, sigla exata ou "cidade, uf"
+  const filteredCidades = q.length === 0
+    ? CIDADES
+    : CIDADES.filter((c) =>
+        c.name.toLowerCase().includes(q) ||
+        c.uf.toLowerCase() === q ||
+        `${c.name.toLowerCase()}, ${c.uf.toLowerCase()}`.includes(q),
+      );
+
+  const cidadesParaExibir = filteredCidades;
+
+  // Agrupa por UF quando o resultado tem mais de 1 UF
+  const ufs = [...new Set(cidadesParaExibir.map((c) => c.uf))];
+  const groupByUf = ufs.length > 1;
+
+  const showCidades = open && cidadesParaExibir.length > 0;
+  const showNominatim = open && suggestions.length > 0;
+
+  const selectCidade = (c: typeof CIDADES[number]) => {
+    onSelect({ displayName: `${c.name}, ${c.uf}`, lat: c.lat, lng: c.lng, placeId: 0, type: 'city' });
+    setOpen(false);
+  };
+
   return (
     <div className="flex flex-col gap-1 relative">
       <label className="text-[#a0a0a0] text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
@@ -129,18 +292,81 @@ function LocationInput({
           <Loader2 className="absolute right-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#00b4ff] animate-spin" />
         )}
       </div>
-      {open && suggestions.length > 0 && (
-        <div className="absolute top-full mt-1 w-full bg-[#111827] border border-white/10 rounded-xl shadow-2xl z-50 overflow-hidden">
-          {suggestions.map((s) => (
-            <button
-              key={s.placeId}
-              onMouseDown={() => { onSelect(s); setOpen(false); }}
-              className="w-full text-left px-3 py-2.5 text-sm text-white/80 hover:bg-[#00b4ff]/10 hover:text-white transition-colors border-b border-white/5 last:border-0 truncate"
-              title={s.displayName}
-            >
-              {s.displayName}
-            </button>
-          ))}
+
+      {(showCidades || showNominatim) && (
+        <div className="absolute top-full mt-1 w-full bg-[#111827] border border-white/10 rounded-xl shadow-2xl z-50 overflow-hidden max-h-60 overflow-y-auto custom-scrollbar-dark">
+
+          {/* Cidades agrupadas por UF */}
+          {showCidades && (
+            <>
+              {groupByUf ? (
+                // Múltiplos estados: cabeçalho único com label
+                <>
+                  <div className="sticky top-0 px-3 py-1.5 bg-[#0d1117] border-b border-white/5 flex items-center justify-between">
+                    <span className="text-[#555] text-[10px] font-bold uppercase tracking-wider">Cidades</span>
+                    {q.length === 0 && <span className="text-[#333] text-[10px]">capitais e principais cidades</span>}
+                  </div>
+                  {ufs.map((uf) => {
+                    const cidades = cidadesParaExibir.filter((c) => c.uf === uf);
+                    return (
+                      <div key={uf}>
+                        <div className="px-3 py-1 bg-[#0a0b12]/60 border-b border-white/5">
+                          <span className="text-[#00b4ff]/50 text-[10px] font-black">{uf}</span>
+                        </div>
+                        {cidades.map((c) => (
+                          <button
+                            key={`${c.uf}-${c.name}`}
+                            onMouseDown={() => selectCidade(c)}
+                            className="w-full text-left px-4 py-1.5 flex items-center gap-2 hover:bg-[#00b4ff]/10 transition-colors border-b border-white/5 last:border-0"
+                          >
+                            <span className="text-sm text-white/80">{c.name}</span>
+                            {c.capital && <span className="text-[9px] text-[#00b4ff]/50 font-semibold">capital</span>}
+                          </button>
+                        ))}
+                      </div>
+                    );
+                  })}
+                </>
+              ) : (
+                // Um único estado: lista plana
+                <>
+                  <div className="sticky top-0 px-3 py-1.5 bg-[#0d1117] border-b border-white/5">
+                    <span className="text-[#00b4ff]/70 text-[10px] font-black">{ufs[0]}</span>
+                    <span className="text-[#555] text-[10px] ml-2">— {cidadesParaExibir.length} cidades</span>
+                  </div>
+                  {cidadesParaExibir.map((c) => (
+                    <button
+                      key={`${c.uf}-${c.name}`}
+                      onMouseDown={() => selectCidade(c)}
+                      className="w-full text-left px-3 py-2 flex items-center gap-2 hover:bg-[#00b4ff]/10 transition-colors border-b border-white/5 last:border-0"
+                    >
+                      <span className="text-sm text-white/80">{c.name}</span>
+                      {c.capital && <span className="text-[9px] text-[#00b4ff]/50 font-semibold">capital</span>}
+                    </button>
+                  ))}
+                </>
+              )}
+            </>
+          )}
+
+          {/* Nominatim — outras cidades não listadas */}
+          {showNominatim && (
+            <>
+              <div className="sticky top-0 px-3 py-1.5 bg-[#0d1117] border-b border-white/5">
+                <span className="text-[#555] text-[10px] font-bold uppercase tracking-wider">Outros resultados</span>
+              </div>
+              {suggestions.map((s) => (
+                <button
+                  key={s.placeId}
+                  onMouseDown={() => { onSelect(s); setOpen(false); }}
+                  className="w-full text-left px-3 py-2.5 text-sm text-white/80 hover:bg-[#00b4ff]/10 hover:text-white transition-colors border-b border-white/5 last:border-0 truncate"
+                  title={s.displayName}
+                >
+                  {s.displayName}
+                </button>
+              ))}
+            </>
+          )}
         </div>
       )}
     </div>
@@ -235,50 +461,32 @@ function ChargerItem({
           <p className="text-white text-xs font-semibold leading-tight truncate">{c.nome}</p>
           <p className="text-[#666] text-[10px] mt-0.5">{c.cidade}/{c.uf}</p>
         </div>
-        {/* Power badge + charge time */}
-        <div className="flex flex-col items-end gap-1 flex-shrink-0">
-          <div
-            className="text-black text-xs font-black px-2 py-1 rounded-lg whitespace-nowrap"
-            style={{ backgroundColor: color }}
-          >
-            {c.potenciaDC} kW
-          </div>
-          {chargeTimeStr && (
-            <span className="text-[#00b4ff] text-[10px] font-black whitespace-nowrap">
-              {chargeTimeStr}
-            </span>
-          )}
+        <div
+          className="text-black text-xs font-black px-2 py-1 rounded-lg whitespace-nowrap flex-shrink-0"
+          style={{ backgroundColor: color }}
+        >
+          {c.potenciaDC} kW DC
         </div>
       </div>
 
-      {/* Charge time detail row */}
-      {chargeTimeStr && effectivePowerKw !== null && (
-        <div className="bg-[#00b4ff]/8 border border-[#00b4ff]/15 rounded-lg px-2.5 py-1.5 flex items-center justify-between gap-2">
-          <div className="flex items-center gap-1.5 text-[10px] flex-wrap">
-            <Zap className="w-3 h-3 text-[#00b4ff] flex-shrink-0" />
-            <span className="text-white font-semibold">{chargeTimeStr}</span>
-            {energyNeededKwh !== null && (
-              <>
-                <span className="text-[#555]">·</span>
-                <span className="text-[#00b4ff] font-semibold">~{energyNeededKwh.toFixed(1)} kWh</span>
-              </>
-            )}
-            <span className="text-[#555]">·</span>
-            <span className="text-[#a0a0a0]">{effectivePowerKw} kW efetivos</span>
-          </div>
-          <span className={`text-[9px] px-1.5 py-0.5 rounded font-semibold ${
-            powerLimitedBy === 'car'
-              ? 'bg-orange-500/20 text-orange-400'
-              : 'bg-white/8 text-[#555]'
-          }`}>
-            {powerLimitedBy === 'car' ? 'limitado pelo carro' : 'limitado pelo posto'}
-          </span>
+      {/* Charge summary — uma linha limpa */}
+      {chargeTimeStr && effectivePowerKw !== null && energyNeededKwh !== null && (
+        <div className="flex items-center gap-1.5 text-[10px] flex-wrap">
+          <Zap className="w-3 h-3 text-[#00b4ff] flex-shrink-0" />
+          <span className="text-white font-semibold">{chargeTimeStr}</span>
+          <span className="text-[#444]">·</span>
+          <span className="text-[#00b4ff] font-semibold">{energyNeededKwh.toFixed(1)} kWh</span>
+          <span className="text-[#444]">a</span>
+          <span className="text-[#a0a0a0]">{effectivePowerKw} kW</span>
+          {powerLimitedBy === 'car' && (
+            <span className="text-orange-400 text-[9px]">(limitado pelo carro)</span>
+          )}
         </div>
       )}
       {departurePct > 80 && chargeTimeStr && (
-        <p className="text-[#444] text-[9px] flex items-center gap-1 -mt-1">
+        <p className="text-[#444] text-[9px] flex items-center gap-1 -mt-0.5">
           <Info className="w-2.5 h-2.5 flex-shrink-0" />
-          Acima de 80% a carga DC reduz a velocidade (tapering) — pode levar mais tempo.
+          Acima de 80% a carga DC desacelera (tapering).
         </p>
       )}
 
@@ -341,7 +549,7 @@ function ChargerItem({
 
 // ─── Charging Stop Card ───────────────────────────────────────────────────────
 function ChargingStopCard({
-  stop, radiusKm, active, onFocus, chargerStatuses, arrivalPct, departurePct, car,
+  stop, radiusKm, active, onFocus, chargerStatuses, arrivalPct, arrivalKwh, departurePct, car,
 }: {
   stop: ChargingStop;
   radiusKm: number;
@@ -349,6 +557,7 @@ function ChargingStopCard({
   onFocus: () => void;
   chargerStatuses: Map<number, ChargerStatus>;
   arrivalPct: number;
+  arrivalKwh: number | null;  // null para carros sem battery cadastrada
   departurePct: number;
   car: Car;
 }) {
@@ -371,11 +580,16 @@ function ChargingStopCard({
             Parada {stop.index}
           </div>
           <span className="text-[#a0a0a0] text-xs">{Math.round(stop.distanceFromStartKm)} km</span>
-          {/* Arrival / departure battery % */}
-          <div className="flex items-center gap-1 text-[10px]">
-            <span className="text-[#ff8c52] font-semibold">↓{arrivalPct}%</span>
-            <span className="text-[#333]">→</span>
-            <span className="text-[#00e5a0] font-semibold">↑{departurePct}%</span>
+          {/* Chegada / saída */}
+          <div className="flex items-center gap-1.5 text-[10px]">
+            <span className="text-[#555]">Chega</span>
+            <span className="text-[#ff8c52] font-black">{arrivalPct}%</span>
+            {arrivalKwh !== null && (
+              <span className="text-[#ff8c52]/70">{arrivalKwh} kWh</span>
+            )}
+            <span className="text-[#333]">·</span>
+            <span className="text-[#555]">Sai</span>
+            <span className="text-[#00e5a0] font-black">{departurePct}%</span>
           </div>
         </div>
         {/* Ver no mapa */}
@@ -419,7 +633,7 @@ function ChargingStopCard({
               c={c}
               status={chargerStatuses.get(c.id) ?? 'unknown'}
               energyNeededKwh={car.battery != null
-                ? parseFloat((car.battery * (departurePct - arrivalPct) / 100).toFixed(2))
+                ? parseFloat((car.battery * 0.93 * (departurePct - arrivalPct) / 100).toFixed(2))
                 : null}
               carMaxDcKw={car.chargeDC ?? undefined}
               departurePct={departurePct}
@@ -934,12 +1148,12 @@ export const RoutePlannerModal: React.FC<RoutePlannerModalProps> = ({ onClose })
         </div>
 
         {/* Body */}
-        <div className="flex flex-col md:flex-row flex-1 overflow-hidden">
+        <div className="flex flex-col md:flex-row flex-1 overflow-y-auto md:overflow-hidden">
 
           {/* Left panel */}
           <div
             ref={panelRef}
-            className="w-full md:w-[320px] flex-shrink-0 border-b md:border-b-0 md:border-r border-white/10 overflow-y-auto custom-scrollbar-dark"
+            className="w-full md:w-[320px] md:flex-shrink-0 border-b md:border-b-0 md:border-r border-white/10 md:overflow-y-auto md:custom-scrollbar-dark"
           >
             {!orsHasKey ? (
               <OrsKeyPanel onSave={setOrsKey} />
@@ -1272,19 +1486,33 @@ export const RoutePlannerModal: React.FC<RoutePlannerModalProps> = ({ onClose })
                             <AlertCircle className="w-3 h-3" /> {ocmError}
                           </p>
                         )}
-                        {result.chargingStops.map((stop) => (
-                          <ChargingStopCard
-                            key={stop.index}
-                            stop={stop}
-                            radiusKm={chargerRadiusKm}
-                            active={activeStopIndex === stop.index}
-                            onFocus={() => focusStop(stop.index)}
-                            chargerStatuses={chargerStatuses}
-                            arrivalPct={arrivePct}
-                            departurePct={departPct}
-                            car={result.car}
-                          />
-                        ))}
+                        {result.chargingStops.map((stop, idx) => {
+                          // % real de chegada nesta parada, baseado na distância do trecho percorrido
+                          const prevDist = idx === 0 ? 0 : result.chargingStops[idx - 1].distanceFromStartKm;
+                          const segmentKm = stop.distanceFromStartKm - prevDist;
+                          const pctConsumed = result.effectiveRangeKm > 0
+                            ? segmentKm * (departPct - arrivePct) / result.effectiveRangeKm
+                            : 0;
+                          const stopArrivalPct = Math.max(0, Math.round(departPct - pctConsumed));
+                          // kWh de chegada (null para carros sem battery cadastrada)
+                          const stopArrivalKwh = result.car.battery != null
+                            ? parseFloat((result.car.battery * 0.93 * stopArrivalPct / 100).toFixed(1))
+                            : null;
+                          return (
+                            <ChargingStopCard
+                              key={stop.index}
+                              stop={stop}
+                              radiusKm={chargerRadiusKm}
+                              active={activeStopIndex === stop.index}
+                              onFocus={() => focusStop(stop.index)}
+                              chargerStatuses={chargerStatuses}
+                              arrivalPct={stopArrivalPct}
+                              arrivalKwh={stopArrivalKwh}
+                              departurePct={departPct}
+                              car={result.car}
+                            />
+                          );
+                        })}
                       </div>
                     )}
 

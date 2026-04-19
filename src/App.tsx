@@ -325,14 +325,6 @@ export default function App() {
               <span className="text-[11px] uppercase tracking-wide font-black">{t('simulator.headerBtn', 'Simulador')}</span>
             </button>
             <button
-              onClick={() => setIsChargingMapOpen(true)}
-              className="bg-white/5 border border-white/10 text-white/70 font-black py-3 px-3 rounded-xl shadow-lg flex items-center justify-center gap-1.5 hover:bg-[#00b4ff]/10 hover:border-[#00b4ff]/30 hover:text-[#00b4ff] active:scale-95 transition-all whitespace-nowrap"
-              title={t('chargingMap.title')}
-            >
-              <MapPin className="w-4 h-4" />
-              <span className="text-[11px] uppercase tracking-wide font-black">{t('chargingMap.mapBtn')}</span>
-            </button>
-            <button
               onClick={() => setIsRoutePlannerOpen(true)}
               className="bg-white/5 border border-white/10 text-white/70 font-black py-3 px-3 rounded-xl shadow-lg flex items-center justify-center gap-1.5 hover:bg-[#00b4ff]/10 hover:border-[#00b4ff]/30 hover:text-[#00b4ff] active:scale-95 transition-all whitespace-nowrap"
               title="Planejar rota EV"
