@@ -58,7 +58,11 @@ interface RoutePlannerReturn {
   setDepartPct: (v: number) => void;
   arrivePct: number;
   setArrivePct: (v: number) => void;
-  suggestedRangeKm: number;        // base (só % bateria), sem condições
+  baseConsumptionKwh: number | null;    // derivado do carro (kWh/100km), null se battery ausente
+  customConsumptionKwh: number | null;  // override manual do usuário
+  effectiveConsumptionKwh: number | null; // custom ?? base
+  setCustomConsumptionKwh: (v: number | null) => void;
+  suggestedRangeKm: number;        // base (derivado do consumo efetivo e %)
   effectiveRangeKm: number;        // customRangeKm ?? suggestedRangeKm (sem condições)
   adjustedRangeKm: number;         // effectiveRangeKm × conditionsMultiplier (usado no cálculo)
   conditionsMultiplier: number;    // produto dos 3 fatores
@@ -106,6 +110,13 @@ export function useRoutePlanner(): RoutePlannerReturn {
   const [departPct, setDepartPct] = useState(DEFAULT_DEPART_PCT);
   const [arrivePct, setArrivePct] = useState(DEFAULT_ARRIVE_PCT);
   const [customRangeKm, setCustomRangeKm] = useState<number | null>(null);
+  const [customConsumptionKwh, setCustomConsumptionKwhRaw] = useState<number | null>(null);
+
+  // Ao mudar consumo manualmente, reseta override de autonomia para recalcular automaticamente
+  const setCustomConsumptionKwh = useCallback((v: number | null) => {
+    setCustomConsumptionKwhRaw(v);
+    setCustomRangeKm(null);
+  }, []);
 
   // Driving conditions
   const [conditionTemp, setConditionTemp] = useState<ConditionTemp>('ideal');
@@ -127,10 +138,28 @@ export function useRoutePlanner(): RoutePlannerReturn {
 
   const ors = useORSRoute();
 
-  // Sugestão base: range × (saída% − chegada%) / 100
-  const suggestedRangeKm = form.selectedCar
-    ? Math.round(form.selectedCar.range * (departPct - arrivePct) / 100)
-    : 0;
+  // Consumo base derivado do carro (kWh/100km) — null se battery não cadastrada
+  const baseConsumptionKwh = useMemo(() => {
+    const car = form.selectedCar;
+    if (!car?.battery) return null;
+    // 0.93 = fator de capacidade utilizável (usable ~93% do bruto declarado pelo fabricante)
+    return parseFloat((car.battery * 0.93 / car.range * 100).toFixed(2));
+  }, [form.selectedCar]);
+
+  // Consumo efetivo: override manual ou derivado do carro
+  const effectiveConsumptionKwh = customConsumptionKwh ?? baseConsumptionKwh;
+
+  // Sugestão de autonomia por trecho baseada no consumo efetivo
+  const suggestedRangeKm = useMemo(() => {
+    const car = form.selectedCar;
+    if (!car) return 0;
+    if (effectiveConsumptionKwh && car.battery) {
+      // autonomia real = bateria / consumo × 100; × fração de bateria usada
+      return Math.round(car.battery / effectiveConsumptionKwh * 100 * (departPct - arrivePct) / 100);
+    }
+    // fallback para carros sem battery cadastrada
+    return Math.round(car.range * (departPct - arrivePct) / 100);
+  }, [form.selectedCar, effectiveConsumptionKwh, departPct, arrivePct]);
 
   // Override manual ou sugestão (sem fatores de condição)
   const effectiveRangeKm = customRangeKm ?? suggestedRangeKm;
@@ -149,6 +178,7 @@ export function useRoutePlanner(): RoutePlannerReturn {
   const setSelectedCar = useCallback((car: Car | null) => {
     setForm((f) => ({ ...f, selectedCar: car }));
     setCustomRangeKm(null);
+    setCustomConsumptionKwh(null);
     setResult(null);
     setStatus('idle');
   }, []);
@@ -237,6 +267,7 @@ export function useRoutePlanner(): RoutePlannerReturn {
     setErrorMessage(null);
     setResult(null);
     setCustomRangeKm(null);
+    setCustomConsumptionKwh(null);
   }, []);
 
   return {
@@ -250,6 +281,10 @@ export function useRoutePlanner(): RoutePlannerReturn {
     setDepartPct,
     arrivePct,
     setArrivePct,
+    baseConsumptionKwh,
+    customConsumptionKwh,
+    effectiveConsumptionKwh,
+    setCustomConsumptionKwh,
     suggestedRangeKm,
     effectiveRangeKm,
     adjustedRangeKm,

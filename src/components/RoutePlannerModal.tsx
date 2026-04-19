@@ -706,6 +706,7 @@ export const RoutePlannerModal: React.FC<RoutePlannerModalProps> = ({ onClose })
     departPct, setDepartPct,
     arrivePct, setArrivePct,
     suggestedRangeKm, effectiveRangeKm, adjustedRangeKm,
+    baseConsumptionKwh, customConsumptionKwh, effectiveConsumptionKwh, setCustomConsumptionKwh,
     conditionsMultiplier, conditionTemp, conditionTerrain, conditionDriving,
     setConditionTemp, setConditionTerrain, setConditionDriving,
     customRangeKm, setCustomRangeKm,
@@ -894,11 +895,10 @@ export const RoutePlannerModal: React.FC<RoutePlannerModalProps> = ({ onClose })
     if (!result) return null;
     const { car, totalDistanceKm, chargingStops } = result;
 
-    // Consumo real = bateria / (autonomia × multiplicador) kWh/km
-    // conditionsMultiplier já foi aplicado ao ajustedRangeKm que foi salvo no resultado,
-    // mas para o kWh usamos a taxa de consumo real (inclui condições)
-    const kwhEstimated = car.battery != null
-      ? parseFloat(((car.battery / car.range / conditionsMultiplier) * totalDistanceKm).toFixed(1))
+    // Consumo real = consumo efetivo (custom ou PBEV) ajustado pelas condições
+    // conditionsMultiplier < 1 → mais consumo → divide para aumentar kWh/100km
+    const kwhEstimated = effectiveConsumptionKwh != null
+      ? parseFloat((effectiveConsumptionKwh / conditionsMultiplier / 100 * totalDistanceKm).toFixed(1))
       : null;
 
     // % ao chegar no destino: última parada → destino (ou origem → destino se sem paradas)
@@ -911,7 +911,7 @@ export const RoutePlannerModal: React.FC<RoutePlannerModalProps> = ({ onClose })
     const finalBatteryPct = Math.round(departPct - (lastSegmentKm / realRange) * 100);
 
     return { kwhEstimated, finalBatteryPct };
-  }, [result, departPct, conditionsMultiplier]);
+  }, [result, departPct, conditionsMultiplier, effectiveConsumptionKwh]);
 
   return (
     <div className="fixed inset-0 z-50 flex items-stretch justify-stretch bg-black/80 backdrop-blur-sm">
@@ -947,6 +947,46 @@ export const RoutePlannerModal: React.FC<RoutePlannerModalProps> = ({ onClose })
               <div className="p-4 flex flex-col gap-4">
 
                 <CarSelector selected={form.selectedCar} onSelect={setSelectedCar} />
+
+                {/* Consumo kWh/100km — exibição e override manual */}
+                {form.selectedCar && (
+                  <div className="bg-[#0d1117] border border-white/8 rounded-xl px-3 py-2.5 flex flex-col gap-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[#a0a0a0] text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+                        <Zap className="w-3.5 h-3.5" /> Consumo
+                      </span>
+                      {customConsumptionKwh !== null && baseConsumptionKwh !== null && (
+                        <button
+                          onClick={() => setCustomConsumptionKwh(null)}
+                          className="text-[10px] text-orange-400 hover:text-orange-300 transition-colors"
+                          title="Voltar para o consumo padrão do veículo"
+                        >
+                          ↺ padrão ({baseConsumptionKwh.toFixed(1)} kWh/100km)
+                        </button>
+                      )}
+                    </div>
+                    {baseConsumptionKwh !== null ? (
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="number"
+                          min={5} max={60} step={0.5}
+                          value={(customConsumptionKwh ?? baseConsumptionKwh).toFixed(1)}
+                          onChange={(e) => {
+                            const v = parseFloat(e.target.value);
+                            if (v >= 5 && v <= 60) setCustomConsumptionKwh(v);
+                          }}
+                          className="w-20 bg-[#0a0b12] border border-white/15 rounded-lg px-3 py-1.5 text-[#00b4ff] font-black text-sm text-center focus:outline-none focus:border-[#00b4ff]/50"
+                        />
+                        <span className="text-[#555] text-xs">kWh/100km</span>
+                        <span className={`text-[10px] ${customConsumptionKwh === null ? 'text-[#444] italic' : 'text-orange-400 font-semibold'}`}>
+                          {customConsumptionKwh === null ? 'PBEV/Inmetro' : 'personalizado'}
+                        </span>
+                      </div>
+                    ) : (
+                      <p className="text-[#444] text-[10px]">Bateria não cadastrada — consumo estimado indisponível</p>
+                    )}
+                  </div>
+                )}
 
                 <LocationInput
                   label="Origem"
