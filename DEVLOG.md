@@ -460,9 +460,42 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Dev    | ✅ | Novos arquivos: `types/routePlanner.ts`, `utils/routeGeometry.ts`, `services/{nominatim,ors,ocm}Service.ts`, `hooks/{useNominatimAutocomplete,useORSRoute,useRoutePlanner}.ts`, `components/RoutePlannerModal.tsx`. Algoritmo guloso: projeta eletropostos na polyline ORS → para no mais distante alcançável (elimina paradas sem carregador). Condições de viagem (temp × relevo × condução). Bidirecional mapa↔painel. Tempo/kWh por parada. Status via OCM. |
 | Build  | ✅ | `npm run build` — sem erros TS, 106 testes passando |
 | Testes | ✅ | 30 testes em `routeGeometry.test.ts` (haversine, segmentação, projeção, guloso, gaps de cobertura); testado manualmente rota SP→RJ e SP→BH |
-| Commit | ✅ | pendente |
+| Commit | ✅ | `45c7d35` |
 
 **Notas:** Algoritmo antigo colocava paradas em pontos matemáticos arbitrários → muitos "Nenhum eletroposto DC". Novo algoritmo projeta os 159 eletropostos do dataset sobre a polyline e usa greedy furthest-reachable — paradas sempre em eletropostos reais. Gaps reais de cobertura (interior do nordeste, trechos isolados) ainda aparecem com aviso honesto. `gmapsUrl` corrigida para formato `?q=loc:lat,lng` (pin exato).
+
+---
+
+### [S11-B] feat(route-planner): marcadores numerados no mapa · 19/04/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | Marcadores numerados (1, 2, 3…) para cada parada no mapa — identifica visualmente a sequência da rota |
+| Build  | ✅ | `npm run build` — sem erros TS |
+| Testes | ✅ | Testado manualmente |
+| Commit | ✅ | `c6f4a58` |
+
+---
+
+### [S11-C] feat(planner): kWh/100km exibido e editável · 19/04/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | kWh/100km do veículo exibido no painel e editável pelo usuário; fator 0.93 (usável vs. bruto); alterar o consumo reseta `customRangeKm`; kWh de chegada calculado por trecho real (não % global fixo) |
+| Build  | ✅ | `npm run build` — sem erros TS |
+| Testes | ✅ | Testado manualmente SP→RJ com consumos ajustados |
+| Commit | ✅ | `508be7f` |
+
+---
+
+### [S11-D] feat(planner): melhorias UX — display de paradas, mobile, cidades · 20/04/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | Display de paradas simplificado ("Chega X% · Y kWh · Sai Z%"); scroll mobile corrigido (body como coluna única, botão Calcular sempre acessível); botão Mapa EV removido do menu mobile; seletor de cidades com 27 estados + ~120 municípios, match por nome/sigla/parcial, agrupado por UF |
+| Build  | ✅ | `npm run build` — sem erros TS |
+| Testes | ✅ | Testado em viewport 375px; seletor de cidades validado com "SP", "São Paulo", "Rio" |
+| Commit | ✅ | `a571aea` |
 
 ---
 

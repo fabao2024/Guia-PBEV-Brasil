@@ -13,7 +13,7 @@
 | 5 | SEO com pre-rendering (vite-plugin-ssg) | Técnico | Médio | Alto | 🔲 Pendente |
 | 6 | EV Route Planner (autonomia + paradas de recarga) | Feature | Alto | Médio | ✅ Concluído |
 | 7 | Histórico de preços por modelo | Dados | Médio | Médio | ✅ Concluído |
-| 8 | Mapa de infraestrutura de recarga (dados ANEEL) | Dados | Médio | Médio | 🔲 Pendente |
+| 8 | Mapa de infraestrutura de recarga (dados ANEEL) | Dados | Médio | Médio | ✅ Concluído |
 | 9 | Recomendação inteligente na comparação | UX | Baixo | Médio | ✅ Concluído |
 | 10 | Push notifications para favoritos (preço/novidade) | UX | Alto | Médio | 🔲 Pendente |
 | 11 | Analytics sem cookies — Plausible ou Umami | Técnico | Baixo | Médio | ✅ Concluído |
@@ -561,9 +561,15 @@
 - ✅ % bateria ao chegar em cada parada e no destino
 - ✅ Bidirecional mapa↔painel: clicar marcador → rola card; "ver no mapa" → flyTo + popup
 - ✅ Aviso de tapering quando saída > 80% SoC
+- ✅ kWh/100km do veículo exibido e editável; fator 0.93 (usável vs. bruto); alteração reseta autonomia
+- ✅ kWh de chegada por parada calculado por trecho real (não % global fixo)
+- ✅ Display de paradas simplificado: "Chega X% · Y kWh · Sai Z%" + linha de carga limpa
+- ✅ Scroll mobile corrigido — body rola como coluna única, botão Calcular sempre acessível
+- ✅ Mapa EV removido do menu mobile (permanece no header desktop)
+- ✅ Seletor de cidades: 27 estados + ~120 cidades com match por nome, sigla (ex: "SP") ou parcial; agrupado por UF; Nominatim para demais
 
-> **Resumo técnico — Sprint 11 (17/04/2026):**
-> Novos arquivos: `src/types/routePlanner.ts`, `src/utils/routeGeometry.ts` (haversine, segmentação, projeção gulosa), `src/services/{nominatimService,orsService,ocmService}.ts`, `src/hooks/{useNominatimAutocomplete,useORSRoute,useRoutePlanner}.ts`, `src/components/RoutePlannerModal.tsx`. Algoritmo central: projeta todos os eletropostos dentro de `radiusKm` da polyline ORS, seleciona o mais distante alcançável (greedy) → paradas sempre em eletropostos reais, não em pontos matemáticos. Condições de viagem: `CONDITION_FACTORS` (temp × terrain × driving) aplicado sobre `effectiveRangeKm`. Bidirectional sync via `stopMarkersRef: Map<number, CircleMarker>`. 106 testes passando.
+> **Resumo técnico — Sprint 11 (17–20/04/2026):**
+> Novos arquivos: `src/types/routePlanner.ts`, `src/utils/routeGeometry.ts` (haversine, segmentação, projeção gulosa), `src/services/{nominatimService,orsService,ocmService}.ts`, `src/hooks/{useNominatimAutocomplete,useORSRoute,useRoutePlanner}.ts`, `src/components/RoutePlannerModal.tsx`. Algoritmo central: projeta todos os eletropostos dentro de `radiusKm` da polyline ORS, seleciona o mais distante alcançável (greedy) → paradas sempre em eletropostos reais, não em pontos matemáticos. Condições de viagem: `CONDITION_FACTORS` (temp × terrain × driving) aplicado sobre `effectiveRangeKm`. kWh/100km: `battery × 0.93 / range × 100`; override manual reseta `customRangeKm`. Dataset de cidades: 120+ municípios em `CIDADES[]` com agrupamento por UF. Bidirectional sync via `stopMarkersRef`. 106 testes passando.
 
 ---
 
