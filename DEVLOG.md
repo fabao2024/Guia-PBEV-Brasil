@@ -451,6 +451,17 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 
 ---
 
+### [S11-E] feat(planner): tempo de recarga por parada + timeout ORS · 22/04/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `calcStopChargeMinutes()`: helper puro que calcula tempo de carga da parada com melhor carregador disponível vs. limite DC do carro. Header de cada `ChargingStopCard` exibe "⚡ ~X min". `RouteStats`: novo stat "Recarga total" (soma de todas as paradas); "Tempo est." → "Condução". `orsService`: AbortController 15s — resolve spinner infinito quando ORS não responde. `useORSRoute`: rate limit 20 → 40 req/hora (ORS free tier real = 500/dia) |
+| Build  | ✅ | `npm run build` — sem erros TS, 106 testes passando |
+| Testes | ✅ | Testado manualmente; rota SP→RJ exibindo tempo de carga por parada |
+| Commit | ✅ | `c92cc20` |
+
+---
+
 ## Sprint 11 — EV Route Planner · 17/04/2026
 
 ### [S11-A] feat(route-planner): planejador de rota EV completo · 17/04/2026
