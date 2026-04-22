@@ -68,6 +68,9 @@ export async function fetchRoute(
     instructions: false,
   };
 
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 15_000);
+
   let res: Response;
   try {
     res = await fetch(ORS_BASE, {
@@ -77,9 +80,15 @@ export async function fetchRoute(
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(body),
+      signal: controller.signal,
     });
   } catch (err) {
+    if (err instanceof DOMException && err.name === 'AbortError') {
+      throw new ORSError('network', 'A API ORS não respondeu em 15s. Verifique sua conexão ou tente novamente.');
+    }
     throw new ORSError('network', 'Falha de rede ao calcular rota.');
+  } finally {
+    clearTimeout(timeout);
   }
 
   if (res.status === 401 || res.status === 403) {

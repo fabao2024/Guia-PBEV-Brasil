@@ -12,9 +12,9 @@ import type { LatLng } from '../types/routePlanner';
 // Re-exportar o tipo para uso nos hooks superiores
 export type { RouteData };
 
-// Rate limit ORS: 20 req/hora com chave gratuita
+// Rate limit ORS: 40 req/hora com chave gratuita (ORS free tier real: 500/dia)
 const ORS_RL_KEY = '_ors_rl';
-const ORS_RL_MAX = 20;
+const ORS_RL_MAX = 40;
 const ORS_RL_WINDOW_MS = 3_600_000;
 
 function readOrsTimestamps(): number[] {

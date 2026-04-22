@@ -426,6 +426,21 @@ function formatChargeTime(minutes: number): string {
   return m === 0 ? `~${h}h` : `~${h}h ${String(m).padStart(2, '0')}min`;
 }
 
+/** Tempo estimado de carregamento em uma parada (melhor carregador disponível vs. limite do carro) */
+function calcStopChargeMinutes(
+  nearbyChargers: NearbyCharger[],
+  arrivalPct: number,
+  departurePct: number,
+  car: Car,
+): number | null {
+  if (!nearbyChargers.length || car.battery == null) return null;
+  const energyKwh = car.battery * 0.93 * (departurePct - arrivalPct) / 100;
+  if (energyKwh <= 0) return null;
+  const bestPowerRaw = Math.max(...nearbyChargers.map(c => c.potenciaDC));
+  const effectivePower = car.chargeDC != null ? Math.min(bestPowerRaw, car.chargeDC) : bestPowerRaw;
+  return Math.round((energyKwh / effectivePower) * 60);
+}
+
 // ─── Nearby Charger Item ───────────────────────────────────────────────────────
 function ChargerItem({
   c, status, energyNeededKwh, carMaxDcKw, departurePct,
@@ -561,6 +576,8 @@ function ChargingStopCard({
   departurePct: number;
   car: Car;
 }) {
+  const chargeMinutes = calcStopChargeMinutes(stop.nearbyChargers, arrivalPct, departurePct, car);
+
   return (
     <div
       data-stop-index={stop.index}
@@ -580,12 +597,19 @@ function ChargingStopCard({
             Parada {stop.index}
           </div>
           <span className="text-[#a0a0a0] text-xs">{Math.round(stop.distanceFromStartKm)} km</span>
-          {/* Chegada / saída */}
+          {/* Chegada / carga / saída */}
           <div className="flex items-center gap-1.5 text-[10px]">
             <span className="text-[#555]">Chega</span>
             <span className="text-[#ff8c52] font-black">{arrivalPct}%</span>
             {arrivalKwh !== null && (
               <span className="text-[#ff8c52]/70">{arrivalKwh} kWh</span>
+            )}
+            {chargeMinutes !== null && (
+              <>
+                <span className="text-[#333]">·</span>
+                <Zap className="w-2.5 h-2.5 text-[#00b4ff] flex-shrink-0" />
+                <span className="text-[#00b4ff] font-semibold">{formatChargeTime(chargeMinutes)}</span>
+              </>
             )}
             <span className="text-[#333]">·</span>
             <span className="text-[#555]">Sai</span>
@@ -646,12 +670,13 @@ function ChargingStopCard({
 }
 
 // ─── Route Stats ──────────────────────────────────────────────────────────────
-function RouteStats({ distanceKm, durationMin, stops, kwhEstimated, finalBatteryPct }: {
+function RouteStats({ distanceKm, durationMin, stops, kwhEstimated, finalBatteryPct, chargeTimeMin }: {
   distanceKm: number;
   durationMin: number;
   stops: number;
   kwhEstimated: number | null;
   finalBatteryPct: number;
+  chargeTimeMin: number | null;
 }) {
   const hours = Math.floor(durationMin / 60);
   const mins = durationMin % 60;
@@ -660,16 +685,21 @@ function RouteStats({ distanceKm, durationMin, stops, kwhEstimated, finalBattery
 
   const stats = [
     { label: 'Distância',  value: `${Math.round(distanceKm)} km` },
-    { label: 'Tempo est.', value: timeStr },
+    { label: 'Condução',   value: timeStr },
+    ...(chargeTimeMin != null && chargeTimeMin > 0
+      ? [{ label: 'Recarga total', value: formatChargeTime(chargeTimeMin) }]
+      : []),
     { label: 'Paradas',    value: stops === 0 ? 'Nenhuma' : String(stops) },
     ...(kwhEstimated !== null
       ? [{ label: 'Consumo est.', value: `~${kwhEstimated.toFixed(1)} kWh` }]
       : []),
   ];
 
+  const cols = stats.length <= 3 ? 'grid-cols-3' : 'grid-cols-2';
+
   return (
     <div className="flex flex-col gap-2">
-      <div className={`grid gap-2 ${kwhEstimated !== null ? 'grid-cols-2' : 'grid-cols-3'}`}>
+      <div className={`grid gap-2 ${cols}`}>
         {stats.map((s) => (
           <div key={s.label} className="bg-[#0a0b12] border border-white/10 rounded-xl p-2.5 text-center">
             <div className="text-[#555] text-[10px] font-bold uppercase tracking-wider">{s.label}</div>
@@ -1127,6 +1157,20 @@ export const RoutePlannerModal: React.FC<RoutePlannerModalProps> = ({ onClose })
     return { kwhEstimated, finalBatteryPct };
   }, [result, departPct, conditionsMultiplier, effectiveConsumptionKwh]);
 
+  const totalChargeMin = React.useMemo(() => {
+    if (!result || result.chargingStops.length === 0) return null;
+    const total = result.chargingStops.reduce((acc, stop, idx) => {
+      const prevDist = idx === 0 ? 0 : result.chargingStops[idx - 1].distanceFromStartKm;
+      const segmentKm = stop.distanceFromStartKm - prevDist;
+      const pctConsumed = result.effectiveRangeKm > 0
+        ? segmentKm * (departPct - arrivePct) / result.effectiveRangeKm
+        : 0;
+      const stopArrivalPct = Math.max(0, Math.round(departPct - pctConsumed));
+      return acc + (calcStopChargeMinutes(stop.nearbyChargers, stopArrivalPct, departPct, result.car) ?? 0);
+    }, 0);
+    return total > 0 ? total : null;
+  }, [result, departPct, arrivePct]);
+
   return (
     <div className="fixed inset-0 z-50 flex items-stretch justify-stretch bg-black/80 backdrop-blur-sm">
       <div className="w-full h-full flex flex-col bg-[#0a0b12] text-white">
@@ -1433,6 +1477,7 @@ export const RoutePlannerModal: React.FC<RoutePlannerModalProps> = ({ onClose })
                       stops={result.chargingStops.length}
                       kwhEstimated={energyInfo?.kwhEstimated ?? null}
                       finalBatteryPct={energyInfo?.finalBatteryPct ?? arrivePct}
+                      chargeTimeMin={totalChargeMin}
                     />
 
                     {result.chargingStops.length === 0 ? (
