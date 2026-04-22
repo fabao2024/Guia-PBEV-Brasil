@@ -683,19 +683,37 @@ function RouteStats({ distanceKm, durationMin, stops, kwhEstimated, finalBattery
   const timeStr = hours > 0 ? `${hours}h ${mins}min` : `${mins}min`;
   const finalColor = finalBatteryPct >= 20 ? '#00e5a0' : finalBatteryPct >= 10 ? '#ff8c52' : '#ff6b6b';
 
+  const hasCharging = chargeTimeMin != null && chargeTimeMin > 0;
+
   const stats = [
-    { label: 'Distância',  value: `${Math.round(distanceKm)} km` },
-    { label: 'Condução',   value: timeStr },
-    { label: 'Paradas',    value: stops === 0 ? 'Nenhuma' : String(stops) },
+    { label: 'Distância', value: `${Math.round(distanceKm)} km` },
+    { label: 'Paradas',   value: stops === 0 ? 'Nenhuma' : String(stops) },
     ...(kwhEstimated !== null
       ? [{ label: 'Consumo est.', value: `~${kwhEstimated.toFixed(1)} kWh` }]
       : []),
   ];
 
-  const cols = stats.length <= 3 ? 'grid-cols-3' : 'grid-cols-2';
+  const cols = stats.length <= 2 ? 'grid-cols-2' : 'grid-cols-3';
 
   return (
     <div className="flex flex-col gap-2">
+      {/* Condução e recarga lado a lado */}
+      <div className="grid grid-cols-2 gap-2">
+        <div className="bg-[#0a0b12] border border-white/10 rounded-xl p-2.5 text-center">
+          <div className="text-[#555] text-[10px] font-bold uppercase tracking-wider">Condução</div>
+          <div className="text-white font-black text-sm mt-0.5">{timeStr}</div>
+        </div>
+        <div className={`rounded-xl p-2.5 text-center ${hasCharging ? 'bg-[#00b4ff]/10 border border-[#00b4ff]/30' : 'bg-[#0a0b12] border border-white/10'}`}>
+          <div className={`text-[10px] font-bold uppercase tracking-wider ${hasCharging ? 'text-[#00b4ff]' : 'text-[#555]'}`}>
+            Recarga
+          </div>
+          <div className={`font-black text-sm mt-0.5 ${hasCharging ? 'text-[#00b4ff]' : 'text-[#555]'}`}>
+            {hasCharging ? formatChargeTime(chargeTimeMin!) : '—'}
+          </div>
+        </div>
+      </div>
+
+      {/* Demais stats */}
       <div className={`grid gap-2 ${cols}`}>
         {stats.map((s) => (
           <div key={s.label} className="bg-[#0a0b12] border border-white/10 rounded-xl p-2.5 text-center">
@@ -704,17 +722,6 @@ function RouteStats({ distanceKm, durationMin, stops, kwhEstimated, finalBattery
           </div>
         ))}
       </div>
-
-      {/* Tempo total de recarga */}
-      {chargeTimeMin != null && chargeTimeMin > 0 && (
-        <div className="bg-[#00b4ff]/10 border border-[#00b4ff]/30 rounded-xl px-3 py-2.5 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Zap className="w-3.5 h-3.5 text-[#00b4ff]" />
-            <span className="text-[#00b4ff] text-[10px] font-bold uppercase tracking-wider">Tempo em recarga</span>
-          </div>
-          <span className="text-[#00b4ff] font-black text-sm">{formatChargeTime(chargeTimeMin)}</span>
-        </div>
-      )}
 
       {/* Bateria no destino */}
       <div className="bg-[#0a0b12] border border-white/10 rounded-xl px-3 py-2 flex items-center justify-between">
