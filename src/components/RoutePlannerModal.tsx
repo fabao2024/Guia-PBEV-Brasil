@@ -9,7 +9,7 @@ import { CAR_DB } from '../constants';
 import { useRoutePlanner, CONDITION_FACTORS } from '../hooks/useRoutePlanner';
 import type { ConditionTemp, ConditionTerrain, ConditionDriving } from '../hooks/useRoutePlanner';
 import { useNominatimAutocomplete } from '../hooks/useNominatimAutocomplete';
-import { fetchChargersStatus, type OcmError } from '../services/ocmService';
+import { matchStatusFromOcmCache, type OcmError } from '../services/ocmService';
 import { gmapsUrl, plugshareUrl, OPERADOR_COLOR, DEFAULT_OPERADOR_COLOR } from '../data/eletropostosData';
 import type { Car } from '../types';
 import type { GeoSuggestion, ChargingStop, NearbyCharger, ChargerStatus } from '../types/routePlanner';
@@ -426,19 +426,38 @@ function formatChargeTime(minutes: number): string {
   return m === 0 ? `~${h}h` : `~${h}h ${String(m).padStart(2, '0')}min`;
 }
 
-/** Tempo estimado de carregamento em uma parada (melhor carregador disponível vs. limite do carro) */
+/** Tempo estimado de carregamento em uma parada — usa o carregador selecionado pelo algoritmo */
 function calcStopChargeMinutes(
+  selectedCharger: NearbyCharger | null,
   nearbyChargers: NearbyCharger[],
   arrivalPct: number,
   departurePct: number,
   car: Car,
 ): number | null {
-  if (!nearbyChargers.length || car.battery == null) return null;
+  const charger = selectedCharger ?? nearbyChargers[0] ?? null;
+  if (!charger || car.battery == null) return null;
   const energyKwh = car.battery * 0.93 * (departurePct - arrivalPct) / 100;
   if (energyKwh <= 0) return null;
-  const bestPowerRaw = Math.max(...nearbyChargers.map(c => c.potenciaDC));
-  const effectivePower = car.chargeDC != null ? Math.min(bestPowerRaw, car.chargeDC) : bestPowerRaw;
+  const effectivePower = car.chargeDC != null
+    ? Math.min(charger.potenciaDC, car.chargeDC)
+    : charger.potenciaDC;
   return Math.round((energyKwh / effectivePower) * 60);
+}
+
+/**
+ * SOC mínimo (%) necessário para cobrir `nextSegmentKm` com reserva `arrivePct`.
+ * Capeado em `departPct` — nunca sugere carregar além do teto configurado.
+ */
+function calcMinDepartSOC(
+  nextSegmentKm: number,
+  departPct: number,
+  arrivePct: number,
+  effectiveRangeKm: number,
+): number {
+  if (effectiveRangeKm <= 0) return departPct;
+  const consumptionPctPerKm = (departPct - arrivePct) / effectiveRangeKm;
+  const needed = Math.ceil(arrivePct + nextSegmentKm * consumptionPctPerKm);
+  return Math.min(departPct, Math.max(arrivePct, needed));
 }
 
 // ─── Nearby Charger Item ───────────────────────────────────────────────────────
@@ -518,9 +537,11 @@ function ChargerItem({
         <span className="bg-white/8 text-[#a0a0a0] text-[10px] font-semibold px-2 py-0.5 rounded-full">
           {CONNECTOR_LABEL[c.conector] ?? c.conector}
         </span>
-        <span className="text-[#555] text-[10px]">
-          {c.distanceKm.toFixed(1)} km da parada
-        </span>
+        {c.distanceKm > 0.05 && (
+          <span className="text-[#555] text-[10px]">
+            {c.distanceKm.toFixed(1)} km da rota
+          </span>
+        )}
       </div>
 
       {/* Links */}
@@ -573,10 +594,17 @@ function ChargingStopCard({
   chargerStatuses: Map<number, ChargerStatus>;
   arrivalPct: number;
   arrivalKwh: number | null;  // null para carros sem battery cadastrada
-  departurePct: number;
+  departurePct: number;       // SOC mínimo calculado para o próximo trecho (≤ departPct)
   car: Car;
 }) {
-  const chargeMinutes = calcStopChargeMinutes(stop.nearbyChargers, arrivalPct, departurePct, car);
+  const noChargeNeeded = departurePct <= arrivalPct;
+  const chargeMinutes = noChargeNeeded
+    ? null
+    : calcStopChargeMinutes(stop.selectedCharger, stop.nearbyChargers, arrivalPct, departurePct, car);
+  const energyNeededKwh = (!noChargeNeeded && car.battery != null)
+    ? parseFloat((car.battery * 0.93 * (departurePct - arrivalPct) / 100).toFixed(2))
+    : null;
+  const [showAlternatives, setShowAlternatives] = React.useState(false);
 
   return (
     <div
@@ -584,15 +612,20 @@ function ChargingStopCard({
       className={`rounded-xl p-3 flex flex-col gap-2.5 border transition-all ${
         active
           ? 'bg-[#0d1520] border-[#00b4ff]/50 shadow-[0_0_12px_rgba(0,180,255,0.15)]'
-          : 'bg-[#0a0b12] border-orange-500/20'
+          : noChargeNeeded
+            ? 'bg-[#0a0b12] border-white/5 opacity-70'
+            : 'bg-[#0a0b12] border-orange-500/20'
       }`}
     >
+      {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2 flex-wrap">
           <div className={`text-[10px] font-black px-2.5 py-1 rounded-full border ${
             active
               ? 'bg-[#00b4ff]/20 border-[#00b4ff]/40 text-[#00b4ff]'
-              : 'bg-orange-500/20 border-orange-500/40 text-orange-400'
+              : noChargeNeeded
+                ? 'bg-white/5 border-white/10 text-[#666]'
+                : 'bg-orange-500/20 border-orange-500/40 text-orange-400'
           }`}>
             Parada {stop.index}
           </div>
@@ -604,19 +637,27 @@ function ChargingStopCard({
             {arrivalKwh !== null && (
               <span className="text-[#ff8c52]/70">{arrivalKwh} kWh</span>
             )}
-            {chargeMinutes !== null && (
+            {noChargeNeeded ? (
               <>
                 <span className="text-[#333]">·</span>
-                <Zap className="w-2.5 h-2.5 text-[#00b4ff] flex-shrink-0" />
-                <span className="text-[#00b4ff] font-semibold">{formatChargeTime(chargeMinutes)}</span>
+                <span className="text-[#00e5a0]/70 text-[10px]">sem recarga necessária</span>
+              </>
+            ) : (
+              <>
+                {chargeMinutes !== null && (
+                  <>
+                    <span className="text-[#333]">·</span>
+                    <Zap className="w-2.5 h-2.5 text-[#00b4ff] flex-shrink-0" />
+                    <span className="text-[#00b4ff] font-semibold">{formatChargeTime(chargeMinutes)}</span>
+                  </>
+                )}
+                <span className="text-[#333]">·</span>
+                <span className="text-[#555]">Sai</span>
+                <span className="text-[#00e5a0] font-black">{departurePct}%</span>
               </>
             )}
-            <span className="text-[#333]">·</span>
-            <span className="text-[#555]">Sai</span>
-            <span className="text-[#00e5a0] font-black">{departurePct}%</span>
           </div>
         </div>
-        {/* Ver no mapa */}
         <button
           onClick={onFocus}
           className={`flex items-center gap-1 text-[10px] font-semibold px-2 py-1 rounded-lg transition-all ${
@@ -631,38 +672,53 @@ function ChargingStopCard({
         </button>
       </div>
 
-      {stop.nearbyChargers.length === 0 ? (
+      {/* Carregador selecionado ou aviso de gap */}
+      {stop.selectedCharger ? (
+        <ChargerItem
+          c={stop.selectedCharger}
+          status={chargerStatuses.get(stop.selectedCharger.id) ?? 'unknown'}
+          energyNeededKwh={energyNeededKwh}
+          carMaxDcKw={car.chargeDC ?? undefined}
+          departurePct={departurePct}
+        />
+      ) : (
         <div className="bg-[#1a0a00] border border-orange-500/20 rounded-lg p-3 text-center">
           <p className="text-orange-400/80 text-xs font-semibold">Nenhum eletroposto DC em {radiusKm} km</p>
-          <p className="text-[#555] text-[10px] mt-1">
-            Nossa base cobre 159 pontos. Use PlugShare para cobertura completa.
-          </p>
+          <p className="text-[#555] text-[10px] mt-1">Nossa base cobre 159 pontos. Use PlugShare para cobertura completa.</p>
           <a
             href={`https://www.plugshare.com/?latitude=${stop.position[0]}&longitude=${stop.position[1]}&radius=25000`}
-            target="_blank"
-            rel="noopener noreferrer"
+            target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-1 mt-2 text-[10px] text-[#00b4ff] hover:text-white transition-colors"
           >
             <ExternalLink className="w-3 h-3" /> Ver no PlugShare
           </a>
         </div>
-      ) : (
-        <div className="flex flex-col gap-2">
-          <p className="text-[#555] text-[10px]">
-            {stop.nearbyChargers.length} eletroposto{stop.nearbyChargers.length > 1 ? 's' : ''} encontrado{stop.nearbyChargers.length > 1 ? 's' : ''} · raio {radiusKm} km
-          </p>
-          {stop.nearbyChargers.map((c) => (
-            <ChargerItem
-              key={c.id}
-              c={c}
-              status={chargerStatuses.get(c.id) ?? 'unknown'}
-              energyNeededKwh={car.battery != null
-                ? parseFloat((car.battery * 0.93 * (departurePct - arrivalPct) / 100).toFixed(2))
-                : null}
-              carMaxDcKw={car.chargeDC ?? undefined}
-              departurePct={departurePct}
-            />
-          ))}
+      )}
+
+      {/* Alternativas colapsáveis */}
+      {stop.nearbyChargers.length > 0 && (
+        <div>
+          <button
+            onClick={() => setShowAlternatives((v) => !v)}
+            className="text-[10px] text-[#555] hover:text-[#a0a0a0] transition-colors flex items-center gap-1"
+          >
+            <ChevronDown className={`w-3 h-3 transition-transform ${showAlternatives ? 'rotate-180' : ''}`} />
+            {showAlternatives ? 'Ocultar' : `Ver ${stop.nearbyChargers.length} alternativa${stop.nearbyChargers.length > 1 ? 's' : ''} próxima${stop.nearbyChargers.length > 1 ? 's' : ''}`}
+          </button>
+          {showAlternatives && (
+            <div className="flex flex-col gap-2 mt-2">
+              {stop.nearbyChargers.map((c) => (
+                <ChargerItem
+                  key={c.id}
+                  c={c}
+                  status={chargerStatuses.get(c.id) ?? 'unknown'}
+                  energyNeededKwh={energyNeededKwh}
+                  carMaxDcKw={car.chargeDC ?? undefined}
+                  departurePct={departurePct}
+                />
+              ))}
+            </div>
+          )}
         </div>
       )}
     </div>
@@ -988,38 +1044,22 @@ export const RoutePlannerModal: React.FC<RoutePlannerModalProps> = ({ onClose })
       return;
     }
 
-    // Collect all unique nearby chargers across all stops
+    // Coleta todos os chargers únicos das paradas (selectedCharger + nearbyChargers)
     const seen = new Map<number, { id: number; lat: number; lng: number }>();
     result.chargingStops.forEach((stop) => {
+      if (stop.selectedCharger) seen.set(stop.selectedCharger.id, stop.selectedCharger);
       stop.nearbyChargers.forEach((c) => {
-        if (!seen.has(c.id)) seen.set(c.id, { id: c.id, lat: c.lat, lng: c.lng });
+        if (!seen.has(c.id)) seen.set(c.id, c);
       });
     });
 
     if (seen.size === 0) return;
 
-    const ctrl = new AbortController();
-    setOcmLoading(true);
-    setOcmError(null);
-
-    fetchChargersStatus(Array.from(seen.values()), ocmApiKey, ctrl.signal)
-      .then((statuses) => setChargerStatuses(statuses))
-      .catch((err: OcmError | Error) => {
-        if ('kind' in err) {
-          if (err.kind === 'unauthorized') {
-            removeOcmKey();
-            setOcmError('Chave OCM inválida — removida.');
-          } else {
-            setOcmError(err.message);
-          }
-        }
-        // AbortError is silently ignored
-      })
-      .finally(() => setOcmLoading(false));
-
-    return () => ctrl.abort();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [result, ocmApiKey, ocmHasKey]);
+    // Usa o cache populado por fetchDcChargers — sem chamada adicional à API
+    const statuses = matchStatusFromOcmCache(Array.from(seen.values()));
+    setChargerStatuses(statuses);
+    setOcmLoading(false);
+  }, [result, ocmHasKey]);
 
   // ── Scroll panel card into view ──────────────────────────────────────────────
   const scrollToCard = (stopIdx: number) => {
@@ -1122,15 +1162,12 @@ export const RoutePlannerModal: React.FC<RoutePlannerModalProps> = ({ onClose })
         });
         (marker as unknown as { _isRoute: boolean })._isRoute = true;
 
-        const chargerRows = stop.nearbyChargers.length > 0
-          ? stop.nearbyChargers.slice(0, 3)
-              .map((c) =>
-                `<div style="font-size:11px;margin-top:3px"><b>${c.potenciaDC} kW</b> · ${c.nome} · ${c.distanceKm.toFixed(1)} km</div>`
-              ).join('')
+        const chargerInfo = stop.selectedCharger
+          ? `<div style="margin-top:4px;font-size:11px"><b>${stop.selectedCharger.potenciaDC} kW DC</b> · ${stop.selectedCharger.nome}</div><div style="font-size:10px;color:#aaa">${stop.selectedCharger.cidade}/${stop.selectedCharger.uf}</div>`
           : `<div style="font-size:11px;color:#999;margin-top:3px">Nenhum eletroposto DC em ${chargerRadiusKm} km</div>`;
 
         marker.bindPopup(
-          `<b>Parada ${stop.index}</b> — ${Math.round(stop.distanceFromStartKm)} km${chargerRows}`
+          `<b>Parada ${stop.index}</b> — ${Math.round(stop.distanceFromStartKm)} km${chargerInfo}`
         );
 
         // Click marker → highlight card + scroll panel
@@ -1175,14 +1212,19 @@ export const RoutePlannerModal: React.FC<RoutePlannerModalProps> = ({ onClose })
 
   const totalChargeMin = React.useMemo(() => {
     if (!result || result.chargingStops.length === 0) return null;
-    const total = result.chargingStops.reduce((acc, stop, idx) => {
-      const prevDist = idx === 0 ? 0 : result.chargingStops[idx - 1].distanceFromStartKm;
+    const { chargingStops, effectiveRangeKm, totalDistanceKm, car } = result;
+    const total = chargingStops.reduce((acc, stop, idx) => {
+      const prevDist = idx === 0 ? 0 : chargingStops[idx - 1].distanceFromStartKm;
       const segmentKm = stop.distanceFromStartKm - prevDist;
-      const pctConsumed = result.effectiveRangeKm > 0
-        ? segmentKm * (departPct - arrivePct) / result.effectiveRangeKm
+      const pctConsumed = effectiveRangeKm > 0
+        ? segmentKm * (departPct - arrivePct) / effectiveRangeKm
         : 0;
       const stopArrivalPct = Math.max(0, Math.round(departPct - pctConsumed));
-      return acc + (calcStopChargeMinutes(stop.nearbyChargers, stopArrivalPct, departPct, result.car) ?? 0);
+      const nextStop = chargingStops[idx + 1];
+      const nextSegmentKm = (nextStop?.distanceFromStartKm ?? totalDistanceKm) - stop.distanceFromStartKm;
+      const targetDepartSOC = calcMinDepartSOC(nextSegmentKm, departPct, arrivePct, effectiveRangeKm);
+      if (targetDepartSOC <= stopArrivalPct) return acc; // sem recarga necessária
+      return acc + (calcStopChargeMinutes(stop.selectedCharger, stop.nearbyChargers, stopArrivalPct, targetDepartSOC, car) ?? 0);
     }, 0);
     return total > 0 ? total : null;
   }, [result, departPct, arrivePct]);
@@ -1559,6 +1601,10 @@ export const RoutePlannerModal: React.FC<RoutePlannerModalProps> = ({ onClose })
                           const stopArrivalKwh = result.car.battery != null
                             ? parseFloat((result.car.battery * 0.93 * stopArrivalPct / 100).toFixed(1))
                             : null;
+                          // SOC mínimo necessário para o próximo trecho (não carrega mais do que o necessário)
+                          const nextStop = result.chargingStops[idx + 1];
+                          const nextSegmentKm = (nextStop?.distanceFromStartKm ?? result.totalDistanceKm) - stop.distanceFromStartKm;
+                          const targetDepartSOC = calcMinDepartSOC(nextSegmentKm, departPct, arrivePct, result.effectiveRangeKm);
                           return (
                             <ChargingStopCard
                               key={stop.index}
@@ -1569,7 +1615,7 @@ export const RoutePlannerModal: React.FC<RoutePlannerModalProps> = ({ onClose })
                               chargerStatuses={chargerStatuses}
                               arrivalPct={stopArrivalPct}
                               arrivalKwh={stopArrivalKwh}
-                              departurePct={departPct}
+                              departurePct={Math.max(stopArrivalPct, targetDepartSOC)}
                               car={result.car}
                             />
                           );

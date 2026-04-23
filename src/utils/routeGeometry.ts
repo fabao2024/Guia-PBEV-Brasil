@@ -212,32 +212,52 @@ export function buildChargingStops(
 
     if (reachable.length === 0) {
       // ─── Gap de cobertura real ───────────────────────────────────────────────
-      // Nenhum eletroposto na rota dentro do range. Posiciona a parada no
-      // limite da autonomia e busca radialmente (pode ainda achar algum).
+      // Nenhum eletroposto projetado na rota dentro do range. Posiciona a parada
+      // no limite da autonomia e busca radialmente para informar o usuário.
       const limitIdx = findPolylineIndexAtDist(cumDists, reachableLimit);
       const stopPos = polyline[limitIdx];
+      const gapNearby = findNearbyChargers(stopPos, chargers, radiusKm);
       stops.push({
         index: stopIndex++,
         position: stopPos,
         distanceFromStartKm: reachableLimit,
-        nearbyChargers: findNearbyChargers(stopPos, chargers, radiusKm),
+        selectedCharger: gapNearby[0] ?? null,
+        nearbyChargers: gapNearby.slice(1),
       });
       currentDist = reachableLimit;
     } else {
-      // ─── Parada no eletroposto mais distante alcançável (guloso) ────────────
-      const best = reachable[reachable.length - 1];
-
-      // Busca todos os eletropostos próximos ao ponto da parada para mostrar opções
-      const nearbyChargers = findNearbyChargers(
-        [best.charger.lat, best.charger.lng],
-        chargers,
-        radiusKm,
+      // ─── Parada gulosa: score = routeDistKm - lateralDistKm×2 ───────────────
+      // Penaliza desvios perpendiculares: um carregador 1 km mais adiante na rota
+      // mas 2 km mais próximo do asfalto tem score superior.
+      const best = reachable.reduce((a, b) =>
+        (b.routeDistKm - b.lateralDistKm * 2) > (a.routeDistKm - a.lateralDistKm * 2) ? b : a,
       );
+
+      // Ponto de parada = ponto da polyline mais próximo do carregador (on-route)
+      const stopPosition = polyline[best.polylineIdx];
+
+      const selectedCharger: NearbyCharger = {
+        id: best.charger.id,
+        nome: best.charger.nome,
+        operador: best.charger.operador,
+        cidade: best.charger.cidade,
+        uf: best.charger.uf,
+        lat: best.charger.lat,
+        lng: best.charger.lng,
+        potenciaDC: best.charger.potenciaDC,
+        conector: best.charger.conector,
+        distanceKm: best.lateralDistKm, // desvio perpendicular da rota → "X km da rota"
+      };
+
+      // Alternativas: outros eletropostos próximos ao ponto de parada na rota
+      const nearbyChargers = findNearbyChargers(stopPosition, chargers, radiusKm)
+        .filter((c) => c.id !== best.charger.id);
 
       stops.push({
         index: stopIndex++,
-        position: polyline[best.polylineIdx],
+        position: stopPosition, // sempre na polyline — marcador on-route
         distanceFromStartKm: best.routeDistKm,
+        selectedCharger,
         nearbyChargers,
       });
       currentDist = best.routeDistKm;

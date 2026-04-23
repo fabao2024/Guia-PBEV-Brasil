@@ -265,14 +265,16 @@ describe('buildChargingStops()', () => {
     }
   });
 
-  it('parada é posicionada próxima ao eletroposto quando há um na rota', () => {
-    // Com range 200 km, SJC (~80 km) está no range mas Resende (~240 km) também
-    // Guloso: deve parar em Resende (mais distante alcançável)
+  it('parada tem selectedCharger e posição na polyline próxima ao carregador', () => {
+    // Com range 250 km, SJC (~80 km) e Resende (~240 km) estão no range
     const stops = buildChargingStops(DUTRA_POLYLINE, 250, [CHARGER_SJC, CHARGER_RESENDE], 30);
     if (stops.length > 0) {
       const firstStop = stops[0];
-      // A parada deve incluir o carregador mais próximo
-      expect(firstStop.nearbyChargers.length).toBeGreaterThan(0);
+      // O carregador selecionado deve ser identificado
+      expect(firstStop.selectedCharger).not.toBeNull();
+      // A posição é um ponto da polyline — deve estar dentro do raio do carregador selecionado
+      const lateralDist = firstStop.selectedCharger!.distanceKm;
+      expect(lateralDist).toBeLessThanOrEqual(30);
     }
   });
 
