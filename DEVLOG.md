@@ -510,6 +510,32 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 
 ---
 
+### [S11-F] feat(planner): calcMinDepartSOC — recarga mínima necessária por trecho · 23/04/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `calcMinDepartSOC()`: SoC mínimo de saída baseado no próximo trecho — elimina recargas absurdas ("8 min") quando veículo já tem carga suficiente. Paradas onde chegada ≥ mínimo exibem "sem recarga necessária" em cinza. `totalChargeMin` ignora essas paradas. `stop.position` = ponto da polilinha (marcador na rota, não no eletroposto). Score do algoritmo guloso: `routeDistKm − lateralDistKm × 2`. |
+| Build  | ✅ | `npm run build` — sem erros TS, 106 testes passando |
+| Testes | ✅ | Rota SP→RJ testada: paradas com bateria suficiente exibem estado muted; total de recarga corrigido |
+| Commit | ✅ | `fe0e7f9` |
+
+**Notas:** O problema raiz era `departurePct = departPct` (80%) fixo para toda parada. A nova lógica calcula `min(departPct, arrivePct + nextKm × consumptionRatePerKm)`, carregando apenas o necessário.
+
+---
+
+### [S11-G] feat(planner): fontes externas — OCM discovery + OSM/Overpass · 23/04/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `fetchDcChargers` (OCM, `compact=false`): descobre eletropostos DC na bbox da rota; IDs +100.000. `fetchOsmChargers` (Overpass, gratuito sem chave): filtra `socket:ccs2/chademo/tesla_supercharger/gb_t`; IDs +200.000; timeout 15s; falha silenciosa. `mergeChargerSources`: deduplicação por proximidade 200m. Threshold DC: 50 kW → 30 kW. Cache `_ocmPoiCache`: populado em `fetchDcChargers`, consumido sincronamente por `matchStatusFromOcmCache` no modal — elimina segunda chamada OCM (resolvia erros 403). OCM + OSM em `Promise.allSettled` paralelo. |
+| Build  | ✅ | `npm run build` — sem erros TS, 106 testes passando |
+| Testes | ✅ | Rota SP→RJ: +40 eletropostos vs. base estática; sem dupla chamada OCM confirmado via DevTools Network |
+| Commit | ✅ | `eab27e4` |
+
+**Notas:** Segunda chamada OCM (`fetchChargersStatus`) causava 403 pois a chave gratuita tem limite de requisições. Solução: `fetchDcChargers` com `compact=false` já retorna `StatusType` — cachear e reutilizar de forma síncrona elimina a segunda chamada completamente.
+
+---
+
 ## Sprint 10 — SEO & Tráfego · 03/04/2026
 
 ### [S10-A] feat(seo): sitemap.xml dinâmico com 88 rotas · 03/04/2026

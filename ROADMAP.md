@@ -57,10 +57,17 @@
 - `public/404.html`: hack GitHub Pages para SPA routing sem servidor
 - Fix double-slash no decode do redirect `/?/path` → `/path`
 
-### 6. EV Route Planner
-- Input: origem + destino
-- Estimar paradas de recarga com base na autonomia do carro selecionado
-- Integrar OpenStreetMap (Leaflet) + dados PlugShare ou ANEEL
+### 6. EV Route Planner ✅
+- Rota ORS + algoritmo guloso furthest-reachable com scoring `routeDistKm − lateralDistKm × 2`
+- 160 eletropostos estáticos + descoberta dinâmica via OCM (DC, `compact=false`) e OSM/Overpass (gratuito, sem chave)
+- `mergeChargerSources`: deduplicação por proximidade 200m; threshold DC ≥ 30 kW
+- `calcMinDepartSOC`: carrega apenas o necessário para chegar ao próximo ponto (elimina paradas de 8 min)
+- Paradas "sem recarga necessária" exibidas em cinza quando SoC de chegada já cobre o trecho
+- Condições de viagem: temperatura × relevo × estilo de condução
+- Cache OCM (`_ocmPoiCache`): status sincronizado sem segunda chamada à API (resolve erros 403)
+- Mapa Leaflet com marcadores numerados, polyline da rota, popups de eletroposto
+
+> Resumo técnico Sprint 11 (17–23/04/2026): `RoutePlannerModal`, `routeGeometry`, `ocmService`, `overpassService` (novo), `mergeChargers` (novo), `useRoutePlanner`, `types/routePlanner`. 106 testes passando.
 
 ### 7. Histórico de Preços ✅
 - `src/constants/priceHistory.ts`: snapshot inicial março/2026 com 88 veículos
