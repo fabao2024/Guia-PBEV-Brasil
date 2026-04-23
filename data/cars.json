@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-22T19:29:50.582Z",
+  "generated_at": "2026-04-23T11:14:09.015Z",
   "total": 91,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "cars": [
@@ -836,7 +836,7 @@
       "detail_url": "https://guiapbev.cloud/carro/chevrolet-captiva-ev"
     },
     {
-      "model": "Omoda 5 EV",
+      "model": "Omoda E5",
       "brand": "Omoda",
       "price": 209990,
       "range_km": 345,
@@ -857,15 +857,19 @@
         "Carregamento AC 11 kW / DC 80 kW",
         "Tela central 15,6\" com CarPlay e Android Auto",
         "6 airbags",
-        "ADAS Nível 2: ACC + LCC + AEB + LKA + alerta de ponto cego (BSM)",
+        "ADAS 2.5: ACC + LCC + AEB + LKA + BSM + alerta de fadiga",
         "Câmera 360° surround view",
-        "Teto solar panorâmico elétrico",
+        "Bancos elétricos e ventilados",
+        "Teto solar elétrico panorâmico",
+        "Porta-malas elétrico smart tailgate",
+        "Wireless charger com cooling",
+        "Head-up display (HUD)",
         "Design esportivo coupe-SUV com faróis divididos"
       ],
       "is_new": false,
       "discontinued": false,
-      "slug": "omoda-omoda-5-ev",
-      "detail_url": "https://guiapbev.cloud/carro/omoda-omoda-5-ev"
+      "slug": "omoda-omoda-e5",
+      "detail_url": "https://guiapbev.cloud/carro/omoda-omoda-e5"
     },
     {
       "model": "EX5 Max",
