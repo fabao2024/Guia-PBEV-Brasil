@@ -3,7 +3,9 @@ import { useORSRoute } from './useORSRoute';
 import { buildChargingStops } from '../utils/routeGeometry';
 import { ELETROPOSTOS } from '../data/eletropostosData';
 import { CAR_DB } from '../constants';
-import { resolveOcmKey, saveOcmKey, clearOcmKey } from '../services/ocmService';
+import { resolveOcmKey, saveOcmKey, clearOcmKey, fetchDcChargers } from '../services/ocmService';
+import { fetchOsmChargers } from '../services/overpassService';
+import { polylineBbox, mergeChargerSources } from '../utils/mergeChargers';
 import type { Car } from '../types';
 import type {
   GeoLocation,
@@ -240,11 +242,22 @@ export function useRoutePlanner(): RoutePlannerReturn {
       return;
     }
 
+    // Enriquece a base estática com chargers externos (OCM + OSM) em paralelo.
+    // Ambas as chamadas são não-bloqueantes: falha silenciosa → usa apenas estáticos.
+    const bbox = polylineBbox(routeData.polyline, chargerRadiusKm);
+    const [ocmResults, osmResults] = await Promise.allSettled([
+      fetchDcChargers(bbox, ocmApiKey),
+      fetchOsmChargers(bbox),
+    ]);
+    const ocmChargers = ocmResults.status === 'fulfilled' ? ocmResults.value : [];
+    const osmChargers = osmResults.status === 'fulfilled' ? osmResults.value : [];
+    const allChargers = mergeChargerSources(ELETROPOSTOS, [...ocmChargers, ...osmChargers]);
+
     // Usa o range ajustado pelas condições para calcular as paradas
     const chargingStops = buildChargingStops(
       routeData.polyline,
       adjustedRangeKm,
-      ELETROPOSTOS,
+      allChargers,
       chargerRadiusKm,
     );
 

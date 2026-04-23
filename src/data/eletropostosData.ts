@@ -2,7 +2,7 @@
  * Eletropostos individuais — Brasil
  * Fonte: dados públicos dos operadores (sites, apps e press releases) · referência mar/2026
  * Posições aproximadas à área do local declarado pelo operador.
- * Inclui apenas pontos com carga DC disponível (≥ 50 kW).
+ * Inclui apenas pontos com carga DC disponível (≥ 30 kW).
  */
 
 export type ConnectorType = 'CCS2' | 'CHAdeMO' | 'CCS2+CHAdeMO' | 'CCS2+Type2' | 'Supercharger' | 'GB/T';
