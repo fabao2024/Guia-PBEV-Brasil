@@ -552,7 +552,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 80,
   },
   {
-    model: "Omoda 5 EV", brand: "Omoda", price: 209990, range: 345, cat: "SUV",
+    model: "Omoda E5", brand: "Omoda", price: 209990, range: 345, cat: "SUV",
     img: "/car-images/omoda-5.jpg",
     power: 204, torque: 34.7, traction: 'FWD', battery: 61,
     features: [
@@ -560,9 +560,13 @@ export const CAR_DB: Car[] = [
       "Carregamento AC 11 kW / DC 80 kW",
       "Tela central 15,6\" com CarPlay e Android Auto",
       "6 airbags",
-      "ADAS Nível 2: ACC + LCC + AEB + LKA + alerta de ponto cego (BSM)",
+      "ADAS 2.5: ACC + LCC + AEB + LKA + BSM + alerta de fadiga",
       "Câmera 360° surround view",
-      "Teto solar panorâmico elétrico",
+      "Bancos elétricos e ventilados",
+      "Teto solar elétrico panorâmico",
+      "Porta-malas elétrico smart tailgate",
+      "Wireless charger com cooling",
+      "Head-up display (HUD)",
       "Design esportivo coupe-SUV com faróis divididos"
     ],
     pbeRating: 'A', energyMJkm: 0.51,

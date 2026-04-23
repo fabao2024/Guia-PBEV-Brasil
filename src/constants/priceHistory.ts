@@ -36,7 +36,7 @@ export const PRICE_HISTORY: Record<string, PriceSnapshot[]> = {
   "B10 BEV": [{ date: '2026-03', price: 173000 }, { date: '2026-04', price: 182990 }],
   "C10 BEV": [{ date: '2026-03', price: 189990 }, { date: '2026-04', price: 204990 }],
   "Captiva EV": [{ date: '2026-03', price: 199990 }],
-  "Omoda 5 EV": [{ date: '2026-03', price: 209990 }],
+  "Omoda E5": [{ date: '2026-03', price: 209990 }],
   "EX5 Max": [{ date: '2026-03', price: 215800 }],
   "Kona EV": [{ date: '2026-03', price: 219990 }],
   "Yuan Plus": [{ date: '2026-03', price: 229800 }],
