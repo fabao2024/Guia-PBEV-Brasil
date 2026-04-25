@@ -1472,7 +1472,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 80,
   },
   {
-    model: "e-Expert", brand: "Peugeot", price: 329990, range: 258, cat: "Comercial",
+    model: "e-Expert", brand: "Peugeot", price: 329990, range: 330, cat: "Comercial",
     img: "/car-images/e-expert.jpg",
     url: "https://carros.peugeot.com.br/gama/categoria/furgoes.html",
     power: 136, torque: 26.5, traction: 'FWD', battery: 75,
@@ -1506,7 +1506,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 2, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 100,
   },
   {
-    model: "e-Jumpy", brand: "Citroen", price: 329990, range: 258, cat: "Comercial",
+    model: "e-Jumpy", brand: "Citroen", price: 329990, range: 330, cat: "Comercial",
     img: "/car-images/e-jumpy.jpg",
     power: 136, torque: 26.5, traction: 'FWD', battery: 75,
     features: [
