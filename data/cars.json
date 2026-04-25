@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-23T18:47:13.660Z",
+  "generated_at": "2026-04-25T12:44:42.750Z",
   "total": 91,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "cars": [
@@ -2605,7 +2605,7 @@
       "model": "e-Expert",
       "brand": "Peugeot",
       "price": 329990,
-      "range_km": 258,
+      "range_km": 330,
       "category": "Comercial",
       "image_url": "https://guiapbev.cloud/car-images/e-expert.jpg",
       "traction": "FWD",
@@ -2669,7 +2669,7 @@
       "model": "e-Jumpy",
       "brand": "Citroen",
       "price": 329990,
-      "range_km": 258,
+      "range_km": 330,
       "category": "Comercial",
       "image_url": "https://guiapbev.cloud/car-images/e-jumpy.jpg",
       "traction": "FWD",
