@@ -224,20 +224,33 @@ describe('findNearbyChargers()', () => {
 // ─── buildChargingStops (algoritmo guloso) ────────────────────────────────────
 
 describe('buildChargingStops()', () => {
+  const DEPART = 80;
+  const ARRIVE = 15;
+
   it('retorna array vazio se rota cabe em uma carga', () => {
-    const stops = buildChargingStops(DUTRA_POLYLINE, 9999, [CHARGER_SJC]);
+    const stops = buildChargingStops(DUTRA_POLYLINE, 9999, [CHARGER_SJC], 30, DEPART, ARRIVE);
     expect(stops).toHaveLength(0);
   });
 
+  it('cada parada tem campos arrivalSocPct e departureSocPct', () => {
+    const stops = buildChargingStops(DUTRA_POLYLINE, 100, [CHARGER_SJC, CHARGER_MANAUS], 30, DEPART, ARRIVE);
+    for (const stop of stops) {
+      expect(typeof stop.arrivalSocPct).toBe('number');
+      expect(typeof stop.departureSocPct).toBe('number');
+      // departureSocPct nunca abaixo de arrivalSocPct (só carrega, nunca descarrega)
+      expect(stop.departureSocPct).toBeGreaterThanOrEqual(stop.arrivalSocPct);
+    }
+  });
+
   it('cada parada tem campo nearbyChargers', () => {
-    const stops = buildChargingStops(DUTRA_POLYLINE, 100, [CHARGER_SJC, CHARGER_MANAUS]);
+    const stops = buildChargingStops(DUTRA_POLYLINE, 100, [CHARGER_SJC, CHARGER_MANAUS], 30, DEPART, ARRIVE);
     for (const stop of stops) {
       expect(Array.isArray(stop.nearbyChargers)).toBe(true);
     }
   });
 
   it('nearbyChargers contém apenas eletropostos dentro do raio (30 km)', () => {
-    const stops = buildChargingStops(DUTRA_POLYLINE, 100, [CHARGER_SJC, CHARGER_MANAUS], 30);
+    const stops = buildChargingStops(DUTRA_POLYLINE, 100, [CHARGER_SJC, CHARGER_MANAUS], 30, DEPART, ARRIVE);
     for (const stop of stops) {
       for (const c of stop.nearbyChargers) {
         expect(c.distanceKm).toBeLessThanOrEqual(30);
@@ -246,50 +259,46 @@ describe('buildChargingStops()', () => {
   });
 
   it('paradas têm índice sequencial começando em 1', () => {
-    const stops = buildChargingStops(DUTRA_POLYLINE, 100, [CHARGER_SJC], 30);
+    const stops = buildChargingStops(DUTRA_POLYLINE, 100, [CHARGER_SJC], 30, DEPART, ARRIVE);
     stops.forEach((stop, i) => expect(stop.index).toBe(i + 1));
   });
 
   it('não cria parada desnecessária quando destino é alcançável após última parada', () => {
-    // Rota ~360 km, range 200 km: 1 parada seria suficiente se houver carregador
-    const stops = buildChargingStops(DUTRA_POLYLINE, 200, [CHARGER_SJC, CHARGER_RESENDE], 30);
-    // Com guloso, a parada deve ser em Resende (~240 km) pois é a mais distante alcançável
-    // a partir de 0 km com range de 200 km a partir de SJC (~80 km)
+    const stops = buildChargingStops(DUTRA_POLYLINE, 200, [CHARGER_SJC, CHARGER_RESENDE], 30, DEPART, ARRIVE);
     expect(stops.length).toBeGreaterThanOrEqual(1);
-    // Após a última parada, o restante deve caber em uma carga
     if (stops.length > 0) {
       const lastStop = stops[stops.length - 1];
-      const dutraCumDists = [0, 80, 240, 360]; // aprox. km acumulados
-      // distância até destino após última parada < 200 km (valor de range)
       expect(360 - lastStop.distanceFromStartKm).toBeLessThan(200);
     }
   });
 
-  it('parada tem selectedCharger e posição na polyline próxima ao carregador', () => {
-    // Com range 250 km, SJC (~80 km) e Resende (~240 km) estão no range
-    const stops = buildChargingStops(DUTRA_POLYLINE, 250, [CHARGER_SJC, CHARGER_RESENDE], 30);
+  it('parada tem selectedCharger dentro do raio lateral', () => {
+    const stops = buildChargingStops(DUTRA_POLYLINE, 250, [CHARGER_SJC, CHARGER_RESENDE], 30, DEPART, ARRIVE);
     if (stops.length > 0) {
       const firstStop = stops[0];
-      // O carregador selecionado deve ser identificado
       expect(firstStop.selectedCharger).not.toBeNull();
-      // A posição é um ponto da polyline — deve estar dentro do raio do carregador selecionado
-      const lateralDist = firstStop.selectedCharger!.distanceKm;
-      expect(lateralDist).toBeLessThanOrEqual(30);
+      expect(firstStop.selectedCharger!.distanceKm).toBeLessThanOrEqual(30);
+    }
+  });
+
+  it('só cria parada onde carrega (departureSocPct > arrivalSocPct)', () => {
+    const stops = buildChargingStops(DUTRA_POLYLINE, 200, [CHARGER_SJC, CHARGER_RESENDE], 30, DEPART, ARRIVE);
+    for (const stop of stops) {
+      // Toda parada deve implicar alguma recarga
+      expect(stop.departureSocPct).toBeGreaterThan(stop.arrivalSocPct);
     }
   });
 
   it('sem eletropostos na rota: fallback para gap de cobertura', () => {
-    // Nenhum eletroposto próximo à Dutra → paradas de cobertura com nearbyChargers vazio
-    const stops = buildChargingStops(DUTRA_POLYLINE, 100, [CHARGER_MANAUS], 10);
+    const stops = buildChargingStops(DUTRA_POLYLINE, 100, [CHARGER_MANAUS], 10, DEPART, ARRIVE);
     expect(stops.length).toBeGreaterThan(0);
-    // Todos os stops devem ter nearbyChargers vazio (Manaus está longe)
     for (const stop of stops) {
       expect(stop.nearbyChargers).toHaveLength(0);
     }
   });
 
   it('retorna array vazio para polyline inválida', () => {
-    expect(buildChargingStops([], 200, [CHARGER_SJC])).toHaveLength(0);
-    expect(buildChargingStops([SP], 200, [CHARGER_SJC])).toHaveLength(0);
+    expect(buildChargingStops([], 200, [CHARGER_SJC], 30, DEPART, ARRIVE)).toHaveLength(0);
+    expect(buildChargingStops([SP], 200, [CHARGER_SJC], 30, DEPART, ARRIVE)).toHaveLength(0);
   });
 });

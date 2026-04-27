@@ -426,6 +426,9 @@ function formatChargeTime(minutes: number): string {
   return m === 0 ? `~${h}h` : `~${h}h ${String(m).padStart(2, '0')}min`;
 }
 
+// Overhead por parada: estacionamento, plug, autenticação (~8 min no mundo real)
+const STOP_OVERHEAD_MIN = 8;
+
 /** Tempo estimado de carregamento em uma parada — usa o carregador selecionado pelo algoritmo */
 function calcStopChargeMinutes(
   selectedCharger: NearbyCharger | null,
@@ -442,22 +445,6 @@ function calcStopChargeMinutes(
     ? Math.min(charger.potenciaDC, car.chargeDC)
     : charger.potenciaDC;
   return Math.round((energyKwh / effectivePower) * 60);
-}
-
-/**
- * SOC mínimo (%) necessário para cobrir `nextSegmentKm` com reserva `arrivePct`.
- * Capeado em `departPct` — nunca sugere carregar além do teto configurado.
- */
-function calcMinDepartSOC(
-  nextSegmentKm: number,
-  departPct: number,
-  arrivePct: number,
-  effectiveRangeKm: number,
-): number {
-  if (effectiveRangeKm <= 0) return departPct;
-  const consumptionPctPerKm = (departPct - arrivePct) / effectiveRangeKm;
-  const needed = Math.ceil(arrivePct + nextSegmentKm * consumptionPctPerKm);
-  return Math.min(departPct, Math.max(arrivePct, needed));
 }
 
 // ─── Nearby Charger Item ───────────────────────────────────────────────────────
@@ -648,7 +635,8 @@ function ChargingStopCard({
                   <>
                     <span className="text-[#333]">·</span>
                     <Zap className="w-2.5 h-2.5 text-[#00b4ff] flex-shrink-0" />
-                    <span className="text-[#00b4ff] font-semibold">{formatChargeTime(chargeMinutes)}</span>
+                    <span className="text-[#00b4ff] font-semibold">{formatChargeTime(chargeMinutes + STOP_OVERHEAD_MIN)}</span>
+                    <span className="text-[#444] text-[9px]">(+{STOP_OVERHEAD_MIN}min setup)</span>
                   </>
                 )}
                 <span className="text-[#333]">·</span>
@@ -1198,36 +1186,28 @@ export const RoutePlannerModal: React.FC<RoutePlannerModalProps> = ({ onClose })
       ? parseFloat((effectiveConsumptionKwh / conditionsMultiplier / 100 * totalDistanceKm).toFixed(1))
       : null;
 
-    // % ao chegar no destino: última parada → destino (ou origem → destino se sem paradas)
-    const lastStopDist = chargingStops.length > 0
-      ? chargingStops[chargingStops.length - 1].distanceFromStartKm
-      : 0;
+    // % ao chegar no destino: usa o SoC de saída da última parada (ou departPct se sem paradas)
+    const lastStop = chargingStops[chargingStops.length - 1];
+    const lastDepartureSoc = lastStop?.departureSocPct ?? departPct;
+    const lastStopDist = lastStop?.distanceFromStartKm ?? 0;
     const lastSegmentKm = totalDistanceKm - lastStopDist;
-    // range real = car.range × multiplier
-    const realRange = car.range * conditionsMultiplier;
-    const finalBatteryPct = Math.round(departPct - (lastSegmentKm / realRange) * 100);
+    const consumptionPctPerKm = result.effectiveRangeKm > 0
+      ? (departPct - arrivePct) / result.effectiveRangeKm
+      : 0;
+    const finalBatteryPct = Math.round(lastDepartureSoc - lastSegmentKm * consumptionPctPerKm);
 
     return { kwhEstimated, finalBatteryPct };
   }, [result, departPct, conditionsMultiplier, effectiveConsumptionKwh]);
 
   const totalChargeMin = React.useMemo(() => {
     if (!result || result.chargingStops.length === 0) return null;
-    const { chargingStops, effectiveRangeKm, totalDistanceKm, car } = result;
-    const total = chargingStops.reduce((acc, stop, idx) => {
-      const prevDist = idx === 0 ? 0 : chargingStops[idx - 1].distanceFromStartKm;
-      const segmentKm = stop.distanceFromStartKm - prevDist;
-      const pctConsumed = effectiveRangeKm > 0
-        ? segmentKm * (departPct - arrivePct) / effectiveRangeKm
-        : 0;
-      const stopArrivalPct = Math.max(0, Math.round(departPct - pctConsumed));
-      const nextStop = chargingStops[idx + 1];
-      const nextSegmentKm = (nextStop?.distanceFromStartKm ?? totalDistanceKm) - stop.distanceFromStartKm;
-      const targetDepartSOC = calcMinDepartSOC(nextSegmentKm, departPct, arrivePct, effectiveRangeKm);
-      if (targetDepartSOC <= stopArrivalPct) return acc; // sem recarga necessária
-      return acc + (calcStopChargeMinutes(stop.selectedCharger, stop.nearbyChargers, stopArrivalPct, targetDepartSOC, car) ?? 0);
-    }, 0);
+    const chargingMin = result.chargingStops.reduce((acc, stop) =>
+      acc + (calcStopChargeMinutes(stop.selectedCharger, stop.nearbyChargers, stop.arrivalSocPct, stop.departureSocPct, result.car) ?? 0),
+    0);
+    const overheadMin = result.chargingStops.length * STOP_OVERHEAD_MIN;
+    const total = chargingMin + overheadMin;
     return total > 0 ? total : null;
-  }, [result, departPct, arrivePct]);
+  }, [result]);
 
   return (
     <div className="fixed inset-0 z-50 flex items-stretch justify-stretch bg-black/80 backdrop-blur-sm">
@@ -1589,22 +1569,11 @@ export const RoutePlannerModal: React.FC<RoutePlannerModalProps> = ({ onClose })
                             <AlertCircle className="w-3 h-3" /> {ocmError}
                           </p>
                         )}
-                        {result.chargingStops.map((stop, idx) => {
-                          // % real de chegada nesta parada, baseado na distância do trecho percorrido
-                          const prevDist = idx === 0 ? 0 : result.chargingStops[idx - 1].distanceFromStartKm;
-                          const segmentKm = stop.distanceFromStartKm - prevDist;
-                          const pctConsumed = result.effectiveRangeKm > 0
-                            ? segmentKm * (departPct - arrivePct) / result.effectiveRangeKm
-                            : 0;
-                          const stopArrivalPct = Math.max(0, Math.round(departPct - pctConsumed));
-                          // kWh de chegada (null para carros sem battery cadastrada)
+                        {result.chargingStops.map((stop) => {
+                          // SoC e kWh calculados pelo algoritmo — não recalcular aqui
                           const stopArrivalKwh = result.car.battery != null
-                            ? parseFloat((result.car.battery * 0.93 * stopArrivalPct / 100).toFixed(1))
+                            ? parseFloat((result.car.battery * 0.93 * stop.arrivalSocPct / 100).toFixed(1))
                             : null;
-                          // SOC mínimo necessário para o próximo trecho (não carrega mais do que o necessário)
-                          const nextStop = result.chargingStops[idx + 1];
-                          const nextSegmentKm = (nextStop?.distanceFromStartKm ?? result.totalDistanceKm) - stop.distanceFromStartKm;
-                          const targetDepartSOC = calcMinDepartSOC(nextSegmentKm, departPct, arrivePct, result.effectiveRangeKm);
                           return (
                             <ChargingStopCard
                               key={stop.index}
@@ -1613,9 +1582,9 @@ export const RoutePlannerModal: React.FC<RoutePlannerModalProps> = ({ onClose })
                               active={activeStopIndex === stop.index}
                               onFocus={() => focusStop(stop.index)}
                               chargerStatuses={chargerStatuses}
-                              arrivalPct={stopArrivalPct}
+                              arrivalPct={stop.arrivalSocPct}
                               arrivalKwh={stopArrivalKwh}
-                              departurePct={Math.max(stopArrivalPct, targetDepartSOC)}
+                              departurePct={stop.departureSocPct}
                               car={result.car}
                             />
                           );

@@ -177,6 +177,15 @@ export function useRoutePlanner(): RoutePlannerReturn {
   // Autonomia real ajustada pelas condições — é o que vai para o buildChargingStops
   const adjustedRangeKm = Math.max(10, Math.round(effectiveRangeKm * conditionsMultiplier));
 
+  // Delta mínimo de SoC que justifica criar uma parada.
+  // Paradas com recarga < 20 min são expandidas para departPct para compensar o overhead de parar.
+  const minUsefulSocDelta = useMemo(() => {
+    const car = form.selectedCar;
+    if (!car?.battery || !car?.chargeDC) return 0;
+    const energyKwhIn20Min = car.chargeDC * (20 / 60);
+    return Math.ceil(energyKwhIn20Min / (car.battery * 0.93) * 100);
+  }, [form.selectedCar]);
+
   const setSelectedCar = useCallback((car: Car | null) => {
     setForm((f) => ({ ...f, selectedCar: car }));
     setCustomRangeKm(null);
@@ -253,12 +262,15 @@ export function useRoutePlanner(): RoutePlannerReturn {
     const osmChargers = osmResults.status === 'fulfilled' ? osmResults.value : [];
     const allChargers = mergeChargerSources(ELETROPOSTOS, [...ocmChargers, ...osmChargers]);
 
-    // Usa o range ajustado pelas condições para calcular as paradas
+    // Usa o range ajustado pelas condições + SoC de saída/chegada para calcular as paradas
     const chargingStops = buildChargingStops(
       routeData.polyline,
       adjustedRangeKm,
       allChargers,
       chargerRadiusKm,
+      departPct,
+      arrivePct,
+      minUsefulSocDelta,
     );
 
     setResult({
@@ -272,7 +284,7 @@ export function useRoutePlanner(): RoutePlannerReturn {
       car: selectedCar,
     });
     setStatus('ready');
-  }, [form, ors, departPct, arrivePct, chargerRadiusKm, adjustedRangeKm]);
+  }, [form, ors, departPct, arrivePct, chargerRadiusKm, adjustedRangeKm, minUsefulSocDelta]);
 
   const reset = useCallback(() => {
     setForm(initialForm());

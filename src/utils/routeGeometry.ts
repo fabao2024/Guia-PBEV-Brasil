@@ -167,25 +167,35 @@ function findPolylineIndexAtDist(cumDists: number[], targetKm: number): number {
   return Math.min(lo, cumDists.length - 1);
 }
 
-// ─── Main: build charging stops (greedy furthest-reachable) ──────────────────
+// ─── Main: build charging stops (greedy furthest-reachable + SOC tracking) ───
 
 /**
- * Calcula as paradas de recarga ao longo da rota usando algoritmo guloso:
+ * Calcula as paradas de recarga ao longo da rota usando algoritmo guloso com
+ * rastreamento real de SoC:
  *
  * 1. Projeta todos os eletropostos dentro de `radiusKm` da polyline.
- * 2. A cada iteração, seleciona o eletroposto mais distante que ainda é
- *    alcançável com a autonomia restante → minimiza o número de paradas.
- * 3. A parada é criada NO eletroposto (não num ponto matemático arbitrário).
- * 4. Se não houver eletroposto alcançável (gap real de cobertura), cria uma
- *    parada de aviso no limite do range para informar o usuário.
+ * 2. A cada iteração, calcula o alcance real com o SoC atual e seleciona o
+ *    eletroposto mais distante que ainda é alcançável.
+ * 3. Look-ahead: calcula quanto carregar (mínimo para o próximo trecho).
+ *    Se o carro já tem SoC suficiente para o próximo passo → passa sem parar.
+ * 4. Só cria uma parada quando o carro PRECISA carregar — elimina paradas de
+ *    poucos minutos causadas por chargers próximos.
+ * 5. Se o delta de recarga calculado for menor que `minUsefulSocDelta`, carrega
+ *    até `departPct` para evitar paradas de poucos minutos (overhead real ≈ 8 min).
+ * 6. Gap de cobertura: cria parada de aviso no limite do alcance real.
  *
- * Resultado: drasticamente menos "Nenhum eletroposto DC em X km".
+ * `departPct` / `arrivePct`: SoC de saída e reserva mínima de chegada (%).
+ * `effectiveRangeKm`: distância de departPct até arrivePct nas condições atuais.
+ * `minUsefulSocDelta`: delta mínimo de SoC que justifica parar (0 = desabilitado).
  */
 export function buildChargingStops(
   polyline: LatLng[],
   effectiveRangeKm: number,
   chargers: Eletroposto[],
   radiusKm = 10,
+  departPct = 80,
+  arrivePct = 15,
+  minUsefulSocDelta = 0,
 ): ChargingStop[] {
   if (polyline.length < 2 || effectiveRangeKm <= 0) return [];
 
@@ -194,74 +204,116 @@ export function buildChargingStops(
 
   if (totalKm <= effectiveRangeKm) return [];
 
-  // Todos os eletropostos projetados sobre a rota, ordenados por distância de rota
+  const consumptionPctPerKm = (departPct - arrivePct) / effectiveRangeKm;
   const projected = projectChargersOntoRoute(polyline, cumDists, chargers, radiusKm);
 
+  // Greedy furthest-reachable dentro de maxReachKm a partir de fromDist
+  const greedyBest = (fromDist: number, maxReachKm: number): ChargerProjection | null => {
+    const candidates = projected.filter(
+      (p) => p.routeDistKm > fromDist + 0.5 && p.routeDistKm <= fromDist + maxReachKm,
+    );
+    if (candidates.length === 0) return null;
+    return candidates.reduce((a, b) =>
+      (b.routeDistKm - b.lateralDistKm * 2) > (a.routeDistKm - a.lateralDistKm * 2) ? b : a,
+    );
+  };
+
+  // SoC mínimo de saída para cobrir nextKm com reserva arrivePct
+  const minDepartSoc = (nextKm: number): number =>
+    Math.min(departPct, Math.max(arrivePct, Math.ceil(arrivePct + nextKm * consumptionPctPerKm)));
+
   const stops: ChargingStop[] = [];
-  let currentDist = 0;  // posição atual na rota (km desde a origem)
+  let currentDist = 0;
+  let currentSocPct = departPct;
   let stopIndex = 1;
 
-  while (currentDist + effectiveRangeKm < totalKm) {
-    const reachableLimit = currentDist + effectiveRangeKm;
+  // Cap de segurança contra loop infinito em edges exóticos
+  const maxIter = Math.ceil(totalKm / 5) + 20;
 
-    // Eletropostos alcançáveis a partir da posição atual
-    // (à frente por pelo menos 500m para não ficar preso no mesmo ponto)
-    const reachable = projected.filter(
-      (p) => p.routeDistKm > currentDist + 0.5 && p.routeDistKm <= reachableLimit,
-    );
+  for (let iter = 0; iter < maxIter; iter++) {
+    const remainingRangeKm = (currentSocPct - arrivePct) / consumptionPctPerKm;
 
-    if (reachable.length === 0) {
-      // ─── Gap de cobertura real ───────────────────────────────────────────────
-      // Nenhum eletroposto projetado na rota dentro do range. Posiciona a parada
-      // no limite da autonomia e busca radialmente para informar o usuário.
-      const limitIdx = findPolylineIndexAtDist(cumDists, reachableLimit);
+    if (currentDist + remainingRangeKm >= totalKm) break; // destino alcançável
+
+    const best = greedyBest(currentDist, remainingRangeKm);
+
+    if (!best) {
+      // ─── Gap de cobertura ────────────────────────────────────────────────────
+      const gapDist = currentDist + remainingRangeKm;
+      const limitIdx = findPolylineIndexAtDist(cumDists, gapDist);
       const stopPos = polyline[limitIdx];
       const gapNearby = findNearbyChargers(stopPos, chargers, radiusKm);
       stops.push({
         index: stopIndex++,
         position: stopPos,
-        distanceFromStartKm: reachableLimit,
+        distanceFromStartKm: gapDist,
         selectedCharger: gapNearby[0] ?? null,
         nearbyChargers: gapNearby.slice(1),
+        arrivalSocPct: Math.round(arrivePct),
+        departureSocPct: Math.round(departPct), // gap: assume recarga completa
       });
-      currentDist = reachableLimit;
-    } else {
-      // ─── Parada gulosa: score = routeDistKm - lateralDistKm×2 ───────────────
-      // Penaliza desvios perpendiculares: um carregador 1 km mais adiante na rota
-      // mas 2 km mais próximo do asfalto tem score superior.
-      const best = reachable.reduce((a, b) =>
-        (b.routeDistKm - b.lateralDistKm * 2) > (a.routeDistKm - a.lateralDistKm * 2) ? b : a,
-      );
-
-      // Ponto de parada = ponto da polyline mais próximo do carregador (on-route)
-      const stopPosition = polyline[best.polylineIdx];
-
-      const selectedCharger: NearbyCharger = {
-        id: best.charger.id,
-        nome: best.charger.nome,
-        operador: best.charger.operador,
-        cidade: best.charger.cidade,
-        uf: best.charger.uf,
-        lat: best.charger.lat,
-        lng: best.charger.lng,
-        potenciaDC: best.charger.potenciaDC,
-        conector: best.charger.conector,
-        distanceKm: best.lateralDistKm, // desvio perpendicular da rota → "X km da rota"
-      };
-
-      // Alternativas: outros eletropostos próximos ao ponto de parada na rota
-      const nearbyChargers = findNearbyChargers(stopPosition, chargers, radiusKm)
-        .filter((c) => c.id !== best.charger.id);
-
-      stops.push({
-        index: stopIndex++,
-        position: stopPosition, // sempre na polyline — marcador on-route
-        distanceFromStartKm: best.routeDistKm,
-        selectedCharger,
-        nearbyChargers,
-      });
-      currentDist = best.routeDistKm;
+      currentDist = gapDist;
+      currentSocPct = departPct;
+      continue;
     }
+
+    // SoC real ao chegar neste carregador
+    const segmentKm = best.routeDistKm - currentDist;
+    const arrivalSocPct = currentSocPct - segmentKm * consumptionPctPerKm;
+
+    // Look-ahead: quanto carregar aqui para o próximo trecho?
+    // Usa alcance máximo (departPct) para encontrar o próximo passo planejado
+    const distToEnd = totalKm - best.routeDistKm;
+    const nextBest = distToEnd > effectiveRangeKm
+      ? greedyBest(best.routeDistKm, effectiveRangeKm)
+      : null;
+    const nextSegmentKm = nextBest
+      ? nextBest.routeDistKm - best.routeDistKm
+      : Math.min(distToEnd, effectiveRangeKm);
+    let departureSocPct = minDepartSoc(nextSegmentKm);
+
+    // Se a recarga necessária é menor que o mínimo útil, carrega até departPct.
+    // Evita paradas de poucos minutos que não compensam o overhead de parar.
+    if (minUsefulSocDelta > 0 && (departureSocPct - Math.max(0, arrivalSocPct)) < minUsefulSocDelta) {
+      departureSocPct = departPct;
+    }
+
+    // Se o SoC de chegada já cobre o próximo trecho → passa sem parar
+    if (arrivalSocPct >= departureSocPct) {
+      currentSocPct = arrivalSocPct;
+      currentDist = best.routeDistKm;
+      continue;
+    }
+
+    // ─── Parada necessária ───────────────────────────────────────────────────
+    const stopPosition = polyline[best.polylineIdx];
+    const selectedCharger: NearbyCharger = {
+      id: best.charger.id,
+      nome: best.charger.nome,
+      operador: best.charger.operador,
+      cidade: best.charger.cidade,
+      uf: best.charger.uf,
+      lat: best.charger.lat,
+      lng: best.charger.lng,
+      potenciaDC: best.charger.potenciaDC,
+      conector: best.charger.conector,
+      distanceKm: best.lateralDistKm,
+    };
+    const nearbyChargers = findNearbyChargers(stopPosition, chargers, radiusKm)
+      .filter((c) => c.id !== best.charger.id);
+
+    stops.push({
+      index: stopIndex++,
+      position: stopPosition,
+      distanceFromStartKm: best.routeDistKm,
+      selectedCharger,
+      nearbyChargers,
+      arrivalSocPct: Math.max(0, Math.round(arrivalSocPct)),
+      departureSocPct: Math.round(departureSocPct),
+    });
+
+    currentSocPct = departureSocPct;
+    currentDist = best.routeDistKm;
   }
 
   return stops;

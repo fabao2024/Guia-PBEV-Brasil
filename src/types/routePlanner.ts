@@ -40,10 +40,12 @@ export interface NearbyCharger {
 /** Parada de recarga planejada ao longo da rota */
 export interface ChargingStop {
   index: number;                        // nº sequencial da parada (1-based)
-  position: LatLng;                     // coordenadas do carregador selecionado (ou ponto limite em gap)
+  position: LatLng;                     // ponto da polyline mais próximo do carregador (on-route)
   distanceFromStartKm: number;          // distância acumulada desde a origem
   selectedCharger: NearbyCharger | null; // eletroposto escolhido pelo algoritmo (null = gap sem cobertura)
   nearbyChargers: NearbyCharger[];      // alternativas próximas ao selecionado
+  arrivalSocPct: number;               // SoC real (%) ao chegar nesta parada
+  departureSocPct: number;             // SoC alvo (%) ao sair — mínimo necessário para o próximo trecho
 }
 
 /** Resultado completo do planejamento de rota */
