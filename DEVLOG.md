@@ -536,6 +536,19 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 
 ---
 
+### [S11-H] feat(planner): SOC tracking real + recarga mínima útil + overhead de parada · 27/04/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | Refactor completo de `buildChargingStops`: rastreamento real de SoC entre paradas (`currentSocPct` decresce segmento a segmento). `arrivalSocPct` / `departureSocPct` embutidos em `ChargingStop`. Look-ahead via `greedyBest(best.routeDistKm, effectiveRangeKm)` → `minDepartSoc(nextSegmentKm)`. Pass-through quando chegada ≥ mínimo necessário. Option A: `minUsefulSocDelta = ceil(chargeDC × 20min / battery_usable)` — delta pequeno → expande para `departPct` (elimina top-ups de 8 min). Option C: `STOP_OVERHEAD_MIN = 8` exibido por parada ("+8min setup") e somado ao total em `RouteStats`. `minUsefulSocDelta` computado em `useRoutePlanner` com `useMemo`, passado como param extra para `buildChargingStops`. |
+| Build  | ✅ | `npm run build` — sem erros TS, 108 testes passando |
+| Testes | ✅ | Todos os testes `buildChargingStops` verificam `arrivalSocPct`/`departureSocPct`; test "só cria parada onde carrega" passa com Option A ativa |
+| Commit | ✅ | `4121d15` |
+
+**Notas:** Causa raiz das paradas de 8 min: algoritmo anterior assumia `departPct=80%` em toda parada, calculava delta mínimo certo, mas o look-ahead usava alcance fixo em vez de SoC real — gerava deltas tiny quando dois chargers estavam próximos. Option A soluciona ao garantir que qualquer parada que vale a pena parar carregue pelo menos 20 min de energia.
+
+---
+
 ## Sprint 10 — SEO & Tráfego · 03/04/2026
 
 ### [S10-A] feat(seo): sitemap.xml dinâmico com 88 rotas · 03/04/2026

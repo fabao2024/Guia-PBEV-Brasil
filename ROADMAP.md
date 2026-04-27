@@ -574,9 +574,14 @@
 - ✅ Scroll mobile corrigido — body rola como coluna única, botão Calcular sempre acessível
 - ✅ Mapa EV removido do menu mobile (permanece no header desktop)
 - ✅ Seletor de cidades: 27 estados + ~120 cidades com match por nome, sigla (ex: "SP") ou parcial; agrupado por UF; Nominatim para demais
+- ✅ SOC tracking real: `arrivalSocPct` / `departureSocPct` por parada (antes: sempre assumia 80% de saída)
+- ✅ Chargers externos: OCM + OSM via `Promise.allSettled` (falha silenciosa); deduplicação por haversine < 200 m
+- ✅ Recarga mínima útil: paradas com delta < 20 min de carga são expandidas até `departPct` (evita top-ups de 8 min)
+- ✅ Overhead de parada: 8 min por parada (estacionamento, plug, autenticação) incluído no tempo exibido e no total
+- ✅ Peugeot e-Expert e Citroën e-Jumpy: autonomia corrigida 258 → 330 km
 
-> **Resumo técnico — Sprint 11 (17–20/04/2026):**
-> Novos arquivos: `src/types/routePlanner.ts`, `src/utils/routeGeometry.ts` (haversine, segmentação, projeção gulosa), `src/services/{nominatimService,orsService,ocmService}.ts`, `src/hooks/{useNominatimAutocomplete,useORSRoute,useRoutePlanner}.ts`, `src/components/RoutePlannerModal.tsx`. Algoritmo central: projeta todos os eletropostos dentro de `radiusKm` da polyline ORS, seleciona o mais distante alcançável (greedy) → paradas sempre em eletropostos reais, não em pontos matemáticos. Condições de viagem: `CONDITION_FACTORS` (temp × terrain × driving) aplicado sobre `effectiveRangeKm`. kWh/100km: `battery × 0.93 / range × 100`; override manual reseta `customRangeKm`. Dataset de cidades: 120+ municípios em `CIDADES[]` com agrupamento por UF. Bidirectional sync via `stopMarkersRef`. 106 testes passando.
+> **Resumo técnico — Sprint 11 (17–27/04/2026):**
+> Novos arquivos: `src/types/routePlanner.ts`, `src/utils/routeGeometry.ts` (haversine, segmentação, projeção gulosa), `src/services/{nominatimService,orsService,ocmService,overpassService}.ts`, `src/hooks/{useNominatimAutocomplete,useORSRoute,useRoutePlanner}.ts`, `src/utils/mergeChargers.ts`, `src/components/RoutePlannerModal.tsx`. Algoritmo central: projeta eletropostos dentro de `radiusKm` da polyline ORS, seleciona o mais distante alcançável (greedy) com rastreamento real de SoC. Look-ahead para calcular `minDepartSoc(nextSegmentKm)`; pass-through quando `arrivalSocPct ≥ departureSocPct`. Option A: `minUsefulSocDelta = ceil(chargeDC × 20min / battery_usable)` — delta menor que esse valor → `departureSocPct = departPct`. Option C: `STOP_OVERHEAD_MIN = 8` adicionado a cada parada e ao total. `consumptionPctPerKm = (departPct − arrivePct) / effectiveRangeKm`. 108 testes passando.
 
 ---
 
