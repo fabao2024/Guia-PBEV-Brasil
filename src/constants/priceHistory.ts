@@ -31,7 +31,7 @@ export const PRICE_HISTORY: Record<string, PriceSnapshot[]> = {
   "Dolphin Plus": [{ date: '2026-03', price: 184000 }],
   "Aion ES": [{ date: '2026-03', price: 170990 }],
   "Yuan Pro": [{ date: '2026-03', price: 182900 }],
-  "Aion Y Elite": [{ date: '2026-03', price: 184900 }],
+  "Aion Y Elite": [{ date: '2026-03', price: 184900 }, { date: '2026-05', price: 187990 }],
   "Aion V Elite": [{ date: '2026-03', price: 219000 }],
   "B10 BEV": [{ date: '2026-03', price: 173000 }, { date: '2026-04', price: 182990 }],
   "C10 BEV": [{ date: '2026-03', price: 189990 }, { date: '2026-04', price: 204990 }],

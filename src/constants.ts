@@ -470,9 +470,9 @@ export const CAR_DB: Car[] = [
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 60,
   },
   {
-    model: "Aion Y Elite", brand: "GAC", price: 184900, range: 318, cat: "SUV",
+    model: "Aion Y Elite", brand: "GAC", price: 187990, range: 318, cat: "SUV",
     img: "/car-images/aion-y.webp",
-    power: 136, torque: 23, traction: 'FWD', battery: 63.2,
+    power: 204, torque: 23, traction: 'FWD', battery: 63.2,
     features: [
       "Bateria LFP 63,2 kWh",
       "Carregamento AC 6,6 kW / DC 75 kW",
