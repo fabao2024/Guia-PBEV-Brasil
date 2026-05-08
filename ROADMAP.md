@@ -553,6 +553,24 @@
 
 ---
 
+### Sprint 12 — 08/05/2026
+**Tema: Manutenção de dados + Catálogo PBEV 2026_27**
+- ✅ fix: GAC Aion Y Elite — potência 136→204 cv, preço 184.900→187.990
+- ✅ fix: sitemap.xml — `lastmod` atualizado para 2026-05-08
+- ✅ feat: +6 veículos comerciais da tabela PBEV 2026_27 (96 veículos, 29 marcas)
+  - Farizon V6E (81 kWh LFP, 136 cv, R$260k) — furgão urbano, tração traseira
+  - Farizon SuperVan SV (82,9 kWh, 231 cv, R$425k) — van 11 m³
+  - Foton eWonder (41,86 kWh, 102 cv, R$235,9k) — mini caminhão urbano
+  - Foton eView Grand (77,28 kWh, 184 cv, R$299,9k) — van 6,8 m³
+  - JAC E-JV5.5 (50,2 kWh, 204 cv, R$314,9k) — furgão 5,5 m³
+  - Mercedes-Benz eSprinter 320 (113 kWh, 204 cv, R$482,9k) — furgão premium, DC 115 kW
+- ✅ Política "um modelo por família" — sem variantes de trim duplicadas
+
+> **Resumo técnico — Sprint 12 (08/05/2026):**
+> `constants.ts`: 6 novas entradas em `CAR_DB`, 2 novas marcas em `BRAND_URLS` (Farizon, Foton). `priceHistory.ts`: 6 snapshots iniciais 2026-05. `README.md`: contagem 89→96 veículos, 27→29 marcas. 6 imagens baixadas para `public/car-images/` (webp/jpg/png). Autonomias validadas contra tabela PBEV 2026_27; preços e specs confirmados via sites oficiais (farizontimber.com.br, fotondobrasil.com.br, jacmotors.com.br, mercedes-benz.com.br). 108 testes passando.
+
+---
+
 ### Sprint 11 — semana de 17/04/2026
 **Tema: EV Route Planner**
 - ✅ Planejador de rota EV completo — modal full-screen com mapa Leaflet (dark mode)

@@ -576,3 +576,29 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 **Notas:** Sitemap submetido manualmente no Google Search Console e Bing Webmaster Tools. GA4 verificado em tempo real. 922 comparativos indexáveis = 922 novas oportunidades de entrada orgânica por buscas tipo "BYD Seal vs Volvo EX30".
 
 ---
+
+## Sprint 12 — Manutenção de dados · 08/05/2026
+
+### [S12-A] fix(data): GAC Aion Y Elite + sitemap lastmod · 08/05/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `constants.ts`: GAC Aion Y Elite — `power` 136→204 cv, `price` 184.900→187.990. `priceHistory.ts`: snapshot 2026-05 adicionado. `sitemap.xml`: `lastmod` atualizado para 2026-05-08 em todas as 1012 URLs. |
+| Build  | ✅ | `npm run build` — sem erros |
+| Testes | ✅ | 108/108 passando |
+| Commit | ✅ | `a502030` (dados) · `abd909b` (sitemap) |
+
+---
+
+### [S12-B] feat(data): +6 veículos comerciais da tabela PBEV 2026_27 · 08/05/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | Adicionados ao `CAR_DB`: **Farizon V6E** (81 kWh LFP, 136 cv, R$260k), **Farizon SuperVan SV** (82,9 kWh, 231 cv, R$425k), **Foton eWonder** (41,86 kWh, 102 cv, R$235,9k), **Foton eView Grand** (77,28 kWh, 184 cv, R$299,9k), **JAC E-JV5.5** (50,2 kWh, 204 cv, R$314,9k), **Mercedes-Benz eSprinter 320** (113 kWh, 204 cv, R$482,9k). Dados de autonomia do PBEV 2026_27; preços e specs confirmados via sites oficiais. `BRAND_URLS`: 2 novas marcas (Farizon, Foton). `priceHistory.ts`: 6 snapshots 2026-05. `README.md`: contagem atualizada 89→96 veículos, 27→29 marcas. Imagens baixadas para `public/car-images/`. |
+| Build  | ✅ | `npm run build` — sem erros TS, 11.5s |
+| Testes | ✅ | 108/108 passando |
+| Commit | ✅ | — |
+
+**Notas:** Política "um modelo por família" aplicada — sem variantes de trim duplicadas. Farizon é braço comercial do Grupo Geely (controlador da Volvo e Zeekr). Foton V6E/eWonder/eView são os primeiros veículos comerciais 100% elétricos da marca no Brasil (lançamento mar/2026). Mercedes eSprinter 320 é o único premium desse lote: PBTC 3,5 t, categoria B, 113 kWh, DC 115 kW.
+
+---

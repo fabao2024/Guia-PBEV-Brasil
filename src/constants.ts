@@ -47,7 +47,9 @@ export const BRAND_URLS: Record<string, string> = {
   "Volkswagen": "https://www.vw.com.br",
   "MG Motor": "https://mgmotoroficial.com.br",
   "Leapmotor": "https://www.leapmotor.com.br",
-  "Suzuki": "https://www.suzukiveiculos.com.br"
+  "Suzuki": "https://www.suzukiveiculos.com.br",
+  "Farizon": "https://www.farizontimber.com.br",
+  "Foton": "https://fotondobrasil.com.br"
 };
 
 // Image Strategy:
@@ -1648,5 +1650,113 @@ export const CAR_DB: Car[] = [
       'AWD dual motor 184 cv / 31,2 kgfm'
     ],
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 100,
-  }
+  },
+
+  // FARIZON (Grupo Geely — comerciais elétricos)
+  {
+    model: "V6E", brand: "Farizon", price: 260000, range: 156, cat: "Comercial",
+    img: "/car-images/farizon-v6e.webp",
+    power: 136, torque: 20, traction: 'RWD', battery: 81,
+    features: [
+      "Bateria LFP 81 kWh",
+      "Carregamento AC 7 kW / DC 80 kW (20%→80% em ~30 min)",
+      "Volume de carga 5,9 m³ · capacidade 1.150 kg",
+      "Piso em aço de alta resistência (suporta 1,5 t)",
+      "Direção assistida elétrica",
+      "Ar-condicionado",
+      "Câmera de ré",
+      "Velocidade máxima 110 km/h"
+    ],
+    pbeRating: 'A', energyMJkm: 0.72,
+    warrantyYears: 3, warrantyBatteryYears: 5, chargeAC: 7, chargeDC: 80,
+  },
+  {
+    model: "SuperVan SV", brand: "Farizon", price: 425000, range: 239, cat: "Comercial",
+    img: "/car-images/farizon-sv.webp",
+    power: 231, torque: 44, traction: 'FWD', battery: 82.9,
+    features: [
+      "Bateria LFP 82,9 kWh (opção 102 kWh)",
+      "Carregamento AC 11 kW / DC 80 kW",
+      "Volume de carga 11 m³ · capacidade 1.075 kg",
+      "Minibus/van de grande porte (5,99 m)",
+      "Direção assistida elétrica",
+      "Ar-condicionado automático",
+      "Câmera de ré",
+      "Atualização OTA"
+    ],
+    pbeRating: 'A', energyMJkm: 0.92,
+    warrantyYears: 3, warrantyBatteryYears: 5, chargeAC: 11, chargeDC: 80,
+  },
+
+  // FOTON (comerciais elétricos)
+  {
+    model: "eWonder", brand: "Foton", price: 235900, range: 189, cat: "Comercial",
+    img: "/car-images/foton-ewonder.jpg",
+    power: 102, torque: 22, traction: 'RWD', battery: 41.86,
+    features: [
+      "Bateria 41,86 kWh",
+      "Carregamento AC 7 kW / DC 60 kW",
+      "Mini caminhão urbano elétrico",
+      "Capacidade de carga 800 kg",
+      "Direção assistida",
+      "Ar-condicionado",
+      "Câmera de ré"
+    ],
+    pbeRating: 'A', energyMJkm: 0.58,
+    warrantyYears: 3, warrantyBatteryYears: 5, chargeAC: 7, chargeDC: 60,
+  },
+  {
+    model: "eView Grand", brand: "Foton", price: 299900, range: 162, cat: "Comercial",
+    img: "/car-images/foton-eview-grand.jpg",
+    power: 184, torque: 34, traction: 'FWD', battery: 77.28,
+    features: [
+      "Bateria 77,28 kWh",
+      "Carregamento AC 11 kW / DC 80 kW (60% em 36 min)",
+      "Volume de carga 6,8 m³ · PBTC 3.495 kg",
+      "Capacidade de carga 1.300 kg",
+      "Painel digital",
+      "Ar-condicionado",
+      "Câmera de ré + sensores de estacionamento"
+    ],
+    pbeRating: 'A', energyMJkm: 0.82,
+    warrantyYears: 3, warrantyBatteryYears: 5, chargeAC: 11, chargeDC: 80,
+  },
+
+  // JAC E-JV5.5 (furgão de entrega)
+  {
+    model: "E-JV5.5", brand: "JAC", price: 314900, range: 260, cat: "Comercial",
+    img: "/car-images/jac-ejv55.png",
+    power: 204, torque: 30, traction: 'FWD', battery: 50.2,
+    features: [
+      "Bateria 50,2 kWh",
+      "Carregamento AC 7 kW / DC 60 kW",
+      "Furgão 5,5 m³ · capacidade 805 kg",
+      "Rodas de alumínio 15\"",
+      "Câmera de ré + sensor de estacionamento traseiro",
+      "Função Auto Hold",
+      "Luzes de neblina dianteiras e traseiras",
+      "TPMS (monitoramento de pressão dos pneus)"
+    ],
+    pbeRating: 'A', energyMJkm: 0.63,
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 60,
+  },
+
+  // MERCEDES-BENZ eSprinter (furgão premium)
+  {
+    model: "eSprinter 320", brand: "Mercedes-Benz", price: 482900, range: 206, cat: "Comercial",
+    img: "/car-images/mercedes-esprinter.png",
+    power: 204, torque: 41, traction: 'RWD', battery: 113,
+    features: [
+      "Bateria 113 kWh",
+      "Carregamento AC 22 kW / DC 115 kW",
+      "PBTC 3.500 kg — habilitação categoria B",
+      "MBUX com tela 10,25\"",
+      "Active Brake Assist + Attention Assist",
+      "Câmera de ré + sensores 360°",
+      "Conectividade de frota Mercedes PRO connect",
+      "Atualização OTA"
+    ],
+    pbeRating: 'A', energyMJkm: 1.09,
+    warrantyYears: 3, warrantyBatteryYears: 10, chargeAC: 22, chargeDC: 115,
+  },
 ];

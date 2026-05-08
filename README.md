@@ -88,7 +88,7 @@ No [guiapbev.cloud](https://guiapbev.cloud), usuários inserem sua própria chav
 
 ### Métricas Atuais
 
-- **89 veículos** BEV cadastrados (27 marcas)
+- **96 veículos** BEV cadastrados (29 marcas)
 - **54 modelos** com certificação PBE/INMETRO oficial
 - **27 estados** com dados de IPVA 2026 e tarifas ANP/ANEEL
 - **70 testes** automatizados em 7 suítes
