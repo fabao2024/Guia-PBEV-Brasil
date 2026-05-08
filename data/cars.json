@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-27T16:58:30.523Z",
+  "generated_at": "2026-05-08T11:15:07.029Z",
   "total": 91,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "cars": [
@@ -678,12 +678,12 @@
     {
       "model": "Aion Y Elite",
       "brand": "GAC",
-      "price": 184900,
+      "price": 187990,
       "range_km": 318,
       "category": "SUV",
       "image_url": "https://guiapbev.cloud/car-images/aion-y.webp",
       "traction": "FWD",
-      "power_cv": 136,
+      "power_cv": 204,
       "torque_kgfm": 23,
       "battery_kwh": 63.2,
       "charge_ac_kw": 6.6,
