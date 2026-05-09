@@ -127,10 +127,26 @@ module.exports = async ({ github, context }) => {
     } catch (_) { /* label já existe */ }
   }
 
+  // Evita duplicatas: só cria se não houver issue aberta com o mesmo título neste mês
+  const existing = await github.rest.issues.listForRepo({
+    owner: context.repo.owner,
+    repo: context.repo.repo,
+    state: 'open',
+    labels: 'manutenção',
+    per_page: 20,
+  });
+
+  const title = `🔧 Manutenção mensal — ${mes}`;
+  const alreadyExists = existing.data.some(i => i.title === title);
+  if (alreadyExists) {
+    console.log(`Issue "${title}" já existe — pulando criação.`);
+    return;
+  }
+
   await github.rest.issues.create({
     owner: context.repo.owner,
     repo: context.repo.repo,
-    title: `🔧 Manutenção mensal — ${mes}`,
+    title,
     body,
     labels: ['manutenção', 'dados'],
   });
