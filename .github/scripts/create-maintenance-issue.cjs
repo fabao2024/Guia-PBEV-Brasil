@@ -32,6 +32,9 @@ module.exports = async ({ github, context }) => {
     .replace('.', '').trim() + '/' + String(now.getFullYear()).slice(-2);
   const yyyyMM = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
 
+  const month = now.getMonth(); // 0=jan, 1=fev
+  const isIpvaSeason = month === 0 || month === 1;
+
   const body = [
     `## Manutenção mensal — ${mes}`,
     '',
@@ -86,13 +89,15 @@ module.exports = async ({ github, context }) => {
     '',
     '---',
     '',
-    '### 🏛️ IPVA por estado _(relevante jan/fev — verificar se houve mudança)_',
-    '- [ ] Verificar se algum estado alterou alíquota para EVs ou combustão',
-    '- [ ] Se houver alteração: atualizar `src/constants/ipvaByState.ts`',
-    '- [ ] Atualizar `IPVA_DATA_UPDATED` se houve mudança',
-    '',
-    '---',
-    '',
+    ...(isIpvaSeason ? [
+      '### 🏛️ IPVA por estado _(jan/fev — verificar mudanças de alíquota)_',
+      '- [ ] Verificar se algum estado alterou alíquota para EVs ou combustão',
+      '- [ ] Se houver alteração: atualizar `src/constants/ipvaByState.ts`',
+      '- [ ] Atualizar `IPVA_DATA_UPDATED` se houve mudança',
+      '',
+      '---',
+      '',
+    ] : []),
     '### 🔗 Links e afiliados',
     ...(brandReport
       ? brandReport.broken?.length

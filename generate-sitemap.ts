@@ -7,7 +7,7 @@
  * Usage: npx tsx generate-sitemap.ts
  */
 
-import { writeFileSync, mkdirSync } from 'fs';
+import { writeFileSync, readFileSync, mkdirSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { CAR_DB, isCarNew } from './src/constants';
@@ -105,3 +105,22 @@ const carsJson = {
 const jsonPath = resolve(dataDir, 'cars.json');
 writeFileSync(jsonPath, JSON.stringify(carsJson, null, 2), 'utf-8');
 console.log(`✅ cars.json gerado — ${carsJson.total} veículos → ${jsonPath}`);
+
+// ── Atualiza contagem no README.md automaticamente ────────────────────────────
+
+const brands = new Set(CAR_DB.map(c => c.brand)).size;
+const readmePath = resolve(__dirname, 'README.md');
+const readme = readFileSync(readmePath, 'utf-8');
+const updatedReadme = readme
+  .replace(
+    /\*\*\d+ veículos\*\* BEV cadastrados \(\d+ marcas\)/,
+    `**${CAR_DB.length} veículos** BEV cadastrados (${brands} marcas)`
+  )
+  .replace(
+    /\*\*\d+ BEV vehicles\*\* registered \(\d+ brands\)/,
+    `**${CAR_DB.length} BEV vehicles** registered (${brands} brands)`
+  );
+if (updatedReadme !== readme) {
+  writeFileSync(readmePath, updatedReadme, 'utf-8');
+  console.log(`✅ README.md atualizado — ${CAR_DB.length} veículos, ${brands} marcas`);
+}

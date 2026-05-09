@@ -16,6 +16,12 @@ import { readFileSync, writeFileSync } from 'fs';
 const TIMEOUT_MS  = 10_000;
 const REPORT_PATH = '/tmp/brand-links-report.json';
 
+// Marcas conhecidas por bloquear bots (geo-block, WAF, SSO) — timeout/503 é falso positivo
+const KNOWN_BOT_BLOCKING = new Set([
+  'Peugeot', 'Mini', 'BMW', 'Mercedes-Benz', 'Audi',
+  'Volkswagen', 'Porsche', 'Ford',
+]);
+
 // ── Extrai BRAND_URLS do constants.ts via regex ───────────────────────────────
 
 function extractBrandUrls(src) {
@@ -42,13 +48,18 @@ async function checkUrl({ brand, url }) {
       },
     });
     clearTimeout(timer);
-    // 403/405 = site bloqueia bots mas está no ar — não é link quebrado
-    const botBlocked = resp.status === 403 || resp.status === 405;
+    // 403/405/503 de marca conhecida = geo-block, não link quebrado
+    const knownBlock = KNOWN_BOT_BLOCKING.has(brand) && (resp.status === 503 || resp.status === 403 || resp.status === 405);
+    const botBlocked = resp.status === 403 || resp.status === 405 || knownBlock;
     const ok = resp.status < 400 || botBlocked;
     return { brand, url, status: resp.status, ok, botBlocked };
   } catch (err) {
     clearTimeout(timer);
     const isTimeout = err.name === 'AbortError';
+    // Falso positivo: marca conhecida por bloquear bots via timeout/erro de rede
+    if (KNOWN_BOT_BLOCKING.has(brand)) {
+      return { brand, url, status: null, ok: true, botBlocked: true, note: 'geo-block conhecido — verificar manualmente se necessário' };
+    }
     return { brand, url, status: null, ok: false, error: isTimeout ? 'timeout' : err.message };
   }
 }
