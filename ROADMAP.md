@@ -562,19 +562,23 @@
   - SE 0.70 → 0.74 (+5.00% Energisa-SE)
   - CE 0.71 → 0.74 (+4.30% Enel-CE)
   - RN 0.74 → 0.77 (+3.74% COSERN)
-- ✅ feat: GAC Aion UT — 2 versões (99 veículos, 30 marcas)
-  - **Premium** R$130.000 — 204 cv, LFP 44,1 kWh, 310 km PBEV, FWD, câmera 360°
-  - **Elite** R$145.000 (estimado) — + teto solar panorâmico, ADAS L2 completo, mala elétrica
+- ✅ feat: GAC Aion UT — 2 versões (100 veículos, 30 marcas)
+  - **Premium** R$139.990 — 204 cv / 21 kgfm, LFP 44,12 kWh, 253 km PBEV, FWD, DC 64 kW
+  - **Elite** R$159.990 — LFP 60 kWh, 310 km PBEV, DC 87 kW, ADAS L2, teto solar, bancos ventilados, carregador indução, faróis inteligentes
   - Badge "Novo" ativo em ambas · entregas jun/26
 - ✅ feat: BYD Sealion 7 (100 veículos) — SUV coupê AWD, 531 cv, 82,5 kWh, 360 km, DC 150 kW, R$339.990, badge Novo
 - ✅ fix: BYD preços atualizados (jun/26) — Dolphin Plus -R$4.200 · Seal +R$20k · Tan +R$7k · Han +R$20k
 - ✅ fix: Dolphin Special Edition autonomia 300→272 km (INMETRO oficial)
+- ✅ feat(images): imagens MG Motor substituídas por fotos oficiais do site BR
+  - MG4 Comfort (branco, plataforma luxo) · MG4 Luxury (teal wide landscape) · MG4 XPower (verde, pista)
+  - MGS5 Comfort (perfil lateral + carregador) · MGS5 Luxury (3/4 frontal premium) · Cyberster (aérea, capota aberta)
 - ℹ️ MG4 Urban e ORA 5 — aguardando PBEV homologado e preço oficial; reavaliar em jul/26
 - ℹ️ Lotus Eletre/Emeya — entregas ago/26; reavaliar em jul/26
 - ℹ️ Trendseg: verificação manual do painel de afiliado pendente
 
-> **Resumo técnico — Sprint 13 (01/06/2026):**
-> `electricityPricesByState.ts`: 6 valores + `ELECTRICITY_PRICES_UPDATED` → `'jun/2026'`. `constants.ts`: +3 veículos (Aion UT Premium, Aion UT Elite, Sealion 7); 4 preços BYD corrigidos; Dolphin Special Edition 300→272 km. `priceHistory.ts`: 7 snapshots 2026-06. `README.md`: 97→100 veículos. 108 testes passando.
+> **Resumo técnico — Sprint 13 (01–02/06/2026):**
+> S13-A: `electricityPricesByState.ts`: 6 valores + `ELECTRICITY_PRICES_UPDATED` → `'jun/2026'`. `constants.ts`: +3 veículos (Aion UT Premium, Aion UT Elite, Sealion 7); 4 preços BYD corrigidos; Dolphin Special Edition 300→272 km. `priceHistory.ts`: 7 snapshots 2026-06. `README.md`: 97→100 veículos. Commits: `bd6b52a` · `5146ece`.
+> S13-B: `public/car-images/`: 6 imagens MG Motor (webp) substituídas por fotos oficiais de `mgmotoroficial.com.br`. `constants.ts`: paths `.jpg → .webp`. 108 testes passando. Commit: `f3484aa`.
 
 ---
 

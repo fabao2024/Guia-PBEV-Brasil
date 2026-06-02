@@ -586,9 +586,18 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Dev    | ✅ | `electricityPricesByState.ts`: 6 estados atualizados (reajustes ANEEL abr/2026). `constants.ts`: +GAC Aion UT Premium (R$139.990, 253 km, 44,12 kWh) + Elite (R$159.990, 310 km, 60 kWh, ADAS L2, teto solar, bancos ventilados, carregador indução, faróis inteligentes); +BYD Sealion 7 (R$339.990, 360 km, AWD 531 cv, 82,5 kWh, DC 150 kW, V2L). Preços BYD corrigidos: Dolphin Plus 184k→179,8k · Seal 249,9k→269,9k · Tan 529,8k→536,8k · Han 539,8k→559,8k. Dolphin Special Edition 300→272 km. Badge Novo: Aion UT Premium/Elite + Sealion 7. `README.md`: 97→100 veículos. |
 | Build  | ✅ | `npm run build` — 6s, sem erros |
 | Testes | ✅ | 108/108 passando |
-| Commit | ✅ | — |
+| Commit | ✅ | `bd6b52a` · `5146ece` |
 
 **Notas:** MG4 Urban e ORA 5 identificados mas aguardam PBEV homologado + preço oficial (jul/26). Lotus Eletre/Emeya: entregas ago/26, reavaliar em jul/26. Trendseg: verificação manual do painel pendente.
+
+### [S13-B] feat(images): imagens oficiais MG Motor · 02/06/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | 6 imagens substituídas por fotos oficiais de `mgmotoroficial.com.br`. MG4 Comfort (branco, plataforma luxo), MG4 Luxury (teal wide landscape), MG4 XPower (verde, pista), MGS5 Comfort (cinza, perfil lateral + carregador), MGS5 Luxury (cinza escuro, 3/4 frontal premium), Cyberster (vermelho, vista aérea capota aberta). `constants.ts`: 6 caminhos `.jpg → .webp`. |
+| Build  | ✅ | `npm run build` — sem erros |
+| Testes | ✅ | 108/108 passando |
+| Commit | ✅ | `f3484aa` |
 
 ---
 
