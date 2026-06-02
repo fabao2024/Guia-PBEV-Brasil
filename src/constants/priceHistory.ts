@@ -28,7 +28,7 @@ export const PRICE_HISTORY: Record<string, PriceSnapshot[]> = {
   "Cooper E": [{ date: '2026-03', price: 260990 }],
   "JCW-E": [{ date: '2026-03', price: 330990 }],
   "Aceman SE": [{ date: '2026-03', price: 304990 }],
-  "Dolphin Plus": [{ date: '2026-03', price: 184000 }],
+  "Dolphin Plus": [{ date: '2026-03', price: 184000 }, { date: '2026-06', price: 179800 }],
   "Aion ES": [{ date: '2026-03', price: 170990 }],
   "Yuan Pro": [{ date: '2026-03', price: 182900 }],
   "Aion Y Elite": [{ date: '2026-03', price: 184900 }, { date: '2026-05', price: 187990 }],
@@ -65,13 +65,13 @@ export const PRICE_HISTORY: Record<string, PriceSnapshot[]> = {
   "Zeekr X": [{ date: '2026-03', price: 272000 }],
   "7X": [{ date: '2026-03', price: 448000 }],
   "iX3": [{ date: '2026-03', price: 500950 }],
-  "Seal AWD": [{ date: '2026-03', price: 249990 }],
+  "Seal AWD": [{ date: '2026-03', price: 249990 }, { date: '2026-06', price: 269990 }],
   "001 Premium": [{ date: '2026-03', price: 428000 }],
   "i4 eDrive35": [{ date: '2026-03', price: 449950 }],
   "Mustang Mach-E": [{ date: '2026-03', price: 486000 }],
   "Blazer EV RS": [{ date: '2026-03', price: 489000 }],
-  "Tan EV": [{ date: '2026-03', price: 529800 }],
-  "Han EV": [{ date: '2026-03', price: 539800 }],
+  "Tan EV": [{ date: '2026-03', price: 529800 }, { date: '2026-06', price: 536800 }],
+  "Han EV": [{ date: '2026-03', price: 539800 }, { date: '2026-06', price: 559800 }],
   "Macan EV": [{ date: '2026-03', price: 560000 }],
   "Q8 e-tron": [{ date: '2026-03', price: 699000 }],
   "A6 Sportback e-tron": [{ date: '2026-03', price: 649990 }],
@@ -109,6 +109,7 @@ export const PRICE_HISTORY: Record<string, PriceSnapshot[]> = {
   "eSprinter 320": [{ date: '2026-05', price: 482900 }],
   "Aion UT Premium": [{ date: '2026-06', price: 139990 }],
   "Aion UT Elite": [{ date: '2026-06', price: 159990 }],
+  "Sealion 7": [{ date: '2026-06', price: 339990 }],
 };
 
 /** Returns the most recent snapshot for a given model, or null if no history. */

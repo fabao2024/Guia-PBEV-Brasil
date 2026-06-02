@@ -566,12 +566,15 @@
   - **Premium** R$130.000 — 204 cv, LFP 44,1 kWh, 310 km PBEV, FWD, câmera 360°
   - **Elite** R$145.000 (estimado) — + teto solar panorâmico, ADAS L2 completo, mala elétrica
   - Badge "Novo" ativo em ambas · entregas jun/26
+- ✅ feat: BYD Sealion 7 (100 veículos) — SUV coupê AWD, 531 cv, 82,5 kWh, 360 km, DC 150 kW, R$339.990, badge Novo
+- ✅ fix: BYD preços atualizados (jun/26) — Dolphin Plus -R$4.200 · Seal +R$20k · Tan +R$7k · Han +R$20k
+- ✅ fix: Dolphin Special Edition autonomia 300→272 km (INMETRO oficial)
 - ℹ️ MG4 Urban e ORA 5 — aguardando PBEV homologado e preço oficial; reavaliar em jul/26
 - ℹ️ Lotus Eletre/Emeya — entregas ago/26; reavaliar em jul/26
 - ℹ️ Trendseg: verificação manual do painel de afiliado pendente
 
 > **Resumo técnico — Sprint 13 (01/06/2026):**
-> `electricityPricesByState.ts`: 6 valores + `ELECTRICITY_PRICES_UPDATED` → `'jun/2026'`. `constants.ts`: +2 veículos (GAC Aion UT Premium + Elite), ambos em `NEW_MODELS`. `priceHistory.ts`: 2 snapshots 2026-06. `README.md`: contagem 97→99. Imagem `gac-aion-ut.jpg` (1600×900 JPEG). 108 testes passando.
+> `electricityPricesByState.ts`: 6 valores + `ELECTRICITY_PRICES_UPDATED` → `'jun/2026'`. `constants.ts`: +3 veículos (Aion UT Premium, Aion UT Elite, Sealion 7); 4 preços BYD corrigidos; Dolphin Special Edition 300→272 km. `priceHistory.ts`: 7 snapshots 2026-06. `README.md`: 97→100 veículos. 108 testes passando.
 
 ---
 

@@ -14,6 +14,7 @@ const NEW_MODELS = new Set([
   'Dolphin Special Edition',
   'Aion UT Premium',
   'Aion UT Elite',
+  'Sealion 7',
 ]);
 
 export const isCarNew = (car: Car): boolean => NEW_MODELS.has(car.model);
@@ -438,7 +439,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 95,
   },
   {
-    model: "Dolphin Plus", brand: "BYD", price: 184000, range: 330, cat: "Compacto",
+    model: "Dolphin Plus", brand: "BYD", price: 179800, range: 330, cat: "Compacto",
     img: "/car-images/dolphin-plus.jpg",
     power: 204, torque: 31.6, traction: 'FWD', battery: 60.4,
     features: [
@@ -455,7 +456,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 80,
   },
   {
-    model: "Dolphin Special Edition", brand: "BYD", price: 159990, range: 300, cat: "Compacto",
+    model: "Dolphin Special Edition", brand: "BYD", price: 159990, range: 272, cat: "Compacto",
     img: "/car-images/dolphin-special-edition.webp",
     power: 177, torque: 29, traction: 'FWD', battery: 45.12,
     features: [
@@ -795,6 +796,24 @@ export const CAR_DB: Car[] = [
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 135,
   },
   {
+    model: "Sealion 7", brand: "BYD", price: 339990, range: 360, cat: "SUV",
+    img: "/car-images/byd-sealion-7.jpg",
+    power: 531, torque: 70.4, traction: 'AWD', battery: 82.5,
+    features: [
+      "2 motores elétricos AWD — 531 cv / 70,4 kgfm — 0–100 km/h em 4,5 s",
+      "Bateria LFP Blade 82,5 kWh",
+      "Carregamento AC 11 kW / DC 150 kW (30–80% em 30 min)",
+      "9 airbags + ADAS Nível 2 completo",
+      "Telas 15,6\" rotativa + 10,25\" painel + HUD",
+      "Som DYNAUDIO 12 alto-falantes",
+      "Couro Nappa + teto solar panorâmico com persiana elétrica",
+      "V2L (Vehicle-to-Load) — tomada para dispositivos externos",
+      "Câmera 360° surround view",
+      "iTAC — controle inteligente de torque por eixo"
+    ],
+    warrantyYears: 6, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
+  },
+  {
     model: "EX40 (XC40)", brand: "Volvo", price: 342950, range: 385, cat: "SUV",
     img: "/car-images/ex40.jpg",
     power: 238, torque: 42.8, traction: 'RWD', battery: 69,
@@ -1080,7 +1099,7 @@ export const CAR_DB: Car[] = [
 
   // 3. LUXO & PERFORMANCE
   {
-    model: "Seal AWD", brand: "BYD", price: 249990, range: 372, cat: "Sedan",
+    model: "Seal AWD", brand: "BYD", price: 269990, range: 372, cat: "Sedan",
     img: "/car-images/seal.jpg",
     power: 531, torque: 60.2, traction: 'AWD', battery: 82.5,
     features: [
@@ -1161,7 +1180,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11.5, chargeDC: 150,
   },
   {
-    model: "Tan EV", brand: "BYD", price: 529800, range: 430, cat: "Luxo",
+    model: "Tan EV", brand: "BYD", price: 536800, range: 430, cat: "Luxo",
     img: "/car-images/tan-ev.jpg",
     power: 517, torque: 69.3, traction: 'AWD', battery: 108.8,
     features: [
@@ -1177,7 +1196,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 110,
   },
   {
-    model: "Han EV", brand: "BYD", price: 539800, range: 349, cat: "Luxo",
+    model: "Han EV", brand: "BYD", price: 559800, range: 349, cat: "Luxo",
     img: "/car-images/han-ev.jpg",
     power: 517, torque: 71.4, traction: 'AWD', battery: 85.4,
     features: [

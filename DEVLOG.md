@@ -583,7 +583,7 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 
 | Etapa  | Status | Detalhe |
 |--------|--------|---------|
-| Dev    | ✅ | `electricityPricesByState.ts`: 6 estados atualizados com reajustes ANEEL abr/2026 (MS +11,75%, MT +5,27%, BA +3,93%, SE +5%, CE +4,30%, RN +3,74%); `ELECTRICITY_PRICES_UPDATED` → `'jun/2026'`. `constants.ts`: GAC Aion UT Premium (R$130k) + Elite (R$145k estimado) adicionados — ambos `Compacto`, 204 cv, 44,1 kWh LFP, 310 km PBEV, FWD; badge "Novo" ativo em ambos via `NEW_MODELS`. `priceHistory.ts`: 2 snapshots 2026-06. `README.md`: 97→99 veículos. |
+| Dev    | ✅ | `electricityPricesByState.ts`: 6 estados atualizados (reajustes ANEEL abr/2026). `constants.ts`: +GAC Aion UT Premium (R$139.990, 253 km, 44,12 kWh) + Elite (R$159.990, 310 km, 60 kWh, ADAS L2, teto solar, bancos ventilados, carregador indução, faróis inteligentes); +BYD Sealion 7 (R$339.990, 360 km, AWD 531 cv, 82,5 kWh, DC 150 kW, V2L). Preços BYD corrigidos: Dolphin Plus 184k→179,8k · Seal 249,9k→269,9k · Tan 529,8k→536,8k · Han 539,8k→559,8k. Dolphin Special Edition 300→272 km. Badge Novo: Aion UT Premium/Elite + Sealion 7. `README.md`: 97→100 veículos. |
 | Build  | ✅ | `npm run build` — 6s, sem erros |
 | Testes | ✅ | 108/108 passando |
 | Commit | ✅ | — |
