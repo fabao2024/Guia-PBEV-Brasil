@@ -577,6 +577,21 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 
 ---
 
+## Sprint 13 — Manutenção mensal jun/2026 · 01/06/2026
+
+### [S13-A] chore(data): tarifas ANEEL B1 + GAC Aion UT · 01/06/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `electricityPricesByState.ts`: 6 estados atualizados com reajustes ANEEL abr/2026 (MS +11,75%, MT +5,27%, BA +3,93%, SE +5%, CE +4,30%, RN +3,74%); `ELECTRICITY_PRICES_UPDATED` → `'jun/2026'`. `constants.ts`: GAC Aion UT Premium (R$130k) + Elite (R$145k estimado) adicionados — ambos `Compacto`, 204 cv, 44,1 kWh LFP, 310 km PBEV, FWD; badge "Novo" ativo em ambos via `NEW_MODELS`. `priceHistory.ts`: 2 snapshots 2026-06. `README.md`: 97→99 veículos. |
+| Build  | ✅ | `npm run build` — 6s, sem erros |
+| Testes | ✅ | 108/108 passando |
+| Commit | ✅ | — |
+
+**Notas:** MG4 Urban e ORA 5 identificados mas aguardam PBEV homologado + preço oficial (jul/26). Lotus Eletre/Emeya: entregas ago/26, reavaliar em jul/26. Trendseg: verificação manual do painel pendente.
+
+---
+
 ## Sprint 12 — Manutenção de dados · 08/05/2026
 
 ### [S12-A] fix(data): GAC Aion Y Elite + sitemap lastmod · 08/05/2026

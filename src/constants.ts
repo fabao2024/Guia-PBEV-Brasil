@@ -12,6 +12,8 @@ const NEW_MODELS = new Set([
   'EX30 Ultra',
   'Yuan Plus AWD',
   'Dolphin Special Edition',
+  'Aion UT Premium',
+  'Aion UT Elite',
 ]);
 
 export const isCarNew = (car: Car): boolean => NEW_MODELS.has(car.model);
@@ -196,6 +198,40 @@ export const CAR_DB: Car[] = [
       "Atualização de software OTA"
     ],
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 30,
+  },
+  {
+    model: "Aion UT Premium", brand: "GAC", price: 139990, range: 253, cat: "Compacto",
+    img: "/car-images/gac-aion-ut.jpg",
+    power: 204, torque: 21, traction: 'FWD', battery: 44.12,
+    features: [
+      "Bateria LFP 44,12 kWh",
+      "Carregamento AC 6,6 kW / DC 64 kW",
+      "0-100 km/h em 8,6 s",
+      "Tela central com CarPlay e Android Auto",
+      "6 airbags",
+      "Câmera 360° com sensores de estacionamento dianteiros e traseiros",
+      "Piloto automático (controle de cruzeiro adaptativo)",
+      "Rodas de liga leve aro 17 com estepe"
+    ],
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 64,
+  },
+  {
+    model: "Aion UT Elite", brand: "GAC", price: 159990, range: 310, cat: "Compacto",
+    img: "/car-images/gac-aion-ut-elite.jpg",
+    power: 204, torque: 21, traction: 'FWD', battery: 60,
+    features: [
+      "Bateria LFP 60 kWh",
+      "Carregamento AC 6,6 kW / DC 87 kW",
+      "0-100 km/h em 7,3 s",
+      "Tela central com CarPlay e Android Auto",
+      "6 airbags",
+      "ADAS Nível 2: ACC + AEB + manutenção de faixa (LKA) + câmera 360°",
+      "Teto solar panorâmico com cortina elétrica",
+      "Bancos elétricos ventilados + porta-malas com abertura elétrica",
+      "Carregador sem fio por indução para celular",
+      "Faróis inteligentes com ajuste automático de feixe"
+    ],
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 87,
   },
   {
     model: "EX2 Max", brand: "Geely", price: 135100, range: 289, cat: "Compacto",

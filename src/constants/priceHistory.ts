@@ -107,6 +107,8 @@ export const PRICE_HISTORY: Record<string, PriceSnapshot[]> = {
   "eView Grand": [{ date: '2026-05', price: 299900 }],
   "E-JV5.5": [{ date: '2026-05', price: 314900 }],
   "eSprinter 320": [{ date: '2026-05', price: 482900 }],
+  "Aion UT Premium": [{ date: '2026-06', price: 139990 }],
+  "Aion UT Elite": [{ date: '2026-06', price: 159990 }],
 };
 
 /** Returns the most recent snapshot for a given model, or null if no history. */

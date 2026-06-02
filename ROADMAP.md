@@ -553,6 +553,28 @@
 
 ---
 
+### Sprint 13 — 01/06/2026
+**Tema: Manutenção mensal jun/2026**
+- ✅ chore: tarifas ANEEL B1 — 6 estados atualizados (reajustes abr/2026)
+  - MS 0.88 → 0.98 (+11.75% Energisa-MS)
+  - MT 0.85 → 0.89 (+5.27% Energisa-MT)
+  - BA 0.84 → 0.87 (+3.93% Neoenergia Coelba)
+  - SE 0.70 → 0.74 (+5.00% Energisa-SE)
+  - CE 0.71 → 0.74 (+4.30% Enel-CE)
+  - RN 0.74 → 0.77 (+3.74% COSERN)
+- ✅ feat: GAC Aion UT — 2 versões (99 veículos, 30 marcas)
+  - **Premium** R$130.000 — 204 cv, LFP 44,1 kWh, 310 km PBEV, FWD, câmera 360°
+  - **Elite** R$145.000 (estimado) — + teto solar panorâmico, ADAS L2 completo, mala elétrica
+  - Badge "Novo" ativo em ambas · entregas jun/26
+- ℹ️ MG4 Urban e ORA 5 — aguardando PBEV homologado e preço oficial; reavaliar em jul/26
+- ℹ️ Lotus Eletre/Emeya — entregas ago/26; reavaliar em jul/26
+- ℹ️ Trendseg: verificação manual do painel de afiliado pendente
+
+> **Resumo técnico — Sprint 13 (01/06/2026):**
+> `electricityPricesByState.ts`: 6 valores + `ELECTRICITY_PRICES_UPDATED` → `'jun/2026'`. `constants.ts`: +2 veículos (GAC Aion UT Premium + Elite), ambos em `NEW_MODELS`. `priceHistory.ts`: 2 snapshots 2026-06. `README.md`: contagem 97→99. Imagem `gac-aion-ut.jpg` (1600×900 JPEG). 108 testes passando.
+
+---
+
 ### Sprint 12 — 08/05/2026
 **Tema: Manutenção de dados + Catálogo PBEV 2026_27**
 - ✅ fix: GAC Aion Y Elite — potência 136→204 cv, preço 184.900→187.990
