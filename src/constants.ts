@@ -1583,7 +1583,7 @@ export const CAR_DB: Car[] = [
   // 5. MG MOTOR
   {
     model: "MG4 Comfort", brand: "MG Motor", price: 164600, range: 364, cat: "Compacto",
-    img: "/car-images/mg4-comfort.jpg",
+    img: "/car-images/mg4-comfort.webp",
     power: 190, torque: 35, traction: 'RWD', battery: 64,
     features: [
       "Bateria LFP 64 kWh (maior autonomia da linha MG4)",
@@ -1600,7 +1600,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "MG4 Luxury", brand: "MG Motor", price: 189800, range: 364, cat: "Compacto",
-    img: "/car-images/mg4-luxury.jpg",
+    img: "/car-images/mg4-luxury.webp",
     power: 190, torque: 35, traction: 'RWD', battery: 64,
     features: [
       "Bateria LFP 64 kWh (maior autonomia da linha MG4)",
@@ -1617,7 +1617,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "MG4 XPower", brand: "MG Motor", price: 229800, range: 279, cat: "Compacto",
-    img: "/car-images/mg4-xpower.jpg",
+    img: "/car-images/mg4-xpower.webp",
     power: 435, torque: 60, traction: 'AWD', battery: 64,
     features: [
       "Bateria NMC 64 kWh",
@@ -1634,7 +1634,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "MGS5 Comfort", brand: "MG Motor", price: 195800, range: 351, cat: "SUV",
-    img: "/car-images/mgs5-comfort.jpg",
+    img: "/car-images/mgs5-comfort.webp",
     power: 204, torque: 35.7, traction: 'RWD', battery: 64,
     features: [
       "Bateria NMC 61,1 kWh",
@@ -1651,7 +1651,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "MGS5 Luxury", brand: "MG Motor", price: 219800, range: 351, cat: "SUV",
-    img: "/car-images/mgs5.jpg",
+    img: "/car-images/mgs5-luxury.webp",
     power: 204, torque: 35.7, traction: 'RWD', battery: 64,
     features: [
       "Bateria NMC 61,1 kWh",
@@ -1668,7 +1668,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Cyberster", brand: "MG Motor", price: 499800, range: 342, cat: "Luxo",
-    img: "/car-images/cyberster.jpg",
+    img: "/car-images/cyberster.webp",
     power: 510, torque: 74, traction: 'AWD', battery: 77,
     features: [
       "Bateria NMC 77 kWh",
