@@ -1,0 +1,28 @@
+[Unit]
+Description=Guia PBEV Brasil - Instagram Automation Bot
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/opt/pbev-instagram-bot
+Environment=PATH=/opt/pbev-instagram-bot/venv/bin:/usr/bin
+EnvironmentFile=/opt/pbev-instagram-bot/.env
+ExecStart=/opt/pbev-instagram-bot/venv/bin/python main.py
+Restart=always
+RestartSec=10
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=pbev-instagram-bot
+
+# Security hardening
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/opt/pbev-instagram-bot
+ReadWritePaths=/var/www/pbev-images
+
+[Install]
+WantedBy=multi-user.target

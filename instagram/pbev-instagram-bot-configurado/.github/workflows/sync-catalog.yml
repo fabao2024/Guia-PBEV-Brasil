@@ -1,0 +1,39 @@
+name: Sync Vehicle Catalog
+
+on:
+  schedule:
+    # Toda segunda às 05:00 UTC (02:00 BRT) — antes da geração de conteúdo às 06:00
+    - cron: '0 5 * * 1'
+  workflow_dispatch:  # Permite trigger manual
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install httpx
+
+      - name: Sync catalog from Guia-PBEV-Brasil
+        run: python sync_catalog.py
+
+      - name: Check for changes
+        id: diff
+        run: |
+          git diff --quiet vehicle_catalog.py && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add vehicle_catalog.py
+          VEHICLE_COUNT=$(python -c "from vehicle_catalog import VEHICLE_CATALOG; print(len(VEHICLE_CATALOG))")
+          git commit -m "chore: sync vehicle catalog ($VEHICLE_COUNT vehicles)"
+          git push
