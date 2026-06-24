@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-24T14:30:20.127Z",
+  "generated_at": "2026-06-24T14:35:19.539Z",
   "total": 101,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "cars": [
@@ -319,7 +319,7 @@
         "Ar-condicionado automático bizona"
       ],
       "is_new": false,
-      "discontinued": false,
+      "discontinued": true,
       "slug": "gwm-ora-03-skin-bev48",
       "detail_url": "https://guiapbev.cloud/carro/gwm-ora-03-skin-bev48"
     },
@@ -383,7 +383,7 @@
         "Design esportivo GT com difusor traseiro"
       ],
       "is_new": false,
-      "discontinued": false,
+      "discontinued": true,
       "slug": "gwm-ora-03-gt-bev63",
       "detail_url": "https://guiapbev.cloud/carro/gwm-ora-03-gt-bev63"
     },
