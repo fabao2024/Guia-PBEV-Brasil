@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-22T14:37:00.867Z",
-  "total": 100,
+  "generated_at": "2026-06-24T14:27:58.659Z",
+  "total": 101,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "cars": [
     {
@@ -386,6 +386,38 @@
       "discontinued": false,
       "slug": "gwm-ora-03-gt-bev63",
       "detail_url": "https://guiapbev.cloud/carro/gwm-ora-03-gt-bev63"
+    },
+    {
+      "model": "Ora 5",
+      "brand": "GWM",
+      "price": 159000,
+      "range_km": 349,
+      "category": "SUV",
+      "image_url": "https://guiapbev.cloud/car-images/Ora 05.jpg",
+      "traction": "FWD",
+      "power_cv": 204,
+      "torque_kgfm": 26.5,
+      "battery_kwh": 58.3,
+      "charge_ac_kw": 11,
+      "charge_dc_kw": 120,
+      "warranty_years": 5,
+      "warranty_battery_years": 8,
+      "pbe_rating": null,
+      "energy_mj_km": null,
+      "features": [
+        "Bateria LFP 58,3 kWh",
+        "Carregamento AC 11 kW / DC 120 kW",
+        "Motor elétrico FWD 204 cv / 26,5 kgfm",
+        "Tela central com CarPlay e Android Auto",
+        "ADAS: ACC + AEB + monitoramento de ponto cego",
+        "Câmera de ré HD",
+        "Teto solar panorâmico",
+        "Design SUV com acabamento premium"
+      ],
+      "is_new": true,
+      "discontinued": false,
+      "slug": "gwm-ora-5",
+      "detail_url": "https://guiapbev.cloud/carro/gwm-ora-5"
     },
     {
       "model": "Spark EUV",
