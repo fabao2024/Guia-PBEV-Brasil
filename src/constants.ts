@@ -270,7 +270,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Ora 03 Skin BEV48", brand: "GWM", price: 154000, range: 232, cat: "Compacto",
-    img: "/car-images/ora 03 skin bev48.webp",
+    img: "/car-images/ora 03 skin bev48.webp", discontinued: true,
     power: 171, torque: 25.5, traction: 'FWD', battery: 48,
     features: [
       "Bateria LFP 48 kWh",
@@ -304,7 +304,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Ora 03 GT BEV63", brand: "GWM", price: 189000, range: 295, cat: "Compacto",
-    img: "/car-images/ora 03 GT BEV63.webp",
+    img: "/car-images/ora 03 GT BEV63.webp", discontinued: true,
     power: 171, torque: 25.5, traction: 'FWD', battery: 63,
     features: [
       "Bateria NMC 63 kWh",
