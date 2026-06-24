@@ -590,6 +590,17 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 
 **Notas:** MG4 Urban e ORA 5 identificados mas aguardam PBEV homologado + preço oficial (jul/26). Lotus Eletre/Emeya: entregas ago/26, reavaliar em jul/26. Trendseg: verificação manual do painel pendente.
 
+### [S13-C] feat(data): +GWM Ora 5 (issue #15) · 24/06/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `constants.ts`: +GWM Ora 5 (SUV, R$159k, 349 km, LFP 58,3 kWh, 204 cv / 26,5 kgfm, FWD, DC 120 kW). Badge Novo adicionado ao `NEW_MODELS`. Imagem `Ora 05.jpg` já existia em `public/car-images/`. `README.md`: 101 modelos (tabela PT+EN atualizada). Sitemap + `cars.json` regenerados com 101 veículos e 1136 comparativos. |
+| Build  | ✅ | `npm run build` — 6s, sem erros |
+| Testes | ✅ | 108/108 passando |
+| Commit | ✅ | — |
+
+**Notas:** Dados via GitHub issue #15 (ref. MercadoLivre). Autonomia 349 km sem certificação PBEV oficial; atualizar quando Inmetro homologar.
+
 ### [S13-B] feat(images): imagens oficiais MG Motor · 02/06/2026
 
 | Etapa  | Status | Detalhe |

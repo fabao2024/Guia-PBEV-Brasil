@@ -15,6 +15,7 @@ const NEW_MODELS = new Set([
   'Aion UT Premium',
   'Aion UT Elite',
   'Sealion 7',
+  'Ora 5',
 ]);
 
 export const isCarNew = (car: Car): boolean => NEW_MODELS.has(car.model);
@@ -317,6 +318,22 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.51,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 67,
+  },
+  {
+    model: "Ora 5", brand: "GWM", price: 159000, range: 349, cat: "SUV",
+    img: "/car-images/Ora 05.jpg",
+    power: 204, torque: 26.5, traction: 'FWD', battery: 58.3,
+    features: [
+      "Bateria LFP 58,3 kWh",
+      "Carregamento AC 11 kW / DC 120 kW",
+      "Motor elétrico FWD 204 cv / 26,5 kgfm",
+      "Tela central com CarPlay e Android Auto",
+      "ADAS: ACC + AEB + monitoramento de ponto cego",
+      "Câmera de ré HD",
+      "Teto solar panorâmico",
+      "Design SUV com acabamento premium"
+    ],
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 120,
   },
   {
     model: "Spark EUV", brand: "Chevrolet", price: 144990, range: 258, cat: "Urbano",
