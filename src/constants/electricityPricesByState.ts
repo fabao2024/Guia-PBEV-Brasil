@@ -1,9 +1,9 @@
 // Tarifas residenciais B1 (TE + TUSD, sem ICMS, sem bandeira tarifária)
 // Fonte: dadosabertos.aneel.gov.br — Tarifas Homologadas Distribuidoras
 // Referência: distribuidora principal por estado (maior cobertura populacional)
-// Atualizado em: jun/2026
+// Atualizado em: jul/2026
 
-export const ELECTRICITY_PRICES_UPDATED = 'jun/2026';
+export const ELECTRICITY_PRICES_UPDATED = 'jul/2026';
 
 export const ELECTRICITY_PRICES_BY_STATE: Record<string, number> = {
   AC: 0.87, // Energisa Acre
@@ -27,11 +27,11 @@ export const ELECTRICITY_PRICES_BY_STATE: Record<string, number> = {
   RJ: 0.97, // Enel RJ + Light (média pós-reajuste mar/2026)
   RN: 0.77, // COSERN (+3.74% abr/2026)
   RO: 0.83, // Energisa RO + Eletrobras RO (média)
-  RR: 0.79, // Boa Vista Energia
+  RR: 0.97, // Boa Vista Energia (+22,90% jan/2026)
   RS: 0.82, // CEEE-D + RGE (~60% do estado)
   SC: 0.70, // CELESC (~95% do estado)
   SE: 0.74, // Energisa SE + Sulgipe (média, +5% abr/2026)
-  SP: 0.74, // Média de 7 distribuidoras (Eletropaulo, EDP, CPFL, Elektro…)
+  SP: 0.77, // Média de 7 distribuidoras (Enel SP +9,02% jul/2026, EDP, CPFL, Elektro…)
   TO: 0.93, // Energisa TO
 };
 
