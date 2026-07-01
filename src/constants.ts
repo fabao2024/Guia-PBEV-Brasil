@@ -236,7 +236,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 87,
   },
   {
-    model: "EX2 Max", brand: "Geely", price: 135100, range: 289, cat: "Compacto",
+    model: "EX2 Max", brand: "Geely", price: 136800, range: 289, cat: "Compacto",
     img: "/car-images/geely-ex2-max.jpg",
     power: 116, torque: 15.3, traction: 'FWD', battery: 39.4,
     features: [
@@ -250,6 +250,23 @@ export const CAR_DB: Car[] = [
       "Faróis LED full"
     ],
     pbeRating: 'A', energyMJkm: 0.39,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 70,
+  },
+  {
+    model: "EX2 Pro", brand: "Geely", price: 123800, range: 289, cat: "Compacto",
+    img: "/car-images/geely-ex2-pro.webp",
+    power: 116, torque: 15.3, traction: 'FWD', battery: 39,
+    features: [
+      "Bateria LFP de 39 kWh",
+      "Carregamento AC 7 kW / DC 70 kW",
+      "Tela central 14,6\" com CarPlay e Android Auto",
+      "Painel digital 8,8\"",
+      "6 airbags",
+      "Ar-condicionado com saídas para banco traseiro",
+      "Faróis LED com acionamento automático",
+      "Rodas de aço aro 15\"",
+      "Seletor de modos de condução"
+    ],
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 70,
   },
   {
