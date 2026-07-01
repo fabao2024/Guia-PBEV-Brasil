@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-24T14:35:19.539Z",
-  "total": 101,
+  "generated_at": "2026-07-01T21:06:47.601Z",
+  "total": 102,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "cars": [
     {
@@ -230,7 +230,7 @@
     {
       "model": "EX2 Max",
       "brand": "Geely",
-      "price": 135100,
+      "price": 136800,
       "range_km": 289,
       "category": "Compacto",
       "image_url": "https://guiapbev.cloud/car-images/geely-ex2-max.jpg",
@@ -258,6 +258,39 @@
       "discontinued": false,
       "slug": "geely-ex2-max",
       "detail_url": "https://guiapbev.cloud/carro/geely-ex2-max"
+    },
+    {
+      "model": "EX2 Pro",
+      "brand": "Geely",
+      "price": 123800,
+      "range_km": 289,
+      "category": "Compacto",
+      "image_url": "https://guiapbev.cloud/car-images/geely-ex2-pro.webp",
+      "traction": "FWD",
+      "power_cv": 116,
+      "torque_kgfm": 15.3,
+      "battery_kwh": 39,
+      "charge_ac_kw": 7,
+      "charge_dc_kw": 70,
+      "warranty_years": 5,
+      "warranty_battery_years": 8,
+      "pbe_rating": null,
+      "energy_mj_km": null,
+      "features": [
+        "Bateria LFP de 39 kWh",
+        "Carregamento AC 7 kW / DC 70 kW",
+        "Tela central 14,6\" com CarPlay e Android Auto",
+        "Painel digital 8,8\"",
+        "6 airbags",
+        "Ar-condicionado com saídas para banco traseiro",
+        "Faróis LED com acionamento automático",
+        "Rodas de aço aro 15\"",
+        "Seletor de modos de condução"
+      ],
+      "is_new": false,
+      "discontinued": false,
+      "slug": "geely-ex2-pro",
+      "detail_url": "https://guiapbev.cloud/carro/geely-ex2-pro"
     },
     {
       "model": "Aya Luxury",
