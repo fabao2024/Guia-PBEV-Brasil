@@ -115,6 +115,8 @@ src/
 ## Environment Variables
 ```env
 VITE_GEMINI_API_KEY=your_key   # Optional on GitHub Pages (users provide their own)
+VITE_LANGSMITH_API_KEY=your_key  # Optional — dev-only LLM call tracing (LangSmith)
+VITE_LANGSMITH_PROJECT=guia-pbev # Optional — LangSmith project name (default: guia-pbev)
 ```
 
 ## Workflow Rules
@@ -150,3 +152,5 @@ VITE_GEMINI_API_KEY=your_key   # Optional on GitHub Pages (users provide their o
 - `SavingsSimulatorModal` uses `export default` — all other components use named exports
 - One-off Node.js scripts at project root (`add_traction.js`, `replace.js`) used for bulk data edits; safe to delete after use
 - PBEV reference table at project root: `Tabela PBEV 2026_27_FEV-REV05 (2).pdf` — 146 EVs; read with `pdfplumber` (`pip install pdfplumber`); filter col 5 case-insensitive for `'elétrico'`
+- `langsmith` is in **devDependencies** — tracing (`src/utils/tracing.ts`) is dev-only and silently no-ops in production or when key is absent; never move it to dependencies
+- LLM calls in `ChatWidget.tsx` are wrapped in `traceLLMCall()` from `utils/tracing.ts` — preserve this wrapper when modifying the send path

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-01T20:24:05.583Z",
+  "generated_at": "2026-07-01T22:01:58.836Z",
   "total": 102,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "cars": [
@@ -265,7 +265,7 @@
       "price": 123800,
       "range_km": 289,
       "category": "Compacto",
-      "image_url": "https://guiapbev.cloud/car-images/geely-ex2-max.jpg",
+      "image_url": "https://guiapbev.cloud/car-images/geely-ex2-pro.webp",
       "traction": "FWD",
       "power_cv": 116,
       "torque_kgfm": 15.3,

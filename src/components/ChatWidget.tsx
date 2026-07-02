@@ -7,6 +7,7 @@ import ReactMarkdown from 'react-markdown';
 import { CAR_DB } from '../constants';
 import { Car, ChatMessage } from '../types';
 import { sanitizeChatInput, validateChatInput } from '../utils/sanitize';
+import { traceLLMCall } from '../utils/tracing';
 import { useRateLimit } from '../hooks/useRateLimit';
 import { FUEL_PRICES_BY_STATE, FUEL_PRICES_UPDATED } from '../constants/fuelPricesByState';
 import { ELECTRICITY_PRICES_BY_STATE, ELECTRICITY_PRICES_UPDATED } from '../constants/electricityPricesByState';
@@ -596,9 +597,14 @@ SUGGEST_EV_READY:{"brand":"MARCA","model":"MODELO","price":"PRECO","range":"AUTO
     try {
       const ragContext = buildRagContext(sanitized, i18n.language);
       const messageToSend = ragContext ? `${ragContext}\n\n${sanitized}` : sanitized;
-      const result = await sendWithRetry(messageToSend);
-      const response = await result!.response;
-      const responseText = response.text();
+      const responseText = await traceLLMCall(
+        { userMessage: sanitized, fullMessage: messageToSend, model: 'gemini-2.5-flash-lite', lang: i18n.language, ragUsed: !!ragContext },
+        async () => {
+          const result = await sendWithRetry(messageToSend);
+          const response = await result!.response;
+          return response.text();
+        }
+      );
 
       // Canary check — if the model echoed the confidential token, the system prompt
       // was leaked. Reset the session immediately and show a generic security notice.

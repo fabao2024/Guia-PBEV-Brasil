@@ -590,6 +590,43 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 
 **Notas:** MG4 Urban e ORA 5 identificados mas aguardam PBEV homologado + preço oficial (jul/26). Lotus Eletre/Emeya: entregas ago/26, reavaliar em jul/26. Trendseg: verificação manual do painel pendente.
 
+### [S14-A] feat(data): +Geely EX2 Pro + preço EX2 Max (issue #16) · 01/07/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `constants.ts`: +Geely EX2 Pro (Compacto, R$123.800, 289 km, 116 cv, 39 kWh, FWD, DC 70 kW). EX2 Max: R$135.100 → R$136.800. `priceHistory.ts`: snapshot jul/26 para ambos. Imagem `geely-ex2-pro.webp` adicionada. |
+| Build  | ✅ | `npm run build` — 10s, sem erros |
+| Testes | ✅ | 108/108 passando |
+| Commit | ✅ | `7114698` |
+
+**Notas:** Issue #16 manutenção mensal jul/26 — Bloco 1. Omoda E5 versão R$149.900 aguarda lançamento oficial. BYD Dolphin Mini sem ação (notícia de garantia, não preço). Bloco 3 (Trendseg) pendente.
+
+### [S14-B] chore(data): tarifas ANEEL B1 jul/2026 · 01/07/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `electricityPricesByState.ts`: RR 0,79→0,97 (+22,90% Boa Vista Energia, jan/2026 não capturado); SP 0,74→0,77 (Enel SP +9,02% jul/2026). CEMIG-D +6,50% mai/2026 já estava correto (0,86). Timestamp jun/2026→jul/2026. |
+| Build  | ✅ | `npm run build` — 7s, sem erros |
+| Testes | ✅ | 108/108 passando |
+| Commit | ✅ | `da6bcb0` |
+
+**Notas:** SP é estimativa conservadora (Enel SP ~40% do estado). Reajustes abr/2026 (MS, MT, BA, RN, CE, SE) já estavam no arquivo desde jun/26.
+
+### [S14-C] chore(manutenção): verificação Trendseg · 01/07/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | — | Sem alteração de código |
+| Build  | — | — |
+| Testes | — | — |
+| Commit | — | — |
+
+**Notas:** Programa Trendseg ativo mas cadastro de mar/2026 (97 dias) sem resposta. `INSURANCE_AFFILIATE_URL` mantido como placeholder Porto Seguro. Ação pendente: recontatar afiliado@trendseg.com ou partir para Youse Negócios.
+
+---
+
+## Sprint 14 — Manutenção mensal jul/2026 · 01/07/2026
+
 ### [S13-C] feat(data): +GWM Ora 5 (issue #15) · 24/06/2026
 
 | Etapa  | Status | Detalhe |
