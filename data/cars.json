@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-02T19:13:33.453Z",
-  "total": 102,
+  "generated_at": "2026-07-03T11:54:47.624Z",
+  "total": 108,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "cars": [
     {
@@ -1033,6 +1033,38 @@
       "discontinued": false,
       "slug": "geely-ex5-max",
       "detail_url": "https://guiapbev.cloud/carro/geely-ex5-max"
+    },
+    {
+      "model": "EX5 Pro",
+      "brand": "Geely",
+      "price": 195800,
+      "range_km": 413,
+      "category": "SUV",
+      "image_url": "https://guiapbev.cloud/car-images/geely-ex5-pro.webp",
+      "traction": "FWD",
+      "power_cv": 218,
+      "torque_kgfm": 32.6,
+      "battery_kwh": 60.2,
+      "charge_ac_kw": 11,
+      "charge_dc_kw": 160,
+      "warranty_years": 5,
+      "warranty_battery_years": 8,
+      "pbe_rating": null,
+      "energy_mj_km": null,
+      "features": [
+        "Bateria LFP de 60,2 kWh — maior autonomia da linha EX5",
+        "Carregamento AC 11 kW / DC 160 kW",
+        "Tela dupla 12,3\" (painel + central) com CarPlay e Android Auto",
+        "6 airbags",
+        "ADAS: ACC + LCC + AEB + LKA + alerta de ponto cego (BSM)",
+        "Câmera 360°",
+        "Head-up display (HUD)",
+        "Bancos aquecidos e ventilados + teto solar"
+      ],
+      "is_new": true,
+      "discontinued": false,
+      "slug": "geely-ex5-pro",
+      "detail_url": "https://guiapbev.cloud/carro/geely-ex5-pro"
     },
     {
       "model": "Kona EV",
@@ -2863,6 +2895,62 @@
       "detail_url": "https://guiapbev.cloud/carro/citroen-e-jumpy"
     },
     {
+      "model": "MG4 Urban Comfort",
+      "brand": "MG Motor",
+      "price": 130000,
+      "range_km": 299,
+      "category": "Compacto",
+      "image_url": "https://guiapbev.cloud/car-images/mg4-urban.jpg",
+      "traction": "FWD",
+      "power_cv": 160,
+      "torque_kgfm": null,
+      "battery_kwh": 43,
+      "charge_ac_kw": null,
+      "charge_dc_kw": null,
+      "warranty_years": 7,
+      "warranty_battery_years": 7,
+      "pbe_rating": "A",
+      "energy_mj_km": null,
+      "features": [
+        "Bateria LFP 43 kWh",
+        "Versão de entrada da linha MG4 Urban — rodas aro 16",
+        "Tela central com CarPlay e Android Auto",
+        "6 airbags"
+      ],
+      "is_new": true,
+      "discontinued": false,
+      "slug": "mg-motor-mg4-urban-comfort",
+      "detail_url": "https://guiapbev.cloud/carro/mg-motor-mg4-urban-comfort"
+    },
+    {
+      "model": "MG4 Urban Luxury",
+      "brand": "MG Motor",
+      "price": 160000,
+      "range_km": 358,
+      "category": "Compacto",
+      "image_url": "https://guiapbev.cloud/car-images/mg4-urban.jpg",
+      "traction": "FWD",
+      "power_cv": 160,
+      "torque_kgfm": null,
+      "battery_kwh": 54,
+      "charge_ac_kw": null,
+      "charge_dc_kw": null,
+      "warranty_years": 7,
+      "warranty_battery_years": 7,
+      "pbe_rating": "A",
+      "energy_mj_km": null,
+      "features": [
+        "Bateria LFP 54 kWh — maior autonomia da linha Urban",
+        "Rodas aro 17, pneus 205/50",
+        "Tela central com CarPlay e Android Auto",
+        "6 airbags"
+      ],
+      "is_new": true,
+      "discontinued": false,
+      "slug": "mg-motor-mg4-urban-luxury",
+      "detail_url": "https://guiapbev.cloud/carro/mg-motor-mg4-urban-luxury"
+    },
+    {
       "model": "MG4 Comfort",
       "brand": "MG Motor",
       "price": 164600,
@@ -3246,6 +3334,36 @@
       "detail_url": "https://guiapbev.cloud/carro/jac-e-jv5-5"
     },
     {
+      "model": "iEV330P",
+      "brand": "JAC",
+      "price": 389900,
+      "range_km": 226,
+      "category": "Comercial",
+      "image_url": "https://guiapbev.cloud/car-images/jac-iev330p.jpg",
+      "traction": "RWD",
+      "power_cv": 204,
+      "torque_kgfm": 30.8,
+      "battery_kwh": 65.3,
+      "charge_ac_kw": null,
+      "charge_dc_kw": null,
+      "warranty_years": 3,
+      "warranty_battery_years": 8,
+      "pbe_rating": "A",
+      "energy_mj_km": null,
+      "features": [
+        "Bateria LFP 65,3 kWh",
+        "1ª picape 100% elétrica do mercado brasileiro",
+        "Ar-condicionado automático",
+        "Direção eletro-hidráulica",
+        "Central multimídia com tela 10,25\"",
+        "Painel de instrumentos em LED"
+      ],
+      "is_new": true,
+      "discontinued": false,
+      "slug": "jac-iev330p",
+      "detail_url": "https://guiapbev.cloud/carro/jac-iev330p"
+    },
+    {
       "model": "eSprinter 320",
       "brand": "Mercedes-Benz",
       "price": 482900,
@@ -3276,6 +3394,64 @@
       "discontinued": false,
       "slug": "mercedes-benz-esprinter-320",
       "detail_url": "https://guiapbev.cloud/carro/mercedes-benz-esprinter-320"
+    },
+    {
+      "model": "RZ 500e",
+      "brand": "Lexus",
+      "price": 499990,
+      "range_km": 357,
+      "category": "SUV",
+      "image_url": "https://guiapbev.cloud/car-images/lexus-rz-500e.jpg",
+      "traction": "AWD",
+      "power_cv": 381,
+      "torque_kgfm": null,
+      "battery_kwh": null,
+      "charge_ac_kw": null,
+      "charge_dc_kw": 150,
+      "warranty_years": 3,
+      "warranty_battery_years": 10,
+      "pbe_rating": null,
+      "energy_mj_km": null,
+      "features": [
+        "1º veículo 100% elétrico da Lexus no Brasil",
+        "Tração integral DIRECT4",
+        "0-100 km/h em 4,6 s",
+        "Recarga DC até 150 kW — 30 min para 80%",
+        "Financiamento Lexus Privilege com recompra garantida"
+      ],
+      "is_new": true,
+      "discontinued": false,
+      "slug": "lexus-rz-500e",
+      "detail_url": "https://guiapbev.cloud/carro/lexus-rz-500e"
+    },
+    {
+      "model": "Avatr 11",
+      "brand": "CAOA Changan",
+      "price": 599990,
+      "range_km": 497,
+      "category": "SUV",
+      "image_url": "https://guiapbev.cloud/car-images/caoa-changan-avatr-11.jpg",
+      "traction": "AWD",
+      "power_cv": 585,
+      "torque_kgfm": 61.1,
+      "battery_kwh": 116,
+      "charge_ac_kw": null,
+      "charge_dc_kw": null,
+      "warranty_years": 3,
+      "warranty_battery_years": 8,
+      "pbe_rating": null,
+      "energy_mj_km": null,
+      "features": [
+        "Bateria CATL 116 kWh",
+        "0-100 km/h em 3,9 s",
+        "Plataforma de IA \"Vortex\" (iluminação, som e interface adaptativos)",
+        "Mais de 40 combinações de personalização",
+        "Rival direta de BMW iX, Audi Q8 e-tron e Porsche Macan EV"
+      ],
+      "is_new": true,
+      "discontinued": false,
+      "slug": "caoa-changan-avatr-11",
+      "detail_url": "https://guiapbev.cloud/carro/caoa-changan-avatr-11"
     }
   ]
 }
