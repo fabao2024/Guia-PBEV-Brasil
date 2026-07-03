@@ -623,6 +623,17 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 
 **Notas:** Programa Trendseg ativo mas cadastro de mar/2026 (97 dias) sem resposta. `INSURANCE_AFFILIATE_URL` mantido como placeholder Porto Seguro. Ação pendente: recontatar afiliado@trendseg.com ou partir para Youse Negócios.
 
+### [S14-D] feat(data): tabela PBEV atualizada + 6 veículos novos (Lexus, CAOA Changan, JAC iEV330P, Geely EX5 Pro, MG4 Urban Comfort/Luxury) · 02/07/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | Nova tabela `Tabela PBEV 2026_3_JUN-1` (INMETRO, 03/06/2026) baixada e extraída via `pdfplumber` (117 modelos 100% elétricos), comparada contra os 102 veículos do catálogo. `constants.ts`: +6 entradas em `CAR_DB` — **Lexus RZ 500e** (marca nova, SUV AWD, 381 cv, 357 km, R$499.990), **CAOA Changan Avatr 11** (marca nova, SUV, 585 cv, bateria CATL 116 kWh, 497 km, R$599.990), **JAC iEV330P** (1ª picape elétrica do Brasil, 226 km, R$389.900), **Geely EX5 Pro** (413 km, R$195.800), **MG4 Urban Comfort** (43 kWh, 299 km, R$130.000 estimado) e **MG4 Urban Luxury** (54 kWh, 358 km, R$160.000 estimado — ambos sem tabela oficial da MG). 2 marcas novas em `BRAND_URLS` (Lexus, CAOA Changan). 6 modelos em `NEW_MODELS`. `priceHistory.ts`: 6 snapshots 2026-07. 5 imagens baixadas de fontes oficiais/imprensa e verificadas com `file`. `README.md`, `sitemap.xml` e `cars.json` regenerados automaticamente pelo script de build: 108 veículos, 32 marcas. |
+| Build  | ✅ | `npm run build` — 7s, sem erros |
+| Testes | ✅ | 108/108 passando |
+| Commit | ✅ | — |
+
+**Notas:** PDF salvo como `Tabela PBEV 2026_3_JUN-1.pdf` na raiz do projeto (substitui a tabela antiga). **MG4 Urban Comfort/Luxury usam preços estimados de imprensa (R$130.000/R$160.000), não oficiais** — reavaliar e corrigir assim que a MG divulgar a tabela de preços (pré-reserva aberta, lançamento previsto jun/26 segundo imprensa). Achado paralelo: `check-pbev-update.mjs` não reconhece o novo padrão de nome de arquivo do INMETRO — automação de detecção mensal precisa de fix futuro na regex de versão.
+
 ---
 
 ## Sprint 14 — Manutenção mensal jul/2026 · 01/07/2026

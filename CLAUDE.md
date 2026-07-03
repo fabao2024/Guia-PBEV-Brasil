@@ -151,6 +151,7 @@ VITE_LANGSMITH_PROJECT=guia-pbev # Optional — LangSmith project name (default:
 - Use `.custom-scrollbar-dark` class on scrollable containers for consistent dark-mode scrollbars
 - `SavingsSimulatorModal` uses `export default` — all other components use named exports
 - One-off Node.js scripts at project root (`add_traction.js`, `replace.js`) used for bulk data edits; safe to delete after use
-- PBEV reference table at project root: `Tabela PBEV 2026_27_FEV-REV05 (2).pdf` — 146 EVs; read with `pdfplumber` (`pip install pdfplumber`); filter col 5 case-insensitive for `'elétrico'`
+- PBEV reference table at project root: `Tabela PBEV 2026_3_JUN-1.pdf` (updated 02/07/2026, supersedes the old `2026_27_FEV-REV05`) — read with `pdfplumber` (`pip install pdfplumber`); use `page.extract_table()` per page, filter rows where column index 5 (`Tipo de Propulsão`) equals `'Elétrico'` exactly (not `'Plug-in'`/`'Híbrido'`); column 24 = autonomia elétrica (km), column 23 = consumo energético (MJ/km)
+- `.github/scripts/check-pbev-update.mjs`'s `VERSION_PATTERN` regex only matches the old `AAAA_AA_MES-REVNN` filename format — INMETRO's current naming (`2026_3_JUN-1`) doesn't match, so the automated monthly check silently won't detect new tables until the regex is updated
 - `langsmith` is in **devDependencies** — tracing (`src/utils/tracing.ts`) is dev-only and silently no-ops in production or when key is absent; never move it to dependencies
 - LLM calls in `ChatWidget.tsx` are wrapped in `traceLLMCall()` from `utils/tracing.ts` — preserve this wrapper when modifying the send path

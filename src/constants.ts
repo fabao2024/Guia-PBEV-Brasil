@@ -16,6 +16,12 @@ const NEW_MODELS = new Set([
   'Aion UT Elite',
   'Sealion 7',
   'Ora 5',
+  'EX5 Pro',
+  'iEV330P',
+  'RZ 500e',
+  'Avatr 11',
+  'MG4 Urban Comfort',
+  'MG4 Urban Luxury',
 ]);
 
 export const isCarNew = (car: Car): boolean => NEW_MODELS.has(car.model);
@@ -53,7 +59,9 @@ export const BRAND_URLS: Record<string, string> = {
   "Leapmotor": "https://www.leapmotor.com.br",
   "Suzuki": "https://www.suzukiveiculos.com.br",
   "Farizon": "https://www.farizontimber.com.br",
-  "Foton": "https://fotondobrasil.com.br"
+  "Foton": "https://fotondobrasil.com.br",
+  "Lexus": "https://www.lexus.com.br",
+  "CAOA Changan": "https://caoachangan.com.br"
 };
 
 // Image Strategy:
@@ -651,6 +659,22 @@ export const CAR_DB: Car[] = [
     power: 218, torque: 32.6, traction: 'FWD', battery: 60.1,
     features: [
       "Bateria LFP de 60,2 kWh",
+      "Carregamento AC 11 kW / DC 160 kW",
+      "Tela dupla 12,3\" (painel + central) com CarPlay e Android Auto",
+      "6 airbags",
+      "ADAS: ACC + LCC + AEB + LKA + alerta de ponto cego (BSM)",
+      "Câmera 360°",
+      "Head-up display (HUD)",
+      "Bancos aquecidos e ventilados + teto solar"
+    ],
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 160,
+  },
+  {
+    model: "EX5 Pro", brand: "Geely", price: 195800, range: 413, cat: "SUV",
+    img: "/car-images/geely-ex5-pro.webp",
+    power: 218, torque: 32.6, traction: 'FWD', battery: 60.2,
+    features: [
+      "Bateria LFP de 60,2 kWh — maior autonomia da linha EX5",
       "Carregamento AC 11 kW / DC 160 kW",
       "Tela dupla 12,3\" (painel + central) com CarPlay e Android Auto",
       "6 airbags",
@@ -1615,6 +1639,35 @@ export const CAR_DB: Car[] = [
   },
 
   // 5. MG MOTOR
+  // MG4 Urban (Comfort/Luxury): preços ESTIMADOS pela imprensa — MG ainda não divulgou tabela oficial
+  // (pré-reserva aberta em mgmotoroficial.com.br/model/mg4urban, lançamento previsto jun/26).
+  // Reavaliar e corrigir para o preço oficial assim que divulgado.
+  {
+    model: "MG4 Urban Comfort", brand: "MG Motor", price: 130000, range: 299, cat: "Compacto",
+    img: "/car-images/mg4-urban.jpg",
+    power: 160, traction: 'FWD', battery: 43,
+    features: [
+      "Bateria LFP 43 kWh",
+      "Versão de entrada da linha MG4 Urban — rodas aro 16",
+      "Tela central com CarPlay e Android Auto",
+      "6 airbags"
+    ],
+    pbeRating: 'A',
+    warrantyYears: 7, warrantyBatteryYears: 7,
+  },
+  {
+    model: "MG4 Urban Luxury", brand: "MG Motor", price: 160000, range: 358, cat: "Compacto",
+    img: "/car-images/mg4-urban.jpg",
+    power: 160, traction: 'FWD', battery: 54,
+    features: [
+      "Bateria LFP 54 kWh — maior autonomia da linha Urban",
+      "Rodas aro 17, pneus 205/50",
+      "Tela central com CarPlay e Android Auto",
+      "6 airbags"
+    ],
+    pbeRating: 'A',
+    warrantyYears: 7, warrantyBatteryYears: 7,
+  },
   {
     model: "MG4 Comfort", brand: "MG Motor", price: 164600, range: 364, cat: "Compacto",
     img: "/car-images/mg4-comfort.webp",
@@ -1830,6 +1883,23 @@ export const CAR_DB: Car[] = [
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 60,
   },
 
+  // JAC iEV330P (primeira picape 100% elétrica do Brasil)
+  {
+    model: "iEV330P", brand: "JAC", price: 389900, range: 226, cat: "Comercial",
+    img: "/car-images/jac-iev330p.jpg",
+    power: 204, torque: 30.8, traction: 'RWD', battery: 65.3,
+    features: [
+      "Bateria LFP 65,3 kWh",
+      "1ª picape 100% elétrica do mercado brasileiro",
+      "Ar-condicionado automático",
+      "Direção eletro-hidráulica",
+      "Central multimídia com tela 10,25\"",
+      "Painel de instrumentos em LED"
+    ],
+    pbeRating: 'A',
+    warrantyYears: 3, warrantyBatteryYears: 8,
+  },
+
   // MERCEDES-BENZ eSprinter (furgão premium)
   {
     model: "eSprinter 320", brand: "Mercedes-Benz", price: 482900, range: 206, cat: "Comercial",
@@ -1847,5 +1917,35 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 1.09,
     warrantyYears: 3, warrantyBatteryYears: 10, chargeAC: 22, chargeDC: 115,
+  },
+
+  // LEXUS RZ 500e (1º elétrico da marca no Brasil)
+  {
+    model: "RZ 500e", brand: "Lexus", price: 499990, range: 357, cat: "SUV",
+    img: "/car-images/lexus-rz-500e.jpg",
+    power: 381, traction: 'AWD',
+    features: [
+      "1º veículo 100% elétrico da Lexus no Brasil",
+      "Tração integral DIRECT4",
+      "0-100 km/h em 4,6 s",
+      "Recarga DC até 150 kW — 30 min para 80%",
+      "Financiamento Lexus Privilege com recompra garantida"
+    ],
+    warrantyYears: 3, warrantyBatteryYears: 10, chargeDC: 150,
+  },
+
+  // CAOA CHANGAN — Avatr 11 (linha de luxo elétrico, estreia da marca no catálogo)
+  {
+    model: "Avatr 11", brand: "CAOA Changan", price: 599990, range: 497, cat: "SUV",
+    img: "/car-images/caoa-changan-avatr-11.jpg",
+    power: 585, torque: 61.1, traction: 'AWD', battery: 116,
+    features: [
+      "Bateria CATL 116 kWh",
+      "0-100 km/h em 3,9 s",
+      "Plataforma de IA \"Vortex\" (iluminação, som e interface adaptativos)",
+      "Mais de 40 combinações de personalização",
+      "Rival direta de BMW iX, Audi Q8 e-tron e Porsche Macan EV"
+    ],
+    warrantyYears: 3, warrantyBatteryYears: 8,
   },
 ];

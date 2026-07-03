@@ -553,6 +553,26 @@
 
 ---
 
+### Sprint 14 — 01–02/07/2026
+**Tema: Manutenção mensal jul/2026 + atualização tabela PBEV**
+- ✅ feat: Geely EX2 Pro (Compacto, R$123.800, 289 km) + reajuste EX2 Max R$136.800 (102 veículos)
+- ✅ chore: tarifas ANEEL B1 jul/2026 — RR +22,90%, SP +9,02% (Enel SP)
+- ℹ️ Trendseg: cadastro de mar/2026 (97 dias) segue sem resposta; placeholder Porto Seguro mantido
+- ✅ feat: tabela PBEV do INMETRO atualizada — `Tabela PBEV 2026_3_JUN-1` (03/06/2026) substitui `2026_27_FEV-REV05`; 117 modelos 100% elétricos extraídos e comparados contra o catálogo (102 veículos)
+- ✅ feat: +5 modelos confirmados via nova tabela PBEV + preço oficial (108 veículos, 32 marcas — MG4 Urban entra como 2 versões)
+  - **Lexus RZ 500e** (marca nova) — SUV AWD, 381 cv, 357 km PBEV, R$499.990
+  - **CAOA Changan Avatr 11** (marca nova, distinta de CAOA Chery) — SUV Extra Grande, 585 cv, bateria CATL 116 kWh, 497 km PBEV, R$599.990–619.990
+  - **JAC iEV330P** — 1ª picape 100% elétrica do Brasil, LFP 65,3 kWh, 226 km PBEV, R$389.900
+  - **Geely EX5 Pro** — nova versão da linha EX5 (já havia Max), 413 km PBEV, R$195.800
+  - **MG4 Urban Comfort** (43 kWh, 299 km, aro 16) e **MG4 Urban Luxury** (54 kWh, 358 km, aro 17) — PBEV homologado; ⚠️ **preços R$130.000/R$160.000 são estimativa de imprensa** (MG só abriu pré-reserva, sem tabela oficial) — reavaliar quando divulgado
+- ⚠️ Achado: `.github/scripts/check-pbev-update.mjs` usa regex de versão no formato antigo (`AAAA_AA_MES-REVNN`) e não reconhece o novo padrão do INMETRO (`2026_3_JUN-1`) — automação de detecção mensal não vai disparar até a regex ser corrigida
+
+> **Resumo técnico — Sprint 14 (01–02/07/2026):**
+> S14-A/B/C: ver commits `7114698`, `da6bcb0`, verificação Trendseg sem alteração de código.
+> S14-D: PDF baixado de `gov.br/inmetro` (páginas antigas do script de automação retornam 404/DNS falho; URL correta descoberta via busca: `.../tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular`). Extração via `pdfplumber` (`page.extract_table()` por página, coluna 5 = Tipo de Propulsão, coluna 24 = autonomia km). `constants.ts`: +6 entradas em `CAR_DB` (MG4 Urban vira 2 versões — Comfort e Luxury), 2 novas marcas em `BRAND_URLS` (Lexus, CAOA Changan), 6 modelos em `NEW_MODELS`. `priceHistory.ts`: 6 snapshots 2026-07. 5 imagens baixadas de fontes oficiais/imprensa (Lexus, CAOA Changan, JAC, Geely, MG Motor — Comfort e Luxury do MG4 Urban compartilham a mesma imagem), verificadas com `file`. `README.md` e `sitemap.xml`/`cars.json` atualizados automaticamente pelo script de build (108 veículos, 32 marcas). 108 testes passando.
+
+---
+
 ### Sprint 13 — 01/06/2026
 **Tema: Manutenção mensal jun/2026**
 - ✅ chore: tarifas ANEEL B1 — 6 estados atualizados (reajustes abr/2026)
