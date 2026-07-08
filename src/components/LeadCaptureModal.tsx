@@ -189,7 +189,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, onClose 
 
           <label className="flex flex-col gap-1 text-sm font-bold text-white/80">
             Cidade/UF
-            <input value={form.city} onChange={e => updateField('city', e.target.value)} className={inputClass} placeholder="Jundiaí/SP" />
+            <input required value={form.city} onChange={e => updateField('city', e.target.value)} className={inputClass} placeholder="Jundiaí/SP" />
           </label>
 
           <label className="flex flex-col gap-1 text-sm font-bold text-white/80">

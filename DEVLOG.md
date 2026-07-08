@@ -746,7 +746,7 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 
 | Etapa  | Status | Detalhe |
 |--------|--------|---------|
-| Dev    | ✅ | `LeadCaptureModal` agora exige seleção explícita da modalidade (`compra`, `seguro`, `wallbox`, `financiamento`, `frota`, `duvida`) e checkbox de consentimento. Copy reposicionado para lead-gen/referral: Guia PBEV não vende, financia, segura ou instala; registra interesse e pode encaminhar para parceiro. CTA do detalhe do veículo mudou para “Registrar interesse com parceiro”. |
+| Dev    | ✅ | `LeadCaptureModal` agora exige cidade/UF, seleção explícita da modalidade (`compra`, `seguro`, `wallbox`, `financiamento`, `frota`, `duvida`) e checkbox de consentimento. Copy reposicionado para lead-gen/referral: Guia PBEV não vende, financia, segura ou instala; registra interesse e pode encaminhar para parceiro. CTA do detalhe do veículo mudou para “Registrar interesse com parceiro”. |
 | Build  | ✅ | `npm run build` — build Vite concluído; avisos existentes de bundle/chunks e Leaflet assets, sem erro. |
 | Testes | ✅ | `npm run test:run -- src/components/__tests__/LeadCaptureModal.test.tsx`; `npm run test:run` — 11 suites, 111/111 testes passando. |
 | Commit | ✅ | — |
