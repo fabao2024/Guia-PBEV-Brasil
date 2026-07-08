@@ -16,7 +16,7 @@ interface CarDetailsModalProps {
     onToggleCompare: () => void;
     isFavorite: boolean;
     onToggleFavorite: () => void;
-    onLeadRequest: () => void;
+    onLeadRequest?: () => void;
 }
 
 const MAX_RANGE_KM = 700;
@@ -676,17 +676,19 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                                 <span className="hidden sm:inline">{copied ? t('card.shareCopied') : t('card.share')}</span>
                             </button>
 
-                            <button
-                                onClick={onLeadRequest}
-                                className="flex-[2] text-white font-black tracking-normal text-xs py-3.5 rounded-2xl transition-all hover:brightness-110 active:scale-[0.98] flex items-center justify-center gap-1.5 whitespace-nowrap"
-                                style={{
-                                    background: 'linear-gradient(135deg, #006ce5, #00b4ff)',
-                                    boxShadow: '0 4px 16px rgba(0,180,255,0.3)',
-                                }}
-                            >
-                                <span>Registrar interesse com parceiro</span>
-                                <ArrowUpRight className="w-4 h-4" />
-                            </button>
+                            {onLeadRequest && (
+                                <button
+                                    onClick={onLeadRequest}
+                                    className="flex-[2] text-white font-black tracking-normal text-xs py-3.5 rounded-2xl transition-all hover:brightness-110 active:scale-[0.98] flex items-center justify-center gap-1.5 whitespace-nowrap"
+                                    style={{
+                                        background: 'linear-gradient(135deg, #006ce5, #00b4ff)',
+                                        boxShadow: '0 4px 16px rgba(0,180,255,0.3)',
+                                    }}
+                                >
+                                    <span>Registrar interesse com parceiro</span>
+                                    <ArrowUpRight className="w-4 h-4" />
+                                </button>
+                            )}
                         </div>
 
                         {/* Discontinued notice */}

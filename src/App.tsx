@@ -12,6 +12,7 @@ import LeadCaptureModal from './components/LeadCaptureModal';
 import CarDetailsModal from './components/CarDetailsModal';
 import ComparisonModal from './components/ComparisonModal';
 import LanguageToggle from './components/LanguageToggle';
+import { LEAD_CAPTURE_ENABLED } from './config/leadCapture';
 import SavingsSimulatorModal from './components/SavingsSimulatorModal';
 import { ChargingMapModal } from './components/ChargingMapModal';
 import { RoutePlannerModal } from './components/RoutePlannerModal';
@@ -54,6 +55,7 @@ export default function App() {
   };
 
   const openLeadModal = (source: string, car: Car | null = null) => {
+    if (!LEAD_CAPTURE_ENABLED) return;
     setLeadSource(source);
     setLeadCar(car);
     setLeadModalOpen(true);
@@ -405,20 +407,21 @@ export default function App() {
             )}
           </div>
 
-          {/* Lead Capture CTA */}
-          <section className="mb-4 rounded-2xl border border-[#00b4ff]/20 bg-gradient-to-r from-[#07111f] via-[#0a0b12] to-[#002b44] p-5 md:p-6 shadow-[0_0_35px_rgba(0,180,255,0.10)] flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <div>
-              <p className="text-xs font-black uppercase tracking-[0.24em] text-[#00b4ff] mb-2">Compra inteligente de EV</p>
-              <h2 className="text-xl md:text-2xl font-black leading-tight text-white">Compare modelos e receba uma recomendação personalizada</h2>
-              <p className="text-sm text-white/60 mt-1">Seguro, wallbox, financiamento ou escolha do modelo: transforme sua comparação em próximo passo.</p>
-            </div>
-            <button
-              onClick={() => openLeadModal('catalog_banner')}
-              className="bg-[#00b4ff] hover:bg-[#33c9ff] text-black font-black px-5 py-3 rounded-xl transition active:scale-[0.98] whitespace-nowrap shadow-[0_0_24px_rgba(0,180,255,0.25)]"
-            >
-              Quero ajuda para escolher
-            </button>
-          </section>
+          {LEAD_CAPTURE_ENABLED && (
+            <section className="mb-4 rounded-2xl border border-[#00b4ff]/20 bg-gradient-to-r from-[#07111f] via-[#0a0b12] to-[#002b44] p-5 md:p-6 shadow-[0_0_35px_rgba(0,180,255,0.10)] flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div>
+                <p className="text-xs font-black uppercase tracking-[0.24em] text-[#00b4ff] mb-2">Compra inteligente de EV</p>
+                <h2 className="text-xl md:text-2xl font-black leading-tight text-white">Compare modelos e receba uma recomendação personalizada</h2>
+                <p className="text-sm text-white/60 mt-1">Seguro, wallbox, financiamento ou escolha do modelo: transforme sua comparação em próximo passo.</p>
+              </div>
+              <button
+                onClick={() => openLeadModal('catalog_banner')}
+                className="bg-[#00b4ff] hover:bg-[#33c9ff] text-black font-black px-5 py-3 rounded-xl transition active:scale-[0.98] whitespace-nowrap shadow-[0_0_24px_rgba(0,180,255,0.25)]"
+              >
+                Quero ajuda para escolher
+              </button>
+            </section>
+          )}
 
           {/* Active Filters Bar */}
           {hasActiveFilters && (
@@ -630,7 +633,7 @@ export default function App() {
             onToggleCompare={() => handleToggleCompare(selectedCar)}
             isFavorite={favorites.includes(selectedCar.model)}
             onToggleFavorite={() => handleToggleFavorite(selectedCar)}
-            onLeadRequest={() => openLeadModal('vehicle_detail', selectedCar)}
+            onLeadRequest={LEAD_CAPTURE_ENABLED ? () => openLeadModal('vehicle_detail', selectedCar) : undefined}
           />
         )}
 
@@ -681,12 +684,14 @@ export default function App() {
           onTriggerSuggestHandled={() => setTriggerSuggestChat(false)}
         />
 
-        <LeadCaptureModal
-          isOpen={leadModalOpen}
-          selectedCar={leadCar}
-          source={leadSource}
-          onClose={() => setLeadModalOpen(false)}
-        />
+        {LEAD_CAPTURE_ENABLED && (
+          <LeadCaptureModal
+            isOpen={leadModalOpen}
+            selectedCar={leadCar}
+            source={leadSource}
+            onClose={() => setLeadModalOpen(false)}
+          />
+        )}
 
         {/* Favorite toast */}
         {toast && (
