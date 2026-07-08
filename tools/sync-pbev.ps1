@@ -11,10 +11,10 @@
 .USAGE
   PowerShell:
     Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-    .\scripts\sync-pbev.ps1
+    .\tools\sync-pbev.ps1
 
   Or from anywhere:
-    powershell -ExecutionPolicy Bypass -File "C:\Users\fabio\Guia-PBEV-Brasil\scripts\sync-pbev.ps1"
+    powershell -ExecutionPolicy Bypass -File "C:\Users\fabio\Guia-PBEV-Brasil\tools\sync-pbev.ps1"
 #>
 
 $ErrorActionPreference = "Stop"
@@ -38,8 +38,19 @@ function Run-Git {
     [Parameter(Mandatory=$true)][string[]]$Args
   )
 
-  $output = & git -C $RepoPath @Args 2>&1
-  $code = $LASTEXITCODE
+  # Git writes normal progress/info lines such as "From https://..." to stderr.
+  # Some hosts, including IDE-integrated PowerShell consoles, promote native stderr
+  # to NativeCommandError when $ErrorActionPreference = Stop. Capture both streams
+  # without throwing, then decide by $LASTEXITCODE.
+  $previousErrorActionPreference = $ErrorActionPreference
+  $ErrorActionPreference = "Continue"
+  try {
+    $output = & git -C $RepoPath @Args 2>&1 | ForEach-Object { $_.ToString() }
+    $code = $LASTEXITCODE
+  } finally {
+    $ErrorActionPreference = $previousErrorActionPreference
+  }
+
   return [pscustomobject]@{ Code = $code; Output = ($output -join "`n") }
 }
 
