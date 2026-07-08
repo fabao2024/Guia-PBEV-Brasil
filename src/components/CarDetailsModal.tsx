@@ -684,7 +684,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                                     boxShadow: '0 4px 16px rgba(0,180,255,0.3)',
                                 }}
                             >
-                                <span>Quero cotação / ajuda</span>
+                                <span>Registrar interesse com parceiro</span>
                                 <ArrowUpRight className="w-4 h-4" />
                             </button>
                         </div>

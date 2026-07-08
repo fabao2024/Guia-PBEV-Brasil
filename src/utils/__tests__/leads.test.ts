@@ -9,6 +9,7 @@ const lead: LeadFormData = {
   interest: 'compra',
   vehicleBrand: 'Renault',
   vehicleModel: 'Kwid E-Tech',
+  consentAccepted: true,
   message: 'Tenho garagem e rodo 60 km/dia',
 };
 

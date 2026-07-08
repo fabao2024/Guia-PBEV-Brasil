@@ -37,7 +37,7 @@ export interface ChatMessage {
   sources?: { uri: string; title: string }[];
 }
 
-export type LeadInterest = 'compra' | 'seguro' | 'wallbox' | 'financiamento' | 'frota' | 'duvida';
+export type LeadInterest = '' | 'compra' | 'seguro' | 'wallbox' | 'financiamento' | 'frota' | 'duvida';
 
 export interface LeadFormData {
   name: string;
@@ -47,5 +47,6 @@ export interface LeadFormData {
   interest: LeadInterest;
   vehicleModel?: string;
   vehicleBrand?: string;
+  consentAccepted: boolean;
   message: string;
 }

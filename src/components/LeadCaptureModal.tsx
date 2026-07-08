@@ -12,8 +12,9 @@ interface LeadCaptureModalProps {
 }
 
 const INTEREST_OPTIONS: { value: LeadInterest; label: string }[] = [
-  { value: 'compra', label: 'Comprar / receber proposta' },
-  { value: 'seguro', label: 'Cotação de seguro EV' },
+  { value: '', label: 'Selecione o tipo de contato' },
+  { value: 'compra', label: 'Compra / contato de parceiro' },
+  { value: 'seguro', label: 'Seguro EV' },
   { value: 'wallbox', label: 'Wallbox / instalação de recarga' },
   { value: 'financiamento', label: 'Financiamento' },
   { value: 'frota', label: 'Frota / empresa' },
@@ -25,9 +26,10 @@ const INITIAL_FORM: LeadFormData = {
   whatsapp: '',
   city: '',
   budget: '',
-  interest: 'compra',
+  interest: '',
   vehicleModel: '',
   vehicleBrand: '',
+  consentAccepted: false,
   message: '',
 };
 
@@ -84,6 +86,10 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, onClose 
     setForm(prev => ({ ...prev, [field]: value }));
   };
 
+  const updateConsent = (value: boolean) => {
+    setForm(prev => ({ ...prev, consentAccepted: value }));
+  };
+
   const buildMailtoFallback = (lead: LeadFormData & { source: string; createdAt: string }) => {
     const subject = `Lead Guia PBEV - ${vehicleLabel}`;
     const body = [
@@ -96,6 +102,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, onClose 
       `Orçamento: ${lead.budget || 'Não informado'}`,
       `Veículo: ${vehicleLabel}`,
       `Origem: ${source}`,
+      `Consentimento: ${lead.consentAccepted ? 'Sim' : 'Não'}`,
       '',
       `Mensagem: ${lead.message || 'Não informado'}`,
     ].join('\n');
@@ -162,7 +169,10 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, onClose 
             <X className="w-5 h-5" />
           </button>
           <p className="text-xs font-black uppercase tracking-[0.28em] text-[#00b4ff] mb-2">Guia PBEV Brasil</p>
-          <h2 className="text-2xl md:text-3xl font-black leading-tight">Receba ajuda para escolher seu elétrico</h2>
+          <h2 className="text-2xl md:text-3xl font-black leading-tight">Registrar interesse com parceiro</h2>
+          <p className="mt-2 text-sm text-white/65">
+            O Guia PBEV não vende, financia, segura ou instala. Registramos seu interesse e, se aplicável, encaminhamos para parceiro selecionado.
+          </p>
           <p className="mt-2 text-sm text-white/65">Modelo de interesse: <strong className="text-white">{vehicleLabel}</strong></p>
         </div>
 
@@ -188,9 +198,9 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, onClose 
           </label>
 
           <label className="md:col-span-2 flex flex-col gap-1 text-sm font-bold text-white/80">
-            Interesse principal
-            <select value={form.interest} onChange={e => updateField('interest', e.target.value)} className={`${inputClass} bg-[#08090e]`}>
-              {INTEREST_OPTIONS.map(option => <option key={option.value} value={option.value}>{option.label}</option>)}
+            Tipo de contato desejado
+            <select required value={form.interest} onChange={e => updateField('interest', e.target.value)} className={`${inputClass} bg-[#08090e]`}>
+              {INTEREST_OPTIONS.map(option => <option key={option.value || 'empty'} value={option.value} disabled={option.value === ''}>{option.label}</option>)}
             </select>
           </label>
 
@@ -199,18 +209,31 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, onClose 
             <textarea value={form.message} onChange={e => updateField('message', e.target.value)} className={`${inputClass} min-h-24`} placeholder="Ex: tenho garagem, rodo 60 km/dia e quero comparar Dolphin Mini vs EX2" />
           </label>
 
+          <label className="md:col-span-2 flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-4 text-sm font-semibold text-white/80">
+            <input
+              required
+              type="checkbox"
+              checked={form.consentAccepted}
+              onChange={e => updateConsent(e.target.checked)}
+              className="mt-1 h-4 w-4 accent-[#00b4ff]"
+            />
+            <span>
+              Autorizo o Guia PBEV Brasil a armazenar meus dados e compartilhar meu contato com parceiros selecionados relacionados ao meu interesse.
+            </span>
+          </label>
+
           <div className="md:col-span-2 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between pt-2">
             <p className="text-xs text-white/45 flex items-center gap-2">
-              <Mail className="w-4 h-4" /> Envia direto para a base do Guia PBEV. Se falhar, abrimos e-mail como fallback.
+              <Mail className="w-4 h-4" /> Envia para a fila de revisão do Guia PBEV. Se falhar, abrimos e-mail como fallback.
             </p>
             <button disabled={submitting} type="submit" className="bg-[#00b4ff] hover:bg-[#33c9ff] disabled:opacity-60 disabled:cursor-wait text-black font-black px-6 py-3 rounded-xl flex items-center justify-center gap-2 shadow-[0_0_24px_rgba(0,180,255,0.25)] transition active:scale-[0.98]">
-              {submitting ? 'Enviando...' : 'Enviar interesse'} <Send className="w-4 h-4" />
+              {submitting ? 'Enviando...' : 'Registrar interesse'} <Send className="w-4 h-4" />
             </button>
           </div>
 
           {submitted && (
             <div className="md:col-span-2 bg-emerald-400/10 border border-emerald-400/20 text-emerald-200 rounded-xl p-3 text-sm font-semibold flex items-center gap-2">
-              <Zap className="w-4 h-4" /> Lead registrado na base do Guia PBEV{leadId ? ` (#${leadId})` : ''}. Em breve entraremos em contato.
+              <Zap className="w-4 h-4" /> Interesse registrado na base do Guia PBEV{leadId ? ` (#${leadId})` : ''}. Vamos revisar os dados e, se aplicável, encaminhar seu contato para um parceiro selecionado.
             </div>
           )}
 

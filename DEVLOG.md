@@ -739,3 +739,16 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Commit | ✅ | Bot: `c23782d` + `46b0156` |
 
 **Notas:** Leads de Instagram usam `whatsapp=instagram:<ig_user_id>` porque a Meta não fornece WhatsApp. Modelo/brand são preenchidos quando a mensagem cita veículo do catálogo. Produção validada em `https://bot.guiapbev.cloud/health` com serviço `pbev-instagram-bot` ativo.
+
+---
+
+### [S15-E] fix(leads): formulário multimodal com consentimento LGPD · 08/07/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `LeadCaptureModal` agora exige seleção explícita da modalidade (`compra`, `seguro`, `wallbox`, `financiamento`, `frota`, `duvida`) e checkbox de consentimento. Copy reposicionado para lead-gen/referral: Guia PBEV não vende, financia, segura ou instala; registra interesse e pode encaminhar para parceiro. CTA do detalhe do veículo mudou para “Registrar interesse com parceiro”. |
+| Build  | ✅ | `npm run build` — build Vite concluído; avisos existentes de bundle/chunks e Leaflet assets, sem erro. |
+| Testes | ✅ | `npm run test:run -- src/components/__tests__/LeadCaptureModal.test.tsx`; `npm run test:run` — 11 suites, 111/111 testes passando. |
+| Commit | ✅ | — |
+
+**Notas:** O backend atual ignora campos extras do payload; `consentAccepted` já vai no corpo do POST para futura persistência/auditoria, mas o bloqueio principal de consentimento acontece no frontend neste ajuste.

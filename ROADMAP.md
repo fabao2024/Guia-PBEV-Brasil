@@ -107,13 +107,17 @@
 ### 14. Funil de leads EV ✅
 - `LeadCaptureModal`: formulário para nome, WhatsApp, cidade/UF, orçamento, interesse e mensagem
 - CTA global no catálogo: “Quero ajuda para escolher”
-- CTA no `CarDetailsModal`: “Quero cotação / ajuda” com modelo preenchido
+- CTA no `CarDetailsModal`: “Registrar interesse com parceiro” com modelo preenchido
+- Formulário exige modalidade explícita (`compra`, `seguro`, `wallbox`, `financiamento`, `frota`, `duvida`) e consentimento LGPD antes de enviar
+- Copy ajustado para lead-gen/referral: Guia PBEV não vende, financia, segura ou instala; apenas registra interesse e pode encaminhar para parceiro selecionado
 - Persistência MVP em `localStorage` (`pbev_leads_pending`) e abertura de e-mail pré-preenchido
 - Eventos Plausible: `vehicle_view`, `compare_start`, `favorite_add`, `chat_open`, `chat_question`, `lead_cta_click`, `lead_submit`
 - ✅ Backend ativo: `POST https://bot.guiapbev.cloud/api/leads` salva leads no SQLite do bot Instagram
 - Fallback mantido: `localStorage` + e-mail pré-preenchido se API falhar
 - ✅ DMs/comentários do Instagram agora são classificados como intenção comercial no bot e viram leads automáticos (`instagram_dm`, `instagram_comment`)
 - Próximo passo: mini-CRM `/leads` no bot para listar, filtrar, abrir contato e mudar status
+
+> Resumo técnico S15-E (08/07/2026): `LeadCaptureModal` deixou de usar `compra` como default, agora obriga seleção de modalidade e checkbox de consentimento; sucesso informa revisão e possível encaminhamento para parceiro. Novo teste automatizado cobre seleção de modalidade, bloqueio sem consentimento e payload com `consentAccepted`.
 
 ### 12. Avaliações de Donos
 - Donos submetem nota para autonomia real, recarga e qualidade
