@@ -16,6 +16,7 @@ interface CarDetailsModalProps {
     onToggleCompare: () => void;
     isFavorite: boolean;
     onToggleFavorite: () => void;
+    onLeadRequest: () => void;
 }
 
 const MAX_RANGE_KM = 700;
@@ -69,7 +70,7 @@ function calcChargeTime(battery: number, chargeAC?: number, chargeDC?: number | 
     return { acLabel, dcLabel };
 }
 
-export default function CarDetailsModal({ car, onClose, isSelectedForCompare, onToggleCompare, isFavorite, onToggleFavorite }: CarDetailsModalProps) {
+export default function CarDetailsModal({ car, onClose, isSelectedForCompare, onToggleCompare, isFavorite, onToggleFavorite, onLeadRequest }: CarDetailsModalProps) {
     const { t } = useTranslation();
 
     const gallery = [
@@ -167,10 +168,6 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
 
     const features = (car.features && car.features.length > 0) ? car.features : getFallbackFeatures(car.cat);
     const activeImageSrc = failedImages.has(currentIdx) ? fallbackImg : gallery[currentIdx];
-    const brandUrlBase = car.url ?? BRAND_URLS[car.brand] ?? `https://www.google.com/search?q=${encodeURIComponent(car.brand + ' ' + car.model + ' comprar')}`;
-    const utmParams = `utm_source=guiapbev&utm_medium=referral&utm_campaign=lead&utm_content=${encodeURIComponent(car.model.toLowerCase().replace(/\s+/g, '-'))}`;
-    const brandUrl = `${brandUrlBase}${brandUrlBase.includes('?') ? '&' : '?'}${utmParams}`;
-
     const accent = CAT_ACCENT[car.cat] ?? CAT_ACCENT['Compacto'];
     const tractionStyle = car.traction ? TRACTION_STYLE[car.traction] : null;
     const estimatedPower = car.power ?? Math.round(car.price / 3000);
@@ -679,20 +676,17 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                                 <span className="hidden sm:inline">{copied ? t('card.shareCopied') : t('card.share')}</span>
                             </button>
 
-                            <a
-                                href={brandUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                onClick={() => track('Lead Click', { model: car.model, brand: car.brand })}
-                                className="flex-[2] text-white font-black tracking-normal text-xs py-3.5 rounded-2xl transition-all hover:brightness-110 active:scale-[0.98] flex items-center justify-center gap-1.5 no-underline whitespace-nowrap"
+                            <button
+                                onClick={onLeadRequest}
+                                className="flex-[2] text-white font-black tracking-normal text-xs py-3.5 rounded-2xl transition-all hover:brightness-110 active:scale-[0.98] flex items-center justify-center gap-1.5 whitespace-nowrap"
                                 style={{
                                     background: 'linear-gradient(135deg, #006ce5, #00b4ff)',
                                     boxShadow: '0 4px 16px rgba(0,180,255,0.3)',
                                 }}
                             >
-                                <span>{t('card.buyBtn')}</span>
+                                <span>Quero cotação / ajuda</span>
                                 <ArrowUpRight className="w-4 h-4" />
-                            </a>
+                            </button>
                         </div>
 
                         {/* Discontinued notice */}

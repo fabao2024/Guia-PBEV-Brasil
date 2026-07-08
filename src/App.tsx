@@ -8,6 +8,7 @@ import { CAR_DB, isCarNew, BRAND_URLS } from './constants';
 import Sidebar from './components/Sidebar';
 import CarCard from './components/CarCard';
 import ChatWidget from './components/ChatWidget';
+import LeadCaptureModal from './components/LeadCaptureModal';
 import CarDetailsModal from './components/CarDetailsModal';
 import ComparisonModal from './components/ComparisonModal';
 import LanguageToggle from './components/LanguageToggle';
@@ -39,6 +40,9 @@ export default function App() {
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [selectedCar, setSelectedCar] = useState<Car | null>(null);
+  const [leadModalOpen, setLeadModalOpen] = useState(false);
+  const [leadCar, setLeadCar] = useState<Car | null>(null);
+  const [leadSource, setLeadSource] = useState('catalog_banner');
   const [lastViewedCar, setLastViewedCar] = useState<Car | null>(null);
   const [toast, setToast] = useState<string | null>(null);
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -49,9 +53,45 @@ export default function App() {
     toastTimer.current = setTimeout(() => setToast(null), 2500);
   };
 
+  const openLeadModal = (source: string, car: Car | null = null) => {
+    setLeadSource(source);
+    setLeadCar(car);
+    setLeadModalOpen(true);
+    track('lead_cta_click', {
+      source,
+      vehicle: car ? `${car.brand} ${car.model}` : 'not_selected',
+    });
+  };
+
+  const handleVehicleView = (car: Car) => {
+    setSelectedCar(car);
+    setLastViewedCar(car);
+    track('vehicle_view', {
+      model: car.model,
+      brand: car.brand,
+      category: car.cat,
+      price: car.price,
+      range: car.range,
+    });
+  };
+
+  const handleToggleCompare = (car: Car) => {
+    toggleCompare(car);
+    track('compare_start', {
+      model: car.model,
+      brand: car.brand,
+      selected_count: compareList.length,
+    });
+  };
+
   const handleToggleFavorite = (car: Car) => {
     const wasFav = favorites.includes(car.model);
     toggleFavorite(car);
+    track('favorite_add', {
+      model: car.model,
+      brand: car.brand,
+      action: wasFav ? 'remove' : 'add',
+    });
     showToast(wasFav ? t('card.toastRemoved') : t('card.toastAdded'));
   };
 
@@ -365,6 +405,21 @@ export default function App() {
             )}
           </div>
 
+          {/* Lead Capture CTA */}
+          <section className="mb-4 rounded-2xl border border-[#00b4ff]/20 bg-gradient-to-r from-[#07111f] via-[#0a0b12] to-[#002b44] p-5 md:p-6 shadow-[0_0_35px_rgba(0,180,255,0.10)] flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <p className="text-xs font-black uppercase tracking-[0.24em] text-[#00b4ff] mb-2">Compra inteligente de EV</p>
+              <h2 className="text-xl md:text-2xl font-black leading-tight text-white">Compare modelos e receba uma recomendação personalizada</h2>
+              <p className="text-sm text-white/60 mt-1">Seguro, wallbox, financiamento ou escolha do modelo: transforme sua comparação em próximo passo.</p>
+            </div>
+            <button
+              onClick={() => openLeadModal('catalog_banner')}
+              className="bg-[#00b4ff] hover:bg-[#33c9ff] text-black font-black px-5 py-3 rounded-xl transition active:scale-[0.98] whitespace-nowrap shadow-[0_0_24px_rgba(0,180,255,0.25)]"
+            >
+              Quero ajuda para escolher
+            </button>
+          </section>
+
           {/* Active Filters Bar */}
           {hasActiveFilters && (
             <div className="flex items-center gap-2 mb-3 flex-wrap">
@@ -432,9 +487,9 @@ export default function App() {
               <CarCard
                 key={`${car.model}-${index}`}
                 car={car}
-                onClick={() => { setSelectedCar(car); setLastViewedCar(car); track('Car Details Open', { model: car.model, brand: car.brand, category: car.cat }); }}
+                onClick={() => handleVehicleView(car)}
                 isSelectedForCompare={!!compareList.find(c => c.model === car.model)}
-                onToggleCompare={(e) => { e.stopPropagation(); toggleCompare(car); }}
+                onToggleCompare={(e) => { e.stopPropagation(); handleToggleCompare(car); }}
                 isFavorite={favorites.includes(car.model)}
                 onToggleFavorite={(e) => { e.stopPropagation(); handleToggleFavorite(car); }}
               />
@@ -572,9 +627,10 @@ export default function App() {
             car={selectedCar}
             onClose={() => setSelectedCar(null)}
             isSelectedForCompare={!!compareList.find(c => c.model === selectedCar.model)}
-            onToggleCompare={() => toggleCompare(selectedCar)}
+            onToggleCompare={() => handleToggleCompare(selectedCar)}
             isFavorite={favorites.includes(selectedCar.model)}
             onToggleFavorite={() => handleToggleFavorite(selectedCar)}
+            onLeadRequest={() => openLeadModal('vehicle_detail', selectedCar)}
           />
         )}
 
@@ -623,6 +679,13 @@ export default function App() {
           compareBarVisible={compareList.length > 0}
           triggerSuggest={triggerSuggestChat}
           onTriggerSuggestHandled={() => setTriggerSuggestChat(false)}
+        />
+
+        <LeadCaptureModal
+          isOpen={leadModalOpen}
+          selectedCar={leadCar}
+          source={leadSource}
+          onClose={() => setLeadModalOpen(false)}
         />
 
         {/* Favorite toast */}

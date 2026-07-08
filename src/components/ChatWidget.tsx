@@ -8,6 +8,7 @@ import { CAR_DB } from '../constants';
 import { Car, ChatMessage } from '../types';
 import { sanitizeChatInput, validateChatInput } from '../utils/sanitize';
 import { traceLLMCall } from '../utils/tracing';
+import { track } from '../utils/analytics';
 import { useRateLimit } from '../hooks/useRateLimit';
 import { FUEL_PRICES_BY_STATE, FUEL_PRICES_UPDATED } from '../constants/fuelPricesByState';
 import { ELECTRICITY_PRICES_BY_STATE, ELECTRICITY_PRICES_UPDATED } from '../constants/electricityPricesByState';
@@ -383,6 +384,7 @@ export default function ChatWidget({ compareBarVisible = false, triggerSuggest =
   // Initialize Chat Session on Open (or lazily)
   useEffect(() => {
     if (isOpen && hasKey && !chatSessionRef.current) {
+      track('chat_open', { catalog_size: CAR_DB.length });
       try {
         const isEn = i18n.language === 'en';
         const systemPrompt = isEn
@@ -571,6 +573,11 @@ SUGGEST_EV_READY:{"brand":"MARCA","model":"MODELO","price":"PRECO","range":"AUTO
 
     // Sanitize and validate
     const sanitized = sanitizeChatInput(text);
+    track('chat_question', {
+      length: sanitized.length,
+      has_compare_intent: /compar|versus|vs|melhor|better/i.test(sanitized),
+      has_price_intent: /preço|valor|custa|barato|caro|price|cost/i.test(sanitized),
+    });
     const validation = validateChatInput(sanitized, i18n.language);
     if (!validation.valid) {
       setMessages(prev => [...prev, { role: 'model', text: validation.error! }]);

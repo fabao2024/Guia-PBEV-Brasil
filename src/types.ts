@@ -36,3 +36,16 @@ export interface ChatMessage {
   text: string;
   sources?: { uri: string; title: string }[];
 }
+
+export type LeadInterest = 'compra' | 'seguro' | 'wallbox' | 'financiamento' | 'frota' | 'duvida';
+
+export interface LeadFormData {
+  name: string;
+  whatsapp: string;
+  city: string;
+  budget: string;
+  interest: LeadInterest;
+  vehicleModel?: string;
+  vehicleBrand?: string;
+  message: string;
+}

@@ -685,3 +685,18 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 **Notas:** Política "um modelo por família" aplicada — sem variantes de trim duplicadas. Farizon é braço comercial do Grupo Geely (controlador da Volvo e Zeekr). Foton V6E/eWonder/eView são os primeiros veículos comerciais 100% elétricos da marca no Brasil (lançamento mar/2026). Mercedes eSprinter 320 é o único premium desse lote: PBTC 3,5 t, categoria B, 113 kWh, DC 115 kW.
 
 ---
+
+---
+
+## Sprint 15 — Monetização e Funil de Leads · 08/07/2026
+
+### [S15-A] feat(monetization): fundação de captura de leads no Guia
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `LeadCaptureModal` criado; CTA global no catálogo; CTA “Quero cotação / ajuda” no detalhe do veículo; tracking de intenção em catálogo/chat; lead salvo localmente e e-mail pré-preenchido. |
+| Build  | ✅ | `npm run build` — sitemap/cars.json gerados com 108 veículos; build Vite concluído. |
+| Testes | ✅ | `npm run test:run` — 9 suites, 108/108 testes passando. Validação manual no browser: CTA global abre formulário; CTA do veículo preenche `Renault Kwid E-Tech`. |
+| Commit | ✅ | `0f363d7` |
+
+**Notas:** MVP propositalmente simples: sem backend novo. Próximo passo é substituir e-mail/localStorage por sink persistente (Google Sheets/Airtable/FastAPI) e integrar o bot Instagram para classificação de intenção comercial.

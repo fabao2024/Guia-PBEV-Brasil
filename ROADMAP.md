@@ -19,6 +19,7 @@
 | 11 | Analytics sem cookies — Plausible ou Umami | Técnico | Baixo | Médio | ✅ Concluído |
 | 12 | Avaliações de donos (rating real-world) | Feature | Alto | Médio | 🔲 Pendente |
 | 13 | Sugestão de EV pela comunidade via GitHub Issues | Community | Baixo | Médio | ✅ Concluído |
+| 14 | Funil de leads EV no Guia (CTA + formulário + tracking) | Monetização | Baixo | Alto | ✅ Concluído |
 
 ---
 
@@ -99,6 +100,14 @@
 - Plausible ou Umami — sem cookies, sem LGPD headache
 - Rastrear: comparações mais feitas, modelos mais vistos, temas do chatbot
 - Informa quais veículos adicionar na próxima atualização
+
+### 14. Funil de leads EV ✅
+- `LeadCaptureModal`: formulário para nome, WhatsApp, cidade/UF, orçamento, interesse e mensagem
+- CTA global no catálogo: “Quero ajuda para escolher”
+- CTA no `CarDetailsModal`: “Quero cotação / ajuda” com modelo preenchido
+- Persistência MVP em `localStorage` (`pbev_leads_pending`) e abertura de e-mail pré-preenchido
+- Eventos Plausible: `vehicle_view`, `compare_start`, `favorite_add`, `chat_open`, `chat_question`, `lead_cta_click`, `lead_submit`
+- Próximo passo: trocar e-mail/localStorage por endpoint Google Sheets/Airtable/FastAPI e integrar com o bot Instagram
 
 ### 12. Avaliações de Donos
 - Donos submetem nota para autonomia real, recarga e qualidade
@@ -677,6 +686,18 @@
 - 🔲 Newsletter "EletriBrasil Insider" no Substack
 - ✅ **EV Route Planner** — concluído Sprint 11
 - 🔲 Expansão: Argentina, Chile, Colômbia
+
+---
+
+### Sprint 15 — Monetização e Funil de Leads · 08/07/2026 ✅
+**Tema: transformar intenção de compra em lead qualificado**
+- ✅ CTA global no catálogo para recomendação personalizada
+- ✅ CTA no detalhe do veículo com modelo preenchido
+- ✅ `LeadCaptureModal` com nome, WhatsApp, cidade/UF, orçamento, interesse e mensagem
+- ✅ MVP salva em `localStorage` e abre e-mail pré-preenchido
+- ✅ Tracking Plausible para visualização, comparação, favoritos, chat e submissão de lead
+
+> Resumo técnico: `App.tsx`, `CarDetailsModal.tsx`, `ChatWidget.tsx`, `LeadCaptureModal.tsx`, `types.ts`, `utils/analytics.ts`. Build e 108 testes passando sobre catálogo atual com 108 veículos.
 
 ---
 
