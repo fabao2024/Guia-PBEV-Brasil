@@ -713,3 +713,16 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Commit | ✅ | `3a579c6` |
 
 **Notas:** Endpoint do bot validado via CORS/preflight e POST real antes do deploy do Guia. Plausible continua sem PII; PII fica no SQLite do bot.
+
+---
+
+### [S15-C] chore(workflow): sync local Windows e deploy VPS do bot · 08/07/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `tools/sync-pbev.ps1` criado para sincronizar os clones Windows do Guia e Bot com segurança; `docs/local-sync-workflow.md` documenta uso e regras. No bot, `deploy-vps.yml`, `scripts/deploy_vps.sh` e `docs/vps-deploy-workflow.md` preparam deploy automático via SSH/systemd. |
+| Build  | ✅ | Não aplicável para o script; workflow do bot validado por checks básicos e syntax check shell. |
+| Testes | ✅ | Guia: `npm run test:run -- src/utils/__tests__/leads.test.ts`; Bot: `unittest discover -s tests -v` e `py_compile main.py database.py`. |
+| Commit | ✅ | `9bb7f6a` |
+
+**Notas:** Sync local nunca faz merge/rebase/push automático. Deploy do bot só executa na VPS quando secrets `VPS_HOST`, `VPS_USER` e `VPS_SSH_KEY` forem configurados.

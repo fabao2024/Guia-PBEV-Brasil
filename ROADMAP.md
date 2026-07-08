@@ -20,6 +20,7 @@
 | 12 | Avaliações de donos (rating real-world) | Feature | Alto | Médio | 🔲 Pendente |
 | 13 | Sugestão de EV pela comunidade via GitHub Issues | Community | Baixo | Médio | ✅ Concluído |
 | 14 | Funil de leads EV no Guia (CTA + formulário + tracking) | Monetização | Baixo | Alto | ✅ Concluído |
+| 15 | Automação de sync local Windows + deploy VPS do bot | DevOps | Baixo | Alto | ✅ Concluído |
 
 ---
 
@@ -754,3 +755,10 @@ Adicionar OpenRouter como alternativa na tela de configurações do chat.
 
 ### Regra de decisão
 > Construa o backend quando a monetização exigir. Adicione o LLM router no mesmo sprint. Não inverta a ordem.
+
+### Automação de ecossistema local/VPS/GitHub — 08/07/2026
+- Script Windows: `scripts/sync-pbev.ps1` sincroniza os clones locais do Guia e Bot via `git pull --ff-only`, sem merge/push automático.
+- Documento: `docs/local-sync-workflow.md` descreve uso no PowerShell, regras de bloqueio e paths das IDEs.
+- Bot Instagram: workflow separado no repo `PBEV-Instagram-Automation` prepara deploy via SSH para VPS com teste, pull, restart systemd e health check.
+
+> Resumo técnico: GitHub segue como fonte da verdade. Windows/IDEs puxam de forma segura; VPS recebe deploy automatizado quando secrets SSH estiverem configurados.
