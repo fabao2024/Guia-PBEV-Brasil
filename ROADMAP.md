@@ -107,7 +107,9 @@
 - CTA no `CarDetailsModal`: “Quero cotação / ajuda” com modelo preenchido
 - Persistência MVP em `localStorage` (`pbev_leads_pending`) e abertura de e-mail pré-preenchido
 - Eventos Plausible: `vehicle_view`, `compare_start`, `favorite_add`, `chat_open`, `chat_question`, `lead_cta_click`, `lead_submit`
-- Próximo passo: trocar e-mail/localStorage por endpoint Google Sheets/Airtable/FastAPI e integrar com o bot Instagram
+- ✅ Backend ativo: `POST https://bot.guiapbev.cloud/api/leads` salva leads no SQLite do bot Instagram
+- Fallback mantido: `localStorage` + e-mail pré-preenchido se API falhar
+- Próximo passo: classificar DMs/comentários do Instagram como intenção comercial e criar leads automaticamente
 
 ### 12. Avaliações de Donos
 - Donos submetem nota para autonomia real, recarga e qualidade

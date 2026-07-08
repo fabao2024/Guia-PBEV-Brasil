@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Mail, Send, X, Zap } from 'lucide-react';
 import { Car, LeadFormData, LeadInterest } from '../types';
 import { track } from '../utils/analytics';
+import { submitLead } from '../utils/leads';
 
 interface LeadCaptureModalProps {
   isOpen: boolean;
@@ -43,6 +44,9 @@ function persistLead(lead: LeadFormData & { source: string; createdAt: string })
 export default function LeadCaptureModal({ isOpen, selectedCar, source, onClose }: LeadCaptureModalProps) {
   const [form, setForm] = useState<LeadFormData>(INITIAL_FORM);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [leadId, setLeadId] = useState<number | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const vehicleLabel = selectedCar ? `${selectedCar.brand} ${selectedCar.model}` : 'ainda não definido';
 
@@ -58,6 +62,9 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, onClose 
   useEffect(() => {
     if (!isOpen) return;
     setSubmitted(false);
+    setSubmitting(false);
+    setLeadId(null);
+    setSubmitError(null);
     setForm(prev => ({
       ...prev,
       vehicleBrand: selectedCar?.brand || '',
@@ -77,24 +84,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, onClose 
     setForm(prev => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-
-    const lead = {
-      ...hydratedForm,
-      source,
-      createdAt: new Date().toISOString(),
-    };
-
-    persistLead(lead);
-    track('lead_submit', {
-      source,
-      interest: lead.interest,
-      vehicle: vehicleLabel,
-      has_budget: Boolean(lead.budget),
-      has_city: Boolean(lead.city),
-    });
-
+  const buildMailtoFallback = (lead: LeadFormData & { source: string; createdAt: string }) => {
     const subject = `Lead Guia PBEV - ${vehicleLabel}`;
     const body = [
       'Novo lead vindo do Guia PBEV Brasil',
@@ -110,8 +100,50 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, onClose 
       `Mensagem: ${lead.message || 'Não informado'}`,
     ].join('\n');
 
-    window.location.href = `mailto:fabio.pettian@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setSubmitted(true);
+    return `mailto:fabio.pettian@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    const lead = {
+      ...hydratedForm,
+      source,
+      createdAt: new Date().toISOString(),
+    };
+
+    persistLead(lead);
+    setSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const result = await submitLead(hydratedForm, source);
+      setLeadId(result.lead_id);
+      setSubmitted(true);
+      track('lead_submit', {
+        source,
+        interest: lead.interest,
+        vehicle: vehicleLabel,
+        has_budget: Boolean(lead.budget),
+        has_city: Boolean(lead.city),
+      });
+      track('lead_success', {
+        source,
+        interest: lead.interest,
+        vehicle: vehicleLabel,
+      });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Falha ao enviar lead';
+      setSubmitError(message);
+      track('lead_error', {
+        source,
+        interest: lead.interest,
+        vehicle: vehicleLabel,
+      });
+      window.location.href = buildMailtoFallback(lead);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const inputClass = 'rounded-xl border border-white/10 bg-white/5 px-4 py-3 font-normal text-white placeholder:text-white/35 focus:ring-2 focus:ring-[#00b4ff] focus:border-[#00b4ff]/60 outline-none transition';
@@ -169,16 +201,22 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, onClose 
 
           <div className="md:col-span-2 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between pt-2">
             <p className="text-xs text-white/45 flex items-center gap-2">
-              <Mail className="w-4 h-4" /> MVP: abre e-mail pré-preenchido e salva localmente para validação.
+              <Mail className="w-4 h-4" /> Envia direto para a base do Guia PBEV. Se falhar, abrimos e-mail como fallback.
             </p>
-            <button type="submit" className="bg-[#00b4ff] hover:bg-[#33c9ff] text-black font-black px-6 py-3 rounded-xl flex items-center justify-center gap-2 shadow-[0_0_24px_rgba(0,180,255,0.25)] transition active:scale-[0.98]">
-              Enviar interesse <Send className="w-4 h-4" />
+            <button disabled={submitting} type="submit" className="bg-[#00b4ff] hover:bg-[#33c9ff] disabled:opacity-60 disabled:cursor-wait text-black font-black px-6 py-3 rounded-xl flex items-center justify-center gap-2 shadow-[0_0_24px_rgba(0,180,255,0.25)] transition active:scale-[0.98]">
+              {submitting ? 'Enviando...' : 'Enviar interesse'} <Send className="w-4 h-4" />
             </button>
           </div>
 
           {submitted && (
             <div className="md:col-span-2 bg-emerald-400/10 border border-emerald-400/20 text-emerald-200 rounded-xl p-3 text-sm font-semibold flex items-center gap-2">
-              <Zap className="w-4 h-4" /> Lead registrado localmente. Confira o e-mail pré-preenchido antes de enviar.
+              <Zap className="w-4 h-4" /> Lead registrado na base do Guia PBEV{leadId ? ` (#${leadId})` : ''}. Em breve entraremos em contato.
+            </div>
+          )}
+
+          {submitError && !submitted && (
+            <div className="md:col-span-2 bg-amber-400/10 border border-amber-400/20 text-amber-100 rounded-xl p-3 text-sm font-semibold flex items-center gap-2">
+              <Zap className="w-4 h-4" /> Não consegui salvar na base agora. Abrimos um e-mail como fallback.
             </div>
           )}
         </form>

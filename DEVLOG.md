@@ -700,3 +700,16 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Commit | ✅ | `0f363d7` |
 
 **Notas:** MVP propositalmente simples: sem backend novo. Próximo passo é substituir e-mail/localStorage por sink persistente (Google Sheets/Airtable/FastAPI) e integrar o bot Instagram para classificação de intenção comercial.
+
+---
+
+### [S15-B] feat(leads): Guia envia leads para API do bot Instagram · 08/07/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `src/utils/leads.ts` criado com `submitLead()` para `https://bot.guiapbev.cloud/api/leads`; `LeadCaptureModal` agora envia para API, registra sucesso/erro no Plausible e mantém fallback localStorage + mailto. |
+| Build  | ✅ | `npm run build` — 108 veículos, bundle gerado. |
+| Testes | ✅ | `npm run test:run` — 10 suites, 110/110 testes passando; novo teste `src/utils/__tests__/leads.test.ts`. |
+| Commit | ✅ | `3a579c6` |
+
+**Notas:** Endpoint do bot validado via CORS/preflight e POST real antes do deploy do Guia. Plausible continua sem PII; PII fica no SQLite do bot.
