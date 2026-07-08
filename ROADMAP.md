@@ -21,6 +21,8 @@
 | 13 | Sugestão de EV pela comunidade via GitHub Issues | Community | Baixo | Médio | ✅ Concluído |
 | 14 | Funil de leads EV no Guia (CTA + formulário + tracking) | Monetização | Baixo | Alto | ✅ Concluído |
 | 15 | Automação de sync local Windows + deploy VPS do bot | DevOps | Baixo | Alto | ✅ Concluído |
+| 16 | Captura automática de leads comerciais via Instagram DM/comentários | Monetização | Baixo | Alto | ✅ Concluído |
+| 17 | Mini-CRM de leads no bot (`/leads`) | Monetização | Médio | Alto | 🔲 Pendente |
 
 ---
 
@@ -110,7 +112,8 @@
 - Eventos Plausible: `vehicle_view`, `compare_start`, `favorite_add`, `chat_open`, `chat_question`, `lead_cta_click`, `lead_submit`
 - ✅ Backend ativo: `POST https://bot.guiapbev.cloud/api/leads` salva leads no SQLite do bot Instagram
 - Fallback mantido: `localStorage` + e-mail pré-preenchido se API falhar
-- Próximo passo: classificar DMs/comentários do Instagram como intenção comercial e criar leads automaticamente
+- ✅ DMs/comentários do Instagram agora são classificados como intenção comercial no bot e viram leads automáticos (`instagram_dm`, `instagram_comment`)
+- Próximo passo: mini-CRM `/leads` no bot para listar, filtrar, abrir contato e mudar status
 
 ### 12. Avaliações de Donos
 - Donos submetem nota para autonomia real, recarga e qualidade

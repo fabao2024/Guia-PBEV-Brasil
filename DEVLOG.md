@@ -723,6 +723,19 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Dev    | ✅ | `tools/sync-pbev.ps1` criado para sincronizar os clones Windows do Guia e Bot com segurança; `docs/local-sync-workflow.md` documenta uso e regras. No bot, `deploy-vps.yml`, `scripts/deploy_vps.sh` e `docs/vps-deploy-workflow.md` preparam deploy automático via SSH/systemd. |
 | Build  | ✅ | Não aplicável para o script; workflow do bot validado por checks básicos e syntax check shell. |
 | Testes | ✅ | Guia: `npm run test:run -- src/utils/__tests__/leads.test.ts`; Bot: `unittest discover -s tests -v` e `py_compile main.py database.py`. |
-| Commit | ✅ | `9bb7f6a` |
+| Commit | ✅ | `2fe03c6` + `0c655c1` |
 
-**Notas:** Sync local nunca faz merge/rebase/push automático. Deploy do bot só executa na VPS quando secrets `VPS_HOST`, `VPS_USER` e `VPS_SSH_KEY` forem configurados.
+**Notas:** Sync local nunca faz merge/rebase/push automático. Deploy do bot está ativo via GitHub Actions/SSH com secrets `VPS_HOST`, `VPS_USER`, `VPS_SSH_KEY`, `VPS_PORT` e `VPS_APP_DIR`; `0c655c1` corrigiu captura de stderr do Git no PowerShell/Antigravity.
+
+---
+
+### [S15-D] feat(leads): Bot Instagram captura leads comerciais via DM/comentários · 08/07/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `auto_responder.py` classifica intenção comercial determinística em DMs/comentários (`compra`, `financiamento`, `seguro`, `wallbox`, `frota`) e cria lead na tabela `leads` com `source=instagram_dm` ou `source=instagram_comment`. Deduplicação por usuário/origem/mensagem. |
+| Build  | ✅ | Bot validado com `py_compile` e serviço systemd reiniciado em produção. |
+| Testes | ✅ | Bot: `python -m unittest discover -s tests -v` — 6/6 passando; novo `tests/test_commercial_intent.py`. GitHub Actions deploy final passou. |
+| Commit | ✅ | Bot: `c23782d` + `46b0156` |
+
+**Notas:** Leads de Instagram usam `whatsapp=instagram:<ig_user_id>` porque a Meta não fornece WhatsApp. Modelo/brand são preenchidos quando a mensagem cita veículo do catálogo. Produção validada em `https://bot.guiapbev.cloud/health` com serviço `pbev-instagram-bot` ativo.
