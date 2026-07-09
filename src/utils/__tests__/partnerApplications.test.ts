@@ -25,6 +25,14 @@ const application: PartnerApplicationFormData = {
   preferredDeliveryChannel: 'whatsapp',
   commercialModelInterest: 'pagamento_por_lead',
   acceptablePriceRange: 'R$ 81–R$ 150',
+  leadPriceByModality: {
+    seguro: 'R$ 90',
+    wallbox: 'R$ 140',
+    financiamento: 'R$ 120',
+    compra_veiculo: 'R$ 180',
+    frota_b2b: 'R$ 250',
+  },
+  matchCodes: ['uf_exact', 'city_priority', 'home_charging', 'fast_sla_4h'],
   notes: 'Teste de candidatura.',
   lgpdAcceptance: true,
 };

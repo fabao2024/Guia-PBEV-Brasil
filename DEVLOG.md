@@ -778,3 +778,16 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Commit | ✅ | pendente nesta sessão |
 
 **Notas:** O admin ainda é interno/operacional e não cria `partners` ativos automaticamente. Próximo passo é modelar `partners` e promoção controlada de candidatura aprovada para parceiro ativo.
+
+---
+
+### [S15-H] feat(partners): preço por lead/modalidade e match codes · 09/07/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `/parceiros` agora coleta preço aceitável por modalidade e match codes operacionais. Backend persiste `lead_price_by_modality` e `match_codes`; admin interno exibe ambos para revisão comercial. |
+| Build  | ✅ | Guia: `npm run build` concluído com avisos existentes de bundle/chunks e Leaflet assets. Bot: `py_compile config.py database.py main.py auto_responder.py` concluído. |
+| Testes | ✅ | Guia: `npm run test:run` — 14 suites, 116/116 testes passando. Bot: `python -m unittest discover -s tests -v` — 15/15 testes passando. |
+| Commit | ✅ | pendente nesta sessão |
+
+**Notas:** Pricing público continua como referência de candidatura, não tabela comercial fechada. Defaults internos sugeridos: seguro R$ 80, wallbox R$ 150, financiamento R$ 120, compra R$ 200, frota/B2B R$ 400, solar/recarga R$ 250, documentação R$ 50.

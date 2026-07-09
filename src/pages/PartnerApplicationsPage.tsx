@@ -14,6 +14,33 @@ const SERVICE_CATEGORIES = [
   ['documentacao', 'Documentação / despachante'],
 ] as const;
 
+const LEAD_PRICE_MODALITIES = [
+  ['seguro', 'Seguro EV'],
+  ['wallbox', 'Wallbox / instalação'],
+  ['financiamento', 'Financiamento'],
+  ['compra_veiculo', 'Venda / cotação de veículo'],
+  ['frota_b2b', 'Frota / B2B'],
+  ['energia_solar_recarga', 'Energia solar / recarga'],
+  ['documentacao', 'Documentação / despachante'],
+] as const;
+
+const MATCH_CODE_OPTIONS = [
+  ['uf_exact', 'UF exata'],
+  ['city_priority', 'Cidade prioritária'],
+  ['serves_pf', 'Atende PF'],
+  ['serves_pj_fleet', 'Atende CNPJ/frota'],
+  ['remote_ok', 'Atendimento remoto'],
+  ['home_charging', 'Recarga residencial'],
+  ['solar_cross_sell', 'Solar + recarga'],
+  ['insurance_ev', 'Seguro EV'],
+  ['financing_ev', 'Financiamento EV'],
+  ['dealer_quote', 'Cotação/venda de veículo'],
+  ['commercial_fleet', 'Frota comercial'],
+  ['fast_sla_4h', 'SLA até 4h'],
+  ['premium_ev', 'EV premium'],
+  ['entry_ev', 'EV entrada/urbano'],
+] as const;
+
 const STATES = ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'];
 
 const initialForm: PartnerApplicationFormData = {
@@ -40,6 +67,8 @@ const initialForm: PartnerApplicationFormData = {
   preferredDeliveryChannel: '',
   commercialModelInterest: '',
   acceptablePriceRange: '',
+  leadPriceByModality: {},
+  matchCodes: [],
   notes: '',
   lgpdAcceptance: false,
 };
@@ -81,12 +110,22 @@ export default function PartnerApplicationsPage() {
     setForm(prev => ({ ...prev, [field]: value }));
   };
 
-  const toggleArrayValue = (field: 'serviceCategories' | 'coverageStates', value: string) => {
+  const toggleArrayValue = (field: 'serviceCategories' | 'coverageStates' | 'matchCodes', value: string) => {
     setForm(prev => {
       const current = prev[field];
       const next = current.includes(value) ? current.filter(item => item !== value) : [...current, value];
       return { ...prev, [field]: next };
     });
+  };
+
+  const updateLeadPrice = (modality: string, value: string) => {
+    setForm(prev => ({
+      ...prev,
+      leadPriceByModality: {
+        ...prev.leadPriceByModality,
+        [modality]: value,
+      },
+    }));
   };
 
   const handleSubmit = async (event: React.FormEvent) => {
@@ -311,6 +350,32 @@ export default function PartnerApplicationsPage() {
                   <option value="">Selecione</option><option>até R$ 30</option><option>R$ 31–R$ 80</option><option>R$ 81–R$ 150</option><option>R$ 151–R$ 300</option><option>acima de R$ 300</option><option>depende da categoria</option>
                 </select>
               </label>
+            </div>
+
+            <div className="mt-6 rounded-2xl border border-white/10 bg-black/20 p-4">
+              <h2 className="text-lg font-black mb-2">Preço por lead/modalidade</h2>
+              <p className="mb-4 text-sm text-white/60">Informe o CPL alvo ou faixa aceitável por tipo de oportunidade. Isso será usado para qualificação comercial e billing manual.</p>
+              <div className="grid md:grid-cols-2 gap-4">
+                {LEAD_PRICE_MODALITIES.map(([value, label]) => (
+                  <label key={value}>
+                    <span className={labelClass}>Preço por lead {label}</span>
+                    <input className={inputClass} value={form.leadPriceByModality[value] || ''} onChange={e => updateLeadPrice(value, e.target.value)} placeholder="Ex: R$ 120" />
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-6 rounded-2xl border border-white/10 bg-black/20 p-4">
+              <h2 className="text-lg font-black mb-2">Match codes</h2>
+              <p className="mb-4 text-sm text-white/60">Selecione os códigos que devem orientar o matching futuro entre lead, modalidade, região, SLA e perfil de atendimento.</p>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                {MATCH_CODE_OPTIONS.map(([value, label]) => (
+                  <label key={value} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-3 text-sm font-bold">
+                    <input type="checkbox" checked={form.matchCodes.includes(value)} onChange={() => toggleArrayValue('matchCodes', value)} />
+                    {label}
+                  </label>
+                ))}
+              </div>
             </div>
             <label className="block mt-4"><span className={labelClass}>Observações</span><textarea className={`${inputClass} min-h-28`} value={form.notes} onChange={e => updateField('notes', e.target.value)} /></label>
           </section>

@@ -25,6 +25,7 @@
 | 17 | Mini-CRM de leads no bot (`/leads`) | Monetização | Médio | Alto | 🔲 Pendente |
 | 18 | Formulário público de candidatura de fornecedores/parceiros (`/parceiros`) | Monetização | Baixo | Alto | ✅ Concluído |
 | 19 | Admin interno de candidaturas de parceiros (`/admin/partners`) | Monetização | Baixo | Alto | ✅ Concluído |
+| 20 | Preço por lead/modalidade e match codes no programa de parceiros | Monetização | Baixo | Alto | ✅ Concluído |
 
 ---
 
@@ -133,6 +134,7 @@
 - Persistência: tabela `partner_applications` com status inicial `submitted`
 - Página `/parceiros` v2: landing B2B com seções “Como funciona”, critérios de aprovação, modelo comercial inicial, categorias e CTA âncora para formulário
 - Admin interno: `https://bot.guiapbev.cloud/admin/partners` lista candidaturas, filtra por status e permite mudar status/notas via `PATCH /api/admin/partner-applications/{id}`
+- Campos comerciais: preço sugerido/aceitável por modalidade (`seguro`, `wallbox`, `financiamento`, `compra_veiculo`, `frota_b2b`, `energia_solar_recarga`, `documentacao`) e match codes operacionais (`uf_exact`, `city_priority`, `home_charging`, `insurance_ev`, etc.)
 - Próximo passo: entidade `partners`, aprovação como parceiro ativo e depois CRM/relatórios
 
 ### 19. Admin interno de candidaturas de parceiros ✅
@@ -141,6 +143,13 @@
 - Status permitidos: `submitted`, `reviewing`, `approved`, `rejected`, `active`, `paused`
 - Tela HTML leve em `/admin/partners` para review operacional sem depender do frontend estático do Guia
 - Validação automatizada cobre listagem, update, status inválido e renderização da tela admin
+
+### 20. Preço por lead/modalidade e match codes ✅
+- `/parceiros` agora pergunta o preço aceitável por modalidade: Seguro EV, Wallbox, Financiamento, Compra/cotação, Frota/B2B, Energia solar/recarga e Documentação
+- Valores default de referência na copy: Seguro EV R$ 80, Wallbox R$ 150, Financiamento R$ 120, Compra R$ 200, Frota/B2B R$ 400, Energia solar/recarga R$ 250, Documentação R$ 50
+- Match codes adicionados no formulário para futura regra de roteamento: UF/cidade, PF/PJ/remoto, categorias, SLA e perfil de veículo
+- Backend persiste `lead_price_by_modality` em JSON e `match_codes` como lista controlada
+- Admin interno exibe preço/modalidade e match codes para revisão comercial
 
 ### 12. Avaliações de Donos
 - Donos submetem nota para autonomia real, recarga e qualidade

@@ -75,6 +75,8 @@ export interface PartnerApplicationFormData {
   preferredDeliveryChannel: string;
   commercialModelInterest: string;
   acceptablePriceRange: string;
+  leadPriceByModality: Record<string, string>;
+  matchCodes: string[];
   notes: string;
   lgpdAcceptance: boolean;
 }
