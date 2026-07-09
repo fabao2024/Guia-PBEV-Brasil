@@ -14,33 +14,6 @@ const SERVICE_CATEGORIES = [
   ['documentacao', 'Documentação / despachante'],
 ] as const;
 
-const LEAD_PRICE_MODALITIES = [
-  ['seguro', 'Seguro EV'],
-  ['wallbox', 'Wallbox / instalação'],
-  ['financiamento', 'Financiamento'],
-  ['compra_veiculo', 'Venda / cotação de veículo'],
-  ['frota_b2b', 'Frota / B2B'],
-  ['energia_solar_recarga', 'Energia solar / recarga'],
-  ['documentacao', 'Documentação / despachante'],
-] as const;
-
-const MATCH_CODE_OPTIONS = [
-  ['uf_exact', 'UF exata'],
-  ['city_priority', 'Cidade prioritária'],
-  ['serves_pf', 'Atende PF'],
-  ['serves_pj_fleet', 'Atende CNPJ/frota'],
-  ['remote_ok', 'Atendimento remoto'],
-  ['home_charging', 'Recarga residencial'],
-  ['solar_cross_sell', 'Solar + recarga'],
-  ['insurance_ev', 'Seguro EV'],
-  ['financing_ev', 'Financiamento EV'],
-  ['dealer_quote', 'Cotação/venda de veículo'],
-  ['commercial_fleet', 'Frota comercial'],
-  ['fast_sla_4h', 'SLA até 4h'],
-  ['premium_ev', 'EV premium'],
-  ['entry_ev', 'EV entrada/urbano'],
-] as const;
-
 const STATES = ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'];
 
 const initialForm: PartnerApplicationFormData = {
@@ -78,15 +51,15 @@ const labelClass = 'block text-sm font-bold text-white/80 mb-2';
 const cardClass = 'rounded-3xl border border-white/10 bg-white/[0.035] p-5 md:p-6 shadow-[0_0_35px_rgba(0,180,255,0.08)]';
 
 const steps = [
-  ['1', 'Sua empresa se candidata', 'Você informa categoria, cobertura, SLA, capacidade e modelo comercial viável.'],
-  ['2', 'O Guia PBEV revisa', 'A avaliação é humana. Verificamos aderência, LGPD, operação EV, cobertura e qualidade de atendimento.'],
+  ['1', 'Sua empresa se candidata', 'Você informa contato, categoria, cobertura e faixa comercial.'],
+  ['2', 'O Guia PBEV revisa', 'A avaliação é humana. Verificamos aderência, LGPD, cobertura e qualidade de atendimento.'],
   ['3', 'Parceiros aprovados entram no piloto', 'Só fornecedores aprovados poderão receber oportunidades qualificadas quando o funil de consumidores for religado.'],
   ['4', 'Leads são atribuídos com controle', 'Cada lead terá status, parceiro responsável, SLA e trilha de auditoria antes de virar cobrança.'],
 ] as const;
 
 const approvalCriteria = [
   'Atendimento real em veículos elétricos ou infraestrutura de recarga.',
-  'Cobertura geográfica objetiva por UF/cidade e capacidade mensal declarada.',
+  'Cobertura geográfica objetiva por UF/cidade.',
   'SLA de primeiro contato compatível com lead qualificado.',
   'WhatsApp, email comercial e responsável operacional claros.',
   'Aceite LGPD e uso dos dados apenas para o interesse informado pelo consumidor.',
@@ -100,6 +73,23 @@ const categoryCards = [
   ['Compra / frota', 'Concessionárias, locadoras, frotas e atendimento B2B.'],
 ] as const;
 
+function deriveMatchCodes(form: PartnerApplicationFormData): string[] {
+  const codes = new Set<string>();
+  if (form.coverageStates.length) codes.add('uf_exact');
+  if (form.coverageCities.trim()) codes.add('city_priority');
+  if (form.servesPf) codes.add('serves_pf');
+  if (form.servesPj) codes.add('serves_pj_fleet');
+  if (form.servesRemote) codes.add('remote_ok');
+  if (form.serviceCategories.includes('wallbox')) codes.add('home_charging');
+  if (form.serviceCategories.includes('energia_solar_recarga')) codes.add('solar_cross_sell');
+  if (form.serviceCategories.includes('seguro')) codes.add('insurance_ev');
+  if (form.serviceCategories.includes('financiamento')) codes.add('financing_ev');
+  if (form.serviceCategories.includes('compra_veiculo')) codes.add('dealer_quote');
+  if (form.serviceCategories.includes('frota_b2b')) codes.add('commercial_fleet');
+  if (form.slaHours === '2' || form.slaHours === '4') codes.add('fast_sla_4h');
+  return Array.from(codes);
+}
+
 export default function PartnerApplicationsPage() {
   const [form, setForm] = useState<PartnerApplicationFormData>(initialForm);
   const [submitting, setSubmitting] = useState(false);
@@ -110,22 +100,12 @@ export default function PartnerApplicationsPage() {
     setForm(prev => ({ ...prev, [field]: value }));
   };
 
-  const toggleArrayValue = (field: 'serviceCategories' | 'coverageStates' | 'matchCodes', value: string) => {
+  const toggleArrayValue = (field: 'serviceCategories' | 'coverageStates', value: string) => {
     setForm(prev => {
       const current = prev[field];
       const next = current.includes(value) ? current.filter(item => item !== value) : [...current, value];
       return { ...prev, [field]: next };
     });
-  };
-
-  const updateLeadPrice = (modality: string, value: string) => {
-    setForm(prev => ({
-      ...prev,
-      leadPriceByModality: {
-        ...prev.leadPriceByModality,
-        [modality]: value,
-      },
-    }));
   };
 
   const handleSubmit = async (event: React.FormEvent) => {
@@ -146,7 +126,11 @@ export default function PartnerApplicationsPage() {
 
     setSubmitting(true);
     try {
-      const result = await submitPartnerApplication(form);
+      const result = await submitPartnerApplication({
+        ...form,
+        leadPriceByModality: {},
+        matchCodes: deriveMatchCodes(form),
+      });
       setSubmittedId(result.application_id);
       setForm(initialForm);
     } catch (err) {
@@ -165,7 +149,7 @@ export default function PartnerApplicationsPage() {
           <h1 className="text-3xl md:text-4xl font-black mt-2">Sua empresa entrou na fila de avaliação humana.</h1>
           <p className="text-white/65 mt-4 leading-relaxed">
             Recebemos a candidatura #{submittedId}. O cadastro não garante aprovação nem volume de leads. O Guia PBEV revisará categoria,
-            cobertura, SLA, experiência com EVs e aderência às regras comerciais antes de ativar qualquer parceiro.
+            cobertura, SLA e aderência às regras comerciais antes de ativar qualquer parceiro.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <button onClick={() => setSubmittedId(null)} className="rounded-xl bg-[#00b4ff] px-5 py-3 font-black text-black">Enviar outra candidatura</button>
@@ -190,9 +174,8 @@ export default function PartnerApplicationsPage() {
             <p className="text-xs font-black uppercase tracking-[0.24em] text-[#00b4ff]">Programa de parceiros</p>
             <h1 className="text-4xl md:text-6xl font-black mt-3 leading-[0.96]">Programa de parceiros: receba oportunidades qualificadas do ecossistema de veículos elétricos.</h1>
             <p className="text-white/70 mt-5 max-w-3xl text-lg leading-relaxed">
-              O Guia PBEV Brasil está estruturando uma rede de fornecedores para atender interesses reais em seguro, wallbox,
-              financiamento, compra e frota. Este cadastro é uma candidatura para avaliação: o cadastro não garante aprovação,
-              volume, exclusividade ou envio automático de leads.
+              O Guia PBEV Brasil está estruturando uma rede de fornecedores para seguro, wallbox, financiamento, compra e frota.
+              O cadastro é simples e passa por revisão humana antes de qualquer envio de leads.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a href="#formulario-parceiro" className="rounded-xl bg-[#00b4ff] px-5 py-3 font-black text-black">Preencher candidatura</a>
@@ -269,17 +252,15 @@ export default function PartnerApplicationsPage() {
           <div>
             <p className="text-xs font-black uppercase tracking-[0.22em] text-[#00b4ff]">Candidatura</p>
             <h2 className="mt-2 text-3xl font-black">Dados para avaliação</h2>
-            <p className="mt-2 max-w-3xl text-white/60">Preencha com dados comerciais reais. O envio cria uma candidatura em análise, não uma conta ativa de parceiro.</p>
+            <p className="mt-2 max-w-3xl text-white/60">Preencha só o essencial. Os critérios técnicos serão refinados manualmente depois da primeira conversa.</p>
           </div>
 
           <section>
-            <h2 className="text-xl font-black mb-4">Dados da empresa</h2>
+            <h2 className="text-xl font-black mb-4">Contato</h2>
             <div className="grid md:grid-cols-2 gap-4">
               <label><span className={labelClass}>Nome da empresa *</span><input required className={inputClass} value={form.companyName} onChange={e => updateField('companyName', e.target.value)} /></label>
-              <label><span className={labelClass}>CNPJ</span><input className={inputClass} value={form.cnpj} onChange={e => updateField('cnpj', e.target.value)} /></label>
               <label><span className={labelClass}>Site</span><input className={inputClass} value={form.website} onChange={e => updateField('website', e.target.value)} placeholder="https://" /></label>
               <label><span className={labelClass}>Nome do responsável *</span><input required className={inputClass} value={form.contactName} onChange={e => updateField('contactName', e.target.value)} /></label>
-              <label><span className={labelClass}>Cargo</span><input className={inputClass} value={form.contactRole} onChange={e => updateField('contactRole', e.target.value)} /></label>
               <label><span className={labelClass}>Email profissional *</span><input required type="email" className={inputClass} value={form.email} onChange={e => updateField('email', e.target.value)} /></label>
               <label><span className={labelClass}>WhatsApp comercial *</span><input required className={inputClass} value={form.whatsapp} onChange={e => updateField('whatsapp', e.target.value)} /></label>
               <label><span className={labelClass}>Cidade sede *</span><input required className={inputClass} value={form.city} onChange={e => updateField('city', e.target.value)} /></label>
@@ -293,7 +274,7 @@ export default function PartnerApplicationsPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-black mb-4">Categoria e cobertura</h2>
+            <h2 className="text-xl font-black mb-4">Atuação e cobertura</h2>
             <fieldset className="grid md:grid-cols-2 gap-3 mb-5">
               <legend className="sr-only">Categorias de atuação</legend>
               {SERVICE_CATEGORIES.map(([value, label]) => (
@@ -320,28 +301,12 @@ export default function PartnerApplicationsPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-black mb-4">Operação e modelo comercial</h2>
+            <h2 className="text-xl font-black mb-4">Operação comercial</h2>
             <div className="grid md:grid-cols-2 gap-4">
-              <label><span className={labelClass}>Experiência com veículos elétricos</span><textarea className={`${inputClass} min-h-28`} value={form.evExperience} onChange={e => updateField('evExperience', e.target.value)} /></label>
-              <label><span className={labelClass}>Marcas/modelos que costuma atender</span><textarea className={`${inputClass} min-h-28`} value={form.brandsSupported} onChange={e => updateField('brandsSupported', e.target.value)} /></label>
-              <label><span className={labelClass}>Capacidade mensal</span><input className={inputClass} value={form.monthlyCapacity} onChange={e => updateField('monthlyCapacity', e.target.value)} /></label>
               <label>
                 <span className={labelClass}>SLA de primeiro contato</span>
                 <select className={inputClass} value={form.slaHours} onChange={e => updateField('slaHours', e.target.value)}>
                   <option value="">Selecione</option><option value="2">Até 2h úteis</option><option value="4">Até 4h úteis</option><option value="24">Até 24h úteis</option><option value="48">Até 48h úteis</option>
-                </select>
-              </label>
-              <label><span className={labelClass}>CRM usado</span><input className={inputClass} value={form.crmTool} onChange={e => updateField('crmTool', e.target.value)} /></label>
-              <label>
-                <span className={labelClass}>Canal preferido</span>
-                <select className={inputClass} value={form.preferredDeliveryChannel} onChange={e => updateField('preferredDeliveryChannel', e.target.value)}>
-                  <option value="">Selecione</option><option value="email">Email</option><option value="whatsapp">WhatsApp</option><option value="api">API</option><option value="crm">CRM/planilha</option>
-                </select>
-              </label>
-              <label>
-                <span className={labelClass}>Modelo comercial</span>
-                <select className={inputClass} value={form.commercialModelInterest} onChange={e => updateField('commercialModelInterest', e.target.value)}>
-                  <option value="">Selecione</option><option value="piloto">Piloto inicial</option><option value="pagamento_por_lead">Pagamento por lead qualificado</option><option value="mensalidade">Mensalidade com leads inclusos</option><option value="entender">Ainda quero entender</option>
                 </select>
               </label>
               <label>
@@ -351,33 +316,7 @@ export default function PartnerApplicationsPage() {
                 </select>
               </label>
             </div>
-
-            <div className="mt-6 rounded-2xl border border-white/10 bg-black/20 p-4">
-              <h2 className="text-lg font-black mb-2">Preço por lead/modalidade</h2>
-              <p className="mb-4 text-sm text-white/60">Informe o CPL alvo ou faixa aceitável por tipo de oportunidade. Isso será usado para qualificação comercial e billing manual.</p>
-              <div className="grid md:grid-cols-2 gap-4">
-                {LEAD_PRICE_MODALITIES.map(([value, label]) => (
-                  <label key={value}>
-                    <span className={labelClass}>Preço por lead {label}</span>
-                    <input className={inputClass} value={form.leadPriceByModality[value] || ''} onChange={e => updateLeadPrice(value, e.target.value)} placeholder="Ex: R$ 120" />
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-6 rounded-2xl border border-white/10 bg-black/20 p-4">
-              <h2 className="text-lg font-black mb-2">Match codes</h2>
-              <p className="mb-4 text-sm text-white/60">Selecione os códigos que devem orientar o matching futuro entre lead, modalidade, região, SLA e perfil de atendimento.</p>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
-                {MATCH_CODE_OPTIONS.map(([value, label]) => (
-                  <label key={value} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-3 text-sm font-bold">
-                    <input type="checkbox" checked={form.matchCodes.includes(value)} onChange={() => toggleArrayValue('matchCodes', value)} />
-                    {label}
-                  </label>
-                ))}
-              </div>
-            </div>
-            <label className="block mt-4"><span className={labelClass}>Observações</span><textarea className={`${inputClass} min-h-28`} value={form.notes} onChange={e => updateField('notes', e.target.value)} /></label>
+            <label className="block mt-4"><span className={labelClass}>Observações</span><textarea className={`${inputClass} min-h-28`} value={form.notes} onChange={e => updateField('notes', e.target.value)} placeholder="Ex: categoria principal, regiões fortes, diferenciais ou restrições comerciais." /></label>
           </section>
 
           <section className="rounded-2xl border border-white/10 bg-black/25 p-4">

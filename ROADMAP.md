@@ -128,13 +128,13 @@
 - Página pública `/parceiros` para fornecedores interessados no futuro programa de parceiros
 - Formulário de candidatura, não cadastro automático: copy informa que não há garantia de aprovação, volume, exclusividade ou envio automático de leads
 - Categorias: financiamento, seguro, wallbox, venda/cotação de veículo, frota/B2B, energia solar/recarga e documentação
-- Campos de cobertura, SLA, capacidade operacional, canal de entrega, modelo comercial e faixa aceitável por lead
+- Campos essenciais: contato, categorias, cobertura, PF/PJ/remoto, SLA, faixa aceitável por lead, observações e LGPD
 - Checkbox LGPD obrigatório
 - Backend: `POST https://bot.guiapbev.cloud/api/partner-applications`
 - Persistência: tabela `partner_applications` com status inicial `submitted`
 - Página `/parceiros` v2: landing B2B com seções “Como funciona”, critérios de aprovação, modelo comercial inicial, categorias e CTA âncora para formulário
 - Admin interno: `https://bot.guiapbev.cloud/admin/partners` lista candidaturas, filtra por status e permite mudar status/notas via `PATCH /api/admin/partner-applications/{id}`
-- Campos comerciais: preço sugerido/aceitável por modalidade (`seguro`, `wallbox`, `financiamento`, `compra_veiculo`, `frota_b2b`, `energia_solar_recarga`, `documentacao`) e match codes operacionais (`uf_exact`, `city_priority`, `home_charging`, `insurance_ev`, etc.)
+- Dados avançados de matching não ficam expostos como campos públicos; match codes são derivados automaticamente de categoria, cobertura, PF/PJ/remoto e SLA para reduzir atrito
 - Próximo passo: entidade `partners`, aprovação como parceiro ativo e depois CRM/relatórios
 
 ### 19. Admin interno de candidaturas de parceiros ✅
@@ -144,12 +144,12 @@
 - Tela HTML leve em `/admin/partners` para review operacional sem depender do frontend estático do Guia
 - Validação automatizada cobre listagem, update, status inválido e renderização da tela admin
 
-### 20. Preço por lead/modalidade e match codes ✅
-- `/parceiros` agora pergunta o preço aceitável por modalidade: Seguro EV, Wallbox, Financiamento, Compra/cotação, Frota/B2B, Energia solar/recarga e Documentação
-- Valores default de referência na copy: Seguro EV R$ 80, Wallbox R$ 150, Financiamento R$ 120, Compra R$ 200, Frota/B2B R$ 400, Energia solar/recarga R$ 250, Documentação R$ 50
-- Match codes adicionados no formulário para futura regra de roteamento: UF/cidade, PF/PJ/remoto, categorias, SLA e perfil de veículo
-- Backend persiste `lead_price_by_modality` em JSON e `match_codes` como lista controlada
-- Admin interno exibe preço/modalidade e match codes para revisão comercial
+### 20. Match codes derivados e formulário simplificado ✅
+- `/parceiros` foi simplificado para reduzir atrito: sem campos públicos de preço por modalidade e sem seleção manual de match codes
+- Mantida apenas uma faixa geral de CPL aceitável por lead, suficiente para triagem comercial inicial
+- Match codes passam a ser derivados automaticamente do formulário: UF/cidade, PF/PJ/remoto, categoria de atuação e SLA
+- Backend continua compatível com `lead_price_by_modality` e `match_codes`, mas a landing pública não exige esses campos avançados
+- Admin interno continua exibindo dados avançados quando existirem, sem obrigar o fornecedor a preenchê-los no primeiro contato
 
 ### 12. Avaliações de Donos
 - Donos submetem nota para autonomia real, recarga e qualidade

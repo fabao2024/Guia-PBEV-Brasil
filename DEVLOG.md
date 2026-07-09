@@ -791,3 +791,16 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Commit | ✅ | pendente nesta sessão |
 
 **Notas:** Pricing público continua como referência de candidatura, não tabela comercial fechada. Defaults internos sugeridos: seguro R$ 80, wallbox R$ 150, financiamento R$ 120, compra R$ 200, frota/B2B R$ 400, solar/recarga R$ 250, documentação R$ 50.
+
+---
+
+### [S15-I] refactor(partners): simplificação do formulário público · 09/07/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | Removidos da landing pública os campos avançados de preço por modalidade e seleção manual de match codes. O formulário agora pede apenas contato, categoria, cobertura, PF/PJ/remoto, SLA, faixa geral de CPL, observações e LGPD. Match codes são derivados automaticamente no payload. |
+| Build  | ✅ | `npm run build` concluído com avisos existentes de bundle/chunks e Leaflet assets. |
+| Testes | ✅ | `npm run test:run` — 14 suites, 116/116 testes passando. Bot validado sem alteração funcional: `python -m unittest discover -s tests -v` — 15/15 testes passando. |
+| Commit | ✅ | pendente nesta sessão |
+
+**Notas:** Decisão de produto: reduzir fricção na candidatura. Pricing detalhado e match rules ficam para revisão/admin, não para o primeiro formulário público.
