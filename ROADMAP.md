@@ -24,6 +24,7 @@
 | 16 | Captura automática de leads comerciais via Instagram DM/comentários | Monetização | Baixo | Alto | ✅ Concluído |
 | 17 | Mini-CRM de leads no bot (`/leads`) | Monetização | Médio | Alto | 🔲 Pendente |
 | 18 | Formulário público de candidatura de fornecedores/parceiros (`/parceiros`) | Monetização | Baixo | Alto | ✅ Concluído |
+| 19 | Admin interno de candidaturas de parceiros (`/admin/partners`) | Monetização | Baixo | Alto | ✅ Concluído |
 
 ---
 
@@ -130,7 +131,16 @@
 - Checkbox LGPD obrigatório
 - Backend: `POST https://bot.guiapbev.cloud/api/partner-applications`
 - Persistência: tabela `partner_applications` com status inicial `submitted`
-- Próximo passo: tela admin de review/aprovação de parceiros e depois CRM/relatórios
+- Página `/parceiros` v2: landing B2B com seções “Como funciona”, critérios de aprovação, modelo comercial inicial, categorias e CTA âncora para formulário
+- Admin interno: `https://bot.guiapbev.cloud/admin/partners` lista candidaturas, filtra por status e permite mudar status/notas via `PATCH /api/admin/partner-applications/{id}`
+- Próximo passo: entidade `partners`, aprovação como parceiro ativo e depois CRM/relatórios
+
+### 19. Admin interno de candidaturas de parceiros ✅
+- Backend FastAPI expõe `GET /api/admin/partner-applications` com resumo e lista de candidaturas
+- `PATCH /api/admin/partner-applications/{id}` atualiza `status` e `review_notes`
+- Status permitidos: `submitted`, `reviewing`, `approved`, `rejected`, `active`, `paused`
+- Tela HTML leve em `/admin/partners` para review operacional sem depender do frontend estático do Guia
+- Validação automatizada cobre listagem, update, status inválido e renderização da tela admin
 
 ### 12. Avaliações de Donos
 - Donos submetem nota para autonomia real, recarga e qualidade

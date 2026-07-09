@@ -14,6 +14,22 @@ describe('PartnerApplicationsPage', () => {
     vi.clearAllMocks();
   });
 
+  it('renders the partner landing sections before the application form', () => {
+    render(
+      <MemoryRouter>
+        <PartnerApplicationsPage />
+      </MemoryRouter>,
+    );
+
+    expect(screen.getByRole('heading', { name: /programa de parceiros/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /como funciona/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /critérios de aprovação/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /modelo comercial inicial/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /preencher candidatura/i })).toHaveAttribute('href', '#formulario-parceiro');
+    expect(screen.getAllByText(/piloto manual/i).length).toBeGreaterThan(0);
+    expect(screen.getByText(/sem exclusividade automática/i)).toBeInTheDocument();
+  });
+
   it('submits a supplier application with categories, coverage and LGPD acceptance', async () => {
     const user = userEvent.setup();
     render(

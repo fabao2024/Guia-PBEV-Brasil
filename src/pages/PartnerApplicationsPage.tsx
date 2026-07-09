@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, CheckCircle2, Send } from 'lucide-react';
+import { ArrowLeft, Building2, CheckCircle2, ClipboardCheck, Handshake, Send, ShieldCheck, Target, Timer, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PartnerApplicationFormData } from '../types';
 import { submitPartnerApplication } from '../utils/partnerApplications';
@@ -46,6 +46,30 @@ const initialForm: PartnerApplicationFormData = {
 
 const inputClass = 'w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-white placeholder-white/35 outline-none focus:border-[#00b4ff] focus:ring-2 focus:ring-[#00b4ff]/20';
 const labelClass = 'block text-sm font-bold text-white/80 mb-2';
+const cardClass = 'rounded-3xl border border-white/10 bg-white/[0.035] p-5 md:p-6 shadow-[0_0_35px_rgba(0,180,255,0.08)]';
+
+const steps = [
+  ['1', 'Sua empresa se candidata', 'Você informa categoria, cobertura, SLA, capacidade e modelo comercial viável.'],
+  ['2', 'O Guia PBEV revisa', 'A avaliação é humana. Verificamos aderência, LGPD, operação EV, cobertura e qualidade de atendimento.'],
+  ['3', 'Parceiros aprovados entram no piloto', 'Só fornecedores aprovados poderão receber oportunidades qualificadas quando o funil de consumidores for religado.'],
+  ['4', 'Leads são atribuídos com controle', 'Cada lead terá status, parceiro responsável, SLA e trilha de auditoria antes de virar cobrança.'],
+] as const;
+
+const approvalCriteria = [
+  'Atendimento real em veículos elétricos ou infraestrutura de recarga.',
+  'Cobertura geográfica objetiva por UF/cidade e capacidade mensal declarada.',
+  'SLA de primeiro contato compatível com lead qualificado.',
+  'WhatsApp, email comercial e responsável operacional claros.',
+  'Aceite LGPD e uso dos dados apenas para o interesse informado pelo consumidor.',
+  'Modelo comercial compatível com piloto manual e CPL por lead qualificado.',
+];
+
+const categoryCards = [
+  ['Seguro EV', 'Corretoras e seguradoras com produto aderente a elétricos.'],
+  ['Wallbox / recarga', 'Instaladores, energia solar, recarga residencial e empresarial.'],
+  ['Financiamento', 'Crédito, consórcio e instituições com oferta para EVs.'],
+  ['Compra / frota', 'Concessionárias, locadoras, frotas e atendimento B2B.'],
+] as const;
 
 export default function PartnerApplicationsPage() {
   const [form, setForm] = useState<PartnerApplicationFormData>(initialForm);
@@ -115,21 +139,100 @@ export default function PartnerApplicationsPage() {
 
   return (
     <main className="min-h-screen bg-[#05070d] text-white px-5 py-8">
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-6xl">
         <Link to="/" className="inline-flex items-center gap-2 text-sm font-bold text-white/60 hover:text-white mb-6">
           <ArrowLeft className="h-4 w-4" /> Voltar ao Guia PBEV
         </Link>
 
-        <section className="rounded-3xl border border-[#00b4ff]/20 bg-gradient-to-br from-[#07111f] via-[#070a12] to-[#002b44] p-6 md:p-8 shadow-[0_0_45px_rgba(0,180,255,0.12)] mb-6">
-          <p className="text-xs font-black uppercase tracking-[0.24em] text-[#00b4ff]">Programa de parceiros</p>
-          <h1 className="text-3xl md:text-5xl font-black mt-3 leading-tight">Cadastre sua empresa para avaliação no programa de parceiros do Guia PBEV Brasil.</h1>
-          <p className="text-white/65 mt-4 max-w-3xl leading-relaxed">
-            Este é um formulário de candidatura para fornecedores interessados em receber oportunidades qualificadas no futuro.
-            O cadastro não garante aprovação, volume, exclusividade ou envio automático de leads.
-          </p>
+        <section className="relative overflow-hidden rounded-[2rem] border border-[#00b4ff]/20 bg-gradient-to-br from-[#07111f] via-[#070a12] to-[#002b44] p-6 md:p-10 shadow-[0_0_55px_rgba(0,180,255,0.16)] mb-8">
+          <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#00b4ff]/20 blur-3xl" />
+          <div className="absolute bottom-0 left-1/3 h-48 w-48 rounded-full bg-[#37f29b]/10 blur-3xl" />
+          <div className="relative max-w-4xl">
+            <p className="text-xs font-black uppercase tracking-[0.24em] text-[#00b4ff]">Programa de parceiros</p>
+            <h1 className="text-4xl md:text-6xl font-black mt-3 leading-[0.96]">Programa de parceiros: receba oportunidades qualificadas do ecossistema de veículos elétricos.</h1>
+            <p className="text-white/70 mt-5 max-w-3xl text-lg leading-relaxed">
+              O Guia PBEV Brasil está estruturando uma rede de fornecedores para atender interesses reais em seguro, wallbox,
+              financiamento, compra e frota. Este cadastro é uma candidatura para avaliação: o cadastro não garante aprovação,
+              volume, exclusividade ou envio automático de leads.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <a href="#formulario-parceiro" className="rounded-xl bg-[#00b4ff] px-5 py-3 font-black text-black">Preencher candidatura</a>
+              <a href="#como-funciona" className="rounded-xl border border-white/10 bg-white/5 px-5 py-3 font-bold text-white/85">Ver como funciona</a>
+            </div>
+            <div className="mt-7 grid gap-3 sm:grid-cols-3">
+              <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-2xl text-[#37f29b]">0</strong><p className="mt-1 text-sm text-white/60">lead enviado sem revisão humana</p></div>
+              <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-2xl text-[#37f29b]">CPL</strong><p className="mt-1 text-sm text-white/60">modelo inicial por lead qualificado</p></div>
+              <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-2xl text-[#37f29b]">LGPD</strong><p className="mt-1 text-sm text-white/60">uso limitado ao interesse do consumidor</p></div>
+            </div>
+          </div>
         </section>
 
-        <form onSubmit={handleSubmit} className="rounded-3xl border border-white/10 bg-white/[0.035] p-5 md:p-8 space-y-8">
+        <section className="grid gap-4 md:grid-cols-4 mb-8">
+          {categoryCards.map(([title, description]) => (
+            <article key={title} className={cardClass}>
+              <Building2 className="h-6 w-6 text-[#00b4ff] mb-3" />
+              <h2 className="text-lg font-black">{title}</h2>
+              <p className="mt-2 text-sm text-white/62 leading-relaxed">{description}</p>
+            </article>
+          ))}
+        </section>
+
+        <section id="como-funciona" className="grid gap-5 lg:grid-cols-[1.05fr_0.95fr] mb-8">
+          <div className={cardClass}>
+            <div className="flex items-center gap-3 mb-5">
+              <Handshake className="h-7 w-7 text-[#00b4ff]" />
+              <h2 className="text-2xl md:text-3xl font-black">Como funciona</h2>
+            </div>
+            <div className="grid gap-4">
+              {steps.map(([number, title, description]) => (
+                <div key={number} className="flex gap-4 rounded-2xl border border-white/10 bg-black/20 p-4">
+                  <div className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#00b4ff] font-black text-black">{number}</div>
+                  <div>
+                    <h3 className="font-black">{title}</h3>
+                    <p className="mt-1 text-sm text-white/62 leading-relaxed">{description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-5">
+            <section className={cardClass}>
+              <div className="flex items-center gap-3 mb-4">
+                <ClipboardCheck className="h-7 w-7 text-[#37f29b]" />
+                <h2 className="text-2xl font-black">Critérios de aprovação</h2>
+              </div>
+              <ul className="space-y-3 text-sm text-white/70">
+                {approvalCriteria.map(item => <li key={item} className="flex gap-2"><ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#37f29b]" /> {item}</li>)}
+              </ul>
+            </section>
+
+            <section className={cardClass}>
+              <div className="flex items-center gap-3 mb-4">
+                <Target className="h-7 w-7 text-[#00b4ff]" />
+                <h2 className="text-2xl font-black">Modelo comercial inicial</h2>
+              </div>
+              <p className="text-sm text-white/70 leading-relaxed">
+                Começamos com <strong className="text-white">piloto manual</strong>, validação de qualidade e CPL por lead qualificado. Sem exclusividade automática,
+                sem cobrança por lead inválido e sem promessa de volume antes de medir demanda real.
+              </p>
+            </section>
+          </div>
+        </section>
+
+        <section className="grid gap-4 md:grid-cols-3 mb-8">
+          <div className={cardClass}><Timer className="h-7 w-7 text-[#00b4ff] mb-3" /><h2 className="font-black">SLA controlado</h2><p className="mt-2 text-sm text-white/62">Parceiros precisam informar tempo de primeiro contato para proteger a experiência do usuário.</p></div>
+          <div className={cardClass}><Users className="h-7 w-7 text-[#00b4ff] mb-3" /><h2 className="font-black">Revisão humana</h2><p className="mt-2 text-sm text-white/62">Candidaturas entram como submitted e só avançam após avaliação interna.</p></div>
+          <div className={cardClass}><ShieldCheck className="h-7 w-7 text-[#00b4ff] mb-3" /><h2 className="font-black">Dados protegidos</h2><p className="mt-2 text-sm text-white/62">O parceiro só poderá usar dados para a modalidade informada pelo consumidor.</p></div>
+        </section>
+
+        <form id="formulario-parceiro" onSubmit={handleSubmit} className="rounded-3xl border border-white/10 bg-white/[0.035] p-5 md:p-8 space-y-8 scroll-mt-8">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.22em] text-[#00b4ff]">Candidatura</p>
+            <h2 className="mt-2 text-3xl font-black">Dados para avaliação</h2>
+            <p className="mt-2 max-w-3xl text-white/60">Preencha com dados comerciais reais. O envio cria uma candidatura em análise, não uma conta ativa de parceiro.</p>
+          </div>
+
           <section>
             <h2 className="text-xl font-black mb-4">Dados da empresa</h2>
             <div className="grid md:grid-cols-2 gap-4">
