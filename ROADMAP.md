@@ -19,10 +19,11 @@
 | 11 | Analytics sem cookies — Plausible ou Umami | Técnico | Baixo | Médio | ✅ Concluído |
 | 12 | Avaliações de donos (rating real-world) | Feature | Alto | Médio | 🔲 Pendente |
 | 13 | Sugestão de EV pela comunidade via GitHub Issues | Community | Baixo | Médio | ✅ Concluído |
-| 14 | Funil de leads EV no Guia (CTA + formulário + tracking) | Monetização | Baixo | Alto | ✅ Concluído |
+| 14 | Funil de leads EV no Guia (CTA + formulário + tracking) | Monetização | Baixo | Alto | ✅ Pronto, rollout pausado |
 | 15 | Automação de sync local Windows + deploy VPS do bot | DevOps | Baixo | Alto | ✅ Concluído |
 | 16 | Captura automática de leads comerciais via Instagram DM/comentários | Monetização | Baixo | Alto | ✅ Concluído |
 | 17 | Mini-CRM de leads no bot (`/leads`) | Monetização | Médio | Alto | 🔲 Pendente |
+| 18 | Formulário público de candidatura de fornecedores/parceiros (`/parceiros`) | Monetização | Baixo | Alto | ✅ Concluído |
 
 ---
 
@@ -104,7 +105,7 @@
 - Rastrear: comparações mais feitas, modelos mais vistos, temas do chatbot
 - Informa quais veículos adicionar na próxima atualização
 
-### 14. Funil de leads EV ✅
+### 14. Funil de leads EV ✅ pronto, rollout pausado
 - `LeadCaptureModal`: formulário para nome, WhatsApp, cidade/UF, orçamento, interesse e mensagem
 - CTA global no catálogo: “Quero ajuda para escolher”
 - CTA no `CarDetailsModal`: “Registrar interesse com parceiro” com modelo preenchido
@@ -112,12 +113,24 @@
 - Copy ajustado para lead-gen/referral: Guia PBEV não vende, financia, segura ou instala; apenas registra interesse e pode encaminhar para parceiro selecionado
 - Persistência MVP em `localStorage` (`pbev_leads_pending`) e abertura de e-mail pré-preenchido
 - Eventos Plausible: `vehicle_view`, `compare_start`, `favorite_add`, `chat_open`, `chat_question`, `lead_cta_click`, `lead_submit`
-- ✅ Backend ativo: `POST https://bot.guiapbev.cloud/api/leads` salva leads no SQLite do bot Instagram
+- Backend implementado: `POST https://bot.guiapbev.cloud/api/leads` salva leads no SQLite do bot Instagram quando `ENABLE_PUBLIC_LEAD_API=true`
 - Fallback mantido: `localStorage` + e-mail pré-preenchido se API falhar
-- ✅ DMs/comentários do Instagram agora são classificados como intenção comercial no bot e viram leads automáticos (`instagram_dm`, `instagram_comment`)
+- DMs/comentários do Instagram têm classificador comercial pronto, mas a captura automática fica desabilitada até parceiros/CRM/regras estarem aprovados (`ENABLE_COMMERCIAL_LEAD_CAPTURE=false`)
 - Próximo passo: mini-CRM `/leads` no bot para listar, filtrar, abrir contato e mudar status
 
 > Resumo técnico S15-E (08/07/2026): `LeadCaptureModal` deixou de usar `compra` como default, agora obriga cidade/UF, seleção de modalidade e checkbox de consentimento; sucesso informa revisão e possível encaminhamento para parceiro. Novo teste automatizado cobre seleção de modalidade, bloqueio sem consentimento e payload com `consentAccepted`.
+
+> Resumo técnico S15-F (09/07/2026): consumidor lead-gen permanece pausado por flag, e foi adicionado `/parceiros` para candidaturas de fornecedores. O formulário coleta empresa, responsável, categorias, cobertura, SLA, capacidade, modelo comercial e aceite LGPD; backend salva como `partner_applications.status=submitted` para avaliação humana, sem ativação automática.
+
+### 18. Candidatura de fornecedores/parceiros ✅
+- Página pública `/parceiros` para fornecedores interessados no futuro programa de parceiros
+- Formulário de candidatura, não cadastro automático: copy informa que não há garantia de aprovação, volume, exclusividade ou envio automático de leads
+- Categorias: financiamento, seguro, wallbox, venda/cotação de veículo, frota/B2B, energia solar/recarga e documentação
+- Campos de cobertura, SLA, capacidade operacional, canal de entrega, modelo comercial e faixa aceitável por lead
+- Checkbox LGPD obrigatório
+- Backend: `POST https://bot.guiapbev.cloud/api/partner-applications`
+- Persistência: tabela `partner_applications` com status inicial `submitted`
+- Próximo passo: tela admin de review/aprovação de parceiros e depois CRM/relatórios
 
 ### 12. Avaliações de Donos
 - Donos submetem nota para autonomia real, recarga e qualidade

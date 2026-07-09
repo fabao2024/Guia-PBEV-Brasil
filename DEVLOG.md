@@ -752,3 +752,16 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Commit | ✅ | — |
 
 **Notas:** O backend atual ignora campos extras do payload; `consentAccepted` já vai no corpo do POST para futura persistência/auditoria, mas o bloqueio principal de consentimento acontece no frontend neste ajuste.
+
+---
+
+### [S15-F] feat(partners): formulário público de candidatura de fornecedores · 09/07/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | Criada página `/parceiros` com formulário de candidatura de fornecedores/parceiros. Coleta empresa, responsável, categorias, cobertura, PF/PJ/remoto, experiência EV, SLA, capacidade, canal preferido, modelo comercial, faixa por lead e aceite LGPD. Lead de consumidor segue pausado por flag. |
+| Build  | ✅ | `npm run build` — build Vite concluído; apenas avisos existentes de bundle/chunks e Leaflet assets. |
+| Testes | ✅ | `npm run test:run` — 14 suites, 115/115 testes passando. Novos testes: `PartnerApplicationsPage.test.tsx` e `partnerApplications.test.ts`. |
+| Commit | ✅ | pendente nesta sessão |
+
+**Notas:** O cadastro é candidatura, não ativação automática. Backend salva em `partner_applications` com `status=submitted` para avaliação humana antes de qualquer envio de leads.

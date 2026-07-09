@@ -2,6 +2,7 @@ import React, { useMemo, useState, useEffect, useRef } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import CarDetailPage from './pages/CarDetailPage';
 import CompareDetailPage from './pages/CompareDetailPage';
+import PartnerApplicationsPage from './pages/PartnerApplicationsPage';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { CAR_DB, isCarNew, BRAND_URLS } from './constants';
@@ -710,6 +711,7 @@ export default function App() {
     <Routes>
       <Route path="/carro/:slug" element={<CarDetailPage />} />
       <Route path="/comparar/:slugA/:slugB" element={<CompareDetailPage />} />
+      <Route path="/parceiros" element={<PartnerApplicationsPage />} />
       <Route path="*" element={catalogContent} />
     </Routes>
   );

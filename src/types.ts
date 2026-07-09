@@ -50,3 +50,31 @@ export interface LeadFormData {
   consentAccepted: boolean;
   message: string;
 }
+
+export interface PartnerApplicationFormData {
+  companyName: string;
+  cnpj: string;
+  website: string;
+  contactName: string;
+  contactRole: string;
+  email: string;
+  whatsapp: string;
+  city: string;
+  state: string;
+  serviceCategories: string[];
+  coverageStates: string[];
+  coverageCities: string;
+  servesPf: boolean;
+  servesPj: boolean;
+  servesRemote: boolean;
+  evExperience: string;
+  brandsSupported: string;
+  monthlyCapacity: string;
+  slaHours: string;
+  crmTool: string;
+  preferredDeliveryChannel: string;
+  commercialModelInterest: string;
+  acceptablePriceRange: string;
+  notes: string;
+  lgpdAcceptance: boolean;
+}
