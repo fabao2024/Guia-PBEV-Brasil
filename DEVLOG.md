@@ -804,3 +804,16 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Commit | ✅ | pendente nesta sessão |
 
 **Notas:** Decisão de produto: reduzir fricção na candidatura. Pricing detalhado e match rules ficam para revisão/admin, não para o primeiro formulário público.
+
+---
+
+### [S15-J] feat(partners): entidade `partners` e promoção controlada · 09/07/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | Backend adiciona tabela `partners` e endpoint `POST /api/admin/partner-applications/{id}/promote`. `/admin/partners` ganhou botão “Aprovar como parceiro”. A promoção é idempotente e copia dados operacionais da candidatura. |
+| Build  | ✅ | Bot: `py_compile config.py database.py main.py auto_responder.py` concluído. |
+| Testes | ✅ | Bot: `python -m unittest discover -s tests -v` — 18/18 testes passando. |
+| Commit | ✅ | pendente nesta sessão |
+
+**Notas:** `partner_applications` segue como intake/review. `partners` passa a ser a fonte dos fornecedores aprovados para futura etapa de `lead_assignments`.

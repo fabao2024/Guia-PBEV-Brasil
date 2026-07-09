@@ -151,6 +151,13 @@
 - Backend continua compatível com `lead_price_by_modality` e `match_codes`, mas a landing pública não exige esses campos avançados
 - Admin interno continua exibindo dados avançados quando existirem, sem obrigar o fornecedor a preenchê-los no primeiro contato
 
+### 21. Entidade `partners` e promoção de candidatura ✅
+- Backend cria tabela `partners` para fornecedores aprovados, separada de `partner_applications`
+- `POST /api/admin/partner-applications/{id}/promote` promove candidatura para parceiro ativo de forma idempotente
+- Promoção copia categoria, cobertura, PF/PJ/remoto, SLA, faixa CPL, preço/modalidade e match codes para `partners`
+- `/admin/partners` exibe botão “Aprovar como parceiro” para acionar a promoção controlada
+- Próximo passo: `lead_assignments` para associar leads qualificados a parceiros ativos
+
 ### 12. Avaliações de Donos
 - Donos submetem nota para autonomia real, recarga e qualidade
 - Backend: Firebase ou Supabase (free tier)
