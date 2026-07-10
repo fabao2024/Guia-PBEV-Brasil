@@ -172,7 +172,7 @@
 
 ### 24. Sync local automático Windows ✅
 - `tools/sync-pbev.ps1` continua como pull seguro/manual dos clones locais
-- Novo `tools/install-sync-task.ps1` registra tarefa do Windows Task Scheduler para rodar o sync periodicamente
+- Novo `tools/install-sync-task.ps1` registra tarefa do Windows Task Scheduler para rodar o sync 1x ao dia
 - Automação mantém GitHub como fonte da verdade, usa `git pull --ff-only` apenas com working tree limpo e nunca faz merge/push automático
 - `docs/local-sync-workflow.md` documenta instalação, logs, execução manual e remoção da tarefa
 

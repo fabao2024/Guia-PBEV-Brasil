@@ -29,7 +29,7 @@ powershell -ExecutionPolicy Bypass -File "C:\Users\fabio\Guia-PBEV-Brasil\tools\
 
 ## Automatizar no Windows Task Scheduler
 
-Instalar/atualizar uma tarefa agendada local, rodando a cada 15 minutos:
+Instalar/atualizar uma tarefa agendada local, rodando 1x ao dia:
 
 ```powershell
 cd "C:\Users\fabio\Guia-PBEV-Brasil"
@@ -37,10 +37,10 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 .\tools\install-sync-task.ps1
 ```
 
-Usar outro intervalo:
+Usar outro intervalo, por exemplo 12h:
 
 ```powershell
-.\tools\install-sync-task.ps1 -IntervalMinutes 30
+.\tools\install-sync-task.ps1 -IntervalMinutes 720
 ```
 
 Rodar manualmente a tarefa:

@@ -850,7 +850,7 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 
 | Etapa  | Status | Detalhe |
 |--------|--------|---------|
-| Dev    | ✅ | Criado `tools/install-sync-task.ps1` para instalar/remover tarefa agendada local que executa `sync-pbev.ps1` periodicamente. |
+| Dev    | ✅ | Criado `tools/install-sync-task.ps1` para instalar/remover tarefa agendada local que executa `sync-pbev.ps1` 1x ao dia por padrão. |
 | Build  | — | Alteração operacional/documental, sem build de app necessário. |
 | Testes | ✅ | Validação estática confirmou presença de `Register-ScheduledTask`, `Unregister-ScheduledTask`, uso do `sync-pbev.ps1` e ausência de auto-merge/auto-push. |
 | Commit | ✅ | pendente nesta sessão |

@@ -13,14 +13,14 @@
     .\tools\install-sync-task.ps1
 
   Custom interval:
-    .\tools\install-sync-task.ps1 -IntervalMinutes 30
+    .\tools\install-sync-task.ps1 -IntervalMinutes 720
 
   Remove task:
     .\tools\install-sync-task.ps1 -Uninstall
 #>
 
 param(
-  [int]$IntervalMinutes = 15,
+  [int]$IntervalMinutes = 1440,
   [string]$TaskName = "PBEV GitHub Safe Sync",
   [switch]$Uninstall
 )
