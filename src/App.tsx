@@ -218,6 +218,16 @@ export default function App() {
           {/* Actions */}
           <div className="flex items-center gap-2 md:gap-4 flex-shrink-0">
 
+            {/* Partner program */}
+            <a
+              href="/parceiros"
+              className="flex items-center gap-1.5 px-3 md:px-4 py-2 md:py-2.5 rounded-xl border border-[#37f29b]/40 bg-[#37f29b]/10 text-[#37f29b] hover:bg-[#37f29b]/20 hover:border-[#37f29b]/70 transition-all font-black text-xs uppercase tracking-wide"
+              title="Programa de parceiros do Guia PBEV"
+            >
+              <span aria-hidden="true">🤝</span>
+              <span className="hidden lg:inline">Parceiros</span>
+            </a>
+
             {/* Instagram */}
             <a
               href="https://instagram.com/guiapbevbrasil"

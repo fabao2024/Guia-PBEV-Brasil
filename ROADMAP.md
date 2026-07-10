@@ -165,6 +165,11 @@
 - Consumidores interessados em seguro, wallbox, financiamento, compra/cotação, frota ou solar/recarga recebem posicionamento claro: Guia orienta e pode encaminhar com consentimento; não vende/instala/financia/negocia diretamente
 - Fluxos ficam segmentados: página de parceiros = supply side; bot Instagram = triagem social; consultor IA = orientação e redirecionamento dentro da plataforma
 
+### 23. CTA de parceiros na home do catálogo ✅
+- Home `guiapbev.cloud` passa a ter link direto para `/parceiros` no header
+- Corrige o caminho para usuários que clicam no link principal da bio do Instagram em vez do link específico do Programa de Parceiros
+- Teste `AppPartnersCta` garante que a home sempre exponha o link `/parceiros`
+
 ### 12. Avaliações de Donos
 - Donos submetem nota para autonomia real, recarga e qualidade
 - Backend: Firebase ou Supabase (free tier)

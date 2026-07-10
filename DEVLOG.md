@@ -830,3 +830,16 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Commit | ✅ | pendente nesta sessão |
 
 **Notas:** Os fluxos ficam segmentados: landing `/parceiros` para supply side, bot Instagram para triagem social e consultor IA para orientação/redirecionamento dentro do Guia. Consumer lead capture continua bloqueado até existir `lead_assignments` e operação de parceiros ativa.
+
+---
+
+### [S15-L] feat(partners): CTA de parceiros na home do catálogo · 10/07/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | Header da home `guiapbev.cloud` ganhou link direto para `/parceiros`, fechando o caminho para quem clica no link principal da bio do Instagram. |
+| Build  | ✅ | `npm run build` concluído com avisos existentes de bundle/chunks e Leaflet assets. |
+| Testes | ✅ | `npm run test:run` — 16 suites, 119/119 testes passando. Novo teste `AppPartnersCta` cobre o link `/parceiros` na home. |
+| Commit | ✅ | pendente nesta sessão |
+
+**Notas:** O Instagram agora pode ter dois links na bio, mas a home também direciona fornecedores para o Programa de Parceiros caso eles cliquem no link principal do Guia.
