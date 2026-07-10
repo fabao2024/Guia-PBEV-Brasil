@@ -158,6 +158,13 @@
 - `/admin/partners` exibe botão “Aprovar como parceiro” para acionar a promoção controlada
 - Próximo passo: `lead_assignments` para associar leads qualificados a parceiros ativos
 
+### 22. Segmentação parceiro vs lead nos canais de entrada ✅
+- `/parceiros` passa a vender melhor o ecossistema Guia PBEV: catálogo curado, preços, TCO, recarga, Instagram e consultor IA
+- Bot Instagram detecta intenção de fornecedor/parceiro antes de intenção comercial de consumidor e redireciona para `/parceiros`
+- Consultor Gemini do Guia ganhou roteador local para separar fornecedor/parceiro de lead potencial, sem chamar o LLM para esse desvio
+- Consumidores interessados em seguro, wallbox, financiamento, compra/cotação, frota ou solar/recarga recebem posicionamento claro: Guia orienta e pode encaminhar com consentimento; não vende/instala/financia/negocia diretamente
+- Fluxos ficam segmentados: página de parceiros = supply side; bot Instagram = triagem social; consultor IA = orientação e redirecionamento dentro da plataforma
+
 ### 12. Avaliações de Donos
 - Donos submetem nota para autonomia real, recarga e qualidade
 - Backend: Firebase ou Supabase (free tier)

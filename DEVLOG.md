@@ -817,3 +817,16 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Commit | ✅ | pendente nesta sessão |
 
 **Notas:** `partner_applications` segue como intake/review. `partners` passa a ser a fonte dos fornecedores aprovados para futura etapa de `lead_assignments`.
+
+---
+
+### [S15-K] feat(partners): segmentação parceiro vs lead nos canais · 10/07/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `/parceiros` reestruturada para vender o ecossistema Guia PBEV + Instagram + IA. Consultor Gemini ganhou roteador local para diferenciar fornecedor/parceiro de lead potencial. Bot Instagram detecta fornecedor antes de consumidor e redireciona para `/parceiros`. |
+| Build  | ✅ | Guia: `npm run build` concluído com avisos existentes de bundle/chunks e Leaflet assets. Bot: `py_compile config.py database.py main.py auto_responder.py` concluído. |
+| Testes | ✅ | Guia: `npm run test:run` — 15 suites, 118/118 testes passando. Bot: `python -m unittest discover -s tests -v` — 19/19 testes passando. |
+| Commit | ✅ | pendente nesta sessão |
+
+**Notas:** Os fluxos ficam segmentados: landing `/parceiros` para supply side, bot Instagram para triagem social e consultor IA para orientação/redirecionamento dentro do Guia. Consumer lead capture continua bloqueado até existir `lead_assignments` e operação de parceiros ativa.

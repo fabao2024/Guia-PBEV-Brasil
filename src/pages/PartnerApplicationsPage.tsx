@@ -73,6 +73,15 @@ const categoryCards = [
   ['Compra / frota', 'Concessionárias, locadoras, frotas e atendimento B2B.'],
 ] as const;
 
+const ecosystemAssets = [
+  ['Catálogo curado de EVs', 'Modelos BEV disponíveis no Brasil com preço, autonomia, categoria e dados técnicos para comparação.'],
+  ['Simulador de custo total de propriedade', 'Usuários avaliam economia, custo mensal, combustível, energia e viabilidade antes de decidir.'],
+  ['Pontos de recarga e contexto de uso', 'O Guia ajuda o interessado a entender recarga, autonomia, infraestrutura e rotina real de uso.'],
+  ['Conteúdo educativo no Instagram', 'Posts, comparativos, dicas e interações por comentários/DMs ampliam descoberta e intenção.'],
+  ['Consultor IA dentro da plataforma', 'O agente orienta escolha, TCO, comparações e redireciona parceiro ou lead sem misturar fluxos.'],
+  ['Curadoria antes do encaminhamento', 'O usuário não chega frio: chega pesquisando, comparando e sinalizando uma necessidade prática.'],
+] as const;
+
 function deriveMatchCodes(form: PartnerApplicationFormData): string[] {
   const codes = new Set<string>();
   if (form.coverageStates.length) codes.add('uf_exact');
@@ -186,6 +195,24 @@ export default function PartnerApplicationsPage() {
               <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-2xl text-[#37f29b]">CPL</strong><p className="mt-1 text-sm text-white/60">modelo inicial por lead qualificado</p></div>
               <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-2xl text-[#37f29b]">LGPD</strong><p className="mt-1 text-sm text-white/60">uso limitado ao interesse do consumidor</p></div>
             </div>
+          </div>
+        </section>
+
+        <section className={`${cardClass} mb-8`}>
+          <p className="text-xs font-black uppercase tracking-[0.22em] text-[#00b4ff]">Ecossistema de decisão</p>
+          <h2 className="mt-2 text-2xl md:text-3xl font-black">O que é o Guia PBEV Brasil</h2>
+          <p className="mt-3 max-w-4xl text-white/68 leading-relaxed">
+            O Guia PBEV Brasil combina site, catálogo, simuladores, conteúdo no Instagram e atendimento por IA para ajudar pessoas e empresas
+            a pesquisar veículos elétricos antes de buscar produtos e serviços complementares. O usuário não chega frio: chega em contexto de
+            decisão sobre compra, recarga, seguro, financiamento, TCO e operação.
+          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {ecosystemAssets.map(([title, description]) => (
+              <div key={title} className="rounded-2xl border border-white/10 bg-black/20 p-4">
+                <h3 className="font-black text-white">{title}</h3>
+                <p className="mt-2 text-sm text-white/62 leading-relaxed">{description}</p>
+              </div>
+            ))}
           </div>
         </section>
 

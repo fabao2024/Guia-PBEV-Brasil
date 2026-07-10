@@ -25,6 +25,11 @@ describe('PartnerApplicationsPage', () => {
     expect(screen.getByRole('heading', { name: /como funciona/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /critérios de aprovação/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /modelo comercial inicial/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /o que é o guia pbev brasil/i })).toBeInTheDocument();
+    expect(screen.getByText(/catálogo curado de evs/i)).toBeInTheDocument();
+    expect(screen.getByText(/simulador de custo total de propriedade/i)).toBeInTheDocument();
+    expect(screen.getByText(/conteúdo educativo no instagram/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/usuário não chega frio/i).length).toBeGreaterThan(0);
     expect(screen.getByRole('link', { name: /preencher candidatura/i })).toHaveAttribute('href', '#formulario-parceiro');
     expect(screen.queryByRole('heading', { name: /preço por lead\/modalidade/i })).not.toBeInTheDocument();
     expect(screen.queryByRole('heading', { name: /match codes/i })).not.toBeInTheDocument();
