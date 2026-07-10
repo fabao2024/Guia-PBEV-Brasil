@@ -13,7 +13,7 @@ Use antes de abrir VS Code/Antigravity, ou quando o Hermes/VPS tiver feito alter
 | Guia PBEV Brasil | `C:\Users\fabio\Guia-PBEV-Brasil` |
 | Bot Instagram | `C:\Users\fabio\OneDrive\Documentos\I.A jobs\testes\Guia PBEV\pbev-instagram-bot` |
 
-## Rodar no PowerShell
+## Rodar no PowerShell manualmente
 
 ```powershell
 cd "C:\Users\fabio\Guia-PBEV-Brasil"
@@ -25,6 +25,40 @@ Ou de qualquer pasta:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File "C:\Users\fabio\Guia-PBEV-Brasil\tools\sync-pbev.ps1"
+```
+
+## Automatizar no Windows Task Scheduler
+
+Instalar/atualizar uma tarefa agendada local, rodando a cada 15 minutos:
+
+```powershell
+cd "C:\Users\fabio\Guia-PBEV-Brasil"
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\tools\install-sync-task.ps1
+```
+
+Usar outro intervalo:
+
+```powershell
+.\tools\install-sync-task.ps1 -IntervalMinutes 30
+```
+
+Rodar manualmente a tarefa:
+
+```powershell
+Start-ScheduledTask -TaskName "PBEV GitHub Safe Sync"
+```
+
+Ver logs:
+
+```powershell
+Get-Content "$env:LOCALAPPDATA\PBEV\sync-pbev.log" -Tail 80
+```
+
+Remover automação:
+
+```powershell
+.\tools\install-sync-task.ps1 -Uninstall
 ```
 
 ## Garantias de segurança

@@ -843,3 +843,16 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Commit | ✅ | pendente nesta sessão |
 
 **Notas:** O Instagram agora pode ter dois links na bio, mas a home também direciona fornecedores para o Programa de Parceiros caso eles cliquem no link principal do Guia.
+
+---
+
+### [S15-M] ops(sync): automação local segura via Windows Task Scheduler · 10/07/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | Criado `tools/install-sync-task.ps1` para instalar/remover tarefa agendada local que executa `sync-pbev.ps1` periodicamente. |
+| Build  | — | Alteração operacional/documental, sem build de app necessário. |
+| Testes | ✅ | Validação estática confirmou presença de `Register-ScheduledTask`, `Unregister-ScheduledTask`, uso do `sync-pbev.ps1` e ausência de auto-merge/auto-push. |
+| Commit | ✅ | pendente nesta sessão |
+
+**Notas:** A automação deve rodar no Windows local do Fabio. O VPS/Hermes não consegue atualizar diretamente o workspace local do Antigravity/VS Code; por isso a solução correta é Windows Task Scheduler.

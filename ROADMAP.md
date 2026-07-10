@@ -170,6 +170,12 @@
 - Corrige o caminho para usuários que clicam no link principal da bio do Instagram em vez do link específico do Programa de Parceiros
 - Teste `AppPartnersCta` garante que a home sempre exponha o link `/parceiros`
 
+### 24. Sync local automático Windows ✅
+- `tools/sync-pbev.ps1` continua como pull seguro/manual dos clones locais
+- Novo `tools/install-sync-task.ps1` registra tarefa do Windows Task Scheduler para rodar o sync periodicamente
+- Automação mantém GitHub como fonte da verdade, usa `git pull --ff-only` apenas com working tree limpo e nunca faz merge/push automático
+- `docs/local-sync-workflow.md` documenta instalação, logs, execução manual e remoção da tarefa
+
 ### 12. Avaliações de Donos
 - Donos submetem nota para autonomia real, recarga e qualidade
 - Backend: Firebase ou Supabase (free tier)
