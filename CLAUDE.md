@@ -120,6 +120,7 @@ VITE_LANGSMITH_PROJECT=guia-pbev # Optional — LangSmith project name (default:
 ```
 
 ## Workflow Rules
+- **Git**: GitHub é a fonte da verdade; Windows, VPS (Hermes) e outros agentes commitam no mesmo `main`. Sempre `git pull --rebase origin main` antes de `git push`; push imediatamente após cada commit aprovado; nunca merge commit ou force push em `main`. Conflitos em `DEVLOG.md` são quase sempre entradas novas no fim — manter ambas em sequência cronológica.
 - **Before starting any task**, read `ROADMAP.md` and check:
   1. Is this already built? (✅ in status table or sprint) — if yes, say so and do not duplicate.
   2. Is this a variation of something already built? — if yes, treat it as an enhancement to the existing item, not a new one.
