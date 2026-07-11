@@ -771,6 +771,20 @@
 
 > Resumo técnico: `App.tsx`, `CarDetailsModal.tsx`, `ChatWidget.tsx`, `LeadCaptureModal.tsx`, `types.ts`, `utils/analytics.ts`. Build e 108 testes passando sobre catálogo atual com 108 veículos.
 
+### Sprint 16 — UI Refresh "EV Cockpit" · 11/07/2026 ✅
+**Tema: refinamento visual do catálogo (desktop + mobile)**
+- ✅ Tipografia: Chakra Petch (display/números) + Sora (corpo) substituem Inter
+- ✅ Header reorganizado: ferramentas secundárias agrupadas em icon rail; mobile enxuto
+- ✅ Faixa de estatísticas dashboard (veículos filtrados/total, marcas, autonomia máx)
+- ✅ Animação de entrada escalonada nos cards (respeita `prefers-reduced-motion`)
+- ✅ Textura blueprint no fundo + scrollbar dark corrigida (tinha cores light-mode)
+- ✅ Sliders da sidebar com knob custom brilhante; focus-visible ring na cor da marca
+- ✅ Botão Mapa na barra de ações mobile; link Parceiros no footer
+
+> **Resumo técnico — UI Refresh (11/07/2026):**
+> `index.html` (fontes Google, scrollbar dark), `src/index.css` (`@theme` com `--font-display`, `.bg-blueprint`, `.card-enter`, `.ev-slider`, focus-visible), `src/App.tsx` (header icon rail, stats strip, stagger nos cards, footer), `src/components/CarCard.tsx` e `Sidebar.tsx` (fonte display nos números, sliders).
+> Build ✅ · 119/119 testes ✅ · validado visualmente em localhost pelo usuário. Commit `ed430b7`.
+
 ---
 
 ## LLM Router — Decisão Arquitetural

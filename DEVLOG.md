@@ -868,3 +868,16 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Commit | ✅ | pendente nesta sessão |
 
 **Notas:** Também corrigido o parser do fallback `/?/rota&query` em `src/index.tsx` para restaurar query string corretamente.
+
+---
+
+### [S16-A] feat(ui): UI Refresh "EV Cockpit" — tipografia, header e stats strip · 11/07/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | Chakra Petch (display) + Sora (corpo) via `@theme` do Tailwind 4; header com icon rail para ferramentas secundárias; faixa de estatísticas dashboard; animação escalonada nos cards; textura blueprint; scrollbar dark corrigida; sliders com knob custom; focus-visible ring; botão Mapa no mobile; link Parceiros no footer. |
+| Build  | ✅ | `npm run build` — concluído em ~9s, avisos existentes de chunk size. |
+| Testes | ✅ | `npm run test:run` — 16 suites, 119/119 passando (incl. `AppPartnersCta`). Validação visual em localhost:3000 pelo usuário (desktop + mobile). |
+| Commit | ✅ | `ed430b7` |
+
+**Notas:** Screenshots via extensão Chrome falharam (página não atinge `document_idle` no dev por causa das ~100 imagens externas via weserv) — validação visual foi manual. Scrollbar global em `index.html` ainda tinha cores light-mode (`#f1f5f9`) desde a versão inicial.
