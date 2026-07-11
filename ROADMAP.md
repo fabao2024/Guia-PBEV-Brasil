@@ -176,6 +176,11 @@
 - Automação mantém GitHub como fonte da verdade, usa `git pull --ff-only` apenas com working tree limpo e nunca faz merge/push automático
 - `docs/local-sync-workflow.md` documenta instalação, logs, execução manual e remoção da tarefa
 
+### 25. Deep link direto para `/parceiros` ✅
+- Build agora gera `dist/parceiros/index.html` via `tools/create-static-route-pages.mjs`
+- Corrige abertura direta de `https://guiapbev.cloud/parceiros` em navegadores in-app como Instagram, sem depender do fallback 404 do GitHub Pages
+- Parser do fallback `/?/rota` também foi corrigido para preservar query strings como query, não como parte do path
+
 ### 12. Avaliações de Donos
 - Donos submetem nota para autonomia real, recarga e qualidade
 - Backend: Firebase ou Supabase (free tier)

@@ -856,3 +856,15 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Commit | ✅ | pendente nesta sessão |
 
 **Notas:** A automação deve rodar no Windows local do Fabio. O VPS/Hermes não consegue atualizar diretamente o workspace local do Antigravity/VS Code; por isso a solução correta é Windows Task Scheduler.
+
+
+### [S15-N] fix(routes): deep link direto para Programa de Parceiros · 11/07/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | Adicionado `tools/create-static-route-pages.mjs` e pós-build para gerar `dist/parceiros/index.html`, evitando dependência do fallback 404 do GitHub Pages no link da bio do Instagram. |
+| Build  | ✅ | `npm run build` gerou `dist/parceiros/index.html` como cópia do shell SPA. |
+| Testes | ✅ | `npm run test:run` — 16 suites, 119 testes passando; validação local confirmou `dist/parceiros/index.html` igual a `dist/index.html`. |
+| Commit | ✅ | pendente nesta sessão |
+
+**Notas:** Também corrigido o parser do fallback `/?/rota&query` em `src/index.tsx` para restaurar query string corretamente.

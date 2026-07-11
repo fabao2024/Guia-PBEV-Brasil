@@ -15,13 +15,16 @@ import App from './App';
   if (redirect && redirect !== window.location.href) {
     window.history.replaceState(null, '', redirect);
   } else {
-    // Handle /?/path/here format from 404.html
+    // Handle /?/path/here format from 404.html.
+    // The fallback encodes original query params after `&`, e.g. /?/parceiros&utm=x.
     const { search } = window.location;
     if (search.startsWith('?/')) {
-      const decoded = search
-        .slice(1)
-        .replace(/~and~/g, '&');
-      window.history.replaceState(null, '', decoded);
+      const raw = search.slice(1).replace(/~and~/g, '&');
+      const ampIndex = raw.indexOf('&');
+      const restored = ampIndex === -1
+        ? raw
+        : `${raw.slice(0, ampIndex)}?${raw.slice(ampIndex + 1)}`;
+      window.history.replaceState(null, '', restored);
     }
   }
 })();
