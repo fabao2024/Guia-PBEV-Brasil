@@ -786,6 +786,18 @@
 > `index.html` (fontes Google, scrollbar dark), `src/index.css` (`@theme` com `--font-display`, `.bg-blueprint`, `.card-enter`, `.ev-slider`, focus-visible), `src/App.tsx` (header icon rail, stats strip, stagger nos cards, footer), `src/components/CarCard.tsx` e `Sidebar.tsx` (fonte display nos números, sliders).
 > Build ✅ · 119/119 testes ✅ · validado visualmente em localhost pelo usuário. Commit `ed430b7`.
 
+**Extensão — Bot Instagram alinhado à identidade (11/07/2026, repo `PBEV-Instagram-Automation`):**
+- ✅ Bug do glyph ⚡ (tofu �) corrigido com raio vetorial em todas as artes; hashtags de 15–20 → 6–10 de nicho
+- ✅ Rebrand "EV Cockpit" nas artes: paleta do site (`#0a0b12` + accent por categoria), Chakra Petch/Sora, fundo blueprint, stat tiles
+- ✅ Cooldown de foto por veículo (14 dias) no fallback de geração de imagem
+- ✅ Reels com Ken Burns (zoom 1.08 centralizado + fades); trilha royalty-free opcional (editoriais com música por padrão, `parceiros_cta` silencioso)
+- ✅ CTA #138 (solar/frotas, 12/07) regenerado com movimento
+
+> **Resumo técnico — Bot (11/07/2026):**
+> Commits `0d7cdd8` (bolt + hashtags), `bf48832` (rebrand + fontes TTF), `f9827f4` (cooldown + Ken Burns), `273a3cc` (música opcional) — todos deployados automaticamente via GitHub Actions no VPS.
+> Descobertas: fills com alpha do Pillow não compõem (causa dos cards branco-sólido antigos — substituídos por cores sólidas pré-misturadas); `zoompan` com input em loop multiplica frames (encode infinito — corrigido com segunda entrada sem loop).
+> Feed do Instagram e guiapbev.cloud agora compartilham a mesma identidade visual.
+
 ---
 
 ## LLM Router — Decisão Arquitetural

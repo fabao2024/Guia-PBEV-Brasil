@@ -892,3 +892,16 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Build  | ✅ | `npm run build` — ok em ~6s. |
 | Testes | ✅ | `npm run test:run` — 119/119 passando. Validado no celular pelo usuário via rede local. |
 | Commit | ✅ | `7bee0fe` |
+
+---
+
+### [S16-C] feat(bot): rodada de melhorias visuais no bot Instagram · 11/07/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | Trabalho no repo `PBEV-Instagram-Automation`: raio vetorial no lugar do emoji quebrado + hashtags 6–10 de nicho (`0d7cdd8`); rebrand "EV Cockpit" com paleta/fontes do site (`bf48832`); cooldown de foto por veículo 14 dias (`f9827f4`); Ken Burns + trilha royalty-free opcional nos reels (`273a3cc`). |
+| Build  | — | Sem build do Guia; deploys do bot via GitHub Actions (4 runs verdes). |
+| Testes | ✅ | Amostras visuais das 4 variantes de arte aprovadas pelo usuário; reels validados no VPS com ffprobe (H.264+AAC quando com música); suíte do bot 20/20 no Linux. |
+| Commit | ✅ | Commits no repo do bot (acima); este registro documenta a rodada no Guia. |
+
+**Notas:** Identidade visual do Instagram agora é a mesma do site. CTA #138 (12/07 08:30) regenerado com movimento. Detalhes completos no DEVLOG.md do repo do bot.
