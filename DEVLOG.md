@@ -881,3 +881,14 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Commit | ✅ | `ed430b7` |
 
 **Notas:** Screenshots via extensão Chrome falharam (página não atinge `document_idle` no dev por causa das ~100 imagens externas via weserv) — validação visual foi manual. Scrollbar global em `index.html` ainda tinha cores light-mode (`#f1f5f9`) desde a versão inicial.
+
+---
+
+### [S16-B] feat(ui): CTA de Parceiros na stats strip + ícone no header mobile · 11/07/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | Tile "Autonomia máx" da stats strip substituído por botão verde "🤝 Parceiros / Seja um parceiro" (todas as telas); ícone 🤝 adicionado ao header mobile (desktop mantém no icon rail). |
+| Build  | ✅ | `npm run build` — ok em ~6s. |
+| Testes | ✅ | `npm run test:run` — 119/119 passando. Validado no celular pelo usuário via rede local. |
+| Commit | ✅ | `7bee0fe` |

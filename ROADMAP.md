@@ -780,6 +780,7 @@
 - ✅ Textura blueprint no fundo + scrollbar dark corrigida (tinha cores light-mode)
 - ✅ Sliders da sidebar com knob custom brilhante; focus-visible ring na cor da marca
 - ✅ Botão Mapa na barra de ações mobile; link Parceiros no footer
+- ✅ CTA Parceiros na stats strip (substitui tile de autonomia) + ícone 🤝 no header mobile
 
 > **Resumo técnico — UI Refresh (11/07/2026):**
 > `index.html` (fontes Google, scrollbar dark), `src/index.css` (`@theme` com `--font-display`, `.bg-blueprint`, `.card-enter`, `.ev-slider`, focus-visible), `src/App.tsx` (header icon rail, stats strip, stagger nos cards, footer), `src/components/CarCard.tsx` e `Sidebar.tsx` (fonte display nos números, sliders).
