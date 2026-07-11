@@ -200,6 +200,9 @@ export default function App() {
       {/* Background ambient light */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#00b4ff]/10 rounded-full blur-[150px] pointer-events-none opacity-50"></div>
 
+      {/* Blueprint grid texture */}
+      <div className="absolute inset-0 bg-blueprint pointer-events-none" aria-hidden="true"></div>
+
       {/* HEADER — single row on all sizes */}
       <header className="bg-[#0a0b12]/80 backdrop-blur-xl border-b border-white/10 px-4 md:px-6 py-3 md:py-4 flex-shrink-0 z-[35] shadow-lg relative">
         <div className="max-w-[1600px] mx-auto w-full flex flex-row items-center justify-between gap-3">
@@ -210,39 +213,65 @@ export default function App() {
               <Zap className="w-5 h-5 md:w-6 md:h-6 fill-current animate-pulse opacity-90" />
             </div>
             <div>
-              <h1 className="text-lg md:text-2xl font-black text-white tracking-tight leading-none">Guia PBEV <span className="text-[#00b4ff]">{t('header.titleSuffix')}</span></h1>
-              <p className="hidden md:block text-xs text-[#a0a0a0] font-bold uppercase tracking-widest mt-0.5">{t('header.subtitle')}</p>
+              <h1 className="font-display text-lg md:text-2xl font-bold text-white tracking-tight leading-none">Guia PBEV <span className="text-[#00b4ff]">{t('header.titleSuffix')}</span></h1>
+              <p className="hidden md:block text-[11px] text-[#a0a0a0] font-semibold uppercase tracking-[0.2em] mt-1">{t('header.subtitle')}</p>
             </div>
           </div>
 
           {/* Actions */}
-          <div className="flex items-center gap-2 md:gap-4 flex-shrink-0">
+          <div className="flex items-center gap-2 md:gap-3 flex-shrink-0">
 
-            {/* Partner program */}
-            <a
-              href="/parceiros"
-              className="flex items-center gap-1.5 px-3 md:px-4 py-2 md:py-2.5 rounded-xl border border-[#37f29b]/40 bg-[#37f29b]/10 text-[#37f29b] hover:bg-[#37f29b]/20 hover:border-[#37f29b]/70 transition-all font-black text-xs uppercase tracking-wide"
-              title="Programa de parceiros do Guia PBEV"
-            >
-              <span aria-hidden="true">🤝</span>
-              <span className="hidden lg:inline">Parceiros</span>
-            </a>
-
-            {/* Instagram */}
-            <a
-              href="https://instagram.com/guiapbevbrasil"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="@guiapbevbrasil no Instagram"
-              className="flex items-center gap-1.5 px-3 py-2 rounded-xl border border-white/10 bg-white/5 text-[#a0a0a0] hover:text-white hover:border-[#E1306C]/50 hover:bg-[#E1306C]/10 transition-all"
-            >
-              <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                <circle cx="12" cy="12" r="4"/>
-                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
-              </svg>
-              <span className="hidden md:inline text-xs font-semibold">@guiapbevbrasil</span>
-            </a>
+            {/* Secondary tools — grouped icon rail (desktop only) */}
+            <div className="hidden md:flex items-center bg-white/5 border border-white/10 rounded-xl p-1 gap-0.5">
+              <button
+                onClick={() => setIsChargingMapOpen(true)}
+                className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-white/60 hover:text-[#00b4ff] hover:bg-[#00b4ff]/10 transition-all text-xs font-bold"
+                title={t('chargingMap.title')}
+              >
+                <MapPin className="w-4 h-4" />
+                <span className="hidden xl:inline">{t('chargingMap.mapBtn')}</span>
+              </button>
+              <div className="w-px h-5 bg-white/10" />
+              <button
+                onClick={() => setIsRoutePlannerOpen(true)}
+                className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-white/60 hover:text-[#00b4ff] hover:bg-[#00b4ff]/10 transition-all text-xs font-bold"
+                title="Planejar rota EV"
+              >
+                <RouteIcon className="w-4 h-4" />
+                <span className="hidden xl:inline">Rota EV</span>
+              </button>
+              <div className="w-px h-5 bg-white/10" />
+              <a
+                href="/parceiros"
+                className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-[#37f29b]/80 hover:text-[#37f29b] hover:bg-[#37f29b]/10 transition-all text-xs font-bold"
+                title="Programa de parceiros do Guia PBEV"
+              >
+                <span aria-hidden="true">🤝</span>
+                <span className="hidden xl:inline">Parceiros</span>
+              </a>
+              <div className="w-px h-5 bg-white/10" />
+              <a
+                href="https://instagram.com/guiapbevbrasil"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="@guiapbevbrasil no Instagram"
+                className="flex items-center px-3 py-2 rounded-lg text-white/60 hover:text-[#E1306C] hover:bg-[#E1306C]/10 transition-all"
+              >
+                <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <circle cx="12" cy="12" r="4"/>
+                  <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+                </svg>
+              </a>
+              <div className="w-px h-5 bg-white/10" />
+              <button
+                onClick={() => window.print()}
+                className="flex items-center px-3 py-2 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-all"
+                title={t('header.print')}
+              >
+                <Printer className="w-4 h-4" />
+              </button>
+            </div>
 
             {/* Favorites */}
             <button
@@ -251,42 +280,16 @@ export default function App() {
               title={t('header.viewFavorites')}
             >
               <Heart className={`w-4 h-4 md:w-5 md:h-5 ${showFavoritesOnly ? 'fill-current' : ''}`} />
-              <span className="text-sm font-bold hidden md:inline">{t('header.favorites')}</span>
+              <span className="text-sm font-bold hidden lg:inline">{t('header.favorites')}</span>
               {favorites.length > 0 && (
                 <span className="bg-[#00b4ff] text-black text-[10px] font-black px-1.5 py-0.5 rounded-full">{favorites.length}</span>
               )}
             </button>
 
-            {/* Vehicle count — desktop only */}
-            <div className="hidden md:block text-right">
-              <div className="text-xs text-[#666666] uppercase font-bold tracking-wider">{t('header.vehiclesInDb')}</div>
-              <div className="text-2xl font-black text-white leading-none">{filteredCars.length}</div>
-            </div>
-
             {/* Language toggle */}
             <div className="bg-white/5 border border-white/10 rounded-xl p-0.5">
               <LanguageToggle />
             </div>
-
-            {/* Charging Map */}
-            <button
-              onClick={() => setIsChargingMapOpen(true)}
-              className="flex items-center gap-2 px-3 md:px-4 py-2 md:py-2.5 bg-white/5 border border-white/10 hover:bg-[#00b4ff]/10 hover:border-[#00b4ff]/30 text-white/70 hover:text-[#00b4ff] rounded-xl font-bold transition-all text-xs"
-              title={t('chargingMap.title')}
-            >
-              <MapPin className="w-4 h-4" />
-              <span className="hidden sm:inline">{t('chargingMap.mapBtn')}</span>
-            </button>
-
-            {/* Route Planner */}
-            <button
-              onClick={() => setIsRoutePlannerOpen(true)}
-              className="flex items-center gap-2 px-3 md:px-4 py-2 md:py-2.5 bg-white/5 border border-white/10 hover:bg-[#00b4ff]/10 hover:border-[#00b4ff]/30 text-white/70 hover:text-[#00b4ff] rounded-xl font-bold transition-all text-xs"
-              title="Planejar rota EV"
-            >
-              <RouteIcon className="w-4 h-4" />
-              <span className="hidden sm:inline">Rota EV</span>
-            </button>
 
             {/* Simulator — desktop only (mobile has it in the sticky bar below) */}
             <button
@@ -301,11 +304,11 @@ export default function App() {
             <div className="relative">
               <button
                 onClick={() => setShowSuggestMenu(prev => !prev)}
-                className="flex items-center gap-1.5 bg-[#00b4ff]/10 hover:bg-[#00b4ff]/20 text-[#00b4ff] border border-[#00b4ff]/30 px-3 md:px-5 py-2 md:py-2.5 rounded-xl font-black transition-all"
+                className="flex items-center gap-1.5 bg-[#00b4ff]/10 hover:bg-[#00b4ff]/20 text-[#00b4ff] border border-[#00b4ff]/30 px-3 md:px-4 py-2 md:py-2.5 rounded-xl font-black transition-all"
                 title={t('addVehicle.headerBtn')}
               >
                 <Lightbulb className="w-4 h-4 md:w-5 md:h-5" />
-                <span className="hidden sm:inline uppercase text-sm tracking-wide">{t('addVehicle.headerBtn')}</span>
+                <span className="hidden xl:inline uppercase text-sm tracking-wide">{t('addVehicle.headerBtn')}</span>
               </button>
 
               {showSuggestMenu && (
@@ -334,15 +337,6 @@ export default function App() {
                 </>
               )}
             </div>
-
-            {/* Print — desktop only */}
-            <button
-              onClick={() => window.print()}
-              className="hidden md:block text-[#666666] hover:text-white transition p-2"
-              title={t('header.print')}
-            >
-              <Printer className="w-5 h-5" />
-            </button>
           </div>
         </div>
       </header>
@@ -383,8 +377,42 @@ export default function App() {
               title="Planejar rota EV"
             >
               <RouteIcon className="w-4 h-4" />
-              <span className="text-[11px] uppercase tracking-wide font-black">Rota EV</span>
+              <span className="text-[11px] uppercase tracking-wide font-black">Rota</span>
             </button>
+            <button
+              onClick={() => setIsChargingMapOpen(true)}
+              className="bg-white/5 border border-white/10 text-white/70 font-black py-3 px-3 rounded-xl shadow-lg flex items-center justify-center gap-1.5 hover:bg-[#00b4ff]/10 hover:border-[#00b4ff]/30 hover:text-[#00b4ff] active:scale-95 transition-all whitespace-nowrap"
+              title={t('chargingMap.title')}
+            >
+              <MapPin className="w-4 h-4" />
+              <span className="text-[11px] uppercase tracking-wide font-black">{t('chargingMap.mapBtn')}</span>
+            </button>
+          </div>
+
+          {/* Dashboard stats strip */}
+          <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-4 mt-1">
+            {[
+              { value: filteredCars.length, total: CAR_DB.length, label: t('header.vehiclesInDb'), accent: true },
+              { value: new Set(filteredCars.map(c => c.brand)).size, total: allBrands.length, label: t('sidebar.brands'), accent: false },
+              { value: filteredCars.length > 0 ? Math.max(...filteredCars.map(c => c.range)) : 0, suffix: 'km', label: t('card.rangeLabel', 'Autonomia'), accent: false },
+            ].map((stat, i) => (
+              <div
+                key={i}
+                className="rounded-xl border border-white/8 bg-[#0a0b12]/70 backdrop-blur-sm px-3 sm:px-4 py-2.5 sm:py-3 relative overflow-hidden"
+              >
+                <div className={`absolute top-0 left-0 h-[2px] w-8 ${stat.accent ? 'bg-[#00b4ff]' : 'bg-white/20'}`} />
+                <div className="font-display text-lg sm:text-2xl font-bold leading-none text-white">
+                  {stat.value.toLocaleString('pt-BR')}
+                  {'total' in stat && stat.total !== undefined && stat.value !== stat.total && (
+                    <span className="text-[11px] sm:text-sm font-medium text-white/30">/{stat.total}</span>
+                  )}
+                  {'suffix' in stat && stat.suffix && (
+                    <span className="text-[11px] sm:text-sm font-medium text-[#00b4ff] ml-1">{stat.suffix}</span>
+                  )}
+                </div>
+                <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.18em] text-white/35 font-semibold mt-1 truncate">{stat.label}</div>
+              </div>
+            ))}
           </div>
 
           {/* Search Bar */}
@@ -422,7 +450,7 @@ export default function App() {
             <section className="mb-4 rounded-2xl border border-[#00b4ff]/20 bg-gradient-to-r from-[#07111f] via-[#0a0b12] to-[#002b44] p-5 md:p-6 shadow-[0_0_35px_rgba(0,180,255,0.10)] flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div>
                 <p className="text-xs font-black uppercase tracking-[0.24em] text-[#00b4ff] mb-2">Compra inteligente de EV</p>
-                <h2 className="text-xl md:text-2xl font-black leading-tight text-white">Compare modelos e receba uma recomendação personalizada</h2>
+                <h2 className="font-display text-xl md:text-2xl font-bold leading-tight text-white">Compare modelos e receba uma recomendação personalizada</h2>
                 <p className="text-sm text-white/60 mt-1">Seguro, wallbox, financiamento ou escolha do modelo: transforme sua comparação em próximo passo.</p>
               </div>
               <button
@@ -498,15 +526,20 @@ export default function App() {
           {/* Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-3 sm:gap-6 pb-20">
             {filteredCars.map((car, index) => (
-              <CarCard
+              <div
                 key={`${car.model}-${index}`}
-                car={car}
-                onClick={() => handleVehicleView(car)}
-                isSelectedForCompare={!!compareList.find(c => c.model === car.model)}
-                onToggleCompare={(e) => { e.stopPropagation(); handleToggleCompare(car); }}
-                isFavorite={favorites.includes(car.model)}
-                onToggleFavorite={(e) => { e.stopPropagation(); handleToggleFavorite(car); }}
-              />
+                className="card-enter h-full"
+                style={{ animationDelay: `${Math.min(index, 11) * 45}ms` }}
+              >
+                <CarCard
+                  car={car}
+                  onClick={() => handleVehicleView(car)}
+                  isSelectedForCompare={!!compareList.find(c => c.model === car.model)}
+                  onToggleCompare={(e) => { e.stopPropagation(); handleToggleCompare(car); }}
+                  isFavorite={favorites.includes(car.model)}
+                  onToggleFavorite={(e) => { e.stopPropagation(); handleToggleFavorite(car); }}
+                />
+              </div>
             ))}
           </div>
 
@@ -521,7 +554,7 @@ export default function App() {
                   <Search className="w-12 h-12 text-[#00b4ff]/50 relative z-10" />
                 )}
               </div>
-              <h3 className="text-3xl font-black text-white mb-3 tracking-tight">
+              <h3 className="font-display text-3xl font-bold text-white mb-3 tracking-tight">
                 {showFavoritesOnly ? t('empty.noFavorites') : t('empty.noVehicles')}
               </h3>
               <p className="text-[#a0a0a0] max-w-md mx-auto text-lg">
@@ -564,7 +597,7 @@ export default function App() {
               </a>
             </div>
 
-            <p className="mt-4">
+            <p className="mt-4 flex items-center justify-center gap-4">
               <a
                 href={`${import.meta.env.BASE_URL}privacy.html`}
                 target="_blank"
@@ -572,6 +605,14 @@ export default function App() {
                 className="text-[#333333] hover:text-[#00b4ff] transition-colors"
               >
                 {t('footer.privacy')}
+              </a>
+              <span className="text-[#222222]">·</span>
+              <a
+                href="/parceiros"
+                className="text-[#333333] hover:text-[#37f29b] transition-colors"
+                title="Programa de parceiros do Guia PBEV"
+              >
+                Parceiros
               </a>
             </p>
           </footer>

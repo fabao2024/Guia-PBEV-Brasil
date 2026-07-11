@@ -84,7 +84,7 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
       <div className="mb-10">
         <label className="block text-xs font-black text-[#a0a0a0] uppercase mb-4 tracking-widest">{t('sidebar.maxPrice')}</label>
         <div className="flex items-baseline gap-1 mb-4">
-          <span className="text-3xl font-black text-white tracking-tighter drop-shadow-md">{formatPrice(filters.maxPrice)}</span>
+          <span className="font-display text-3xl font-bold text-white tracking-tight drop-shadow-md">{formatPrice(filters.maxPrice)}</span>
         </div>
         <input
           type="range"
@@ -95,7 +95,7 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
           onChange={handlePriceChange}
           onMouseUp={(e) => track('Filter Applied', { filter_type: 'price', value: Number((e.target as HTMLInputElement).value) })}
           onTouchEnd={(e) => track('Filter Applied', { filter_type: 'price', value: Number((e.target as HTMLInputElement).value) })}
-          className="w-full accent-[#00b4ff] h-2 bg-white/10 rounded-lg appearance-none cursor-pointer"
+          className="ev-slider"
         />
         <div className="flex justify-between text-[10px] text-[#666666] mt-3 font-black tracking-wider uppercase">
           <span>R$ 100k</span>
@@ -107,7 +107,7 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
       <div className="mb-10">
         <label className="block text-xs font-black text-[#a0a0a0] uppercase mb-4 tracking-widest">{t('sidebar.range')}</label>
         <div className="flex items-baseline gap-1 mb-4">
-          <span className="text-3xl font-black text-white tracking-tighter drop-shadow-md">{filters.minRange} <span className="text-lg text-[#00b4ff]">km</span></span>
+          <span className="font-display text-3xl font-bold text-white tracking-tight drop-shadow-md">{filters.minRange} <span className="text-lg text-[#00b4ff]">km</span></span>
         </div>
         <input
           type="range"
@@ -118,7 +118,7 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
           onChange={handleRangeChange}
           onMouseUp={(e) => track('Filter Applied', { filter_type: 'range', value: Number((e.target as HTMLInputElement).value) })}
           onTouchEnd={(e) => track('Filter Applied', { filter_type: 'range', value: Number((e.target as HTMLInputElement).value) })}
-          className="w-full accent-[#00b4ff] h-2 bg-white/10 rounded-lg appearance-none cursor-pointer"
+          className="ev-slider"
         />
         <div className="flex justify-between text-[10px] text-[#666666] mt-3 font-black tracking-wider uppercase">
           <span>100 km</span>

@@ -224,7 +224,7 @@ const CarCard: React.FC<CarCardProps> = ({
         </div>
 
         {/* Model name */}
-        <h2 className="text-[0.95rem] sm:text-[1.08rem] font-black text-white leading-tight tracking-tight -mt-1">
+        <h2 className="font-display text-[0.95rem] sm:text-[1.08rem] font-bold text-white leading-tight tracking-tight -mt-1">
           {car.model}
         </h2>
 
@@ -241,7 +241,7 @@ const CarCard: React.FC<CarCardProps> = ({
               <BatteryCharging className="w-3 h-3" />
               {t('card.rangeLabel', 'Autonomia')}
             </span>
-            <span className="text-sm font-black text-white leading-none">
+            <span className="font-display text-sm font-bold text-white leading-none">
               {car.range}
               <span className="text-[10px] font-normal ml-0.5" style={{ color: 'rgba(255,255,255,0.35)' }}>km</span>
             </span>
@@ -267,7 +267,7 @@ const CarCard: React.FC<CarCardProps> = ({
             <div className="text-[10px] uppercase tracking-widest mb-0.5" style={{ color: 'rgba(255,255,255,0.25)' }}>
               {t('details.power', 'Potência')}
             </div>
-            <div className="text-sm font-black text-white leading-none">
+            <div className="font-display text-sm font-bold text-white leading-none">
               {estimatedPower}
               <span className="text-[10px] font-normal ml-0.5" style={{ color: 'rgba(255,255,255,0.35)' }}>cv</span>
             </div>
@@ -296,7 +296,7 @@ const CarCard: React.FC<CarCardProps> = ({
             </div>
             <div className="flex items-baseline gap-2 flex-wrap">
               <div
-                className="text-[1.05rem] font-black tracking-tight leading-none truncate"
+                className="font-display text-[1.05rem] font-bold tracking-tight leading-none truncate"
                 style={{ color: '#00b4ff' }}
               >
                 {car.price.toLocaleString('pt-BR')}
