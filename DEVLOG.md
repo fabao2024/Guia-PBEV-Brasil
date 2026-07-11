@@ -905,3 +905,16 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Commit | ✅ | Commits no repo do bot (acima); este registro documenta a rodada no Guia. |
 
 **Notas:** Identidade visual do Instagram agora é a mesma do site. CTA #138 (12/07 08:30) regenerado com movimento. Detalhes completos no DEVLOG.md do repo do bot.
+
+---
+
+### [S16-D] ops(sync): sincronização contínua Windows ⟷ GitHub ⟷ VPS · 11/07/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | `/root/sync-guia.sh` no VPS (fetch + `--ff-only` só com tree limpa; loga OK/SKIP/AHEAD/BLOQUEADO) + cron a cada 15 min. Tarefa local do Windows reinstalada de 1x/dia para 30 min. Bot já era event-driven via Actions. |
+| Build  | — | Alteração operacional, sem build de app. |
+| Testes | ✅ | Script validado com `bash -n` e primeira execução; cron listado; tarefa Windows registrada. Ciclo completo validado com o push deste próprio commit (VPS puxou via sync-guia.sh). |
+| Commit | ✅ | ver hash deste commit no git log |
+
+**Notas:** GitHub é a fonte da verdade; nenhum ambiente faz merge ou push automático. Hermes deve continuar pushando os próprios commits — o log AHEAD denuncia commits presos no VPS.

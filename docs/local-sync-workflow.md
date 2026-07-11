@@ -97,3 +97,19 @@ Qualquer origem de alteração
 → push origin main
 → demais ambientes fazem pull seguro
 ```
+
+## Sync no VPS (clone lido pelo Hermes)
+
+O clone `/root/Guia-PBEV-Brasil` no VPS é sincronizado automaticamente por cron a cada 15 minutos via `/root/sync-guia.sh` (mesmas garantias deste script: fetch + `--ff-only` somente com working tree limpo, sem merge/push automático).
+
+- Log: `/var/log/sync-guia.log` (registra OK, SKIP por sujeira, AHEAD com commits locais não pushados e BLOQUEADO por divergência)
+- Rodar manualmente: `ssh root@212.85.0.163 /root/sync-guia.sh`
+- O repo do bot (`/opt/pbev-instagram-bot`) não precisa disso: o GitHub Actions faz pull + restart a cada push no `main`.
+
+## Visão geral do fluxo
+
+```text
+Windows (Task Scheduler 30min) ⟵ GitHub (fonte da verdade) ⟶ VPS Guia (cron 15min)
+                                        ⟶ VPS bot (Actions no push)
+                                        ⟶ GitHub Pages (Actions no push)
+```
