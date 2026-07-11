@@ -918,3 +918,14 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Commit | ✅ | ver hash deste commit no git log |
 
 **Notas:** GitHub é a fonte da verdade; nenhum ambiente faz merge ou push automático. Hermes deve continuar pushando os próprios commits — o log AHEAD denuncia commits presos no VPS.
+
+---
+
+### [S16-E] ops(sync): teste de ida e volta VPS → GitHub → Windows · 11/07/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | Entrada criada diretamente no clone do VPS (`/root/Guia-PBEV-Brasil`), ambiente do Agent Hermes, para validar o fluxo reverso do sync contínuo. |
+| Build  | — | Somente documentação. |
+| Testes | ✅ | Se você lê isto no clone local do Windows, o ciclo VPS → GitHub → Task Scheduler local funcionou. |
+| Commit | ✅ | commitado e pushado a partir do VPS. |
