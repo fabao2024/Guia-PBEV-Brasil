@@ -792,6 +792,7 @@
 - ✅ Cooldown de foto por veículo (14 dias) no fallback de geração de imagem
 - ✅ Reels com Ken Burns (zoom 1.08 centralizado + fades); trilha royalty-free opcional (editoriais com música por padrão, `parceiros_cta` silencioso)
 - ✅ CTA #138 (solar/frotas, 12/07) regenerado com movimento
+- ✅ Sync contínuo Windows ⟷ GitHub ⟷ VPS: cron 15min no VPS (`/root/sync-guia.sh`), tarefa local a cada 30min; bot já era event-driven via Actions
 
 > **Resumo técnico — Bot (11/07/2026):**
 > Commits `0d7cdd8` (bolt + hashtags), `bf48832` (rebrand + fontes TTF), `f9827f4` (cooldown + Ken Burns), `273a3cc` (música opcional) — todos deployados automaticamente via GitHub Actions no VPS.
