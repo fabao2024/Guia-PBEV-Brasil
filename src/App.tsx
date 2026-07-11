@@ -273,6 +273,15 @@ export default function App() {
               </button>
             </div>
 
+            {/* Partners — mobile only (desktop has it in the icon rail) */}
+            <a
+              href="/parceiros"
+              className="md:hidden flex items-center justify-center px-3 py-2 rounded-xl border border-[#37f29b]/40 bg-[#37f29b]/10 text-[#37f29b] hover:bg-[#37f29b]/20 transition-all"
+              title="Programa de parceiros do Guia PBEV"
+            >
+              <span aria-hidden="true">🤝</span>
+            </a>
+
             {/* Favorites */}
             <button
               onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
@@ -389,12 +398,11 @@ export default function App() {
             </button>
           </div>
 
-          {/* Dashboard stats strip */}
+          {/* Dashboard stats strip + partners CTA */}
           <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-4 mt-1">
             {[
               { value: filteredCars.length, total: CAR_DB.length, label: t('header.vehiclesInDb'), accent: true },
               { value: new Set(filteredCars.map(c => c.brand)).size, total: allBrands.length, label: t('sidebar.brands'), accent: false },
-              { value: filteredCars.length > 0 ? Math.max(...filteredCars.map(c => c.range)) : 0, suffix: 'km', label: t('card.rangeLabel', 'Autonomia'), accent: false },
             ].map((stat, i) => (
               <div
                 key={i}
@@ -403,16 +411,25 @@ export default function App() {
                 <div className={`absolute top-0 left-0 h-[2px] w-8 ${stat.accent ? 'bg-[#00b4ff]' : 'bg-white/20'}`} />
                 <div className="font-display text-lg sm:text-2xl font-bold leading-none text-white">
                   {stat.value.toLocaleString('pt-BR')}
-                  {'total' in stat && stat.total !== undefined && stat.value !== stat.total && (
+                  {stat.total !== undefined && stat.value !== stat.total && (
                     <span className="text-[11px] sm:text-sm font-medium text-white/30">/{stat.total}</span>
-                  )}
-                  {'suffix' in stat && stat.suffix && (
-                    <span className="text-[11px] sm:text-sm font-medium text-[#00b4ff] ml-1">{stat.suffix}</span>
                   )}
                 </div>
                 <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.18em] text-white/35 font-semibold mt-1 truncate">{stat.label}</div>
               </div>
             ))}
+            <a
+              href="/parceiros"
+              title="Programa de parceiros do Guia PBEV"
+              className="rounded-xl border border-[#37f29b]/30 bg-[#37f29b]/8 hover:bg-[#37f29b]/15 hover:border-[#37f29b]/50 backdrop-blur-sm px-3 sm:px-4 py-2.5 sm:py-3 relative overflow-hidden flex flex-col justify-center transition-all group"
+            >
+              <div className="absolute top-0 left-0 h-[2px] w-8 bg-[#37f29b]" />
+              <div className="font-display text-sm sm:text-lg font-bold leading-none text-[#37f29b] flex items-center gap-1.5">
+                <span aria-hidden="true">🤝</span>
+                <span>Parceiros</span>
+              </div>
+              <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.18em] text-[#37f29b]/50 font-semibold mt-1 truncate group-hover:text-[#37f29b]/80 transition-colors">Seja um parceiro</div>
+            </a>
           </div>
 
           {/* Search Bar */}
