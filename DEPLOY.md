@@ -12,6 +12,17 @@ To deploy the site *without* the AI Chat Widget, set this environment variable:
 VITE_ENABLE_AI=false
 ```
 
+### Piloto de leads solar/wallbox
+
+O build público usa a variável do repositório GitHub `VITE_ENABLE_LEAD_CAPTURE`:
+
+```text
+false → esconde CTAs e não abre /interesse
+true  → ativa o formulário público
+```
+
+Só mudar para `true` depois de validar o backend com `ENABLE_PUBLIC_LEAD_API=true`, matching da E.R SOLAR, CRM protegido e teste sintético ponta a ponta. O deploy workflow injeta a variável apenas no job de build.
+
 
 
 ### 2. GitHub Pages (Easiest & Automated)

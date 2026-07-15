@@ -1,5 +1,5 @@
 import React, { useMemo, useState, useEffect, useRef } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import CarDetailPage from './pages/CarDetailPage';
 import CompareDetailPage from './pages/CompareDetailPage';
 import PartnerApplicationsPage from './pages/PartnerApplicationsPage';
@@ -23,11 +23,13 @@ import { useFavorites } from './hooks/useFavorites';
 import { useCompare } from './hooks/useCompare';
 import { useSearch } from './hooks/useSearch';
 import { useJsonLd } from './hooks/useJsonLd';
-import { Car } from './types';
+import { Car, LeadInterest } from './types';
 import { track } from './utils/analytics';
 
 export default function App() {
   const { t } = useTranslation();
+  const location = useLocation();
+  const navigate = useNavigate();
   const { filters, setFilters, allBrands, resetFilters } = useCarFilter(CAR_DB);
   const { favorites, showFavoritesOnly, setShowFavoritesOnly, toggleFavorite } = useFavorites();
   const {
@@ -45,6 +47,7 @@ export default function App() {
   const [leadModalOpen, setLeadModalOpen] = useState(false);
   const [leadCar, setLeadCar] = useState<Car | null>(null);
   const [leadSource, setLeadSource] = useState('catalog_banner');
+  const [leadInitialInterest, setLeadInitialInterest] = useState<LeadInterest>('');
   const [lastViewedCar, setLastViewedCar] = useState<Car | null>(null);
   const [toast, setToast] = useState<string | null>(null);
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -55,15 +58,36 @@ export default function App() {
     toastTimer.current = setTimeout(() => setToast(null), 2500);
   };
 
-  const openLeadModal = (source: string, car: Car | null = null) => {
+  const openLeadModal = (source: string, car: Car | null = null, interest: LeadInterest = '') => {
     if (!LEAD_CAPTURE_ENABLED) return;
     setLeadSource(source);
     setLeadCar(car);
+    setLeadInitialInterest(interest);
     setLeadModalOpen(true);
     track('lead_cta_click', {
       source,
+      interest,
       vehicle: car ? `${car.brand} ${car.model}` : 'not_selected',
     });
+  };
+
+  useEffect(() => {
+    if (!LEAD_CAPTURE_ENABLED || location.pathname !== '/interesse') return;
+    const params = new URLSearchParams(location.search);
+    const serviceParam = params.get('servico');
+    const interest: LeadInterest = serviceParam === 'wallbox' || serviceParam === 'energia_solar_recarga' ? serviceParam : '';
+    const rawSource = params.get('origem') || 'interest_page';
+    const source = rawSource.replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 80) || 'interest_page';
+    setLeadSource(source);
+    setLeadCar(null);
+    setLeadInitialInterest(interest);
+    setLeadModalOpen(true);
+    track('lead_funnel_open', { source, interest });
+  }, [location.pathname, location.search]);
+
+  const closeLeadModal = () => {
+    setLeadModalOpen(false);
+    if (location.pathname === '/interesse') navigate('/', { replace: true });
   };
 
   const handleVehicleView = (car: Car) => {
@@ -466,16 +490,24 @@ export default function App() {
           {LEAD_CAPTURE_ENABLED && (
             <section className="mb-4 rounded-2xl border border-[#00b4ff]/20 bg-gradient-to-r from-[#07111f] via-[#0a0b12] to-[#002b44] p-5 md:p-6 shadow-[0_0_35px_rgba(0,180,255,0.10)] flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div>
-                <p className="text-xs font-black uppercase tracking-[0.24em] text-[#00b4ff] mb-2">Compra inteligente de EV</p>
-                <h2 className="font-display text-xl md:text-2xl font-bold leading-tight text-white">Compare modelos e receba uma recomendação personalizada</h2>
-                <p className="text-sm text-white/60 mt-1">Seguro, wallbox, financiamento ou escolha do modelo: transforme sua comparação em próximo passo.</p>
+                <p className="text-xs font-black uppercase tracking-[0.24em] text-[#00b4ff] mb-2">Ecossistema para seu EV</p>
+                <h2 className="font-display text-xl md:text-2xl font-bold leading-tight text-white">Energia solar e wallbox com atendimento qualificado</h2>
+                <p className="text-sm text-white/60 mt-1">Piloto regional com revisão humana antes do encaminhamento ao parceiro.</p>
               </div>
-              <button
-                onClick={() => openLeadModal('catalog_banner')}
-                className="bg-[#00b4ff] hover:bg-[#33c9ff] text-black font-black px-5 py-3 rounded-xl transition active:scale-[0.98] whitespace-nowrap shadow-[0_0_24px_rgba(0,180,255,0.25)]"
-              >
-                Quero ajuda para escolher
-              </button>
+              <div className="flex flex-col sm:flex-row gap-2">
+                <button
+                  onClick={() => openLeadModal('catalog_banner_solar', null, 'energia_solar_recarga')}
+                  className="bg-[#00b4ff] hover:bg-[#33c9ff] text-black font-black px-5 py-3 rounded-xl transition active:scale-[0.98] whitespace-nowrap shadow-[0_0_24px_rgba(0,180,255,0.25)]"
+                >
+                  Quero energia solar
+                </button>
+                <button
+                  onClick={() => openLeadModal('catalog_banner_wallbox', null, 'wallbox')}
+                  className="border border-[#00b4ff]/40 hover:bg-[#00b4ff]/10 text-[#72d7ff] font-black px-5 py-3 rounded-xl transition active:scale-[0.98] whitespace-nowrap"
+                >
+                  Quero wallbox
+                </button>
+              </div>
             </section>
           )}
 
@@ -702,7 +734,7 @@ export default function App() {
             onToggleCompare={() => handleToggleCompare(selectedCar)}
             isFavorite={favorites.includes(selectedCar.model)}
             onToggleFavorite={() => handleToggleFavorite(selectedCar)}
-            onLeadRequest={LEAD_CAPTURE_ENABLED ? () => openLeadModal('vehicle_detail', selectedCar) : undefined}
+            onLeadRequest={LEAD_CAPTURE_ENABLED ? () => openLeadModal('vehicle_detail', selectedCar, 'wallbox') : undefined}
           />
         )}
 
@@ -758,7 +790,8 @@ export default function App() {
             isOpen={leadModalOpen}
             selectedCar={leadCar}
             source={leadSource}
-            onClose={() => setLeadModalOpen(false)}
+            initialInterest={leadInitialInterest}
+            onClose={closeLeadModal}
           />
         )}
 
@@ -780,6 +813,7 @@ export default function App() {
       <Route path="/carro/:slug" element={<CarDetailPage />} />
       <Route path="/comparar/:slugA/:slugB" element={<CompareDetailPage />} />
       <Route path="/parceiros" element={<PartnerApplicationsPage />} />
+      <Route path="/interesse" element={catalogContent} />
       <Route path="*" element={catalogContent} />
     </Routes>
   );

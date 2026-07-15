@@ -37,6 +37,8 @@ function url(loc: string, priority: string, changefreq: string, lastmod = today)
 
 const staticRoutes = [
   url(`${BASE_URL}/`, '1.0', 'weekly'),
+  url(`${BASE_URL}/parceiros`, '0.7', 'monthly'),
+  url(`${BASE_URL}/interesse`, '0.8', 'weekly'),
   url(`${BASE_URL}/privacidade`, '0.3', 'yearly'),
 ];
 

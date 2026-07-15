@@ -1,3 +1,3 @@
-// Public lead capture stays disabled until partner onboarding, pricing, CRM review,
-// and end-to-end tests are approved.
-export const LEAD_CAPTURE_ENABLED = false;
+// Public lead capture stays disabled unless the production build explicitly opts in.
+const rolloutFlag = String(import.meta.env.VITE_ENABLE_LEAD_CAPTURE ?? '').trim().toLowerCase();
+export const LEAD_CAPTURE_ENABLED = rolloutFlag === 'true';

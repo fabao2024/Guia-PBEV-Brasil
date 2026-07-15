@@ -38,6 +38,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install and Build
+        env:
+          VITE_ENABLE_LEAD_CAPTURE: ${{ vars.VITE_ENABLE_LEAD_CAPTURE || 'false' }}
         run: |
           npm ci
           npm run build

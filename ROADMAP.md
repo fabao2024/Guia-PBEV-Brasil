@@ -19,10 +19,10 @@
 | 11 | Analytics sem cookies — Plausible ou Umami | Técnico | Baixo | Médio | ✅ Concluído |
 | 12 | Avaliações de donos (rating real-world) | Feature | Alto | Médio | 🔲 Pendente |
 | 13 | Sugestão de EV pela comunidade via GitHub Issues | Community | Baixo | Médio | ✅ Concluído |
-| 14 | Funil de leads EV no Guia (CTA + formulário + tracking) | Monetização | Baixo | Alto | ✅ Pronto, rollout pausado |
+| 14 | Funil regional de leads para energia solar e wallbox | Monetização | Médio | Alto | ✅ Concluído, rollout controlado |
 | 15 | Automação de sync local Windows + deploy VPS do bot | DevOps | Baixo | Alto | ✅ Concluído |
-| 16 | Captura automática de leads comerciais via Instagram DM/comentários | Monetização | Baixo | Alto | ✅ Concluído |
-| 17 | Mini-CRM de leads no bot (`/leads`) | Monetização | Médio | Alto | 🔲 Pendente |
+| 16 | Roteamento de demanda Instagram para formulário consentido | Monetização | Baixo | Alto | ✅ Concluído |
+| 17 | Mini-CRM de leads no bot (`/admin/leads`) | Monetização | Médio | Alto | ✅ Concluído |
 | 18 | Formulário público de candidatura de fornecedores/parceiros (`/parceiros`) | Monetização | Baixo | Alto | ✅ Concluído |
 | 19 | Admin interno de candidaturas de parceiros (`/admin/partners`) | Monetização | Baixo | Alto | ✅ Concluído |
 | 20 | Preço por lead/modalidade e match codes no programa de parceiros | Monetização | Baixo | Alto | ✅ Concluído |
@@ -107,20 +107,21 @@
 - Rastrear: comparações mais feitas, modelos mais vistos, temas do chatbot
 - Informa quais veículos adicionar na próxima atualização
 
-### 14. Funil de leads EV ✅ pronto, rollout pausado
-- `LeadCaptureModal`: formulário para nome, WhatsApp, cidade/UF, orçamento, interesse e mensagem
-- CTA global no catálogo: “Quero ajuda para escolher”
-- CTA no `CarDetailsModal`: “Registrar interesse com parceiro” com modelo preenchido
-- Formulário exige cidade/UF, modalidade explícita (`compra`, `seguro`, `wallbox`, `financiamento`, `frota`, `duvida`) e consentimento LGPD antes de enviar
-- Copy ajustado para lead-gen/referral: Guia PBEV não vende, financia, segura ou instala; apenas registra interesse e pode encaminhar para parceiro selecionado
-- Persistência MVP em `localStorage` (`pbev_leads_pending`) e abertura de e-mail pré-preenchido
-- Eventos Plausible: `vehicle_view`, `compare_start`, `favorite_add`, `chat_open`, `chat_question`, `lead_cta_click`, `lead_submit`
-- Backend implementado: `POST https://bot.guiapbev.cloud/api/leads` salva leads no SQLite do bot Instagram quando `ENABLE_PUBLIC_LEAD_API=true`
-- Fallback mantido: `localStorage` + e-mail pré-preenchido se API falhar
-- DMs/comentários do Instagram têm classificador comercial pronto, mas a captura automática fica desabilitada até parceiros/CRM/regras estarem aprovados (`ENABLE_COMMERCIAL_LEAD_CAPTURE=false`)
-- Próximo passo: mini-CRM `/leads` no bot para listar, filtrar, abrir contato e mudar status
+### 14. Piloto de leads solar/wallbox ✅
+- Rota pública `/interesse` e modal único para `wallbox` e `energia_solar_recarga`; compra, seguro, frota e financiamento de veículo não entram no handoff comercial.
+- Cidades do piloto: Jundiaí, Campinas, São Paulo, Itupeva, Várzea Paulista e Campo Limpo Paulista.
+- Formulário coleta PF/PJ, imóvel, prazo, detalhe do serviço e necessidade explícita de financiamento do equipamento/projeto; a API valida os mesmos campos.
+- Consentimento `pilot-v1` identifica a E.R SOLAR antes do envio e fica persistido com timestamp e parceiro selecionado.
+- PII não fica em `localStorage`, query string ou fallback de e-mail; falhas mantêm os dados apenas no estado da sessão para nova tentativa.
+- Backend faz matching obrigatório por serviço × cidade × UF × PF/PJ e cria o lead como `needs_review`.
+- CTAs contextuais na home, detalhe do veículo, consultor IA e Instagram convergem para `/interesse?servico=...&origem=...` somente quando o rollout público está habilitado.
+- Financiamento de equipamento/projeto é uma subnecessidade explícita do formulário de solar/wallbox; financiamento para aquisição de veículo é recusado explicitamente.
+- CRM interno protegido em `/admin/leads`: revisão, rejeição, atribuição, handoff WhatsApp, contestação em 48h, status e cobrança.
+- Valor congelado na atribuição: máximo R$ 30; lead só vira faturável após entrega registrada. Perda da venda não invalida automaticamente o lead.
+- Rollout usa dois controles: `ENABLE_PUBLIC_LEAD_API` no backend e variável GitHub `VITE_ENABLE_LEAD_CAPTURE` no build do site.
+- Eventos Plausible: `lead_cta_click`, `lead_funnel_open`, `lead_submit`, `lead_success` e `lead_error`, sem PII.
 
-> Resumo técnico S15-E (08/07/2026): `LeadCaptureModal` deixou de usar `compra` como default, agora obriga cidade/UF, seleção de modalidade e checkbox de consentimento; sucesso informa revisão e possível encaminhamento para parceiro. Novo teste automatizado cobre seleção de modalidade, bloqueio sem consentimento e payload com `consentAccepted`.
+> Resumo técnico S15-G (15/07/2026): piloto E.R SOLAR concluído com consentimento auditável, matching regional, CRM manual, handoff-only, contestação e funil central. Instagram deixou de criar leads crus e passou a enviar o consumidor para o formulário consentido.
 
 > Resumo técnico S15-F (09/07/2026): consumidor lead-gen permanece pausado por flag, e foi adicionado `/parceiros` para candidaturas de fornecedores. O formulário coleta empresa, responsável, categorias, cobertura, SLA, capacidade, modelo comercial e aceite LGPD; backend salva como `partner_applications.status=submitted` para avaliação humana, sem ativação automática.
 
@@ -156,14 +157,14 @@
 - `POST /api/admin/partner-applications/{id}/promote` promove candidatura para parceiro ativo de forma idempotente
 - Promoção copia categoria, cobertura, PF/PJ/remoto, SLA, faixa CPL, preço/modalidade e match codes para `partners`
 - `/admin/partners` exibe botão “Aprovar como parceiro” para acionar a promoção controlada
-- Próximo passo: `lead_assignments` para associar leads qualificados a parceiros ativos
+- `lead_assignments` e `lead_events` implementados no piloto para associar, entregar e auditar leads qualificados
 
 ### 22. Segmentação parceiro vs lead nos canais de entrada ✅
-- `/parceiros` passa a vender melhor o ecossistema Guia PBEV: catálogo curado, preços, TCO, recarga, Instagram e consultor IA
-- Bot Instagram detecta intenção de fornecedor/parceiro antes de intenção comercial de consumidor e redireciona para `/parceiros`
-- Consultor Gemini do Guia ganhou roteador local para separar fornecedor/parceiro de lead potencial, sem chamar o LLM para esse desvio
-- Consumidores interessados em seguro, wallbox, financiamento, compra/cotação, frota ou solar/recarga recebem posicionamento claro: Guia orienta e pode encaminhar com consentimento; não vende/instala/financia/negocia diretamente
-- Fluxos ficam segmentados: página de parceiros = supply side; bot Instagram = triagem social; consultor IA = orientação e redirecionamento dentro da plataforma
+- `/parceiros` atende fornecedores; `/interesse` atende consumidores de solar/wallbox.
+- Bot Instagram detecta fornecedor antes de consumidor e encaminha parceiros para `/parceiros`.
+- DMs/comentários de wallbox ou solar recebem deep link para `/interesse` apenas quando a API pública está habilitada, sem gravar PII social.
+- Consultor Gemini usa roteador local: solar/wallbox vão para o formulário consentido; financiamento para aquisição de veículo e demais modalidades não cobertas não geram handoff.
+- Fluxos ficam separados: supply side, aquisição consentida e orientação informativa.
 
 ### 23. CTA de parceiros na home do catálogo ✅
 - Home `guiapbev.cloud` passa a ter link direto para `/parceiros` no header

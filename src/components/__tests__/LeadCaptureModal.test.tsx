@@ -23,59 +23,67 @@ const kwid: Car = {
 
 describe('LeadCaptureModal', () => {
   beforeEach(() => {
-    vi.mocked(submitLead).mockResolvedValue({ status: 'ok', lead_id: 99 });
+    vi.mocked(submitLead).mockResolvedValue({ status: 'needs_review', lead_id: 99, partner_name: 'E.R SOLAR' });
   });
 
   afterEach(() => {
     vi.clearAllMocks();
   });
 
-  it('requires a selected lead modality and consent before submitting', async () => {
+  it('submits only a qualified and explicitly consented pilot lead', async () => {
     const user = userEvent.setup();
     render(
       <LeadCaptureModal
         isOpen
         selectedCar={kwid}
         source="vehicle_detail"
+        initialInterest="wallbox"
         onClose={vi.fn()}
       />
     );
 
-    expect(screen.getByRole('heading', { name: /registrar interesse/i })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /registrar interesse/i })).toBeInTheDocument();
-    expect(screen.queryByText(/em breve entraremos em contato/i)).not.toBeInTheDocument();
-
-    const interestSelect = screen.getByLabelText(/tipo de contato/i);
-    expect(interestSelect).toHaveDisplayValue(/selecione/i);
+    expect(screen.getByRole('heading', { name: /solicitar energia solar ou wallbox/i })).toBeInTheDocument();
+    expect(screen.getByText(/somente para o equipamento ou projeto solar\/wallbox/i)).toHaveTextContent(/não inclui financiamento de veículo/i);
+    expect(screen.queryByText(/seguro ev/i)).not.toBeInTheDocument();
+    expect(screen.getByLabelText(/serviço desejado/i)).toHaveDisplayValue(/wallbox/i);
 
     await user.type(screen.getByLabelText(/^nome/i), 'Fabio Teste');
     await user.type(screen.getByLabelText(/whatsapp/i), '11999999999');
-    await user.type(screen.getByLabelText(/cidade/i), 'Jundiaí/SP');
-    await user.type(screen.getByLabelText(/mensagem/i), 'Quero entender financiamento do Kwid.');
+    await user.selectOptions(screen.getByLabelText(/cidade atendida/i), 'Jundiaí');
+    await user.selectOptions(screen.getByLabelText(/tipo de imóvel/i), 'casa_propria');
+    await user.selectOptions(screen.getByLabelText(/prazo para contratar/i), '30_dias');
+    await user.selectOptions(screen.getByLabelText(/necessidade de recarga/i), 'equipamento_instalacao');
+    await user.selectOptions(screen.getByLabelText(/financiamento do equipamento ou projeto/i), 'quero_avaliar');
+    await user.type(screen.getByLabelText(/contexto adicional/i), 'Garagem coberta e rede 220V.');
 
-    await user.click(screen.getByRole('button', { name: /registrar interesse/i }));
-    expect(submitLead).not.toHaveBeenCalled();
-
-    await user.selectOptions(interestSelect, 'financiamento');
-    await user.click(screen.getByRole('button', { name: /registrar interesse/i }));
+    await user.click(screen.getByRole('button', { name: /solicitar contato/i }));
     expect(submitLead).not.toHaveBeenCalled();
 
     await user.click(screen.getByLabelText(/autorizo o guia pbev brasil/i));
-    await user.click(screen.getByRole('button', { name: /registrar interesse/i }));
+    await user.click(screen.getByRole('button', { name: /solicitar contato/i }));
 
     await waitFor(() => expect(submitLead).toHaveBeenCalledTimes(1));
     expect(submitLead).toHaveBeenCalledWith(
       expect.objectContaining({
         name: 'Fabio Teste',
         whatsapp: '11999999999',
-        city: 'Jundiaí/SP',
-        interest: 'financiamento',
+        city: 'Jundiaí',
+        state: 'SP',
+        customerType: 'pf',
+        interest: 'wallbox',
         vehicleBrand: 'Renault',
         vehicleModel: 'Kwid E-Tech',
+        qualificationData: {
+          property_situation: 'casa_propria',
+          timeline: '30_dias',
+          service_detail: 'equipamento_instalacao',
+          equipment_financing: 'quero_avaliar',
+        },
         consentAccepted: true,
+        consentTextVersion: 'pilot-v1',
       }),
       'vehicle_detail'
     );
-    expect(screen.getByText(/vamos revisar os dados/i)).toHaveTextContent(/parceiro selecionado/i);
+    expect(screen.getByText(/solicitação #99 recebida/i)).toHaveTextContent(/E.R SOLAR/i);
   });
 });

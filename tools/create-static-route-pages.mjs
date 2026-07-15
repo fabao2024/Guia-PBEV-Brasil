@@ -4,7 +4,7 @@ import { dirname, join } from 'node:path';
 const distDir = 'dist';
 const indexPath = join(distDir, 'index.html');
 
-const routes = ['parceiros'];
+const routes = ['parceiros', 'interesse'];
 
 if (!existsSync(indexPath)) {
   throw new Error(`Build index not found: ${indexPath}`);

@@ -13,6 +13,7 @@ import { useRateLimit } from '../hooks/useRateLimit';
 import { FUEL_PRICES_BY_STATE, FUEL_PRICES_UPDATED } from '../constants/fuelPricesByState';
 import { ELECTRICITY_PRICES_BY_STATE, ELECTRICITY_PRICES_UPDATED } from '../constants/electricityPricesByState';
 import { IPVA_BY_STATE } from '../constants/ipvaByState';
+import { LEAD_CAPTURE_ENABLED } from '../config/leadCapture';
 
 const API_KEY_STORAGE = 'gemini-api-key';
 
@@ -195,14 +196,18 @@ export function classifyPbevInteraction(text: string): PbevInteractionRoute {
 
   if (/(seguro|apolice|apólice|cot(ar|acao|ação).*seguro)/i.test(text)) return { type: 'lead', modality: 'seguro' };
   if (/(wallbox|carregador residencial|instalar carregador|instalação de carregador|instalacao de carregador)/i.test(text)) return { type: 'lead', modality: 'wallbox' };
+  if (/(energia solar|solar.*recarga|recarga.*solar|financia(r|mento).*(solar|fotovoltaic))/i.test(text)) return { type: 'lead', modality: 'energia_solar_recarga' };
   if (/(financiamento|financiar|parcela|entrada|taxa zero)/i.test(text)) return { type: 'lead', modality: 'financiamento' };
   if (/(frota|cnpj|empresa.*ve[ií]culo|eletrifica[çc][aã]o de frota)/i.test(text)) return { type: 'lead', modality: 'frota' };
-  if (/(energia solar|solar.*recarga|recarga.*solar)/i.test(text)) return { type: 'lead', modality: 'energia_solar_recarga' };
   if (/(comprar|compra|cot(a|ar|acao|ação)|proposta|concession[aá]ria|vendedor|tenho interesse)/i.test(text)) return { type: 'lead', modality: 'compra' };
   return { type: 'informational' };
 }
 
-export function buildPbevRedirectResponse(route: PbevInteractionRoute, lang: string): string {
+export function buildPbevRedirectResponse(
+  route: PbevInteractionRoute,
+  lang: string,
+  leadCaptureEnabled = LEAD_CAPTURE_ENABLED,
+): string {
   const isEn = lang === 'en';
   if (route.type === 'partner') {
     return isEn
@@ -210,20 +215,26 @@ export function buildPbevRedirectResponse(route: PbevInteractionRoute, lang: str
       : 'Isso parece uma solicitação de fornecedor/parceiro. Esse fluxo é separado dos leads de consumidores. Faça a candidatura da sua empresa em https://guiapbev.cloud/parceiros. O Guia PBEV avalia categoria, cobertura, SLA e LGPD antes de aprovar qualquer parceiro.';
   }
   if (route.type === 'lead') {
-    const labels: Record<string, string> = {
-      seguro: 'seguro EV',
-      wallbox: 'wallbox/instalação',
-      financiamento: 'financiamento',
-      compra: 'compra/cotação de veículo',
-      frota: 'frota/B2B',
-      energia_solar_recarga: 'energia solar/recarga',
-    };
-    const disclaimer = route.modality === 'wallbox'
-      ? 'O Guia PBEV não executa instalação nem orçamento direto.'
-      : 'O Guia PBEV não vende, financia, assegura ou negocia diretamente.';
+    if (route.modality === 'wallbox' || route.modality === 'energia_solar_recarga') {
+      if (!leadCaptureEnabled) {
+        return isEn
+          ? 'The solar and wallbox partner pilot is still being validated and is not accepting requests yet.'
+          : 'O piloto de parceiros para energia solar e wallbox ainda está em validação e ainda não está recebendo solicitações.';
+      }
+      const label = route.modality === 'wallbox' ? 'wallbox/instalação' : 'energia solar para recarga';
+      const url = `https://guiapbev.cloud/interesse?servico=${route.modality}&origem=chat`;
+      return isEn
+        ? `The current pilot supports ${label}. Complete the qualification and explicit consent form so Guia PBEV can review the request before routing it to the selected partner: ${url}`
+        : `O piloto atual atende ${label}. Preencha a qualificação e o consentimento explícito para o Guia PBEV revisar a solicitação antes do encaminhamento ao parceiro selecionado: ${url}`;
+    }
+    if (route.modality === 'financiamento') {
+      return isEn
+        ? 'Guia PBEV does not offer or route vehicle-acquisition financing. The current partner pilot is limited to solar and wallbox equipment/projects.'
+        : 'O Guia PBEV não oferece nem encaminha financiamento para aquisição de veículos. O piloto atual é restrito a equipamentos/projetos de energia solar e wallbox.';
+    }
     return isEn
-      ? `This looks like consumer interest in ${labels[route.modality]}. Guia PBEV can guide your research and, when the lead flow is enabled, route qualified requests to a selected partner with consent. We do not sell, finance, insure or install directly.`
-      : `Isso parece interesse de consumidor em ${labels[route.modality]}. ${disclaimer} Podemos orientar sua pesquisa e, quando o fluxo de leads estiver ativo, encaminhar solicitações qualificadas para parceiro selecionado com consentimento.`;
+      ? 'The current partner pilot is limited to solar and wallbox. Guia PBEV can still help with informational EV research, but this request is not routed to a commercial partner.'
+      : 'O piloto atual de parceiros é restrito a energia solar e wallbox. Posso ajudar na pesquisa informativa sobre EVs, mas esta solicitação não será encaminhada comercialmente.';
   }
   return '';
 }

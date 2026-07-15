@@ -37,17 +37,21 @@ export interface ChatMessage {
   sources?: { uri: string; title: string }[];
 }
 
-export type LeadInterest = '' | 'compra' | 'seguro' | 'wallbox' | 'financiamento' | 'frota' | 'duvida';
+export type LeadInterest = '' | 'wallbox' | 'energia_solar_recarga';
 
 export interface LeadFormData {
   name: string;
   whatsapp: string;
   city: string;
+  state: 'SP';
+  customerType: 'pf' | 'pj';
   budget: string;
   interest: LeadInterest;
   vehicleModel?: string;
   vehicleBrand?: string;
+  qualificationData: Record<string, string>;
   consentAccepted: boolean;
+  consentTextVersion: 'pilot-v1';
   message: string;
 }
 

@@ -1,8 +1,9 @@
 import { LeadFormData } from '../types';
 
 export interface SubmitLeadResponse {
-  status: string;
+  status: 'needs_review';
   lead_id: number;
+  partner_name: string;
 }
 
 export const LEADS_API_URL = 'https://bot.guiapbev.cloud/api/leads';
