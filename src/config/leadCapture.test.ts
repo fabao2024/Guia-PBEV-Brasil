@@ -14,4 +14,11 @@ describe('lead capture rollout flag', () => {
     const { LEAD_CAPTURE_ENABLED } = await import('./leadCapture');
     expect(LEAD_CAPTURE_ENABLED).toBe(true);
   });
+
+  it('recognizes the GitHub Pages interest route with or without a trailing slash', async () => {
+    const { isLeadCapturePath } = await import('./leadCapture');
+    expect(isLeadCapturePath('/interesse')).toBe(true);
+    expect(isLeadCapturePath('/interesse/')).toBe(true);
+    expect(isLeadCapturePath('/')).toBe(false);
+  });
 });

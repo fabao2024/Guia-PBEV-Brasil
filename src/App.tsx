@@ -13,7 +13,7 @@ import LeadCaptureModal from './components/LeadCaptureModal';
 import CarDetailsModal from './components/CarDetailsModal';
 import ComparisonModal from './components/ComparisonModal';
 import LanguageToggle from './components/LanguageToggle';
-import { LEAD_CAPTURE_ENABLED } from './config/leadCapture';
+import { isLeadCapturePath, LEAD_CAPTURE_ENABLED } from './config/leadCapture';
 import SavingsSimulatorModal from './components/SavingsSimulatorModal';
 import { ChargingMapModal } from './components/ChargingMapModal';
 import { RoutePlannerModal } from './components/RoutePlannerModal';
@@ -72,7 +72,7 @@ export default function App() {
   };
 
   useEffect(() => {
-    if (!LEAD_CAPTURE_ENABLED || location.pathname !== '/interesse') return;
+    if (!LEAD_CAPTURE_ENABLED || !isLeadCapturePath(location.pathname)) return;
     const params = new URLSearchParams(location.search);
     const serviceParam = params.get('servico');
     const interest: LeadInterest = serviceParam === 'wallbox' || serviceParam === 'energia_solar_recarga' ? serviceParam : '';
@@ -87,7 +87,7 @@ export default function App() {
 
   const closeLeadModal = () => {
     setLeadModalOpen(false);
-    if (location.pathname === '/interesse') navigate('/', { replace: true });
+    if (isLeadCapturePath(location.pathname)) navigate('/', { replace: true });
   };
 
   const handleVehicleView = (car: Car) => {

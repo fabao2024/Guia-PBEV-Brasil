@@ -940,4 +940,4 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Build  | ✅ | Builds validados com `VITE_ENABLE_LEAD_CAPTURE=false` e `true`; `/interesse` só é publicado no segundo caso. |
 | Testes | ✅ | Testes focados do formulário, roteamento, flag e contrato da API passaram; suíte completa e auditoria npm executadas antes do push. |
 | Segurança | ✅ | Sem PII em storage/query; política identifica controlador, E.R SOLAR, finalidade, direitos e retenção de 180 dias. |
-| Rollout | ⏸️ | Captura pública permanece desligada até deploy fechado e E2E do backend. |
+| Rollout | ⏸️ | E2E backend concluído sem contato ao parceiro. O teste browser detectou redirecionamento do GitHub Pages para `/interesse/`; o path com barra final passou a abrir o modal antes da reativação pública. |
