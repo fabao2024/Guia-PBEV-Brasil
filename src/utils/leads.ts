@@ -23,5 +23,18 @@ export async function submitLead(lead: LeadFormData, source: string): Promise<Su
     throw new Error(`Falha ao enviar lead: ${response.status} ${detail}`.trim());
   }
 
-  return response.json() as Promise<SubmitLeadResponse>;
+  const payload: unknown = await response.json();
+  if (!payload || typeof payload !== 'object' || (payload as Record<string, unknown>).status !== 'needs_review') {
+    throw new Error('Resposta inválida da API de leads: status');
+  }
+
+  const result = payload as Record<string, unknown>;
+  if (!Number.isInteger(result.lead_id) || Number(result.lead_id) <= 0) {
+    throw new Error('Resposta inválida da API de leads: lead_id');
+  }
+  if (result.partner_name !== 'E.R SOLAR') {
+    throw new Error('Resposta inválida da API de leads: partner_name');
+  }
+
+  return result as unknown as SubmitLeadResponse;
 }

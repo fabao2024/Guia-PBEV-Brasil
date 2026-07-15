@@ -13,6 +13,7 @@ interface LeadCaptureModalProps {
 }
 
 const PILOT_PARTNER_NAME = 'E.R SOLAR';
+const PILOT_CONSENT_TEXT_VERSION = 'pilot-v2-2026-07-15';
 const PILOT_CITIES = ['Jundiaí', 'Campinas', 'São Paulo', 'Itupeva', 'Várzea Paulista', 'Campo Limpo Paulista'];
 const INTEREST_OPTIONS: { value: LeadInterest; label: string }[] = [
   { value: '', label: 'Selecione o serviço' },
@@ -37,7 +38,7 @@ const INITIAL_FORM: LeadFormData = {
     equipment_financing: '',
   },
   consentAccepted: false,
-  consentTextVersion: 'pilot-v1',
+  consentTextVersion: PILOT_CONSENT_TEXT_VERSION,
   message: '',
 };
 
@@ -258,6 +259,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
             <input required type="checkbox" checked={form.consentAccepted} onChange={e => updateField('consentAccepted', e.target.checked)} className="mt-1 h-4 w-4 accent-[#00b4ff]" />
             <span>
               Autorizo o Guia PBEV Brasil a armazenar estes dados e compartilhar meu contato com a <strong className="text-white">{PILOT_PARTNER_NAME}</strong>, parceira selecionada para o serviço e a cidade escolhidos, para atendimento comercial desta solicitação.
+              {' '}<a href={`${import.meta.env.BASE_URL}privacy.html`} target="_blank" rel="noopener noreferrer" className="text-[#00b4ff] underline">Política de Privacidade</a>.
             </span>
           </label>
 

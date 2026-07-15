@@ -59,6 +59,7 @@ describe('LeadCaptureModal', () => {
     await user.click(screen.getByRole('button', { name: /solicitar contato/i }));
     expect(submitLead).not.toHaveBeenCalled();
 
+    expect(screen.getByRole('link', { name: /política de privacidade/i })).toHaveAttribute('href', '/privacy.html');
     await user.click(screen.getByLabelText(/autorizo o guia pbev brasil/i));
     await user.click(screen.getByRole('button', { name: /solicitar contato/i }));
 
@@ -80,7 +81,7 @@ describe('LeadCaptureModal', () => {
           equipment_financing: 'quero_avaliar',
         },
         consentAccepted: true,
-        consentTextVersion: 'pilot-v1',
+        consentTextVersion: 'pilot-v2-2026-07-15',
       }),
       'vehicle_detail'
     );

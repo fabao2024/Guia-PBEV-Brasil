@@ -111,7 +111,7 @@
 - Rota pública `/interesse` e modal único para `wallbox` e `energia_solar_recarga`; compra, seguro, frota e financiamento de veículo não entram no handoff comercial.
 - Cidades do piloto: Jundiaí, Campinas, São Paulo, Itupeva, Várzea Paulista e Campo Limpo Paulista.
 - Formulário coleta PF/PJ, imóvel, prazo, detalhe do serviço e necessidade explícita de financiamento do equipamento/projeto; a API valida os mesmos campos.
-- Consentimento `pilot-v1` identifica a E.R SOLAR antes do envio e fica persistido com timestamp e parceiro selecionado.
+- Consentimento `pilot-v2-2026-07-15` identifica a E.R SOLAR antes do envio, aponta para a Política de Privacidade e fica persistido com timestamp e parceiro selecionado.
 - PII não fica em `localStorage`, query string ou fallback de e-mail; falhas mantêm os dados apenas no estado da sessão para nova tentativa.
 - Backend faz matching obrigatório por serviço × cidade × UF × PF/PJ e cria o lead como `needs_review`.
 - CTAs contextuais na home, detalhe do veículo, consultor IA e Instagram convergem para `/interesse?servico=...&origem=...` somente quando o rollout público está habilitado.
@@ -120,6 +120,8 @@
 - Valor congelado na atribuição: máximo R$ 30; lead só vira faturável após entrega registrada. Perda da venda não invalida automaticamente o lead.
 - Rollout usa dois controles: `ENABLE_PUBLIC_LEAD_API` no backend e variável GitHub `VITE_ENABLE_LEAD_CAPTURE` no build do site.
 - Eventos Plausible: `lead_cta_click`, `lead_funnel_open`, `lead_submit`, `lead_success` e `lead_error`, sem PII.
+- PII de leads recebe prazo máximo de retenção de 180 dias e anonimização automática; auditoria mínima permanece para consentimento, contestação e faturamento.
+- Checkpoint do piloto após 10 handoffs reais ou 60 dias, o que ocorrer primeiro; com teto de R$ 30 por lead válido, a exposição máxima antes da revisão é R$ 300.
 
 > Resumo técnico S15-G (15/07/2026): piloto E.R SOLAR concluído com consentimento auditável, matching regional, CRM manual, handoff-only, contestação e funil central. Instagram deixou de criar leads crus e passou a enviar o consumidor para o formulário consentido.
 

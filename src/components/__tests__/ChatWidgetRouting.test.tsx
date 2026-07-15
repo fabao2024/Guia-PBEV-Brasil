@@ -6,6 +6,9 @@ describe('ChatWidget routing', () => {
     expect(classifyPbevInteraction('Quero instalar um wallbox em casa')).toEqual({ type: 'lead', modality: 'wallbox' });
     expect(classifyPbevInteraction('Quero financiamento para meu projeto de energia solar')).toEqual({ type: 'lead', modality: 'energia_solar_recarga' });
     expect(classifyPbevInteraction('Quero financiar um BYD Dolphin')).toEqual({ type: 'lead', modality: 'financiamento' });
+    expect(classifyPbevInteraction('Quero fazer leasing de um carro elétrico')).toEqual({ type: 'lead', modality: 'financiamento' });
+    expect(classifyPbevInteraction('Tem consórcio para comprar um BYD?')).toEqual({ type: 'lead', modality: 'financiamento' });
+    expect(classifyPbevInteraction('Preciso de crédito para adquirir um veículo')).toEqual({ type: 'lead', modality: 'financiamento' });
     expect(classifyPbevInteraction('Qual a autonomia do BYD Dolphin?')).toEqual({ type: 'informational' });
   });
 

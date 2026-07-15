@@ -929,3 +929,15 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Build  | — | Somente documentação. |
 | Testes | ✅ | Se você lê isto no clone local do Windows, o ciclo VPS → GitHub → Task Scheduler local funcionou. |
 | Commit | ✅ | commitado e pushado a partir do VPS. |
+
+---
+
+### [S15-H] fix: remediação da revisão independente do funil · 15/07/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | Política LGPD alinhada à coleta real; consentimento `pilot-v2-2026-07-15` com link; validação runtime da resposta da API; feature flag aplicada ao modal, chat, sitemap e rota estática; roteamento de financiamento veicular ampliado para crédito, consórcio e leasing. |
+| Build  | ✅ | Builds validados com `VITE_ENABLE_LEAD_CAPTURE=false` e `true`; `/interesse` só é publicado no segundo caso. |
+| Testes | ✅ | Testes focados do formulário, roteamento, flag e contrato da API passaram; suíte completa e auditoria npm executadas antes do push. |
+| Segurança | ✅ | Sem PII em storage/query; política identifica controlador, E.R SOLAR, finalidade, direitos e retenção de 180 dias. |
+| Rollout | ⏸️ | Captura pública permanece desligada até deploy fechado e E2E do backend. |

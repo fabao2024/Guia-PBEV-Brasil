@@ -16,6 +16,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const BASE_URL = 'https://guiapbev.cloud';
 const today = new Date().toISOString().split('T')[0];
+const leadCaptureEnabled = String(process.env.VITE_ENABLE_LEAD_CAPTURE ?? '').trim().toLowerCase() === 'true';
 
 function toSlug(brand: string, model: string): string {
   return `${brand}-${model}`
@@ -38,8 +39,8 @@ function url(loc: string, priority: string, changefreq: string, lastmod = today)
 const staticRoutes = [
   url(`${BASE_URL}/`, '1.0', 'weekly'),
   url(`${BASE_URL}/parceiros`, '0.7', 'monthly'),
-  url(`${BASE_URL}/interesse`, '0.8', 'weekly'),
-  url(`${BASE_URL}/privacidade`, '0.3', 'yearly'),
+  ...(leadCaptureEnabled ? [url(`${BASE_URL}/interesse`, '0.8', 'weekly')] : []),
+  url(`${BASE_URL}/privacy.html`, '0.3', 'yearly'),
 ];
 
 const carRoutes = CAR_DB.map(car =>

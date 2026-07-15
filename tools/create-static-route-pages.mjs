@@ -4,7 +4,8 @@ import { dirname, join } from 'node:path';
 const distDir = 'dist';
 const indexPath = join(distDir, 'index.html');
 
-const routes = ['parceiros', 'interesse'];
+const leadCaptureEnabled = String(process.env.VITE_ENABLE_LEAD_CAPTURE ?? '').trim().toLowerCase() === 'true';
+const routes = ['parceiros', ...(leadCaptureEnabled ? ['interesse'] : [])];
 
 if (!existsSync(indexPath)) {
   throw new Error(`Build index not found: ${indexPath}`);

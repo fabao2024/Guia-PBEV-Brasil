@@ -18,7 +18,7 @@ const lead: LeadFormData = {
     equipment_financing: 'quero_avaliar',
   },
   consentAccepted: true,
-  consentTextVersion: 'pilot-v1',
+  consentTextVersion: 'pilot-v2-2026-07-15',
   message: 'Tenho garagem e rodo 60 km/dia',
 };
 
@@ -55,5 +55,18 @@ describe('submitLead()', () => {
     }));
 
     await expect(submitLead(lead, 'lead_banner')).rejects.toThrow('Falha ao enviar lead: 500 server error');
+  });
+
+  it.each([
+    [{ status: 'approved', lead_id: 42, partner_name: 'E.R SOLAR' }, 'status'],
+    [{ status: 'needs_review', partner_name: 'E.R SOLAR' }, 'lead_id'],
+    [{ status: 'needs_review', lead_id: 42, partner_name: 'Outro Parceiro' }, 'partner_name'],
+  ])('rejects a malformed or divergent success response: %s', async (payload, expectedField) => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => payload,
+    }));
+
+    await expect(submitLead(lead, 'lead_banner')).rejects.toThrow(`Resposta inválida da API de leads: ${expectedField}`);
   });
 });

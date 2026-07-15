@@ -23,6 +23,8 @@ true  → ativa o formulário público
 
 Só mudar para `true` depois de validar o backend com `ENABLE_PUBLIC_LEAD_API=true`, matching da E.R SOLAR, CRM protegido e teste sintético ponta a ponta. O deploy workflow injeta a variável apenas no job de build.
 
+Com a flag `false`, `/interesse` também fica fora do sitemap e das páginas estáticas. O formulário usa o consentimento `pilot-v2-2026-07-15` e aponta para `/privacy.html`, que documenta controlador, compartilhamento exclusivo do piloto, direitos LGPD e retenção.
+
 
 
 ### 2. GitHub Pages (Easiest & Automated)
