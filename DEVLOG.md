@@ -941,3 +941,15 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Testes | ✅ | Testes focados do formulário, roteamento, flag e contrato da API passaram; suíte completa e auditoria npm executadas antes do push. |
 | Segurança | ✅ | Sem PII em storage/query; política identifica controlador, E.R SOLAR, finalidade, direitos e retenção de 180 dias. |
 | Rollout | ⏸️ | E2E backend concluído sem contato ao parceiro. O teste browser detectou redirecionamento do GitHub Pages para `/interesse/`; o path com barra final passou a abrir o modal antes da reativação pública. |
+
+---
+
+### [S15-I] fix(leads): consentimento v3 genérico e preview fechado · 15/07/2026
+
+| Etapa | Status | Detalhe |
+|---|---|---|
+| Dev | ✅ | Removido o nome da E.R SOLAR do formulário e da resposta pública; consentimento `pilot-v3-2026-07-15`; URL da API configurável por `VITE_LEADS_API_URL` apenas para preview; confirmação informa que o parceiro será identificado antes do contato. |
+| Privacidade | ✅ | Política pública agora descreve parceiro indicado de forma genérica e exige identificação ao titular antes do compartilhamento, mantendo direitos LGPD e retenção de 180 dias. |
+| Testes | ✅ | `npm run test:run` — 16 suites, 125/125; testes impedem reintrodução de `partner_name` e consentimento nominal. |
+| Build | ✅ | `npm run build` concluído com captura habilitada somente no ambiente de preview; produção permanece com `VITE_ENABLE_LEAD_CAPTURE=false`. |
+| Rollout | ⏸️ | Nenhuma reativação pública. Preview usa backend e banco isolados, sem contato com parceiro real. |

@@ -74,6 +74,8 @@ describe('useCarFilter', () => {
         minRange: 400,
         categories: ['SUV'],
         brands: ['BrandX'],
+        showNew: false,
+        fastChargeOnly: false,
       });
     });
 

@@ -37,7 +37,7 @@ export function buildCumulativeDistances(polyline: LatLng[]): number[] {
 export function segmentRoute(
   polyline: LatLng[],
   effectiveRangeKm: number,
-): Omit<ChargingStop, 'nearbyChargers'>[] {
+): Pick<ChargingStop, 'index' | 'position' | 'distanceFromStartKm'>[] {
   if (polyline.length < 2 || effectiveRangeKm <= 0) return [];
 
   const cum = buildCumulativeDistances(polyline);
@@ -45,7 +45,7 @@ export function segmentRoute(
 
   if (totalKm <= effectiveRangeKm) return [];
 
-  const stops: Omit<ChargingStop, 'nearbyChargers'>[] = [];
+  const stops: Pick<ChargingStop, 'index' | 'position' | 'distanceFromStartKm'>[] = [];
   let nextThreshold = effectiveRangeKm;
   let stopIndex = 1;
 

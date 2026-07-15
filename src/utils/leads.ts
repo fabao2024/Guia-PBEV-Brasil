@@ -3,10 +3,9 @@ import { LeadFormData } from '../types';
 export interface SubmitLeadResponse {
   status: 'needs_review';
   lead_id: number;
-  partner_name: string;
 }
 
-export const LEADS_API_URL = 'https://bot.guiapbev.cloud/api/leads';
+export const LEADS_API_URL = import.meta.env.VITE_LEADS_API_URL || 'https://bot.guiapbev.cloud/api/leads';
 
 export async function submitLead(lead: LeadFormData, source: string): Promise<SubmitLeadResponse> {
   const response = await fetch(LEADS_API_URL, {
@@ -32,7 +31,7 @@ export async function submitLead(lead: LeadFormData, source: string): Promise<Su
   if (!Number.isInteger(result.lead_id) || Number(result.lead_id) <= 0) {
     throw new Error('Resposta inválida da API de leads: lead_id');
   }
-  if (result.partner_name !== 'E.R SOLAR') {
+  if ('partner_name' in result) {
     throw new Error('Resposta inválida da API de leads: partner_name');
   }
 

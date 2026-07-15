@@ -51,7 +51,7 @@ export interface LeadFormData {
   vehicleBrand?: string;
   qualificationData: Record<string, string>;
   consentAccepted: boolean;
-  consentTextVersion: 'pilot-v1';
+  consentTextVersion: 'pilot-v3-2026-07-15';
   message: string;
 }
 

@@ -12,8 +12,7 @@ interface LeadCaptureModalProps {
   onClose: () => void;
 }
 
-const PILOT_PARTNER_NAME = 'E.R SOLAR';
-const PILOT_CONSENT_TEXT_VERSION = 'pilot-v2-2026-07-15';
+const PILOT_CONSENT_TEXT_VERSION = 'pilot-v3-2026-07-15';
 const PILOT_CITIES = ['Jundiaí', 'Campinas', 'São Paulo', 'Itupeva', 'Várzea Paulista', 'Campo Limpo Paulista'];
 const INTEREST_OPTIONS: { value: LeadInterest; label: string }[] = [
   { value: '', label: 'Selecione o serviço' },
@@ -47,7 +46,6 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [leadId, setLeadId] = useState<number | null>(null);
-  const [partnerName, setPartnerName] = useState(PILOT_PARTNER_NAME);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   const vehicleLabel = selectedCar ? `${selectedCar.brand} ${selectedCar.model}` : '';
@@ -66,7 +64,6 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
     setSubmitted(false);
     setSubmitting(false);
     setLeadId(null);
-    setPartnerName(PILOT_PARTNER_NAME);
     setSubmitError(null);
     setForm({
       ...INITIAL_FORM,
@@ -112,7 +109,6 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
     try {
       const result = await submitLead(hydratedForm, source);
       setLeadId(result.lead_id);
-      setPartnerName(result.partner_name);
       setSubmitted(true);
       track('lead_submit', {
         source,
@@ -124,7 +120,6 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
       track('lead_success', {
         source,
         interest: hydratedForm.interest,
-        partner: result.partner_name,
       });
     } catch (error) {
       const message = error instanceof Error ? error.message : 'Falha ao enviar solicitação';
@@ -153,7 +148,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
           <p className="text-xs font-black uppercase tracking-[0.28em] text-[#00b4ff] mb-2">Piloto Guia PBEV Brasil</p>
           <h2 id="lead-form-title" className="text-2xl md:text-3xl font-black leading-tight">Solicitar energia solar ou wallbox</h2>
           <p className="mt-2 text-sm text-white/65">
-            O Guia qualifica sua solicitação e faz o handoff para <strong className="text-white">{PILOT_PARTNER_NAME}</strong>. Orçamento, preço e execução são tratados diretamente pelo parceiro.
+            O Guia qualifica sua solicitação e, após revisão humana, identifica um parceiro que atenda à região e ao serviço solicitado. Você será informado antes do compartilhamento.
           </p>
           {vehicleLabel && <p className="mt-2 text-sm text-white/65">Veículo de interesse: <strong className="text-white">{vehicleLabel}</strong></p>}
         </div>
@@ -258,8 +253,9 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
           <label className="md:col-span-2 flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-4 text-sm font-semibold text-white/80">
             <input required type="checkbox" checked={form.consentAccepted} onChange={e => updateField('consentAccepted', e.target.checked)} className="mt-1 h-4 w-4 accent-[#00b4ff]" />
             <span>
-              Autorizo o Guia PBEV Brasil a armazenar estes dados e compartilhar meu contato com a <strong className="text-white">{PILOT_PARTNER_NAME}</strong>, parceira selecionada para o serviço e a cidade escolhidos, para atendimento comercial desta solicitação.
-              {' '}<a href={`${import.meta.env.BASE_URL}privacy.html`} target="_blank" rel="noopener noreferrer" className="text-[#00b4ff] underline">Política de Privacidade</a>.
+              Autorizo o Guia PBEV Brasil a utilizar os dados informados para qualificar esta solicitação e, após análise, compartilhá-los com um parceiro indicado pela plataforma que atenda à minha região e ao serviço solicitado. Li a{' '}
+              <a href={`${import.meta.env.BASE_URL}privacy.html`} target="_blank" rel="noopener noreferrer" className="text-[#00b4ff] underline">Política de Privacidade</a>{' '}
+              e entendo que o envio não garante proposta, preço ou contratação.
             </span>
           </label>
 
@@ -274,7 +270,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
 
           {submitted && (
             <div className="md:col-span-2 bg-emerald-400/10 border border-emerald-400/20 text-emerald-200 rounded-xl p-3 text-sm font-semibold flex items-center gap-2">
-              <Zap className="w-4 h-4" /> Solicitação #{leadId} recebida. O Guia PBEV fará a revisão antes de encaminhar para {partnerName}.
+              <Zap className="w-4 h-4" /> Solicitação #{leadId} recebida. Informaremos o parceiro indicado antes do contato e do compartilhamento dos dados.
             </div>
           )}
 

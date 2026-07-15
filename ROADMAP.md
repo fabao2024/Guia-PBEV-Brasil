@@ -111,19 +111,20 @@
 - Rota pública `/interesse` e modal único para `wallbox` e `energia_solar_recarga`; compra, seguro, frota e financiamento de veículo não entram no handoff comercial.
 - Cidades do piloto: Jundiaí, Campinas, São Paulo, Itupeva, Várzea Paulista e Campo Limpo Paulista.
 - Formulário coleta PF/PJ, imóvel, prazo, detalhe do serviço e necessidade explícita de financiamento do equipamento/projeto; a API valida os mesmos campos.
-- Consentimento `pilot-v2-2026-07-15` identifica a E.R SOLAR antes do envio, aponta para a Política de Privacidade e fica persistido com timestamp e parceiro selecionado.
+- Consentimento `pilot-v3-2026-07-15` é genérico: autoriza qualificação e eventual compartilhamento com parceiro indicado, sem revelar nome no formulário ou na resposta pública. O parceiro é informado ao titular antes do handoff.
 - PII não fica em `localStorage`, query string ou fallback de e-mail; falhas mantêm os dados apenas no estado da sessão para nova tentativa.
 - Backend faz matching obrigatório por serviço × cidade × UF × PF/PJ e cria o lead como `needs_review`.
 - CTAs contextuais na home, detalhe do veículo, consultor IA e Instagram convergem para `/interesse?servico=...&origem=...` somente quando o rollout público está habilitado.
 - Financiamento de equipamento/projeto é uma subnecessidade explícita do formulário de solar/wallbox; financiamento para aquisição de veículo é recusado explicitamente.
-- CRM interno protegido em `/admin/leads`: revisão, rejeição, atribuição, handoff WhatsApp, contestação em 48h, status e cobrança.
-- Valor congelado na atribuição: máximo R$ 30; lead só vira faturável após entrega registrada. Perda da venda não invalida automaticamente o lead.
-- Rollout usa dois controles: `ENABLE_PUBLIC_LEAD_API` no backend e variável GitHub `VITE_ENABLE_LEAD_CAPTURE` no build do site.
+- CRM interno protegido em `/admin/leads`: revisão, rejeição, homologação, handoff manual, janela de contestação de 48h, validade e cobrança.
+- Preço é resolvido no backend por parceiro, modalidade e termos vigentes; sem termos válidos, a homologação falha de forma fechada. R$ 30 é condição específica da E.R SOLAR, não preço global.
+- Pipeline: `needs_review → homologated/rejected → delivered_contestable → contested/effective/invalid → paid`; `contacted/converted/lost` é resultado comercial separado. `paid` é terminal e imutável.
+- Rollout usa dois controles: `ENABLE_PUBLIC_LEAD_API` no backend e variável GitHub `VITE_ENABLE_LEAD_CAPTURE` no build do site; ambos permanecem desativados até autorização explícita.
 - Eventos Plausible: `lead_cta_click`, `lead_funnel_open`, `lead_submit`, `lead_success` e `lead_error`, sem PII.
-- PII de leads recebe prazo máximo de retenção de 180 dias e anonimização automática; auditoria mínima permanece para consentimento, contestação e faturamento.
-- Checkpoint do piloto após 10 handoffs reais ou 60 dias, o que ocorrer primeiro; com teto de R$ 30 por lead válido, a exposição máxima antes da revisão é R$ 300.
+- PII de leads recebe prazo máximo de retenção de 180 dias. A anonimização inclui campos livres, eventos e contestação; registros históricos sem prazo recebem backfill.
+- Checkpoint do piloto após 10 handoffs reais ou 60 dias, o que ocorrer primeiro; exposição financeira é calculada pelos termos do parceiro.
 
-> Resumo técnico S15-G (15/07/2026): piloto E.R SOLAR concluído com consentimento auditável, matching regional, CRM manual, handoff-only, contestação e funil central. Instagram deixou de criar leads crus e passou a enviar o consumidor para o formulário consentido.
+> Resumo técnico S15-G v3 (15/07/2026): implementação e testes concluídos em ambiente fechado. Produção permanece desativada; Instagram persiste apenas hash e código para sinais comerciais e direciona o consumidor ao formulário consentido quando o rollout estiver autorizado.
 
 > Resumo técnico S15-F (09/07/2026): consumidor lead-gen permanece pausado por flag, e foi adicionado `/parceiros` para candidaturas de fornecedores. O formulário coleta empresa, responsável, categorias, cobertura, SLA, capacidade, modelo comercial e aceite LGPD; backend salva como `partner_applications.status=submitted` para avaliação humana, sem ativação automática.
 

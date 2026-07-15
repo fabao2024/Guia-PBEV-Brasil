@@ -23,7 +23,7 @@ const kwid: Car = {
 
 describe('LeadCaptureModal', () => {
   beforeEach(() => {
-    vi.mocked(submitLead).mockResolvedValue({ status: 'needs_review', lead_id: 99, partner_name: 'E.R SOLAR' });
+    vi.mocked(submitLead).mockResolvedValue({ status: 'needs_review', lead_id: 99 });
   });
 
   afterEach(() => {
@@ -43,6 +43,8 @@ describe('LeadCaptureModal', () => {
     );
 
     expect(screen.getByRole('heading', { name: /solicitar energia solar ou wallbox/i })).toBeInTheDocument();
+    expect(screen.queryByText(/E\.R SOLAR/i)).not.toBeInTheDocument();
+    expect(screen.getByText(/parceiro indicado pela plataforma que atenda à minha região/i)).toBeInTheDocument();
     expect(screen.getByText(/somente para o equipamento ou projeto solar\/wallbox/i)).toHaveTextContent(/não inclui financiamento de veículo/i);
     expect(screen.queryByText(/seguro ev/i)).not.toBeInTheDocument();
     expect(screen.getByLabelText(/serviço desejado/i)).toHaveDisplayValue(/wallbox/i);
@@ -81,10 +83,11 @@ describe('LeadCaptureModal', () => {
           equipment_financing: 'quero_avaliar',
         },
         consentAccepted: true,
-        consentTextVersion: 'pilot-v2-2026-07-15',
+        consentTextVersion: 'pilot-v3-2026-07-15',
       }),
       'vehicle_detail'
     );
-    expect(screen.getByText(/solicitação #99 recebida/i)).toHaveTextContent(/E.R SOLAR/i);
+    expect(screen.getByText(/solicitação #99 recebida/i)).toHaveTextContent(/informaremos o parceiro indicado antes do contato/i);
+    expect(screen.queryByText(/E\.R SOLAR/i)).not.toBeInTheDocument();
   });
 });

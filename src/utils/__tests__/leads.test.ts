@@ -18,7 +18,7 @@ const lead: LeadFormData = {
     equipment_financing: 'quero_avaliar',
   },
   consentAccepted: true,
-  consentTextVersion: 'pilot-v2-2026-07-15',
+  consentTextVersion: 'pilot-v3-2026-07-15',
   message: 'Tenho garagem e rodo 60 km/dia',
 };
 
@@ -27,16 +27,16 @@ describe('submitLead()', () => {
     vi.unstubAllGlobals();
   });
 
-  it('posts the qualified lead to the bot API and returns the matched partner', async () => {
+  it('posts the qualified lead without exposing the matched partner', async () => {
     const fetchMock = vi.fn().mockResolvedValue({
       ok: true,
-      json: async () => ({ status: 'needs_review', lead_id: 42, partner_name: 'E.R SOLAR' }),
+      json: async () => ({ status: 'needs_review', lead_id: 42 }),
     });
     vi.stubGlobal('fetch', fetchMock);
 
     const result = await submitLead(lead, 'vehicle_details');
 
-    expect(result).toEqual({ status: 'needs_review', lead_id: 42, partner_name: 'E.R SOLAR' });
+    expect(result).toEqual({ status: 'needs_review', lead_id: 42 });
     expect(fetchMock).toHaveBeenCalledWith('https://bot.guiapbev.cloud/api/leads', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -58,9 +58,9 @@ describe('submitLead()', () => {
   });
 
   it.each([
-    [{ status: 'approved', lead_id: 42, partner_name: 'E.R SOLAR' }, 'status'],
-    [{ status: 'needs_review', partner_name: 'E.R SOLAR' }, 'lead_id'],
-    [{ status: 'needs_review', lead_id: 42, partner_name: 'Outro Parceiro' }, 'partner_name'],
+    [{ status: 'approved', lead_id: 42 }, 'status'],
+    [{ status: 'needs_review' }, 'lead_id'],
+    [{ status: 'needs_review', lead_id: 42, partner_name: 'E.R SOLAR' }, 'partner_name'],
   ])('rejects a malformed or divergent success response: %s', async (payload, expectedField) => {
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
       ok: true,

@@ -21,9 +21,9 @@ false → esconde CTAs e não abre /interesse
 true  → ativa o formulário público
 ```
 
-Só mudar para `true` depois de validar o backend com `ENABLE_PUBLIC_LEAD_API=true`, matching da E.R SOLAR, CRM protegido e teste sintético ponta a ponta. O deploy workflow injeta a variável apenas no job de build.
+Só mudar para `true` depois de validar o backend com `ENABLE_PUBLIC_LEAD_API=true`, matching regional, termos comerciais vigentes, CRM protegido e teste sintético ponta a ponta. O deploy workflow injeta a variável apenas no job de build.
 
-Com a flag `false`, `/interesse` também fica fora do sitemap e das páginas estáticas. O formulário usa o consentimento `pilot-v2-2026-07-15` e aponta para `/privacy.html`, que documenta controlador, compartilhamento exclusivo do piloto, direitos LGPD e retenção.
+Com a flag `false`, `/interesse` também fica fora do sitemap e das páginas estáticas. O formulário usa o consentimento genérico `pilot-v3-2026-07-15`, sem revelar parceiro no contrato público, e aponta para `/privacy.html`. Para preview isolado, `VITE_LEADS_API_URL` pode apontar para um backend de teste; não definir essa variável em produção sem revisão do destino.
 
 
 
