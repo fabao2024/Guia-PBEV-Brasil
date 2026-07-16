@@ -1,6 +1,6 @@
 # Roadmap — Guia PBEV Brasil
 
-> Documento vivo. Atualizado em março/2026.
+> Documento vivo. Atualizado em julho/2026.
 
 ## Status
 
@@ -26,6 +26,7 @@
 | 18 | Formulário público de candidatura de fornecedores/parceiros (`/parceiros`) | Monetização | Baixo | Alto | ✅ Concluído |
 | 19 | Admin interno de candidaturas de parceiros (`/admin/partners`) | Monetização | Baixo | Alto | ✅ Concluído |
 | 20 | Preço por lead/modalidade e match codes no programa de parceiros | Monetização | Baixo | Alto | ✅ Concluído |
+| 21 | Expansão do marketplace para aquisição/cotação, seguro e financiamento de veículos | Monetização | Alto | Alto | 🔲 Planejado pós-piloto |
 
 ---
 
@@ -191,6 +192,61 @@
 - Build agora gera `dist/parceiros/index.html` via `tools/create-static-route-pages.mjs`
 - Corrige abertura direta de `https://guiapbev.cloud/parceiros` em navegadores in-app como Instagram, sem depender do fallback 404 do GitHub Pages
 - Parser do fallback `/?/rota` também foi corrigido para preservar query strings como query, não como parte do path
+
+### 26. Expansão do marketplace: aquisição/cotação, seguro e financiamento 🔲
+
+**Objetivo:** evoluir o piloto handoff-only para novas verticais de mobilidade elétrica sem transformar o Guia em vendedor, corretor, correspondente ou executor do serviço.
+
+**Escopo atual preservado:**
+- O piloto em produção continua restrito a `wallbox` e `energia_solar_recarga`.
+- `seguro`, `financiamento` e `compra_veiculo` permanecem fora da API pública e do handoff até a liberação explícita de cada fase.
+- O campo legado `equipment_financing` continua rejeitado com `422` e não será reutilizado para financiamento veicular.
+- O Guia controla qualificação, consentimento, matching, entrega, contestação, validade e pagamento do lead. Contato, proposta, negociação, venda, conversão, crédito, apólice e execução ficam fora do CRM.
+
+#### Ordem de rollout
+
+| Fase | Vertical | Resultado funcional | Motivo da ordem |
+|---|---|---|---|
+| 2A | Aquisição/cotação de veículos | Encaminhar pedido de cotação a concessionária, loja ou parceiro homologado | Menor complexidade regulatória e aderência direta ao catálogo/TCO |
+| 2B | Seguro EV | Encaminhar interesse a corretora, insurtech ou seguradora com regularidade aplicável verificada | Exige validação comercial, consentimento específico e revisão do limite de atuação do Guia |
+| 2C | Financiamento veicular | Encaminhar intenção a instituição ou intermediário autorizado, sem análise ou promessa de crédito pelo Guia | Maior sensibilidade de dados e necessidade de revisão regulatória e de compliance |
+
+#### Contrato mínimo por vertical
+
+| Vertical | Qualificação mínima no Guia | Dados que ficam com o parceiro após handoff | Exclusões explícitas |
+|---|---|---|---|
+| Aquisição/cotação | veículo ou faixa de interesse, novo/usado, cidade/UF, PF/PJ, prazo e existência de veículo na troca | negociação, avaliação do usado, proposta, disponibilidade e fechamento | sem reserva, venda, garantia de estoque ou intermediação do pagamento |
+| Seguro EV | veículo, cidade/UF, PF/PJ, uso principal, situação novo/usado e prazo da cotação | CPF, placa, CNH, perfil de risco, histórico e proposta de apólice | sem recomendação de cobertura, cálculo de prêmio ou contratação pelo Guia |
+| Financiamento veicular | veículo ou faixa de valor, PF/PJ, cidade/UF, entrada em faixa opcional e prazo de compra | CPF/CNPJ completo, renda, score, documentos bancários, análise e decisão de crédito | sem simulação comercial, pré-aprovação, promessa de taxa ou concessão de crédito pelo Guia |
+
+#### Gates obrigatórios antes de cada ativação
+
+- Encerrar o checkpoint do piloto atual após 10 handoffs reais ou 60 dias e revisar qualidade, contestação, SLA e operação manual.
+- Ter parceiros homologados para a vertical, preferencialmente dois ou mais; piloto com parceiro único exige aprovação comercial explícita e regra exclusiva.
+- Validar situação cadastral e regulatória aplicável ao tipo de parceiro antes da ativação.
+- Formalizar termos partner-specific: modalidade, cobertura, PF/PJ, vigência, SLA, preço e regras de contestação; sem preço global ou herança automática.
+- Criar consentimento versionado e atualizar política de privacidade, finalidade, compartilhamento, retenção e canal de exercício de direitos.
+- Definir schema Pydantic próprio com allowlist no payload bruto; campos extras, aliases, dados financeiros indevidos e modalidades ainda fechadas devem retornar `422` antes da persistência.
+- Criar feature flags independentes por vertical no frontend, API e canais sociais. Flag ausente ou configuração incompleta deve falhar fechada.
+- Manter Instagram e consultor IA apenas como roteadores para o formulário consentido; nunca persistir PII social como lead.
+- Executar testes unitários, contrato negativo, build, auditoria de segurança e E2E sintético sem PII, assignment ou contato real antes do rollout.
+- Fazer liberação manual por vertical e registrar SHA, configuração efetiva, health check, CORS, evento de auditoria e rollback.
+
+#### Matching, CRM e métricas
+
+- Matching obrigatório por `modalidade × parceiro × cobertura × PF/PJ × termos vigentes`; zero ou múltiplas correspondências incompatíveis exigem revisão, nunca escolha silenciosa.
+- Reutilizar o pipeline auditável `needs_review → homologated/rejected → delivered_contestable → contested/effective/invalid → paid`, mantendo `paid` terminal e imutável.
+- Registrar preço congelado no assignment para impedir alteração retroativa quando os termos do parceiro mudarem.
+- Medir abertura, submit, homologação, assignment, contestação, efetividade, tempo de revisão e valor faturável sem PII no analytics.
+- Não medir contato, proposta, aprovação de crédito, emissão de apólice, venda ou conversão final como responsabilidade operacional do Guia.
+
+#### Critério de conclusão de cada fase
+
+- Contrato público, consentimento, política, matching, pricing, CRM e documentação aprovados.
+- Parceiro e termos comerciais válidos no banco, sem fallback global.
+- Suítes frontend/backend e E2E sintético aprovados em ambiente isolado.
+- Rollout por flag validado em produção com revisão humana obrigatória.
+- Primeiros resultados reais revisados antes de abrir a próxima vertical.
 
 ### 12. Avaliações de Donos
 - Donos submetem nota para autonomia real, recarga e qualidade
