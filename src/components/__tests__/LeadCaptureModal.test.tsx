@@ -45,7 +45,8 @@ describe('LeadCaptureModal', () => {
     expect(screen.getByRole('heading', { name: /solicitar energia solar ou wallbox/i })).toBeInTheDocument();
     expect(screen.queryByText(/E\.R SOLAR/i)).not.toBeInTheDocument();
     expect(screen.getByText(/parceiro indicado pela plataforma que atenda à minha região/i)).toBeInTheDocument();
-    expect(screen.getByText(/somente para o equipamento ou projeto solar\/wallbox/i)).toHaveTextContent(/não inclui financiamento de veículo/i);
+    expect(screen.queryByText(/informado antes do compartilhamento/i)).not.toBeInTheDocument();
+    expect(screen.queryByLabelText(/financiamento do equipamento ou projeto/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/seguro ev/i)).not.toBeInTheDocument();
     expect(screen.getByLabelText(/serviço desejado/i)).toHaveDisplayValue(/wallbox/i);
 
@@ -55,7 +56,6 @@ describe('LeadCaptureModal', () => {
     await user.selectOptions(screen.getByLabelText(/tipo de imóvel/i), 'casa_propria');
     await user.selectOptions(screen.getByLabelText(/prazo para contratar/i), '30_dias');
     await user.selectOptions(screen.getByLabelText(/necessidade de recarga/i), 'equipamento_instalacao');
-    await user.selectOptions(screen.getByLabelText(/financiamento do equipamento ou projeto/i), 'quero_avaliar');
     await user.type(screen.getByLabelText(/contexto adicional/i), 'Garagem coberta e rede 220V.');
 
     await user.click(screen.getByRole('button', { name: /solicitar contato/i }));
@@ -66,6 +66,9 @@ describe('LeadCaptureModal', () => {
     await user.click(screen.getByRole('button', { name: /solicitar contato/i }));
 
     await waitFor(() => expect(submitLead).toHaveBeenCalledTimes(1));
+    const confirmation = screen.getByText(/solicitação #99 recebida/i);
+    expect(confirmation).toHaveTextContent(/aguarda revisão humana/i);
+    expect(confirmation).not.toHaveTextContent(/informaremos o parceiro/i);
     expect(submitLead).toHaveBeenCalledWith(
       expect.objectContaining({
         name: 'Fabio Teste',
@@ -80,14 +83,12 @@ describe('LeadCaptureModal', () => {
           property_situation: 'casa_propria',
           timeline: '30_dias',
           service_detail: 'equipamento_instalacao',
-          equipment_financing: 'quero_avaliar',
         },
         consentAccepted: true,
         consentTextVersion: 'pilot-v3-2026-07-15',
       }),
       'vehicle_detail'
     );
-    expect(screen.getByText(/solicitação #99 recebida/i)).toHaveTextContent(/informaremos o parceiro indicado antes do contato/i);
     expect(screen.queryByText(/E\.R SOLAR/i)).not.toBeInTheDocument();
   });
 });

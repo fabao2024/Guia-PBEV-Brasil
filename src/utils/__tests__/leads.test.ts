@@ -15,7 +15,6 @@ const lead: LeadFormData = {
     property_situation: 'casa_propria',
     timeline: '30_dias',
     service_detail: 'equipamento_instalacao',
-    equipment_financing: 'quero_avaliar',
   },
   consentAccepted: true,
   consentTextVersion: 'pilot-v3-2026-07-15',

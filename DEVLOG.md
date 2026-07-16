@@ -953,3 +953,40 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Testes | ✅ | `npm run test:run` — 16 suites, 125/125; testes impedem reintrodução de `partner_name` e consentimento nominal. |
 | Build | ✅ | `npm run build` concluído com captura habilitada somente no ambiente de preview; produção permanece com `VITE_ENABLE_LEAD_CAPTURE=false`. |
 | Rollout | ⏸️ | Nenhuma reativação pública. Preview usa backend e banco isolados, sem contato com parceiro real. |
+
+---
+
+### [S15-J] fix(leads): handoff-only sem identificação prévia ou outcome · 15/07/2026
+
+| Etapa | Status | Detalhe |
+|---|---|---|
+| Dev | ✅ | Formulário e confirmação simplificados: revisão humana e eventual encaminhamento a parceiro compatível, sem prometer identificação prévia do parceiro. |
+| Privacidade | ✅ | Política mantém consentimento genérico, diz que o parceiro se identifica diretamente após o handoff e explicita que o Guia não acompanha contato, proposta, venda, contratação ou execução. O tratamento posterior segue a relação direta do parceiro com o titular. |
+| Escopo | ✅ | Guia controla somente entrega, contestação, validade e pagamento do lead; não acompanha contato, venda, conversão ou execução do serviço pelo parceiro. |
+| Testes | ✅ | `npm run test:run` com `126/126`, incluindo regressão estática da política, type-check, `npm audit --omit=dev` e build aprovados. |
+| Rollout | ⏸️ | Captura pública permanece desativada; preview continua isolado. |
+
+---
+
+### [S15-K] fix(leads): remove qualificação de financiamento · 15/07/2026
+
+| Etapa | Status | Detalhe |
+|---|---|---|
+| Dev | ✅ | Removidos do formulário o estado, a pergunta e o payload `equipment_financing`; o piloto capta somente imóvel, prazo e detalhe do serviço. |
+| Testes | ✅ | Regressão confirma ausência da pergunta; suíte completa `126/126` e TypeScript aprovados. |
+| Build | ✅ | Build do preview atualizado e artefato servido sem referências ao campo ou às opções de financiamento. |
+| E2E | ✅ | API pública aceitou lead sintético sem financiamento e concluiu o ciclo administrativo isolado. |
+| Rollout | ⏸️ | Preview-only, sem commit, push ou publicação em produção. |
+
+---
+
+### [S15-L] feat(leads): promove piloto handoff-only validado · 16/07/2026
+
+| Etapa | Status | Detalhe |
+|---|---|---|
+| Dev | ✅ | Contrato público sem identificação prévia do parceiro, formulário sem `equipment_financing`, política de privacidade handoff-only e regressões promovidos do preview isolado para `main`. |
+| Build | ✅ | Builds aprovados com `VITE_ENABLE_LEAD_CAPTURE=true` e `false`; o artefato final local permaneceu fail-closed, sem publicar `/interesse/`. |
+| Testes | ✅ | Vitest: 17 suites e 126/126 testes; TypeScript sem erros; `npm audit --omit=dev` com zero vulnerabilidades; `git diff --check` aprovado. |
+| E2E | ✅ | Fabio executou manualmente o ciclo sintético `needs_review → homologated → delivered_contestable → contested → effective → paid`, com contestação `duplicate` julgada improcedente, sem abrir handoff externo. |
+| Rollout | ✅ | Código preparado para deploy via GitHub Pages; a variável real `VITE_ENABLE_LEAD_CAPTURE=false` foi confirmada no GitHub e continua desativada até autorização específica para abrir o piloto ao público. |
+| Commit | ✅ | Incluído neste commit. |

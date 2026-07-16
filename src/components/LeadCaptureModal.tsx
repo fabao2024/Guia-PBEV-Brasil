@@ -34,7 +34,6 @@ const INITIAL_FORM: LeadFormData = {
     property_situation: '',
     timeline: '',
     service_detail: '',
-    equipment_financing: '',
   },
   consentAccepted: false,
   consentTextVersion: PILOT_CONSENT_TEXT_VERSION,
@@ -148,7 +147,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
           <p className="text-xs font-black uppercase tracking-[0.28em] text-[#00b4ff] mb-2">Piloto Guia PBEV Brasil</p>
           <h2 id="lead-form-title" className="text-2xl md:text-3xl font-black leading-tight">Solicitar energia solar ou wallbox</h2>
           <p className="mt-2 text-sm text-white/65">
-            O Guia qualifica sua solicitação e, após revisão humana, identifica um parceiro que atenda à região e ao serviço solicitado. Você será informado antes do compartilhamento.
+            O Guia qualifica sua solicitação e, após revisão humana, pode encaminhá-la a um parceiro compatível com a região e o serviço solicitado.
           </p>
           {vehicleLabel && <p className="mt-2 text-sm text-white/65">Veículo de interesse: <strong className="text-white">{vehicleLabel}</strong></p>}
         </div>
@@ -234,16 +233,6 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
             </label>
           )}
 
-          <label className="md:col-span-2 flex flex-col gap-1 text-sm font-bold text-white/80">
-            Precisa avaliar financiamento do equipamento ou projeto?
-            <select required value={form.qualificationData.equipment_financing} onChange={e => updateQualification('equipment_financing', e.target.value)} className={`${inputClass} bg-[#08090e]`}>
-              <option value="" disabled>Selecione</option>
-              <option value="nao">Não</option>
-              <option value="sim">Sim, preciso de financiamento</option>
-              <option value="quero_avaliar">Quero avaliar as opções</option>
-            </select>
-            <span className="text-xs font-normal text-white/45">Somente para o equipamento ou projeto solar/wallbox. Não inclui financiamento de veículo.</span>
-          </label>
 
           <label className="md:col-span-2 flex flex-col gap-1 text-sm font-bold text-white/80">
             Contexto adicional
@@ -270,7 +259,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
 
           {submitted && (
             <div className="md:col-span-2 bg-emerald-400/10 border border-emerald-400/20 text-emerald-200 rounded-xl p-3 text-sm font-semibold flex items-center gap-2">
-              <Zap className="w-4 h-4" /> Solicitação #{leadId} recebida. Informaremos o parceiro indicado antes do contato e do compartilhamento dos dados.
+              <Zap className="w-4 h-4" /> Solicitação #{leadId} recebida e aguarda revisão humana.
             </div>
           )}
 
