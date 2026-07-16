@@ -14,4 +14,9 @@ describe('Política de Privacidade do piloto de leads', () => {
     expect(policy).not.toMatch(/informado antes do compartilhamento/i);
     expect(policy).not.toMatch(/o parceiro usará os dados apenas para entrar em contato/i);
   });
+
+  it('não declara coleta de financiamento no piloto solar e wallbox', () => {
+    expect(policy).not.toMatch(/interesse em financiamento do equipamento\/projeto/i);
+    expect(policy).not.toMatch(/equipment_financing/i);
+  });
 });

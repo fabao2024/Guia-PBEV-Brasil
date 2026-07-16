@@ -990,3 +990,15 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | E2E | ✅ | Fabio executou manualmente o ciclo sintético `needs_review → homologated → delivered_contestable → contested → effective → paid`, com contestação `duplicate` julgada improcedente, sem abrir handoff externo. |
 | Rollout | ✅ | Código preparado para deploy via GitHub Pages; a variável real `VITE_ENABLE_LEAD_CAPTURE=false` foi confirmada no GitHub e continua desativada até autorização específica para abrir o piloto ao público. |
 | Commit | ✅ | Incluído neste commit. |
+
+---
+
+### [S15-M] fix(leads): remediação pós-review de minimização LGPD · 16/07/2026
+
+| Etapa | Status | Detalhe |
+|---|---|---|
+| Privacidade | ✅ | Removida da lista de dados tratados a referência obsoleta a interesse em financiamento do equipamento/projeto; data da política atualizada para 16/07/2026. |
+| Roadmap | ✅ | Contrato documentado com allowlist aplicada ao payload bruto e rejeição de aliases, identificadores extras e chaves com espaços antes de normalização/persistência. |
+| Teste | ✅ | Nova regressão estática impede reintrodução de `equipment_financing` ou da declaração de coleta de financiamento na política. |
+| Validação | ✅ | Vitest: 17 suites e 127/127 testes; TypeScript sem erros; `npm audit --omit=dev` com zero vulnerabilidades; builds com `VITE_ENABLE_LEAD_CAPTURE=true` e `false`; `git diff --check` aprovado. |
+| Rollout | ⏸️ | Correção documental sem abertura do piloto; `VITE_ENABLE_LEAD_CAPTURE=false` permanece. |

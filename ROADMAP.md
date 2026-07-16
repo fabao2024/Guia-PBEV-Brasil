@@ -111,6 +111,7 @@
 - Rota pública `/interesse` e modal único para `wallbox` e `energia_solar_recarga`; compra, seguro, frota e financiamento de veículo não entram no handoff comercial.
 - Cidades do piloto: Jundiaí, Campinas, São Paulo, Itupeva, Várzea Paulista e Campo Limpo Paulista.
 - Formulário coleta PF/PJ, imóvel, prazo e detalhe do serviço. Financiamento de equipamento/projeto não é perguntado nem enviado; a API rejeita o campo legado `equipment_financing`.
+- A API aplica allowlist no payload bruto de qualificação: aceita somente `property_situation`, `timeline` e `service_detail`; aliases, identificadores extras e chaves com espaços recebem `422` antes de qualquer normalização ou persistência.
 - Consentimento `pilot-v3-2026-07-15` é genérico: autoriza qualificação e eventual compartilhamento com um parceiro compatível, sem revelar seu nome no formulário, na resposta pública ou antes do handoff.
 - PII não fica em `localStorage`, query string ou fallback de e-mail; falhas mantêm os dados apenas no estado da sessão para nova tentativa.
 - Backend faz matching obrigatório por serviço × cidade × UF × PF/PJ e cria o lead como `needs_review`.
@@ -123,6 +124,8 @@
 - Eventos Plausible: `lead_cta_click`, `lead_funnel_open`, `lead_submit`, `lead_success` e `lead_error`, sem PII.
 - PII de leads recebe prazo máximo de retenção de 180 dias. A anonimização inclui campos livres, eventos e contestação; registros históricos sem prazo recebem backfill.
 - Checkpoint do piloto após 10 handoffs reais ou 60 dias, o que ocorrer primeiro; exposição financeira é calculada pelos termos do parceiro.
+
+> Resumo técnico S15-M (16/07/2026): hardening pós-review preserva detalhes legítimos da auditoria, fecha `qualificationData` por allowlist aplicada ao payload bruto e alinha a política de privacidade. Testes cobrem aliases camelCase, CPF, chaves com espaços e colisões textuais; flags públicas permanecem desativadas.
 
 > Resumo técnico S15-L (16/07/2026): piloto handoff-only validado manualmente de ponta a ponta em banco isolado, incluindo contestação improcedente e pagamento. O contrato simplificado, as migrações idempotentes e as regressões foram promovidos para `main`; as flags públicas permanecem desativadas até autorização específica de rollout.
 
