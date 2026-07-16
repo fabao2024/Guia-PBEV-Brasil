@@ -120,10 +120,12 @@
 - CRM interno protegido em `/admin/leads`: revisão, rejeição, homologação, handoff manual, janela de contestação de 48h, validade e cobrança.
 - Preço é resolvido no backend por parceiro, modalidade e termos vigentes; sem termos válidos, a homologação falha de forma fechada. R$ 30 é condição específica da E.R SOLAR, não preço global.
 - Pipeline: `needs_review → homologated/rejected → delivered_contestable → contested/effective/invalid → paid`. O Guia controla somente entrega, contestação, validade e pagamento do lead; não acompanha contato, venda, conversão ou execução do serviço pelo parceiro. `paid` é terminal e imutável.
-- Rollout usa dois controles: `ENABLE_PUBLIC_LEAD_API` no backend e variável GitHub `VITE_ENABLE_LEAD_CAPTURE` no build do site; ambos permanecem desativados até autorização explícita.
+- Rollout público autorizado em 16/07/2026: `ENABLE_PUBLIC_LEAD_API=true` no backend e `VITE_ENABLE_LEAD_CAPTURE=true` no build do site. `ENABLE_COMMERCIAL_LEAD_CAPTURE=false` permanece como defesa para impedir criação direta de leads a partir de PII social; Instagram apenas encaminha wallbox/solar ao formulário consentido.
 - Eventos Plausible: `lead_cta_click`, `lead_funnel_open`, `lead_submit`, `lead_success` e `lead_error`, sem PII.
 - PII de leads recebe prazo máximo de retenção de 180 dias. A anonimização inclui campos livres, eventos e contestação; registros históricos sem prazo recebem backfill.
 - Checkpoint do piloto após 10 handoffs reais ou 60 dias, o que ocorrer primeiro; exposição financeira é calculada pelos termos do parceiro.
+
+> Resumo técnico S15-N (16/07/2026): piloto público autorizado com termos exclusivos da E.R SOLAR para wallbox e energia solar, sem preço global ou herança para novos parceiros. Guia e API passam a aceitar o formulário consentido; Instagram somente oferece o deep link, sem transformar PII social em lead.
 
 > Resumo técnico S15-M (16/07/2026): hardening pós-review preserva detalhes legítimos da auditoria, fecha `qualificationData` por allowlist aplicada ao payload bruto e alinha a política de privacidade. Testes cobrem aliases camelCase, CPF, chaves com espaços e colisões textuais; flags públicas permanecem desativadas.
 

@@ -1002,3 +1002,16 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Teste | ✅ | Nova regressão estática impede reintrodução de `equipment_financing` ou da declaração de coleta de financiamento na política. |
 | Validação | ✅ | Vitest: 17 suites e 127/127 testes; TypeScript sem erros; `npm audit --omit=dev` com zero vulnerabilidades; builds com `VITE_ENABLE_LEAD_CAPTURE=true` e `false`; `git diff --check` aprovado. |
 | Rollout | ⏸️ | Correção documental sem abertura do piloto; `VITE_ENABLE_LEAD_CAPTURE=false` permanece. |
+
+---
+
+### [S15-N] ops(leads): ativa piloto público consentido · 16/07/2026
+
+| Etapa | Status | Detalhe |
+|---|---|---|
+| Dev | ✅ | Rollout autorizado para wallbox e energia solar nas seis cidades cadastradas. O formulário consentido passa a ser publicado; Instagram apenas oferece o deep link e não transforma PII social em lead. |
+| Build | ✅ | Build com `VITE_ENABLE_LEAD_CAPTURE=true`; artefato estático `dist/interesse/index.html` confirmado. Regenerações incidentais de `cars.json` e `sitemap.xml` foram restauradas antes do commit. |
+| Testes | ✅ | Vitest: 17 suites e 127/127 testes; TypeScript sem erros; `npm audit --omit=dev` com zero vulnerabilidades; `git diff --check` aprovado. |
+| Commit | ✅ | Incluído neste commit. |
+
+**Notas:** termos comerciais permanecem específicos por parceiro. A condição do piloto não é default global e não será herdada por futuras candidaturas.
