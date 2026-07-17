@@ -1015,3 +1015,16 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Commit | ✅ | Incluído neste commit. |
 
 **Notas:** termos comerciais permanecem específicos por parceiro. A condição do piloto não é default global e não será herdada por futuras candidaturas.
+
+---
+
+### [S16-F] data(mg4-urban): linha MG4 Urban oficial — 3 versões, preços e fotos do site · 17/07/2026
+
+| Etapa  | Status | Detalhe |
+|--------|--------|---------|
+| Dev    | ✅ | Linha MG4 Urban corrigida de 2 para 3 versões com dados oficiais do lançamento: **Comfort** (43 kWh, 150 cv, R$129.990, 299 km), **Luxury** (43 kWh, 150 cv, R$139.990, 299 km — nova entrada) e **Luxury 54kWh** (54 kWh, 160 cv, R$149.990, 358 km). Consumo (0,40/0,42 MJ/km) e autonomia validados na tabela PBEV 2026_3_JUN (linhas `URB EV43KWH`/`EV54KWH`). Potências antes estavam 160 cv nas duas; preços eram estimativas (R$130k/R$160k). Features atualizadas (tela 12,8", 7 airbags, aro 16 no Comfort, câmera 360°/bancos aquecidos no Luxury, DC 87 kW 10-80% em 28 min). 3 fotos studio oficiais do site MG convertidas para WebP (~18-26 KB): Comfort cinza aro 16 (salva manualmente pelo Fabio), prata Cyan/Luxury e preto Oxford/Luxury 54kWh (CORES_LUXURY 5000px PNG → 1000px); `mg4-urban.jpg` antiga removida. `NEW_MODELS` +1; `priceHistory.ts` com snapshots 2026-07 corrigidos in-place (eram estimativas do mesmo mês). |
+| Build  | ✅ | `npm run build` ok (7,6s); `cars.json`, `sitemap.xml` e `README.md` regenerados (109 veículos). |
+| Testes | ✅ | `npm run test:run` — 17 suites, 127/127 testes passando. |
+| Commit | ✅ | Incluído neste commit. |
+
+**Notas:** modelo nomeado `MG4 Urban Luxury 54kWh` para distinguir as duas Luxury (padrão análogo a `Ora 03 Skin BEV58`). PBEV lista também um `URB EV54KWH COM`, mas a tabela comercial da MG só oferece o pacote 54 kWh no acabamento Luxury.

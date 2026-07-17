@@ -22,6 +22,7 @@ const NEW_MODELS = new Set([
   'Avatr 11',
   'MG4 Urban Comfort',
   'MG4 Urban Luxury',
+  'MG4 Urban Luxury 54kWh',
 ]);
 
 export const isCarNew = (car: Car): boolean => NEW_MODELS.has(car.model);
@@ -1639,34 +1640,54 @@ export const CAR_DB: Car[] = [
   },
 
   // 5. MG MOTOR
-  // MG4 Urban (Comfort/Luxury): preços ESTIMADOS pela imprensa — MG ainda não divulgou tabela oficial
-  // (pré-reserva aberta em mgmotoroficial.com.br/model/mg4urban, lançamento previsto jun/26).
-  // Reavaliar e corrigir para o preço oficial assim que divulgado.
+  // MG4 Urban: preços oficiais do lançamento (jul/26) — Comfort 43 kWh R$129.990,
+  // Luxury 43 kWh R$139.990, Luxury 54 kWh R$149.990. Autonomia/consumo: tabela PBEV 2026_3_JUN.
   {
-    model: "MG4 Urban Comfort", brand: "MG Motor", price: 130000, range: 299, cat: "Compacto",
-    img: "/car-images/mg4-urban.jpg",
-    power: 160, traction: 'FWD', battery: 43,
+    model: "MG4 Urban Comfort", brand: "MG Motor", price: 129990, range: 299, cat: "Compacto",
+    img: "/car-images/mg4-urban-comfort.webp",
+    power: 150, traction: 'FWD', battery: 43,
     features: [
       "Bateria LFP 43 kWh",
       "Versão de entrada da linha MG4 Urban — rodas aro 16",
-      "Tela central com CarPlay e Android Auto",
-      "6 airbags"
+      "Tela central 12,8\" com CarPlay e Android Auto",
+      "7 airbags",
+      "Faróis full LED",
+      "Recarga DC 10-80% em 28 minutos"
     ],
-    pbeRating: 'A',
-    warrantyYears: 7, warrantyBatteryYears: 7,
+    pbeRating: 'A', energyMJkm: 0.40,
+    warrantyYears: 7, warrantyBatteryYears: 7, chargeDC: 87,
   },
   {
-    model: "MG4 Urban Luxury", brand: "MG Motor", price: 160000, range: 358, cat: "Compacto",
-    img: "/car-images/mg4-urban.jpg",
+    model: "MG4 Urban Luxury", brand: "MG Motor", price: 139990, range: 299, cat: "Compacto",
+    img: "/car-images/mg4-urban-luxury.webp",
+    power: 150, traction: 'FWD', battery: 43,
+    features: [
+      "Bateria LFP 43 kWh",
+      "Câmera 360° HD de série",
+      "Bancos e volante aquecidos, ajuste elétrico 6 posições",
+      "Carregador wireless para smartphone",
+      "Iluminação ambiente 64 cores",
+      "Tela central 12,8\" com CarPlay e Android Auto",
+      "7 airbags"
+    ],
+    pbeRating: 'A', energyMJkm: 0.40,
+    warrantyYears: 7, warrantyBatteryYears: 7, chargeDC: 87,
+  },
+  {
+    model: "MG4 Urban Luxury 54kWh", brand: "MG Motor", price: 149990, range: 358, cat: "Compacto",
+    img: "/car-images/mg4-urban-luxury-54.webp",
     power: 160, traction: 'FWD', battery: 54,
     features: [
-      "Bateria LFP 54 kWh — maior autonomia da linha Urban",
-      "Rodas aro 17, pneus 205/50",
-      "Tela central com CarPlay e Android Auto",
-      "6 airbags"
+      "Bateria LFP 54 kWh — maior autonomia da linha Urban (358 km Inmetro)",
+      "Câmera 360° HD de série",
+      "Bancos e volante aquecidos, ajuste elétrico 6 posições",
+      "Carregador wireless para smartphone",
+      "Iluminação ambiente 64 cores",
+      "Tela central 12,8\" com CarPlay e Android Auto",
+      "7 airbags"
     ],
-    pbeRating: 'A',
-    warrantyYears: 7, warrantyBatteryYears: 7,
+    pbeRating: 'A', energyMJkm: 0.42,
+    warrantyYears: 7, warrantyBatteryYears: 7, chargeDC: 87,
   },
   {
     model: "MG4 Comfort", brand: "MG Motor", price: 164600, range: 364, cat: "Compacto",

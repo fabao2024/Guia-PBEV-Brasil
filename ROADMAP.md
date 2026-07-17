@@ -866,6 +866,14 @@
 > Descobertas: fills com alpha do Pillow não compõem (causa dos cards branco-sólido antigos — substituídos por cores sólidas pré-misturadas); `zoompan` com input em loop multiplica frames (encode infinito — corrigido com segunda entrada sem loop).
 > Feed do Instagram e guiapbev.cloud agora compartilham a mesma identidade visual.
 
+**Extensão — Manutenção de dados: linha MG4 Urban oficial (17/07/2026):**
+- ✅ MG4 Urban corrigido de 2 para 3 versões com tabela oficial de lançamento: Comfort 43 kWh/150 cv R$129.990 · Luxury 43 kWh/150 cv R$139.990 (nova) · Luxury 54kWh/160 cv R$149.990
+- ✅ Autonomia/consumo validados na tabela PBEV 2026_3_JUN (299 km/0,40 MJ/km e 358 km/0,42 MJ/km) + recarga DC 87 kW
+- ✅ 3 fotos studio oficiais do site MG (uma por versão — Comfort cinza aro 16 salva manualmente, Luxury prata Cyan, Luxury 54kWh preto Oxford; WebP ~18-26 KB); imagem compartilhada antiga removida
+
+> **Resumo técnico — MG4 Urban (17/07/2026):**
+> `src/constants.ts` (3 entradas no `CAR_DB`, `NEW_MODELS` +1), `src/constants/priceHistory.ts` (snapshots 2026-07 corrigidos — eram estimativas), `public/car-images/` (+3 WebP, −1 JPG). `cars.json`/`sitemap.xml`/`README.md` regenerados pelo build (109 veículos). Build ✅ · 127/127 testes ✅.
+
 ---
 
 ## LLM Router — Decisão Arquitetural
