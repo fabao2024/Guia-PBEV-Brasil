@@ -27,15 +27,17 @@ Com a flag `false`, `/interesse` também fica fora do sitemap e das páginas est
 
 
 
-### 2. GitHub Pages (Easiest & Automated)
-For a public site **without AI** and **zero configuration**, we have set up an automated workflow.
-1. Push your changes to GitHub.
-2. Go to your Repository Settings > **Pages**.
-3. Under "Build and deployment", select **Source**: `Deploy from a branch`.
-4. Select Branch: `gh-pages` and folder `/ (root)`.
-5. Click **Save**.
-   
-Your site will be live at: `https://YOUR_USERNAME.github.io/Guia-PBEV-Brasil/`
+### 2. GitHub Pages (Official Actions workflow)
+The production site is delivered by `.github/workflows/deploy.yml` through the official GitHub Pages artifact flow.
+
+1. Pull requests run tests and a production build, but never deploy.
+2. Pushes to `main` and manual runs from `main` upload `dist` and deploy through the `github-pages` environment.
+3. Repository Settings > **Pages** must use **Source: GitHub Actions**.
+4. `public/CNAME` must contain `guiapbev.cloud`; CI verifies that `dist/CNAME` preserves it.
+
+Production: `https://guiapbev.cloud/`
+
+The legacy `gh-pages` branch is kept temporarily as rollback evidence. If the Actions deployment fails during migration, restore **Deploy from a branch**, branch `gh-pages`, folder `/ (root)` without rewriting that branch.
 
 ### 3. Google Cloud Run (Containerized)
 Since local Docker builds can be tricky on Windows/OneDrive, we use **Cloud Build** to build the container remotely on Google's servers.
@@ -104,15 +106,17 @@ VITE_ENABLE_AI=false
 
 
 
-### 2. GitHub Pages (Mais Fácil e Automatizado)
-Para um site público **sem IA** e **zero configuração**, configuramos um fluxo automatizado.
-1. Envie suas alterações para o GitHub.
-2. Vá nas Configurações do Repositório (Settings) > **Pages**.
-3. Em "Build and deployment", selecione **Source**: `Deploy from a branch`.
-4. Selecione a Branch: `gh-pages` e a pasta `/ (root)`.
-5. Clique em **Save**.
-   
-Seu site estará online em: `https://SEU_USUARIO.github.io/Guia-PBEV-Brasil/`
+### 2. GitHub Pages (workflow oficial)
+O site de produção é entregue por `.github/workflows/deploy.yml` usando o fluxo oficial de artifacts do GitHub Pages.
+
+1. Pull requests executam testes e build de produção, mas nunca fazem deploy.
+2. Pushes em `main` e execuções manuais a partir de `main` enviam `dist` e publicam pelo environment `github-pages`.
+3. Em Settings > **Pages**, a origem deve ser **Source: GitHub Actions**.
+4. `public/CNAME` deve conter `guiapbev.cloud`; o CI confirma sua presença em `dist/CNAME`.
+
+Produção: `https://guiapbev.cloud/`
+
+A branch legada `gh-pages` é mantida temporariamente como evidência de rollback. Se a migração falhar, restaure **Deploy from a branch**, branch `gh-pages`, pasta `/ (root)`, sem reescrever essa branch.
 
 ### 3. Google Cloud Run (Método Verificado)
 Como builds locais do Docker podem falhar no Windows/OneDrive, usamos o **Cloud Build** para construir o container remotamente nos servidores do Google.

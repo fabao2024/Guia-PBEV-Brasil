@@ -253,21 +253,7 @@ async function main() {
   });
 
   if (changed.length === 0) {
-    // Verifica se o label de mês precisa ser atualizado mesmo sem mudança de preços
-    const currentContent = readFileSync(TARGET_FILE, 'utf-8');
-    const newContent = buildFileContent(newTariffs, resourceName, now);
-    if (newContent === currentContent) {
-      console.log('✅ Tarifas e data de verificação já atualizadas. Nada a fazer.');
-      return;
-    }
-    // Só o label mudou — commit direto em main, sem PR
-    writeFileSync(TARGET_FILE, newContent, 'utf-8');
-    run('git config user.email "github-actions[bot]@users.noreply.github.com"');
-    run('git config user.name "github-actions[bot]"');
-    run(`git add ${TARGET_FILE}`);
-    run(`git commit -m "chore(data): tarifas ANEEL verificadas sem alteração — ${monthSlug}"`);
-    run('git push origin main');
-    console.log(`✅ ELECTRICITY_PRICES_UPDATED atualizado para ${monthSlug} e commitado em main.`);
+    console.log('✅ Nenhuma alteração significativa de tarifa detectada. Nada a fazer.');
     return;
   }
   console.log(`🔄 ${changed.length} estados com tarifas alteradas: ${changed.join(', ')}`);

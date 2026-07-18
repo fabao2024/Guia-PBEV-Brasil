@@ -27,6 +27,7 @@
 | 19 | Admin interno de candidaturas de parceiros (`/admin/partners`) | Monetização | Baixo | Alto | ✅ Concluído |
 | 20 | Preço por lead/modalidade e match codes no programa de parceiros | Monetização | Baixo | Alto | ✅ Concluído |
 | 21 | Expansão do marketplace para aquisição/cotação, seguro e financiamento de veículos | Monetização | Alto | Alto | 🔲 Planejado pós-piloto |
+| 22 | GitHub Pages por artifact oficial + workflows com least privilege e SHA pinning | DevOps | Baixo | Alto | ✅ Concluído |
 
 ---
 

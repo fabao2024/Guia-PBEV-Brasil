@@ -1028,3 +1028,16 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Commit | ✅ | Incluído neste commit. |
 
 **Notas:** modelo nomeado `MG4 Urban Luxury 54kWh` para distinguir as duas Luxury (padrão análogo a `Ora 03 Skin BEV58`). PBEV lista também um `URB EV54KWH COM`, mas a tabela comercial da MG só oferece o pacote 54 kWh no acabamento Luxury.
+
+---
+
+### [S17-A] ci(pages): artifact oficial e least privilege · 18/07/2026
+
+| Etapa | Status | Detalhe |
+|---|---|---|
+| Dev | ✅ | `deploy.yml` migra de push na branch `gh-pages` por Action externa para build único, artifact oficial e `deploy-pages` via OIDC; agendados usam runners fixos, timeouts, concurrency, checkout de `main` e permissões por job. |
+| Automação | ✅ | ANEEL não faz mais commit direto em `main` quando apenas o mês muda; mudanças reais continuam chegando por PR. O relatório mensal roda com `always()` mesmo quando um coletor falha. |
+| Segurança | ✅ | Todas as Actions pinadas em SHA completo; permissões globais read-only; `pages: write` e `id-token: write` restritos ao job de deploy; PRs e dispatches fora de `main` não publicam. |
+| Testes | ✅ | Vitest: 19 suites e 138/138 testes; build de produção aprovado; `actionlint 1.7.12` e `git diff --check` aprovados; artifact contém `CNAME`, rotas críticas e nenhum source map/arquivo `.env`. |
+| Rollback | ✅ | Branch legada `gh-pages` preservada e procedimento de restauração documentado em `DEPLOY.md`. |
+| Rollout | ⏳ | Workflow pronto localmente; falta promover o commit, mudar Pages para `workflow` e verificar `https://guiapbev.cloud/`. |
