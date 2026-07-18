@@ -1041,3 +1041,14 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Testes | ✅ | Vitest: 19 suites e 138/138 testes; builds com `VITE_ENABLE_LEAD_CAPTURE=false` e `true`; `actionlint 1.7.12` com checksum oficial verificado; `git diff --check` aprovado; artifact contém `CNAME`, rotas críticas e nenhum source map/arquivo `.env`. |
 | Rollback | ✅ | Branch legada `gh-pages` e sua policy no environment preservadas; `main` adicionada sem remover o fallback; procedimento de restauração documentado em `DEPLOY.md`. |
 | Rollout | ✅ | Pages migrado de `legacy` para `workflow`; deployment do environment corresponde ao SHA promovido; `guiapbev.cloud` mantém CNAME/HTTPS, rotas críticas retornam 200 e o `index.html` público bate byte a byte com o build local usando a flag real `true`. |
+
+---
+
+### [S17-B] security(repo): proteção em camadas da `main` · 18/07/2026
+
+| Etapa | Status | Detalhe |
+|---|---|---|
+| Histórico | ✅ | Ruleset ativo, sem bypass, bloqueia exclusão de `main`, force-push e commits não lineares. |
+| Validação | ✅ | Mudanças de não-admins exigem PR, resolução de threads e check `Test and build` atualizado; merge permitido somente por squash ou rebase. |
+| Operação | ✅ | Fabio mantém bypass nominal apenas no ruleset de PR/checks para preservar o fluxo direto do repositório pessoal. O ruleset de histórico permanece sem bypass. |
+| API | ✅ | Configuração efetiva lida de volta pela REST API e regras agregadas da branch `main` confirmadas. |
