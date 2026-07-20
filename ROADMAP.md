@@ -28,6 +28,7 @@
 | 20 | Preço por lead/modalidade e match codes no programa de parceiros | Monetização | Baixo | Alto | ✅ Concluído |
 | 21 | Expansão do marketplace para aquisição/cotação, seguro e financiamento de veículos | Monetização | Alto | Alto | 🔲 Planejado pós-piloto |
 | 22 | GitHub Pages por artifact oficial + workflows com least privilege e SHA pinning | DevOps | Baixo | Alto | ✅ Concluído |
+| 27 | Evolução do Consultor PBEV para arquitetura multiagente escalável | IA/Arquitetura | Alto | Alto | 🔲 Backlog futuro — não iniciado |
 
 ---
 
@@ -248,6 +249,145 @@
 - Suítes frontend/backend e E2E sintético aprovados em ambiente isolado.
 - Rollout por flag validado em produção com revisão humana obrigatória.
 - Primeiros resultados reais revisados antes de abrir a próxima vertical.
+
+### 27. Evolução futura do Consultor PBEV para arquitetura multiagente escalável 🔲
+
+> **Estado:** recomendação arquitetural registrada somente para backlog. Nenhum serviço, endpoint, schema, dependência, container, feature flag ou infraestrutura deve ser implementado agora.
+
+#### Decisão arquitetural
+
+- Criar futuramente um `consultor-api` independente do bot do Instagram, com repositório, container, deploy, health check e rollback próprios.
+- Começar como **monólito modular stateless**, não como microsserviços por agente.
+- Tratar “multiagente” como um conjunto de capacidades verificáveis, cada uma com contrato tipado, tools permitidas, política, benchmark e motivo independente para evoluir ou falhar.
+- Manter a decisão de criar a fronteira `consultor-api` separada da decisão de usar LangGraph.
+- Implementar a orquestração atrás de uma interface substituível. Começar com pipeline Python linear; manter LangGraph apenas se branching, reparação, interrupção ou human-in-the-loop demonstrarem benefício mensurável.
+- Preservar o Consultor Gemini/BYOK atual no navegador como fallback durante shadow, opt-in e canário. A chave BYOK nunca deve atravessar o novo serviço.
+
+#### Arquitetura-alvo inicial
+
+```text
+React/PWA
+   |
+   v
+FastAPI/SSE: validação, rate limit, orçamento e correlation ID
+   |
+   v
+Policy Router: regras determinísticas antes de classificação por LLM
+   |
+   v
+Um especialista primário por turno
+   +-- TCO/economia
+   +-- catálogo/comparação/recomendação
+   +-- recarga/rotas, em fase posterior
+   +-- conhecimento editorial, em fase posterior
+   |
+   v
+Tools Python determinísticas + EvidencePacket
+   |
+   v
+Validação factual/política
+   |
+   v
+Resposta final versionada e apoiada em evidências
+```
+
+#### Fronteiras e contratos
+
+- Módulos internos previstos: `transport`, `application/orchestration`, `policy/router`, `specialists`, `deterministic_tools`, `evidence`, `model_gateway`, `output_policy` e `adapters`.
+- Contratos centrais previstos: `ChatRequest`, `RouteDecision`, `ToolResult`, `EvidencePacket`, `AnswerDraft`, `ValidationResult`, `HandoffOffer` e `ChatResponse`.
+- Especialistas, tools e políticas não devem importar FastAPI, SDK do modelo, ORM, CRM ou scheduler. Integrações externas ficam nos adapters.
+- Cada requisição carrega mensagem, histórico recente limitado, canal, locale, versão do contrato e correlation ID sem identidade pessoal.
+- O serviço inicial não mantém sessão em banco, perfil, memória pessoal, checkpoints, PII comercial ou idempotência de leads.
+- Preços, autonomia, tarifas, IPVA, TCO, comparação e ranking explícito permanecem em código/dados estruturados. O LLM fica limitado a classificação, interpretação e síntese.
+- Cada alegação factual relevante deve apontar para fonte, versão do dataset, vigência e execução da tool. Ausência de evidência produz resposta fail-closed, não estimativa silenciosa.
+- O catálogo já exportado em `public/data/cars.json` deve evoluir para artefato canônico versionado, com schema, manifesto e checksum, consumido pelo frontend e pela API a partir da mesma pipeline.
+
+#### Fluxo comercial isolado
+
+- O grafo conversacional nunca cria lead, proposta ou assignment.
+- Ele pode emitir somente um `HandoffOffer` sem PII.
+- O frontend apresenta finalidade, campos e consentimento; depois envia PII diretamente à API comercial existente.
+- Escritas comerciais exigem schema fechado, allowlist, idempotency key, consentimento versionado e revisão humana.
+- Wallbox/solar continuam seguindo o piloto atual. Aquisição, seguro e financiamento permanecem sujeitos aos gates específicos do item 26.
+
+#### Complexidade que não deve entrar no MVP
+
+- Microsserviços por especialista.
+- Agentes conversando livremente ou delegação recursiva.
+- Supervisor LLM irrestrito.
+- Banco vetorial para catálogo, tarifas, IPVA ou TCO.
+- Memória durável, checkpoints ou perfil cross-channel.
+- PostgreSQL, Redis, Celery, broker ou filas distribuídas sem necessidade medida.
+- Streaming token a token antes da validação da resposta.
+- Compartilhamento de processo, dependências ou banco com webhooks, scheduler e CRM do bot.
+
+#### Sequência futura de adoção
+
+1. **Baseline:** corrigir/validar a telemetria do chat, medir qualidade, latência, uso, pico de concorrência, tokens e custo do fluxo atual.
+2. **Piloto read-only em staging:** implementar apenas TCO/economia, sem CRM, lead, memória ou tráfego público; reutilizar funções tipadas em pipeline linear.
+3. **Avaliação offline:** executar corpus de casos conhecidos, ambíguos, vencidos, adversariais, comerciais e de prompt injection.
+4. **Shadow/opt-in:** manter frontend produtivo inalterado e comparar o novo caminho com o Consultor atual sem duplicar efeitos comerciais.
+5. **Canário:** habilitar percentual pequeno por feature flag, com fallback somente antes do primeiro evento SSE e kill switch imediato.
+6. **Segundo vertical:** adicionar catálogo/comparação/recomendação e então comparar pipeline linear versus LangGraph sobre os mesmos nós e contratos.
+7. **Expansão condicionada:** recarga/rotas e conhecimento editorial entram somente após os gates dos dois primeiros verticais.
+8. **Escala:** adicionar réplicas, armazenamento externo ou runtime gerenciado apenas quando tráfego, SLO ou requisitos de memória justificarem.
+
+#### Guardrails obrigatórios
+
+- Exatamente um especialista primário por turno; no máximo dois em consulta genuinamente composta.
+- Tools allowlisted, entradas/saídas Pydantic, unidades explícitas e número máximo de passos, chamadas e tentativas.
+- Roteamento determinístico antes do LLM; confiança mínima e pergunta de esclarecimento para ambiguidades.
+- Timeout, circuit breaker, orçamento de tokens/custo e no máximo uma tentativa de reparação.
+- Eventos SSE tipados (`accepted`, `route_selected`, `evidence_ready`, `processing`, `final`, `error`); texto somente depois da validação.
+- Traces sanitizados por allowlist, sem chave, prompt bruto, transcrição ou PII.
+- Feature flag, shadow/opt-in/canário, kill switch e rollback de imagem independentes.
+- Limites de CPU/memória para não degradar o bot caso o piloto compartilhe inicialmente a VPS. Mesmo VPS não oferece alta disponibilidade nem isolamento de infraestrutura.
+- API chamada pela PWA deve ser tratada como pública e limitada contra abuso; CORS não substitui autenticação ou rate limiting.
+
+#### Gates provisórios antes de canário público
+
+Os limiares devem ser recalibrados após medir o baseline, mas o piloto não avança sem critérios objetivos:
+
+- 100% das fixtures críticas de cálculo corretas.
+- Zero preço, especificação, tarifa, imposto ou benefício regulatório inventado.
+- Pelo menos 95% das alegações verificáveis ligadas a evidência válida.
+- Macro-F1 de roteamento ≥ 0,90; intenções comerciais críticas ≥ 0,95.
+- Zero PII bruta em logs/traces e zero ação comercial sem consentimento.
+- Pelo menos 98% dos streams concluídos e no máximo 1% de respostas 5xx em teste.
+- Resposta validada p95 ≤ 10 s ou no máximo 20% pior que o baseline.
+- Redução mediana de pelo menos 50% dos tokens de entrada contra a injeção integral do catálogo.
+- Rollback funcional em menos de 10 minutos.
+- Custo por resposta e teto mensal aprovados antes de qualquer canário público.
+- Capacidade para 2× o pico observado sem violar os limites de erro e latência.
+
+#### Critérios de abandono ou revisão
+
+- O serviço não melhora qualidade factual, observabilidade ou custo de contexto frente ao fluxo atual.
+- O pipeline modularizado no navegador iguala ou supera o serviço em qualidade e operação.
+- LangGraph não demonstra benefício sobre funções Python após dois verticais; nesse caso, manter o serviço e remover LangGraph.
+- Atualizações exigem edição manual duplicada de datasets no frontend e no backend.
+- A maioria das jornadas exige memória durável ou continuidade cross-channel; nesse caso, revisar explicitamente a premissa stateless.
+- O novo container degrada bot, webhook, scheduler ou CRM; interromper o canário e mover o serviço para outro host/runtime.
+- Não é possível operar chave server-side com orçamento e limites aceitáveis, e BYOK continua sendo requisito inegociável.
+- Observabilidade útil exige registrar conteúdo sensível, ou ocorre qualquer vazamento confirmado de PII.
+- O volume e impacto medidos não justificam manter um segundo serviço.
+
+#### Evidências pendentes antes de iniciar
+
+- Baseline confiável de uso do chat; os eventos atuais só registram `chat_open` quando já existe chave BYOK.
+- Tráfego de pico, concorrência e SLO desejado.
+- Orçamento de inferência e política definitiva BYOK versus chave no servidor.
+- Headroom de CPU/memória sob carga conjunta na VPS.
+- Topologia futura de workers e impacto do scheduler.
+- Necessidade real de memória, login e continuidade cross-channel.
+- Fonte e processo canônico para catálogo, tarifas, IPVA e fórmulas.
+- Prioridade dos verticais após telemetria corrigida.
+
+#### Registro da decisão
+
+- Análise divergente em modo ADHD concluída em 20/07/2026 com três perspectivas isoladas e três aprofundamentos.
+- Ranking ponderado: `consultor-api` independente 4,40/5; gateway de tools mantendo BYOK 3,85/5; módulo `/consultor/v1` no FastAPI existente 3,40/5.
+- Recomendação: serviço independente, monólito modular stateless e adoção incremental. Gateway BYOK é somente ponte opcional; módulo no backend atual é apenas alternativa transitória e não o destino.
 
 ### 12. Avaliações de Donos
 - Donos submetem nota para autonomia real, recarga e qualidade
@@ -823,6 +963,7 @@
   - Pré-requisito técnico: `THEME.ts` centralizado + branch `white-label` limpa (estimado ~4h)
   - **Decisão pendente:** comparar ROI vs. plano de monetização atual (afiliados + leads + AdSense)
 - 🔲 API pública documentada (B2B)
+- 🔲 Evolução futura do Consultor PBEV para arquitetura multiagente escalável — ver item 27; recomendação documentada, implementação não iniciada
 - 🔲 Newsletter "EletriBrasil Insider" no Substack
 - ✅ **EV Route Planner** — concluído Sprint 11
 - 🔲 Expansão: Argentina, Chile, Colômbia
