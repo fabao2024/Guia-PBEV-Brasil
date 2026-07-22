@@ -1085,6 +1085,7 @@ Adicionar OpenRouter como alternativa na tela de configurações do chat.
 - [x] Validar com 156 testes, TypeScript sem erros, `npm audit` sem vulnerabilidades e build de produção usando quatro canários sintéticos ausentes do bundle final.
 - [x] Corrigir manifesto PWA, `start_url`, `scope`, ícones e screenshot para a raiz do domínio customizado, eliminando caminhos 404 legados.
 - [x] Corrigir o baseline inicial de 10 alertas CodeQL: execução sem shell nas automações, decoder XML de passagem única, validação de host Wikimedia por `URL.hostname` e sanitização sem regex incompleta.
+- [x] Eliminar o alerta residual `js/command-line-injection` removendo corpos de PR derivados de APIs dos argumentos do processo e enviando-os por `stdin` com `gh --body-file -`.
 - [x] Ativar CodeQL default setup, Dependabot alerts/security updates e política de Actions limitada a Actions oficiais pinadas em SHA.
 
 > Resumo técnico: o frontend público continua BYOK, mas credenciais só sobrevivem na sessão da aba. Chaves de desenvolvimento são eliminadas do bundle de produção e cada build falha se detectar credencial real ou arquivo de ambiente em `dist/`. O código e as automações também passam por TypeScript, Vitest, CodeQL, Gitleaks e controles remotos do GitHub.

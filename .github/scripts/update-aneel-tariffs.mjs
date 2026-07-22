@@ -289,10 +289,10 @@ async function main() {
   runFile('gh', [
     'pr', 'create',
     '--title', `chore(data): tarifas ANEEL atualizadas — ${monthSlug}`,
-    '--body', prBody,
+    '--body-file', '-',
     '--base', 'main',
     '--head', branch,
-  ]);
+  ], { input: prBody });
   console.log(`🎉 PR aberto na branch ${branch}`);
 }
 

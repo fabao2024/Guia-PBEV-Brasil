@@ -9,17 +9,21 @@ const XML_ENTITIES = Object.freeze({
   '&#39;': "'",
 });
 
-export function runFile(executable, args) {
+export function runFile(executable, args, { input } = {}) {
   if (!ALLOWED_EXECUTABLES.has(executable)) {
     throw new Error(`Executable not allowed: ${executable}`);
   }
   if (!Array.isArray(args) || !args.every(arg => typeof arg === 'string')) {
     throw new TypeError('Command arguments must be an array of strings');
   }
+  if (input !== undefined && typeof input !== 'string') {
+    throw new TypeError('Command input must be a string');
+  }
   return execFileSync(executable, args, {
     encoding: 'utf8',
     stdio: ['pipe', 'pipe', 'pipe'],
     shell: false,
+    ...(input === undefined ? {} : { input }),
   }).trim();
 }
 

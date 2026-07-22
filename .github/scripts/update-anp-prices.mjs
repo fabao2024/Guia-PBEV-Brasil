@@ -264,10 +264,10 @@ ${changed.map(uf => {
   runFile('gh', [
     'pr', 'create',
     '--title', `chore(data): preços ANP atualizados — ${monthSlug}`,
-    '--body', prBody,
+    '--body-file', '-',
     '--base', 'main',
     '--head', branch,
-  ]);
+  ], { input: prBody });
   console.log(`🎉 PR aberto na branch ${branch}`);
 }
 

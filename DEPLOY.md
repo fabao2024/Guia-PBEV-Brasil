@@ -125,7 +125,7 @@ A branch legada `gh-pages` é mantida temporariamente como evidência de rollbac
 - `npm run build` termina com `tools/check-dist-secrets.mjs`. Qualquer credencial conhecida, private key, arquivo `.env` ou valor `VITE_*_API_KEY` encontrado em `dist/` bloqueia o deploy.
 - `index.html` entrega CSP por `<meta http-equiv>`. Ao alterar blocos `<script>` inline, recalcule seus hashes SHA-256 e atualize o teste `clientSecurityContract.test.ts`.
 - No domínio customizado, manifesto PWA e recursos públicos usam caminhos absolutos na raiz (`/manifest.json`, `/icon.svg`, `/repo-banner.png`); não use o prefixo legado `/Guia-PBEV-Brasil/`.
-- Automações versionadas em `.github/scripts/` executam `git` e `gh` com `execFileSync`, argumentos separados, `shell: false` e allowlist explícita; não reconstrua comandos interpolados.
+- Automações versionadas em `.github/scripts/` executam `git` e `gh` com `execFileSync`, argumentos separados, `shell: false` e allowlist explícita; conteúdo externo ou multilinha deve entrar por `stdin` (`gh --body-file -`), nunca por argumento de linha de comando.
 - No GitHub, mantenha Dependabot e CodeQL ativos. A política de Actions aceita apenas Actions oficiais do GitHub e exige referência por SHA completo.
 - GitHub Pages não permite headers HTTP arbitrários no origin. HSTS, `X-Frame-Options` e headers adicionais exigem CDN/edge na frente do Pages.
 

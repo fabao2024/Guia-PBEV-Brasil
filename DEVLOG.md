@@ -1067,3 +1067,16 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Commit | ✅ | Alteração versionada no commit de segurança `S18-A`; SHA registrado no histórico Git. |
 
 **Notas:** GitHub Pages não permite configurar headers HTTP arbitrários no origin. A CSP é entregue por `<meta http-equiv>`; HSTS e `X-Frame-Options` dependem de uma futura camada CDN/edge.
+
+---
+
+### [S18-B] security(automation): remover taint de corpos de PR · 22/07/2026
+
+| Etapa | Status | Detalhe |
+|---|---|---|
+| Dev | ✅ | Corpos de PR derivados das APIs ANP/ANEEL deixaram de usar `gh --body`; agora seguem por `stdin` com `gh --body-file -`, fora da linha de comando. O wrapper valida `input` como string e mantém `execFileSync`, allowlist e `shell: false`. |
+| Build | ✅ | `npm run build` concluído; scanner de segredos aprovou o `dist/`. |
+| Testes | ✅ | Vitest: 23 suites e 157/157 testes; regressão específica confirma ausência de `prBody` nos argumentos; TypeScript sem erros; `npm audit` com zero vulnerabilidades; scripts `.mjs` válidos. |
+| Commit | ✅ | Correção versionada em commit de segurança subsequente; SHA registrado no histórico Git. |
+
+**Notas:** O alerta residual CodeQL `js/command-line-injection` nº 11 foi a origem desta correção; a análise remota é executada automaticamente após o push.

@@ -98,6 +98,14 @@ describe('scheduled automation workflow hardening', () => {
     }
   });
 
+  it('keeps remotely derived pull-request bodies out of command-line arguments', () => {
+    for (const script of [anpScript, aneelScript]) {
+      expect(script).toContain("'--body-file', '-'");
+      expect(script).not.toContain("'--body', prBody");
+      expect(script).toMatch(/runFile\('gh',[\s\S]*\{ input: prBody \}\);/);
+    }
+  });
+
   it('uses a single-pass XML entity decoder for RSS content', () => {
     expect(newsScript).toContain("from './security-utils.mjs'");
     expect(newsScript).not.toMatch(/\.replace\(\/&amp;\/g/);
