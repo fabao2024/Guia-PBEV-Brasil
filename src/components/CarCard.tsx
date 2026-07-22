@@ -5,6 +5,7 @@ import { Car } from '../types';
 import { BRAND_URLS, isCarNew, CAR_DB } from '../constants';
 import { getPriceDelta } from '../constants/priceHistory';
 import { toSlug } from '../utils/slug';
+import { resolveCarImageUrl } from '../utils/imageUrl';
 import { Check, ImageOff, Heart, BatteryCharging, Scale, ArrowUpRight } from 'lucide-react';
 
 interface CarCardProps {
@@ -65,11 +66,7 @@ const CarCard: React.FC<CarCardProps> = ({
   const tractionStyle = car.traction ? TRACTION_STYLE[car.traction] : null;
   const estimatedPower = car.power ?? Math.round(car.price / 3000);
 
-  const imgSrc = car.img.startsWith('/car-images/')
-    ? `${import.meta.env.BASE_URL}${car.img.substring(1)}`
-    : car.img.includes('wikimedia.org')
-      ? car.img
-      : `https://images.weserv.nl/?url=${encodeURIComponent(car.img.replace(/^https?:\/\//, ''))}&w=800&q=80&output=webp`;
+  const imgSrc = resolveCarImageUrl(car.img, 800);
 
   return (
     <div

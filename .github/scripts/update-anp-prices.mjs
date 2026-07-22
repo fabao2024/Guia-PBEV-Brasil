@@ -14,8 +14,8 @@
  * Fonte oficial: https://dados.gov.br/dados/conjuntos-dados/serie-historica-de-precos-de-combustiveis-por-revenda
  */
 
-import { execSync } from 'child_process';
 import { readFileSync, writeFileSync } from 'fs';
+import { runFile } from './security-utils.mjs';
 
 // ── Configuração ──────────────────────────────────────────────────────────────
 
@@ -40,10 +40,6 @@ const STATES = ['AC','AL','AM','AP','BA','CE','DF','ES','GO','MA','MG','MS','MT'
                 'PA','PB','PE','PI','PR','RJ','RN','RO','RR','RS','SC','SE','SP','TO'];
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
-
-function run(cmd) {
-  return execSync(cmd, { encoding: 'utf8', stdio: ['pipe','pipe','pipe'] }).trim();
-}
 
 function parseBRFloat(str) {
   // Converte "6,15" → 6.15
@@ -239,12 +235,12 @@ async function main() {
 
   // 6. Abrir PR
   const branch = `data/anp-prices-${monthSlug}`;
-  run('git config user.email "github-actions[bot]@users.noreply.github.com"');
-  run('git config user.name "github-actions[bot]"');
-  run(`git checkout -b ${branch}`);
-  run(`git add ${TARGET_FILE}`);
-  run(`git commit -m "chore(data): atualizar preços ANP — ${monthSlug}"`);
-  run(`git push origin ${branch}`);
+  runFile('git', ['config', 'user.email', 'github-actions[bot]@users.noreply.github.com']);
+  runFile('git', ['config', 'user.name', 'github-actions[bot]']);
+  runFile('git', ['checkout', '-b', branch]);
+  runFile('git', ['add', TARGET_FILE]);
+  runFile('git', ['commit', '-m', `chore(data): atualizar preços ANP — ${monthSlug}`]);
+  runFile('git', ['push', 'origin', branch]);
 
   const prBody = `## Atualização automática de preços de combustível
 
@@ -265,7 +261,13 @@ ${changed.map(uf => {
 
 🤖 Gerado por [GuiaPBEV Bot](https://github.com/fabao2024/Guia-PBEV-Brasil/actions)`;
 
-  run(`gh pr create --title "chore(data): preços ANP atualizados — ${monthSlug}" --body ${JSON.stringify(prBody)} --base main --head ${branch}`);
+  runFile('gh', [
+    'pr', 'create',
+    '--title', `chore(data): preços ANP atualizados — ${monthSlug}`,
+    '--body', prBody,
+    '--base', 'main',
+    '--head', branch,
+  ]);
   console.log(`🎉 PR aberto na branch ${branch}`);
 }
 

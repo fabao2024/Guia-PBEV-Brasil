@@ -14,6 +14,7 @@
  */
 
 import { writeFileSync } from 'fs';
+import { decodeXmlEntities } from './security-utils.mjs';
 
 const REPORT_PATH = '/tmp/ev-news-report.json';
 const DAYS_BACK   = 35;
@@ -55,8 +56,8 @@ function parseRSS(xml) {
   const items = [];
   const itemBlocks = [...xml.matchAll(/<item[^>]*>([\s\S]*?)<\/item>/gi)];
   for (const [, block] of itemBlocks) {
-    const title   = decode(tag(block, 'title'));
-    const link    = decode(tag(block, 'link') || tag(block, 'guid'));
+    const title   = decodeXmlEntities(tag(block, 'title'));
+    const link    = decodeXmlEntities(tag(block, 'link') || tag(block, 'guid'));
     const pubDate = tag(block, 'pubDate') || tag(block, 'dc:date') || tag(block, 'published');
     if (title && link) items.push({ title, link, pubDate });
   }
@@ -66,16 +67,6 @@ function parseRSS(xml) {
 function tag(xml, name) {
   const m = xml.match(new RegExp(`<${name}[^>]*>(?:<!\\[CDATA\\[)?([\\s\\S]*?)(?:\\]\\]>)?<\\/${name}>`, 'i'));
   return m ? m[1].trim() : '';
-}
-
-function decode(str) {
-  return str
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .trim();
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────

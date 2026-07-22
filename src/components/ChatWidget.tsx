@@ -14,8 +14,10 @@ import { FUEL_PRICES_BY_STATE, FUEL_PRICES_UPDATED } from '../constants/fuelPric
 import { ELECTRICITY_PRICES_BY_STATE, ELECTRICITY_PRICES_UPDATED } from '../constants/electricityPricesByState';
 import { IPVA_BY_STATE } from '../constants/ipvaByState';
 import { LEAD_CAPTURE_ENABLED } from '../config/leadCapture';
+import { clearSessionApiKey, resolveSessionApiKey, saveSessionApiKey } from '../utils/apiKeyStorage';
 
 const API_KEY_STORAGE = 'gemini-api-key';
+const DEV_GEMINI_API_KEY = import.meta.env.DEV ? import.meta.env.VITE_GEMINI_API_KEY || '' : '';
 
 function buildStateDataSummary(): string {
   const lines = IPVA_BY_STATE.map(s => {
@@ -240,7 +242,7 @@ export function buildPbevRedirectResponse(
 }
 
 function getApiKey(): string {
-  return import.meta.env.VITE_GEMINI_API_KEY || localStorage.getItem(API_KEY_STORAGE) || '';
+  return resolveSessionApiKey(API_KEY_STORAGE, DEV_GEMINI_API_KEY);
 }
 
 function buildCarSummary(lang: string): string {
@@ -603,7 +605,7 @@ SUGGEST_EV_READY:{"brand":"MARCA","model":"MODELO","price":"PRECO","range":"AUTO
       setKeyError(t('chat.invalidKey'));
       return;
     }
-    localStorage.setItem(API_KEY_STORAGE, trimmed);
+    saveSessionApiKey(API_KEY_STORAGE, trimmed);
     setApiKey(trimmed);
     setKeyInput('');
     setKeyError('');
@@ -617,8 +619,8 @@ SUGGEST_EV_READY:{"brand":"MARCA","model":"MODELO","price":"PRECO","range":"AUTO
   };
 
   const handleRemoveKey = () => {
-    localStorage.removeItem(API_KEY_STORAGE);
-    setApiKey(import.meta.env.VITE_GEMINI_API_KEY || '');
+    clearSessionApiKey(API_KEY_STORAGE);
+    setApiKey(DEV_GEMINI_API_KEY);
     chatSessionRef.current = null;
     setShowSettings(false);
     setMessages([{ role: 'model', text: t('chat.welcome') }]);
@@ -911,7 +913,7 @@ SUGGEST_EV_READY:{"brand":"MARCA","model":"MODELO","price":"PRECO","range":"AUTO
           >
             {t('chat.cancel')}
           </button>
-          {!import.meta.env.VITE_GEMINI_API_KEY && (
+          {!DEV_GEMINI_API_KEY && (
             <button
               onClick={handleRemoveKey}
               className="flex-1 bg-red-50 hover:bg-red-100 text-red-600 font-bold py-3 rounded-xl transition-all text-sm flex items-center justify-center gap-2"

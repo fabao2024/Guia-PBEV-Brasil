@@ -1076,3 +1076,15 @@ Adicionar OpenRouter como alternativa na tela de configurações do chat.
 - Bot Instagram: workflow separado no repo `PBEV-Instagram-Automation` prepara deploy via SSH para VPS com teste, pull, restart systemd e health check.
 
 > Resumo técnico: GitHub segue como fonte da verdade. Windows/IDEs puxam de forma segura; VPS recebe deploy automatizado quando secrets SSH estiverem configurados.
+
+### Hardening do cliente estático e BYOK — 22/07/2026
+- [x] Limitar `VITE_GEMINI_API_KEY`, `VITE_OCM_API_KEY` e `VITE_ORS_API_KEY` ao modo `DEV`; builds de produção não incorporam essas credenciais.
+- [x] Migrar Gemini/OCM/ORS de `localStorage` para `sessionStorage`, removendo automaticamente cópias legadas persistentes.
+- [x] Adicionar CSP restritiva com hashes dos scripts Analytics, `object-src 'none'`, `base-uri 'self'`, `frame-src 'none'` e allowlist dos serviços reais.
+- [x] Bloquear `.env*` e `*.bak` no Git e adicionar scanner fail-closed do `dist/` ao `npm run build`.
+- [x] Validar com 156 testes, TypeScript sem erros, `npm audit` sem vulnerabilidades e build de produção usando quatro canários sintéticos ausentes do bundle final.
+- [x] Corrigir manifesto PWA, `start_url`, `scope`, ícones e screenshot para a raiz do domínio customizado, eliminando caminhos 404 legados.
+- [x] Corrigir o baseline inicial de 10 alertas CodeQL: execução sem shell nas automações, decoder XML de passagem única, validação de host Wikimedia por `URL.hostname` e sanitização sem regex incompleta.
+- [x] Ativar CodeQL default setup, Dependabot alerts/security updates e política de Actions limitada a Actions oficiais pinadas em SHA.
+
+> Resumo técnico: o frontend público continua BYOK, mas credenciais só sobrevivem na sessão da aba. Chaves de desenvolvimento são eliminadas do bundle de produção e cada build falha se detectar credencial real ou arquivo de ambiente em `dist/`. O código e as automações também passam por TypeScript, Vitest, CodeQL, Gitleaks e controles remotos do GitHub.

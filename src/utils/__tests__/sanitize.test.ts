@@ -28,6 +28,17 @@ describe('sanitizeChatInput', () => {
   it('should strip nested tags', () => {
     expect(sanitizeChatInput('<div><p>text</p></div>')).toBe('text');
   });
+
+  it('should preserve comparison operators without leaving HTML delimiters', () => {
+    expect(sanitizeChatInput('Autonomia < 300 km e preço > 100 mil'))
+      .toBe('Autonomia ‹ 300 km e preço › 100 mil');
+  });
+
+  it('should not recreate executable markup from overlapping tags', () => {
+    const sanitized = sanitizeChatInput('<scr<script>ipt>alert(1)</scr</script>ipt>');
+    expect(sanitized).not.toMatch(/[<>]/);
+    expect(sanitized).toBe('ipt›alert(1)ipt›');
+  });
 });
 
 describe('validateChatInput', () => {

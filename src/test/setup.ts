@@ -5,6 +5,7 @@ import { afterEach } from 'vitest';
 afterEach(() => {
   cleanup();
   localStorage.clear();
+  sessionStorage.clear();
 });
 
 // Mock window.matchMedia

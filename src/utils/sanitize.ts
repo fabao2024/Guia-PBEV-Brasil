@@ -82,8 +82,46 @@ const MESSAGES: Record<string, Record<string, string>> = {
   },
 };
 
+function startsMarkup(input: string, index: number): boolean {
+  const next = input[index + 1];
+  if (!next) return false;
+
+  const code = next.charCodeAt(0);
+  const isAsciiLetter = (code >= 65 && code <= 90) || (code >= 97 && code <= 122);
+  const isMarkupPrefix = isAsciiLetter || next === '/' || next === '!' || next === '?';
+  return isMarkupPrefix && input.indexOf('>', index + 2) !== -1;
+}
+
+function stripMarkup(input: string): string {
+  let output = '';
+  let insideTag = false;
+
+  for (let index = 0; index < input.length; index += 1) {
+    const character = input[index];
+    if (insideTag) {
+      if (character === '>') insideTag = false;
+      continue;
+    }
+    if (character === '<') {
+      if (startsMarkup(input, index)) {
+        insideTag = true;
+      } else {
+        output += '‹';
+      }
+      continue;
+    }
+    if (character === '>') {
+      output += '›';
+      continue;
+    }
+    output += character;
+  }
+
+  return output;
+}
+
 export function sanitizeChatInput(input: string): string {
-  let sanitized = input.replace(/<[^>]*>/g, '');
+  let sanitized = stripMarkup(input);
   sanitized = sanitized.trim();
   if (sanitized.length > MAX_INPUT_LENGTH) {
     sanitized = sanitized.slice(0, MAX_INPUT_LENGTH);

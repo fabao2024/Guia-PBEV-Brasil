@@ -14,8 +14,8 @@
  * Fonte: https://dadosabertos.aneel.gov.br/dataset/tarifas-de-energia-eletrica-dos-grupos-a-e-b
  */
 
-import { execSync } from 'child_process';
 import { readFileSync, writeFileSync } from 'fs';
+import { runFile } from './security-utils.mjs';
 
 // ── Configuração ──────────────────────────────────────────────────────────────
 
@@ -58,10 +58,6 @@ const DISTRIBUTOR_MAP = {
 const STATES = Object.keys(DISTRIBUTOR_MAP);
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
-
-function run(cmd) {
-  return execSync(cmd, { encoding: 'utf8', stdio: ['pipe','pipe','pipe'] }).trim();
-}
 
 function parseBRFloat(str) {
   return parseFloat((str ?? '').replace(',', '.'));
@@ -264,12 +260,12 @@ async function main() {
 
   // Abre PR
   const branch = `data/aneel-tariffs-${monthSlug}`;
-  run('git config user.email "github-actions[bot]@users.noreply.github.com"');
-  run('git config user.name "github-actions[bot]"');
-  run(`git checkout -b ${branch}`);
-  run(`git add ${TARGET_FILE}`);
-  run(`git commit -m "chore(data): atualizar tarifas ANEEL B1 — ${monthSlug}"`);
-  run(`git push origin ${branch}`);
+  runFile('git', ['config', 'user.email', 'github-actions[bot]@users.noreply.github.com']);
+  runFile('git', ['config', 'user.name', 'github-actions[bot]']);
+  runFile('git', ['checkout', '-b', branch]);
+  runFile('git', ['add', TARGET_FILE]);
+  runFile('git', ['commit', '-m', `chore(data): atualizar tarifas ANEEL B1 — ${monthSlug}`]);
+  runFile('git', ['push', 'origin', branch]);
 
   const prBody = [
     '## Atualização automática de tarifas de energia elétrica (ANEEL B1)',
@@ -290,7 +286,13 @@ async function main() {
     '🤖 Gerado por [GuiaPBEV Bot](https://github.com/fabao2024/Guia-PBEV-Brasil/actions)',
   ].join('\n');
 
-  run(`gh pr create --title "chore(data): tarifas ANEEL atualizadas — ${monthSlug}" --body ${JSON.stringify(prBody)} --base main --head ${branch}`);
+  runFile('gh', [
+    'pr', 'create',
+    '--title', `chore(data): tarifas ANEEL atualizadas — ${monthSlug}`,
+    '--body', prBody,
+    '--base', 'main',
+    '--head', branch,
+  ]);
   console.log(`🎉 PR aberto na branch ${branch}`);
 }
 

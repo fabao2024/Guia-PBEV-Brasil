@@ -118,6 +118,17 @@ Produção: `https://guiapbev.cloud/`
 
 A branch legada `gh-pages` é mantida temporariamente como evidência de rollback. Se a migração falhar, restaure **Deploy from a branch**, branch `gh-pages`, pasta `/ (root)`, sem reescrever essa branch.
 
+#### Segurança do build estático
+
+- Nunca configure `VITE_GEMINI_API_KEY`, `VITE_OCM_API_KEY`, `VITE_ORS_API_KEY` ou `VITE_LANGSMITH_API_KEY` no environment de produção. Elas são aceitas apenas para desenvolvimento local.
+- Usuários fornecem suas próprias chaves no navegador; Gemini, OCM e ORS ficam somente em `sessionStorage` e expiram ao encerrar a sessão da aba.
+- `npm run build` termina com `tools/check-dist-secrets.mjs`. Qualquer credencial conhecida, private key, arquivo `.env` ou valor `VITE_*_API_KEY` encontrado em `dist/` bloqueia o deploy.
+- `index.html` entrega CSP por `<meta http-equiv>`. Ao alterar blocos `<script>` inline, recalcule seus hashes SHA-256 e atualize o teste `clientSecurityContract.test.ts`.
+- No domínio customizado, manifesto PWA e recursos públicos usam caminhos absolutos na raiz (`/manifest.json`, `/icon.svg`, `/repo-banner.png`); não use o prefixo legado `/Guia-PBEV-Brasil/`.
+- Automações versionadas em `.github/scripts/` executam `git` e `gh` com `execFileSync`, argumentos separados, `shell: false` e allowlist explícita; não reconstrua comandos interpolados.
+- No GitHub, mantenha Dependabot e CodeQL ativos. A política de Actions aceita apenas Actions oficiais do GitHub e exige referência por SHA completo.
+- GitHub Pages não permite headers HTTP arbitrários no origin. HSTS, `X-Frame-Options` e headers adicionais exigem CDN/edge na frente do Pages.
+
 ### 3. Google Cloud Run (Método Verificado)
 Como builds locais do Docker podem falhar no Windows/OneDrive, usamos o **Cloud Build** para construir o container remotamente nos servidores do Google.
 

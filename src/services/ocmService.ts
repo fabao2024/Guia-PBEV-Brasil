@@ -15,13 +15,16 @@
  */
 
 import type { Eletroposto, ConnectorType } from '../data/eletropostosData';
+import { clearSessionApiKey, resolveSessionApiKey, saveSessionApiKey } from '../utils/apiKeyStorage';
 
 export type ChargerStatus = 'available' | 'maintenance' | 'unknown';
 
 export interface OcmError { kind: 'unauthorized' | 'rate_limit' | 'network'; message: string }
 
 const OCM_KEY_STORAGE = 'ocm-api-key';
-const OCM_KEY_ENV = (import.meta.env.VITE_OCM_API_KEY as string | undefined)?.trim() ?? '';
+const OCM_KEY_ENV = import.meta.env.DEV
+  ? (import.meta.env.VITE_OCM_API_KEY as string | undefined)?.trim() ?? ''
+  : '';
 const OCM_BASE = 'https://api.openchargemap.io/v3/poi';
 
 // IDs dinâmicos OCM: offset para não colidir com estáticos (1-999)
@@ -116,15 +119,15 @@ function ocmPoiToEletroposto(poi: OcmPoiFull): Eletroposto | null {
 }
 
 export function resolveOcmKey(): string {
-  return OCM_KEY_ENV || (localStorage.getItem(OCM_KEY_STORAGE) ?? '');
+  return resolveSessionApiKey(OCM_KEY_STORAGE, OCM_KEY_ENV);
 }
 
 export function saveOcmKey(key: string): void {
-  localStorage.setItem(OCM_KEY_STORAGE, key.trim());
+  saveSessionApiKey(OCM_KEY_STORAGE, key);
 }
 
 export function clearOcmKey(): void {
-  localStorage.removeItem(OCM_KEY_STORAGE);
+  clearSessionApiKey(OCM_KEY_STORAGE);
 }
 
 function mapOcmStatus(statusId: number | null | undefined): ChargerStatus {

@@ -1052,3 +1052,18 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Validação | ✅ | Mudanças de não-admins exigem PR, resolução de threads e check `Test and build` atualizado; merge permitido somente por squash ou rebase. |
 | Operação | ✅ | Fabio mantém bypass nominal apenas no ruleset de PR/checks para preservar o fluxo direto do repositório pessoal. O ruleset de histórico permanece sem bypass. |
 | API | ✅ | Configuração efetiva lida de volta pela REST API e regras agregadas da branch `main` confirmadas. |
+
+---
+
+### [S18-A] security(client): BYOK efêmero, CSP e scanner do bundle · 22/07/2026
+
+| Etapa | Status | Detalhe |
+|---|---|---|
+| Dev | ✅ | Gemini, OCM e ORS usam `sessionStorage` com migração/limpeza de cópias legadas; variáveis `VITE_*_API_KEY` são aceitas somente em `DEV`. CSP restritiva e referrer policy adicionadas ao HTML. Manifesto PWA, escopo, ícones e screenshot usam a raiz do domínio customizado, sem os 404 do caminho legado. Os 10 alertas do baseline CodeQL foram corrigidos: Git/GH sem shell, decoder XML de passagem única, URLs Wikimedia por hostname e sanitização sem regex incompleta. |
+| Build | ✅ | `npm run build` executa `tools/check-dist-secrets.mjs` e falha ao encontrar chaves conhecidas, private keys, `.env` ou valores reais presentes no ambiente de build. Teste negativo confirmou saída 1; build final com quatro canários sintéticos confirmou ausência no `dist/`. |
+| Testes | ✅ | Vitest: 23 suites e 156/156 testes; `npx tsc --noEmit` sem erros; `npm audit` com zero vulnerabilidades; hashes CSP conferidos no HTML construído; scripts `.mjs` validados por `node --check`. |
+| GitHub | ✅ | CodeQL default setup para `actions` e `javascript-typescript`; Dependabot alerts/security updates ativos; Actions limitadas às oficiais do GitHub e referências SHA obrigatórias. |
+| Revisão | ✅ | Revisor independente final aprovou o patch consolidado em modo fail-closed: `passed=true`, sem concerns de segurança, erros lógicos ou sugestões. |
+| Commit | ✅ | Alteração versionada no commit de segurança `S18-A`; SHA registrado no histórico Git. |
+
+**Notas:** GitHub Pages não permite configurar headers HTTP arbitrários no origin. A CSP é entregue por `<meta http-equiv>`; HSTS e `X-Frame-Options` dependem de uma futura camada CDN/edge.

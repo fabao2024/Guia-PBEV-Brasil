@@ -8,6 +8,7 @@ import { X, BatteryCharging, Zap, CheckCircle2, ChevronLeft, ChevronRight, Image
 import { IPVA_BY_STATE, calcIpva, IPVA_DATA_UPDATED } from '../constants/ipvaByState';
 import { getPriceDelta, getLastSnapshot } from '../constants/priceHistory';
 import { track } from '../utils/analytics';
+import { resolveCarImageUrl } from '../utils/imageUrl';
 
 interface CarDetailsModalProps {
     car: Car;
@@ -73,13 +74,7 @@ function calcChargeTime(battery: number, chargeAC?: number, chargeDC?: number | 
 export default function CarDetailsModal({ car, onClose, isSelectedForCompare, onToggleCompare, isFavorite, onToggleFavorite, onLeadRequest }: CarDetailsModalProps) {
     const { t } = useTranslation();
 
-    const gallery = [
-        car.img.startsWith('/car-images/')
-            ? `${import.meta.env.BASE_URL}${car.img.substring(1)}`
-            : car.img.includes('wikimedia.org')
-                ? car.img
-                : `https://images.weserv.nl/?url=${encodeURIComponent(car.img.replace(/^https?:\/\//, ''))}&w=800&q=80&output=webp`,
-    ];
+    const gallery = [resolveCarImageUrl(car.img, 800)];
 
     const [currentIdx, setCurrentIdx] = useState(0);
     const [isImgLoading, setIsImgLoading] = useState(true);

@@ -7,7 +7,9 @@ const read = (path: string) =>
 
 const weekly = read('.github/workflows/weekly-ev-suggestions.yml');
 const monthly = read('.github/workflows/monthly-maintenance.yml');
+const anpScript = read('.github/scripts/update-anp-prices.mjs');
 const aneelScript = read('.github/scripts/update-aneel-tariffs.mjs');
+const newsScript = read('.github/scripts/check-ev-news.mjs');
 
 const assertImmutableActionPins = (workflow: string) => {
   const refs = [...workflow.matchAll(/uses:\s+([^\s@]+)@([^\s]+)/g)];
@@ -86,5 +88,18 @@ describe('scheduled automation workflow hardening', () => {
   it('does not mask data job failures or push metadata directly to main', () => {
     expect(monthly.match(/continue-on-error: true/g)?.length).toBe(2);
     expect(aneelScript).not.toContain("run('git push origin main')");
+  });
+
+  it('runs Git and GitHub CLI without shell command interpolation', () => {
+    for (const script of [anpScript, aneelScript]) {
+      expect(script).not.toContain('execSync(');
+      expect(script).not.toMatch(/run\(`|run\('git |run\(`gh /);
+      expect(script).toContain('runFile(');
+    }
+  });
+
+  it('uses a single-pass XML entity decoder for RSS content', () => {
+    expect(newsScript).toContain("from './security-utils.mjs'");
+    expect(newsScript).not.toMatch(/\.replace\(\/&amp;\/g/);
   });
 });

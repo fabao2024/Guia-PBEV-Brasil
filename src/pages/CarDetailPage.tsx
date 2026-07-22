@@ -12,6 +12,7 @@ import {
 import { IPVA_BY_STATE, calcIpva, IPVA_DATA_UPDATED } from '../constants/ipvaByState';
 import { getPriceDelta, getLastSnapshot } from '../constants/priceHistory';
 import { track } from '../utils/analytics';
+import { resolveCarImageUrl } from '../utils/imageUrl';
 
 const MAX_RANGE_KM = 700;
 
@@ -96,13 +97,7 @@ export default function CarDetailPage() {
       .slice(0, 4);
   }, [car, slug]);
 
-  const imgSrc = car
-    ? car.img.startsWith('/car-images/')
-      ? `${import.meta.env.BASE_URL}${car.img.substring(1)}`
-      : car.img.includes('wikimedia.org')
-        ? car.img
-        : `https://images.weserv.nl/?url=${encodeURIComponent(car.img.replace(/^https?:\/\//, ''))}&w=800&q=80&output=webp`
-    : '';
+  const imgSrc = car ? resolveCarImageUrl(car.img, 800) : '';
 
   const productSchema = useMemo(() => {
     if (!car) return null;

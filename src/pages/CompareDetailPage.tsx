@@ -4,12 +4,10 @@ import { Helmet } from 'react-helmet-async';
 import { CAR_DB } from '../constants';
 import { findCarBySlug, toSlug } from '../utils/slug';
 import { ArrowLeft, Zap, BatteryCharging, CheckCircle2, XCircle } from 'lucide-react';
+import { resolveCarImageUrl } from '../utils/imageUrl';
 
 function imgSrc(car: (typeof CAR_DB)[0]): string {
-  if (car.img.startsWith('/car-images/'))
-    return `${import.meta.env.BASE_URL}${car.img.substring(1)}`;
-  if (car.img.includes('wikimedia.org')) return car.img;
-  return `https://images.weserv.nl/?url=${encodeURIComponent(car.img.replace(/^https?:\/\//, ''))}&w=800&q=80&output=webp`;
+  return resolveCarImageUrl(car.img, 800);
 }
 
 function fmt(v: number | undefined | null, suffix = ''): string {

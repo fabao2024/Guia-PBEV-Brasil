@@ -4,8 +4,10 @@ import { useEffect } from 'react';
  * Injects a JSON-LD <script> into document.head and removes it on unmount.
  * Pass a stable object reference (useMemo) to avoid unnecessary re-injections.
  */
-export function useJsonLd(schema: object) {
+export function useJsonLd(schema: object | null) {
   useEffect(() => {
+    if (!schema) return undefined;
+
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.id = `jsonld-${(schema as Record<string, string>)['@type'] ?? 'schema'}`;

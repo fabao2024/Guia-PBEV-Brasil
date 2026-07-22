@@ -125,7 +125,7 @@ export function useRoutePlanner(): RoutePlannerReturn {
   const [conditionTerrain, setConditionTerrain] = useState<ConditionTerrain>('flat');
   const [conditionDriving, setConditionDriving] = useState<ConditionDriving>('normal');
 
-  // OCM key — persisted in localStorage
+  // OCM key — scoped to the current browser session
   const [ocmApiKey, setOcmApiKeyState] = useState(() => resolveOcmKey());
 
   const setOcmKey = useCallback((key: string) => {

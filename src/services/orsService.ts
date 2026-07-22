@@ -1,8 +1,11 @@
 import type { LatLng } from '../types/routePlanner';
+import { clearSessionApiKey, resolveSessionApiKey, saveSessionApiKey } from '../utils/apiKeyStorage';
 
 const ORS_BASE = 'https://api.openrouteservice.org/v2/directions/driving-car/geojson';
 export const ORS_KEY_STORAGE = 'ors-api-key';
-export const ORS_KEY_ENV = import.meta.env.VITE_ORS_API_KEY as string | undefined;
+export const ORS_KEY_ENV = import.meta.env.DEV
+  ? import.meta.env.VITE_ORS_API_KEY as string | undefined
+  : undefined;
 
 export interface ORSRouteResult {
   polyline: LatLng[];        // [lat, lng] — já invertido do GeoJSON [lng, lat]
@@ -23,28 +26,19 @@ export class ORSError extends Error {
 }
 
 /**
- * Resolve a chave ORS: variável de ambiente > localStorage.
+ * Resolve a chave ORS: variável de desenvolvimento > sessionStorage.
  * Retorna string vazia se nenhuma chave está disponível.
  */
 export function resolveOrsKey(): string {
-  if (ORS_KEY_ENV) return ORS_KEY_ENV;
-  try {
-    return localStorage.getItem(ORS_KEY_STORAGE) ?? '';
-  } catch {
-    return '';
-  }
+  return resolveSessionApiKey(ORS_KEY_STORAGE, ORS_KEY_ENV ?? '');
 }
 
 export function saveOrsKey(key: string): void {
-  try {
-    localStorage.setItem(ORS_KEY_STORAGE, key.trim());
-  } catch { /* quota exceeded — falha silenciosa */ }
+  saveSessionApiKey(ORS_KEY_STORAGE, key);
 }
 
 export function clearOrsKey(): void {
-  try {
-    localStorage.removeItem(ORS_KEY_STORAGE);
-  } catch { /* silent */ }
+  clearSessionApiKey(ORS_KEY_STORAGE);
 }
 
 /**

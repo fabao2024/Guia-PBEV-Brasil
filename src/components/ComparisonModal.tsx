@@ -3,6 +3,7 @@ import React, { useMemo, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Car } from '../types';
 import { X, Check, Minus, Map, Battery, Car as CarIcon, DollarSign, Zap, Gauge, Activity, Sparkles, RefreshCw, Plus } from 'lucide-react';
+import { resolveCarImageUrl } from '../utils/imageUrl';
 
 interface ComparisonModalProps {
    cars: Car[];
@@ -54,12 +55,7 @@ export default function ComparisonModal({ cars, allCars, onClose, onRemove, onAd
    const getCarFeatures = (car: Car): string[] =>
       (car.features && car.features.length > 0) ? car.features : getFallbackFeatures(car.cat);
 
-   const imgSrc = (car: Car) =>
-      car.img.startsWith('/car-images/')
-         ? `${import.meta.env.BASE_URL}${car.img.substring(1)}`
-         : car.img.includes('wikimedia.org')
-            ? car.img
-            : `https://images.weserv.nl/?url=${encodeURIComponent(car.img.replace(/^https?:\/\//, ''))}&w=400&q=80&output=webp`;
+   const imgSrc = (car: Car) => resolveCarImageUrl(car.img, 400);
 
    return (
       <div className="fixed inset-0 z-[70] flex items-center justify-center p-0 sm:p-4 md:p-6">

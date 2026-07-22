@@ -25,6 +25,7 @@ import { useSearch } from './hooks/useSearch';
 import { useJsonLd } from './hooks/useJsonLd';
 import { Car, LeadInterest } from './types';
 import { track } from './utils/analytics';
+import { resolveCarImageUrl } from './utils/imageUrl';
 
 export default function App() {
   const { t } = useTranslation();
@@ -687,11 +688,7 @@ export default function App() {
                   <div key={i} className="relative group shrink-0">
                     <div className="w-14 h-14 rounded-xl overflow-hidden border-2 border-white/10 group-hover:border-[#00b4ff]/50 transition-colors">
                       <img
-                        src={c.img.startsWith('/car-images/')
-                          ? `${import.meta.env.BASE_URL}${c.img.substring(1)}`
-                          : c.img.includes('wikimedia.org')
-                            ? c.img
-                            : `https://images.weserv.nl/?url=${encodeURIComponent(c.img.replace(/^https?:\/\//, ''))}&w=200&q=80&output=webp`}
+                        src={resolveCarImageUrl(c.img, 200)}
                         alt={c.model}
                         className="w-full h-full object-cover"
                       />
