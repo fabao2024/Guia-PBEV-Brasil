@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event';
 import LeadCaptureModal from '../LeadCaptureModal';
 import { Car } from '../../types';
 import { submitLead } from '../../utils/leads';
+import { track } from '../../utils/analytics';
 
 vi.mock('../../utils/leads', () => ({
   submitLead: vi.fn(),
@@ -51,6 +52,10 @@ describe('LeadCaptureModal', () => {
     expect(screen.getByLabelText(/serviço desejado/i)).toHaveDisplayValue(/wallbox/i);
 
     await user.type(screen.getByLabelText(/^nome/i), 'Fabio Teste');
+    expect(track).toHaveBeenCalledWith('lead_form_start', {
+      source: 'vehicle_detail',
+      interest: 'wallbox',
+    });
     await user.type(screen.getByLabelText(/whatsapp/i), '11999999999');
     await user.selectOptions(screen.getByLabelText(/cidade atendida/i), 'Jundiaí');
     await user.selectOptions(screen.getByLabelText(/tipo de imóvel/i), 'casa_propria');
@@ -90,5 +95,15 @@ describe('LeadCaptureModal', () => {
       'vehicle_detail'
     );
     expect(screen.queryByText(/E\.R SOLAR/i)).not.toBeInTheDocument();
+    expect(track).toHaveBeenCalledWith('lead_submit_attempt', {
+      source: 'vehicle_detail',
+      interest: 'wallbox',
+      customer_type: 'pf',
+    });
+    expect(track).toHaveBeenCalledWith('lead_success', {
+      source: 'vehicle_detail',
+      interest: 'wallbox',
+    });
+    expect(track).not.toHaveBeenCalledWith('lead_submit', expect.anything());
   });
 });

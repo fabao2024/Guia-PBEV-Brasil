@@ -22,6 +22,11 @@ const lead: LeadFormData = {
 };
 
 describe('submitLead()', () => {
+  beforeEach(() => {
+    window.sessionStorage.clear();
+    window.history.replaceState({}, '', '/interesse?utm_source=ig&utm_medium=paid_social&utm_campaign=wallbox_sp&utm_content=reel_v1');
+  });
+
   afterEach(() => {
     vi.unstubAllGlobals();
   });
@@ -42,6 +47,13 @@ describe('submitLead()', () => {
       body: JSON.stringify({
         ...lead,
         source: 'vehicle_details',
+        attribution: {
+          utmSource: 'instagram',
+          utmMedium: 'paid_social',
+          utmCampaign: 'wallbox_sp',
+          utmContent: 'reel_v1',
+          landingPath: '/interesse',
+        },
       }),
     });
   });

@@ -755,6 +755,10 @@ export default function App() {
         {isSimulatorModalOpen && (
           <SavingsSimulatorModal
             onClose={() => setIsSimulatorModalOpen(false)}
+            onLeadRequest={(interest) => {
+              setIsSimulatorModalOpen(false);
+              openLeadModal('tco_result', null, interest);
+            }}
             initialCars={
               compareList.length > 0
                 ? compareList

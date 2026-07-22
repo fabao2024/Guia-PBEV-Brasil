@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ChevronLeft, ChevronDown, Download, TrendingDown, Zap, Info } from 'lucide-react';
 import { CAR_DB } from '../constants';
-import { Car } from '../types';
+import { Car, LeadInterest } from '../types';
 import { IPVA_BY_STATE, calcIpva, IPVA_DATA_UPDATED } from '../constants/ipvaByState';
 import { FUEL_PRICES_BY_STATE, FUEL_PRICES_UPDATED, getDefaultFuelPrice } from '../constants/fuelPricesByState';
 import { ELECTRICITY_PRICES_BY_STATE, ELECTRICITY_PRICES_UPDATED, getDefaultElectricityPrice } from '../constants/electricityPricesByState';
@@ -156,11 +156,12 @@ function drawTCOImage(car: Car, tco: TCOResult, selectedState: string, fuelType:
 interface SavingsSimulatorModalProps {
     onClose: () => void;
     initialCars?: Car[];
+    onLeadRequest?: (interest: LeadInterest) => void;
 }
 
 type Tab = 'savings' | 'tco';
 
-export default function SavingsSimulatorModal({ onClose, initialCars = [] }: SavingsSimulatorModalProps) {
+export default function SavingsSimulatorModal({ onClose, initialCars = [], onLeadRequest }: SavingsSimulatorModalProps) {
     const { t } = useTranslation();
     const tcoRef = useRef<HTMLDivElement>(null);
     const [isExporting, setIsExporting] = useState(false);
@@ -812,6 +813,18 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [] }: Sav
                             </button>
 
                         </div>
+                    )}
+
+                    {onLeadRequest && selectedState === 'SP' && (
+                        <section className="mt-6 rounded-2xl border border-[#00b4ff]/25 bg-[#00b4ff]/[0.06] p-4 md:p-5">
+                            <p className="text-xs font-black uppercase tracking-[0.18em] text-[#00b4ff]">Piloto com revisão humana</p>
+                            <h3 className="mt-1 text-lg font-black text-white">Planeje sua recarga residencial em SP</h3>
+                            <p className="mt-1 text-sm text-white/55">Peça uma avaliação para wallbox ou energia solar. Seus dados só seguem ao parceiro após qualificação e consentimento.</p>
+                            <div className="mt-4 flex flex-col sm:flex-row gap-2">
+                                <button onClick={() => onLeadRequest('wallbox')} className="rounded-xl bg-[#00b4ff] px-4 py-3 text-sm font-black text-black">Avaliar wallbox</button>
+                                <button onClick={() => onLeadRequest('energia_solar_recarga')} className="rounded-xl border border-[#00b4ff]/35 px-4 py-3 text-sm font-black text-[#72d7ff]">Avaliar energia solar</button>
+                            </div>
+                        </section>
                     )}
 
                     {/* ── COLLAPSIBLE METHODOLOGY NOTE ───────────────────────────────────── */}

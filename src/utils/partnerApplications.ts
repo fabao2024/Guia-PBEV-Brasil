@@ -1,4 +1,5 @@
 import { PartnerApplicationFormData } from '../types';
+import { getFirstTouchAttribution } from './attribution';
 
 export interface SubmitPartnerApplicationResponse {
   status: string;
@@ -13,7 +14,10 @@ export async function submitPartnerApplication(
   const response = await fetch(PARTNER_APPLICATIONS_API_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(application),
+    body: JSON.stringify({
+      ...application,
+      attribution: getFirstTouchAttribution(),
+    }),
   });
 
   if (!response.ok) {

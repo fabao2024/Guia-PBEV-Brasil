@@ -1080,3 +1080,15 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Commit | ✅ | Correção versionada em commit de segurança subsequente; SHA registrado no histórico Git. |
 
 **Notas:** O alerta residual CodeQL `js/command-line-injection` nº 11 foi a origem desta correção; a análise remota é executada automaticamente após o push.
+
+---
+
+### [S18-C] feat(growth): atribuição, formulário curto e CTA pós-TCO · 22/07/2026
+
+| Etapa | Status | Detalhe |
+|---|---|---|
+| Atribuição | ✅ | First-touch fica somente em `sessionStorage`; bootstrap same-origin repara separadores legados `~and~` antes de GA/Plausible; aliases sociais são normalizados e apenas source/medium/campaign/content/landing path seguem à API. |
+| Analytics | ✅ | Funis de lead e parceiro registram view/start/attempt/success/error sem nome, telefone, e-mail, cidade ou modelo no Plausible. |
+| Parceiros | ✅ | Formulário público foi reduzido para cadastro, uma ou mais categorias, público atendido e consentimento. Campos de preço, SLA, cobertura ampliada e observações permanecem no onboarding interno. |
+| Leads | ✅ | Resultado do simulador oferece wallbox e solar somente em SP e abre o formulário qualificado com a modalidade pré-selecionada. |
+| Testes | ✅ | Vitest: 26 suites e 163/163 testes; TypeScript sem erros; build production-like com canários sintéticos e scanner do `dist/` aprovado. |

@@ -32,6 +32,11 @@ const application: PartnerApplicationFormData = {
 };
 
 describe('submitPartnerApplication()', () => {
+  beforeEach(() => {
+    window.sessionStorage.clear();
+    window.history.replaceState({}, '', '/parceiros?utm_source=fb&utm_medium=paid_social&utm_campaign=partner_program');
+  });
+
   afterEach(() => {
     vi.unstubAllGlobals();
   });
@@ -49,7 +54,15 @@ describe('submitPartnerApplication()', () => {
     expect(fetchMock).toHaveBeenCalledWith('https://bot.guiapbev.cloud/api/partner-applications', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(application),
+      body: JSON.stringify({
+        ...application,
+        attribution: {
+          utmSource: 'facebook',
+          utmMedium: 'paid_social',
+          utmCampaign: 'partner_program',
+          landingPath: '/parceiros',
+        },
+      }),
     });
   });
 

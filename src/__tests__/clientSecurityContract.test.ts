@@ -21,6 +21,17 @@ describe('client security contract', () => {
     expect(scriptDirective).not.toContain("'unsafe-inline'");
   });
 
+  it('normalizes malformed campaign separators before analytics loads', () => {
+    const html = fs.readFileSync(path.join(repoRoot, 'index.html'), 'utf8');
+    const bootstrapIndex = html.indexOf('<script src="/normalize-attribution.js"></script>');
+    const gaIndex = html.indexOf('googletagmanager.com/gtag/js');
+    const plausibleIndex = html.indexOf('analytics.guiapbev.cloud/js/');
+
+    expect(bootstrapIndex).toBeGreaterThan(0);
+    expect(bootstrapIndex).toBeLessThan(gaIndex);
+    expect(bootstrapIndex).toBeLessThan(plausibleIndex);
+  });
+
   it('references PWA resources from the custom-domain root', () => {
     const html = fs.readFileSync(path.join(repoRoot, 'index.html'), 'utf8');
     const manifest = JSON.parse(fs.readFileSync(path.join(repoRoot, 'public', 'manifest.json'), 'utf8'));

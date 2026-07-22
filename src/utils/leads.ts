@@ -1,4 +1,5 @@
 import { LeadFormData } from '../types';
+import { getFirstTouchAttribution } from './attribution';
 
 export interface SubmitLeadResponse {
   status: 'needs_review';
@@ -14,6 +15,7 @@ export async function submitLead(lead: LeadFormData, source: string): Promise<Su
     body: JSON.stringify({
       ...lead,
       source,
+      attribution: getFirstTouchAttribution(),
     }),
   });
 

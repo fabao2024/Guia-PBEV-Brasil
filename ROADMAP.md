@@ -1089,3 +1089,12 @@ Adicionar OpenRouter como alternativa na tela de configurações do chat.
 - [x] Ativar CodeQL default setup, Dependabot alerts/security updates e política de Actions limitada a Actions oficiais pinadas em SHA.
 
 > Resumo técnico: o frontend público continua BYOK, mas credenciais só sobrevivem na sessão da aba. Chaves de desenvolvimento são eliminadas do bundle de produção e cada build falha se detectar credencial real ou arquivo de ambiente em `dist/`. O código e as automações também passam por TypeScript, Vitest, CodeQL, Gitleaks e controles remotos do GitHub.
+
+### Conversão e atribuição dos funis — 22/07/2026
+- [x] Capturar atribuição first-touch em `sessionStorage`, normalizando aliases `ig/instagram` e `fb/facebook`, reparar separadores legados `~and~` antes de GA/Plausible e enviar somente UTM allowlisted + landing path.
+- [x] Instrumentar visualização, início, tentativa, sucesso e erro nos funis de consumidor e parceiro, sem PII no Plausible.
+- [x] Reduzir a candidatura pública de parceiro a dados cadastrais, categoria, público e consentimento; detalhes comerciais seguem para onboarding interno.
+- [x] Posicionar o formulário logo após a proposta de valor e comunicar o piloto ativo de wallbox/solar em SP.
+- [x] Adicionar CTA wallbox/solar ao resultado do simulador quando o estado selecionado for SP.
+
+> Validação: 26 suites e 163/163 testes, TypeScript sem erros, build production-like com quatro canários sintéticos e scanner fail-closed aprovado.

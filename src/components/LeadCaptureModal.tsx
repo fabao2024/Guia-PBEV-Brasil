@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Send, ShieldCheck, X, Zap } from 'lucide-react';
 import { Car, LeadFormData, LeadInterest } from '../types';
 import { track } from '../utils/analytics';
@@ -46,6 +46,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
   const [submitting, setSubmitting] = useState(false);
   const [leadId, setLeadId] = useState<number | null>(null);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const formStartedRef = useRef(false);
 
   const vehicleLabel = selectedCar ? `${selectedCar.brand} ${selectedCar.model}` : '';
 
@@ -64,6 +65,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
     setSubmitting(false);
     setLeadId(null);
     setSubmitError(null);
+    formStartedRef.current = false;
     setForm({
       ...INITIAL_FORM,
       interest: initialInterest,
@@ -81,11 +83,19 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
 
   if (!isOpen) return null;
 
+  const markFormStarted = () => {
+    if (formStartedRef.current) return;
+    formStartedRef.current = true;
+    track('lead_form_start', { source, interest: hydratedForm.interest });
+  };
+
   const updateField = <K extends keyof LeadFormData>(field: K, value: LeadFormData[K]) => {
+    markFormStarted();
     setForm(prev => ({ ...prev, [field]: value }));
   };
 
   const updateQualification = (field: string, value: string) => {
+    markFormStarted();
     setForm(prev => ({
       ...prev,
       qualificationData: { ...prev.qualificationData, [field]: value },
@@ -93,6 +103,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
   };
 
   const updateInterest = (interest: LeadInterest) => {
+    markFormStarted();
     setForm(prev => ({
       ...prev,
       interest,
@@ -104,18 +115,16 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
     event.preventDefault();
     setSubmitting(true);
     setSubmitError(null);
+    track('lead_submit_attempt', {
+      source,
+      interest: hydratedForm.interest,
+      customer_type: hydratedForm.customerType,
+    });
 
     try {
       const result = await submitLead(hydratedForm, source);
       setLeadId(result.lead_id);
       setSubmitted(true);
-      track('lead_submit', {
-        source,
-        interest: hydratedForm.interest,
-        city: hydratedForm.city,
-        customer_type: hydratedForm.customerType,
-        vehicle: vehicleLabel,
-      });
       track('lead_success', {
         source,
         interest: hydratedForm.interest,
@@ -126,7 +135,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
       track('lead_error', {
         source,
         interest: hydratedForm.interest,
-        city: hydratedForm.city,
+        reason: 'api_error',
       });
     } finally {
       setSubmitting(false);
