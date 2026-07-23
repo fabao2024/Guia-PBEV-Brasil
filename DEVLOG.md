@@ -1092,3 +1092,15 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Parceiros | ✅ | Formulário público foi reduzido para cadastro, uma ou mais categorias, público atendido e consentimento. Campos de preço, SLA, cobertura ampliada e observações permanecem no onboarding interno. |
 | Leads | ✅ | Resultado do simulador oferece wallbox e solar somente em SP e abre o formulário qualificado com a modalidade pré-selecionada. |
 | Testes | ✅ | Vitest: 26 suites e 163/163 testes; TypeScript sem erros; build production-like com canários sintéticos e scanner do `dist/` aprovado. |
+
+---
+
+### [S18-D] feat(ai): Consultor EletriBrasil no Gemini 3.5 Flash-Lite · 23/07/2026
+
+| Etapa | Status | Detalhe |
+|---|---|---|
+| Modelo | ✅ | O consultor web passa a usar `gemini-3.5-flash-lite` por constante única na chamada e no tracing; posts editoriais permanecem fora deste repositório e não são afetados. |
+| SDK | ✅ | Migração de `@google/generative-ai` 0.24.1 para `@google/genai` 2.13.x com `GoogleGenAI`, `chats.create`, `sendMessage({ message })` e leitura de `response.text`. |
+| Prompt | ✅ | Referência temporal “PBEV 2025” substituída por catálogo atual; PT-BR exclusivo e temperatura `0.3` reduzem mistura de idiomas e variação factual. |
+| TDD | ✅ | Contratos protegem modelo, SDK, ausência do pacote legado, prompt bilíngue atualizado, temperatura e tracing. |
+| Validação | ✅ | 27 suites e 167/167 testes; TypeScript sem erros; `npm audit --omit=dev` sem vulnerabilidades; build e scanner de segredos aprovados. Smoke real com chave válida confirmou `@google/genai` + `gemini-3.5-flash-lite`. |

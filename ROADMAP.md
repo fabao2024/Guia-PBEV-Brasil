@@ -1098,3 +1098,12 @@ Adicionar OpenRouter como alternativa na tela de configurações do chat.
 - [x] Adicionar CTA wallbox/solar ao resultado do simulador quando o estado selecionado for SP.
 
 > Validação: 26 suites e 163/163 testes, TypeScript sem erros, build production-like com quatro canários sintéticos e scanner fail-closed aprovado.
+
+### Upgrade do Consultor EletriBrasil para Gemini 3.5 Flash-Lite — 23/07/2026
+- [x] Migrar o cliente web legado `@google/generative-ai` para `@google/genai`.
+- [x] Centralizar `gemini-3.5-flash-lite` em uma constante usada pela sessão e pelo tracing.
+- [x] Atualizar o prompt para o catálogo atual, resposta exclusiva no idioma da interface e temperatura factual `0.3`.
+- [x] Manter o frontend BYOK e validar chamada real sem introduzir nova chave ou backend.
+- [x] Preservar a decisão de não implementar LLM router antes do backend; a troca é específica do consultor.
+
+> **Atualização da decisão arquitetural:** o benchmark com catálogo completo mostrou que o 3.5 Flash-Lite respeitou orçamento, categoria e autonomia nas 3 recomendações, enquanto o 2.5 Flash-Lite falhou em 2 de 3. A conclusão antiga de “sem ganho real em trocar” deixa de valer para o Consultor EletriBrasil, mas continua válida para evitar um router multi-provider prematuro. Validação final: 27 suites, 167/167 testes, TypeScript sem erros, build de produção e scanner de segredos aprovados; smoke real do novo SDK retornou resposta operacional.

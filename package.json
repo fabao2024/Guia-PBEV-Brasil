@@ -12,7 +12,7 @@
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@google/generative-ai": "^0.24.1",
+    "@google/genai": "^2.13.0",
     "@tailwindcss/postcss": "^4.1.17",
     "dotenv": "^17.2.3",
     "fuse.js": "^7.1.0",
