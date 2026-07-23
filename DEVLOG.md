@@ -1104,3 +1104,25 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Prompt | ✅ | Referência temporal “PBEV 2025” substituída por catálogo atual; PT-BR exclusivo e temperatura `0.3` reduzem mistura de idiomas e variação factual. |
 | TDD | ✅ | Contratos protegem modelo, SDK, ausência do pacote legado, prompt bilíngue atualizado, temperatura e tracing. |
 | Validação | ✅ | 27 suites e 167/167 testes; TypeScript sem erros; `npm audit --omit=dev` sem vulnerabilidades; build e scanner de segredos aprovados. Smoke real com chave válida confirmou `@google/genai` + `gemini-3.5-flash-lite`. |
+
+---
+
+### [S18-E] research(mobile): plano futuro para Google Play e App Store · 23/07/2026
+
+| Etapa | Status | Detalhe |
+|---|---|---|
+| Diagnóstico | ✅ | O produto React/Vite já tem utilidade além de conteúdo estático: catálogo com 109 BEVs, comparação, TCO, quiz, favoritos e planejador de rotas. Ainda não há Capacitor, projetos Android/iOS, service worker publicado, ícones PNG de loja, `assetlinks.json` ou `apple-app-site-association`. |
+| Decisão | ✅ | Arquitetura-alvo: Capacitor 8 sobre o mesmo React/Vite, com `dist/` incorporado no pacote, um único código-fonte, Android primeiro e iOS depois. TWA/PWABuilder fica apenas como contingência Android, não como arquitetura principal. Identificador candidato: `cloud.guiapbev.app`, a confirmar antes do primeiro cadastro porque o package name é permanente. |
+| Valor nativo | ✅ | A primeira versão deve oferecer catálogo e ferramentas offline, Share Sheet para veículo/comparação/TCO, deep links, back button Android, safe areas iOS, abertura segura de links externos e fallback de rede. Push opt-in para preço de favoritos e novos modelos fica para uma fase posterior. |
+| Aquisição | ✅ | Builds de loja devem atribuir origem como `app_android` ou `app_ios`, manter CTAs contextuais de wallbox/solar e parceiros, consentimento explícito, revisão humana e ausência de PII no analytics. O app continua prioritariamente uma ferramenta útil, não um wrapper de formulário comercial. |
+| Bloqueios P0 | ⚠️ | Resolver a divergência entre a política, que declara somente Plausible e ausência de cookies, e o HTML, que também carrega GA4; normalizar a contagem pública de 101 para 109 veículos; auditar direitos de imagens/marcas; evitar alegação de produto “oficial”; gerar ícones 192/512/maskable/1024; e ocultar o Gemini BYOK no build de loja ou migrá-lo para backend controlado. |
+| Android | ⚠️ | Criar projeto Capacitor, mirar Android 16/API 36 desde o primeiro bundle, configurar Play App Signing, gerar AAB e executar Internal/Closed Testing. Conta Google pessoal nova exige 12 testadores por 14 dias contínuos; conta de organização exige D-U-N-S. Taxa oficial consultada em 23/07/2026: USD 25, pagamento único. |
+| iOS | ⚠️ | Criar projeto Capacitor iOS, usar macOS com Xcode 26/iOS 26 SDK, assinatura, TestFlight e App Store Connect. Conta pessoal mostra `Fabio Pettian` como vendedor; organização exige entidade jurídica e D-U-N-S. Taxa oficial consultada em 23/07/2026: USD 99/ano. A entrega precisa demonstrar utilidade além de website encapsulado para atender à Guideline 4.2. |
+| Privacidade | ⚠️ | Antes da submissão, consolidar inventário `dado → finalidade → servidor → retenção → compartilhamento → exclusão` e alinhar política LGPD, Google Data Safety e Apple Privacy Label. Dados coletados dentro da WebView e por SDKs terceiros também entram nas declarações. |
+| CI/CD | ✅ | Manter GitHub como fonte da verdade. Criar workflows separados e manuais por tag para Android e iOS, com ambientes protegidos, segredos de assinatura fora do repositório, builds a partir de SHA imutável e publicação inicial somente em testes internos/TestFlight. Push em `main` continua publicando apenas a web. |
+| Ordem futura | ✅ | 1) contas/identidade e correções P0; 2) PWA/offline e assets; 3) Capacitor Android e teste fechado; 4) Capacitor iOS e TestFlight; 5) publicação gradual; 6) push e Consultor server-side após validar retenção e aquisição. |
+| Build | — | Entrada exclusivamente documental; nenhum pacote, arquivo nativo, dependência ou configuração de produção foi criado. |
+| Testes | — | Nenhuma implementação para testar. A futura entrega exigirá build web, suíte Vitest, TypeScript, E2E em dispositivos reais, testes offline/deep-link/formulário, Play Pre-launch Report e TestFlight. |
+| Commit | ✅ | Decisão arquitetural e gates futuros documentados nesta entrada. |
+
+**Fontes consultadas:** documentação oficial do Capacitor, Apple Developer Program/App Review/App Privacy e Google Play Console/target API/Data Safety, acessadas em 23/07/2026.
