@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowLeft, Building2, CheckCircle2, Handshake, Send, ShieldCheck, Target } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { PartnerApplicationFormData } from '../types';
 import { track } from '../utils/analytics';
@@ -32,6 +33,24 @@ function createInitialForm(): PartnerApplicationFormData {
 const inputClass = 'w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-white placeholder-white/35 outline-none focus:border-[#00b4ff] focus:ring-2 focus:ring-[#00b4ff]/20';
 const labelClass = 'block text-sm font-bold text-white/80 mb-2';
 const cardClass = 'rounded-3xl border border-white/10 bg-white/[0.035] p-5 md:p-6 shadow-[0_0_35px_rgba(0,180,255,0.08)]';
+
+function PartnerPageHead() {
+  const title = 'Programa de Parceiros | Guia PBEV Brasil';
+  const description = 'Candidate sua empresa ao programa de parceiros do Guia PBEV para wallbox, energia solar, seguro, financiamento, veículos e serviços EV.';
+  const canonicalUrl = 'https://guiapbev.cloud/parceiros/';
+  return (
+    <Helmet>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <link rel="canonical" href={canonicalUrl} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content={canonicalUrl} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+    </Helmet>
+  );
+}
 
 function deriveMatchCodes(form: PartnerApplicationFormData): string[] {
   const codes = new Set<string>(['uf_exact']);
@@ -119,6 +138,7 @@ export default function PartnerApplicationsPage() {
   if (submittedId) {
     return (
       <main className="min-h-screen bg-[#05070d] text-white px-5 py-8">
+        <PartnerPageHead />
         <div className="mx-auto max-w-3xl rounded-3xl border border-[#00b4ff]/20 bg-white/[0.04] p-8">
           <CheckCircle2 className="h-12 w-12 text-[#00b4ff] mb-4" />
           <p className="text-xs font-black uppercase tracking-[0.24em] text-[#00b4ff]">Candidatura recebida</p>
@@ -135,6 +155,7 @@ export default function PartnerApplicationsPage() {
 
   return (
     <main className="min-h-screen bg-[#05070d] text-white px-5 py-8">
+      <PartnerPageHead />
       <div className="mx-auto max-w-6xl">
         <Link to="/" className="inline-flex items-center gap-2 text-sm font-bold text-white/60 hover:text-white mb-6"><ArrowLeft className="h-4 w-4" /> Voltar ao Guia PBEV</Link>
 

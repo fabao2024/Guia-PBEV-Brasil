@@ -1,5 +1,6 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { HelmetProvider } from 'react-helmet-async';
 import { MemoryRouter } from 'react-router-dom';
 import PartnerApplicationsPage from '../PartnerApplicationsPage';
 import { track } from '../../utils/analytics';
@@ -19,6 +20,23 @@ describe('PartnerApplicationsPage', () => {
     vi.clearAllMocks();
     window.sessionStorage.clear();
     window.history.replaceState({}, '', '/parceiros?utm_source=ig&utm_campaign=partner_program');
+  });
+
+  it('publishes the canonical trailing-slash URL', async () => {
+    render(
+      <HelmetProvider>
+        <MemoryRouter initialEntries={['/parceiros/']}>
+          <PartnerApplicationsPage />
+        </MemoryRouter>
+      </HelmetProvider>,
+    );
+
+    await waitFor(() => {
+      expect(document.querySelector('link[rel="canonical"]')).toHaveAttribute(
+        'href',
+        'https://guiapbev.cloud/parceiros/',
+      );
+    });
   });
 
   it('renders an active-pilot proposition and the short form before details', async () => {

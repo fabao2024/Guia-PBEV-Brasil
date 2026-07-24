@@ -14,6 +14,7 @@ describe('App partner CTA', () => {
     );
 
     const partnerLinks = screen.getAllByRole('link', { name: /programa de parceiros|parceiros|fornecedores/i });
-    expect(partnerLinks.some(link => link.getAttribute('href') === '/parceiros')).toBe(true);
+    expect(partnerLinks.length).toBeGreaterThan(0);
+    expect(partnerLinks.every(link => link.getAttribute('href') === '/parceiros/')).toBe(true);
   });
 });

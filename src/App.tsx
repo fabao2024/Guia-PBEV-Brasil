@@ -267,7 +267,7 @@ export default function App() {
               </button>
               <div className="w-px h-5 bg-white/10" />
               <a
-                href="/parceiros"
+                href="/parceiros/"
                 className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-[#37f29b]/80 hover:text-[#37f29b] hover:bg-[#37f29b]/10 transition-all text-xs font-bold"
                 title="Programa de parceiros do Guia PBEV"
               >
@@ -300,7 +300,7 @@ export default function App() {
 
             {/* Partners — mobile only (desktop has it in the icon rail) */}
             <a
-              href="/parceiros"
+              href="/parceiros/"
               className="md:hidden flex items-center justify-center px-3 py-2 rounded-xl border border-[#37f29b]/40 bg-[#37f29b]/10 text-[#37f29b] hover:bg-[#37f29b]/20 transition-all"
               title="Programa de parceiros do Guia PBEV"
             >
@@ -444,7 +444,7 @@ export default function App() {
               </div>
             ))}
             <a
-              href="/parceiros"
+              href="/parceiros/"
               title="Programa de parceiros do Guia PBEV"
               className="rounded-xl border border-[#37f29b]/30 bg-[#37f29b]/8 hover:bg-[#37f29b]/15 hover:border-[#37f29b]/50 backdrop-blur-sm px-3 sm:px-4 py-2.5 sm:py-3 relative overflow-hidden flex flex-col justify-center transition-all group"
             >
@@ -658,7 +658,7 @@ export default function App() {
               </a>
               <span className="text-[#222222]">·</span>
               <a
-                href="/parceiros"
+                href="/parceiros/"
                 className="text-[#333333] hover:text-[#37f29b] transition-colors"
                 title="Programa de parceiros do Guia PBEV"
               >
@@ -813,7 +813,7 @@ export default function App() {
     <Routes>
       <Route path="/carro/:slug" element={<CarDetailPage />} />
       <Route path="/comparar/:slugA/:slugB" element={<CompareDetailPage />} />
-      <Route path="/parceiros" element={<PartnerApplicationsPage />} />
+      <Route path="/parceiros/*" element={<PartnerApplicationsPage />} />
       <Route path="/interesse" element={catalogContent} />
       <Route path="*" element={catalogContent} />
     </Routes>

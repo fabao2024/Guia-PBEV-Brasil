@@ -23,7 +23,7 @@
 | 15 | Automação de sync local Windows + deploy VPS do bot | DevOps | Baixo | Alto | ✅ Concluído |
 | 16 | Roteamento de demanda Instagram para formulário consentido | Monetização | Baixo | Alto | ✅ Concluído |
 | 17 | Mini-CRM de leads no bot (`/admin/leads`) | Monetização | Médio | Alto | ✅ Concluído |
-| 18 | Formulário público de candidatura de fornecedores/parceiros (`/parceiros`) | Monetização | Baixo | Alto | ✅ Concluído |
+| 18 | Formulário público de candidatura de fornecedores/parceiros (`/parceiros/`) | Monetização | Baixo | Alto | ✅ Concluído |
 | 19 | Admin interno de candidaturas de parceiros (`/admin/partners`) | Monetização | Baixo | Alto | ✅ Concluído |
 | 20 | Preço por lead/modalidade e match codes no programa de parceiros | Monetização | Baixo | Alto | ✅ Concluído |
 | 21 | Expansão do marketplace para aquisição/cotação, seguro e financiamento de veículos | Monetização | Alto | Alto | 🔲 Planejado pós-piloto |

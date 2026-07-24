@@ -6,7 +6,38 @@ const bootstrapPath = path.join(repoRoot, 'public', 'normalize-attribution.js');
 
 describe('attribution bootstrap', () => {
   beforeEach(() => {
+    window.sessionStorage.removeItem('redirect');
     window.history.replaceState({}, '', '/parceiros');
+  });
+
+  it('restores a GitHub Pages deep link before analytics reads the location', () => {
+    const script = fs.readFileSync(bootstrapPath, 'utf8');
+    window.sessionStorage.setItem(
+      'redirect',
+      'carro/gwm-ora-03-skin-bev48?utm_source=ig&utm_medium=social#especificacoes',
+    );
+    window.history.replaceState({}, '', '/');
+
+    window.eval(script);
+
+    expect(window.location.pathname).toBe('/carro/gwm-ora-03-skin-bev48');
+    expect(window.location.search).toBe('?utm_source=ig&utm_medium=social');
+    expect(window.location.hash).toBe('#especificacoes');
+    expect(window.sessionStorage.getItem('redirect')).toBeNull();
+  });
+
+  it('repairs a legacy partner UTM embedded in the pathname', () => {
+    const script = fs.readFileSync(bootstrapPath, 'utf8');
+    window.sessionStorage.setItem(
+      'redirect',
+      'parceiros&utm_source=ig~and~utm_medium=social~and~utm_campaign=partner_pilot',
+    );
+    window.history.replaceState({}, '', '/');
+
+    window.eval(script);
+
+    expect(window.location.pathname).toBe('/parceiros/');
+    expect(window.location.search).toBe('?utm_source=ig&utm_medium=social&utm_campaign=partner_pilot');
   });
 
   it.each([

@@ -1,19 +1,41 @@
-import { copyFileSync, existsSync, mkdirSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 
 const distDir = 'dist';
 const indexPath = join(distDir, 'index.html');
 
 const leadCaptureEnabled = String(process.env.VITE_ENABLE_LEAD_CAPTURE ?? '').trim().toLowerCase() === 'true';
-const routes = ['parceiros', ...(leadCaptureEnabled ? ['interesse'] : [])];
+const routes = [
+  {
+    path: 'parceiros',
+    title: 'Programa de Parceiros | Guia PBEV Brasil',
+    description: 'Candidate sua empresa ao programa de parceiros do Guia PBEV para wallbox, energia solar, seguro, financiamento, veículos e serviços EV.',
+    canonicalUrl: 'https://guiapbev.cloud/parceiros/',
+  },
+  ...(leadCaptureEnabled ? [{ path: 'interesse' }] : []),
+];
 
 if (!existsSync(indexPath)) {
   throw new Error(`Build index not found: ${indexPath}`);
 }
 
+const baseHtml = readFileSync(indexPath, 'utf8');
+
 for (const route of routes) {
-  const target = join(distDir, route, 'index.html');
+  const target = join(distDir, route.path, 'index.html');
   mkdirSync(dirname(target), { recursive: true });
-  copyFileSync(indexPath, target);
-  console.log(`Created static SPA route: /${route}/ -> ${target}`);
+  let html = baseHtml;
+  if (route.canonicalUrl) {
+    html = html
+      .replace(/<title>[^<]*<\/title>/, `<title>${route.title}</title>`)
+      .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${route.description}">`)
+      .replace(/<link rel="canonical" href="[^"]*">/, `<link rel="canonical" href="${route.canonicalUrl}">`)
+      .replace(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${route.title}">`)
+      .replace(/<meta property="og:description" content="[^"]*">/, `<meta property="og:description" content="${route.description}">`)
+      .replace(/<meta property="og:url" content="[^"]*">/, `<meta property="og:url" content="${route.canonicalUrl}">`)
+      .replace(/<meta name="twitter:title" content="[^"]*">/, `<meta name="twitter:title" content="${route.title}">`)
+      .replace(/<meta name="twitter:description" content="[^"]*">/, `<meta name="twitter:description" content="${route.description}">`);
+  }
+  writeFileSync(target, html, 'utf8');
+  console.log(`Created static SPA route: /${route.path}/ -> ${target}`);
 }

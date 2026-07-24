@@ -14,7 +14,7 @@ describe('ChatWidget routing', () => {
 
   it('routes supported demand to the consent form and rejects unsupported financing handoff', () => {
     const partner = buildPbevRedirectResponse({ type: 'partner' }, 'pt-BR');
-    expect(partner).toContain('/parceiros');
+    expect(partner).toContain('/parceiros/');
     expect(partner).toContain('fornecedor');
     expect(partner).toContain('candidatura');
 

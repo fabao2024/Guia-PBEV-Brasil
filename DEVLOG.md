@@ -1126,3 +1126,14 @@ Pesquisa realizada sobre programas de afiliados das seguradoras citadas no ROADM
 | Commit | ✅ | Decisão arquitetural e gates futuros documentados nesta entrada. |
 
 **Fontes consultadas:** documentação oficial do Capacitor, Apple Developer Program/App Review/App Privacy e Google Play Console/target API/Data Safety, acessadas em 23/07/2026.
+
+---
+
+### [S18-F] fix(growth): canonical de parceiros e tracking limpo · 24/07/2026
+
+| Etapa | Status | Detalhe |
+|---|---|---|
+| Canonical | ✅ | Links internos, chat, rota SPA e sitemap usam `/parceiros/`; acesso sem barra continua normalizado pelo redirect 301 do GitHub Pages. |
+| SEO estático | ✅ | `dist/parceiros/index.html` recebe title, description, canonical e Open Graph próprios antes de o React executar. |
+| Tracking | ✅ | O bootstrap síncrono restaura deep links do fallback 404 antes de GA/Plausible, preserva query UTM e evita as formas inválidas `/?/carro/...` e `/parceiros&utm_source=...`; o reparo legado `~and~` permanece para visitas históricas. |
+| Validação | ✅ | 27 suites e 170/170 testes; build Vite concluído; scanner de segredos aprovado; artefato estático e sitemap conferidos. |
