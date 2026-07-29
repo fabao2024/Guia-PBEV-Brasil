@@ -83,4 +83,5 @@ export interface PartnerApplicationFormData {
   matchCodes: string[];
   notes: string;
   lgpdAcceptance: boolean;
+  termsVersion: string;
 }

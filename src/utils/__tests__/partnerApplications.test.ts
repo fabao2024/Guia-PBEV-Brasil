@@ -23,12 +23,16 @@ const application: PartnerApplicationFormData = {
   slaHours: '4',
   crmTool: '',
   preferredDeliveryChannel: '',
-  commercialModelInterest: '',
-  acceptablePriceRange: 'R$ 81–R$ 150',
-  leadPriceByModality: {},
+  commercialModelInterest: 'piloto_gratuito_com_cpl_futuro',
+  acceptablePriceRange: 'Piloto gratuito; CPL futuro conforme modalidade',
+  leadPriceByModality: {
+    wallbox: 'PF R$ 100; PJ R$ 150 por lead aceito após o piloto',
+    energia_solar_recarga: 'PF/PJ R$ 250 por lead aceito após o piloto',
+  },
   matchCodes: ['uf_exact', 'city_priority', 'home_charging', 'fast_sla_4h'],
   notes: 'Teste de candidatura.',
   lgpdAcceptance: true,
+  termsVersion: '2026-07-29-pilot-v1',
 };
 
 describe('submitPartnerApplication()', () => {

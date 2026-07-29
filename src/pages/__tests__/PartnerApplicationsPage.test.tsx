@@ -47,7 +47,12 @@ describe('PartnerApplicationsPage', () => {
     );
 
     expect(screen.getByRole('heading', { name: /programa de parceiros/i })).toBeInTheDocument();
-    expect(screen.getByText(/piloto de encaminhamento está ativo para wallbox e energia solar em sp/i)).toBeInTheDocument();
+    expect(screen.getByText(/piloto gratuito de encaminhamento está ativo para wallbox e energia solar em sp/i)).toBeInTheDocument();
+    expect(screen.getByText(/até 3 leads qualificados aceitos por parceiro/i)).toBeInTheDocument();
+    expect(screen.getByText(/wallbox pf/i)).toHaveTextContent(/r\$\s*100/i);
+    expect(screen.getByText(/wallbox pj/i)).toHaveTextContent(/r\$\s*150/i);
+    expect(screen.getByText(/energia solar pf\/pj/i)).toHaveTextContent(/r\$\s*250/i);
+    expect(screen.getByText(/nenhum lead adicional será encaminhado antes da formalização/i)).toBeInTheDocument();
     const cta = screen.getByRole('link', { name: /candidatar em 2 minutos/i });
     expect(cta).toHaveAttribute('href', '#formulario-parceiro');
     await userEvent.click(cta);
@@ -85,7 +90,7 @@ describe('PartnerApplicationsPage', () => {
     await user.click(screen.getByRole('checkbox', { name: /^energia solar \/ recarga$/i }));
     await user.click(screen.getByLabelText(/pessoa física/i));
     await user.click(screen.getByLabelText(/^atende cnpj\/frota$/i));
-    await user.click(screen.getByLabelText(/aceito respeitar lgpd/i));
+    await user.click(screen.getByLabelText(/aceito os termos do piloto gratuito/i));
     await user.click(screen.getByRole('button', { name: /enviar candidatura/i }));
 
     await waitFor(() => expect(submitPartnerApplication).toHaveBeenCalledTimes(1));
@@ -95,7 +100,13 @@ describe('PartnerApplicationsPage', () => {
       state: 'SP',
       serviceCategories: ['wallbox', 'energia_solar_recarga'],
       coverageStates: ['SP'],
-      leadPriceByModality: {},
+      commercialModelInterest: 'piloto_gratuito_com_cpl_futuro',
+      acceptablePriceRange: 'Piloto gratuito; CPL futuro conforme modalidade',
+      leadPriceByModality: {
+        wallbox: 'PF R$ 100; PJ R$ 150 por lead aceito após o piloto',
+        energia_solar_recarga: 'PF/PJ R$ 250 por lead aceito após o piloto',
+      },
+      termsVersion: '2026-07-29-pilot-v1',
       matchCodes: expect.arrayContaining(['uf_exact', 'serves_pf', 'serves_pj_fleet', 'home_charging', 'solar_cross_sell']),
       lgpdAcceptance: true,
     }));

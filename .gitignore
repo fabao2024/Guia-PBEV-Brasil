@@ -32,8 +32,9 @@ dist-ssr
 /scripts/
 !.github/scripts/
 
-# Private planning docs
-ROADMAP.md
-ROADMAP.en.md
-DEVLOG.md
+# Private local material
+*.private.md
+*.internal.md
+/docs/internal/
+/tools/internal/
 

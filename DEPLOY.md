@@ -12,20 +12,18 @@ To deploy the site *without* the AI Chat Widget, set this environment variable:
 VITE_ENABLE_AI=false
 ```
 
-### Piloto de leads solar/wallbox
+### Formulários públicos
 
-O build público usa a variável do repositório GitHub `VITE_ENABLE_LEAD_CAPTURE`:
+O build público usa `VITE_ENABLE_LEAD_CAPTURE` para controlar a exibição do formulário de interesse:
 
 ```text
-false → esconde CTAs e não abre /interesse
-true  → ativa o formulário público
+false → esconde os CTAs de interesse
+true  → publica o formulário consentido
 ```
 
-Só mudar para `true` depois de validar o backend com `ENABLE_PUBLIC_LEAD_API=true`, matching regional, termos comerciais vigentes, CRM protegido e teste sintético ponta a ponta. O deploy workflow injeta a variável apenas no job de build.
+O programa de parceiros em `/parceiros/` é público e envia candidaturas por um contrato HTTP versionado. Implementação administrativa, matching e persistência pertencem a um serviço privado e não fazem parte deste repositório.
 
-Com a flag `false`, `/interesse` também fica fora do sitemap e das páginas estáticas. O formulário usa o consentimento genérico `pilot-v3-2026-07-15`, sem revelar parceiro no contrato público, e aponta para `/privacy.html`. Para preview isolado, `VITE_LEADS_API_URL` pode apontar para um backend de teste; não definir essa variável em produção sem revisão do destino.
-
-
+Nunca aponte `VITE_LEADS_API_URL` para um destino que não tenha sido revisado. Variáveis `VITE_*` são públicas por definição e não podem conter credenciais.
 
 ### 2. GitHub Pages (Official Actions workflow)
 The production site is delivered by `.github/workflows/deploy.yml` through the official GitHub Pages artifact flow.

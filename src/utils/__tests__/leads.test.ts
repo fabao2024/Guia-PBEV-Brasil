@@ -71,7 +71,7 @@ describe('submitLead()', () => {
   it.each([
     [{ status: 'approved', lead_id: 42 }, 'status'],
     [{ status: 'needs_review' }, 'lead_id'],
-    [{ status: 'needs_review', lead_id: 42, partner_name: 'E.R SOLAR' }, 'partner_name'],
+    [{ status: 'needs_review', lead_id: 42, partner_name: 'Parceiro Divergente' }, 'partner_name'],
   ])('rejects a malformed or divergent success response: %s', async (payload, expectedField) => {
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
       ok: true,
