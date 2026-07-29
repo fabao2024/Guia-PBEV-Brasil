@@ -38,7 +38,7 @@ O piloto para wallbox e energia solar em SP segue regras visíveis na própria l
 - Wallbox PF: R$ 100 por lead aceito após o piloto;
 - Wallbox PJ: R$ 150 por lead aceito após o piloto;
 - energia solar integrada à recarga PF/PJ: R$ 250 por lead aceito após o piloto;
-- nenhum lead adicional antes de nova proposta, contrato, estrutura fiscal, forma de pagamento e aceite formal;
+- nenhum lead adicional antes de nova proposta, contrato, estrutura jurídica e fiscal adequadas, forma de pagamento e aceite formal;
 - sem promessa de volume ou conversão;
 - compartilhamento de contato somente após consentimento e revisão humana.
 

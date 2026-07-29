@@ -53,6 +53,7 @@ describe('PartnerApplicationsPage', () => {
     expect(screen.getByText(/wallbox pj/i)).toHaveTextContent(/r\$\s*150/i);
     expect(screen.getByText(/energia solar pf\/pj/i)).toHaveTextContent(/r\$\s*250/i);
     expect(screen.getByText(/nenhum lead adicional será encaminhado antes da formalização/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/estrutura jurídica e fiscal adequadas/i).length).toBeGreaterThanOrEqual(2);
     const cta = screen.getByRole('link', { name: /candidatar em 2 minutos/i });
     expect(cta).toHaveAttribute('href', '#formulario-parceiro');
     await userEvent.click(cta);
