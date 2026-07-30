@@ -2,6 +2,16 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 30/07/2026 · Piloto ajustado para dois leads gratuitos
+
+| Área | Mudança pública |
+|---|---|
+| Landing | `/parceiros/` passa a limitar o piloto a até 2 leads qualificados aceitos por parceiro, sem cobrança durante o piloto. |
+| Consentimento | Novas candidaturas enviam `termsVersion=2026-07-30-pilot-v2`, vinculando o aceite ao texto atualizado. |
+| Continuidade | Os valores futuros permanecem Wallbox PF R$ 100, Wallbox PJ R$ 150 e energia solar PF/PJ R$ 250 por lead aceito, sempre após nova formalização. |
+| Histórico | O registro abaixo documenta corretamente o contrato público anterior de 3 leads e não foi reescrito. |
+| Verificação | 170/170 testes, build Vite, rotas estáticas e scanner do artifact aprovados. |
+
 ## 29/07/2026 · Programa de parceiros com piloto e preços futuros transparentes
 
 | Área | Mudança pública |

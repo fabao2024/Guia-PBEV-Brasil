@@ -34,7 +34,7 @@ Operações administrativas, dados pessoais, regras de matching, credenciais, in
 
 O piloto para wallbox e energia solar em SP segue regras visíveis na própria landing `/parceiros/`:
 
-- até 3 leads qualificados aceitos por parceiro sem cobrança durante o piloto;
+- até 2 leads qualificados aceitos por parceiro sem cobrança durante o piloto;
 - Wallbox PF: R$ 100 por lead aceito após o piloto;
 - Wallbox PJ: R$ 150 por lead aceito após o piloto;
 - energia solar integrada à recarga PF/PJ: R$ 250 por lead aceito após o piloto;

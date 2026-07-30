@@ -48,7 +48,8 @@ describe('PartnerApplicationsPage', () => {
 
     expect(screen.getByRole('heading', { name: /programa de parceiros/i })).toBeInTheDocument();
     expect(screen.getByText(/piloto gratuito de encaminhamento está ativo para wallbox e energia solar em sp/i)).toBeInTheDocument();
-    expect(screen.getByText(/até 3 leads qualificados aceitos por parceiro/i)).toBeInTheDocument();
+    expect(screen.getByText(/até 2 leads qualificados aceitos por parceiro/i)).toBeInTheDocument();
+    expect(screen.getByText(/os primeiros 2 leads aceitos são gratuitos/i)).toBeInTheDocument();
     expect(screen.getByText(/wallbox pf/i)).toHaveTextContent(/r\$\s*100/i);
     expect(screen.getByText(/wallbox pj/i)).toHaveTextContent(/r\$\s*150/i);
     expect(screen.getByText(/energia solar pf\/pj/i)).toHaveTextContent(/r\$\s*250/i);
@@ -107,7 +108,7 @@ describe('PartnerApplicationsPage', () => {
         wallbox: 'PF R$ 100; PJ R$ 150 por lead aceito após o piloto',
         energia_solar_recarga: 'PF/PJ R$ 250 por lead aceito após o piloto',
       },
-      termsVersion: '2026-07-29-pilot-v1',
+      termsVersion: '2026-07-30-pilot-v2',
       matchCodes: expect.arrayContaining(['uf_exact', 'serves_pf', 'serves_pj_fleet', 'home_charging', 'solar_cross_sell']),
       lgpdAcceptance: true,
     }));

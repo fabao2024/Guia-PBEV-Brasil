@@ -32,7 +32,7 @@ const application: PartnerApplicationFormData = {
   matchCodes: ['uf_exact', 'city_priority', 'home_charging', 'fast_sla_4h'],
   notes: 'Teste de candidatura.',
   lgpdAcceptance: true,
-  termsVersion: '2026-07-29-pilot-v1',
+  termsVersion: '2026-07-30-pilot-v2',
 };
 
 describe('submitPartnerApplication()', () => {
