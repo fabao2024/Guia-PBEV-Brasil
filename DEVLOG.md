@@ -2,6 +2,15 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 31/07/2026 · Oferta versionada de um lead válido
+
+| Área | Mudança pública |
+|---|---|
+| Landing | Convites da campanha versionada exibem 1 lead válido e aceito sem custo; acesso padrão permanece em até 2. |
+| Consentimento | A oferta envia `termsVersion=2026-07-31-pilot-one-lead-v1` e `freePilotLeadLimit=1`; o contrato padrão envia `pilot-v2` e limite `2`. |
+| Consistência | Título, métricas, explicação comercial, checkbox e payload usam o mesmo limite resolvido pela campanha atual. |
+| Histórico | Termos e candidaturas anteriores não são reescritos. |
+
 ## 30/07/2026 · Piloto ajustado para dois leads gratuitos
 
 | Área | Mudança pública |

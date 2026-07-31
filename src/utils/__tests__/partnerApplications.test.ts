@@ -33,6 +33,7 @@ const application: PartnerApplicationFormData = {
   notes: 'Teste de candidatura.',
   lgpdAcceptance: true,
   termsVersion: '2026-07-30-pilot-v2',
+  freePilotLeadLimit: 2,
 };
 
 describe('submitPartnerApplication()', () => {

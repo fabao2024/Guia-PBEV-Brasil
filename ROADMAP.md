@@ -34,7 +34,7 @@ Operações administrativas, dados pessoais, regras de matching, credenciais, in
 
 O piloto para wallbox e energia solar em SP segue regras visíveis na própria landing `/parceiros/`:
 
-- até 2 leads qualificados aceitos por parceiro sem cobrança durante o piloto;
+- limite gratuito exibido e aceito na própria landing: até 2 leads no acesso padrão ou 1 lead válido em convite de campanha explicitamente versionado;
 - Wallbox PF: R$ 100 por lead aceito após o piloto;
 - Wallbox PJ: R$ 150 por lead aceito após o piloto;
 - energia solar integrada à recarga PF/PJ: R$ 250 por lead aceito após o piloto;
@@ -42,7 +42,7 @@ O piloto para wallbox e energia solar em SP segue regras visíveis na própria l
 - sem promessa de volume ou conversão;
 - compartilhamento de contato somente após consentimento e revisão humana.
 
-O frontend envia a candidatura a uma API externa por contrato versionado. Implementação administrativa, dados e automações permanecem fora deste repositório público.
+O frontend envia a candidatura a uma API externa por contrato versionado, incluindo o limite numérico exibido no aceite. Implementação administrativa, dados e automações permanecem fora deste repositório público.
 
 ## Próximos incrementos públicos
 

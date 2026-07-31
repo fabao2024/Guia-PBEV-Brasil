@@ -73,6 +73,42 @@ describe('PartnerApplicationsPage', () => {
     }));
   });
 
+  it('uses the one-lead contract only for the versioned outreach campaign', async () => {
+    const user = userEvent.setup();
+    window.sessionStorage.clear();
+    window.history.replaceState(
+      {},
+      '',
+      '/parceiros?utm_source=instagram&utm_medium=dm&utm_campaign=partner_pilot_sp_2026q3_one_lead_20260731&utm_content=empresa_teste',
+    );
+
+    render(
+      <MemoryRouter>
+        <PartnerApplicationsPage />
+      </MemoryRouter>,
+    );
+
+    expect(screen.getByText(/limitado a 1 lead válido e aceito por parceiro/i)).toBeInTheDocument();
+    expect(screen.getByText(/o primeiro lead válido e aceito é gratuito/i)).toBeInTheDocument();
+    expect(screen.queryByText(/os primeiros 2 leads aceitos são gratuitos/i)).not.toBeInTheDocument();
+
+    fireEvent.change(screen.getByLabelText(/nome da empresa/i), { target: { value: 'Empresa Rodada Um Lead' } });
+    fireEvent.change(screen.getByLabelText(/nome do responsável/i), { target: { value: 'Maria Parceira' } });
+    fireEvent.change(screen.getByLabelText(/email profissional/i), { target: { value: 'maria@example.com' } });
+    fireEvent.change(screen.getByLabelText(/whatsapp comercial/i), { target: { value: '11988887777' } });
+    fireEvent.change(screen.getByLabelText(/cidade sede/i), { target: { value: 'São Paulo' } });
+    await user.click(screen.getByRole('checkbox', { name: /^wallbox \/ instalação$/i }));
+    await user.click(screen.getByLabelText(/pessoa física/i));
+    await user.click(screen.getByLabelText(/aceito os termos do piloto gratuito/i));
+    await user.click(screen.getByRole('button', { name: /enviar candidatura/i }));
+
+    await waitFor(() => expect(submitPartnerApplication).toHaveBeenCalledTimes(1));
+    expect(submitPartnerApplication).toHaveBeenCalledWith(expect.objectContaining({
+      termsVersion: '2026-07-31-pilot-one-lead-v1',
+      freePilotLeadLimit: 1,
+    }));
+  });
+
   it('submits the essential supplier data and tracks the conversion funnel', async () => {
     const user = userEvent.setup();
     render(
@@ -109,6 +145,7 @@ describe('PartnerApplicationsPage', () => {
         energia_solar_recarga: 'PF/PJ R$ 250 por lead aceito após o piloto',
       },
       termsVersion: '2026-07-30-pilot-v2',
+      freePilotLeadLimit: 2,
       matchCodes: expect.arrayContaining(['uf_exact', 'serves_pf', 'serves_pj_fleet', 'home_charging', 'solar_cross_sell']),
       lgpdAcceptance: true,
     }));

@@ -19,14 +19,37 @@ const SERVICE_CATEGORIES = [
 
 const STATES = ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'];
 
-function createInitialForm(): PartnerApplicationFormData {
+type PilotContract = {
+  termsVersion: string;
+  freePilotLeadLimit: number;
+};
+
+const ONE_LEAD_OUTREACH_CAMPAIGN = 'partner_pilot_sp_2026q3_one_lead_20260731';
+const DEFAULT_PILOT_CONTRACT = {
+  termsVersion: '2026-07-30-pilot-v2',
+  freePilotLeadLimit: 2,
+} as const;
+const ONE_LEAD_PILOT_CONTRACT = {
+  termsVersion: '2026-07-31-pilot-one-lead-v1',
+  freePilotLeadLimit: 1,
+} as const;
+
+function resolvePilotContract() {
+  const currentCampaign = new URLSearchParams(window.location.search).get('utm_campaign');
+  return currentCampaign === ONE_LEAD_OUTREACH_CAMPAIGN
+    ? ONE_LEAD_PILOT_CONTRACT
+    : DEFAULT_PILOT_CONTRACT;
+}
+
+function createInitialForm(pilotContract: PilotContract = DEFAULT_PILOT_CONTRACT): PartnerApplicationFormData {
   return {
     companyName: '', cnpj: '', website: '', contactName: '', contactRole: '', email: '', whatsapp: '',
     city: '', state: 'SP', serviceCategories: [], coverageStates: ['SP'], coverageCities: '',
     servesPf: false, servesPj: false, servesRemote: false, evExperience: '', brandsSupported: '',
     monthlyCapacity: '', slaHours: '', crmTool: '', preferredDeliveryChannel: '',
     commercialModelInterest: '', acceptablePriceRange: '', leadPriceByModality: {}, matchCodes: [],
-    notes: '', lgpdAcceptance: false, termsVersion: '2026-07-30-pilot-v2',
+    notes: '', lgpdAcceptance: false, termsVersion: pilotContract.termsVersion,
+    freePilotLeadLimit: pilotContract.freePilotLeadLimit,
   };
 }
 
@@ -66,7 +89,9 @@ function deriveMatchCodes(form: PartnerApplicationFormData): string[] {
 }
 
 export default function PartnerApplicationsPage() {
-  const [form, setForm] = useState<PartnerApplicationFormData>(() => createInitialForm());
+  const pilotContract = resolvePilotContract();
+  const isOneLeadPilot = pilotContract.freePilotLeadLimit === 1;
+  const [form, setForm] = useState<PartnerApplicationFormData>(() => createInitialForm(pilotContract));
   const [submitting, setSubmitting] = useState(false);
   const [submittedId, setSubmittedId] = useState<number | null>(null);
   const [error, setError] = useState('');
@@ -122,7 +147,8 @@ export default function PartnerApplicationsPage() {
         wallbox: 'PF R$ 100; PJ R$ 150 por lead aceito após o piloto',
         energia_solar_recarga: 'PF/PJ R$ 250 por lead aceito após o piloto',
       },
-      termsVersion: '2026-07-30-pilot-v2',
+      termsVersion: pilotContract.termsVersion,
+      freePilotLeadLimit: pilotContract.freePilotLeadLimit,
       matchCodes: deriveMatchCodes(form),
     };
     const conversionProps = { ...campaignProps, category_count: submission.serviceCategories.length, state: submission.state };
@@ -132,7 +158,7 @@ export default function PartnerApplicationsPage() {
       const result = await submitPartnerApplication(submission);
       track('partner_submit_success', conversionProps);
       setSubmittedId(result.application_id);
-      setForm(createInitialForm());
+      setForm(createInitialForm(pilotContract));
     } catch (err) {
       track('partner_submit_error', { ...conversionProps, reason: 'api_error' });
       setError(err instanceof Error ? err.message : 'Não foi possível enviar a candidatura.');
@@ -169,14 +195,14 @@ export default function PartnerApplicationsPage() {
           <div className="relative max-w-4xl">
             <p className="text-xs font-black uppercase tracking-[0.24em] text-[#00b4ff]">Programa de parceiros</p>
             <h1 className="text-4xl md:text-6xl font-black mt-3 leading-[0.96]">Programa de parceiros para o ecossistema de veículos elétricos.</h1>
-            <p className="text-white/75 mt-5 max-w-3xl text-lg leading-relaxed">Receba oportunidades de consumidores que já pesquisam veículos, calculam TCO e avaliam infraestrutura de recarga. O piloto gratuito de encaminhamento está ativo para wallbox e energia solar em SP, limitado a até 2 leads qualificados aceitos por parceiro, conforme disponibilidade.</p>
+            <p className="text-white/75 mt-5 max-w-3xl text-lg leading-relaxed">Receba oportunidades de consumidores que já pesquisam veículos, calculam TCO e avaliam infraestrutura de recarga. O piloto gratuito de encaminhamento está ativo para wallbox e energia solar em SP, {isOneLeadPilot ? 'limitado a 1 lead válido e aceito por parceiro' : 'limitado a até 2 leads qualificados aceitos por parceiro'}, conforme disponibilidade.</p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a href="#formulario-parceiro" onClick={() => track('partner_cta_click', { ...campaignProps, placement: 'hero' })} className="rounded-xl bg-[#00b4ff] px-5 py-3 font-black text-black">Candidatar em 2 minutos</a>
               <a href="#como-funciona" className="rounded-xl border border-white/10 bg-white/5 px-5 py-3 font-bold text-white/85">Ver como funciona</a>
             </div>
             <div className="mt-7 grid gap-3 sm:grid-cols-3">
               <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-2xl text-[#37f29b]">0</strong><p className="mt-1 text-sm text-white/60">lead enviado sem revisão humana</p></div>
-              <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-2xl text-[#37f29b]">2</strong><p className="mt-1 text-sm text-white/60">leads aceitos no piloto gratuito</p></div>
+              <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-2xl text-[#37f29b]">{pilotContract.freePilotLeadLimit}</strong><p className="mt-1 text-sm text-white/60">{isOneLeadPilot ? 'lead válido e aceito no piloto gratuito' : 'leads aceitos no piloto gratuito'}</p></div>
               <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-2xl text-[#37f29b]">LGPD</strong><p className="mt-1 text-sm text-white/60">uso limitado ao interesse informado</p></div>
             </div>
           </div>
@@ -184,7 +210,7 @@ export default function PartnerApplicationsPage() {
 
         <section className={`${cardClass} mb-8`} aria-labelledby="precos-pos-piloto">
           <div className="flex items-center gap-3"><Handshake className="h-7 w-7 text-[#37f29b]" /><h2 id="precos-pos-piloto" className="text-2xl font-black">Condições previstas após o piloto</h2></div>
-          <p className="mt-3 text-white/65">Os primeiros 2 leads aceitos são gratuitos. Os valores abaixo só passam a valer após nova proposta, contrato, definição de estrutura jurídica e fiscal adequadas, forma de pagamento e concordância formal.</p>
+          <p className="mt-3 text-white/65">{isOneLeadPilot ? 'O primeiro lead válido e aceito é gratuito.' : 'Os primeiros 2 leads aceitos são gratuitos.'} Os valores abaixo só passam a valer após nova proposta, contrato, definição de estrutura jurídica e fiscal adequadas, forma de pagamento e concordância formal.</p>
           <div className="mt-5 grid gap-3 md:grid-cols-3">
             <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-white">Wallbox PF · R$ 100</strong><p className="mt-1 text-sm text-white/55">por lead qualificado e aceito após o piloto</p></div>
             <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-white">Wallbox PJ · R$ 150</strong><p className="mt-1 text-sm text-white/55">por lead qualificado e aceito após o piloto</p></div>
@@ -221,7 +247,7 @@ export default function PartnerApplicationsPage() {
             </div>
           </fieldset>
 
-          <label className="flex gap-3 rounded-2xl border border-white/10 bg-black/25 p-4 text-sm leading-relaxed text-white/80"><input required type="checkbox" checked={form.lgpdAcceptance} onChange={e => updateField('lgpdAcceptance', e.target.checked)} className="mt-1" /><span>Aceito os termos do piloto gratuito, limitado a até 2 leads qualificados aceitos e sem cobrança durante o piloto. Conheço os preços previstos para eventual continuidade e entendo que nenhum lead adicional será encaminhado antes de nova proposta, contrato, estrutura jurídica e fiscal adequadas, forma de pagamento e concordância formal. Também aceito respeitar a LGPD, usar os dados somente para o interesse informado e aguardar aprovação.</span></label>
+          <label className="flex gap-3 rounded-2xl border border-white/10 bg-black/25 p-4 text-sm leading-relaxed text-white/80"><input required type="checkbox" checked={form.lgpdAcceptance} onChange={e => updateField('lgpdAcceptance', e.target.checked)} className="mt-1" /><span>Aceito os termos do piloto gratuito, {isOneLeadPilot ? 'limitado a 1 lead válido e aceito' : 'limitado a até 2 leads qualificados aceitos'} e sem cobrança durante o piloto. Conheço os preços previstos para eventual continuidade e entendo que nenhum lead adicional será encaminhado antes de nova proposta, contrato, estrutura jurídica e fiscal adequadas, forma de pagamento e concordância formal. Também aceito respeitar a LGPD, usar os dados somente para o interesse informado e aguardar aprovação.</span></label>
           {error && <p role="alert" className="rounded-xl border border-red-400/30 bg-red-500/10 p-3 text-sm text-red-200">{error}</p>}
           <button disabled={submitting} className="inline-flex items-center gap-2 rounded-xl bg-[#00b4ff] px-6 py-3 font-black text-black disabled:opacity-60"><Send className="h-4 w-4" /> {submitting ? 'Enviando...' : 'Enviar candidatura'}</button>
         </form>
@@ -234,7 +260,7 @@ export default function PartnerApplicationsPage() {
 
         <section className={`${cardClass} mb-8`}>
           <div className="flex items-center gap-3"><Building2 className="h-7 w-7 text-[#00b4ff]" /><h2 className="text-2xl font-black">Categorias em formação</h2></div>
-          <p className="mt-3 text-white/65">Wallbox e energia solar participam do piloto gratuito em SP. Seguro EV, financiamento, compra de veículos, frotas e documentação permanecem em formação. A operação começa manual, limitada a até 2 leads aceitos por parceiro e sem promessa de volume ou conversão.</p>
+          <p className="mt-3 text-white/65">Wallbox e energia solar participam do piloto gratuito em SP. Seguro EV, financiamento, compra de veículos, frotas e documentação permanecem em formação. A operação começa manual, {isOneLeadPilot ? 'limitada a 1 lead válido e aceito por parceiro' : 'limitada a até 2 leads aceitos por parceiro'} e sem promessa de volume ou conversão.</p>
         </section>
       </div>
     </main>

@@ -84,4 +84,5 @@ export interface PartnerApplicationFormData {
   notes: string;
   lgpdAcceptance: boolean;
   termsVersion: string;
+  freePilotLeadLimit: number;
 }
