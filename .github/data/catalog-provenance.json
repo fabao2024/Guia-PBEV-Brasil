@@ -30,10 +30,10 @@
     },
     "aneel": {
       "sourceType": "official_regulator",
-      "sourceUrl": "https://dadosabertos.aneel.gov.br/dataset/tarifas-distribuidoras-energia-eletrica",
-      "reference": "jul/2026",
+      "sourceUrl": "https://dadosabertos.aneel.gov.br/dataset/5a583f3e-1646-4f67-bf0f-69db4203e89e/resource/fcf2906c-7c32-4b9b-a637-054e7a5234f4/download/tarifas-homologadas-distribuidoras-energia-eletrica.csv",
+      "reference": "tarifas-homologadas-distribuidoras-energia-eletrica.csv",
       "sourceUpdatedAt": "2026-07-31",
-      "verifiedAt": "2026-07-31"
+      "verifiedAt": "2026-08-01"
     }
   },
   "vehicles": {
