@@ -28,6 +28,35 @@ const NON_BEV_TERMS = [
 
 const VALID_RESULT_STATUSES = new Set(['changed', 'unchanged', 'partial', 'failed']);
 
+export async function fetchWithRetry(url, options = {}, {
+  attempts = 3,
+  timeoutMs = 30_000,
+  retryDelayMs = 750,
+} = {}) {
+  const parsed = new URL(url);
+  if (parsed.protocol !== 'https:') throw new Error('Coletor crítico exige fonte HTTPS');
+  if (!Number.isInteger(attempts) || attempts < 1 || attempts > 5) throw new Error('Número de tentativas inválido');
+  if (!Number.isInteger(timeoutMs) || timeoutMs < 100 || timeoutMs > 120_000) throw new Error('Timeout inválido');
+  if (!Number.isInteger(retryDelayMs) || retryDelayMs < 0 || retryDelayMs > 10_000) throw new Error('Backoff inválido');
+
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      const response = await fetch(parsed.href, {
+        ...options,
+        signal: AbortSignal.timeout(timeoutMs),
+      });
+      const transientHttp = response.status === 429 || response.status >= 500;
+      if (!transientHttp || attempt === attempts) return response;
+    } catch (error) {
+      if (attempt === attempts) throw error;
+    }
+    if (retryDelayMs > 0) {
+      await new Promise(resolve => setTimeout(resolve, retryDelayMs * attempt));
+    }
+  }
+  throw new Error('Coletor crítico esgotou as tentativas de rede');
+}
+
 export function createMaintenanceResult({
   source = '',
   status = '',

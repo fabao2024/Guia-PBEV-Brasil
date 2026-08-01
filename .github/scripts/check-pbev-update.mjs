@@ -4,7 +4,7 @@
  */
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
-import { createMaintenanceResult, discoverPbevEdition } from './maintenance-core.mjs';
+import { createMaintenanceResult, discoverPbevEdition, fetchWithRetry } from './maintenance-core.mjs';
 import { collectorResultPath, writeCollectorResult } from './maintenance-io.mjs';
 
 const SOURCE = 'pbev';
@@ -21,14 +21,19 @@ function pdfDownloadUrl(viewUrl) {
 
 async function collect() {
   const checkedAt = new Date().toISOString();
-  const pageResponse = await fetch(current.sourceUrl, {
+  const pageResponse = await fetchWithRetry(current.sourceUrl, {
     headers: { Accept: 'text/html', 'User-Agent': 'GuiaPBEV-Bot/2.0' },
   });
   if (!pageResponse.ok) throw new Error(`Página oficial PBEV retornou HTTP ${pageResponse.status}`);
   const edition = discoverPbevEdition(await pageResponse.text(), current.reference, current.sourceUrl);
 
   const downloadUrl = pdfDownloadUrl(edition.url);
-  const pdfResponse = await fetch(downloadUrl, {
+  const parsedDownloadUrl = new URL(downloadUrl);
+  if (parsedDownloadUrl.protocol !== 'https:' || parsedDownloadUrl.hostname !== 'www.gov.br'
+      || !parsedDownloadUrl.pathname.startsWith('/inmetro/')) {
+    throw new Error('URL do PDF PBEV fora do host oficial');
+  }
+  const pdfResponse = await fetchWithRetry(parsedDownloadUrl.href, {
     headers: { Accept: 'application/pdf', 'User-Agent': 'GuiaPBEV-Bot/2.0' },
   });
   if (!pdfResponse.ok) throw new Error(`PDF PBEV retornou HTTP ${pdfResponse.status}`);

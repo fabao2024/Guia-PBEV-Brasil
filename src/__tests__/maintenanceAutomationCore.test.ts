@@ -1,7 +1,7 @@
 import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 // The maintenance runtime is intentionally plain ESM so GitHub Actions can run it with Node.
 import {
   classifyNewsItem,
@@ -9,6 +9,7 @@ import {
   createMaintenanceResult,
   deriveOverallStatus,
   discoverPbevEdition,
+  fetchWithRetry,
   maintenancePeriodMarker,
   parseCollectorPayload,
   resolveAnpColumns,
@@ -147,6 +148,23 @@ describe('maintenance automation core', () => {
       status: 'failed',
       error: 'Resultado do coletor ausente',
     });
+  });
+
+  it('retries transient network failures before failing a critical collector', async () => {
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockRejectedValueOnce(new TypeError('fetch failed'))
+      .mockResolvedValueOnce(new Response('ok', { status: 200 }));
+    try {
+      const response = await fetchWithRetry('https://example.com/source', {}, {
+        attempts: 2,
+        retryDelayMs: 0,
+        timeoutMs: 1_000,
+      });
+      expect(response.status).toBe(200);
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+    } finally {
+      fetchMock.mockRestore();
+    }
   });
 
   it('writes a collector result as deterministic JSON for the workflow output step', () => {

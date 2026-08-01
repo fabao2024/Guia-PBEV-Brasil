@@ -3,7 +3,7 @@
  * Fonte oficial: ANEEL Dados Abertos, dataset de tarifas de aplicação.
  */
 import { readFileSync, writeFileSync } from 'node:fs';
-import { createMaintenanceResult } from './maintenance-core.mjs';
+import { createMaintenanceResult, fetchWithRetry } from './maintenance-core.mjs';
 import { collectorResultPath, writeCollectorResult } from './maintenance-io.mjs';
 import { PROVENANCE_FILE, updateDatasetProvenance } from './provenance-registry.mjs';
 import { runFile } from './security-utils.mjs';
@@ -32,7 +32,7 @@ function parseBrNumber(value) {
 }
 
 async function fetchJson(url) {
-  const response = await fetch(url, { headers: { Accept: 'application/json', 'User-Agent': 'GuiaPBEV-Bot/2.0' } });
+  const response = await fetchWithRetry(url, { headers: { Accept: 'application/json', 'User-Agent': 'GuiaPBEV-Bot/2.0' } });
   if (!response.ok) throw new Error(`ANEEL retornou HTTP ${response.status}`);
   const data = await response.json();
   if (!data?.success) throw new Error('ANEEL retornou success=false');

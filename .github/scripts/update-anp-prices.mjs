@@ -3,7 +3,7 @@
  * Fonte oficial: página e CSVs mensais da ANP em gov.br/anp.
  */
 import { readFileSync, writeFileSync } from 'node:fs';
-import { createMaintenanceResult, resolveAnpColumns } from './maintenance-core.mjs';
+import { createMaintenanceResult, fetchWithRetry, resolveAnpColumns } from './maintenance-core.mjs';
 import { collectorResultPath, writeCollectorResult } from './maintenance-io.mjs';
 import { PROVENANCE_FILE, updateDatasetProvenance } from './provenance-registry.mjs';
 import { runFile } from './security-utils.mjs';
@@ -169,11 +169,11 @@ function publishPr(title, prBody, branchBase) {
 async function collect() {
   const checkedAt = new Date().toISOString();
   const current = readCurrentPrices();
-  const landingResponse = await fetch(LANDING_URL, { headers: { Accept: 'text/html', 'User-Agent': 'GuiaPBEV-Bot/2.0' } });
+  const landingResponse = await fetchWithRetry(LANDING_URL, { headers: { Accept: 'text/html', 'User-Agent': 'GuiaPBEV-Bot/2.0' } });
   if (!landingResponse.ok) throw new Error(`Página oficial ANP retornou HTTP ${landingResponse.status}`);
   const resource = discoverLatestMonthlyCsv(await landingResponse.text());
 
-  const csvResponse = await fetch(resource.url, { headers: { Accept: 'text/csv', 'User-Agent': 'GuiaPBEV-Bot/2.0' } });
+  const csvResponse = await fetchWithRetry(resource.url, { headers: { Accept: 'text/csv', 'User-Agent': 'GuiaPBEV-Bot/2.0' } });
   if (!csvResponse.ok) throw new Error(`CSV ANP retornou HTTP ${csvResponse.status}`);
   const contentType = csvResponse.headers.get('content-type') ?? '';
   if (!/csv|text\/plain/i.test(contentType)) throw new Error(`Content-Type inesperado no CSV ANP: ${contentType}`);
