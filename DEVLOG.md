@@ -10,8 +10,8 @@ Notas técnicas selecionadas do produto público. Este documento não registra i
 | Segurança operacional | Falha, ausência de resultado ou cobertura crítica parcial bloqueiam conclusão automática em vez de simular ausência de mudanças. |
 | Catálogo | Proveniência por veículo e por campo crítico foi versionada; dados legados sem evidência permanecem explicitamente não verificados. |
 | Descoberta | Notícias geram watchlist, não mutações automáticas; híbridos, infraestrutura e falsos positivos de substring são filtrados. |
-| Auditoria | Uma issue mensal idempotente agrega status, cobertura, PRs, fontes, ações e critérios de conclusão. |
-| Verificação | 192/192 testes, build Vite, rotas estáticas e scanner do artifact aprovados. |
+| Auditoria | Uma issue mensal idempotente agrega status, cobertura, PRs, fontes, ações e critérios; PRs existentes são reutilizados por título exato. |
+| Verificação | 193/193 testes, build Vite, rotas estáticas e scanner do artifact aprovados. |
 
 ## 31/07/2026 · Oferta versionada de um lead válido
 

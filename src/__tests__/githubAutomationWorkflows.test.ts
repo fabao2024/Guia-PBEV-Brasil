@@ -117,6 +117,13 @@ describe('scheduled automation workflow hardening', () => {
     }
   });
 
+  it('reuses an existing data PR by exact title without relying on GitHub search indexing', () => {
+    for (const script of [anpScript, aneelScript]) {
+      expect(script).not.toContain("'--search'");
+      expect(script).toContain(".find(pr => pr.title === title)");
+    }
+  });
+
   it('supports side-effect-free dry runs for both data collectors', () => {
     for (const script of [anpScript, aneelScript]) {
       expect(script).toContain('MAINTENANCE_DRY_RUN');

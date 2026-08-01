@@ -130,7 +130,10 @@ function buildTarget(currentSource, tariffs, resource, sourceUpdatedAt) {
 }
 
 function findExistingPr(title) {
-  return runFile('gh', ['pr', 'list', '--state', 'open', '--search', `${title} in:title`, '--json', 'url', '--jq', '.[0].url // empty']);
+  const payload = runFile('gh', ['pr', 'list', '--state', 'open', '--limit', '100', '--json', 'title,url']);
+  const pullRequests = JSON.parse(payload);
+  if (!Array.isArray(pullRequests)) throw new Error('Resposta inválida ao listar PRs abertos');
+  return pullRequests.find(pr => pr.title === title)?.url ?? '';
 }
 
 function publishPr(title, prBody, branchBase) {
