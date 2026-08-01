@@ -1,158 +1,113 @@
 /**
- * create-maintenance-issue.mjs
- * Cria a issue mensal de manutenção no GitHub.
- * Chamado pelo workflow monthly-maintenance.yml via actions/github-script.
- *
- * Exporta: module.exports = async ({ github, context }) => { ... }
- * (compatível com actions/github-script@v7 usando script-path)
+ * Cria, atualiza, reabre ou fecha a issue mensal única a partir dos JSONs dos coletores.
+ * Executado por actions/github-script.
  */
+module.exports = async ({ github, context, core }) => {
+  const { readFileSync } = require('node:fs');
+  const { buildMaintenanceReport } = await import('./maintenance-report.mjs');
+  const { maintenancePeriodMarker, parseCollectorPayload } = await import('./maintenance-core.mjs');
 
-const { readFileSync, existsSync } = require('fs');
-
-function loadBrandLinksReport() {
-  const path = '/tmp/brand-links-report.json';
-  if (!existsSync(path)) return null;
-  try { return JSON.parse(readFileSync(path, 'utf-8')); } catch { return null; }
-}
-
-function loadEvNewsReport() {
-  const path = '/tmp/ev-news-report.json';
-  if (!existsSync(path)) return null;
-  try { return JSON.parse(readFileSync(path, 'utf-8')); } catch { return null; }
-}
-
-module.exports = async ({ github, context }) => {
   const now = new Date();
-  const brandReport = loadBrandLinksReport();
-  const newsReport  = loadEvNewsReport();
-  const mes = now.toLocaleDateString('pt-BR', {
-    month: 'long', year: 'numeric', timeZone: 'America/Sao_Paulo',
+  const period = process.env.MAINTENANCE_PERIOD || now.toISOString().slice(0, 7);
+  const monthLabel = new Intl.DateTimeFormat('pt-BR', {
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'America/Sao_Paulo',
+  }).format(new Date(`${period}-15T12:00:00Z`));
+  const marker = maintenancePeriodMarker(period);
+
+  const fromFile = source => {
+    try {
+      return parseCollectorPayload(readFileSync(`.maintenance-results/${source}.json`, 'utf8'), source);
+    } catch {
+      return parseCollectorPayload('', source);
+    }
+  };
+  const results = [
+    parseCollectorPayload(process.env.ANP_RESULT, 'anp'),
+    parseCollectorPayload(process.env.ANEEL_RESULT, 'aneel'),
+    parseCollectorPayload(process.env.PBEV_RESULT, 'pbev'),
+    fromFile('news'),
+    fromFile('brand_links'),
+    fromFile('provenance'),
+  ];
+  const report = buildMaintenanceReport({
+    period,
+    monthLabel,
+    results,
+    workflowUrl: process.env.WORKFLOW_URL,
   });
-  const mesAbrev = now.toLocaleDateString('pt-BR', { month: 'short', timeZone: 'America/Sao_Paulo' })
-    .replace('.', '').trim() + '/' + String(now.getFullYear()).slice(-2);
-  const yyyyMM = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
 
-  const month = now.getMonth(); // 0=jan, 1=fev
-  const isIpvaSeason = month === 0 || month === 1;
-
-  const body = [
-    `## Manutenção mensal — ${mes}`,
-    '',
-    '> Aberta automaticamente no dia 1 de cada mês pelo workflow `monthly-maintenance.yml`.',
-    '',
-    '---',
-    '',
-    '## O que o workflow já fez automaticamente',
-    '',
-    '| Job | O que faz | Como verificar |',
-    '|-----|-----------|----------------|',
-    '| **ANP preços combustível** | Baixa preços médios de gasolina/etanol da ANP e abre um **PR** se os valores mudaram | Veja a aba [Pull Requests](../../pulls) — se não há PR, os preços não mudaram ou o site da ANP estava fora |',
-    '| **ANEEL tarifas B1** | Busca tarifas residenciais por estado e abre um **PR** se mudaram ≥ R$0.01/kWh | Veja a aba [Pull Requests](../../pulls) — se não há PR, não houve variação ou a ANEEL estava fora |',
-    '| **PBEV tabela INMETRO** | Verifica se há versão mais nova da tabela de certificação | Veja a aba [Issues](../../issues) — se não há issue separada, não há tabela nova |',
-    '',
-    '> ⚠️ Nenhum desses jobs altera o código diretamente sem sua revisão.',
-    '',
-    '---',
-    '',
-    '## O que você precisa fazer manualmente',
-    '',
-    '### 🚗 Catálogo de veículos',
-    ...(newsReport?.items?.length
-      ? [
-          `> 🗞️ **${newsReport.items.length} notícia(s) sobre EVs nos últimos ${newsReport.daysBack} dias** — verifique se alguma anuncia novo modelo ou preço:`,
-          ...newsReport.items.slice(0, 10).map(i => `> - [${i.title}](${i.url}) _(${i.source} · ${i.date})_`),
-          ...(newsReport.items.length > 10 ? [`> - … e mais ${newsReport.items.length - 10} notícias`] : []),
-          '',
-          '- [ ] Revisar notícias acima e adicionar novos EVs ao catálogo se necessário',
-        ]
-      : newsReport
-        ? ['> ℹ️ Nenhuma notícia relevante sobre novos EVs encontrada nos últimos 35 dias.',
-           '- [ ] Verificar manualmente se há novos EVs no mercado (sites das marcas, PBEV)']
-        : ['- [ ] Verificar se há novos EVs no mercado brasileiro (sites das marcas, PBEV, notícias)']),
-    '- [ ] Atualizar preços alterados em `src/constants.ts` (campo `price`)',
-    '- [ ] Para cada preço alterado, adicionar entrada em `src/constants/priceHistory.ts`:',
-    '  ```ts',
-    '  "Modelo": [',
-    '    { date: \'YYYY-MM-anterior\', price: NNN },',
-    `    { date: '${yyyyMM}', price: NNN_NOVO },`,
-    '  ]',
-    '  ```',
-    '- [ ] Marcar veículos descontinuados com `discontinued: true`',
-    '- [ ] Atualizar contagem de veículos no README se houve adição/remoção',
-    '',
-    '---',
-    '',
-    '### ⚡ Tarifas de energia elétrica — ANEEL',
-    '- [ ] Consultar tarifas B1 atualizadas: https://www.aneel.gov.br/tarifas-de-distribuicao',
-    '- [ ] Atualizar valores em `src/constants/electricityPricesByState.ts`',
-    `- [ ] Atualizar \`ELECTRICITY_PRICES_UPDATED\` para \`'${mesAbrev}'\``,
-    '',
-    '---',
-    '',
-    ...(isIpvaSeason ? [
-      '### 🏛️ IPVA por estado _(jan/fev — verificar mudanças de alíquota)_',
-      '- [ ] Verificar se algum estado alterou alíquota para EVs ou combustão',
-      '- [ ] Se houver alteração: atualizar `src/constants/ipvaByState.ts`',
-      '- [ ] Atualizar `IPVA_DATA_UPDATED` se houve mudança',
-      '',
-      '---',
-      '',
-    ] : []),
-    '### 🔗 Links e afiliados',
-    ...(brandReport
-      ? brandReport.broken?.length
-        ? [
-            `> ⚠️ **${brandReport.broken.length} link(s) com problema detectado automaticamente:**`,
-            ...brandReport.broken.map(r => `> - **${r.brand}**: \`${r.url}\` — ${r.error ?? `HTTP ${r.status}`}`),
-            '',
-            '- [ ] Corrigir links quebrados acima em `BRAND_URLS` em `src/constants.ts`',
-          ]
-        : ['> ✅ Todos os links de marcas verificados e funcionando.']
-      : ['- [ ] Verificar se links das marcas em `BRAND_URLS` estão funcionando (verificação automática não rodou)']),
-    '- [ ] Verificar status do afiliado Trendseg',
-    '',
-    '---',
-    '',
-    '### ✅ Após concluir',
-    '- [ ] `npm run test:run` — todos os testes passando',
-    '- [ ] `npm run build` — build limpo',
-    `- [ ] Commit com mensagem \`chore(data): atualização mensal ${mesAbrev}\``,
-    '- [ ] Fechar esta issue',
-  ].join('\n');
-
-  // Ensure labels exist
-  for (const [name, color, description] of [
-    ['manutenção', '0075ca', 'Tarefas de manutenção periódica de dados'],
-    ['dados',      'e4e669', 'Atualização de dados do catálogo'],
-  ]) {
+  const labelDefinitions = {
+    maintenance: ['0075ca', 'Manutenção periódica automatizada'],
+    automated: ['6f42c1', 'Gerado ou atualizado por automação'],
+    'maintenance-blocked': ['b60205', 'Fonte crítica falhou ou ficou parcial'],
+    'maintenance-attention': ['fbca04', 'Cobertura consultiva parcial ou ação pendente'],
+    'maintenance-changes': ['1d76db', 'Alterações de dados detectadas'],
+    'maintenance-verified': ['0e8a16', 'Todas as fontes verificadas sem alterações'],
+  };
+  for (const label of report.labels) {
+    const [color, description] = labelDefinitions[label];
     try {
       await github.rest.issues.createLabel({
-        owner: context.repo.owner, repo: context.repo.repo, name, color, description,
+        owner: context.repo.owner,
+        repo: context.repo.repo,
+        name: label,
+        color,
+        description,
       });
-    } catch (_) { /* label já existe */ }
+    } catch (error) {
+      if (error.status !== 422) throw error;
+    }
   }
 
-  // Evita duplicatas: só cria se não houver issue aberta com o mesmo título neste mês
-  const existing = await github.rest.issues.listForRepo({
+  const issues = await github.paginate(github.rest.issues.listForRepo, {
     owner: context.repo.owner,
     repo: context.repo.repo,
-    state: 'open',
-    labels: 'manutenção',
-    per_page: 20,
+    state: 'all',
+    per_page: 100,
   });
+  const normalizedMonth = monthLabel.toLocaleLowerCase('pt-BR');
+  const existing = issues.find(issue => issue.body?.includes(marker))
+    ?? issues.find(issue =>
+      issue.title.toLocaleLowerCase('pt-BR').includes('manutenção mensal')
+      && issue.title.toLocaleLowerCase('pt-BR').includes(normalizedMonth),
+    );
 
-  const title = `🔧 Manutenção mensal — ${mes}`;
-  const alreadyExists = existing.data.some(i => i.title === title);
-  if (alreadyExists) {
-    console.log(`Issue "${title}" já existe — pulando criação.`);
-    return;
+  let issue;
+  if (existing) {
+    issue = await github.rest.issues.update({
+      owner: context.repo.owner,
+      repo: context.repo.repo,
+      issue_number: existing.number,
+      title: report.title,
+      body: report.body,
+      labels: report.labels,
+      state: report.shouldClose ? 'closed' : 'open',
+      ...(report.shouldClose ? { state_reason: 'completed' } : {}),
+    });
+    core.info(`Issue mensal #${existing.number} atualizada; estado=${report.shouldClose ? 'closed' : 'open'}.`);
+  } else {
+    issue = await github.rest.issues.create({
+      owner: context.repo.owner,
+      repo: context.repo.repo,
+      title: report.title,
+      body: report.body,
+      labels: report.labels,
+    });
+    if (report.shouldClose) {
+      issue = await github.rest.issues.update({
+        owner: context.repo.owner,
+        repo: context.repo.repo,
+        issue_number: issue.data.number,
+        state: 'closed',
+        state_reason: 'completed',
+      });
+    }
+    core.info(`Issue mensal #${issue.data.number} criada.`);
   }
 
-  await github.rest.issues.create({
-    owner: context.repo.owner,
-    repo: context.repo.repo,
-    title,
-    body,
-    labels: ['manutenção', 'dados'],
-  });
+  core.setOutput('issue-number', issue.data.number);
+  core.setOutput('issue-url', issue.data.html_url);
+  core.setOutput('overall-status', report.overall.code);
 };

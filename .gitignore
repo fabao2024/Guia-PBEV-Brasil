@@ -23,10 +23,11 @@ dist-ssr
 *.sln
 *.sw?
 
-# Env and local backups
+# Env, local automation artifacts and backups
 .env*
 !.env.example
 *.bak
+/.maintenance-results/
 
 # Dev utility scripts (root-level only)
 /scripts/

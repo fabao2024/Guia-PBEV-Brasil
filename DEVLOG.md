@@ -2,6 +2,17 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 01/08/2026 · Manutenção mensal de dados auditável
+
+| Área | Mudança pública |
+|---|---|
+| Fontes oficiais | Coletores de combustíveis, eletricidade e PBEV usam fontes públicas atuais e emitem evidências estruturadas. |
+| Segurança operacional | Falha, ausência de resultado ou cobertura crítica parcial bloqueiam conclusão automática em vez de simular ausência de mudanças. |
+| Catálogo | Proveniência por veículo e por campo crítico foi versionada; dados legados sem evidência permanecem explicitamente não verificados. |
+| Descoberta | Notícias geram watchlist, não mutações automáticas; híbridos, infraestrutura e falsos positivos de substring são filtrados. |
+| Auditoria | Uma issue mensal idempotente agrega status, cobertura, PRs, fontes, ações e critérios de conclusão. |
+| Verificação | 191/191 testes, build Vite, rotas estáticas e scanner do artifact aprovados. |
+
 ## 31/07/2026 · Oferta versionada de um lead válido
 
 | Área | Mudança pública |

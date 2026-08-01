@@ -1,302 +1,226 @@
 /**
- * update-aneel-tariffs.mjs
- * Atualiza automaticamente as tarifas residenciais B1 por estado
- * usando dados abertos da ANEEL (dadosabertos.aneel.gov.br / CKAN API).
- *
- * Fluxo:
- *  1. Busca o dataset de Tarifas Homologadas na API CKAN da ANEEL
- *  2. Baixa o CSV mais recente de tarifas vigentes
- *  3. Filtra modalidade B1, soma TE + TUSD por distribuidora
- *  4. Mapeia distribuidoras → estados (hardcoded, principal por cobertura)
- *  5. Se valores mudaram ≥ R$0.01/kWh: atualiza electricityPricesByState.ts e abre PR
- *  6. Se nada mudou: encerra sem criar commit
- *
- * Fonte: https://dadosabertos.aneel.gov.br/dataset/tarifas-de-energia-eletrica-dos-grupos-a-e-b
+ * Atualiza tarifas residenciais B1 (TE + TUSD) por UF.
+ * Fonte oficial: ANEEL Dados Abertos, dataset de tarifas de aplicação.
  */
-
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { createMaintenanceResult } from './maintenance-core.mjs';
+import { collectorResultPath, writeCollectorResult } from './maintenance-io.mjs';
+import { PROVENANCE_FILE, updateDatasetProvenance } from './provenance-registry.mjs';
 import { runFile } from './security-utils.mjs';
 
-// ── Configuração ──────────────────────────────────────────────────────────────
-
-const CKAN_API    = 'https://dadosabertos.aneel.gov.br/api/3/action';
-const PACKAGE_ID  = 'tarifas-de-energia-eletrica-dos-grupos-a-e-b';
+const SOURCE = 'aneel';
+const CKAN_API = 'https://dadosabertos.aneel.gov.br/api/3/action';
+const PACKAGE_ID = 'tarifas-distribuidoras-energia-eletrica';
 const TARGET_FILE = 'src/constants/electricityPricesByState.ts';
-
-// Distribuidora principal por estado (maior cobertura populacional)
-// Chave: substring case-insensitive do NomAgente no CSV da ANEEL
-const DISTRIBUTOR_MAP = {
-  AC: 'energisa acre',
-  AL: 'equatorial alagoas',
-  AM: 'amazonas energia',
-  AP: 'cea',
-  BA: 'neoenergia bahia',
-  CE: 'equatorial cear',       // Enel CE → Equatorial CE
-  DF: 'neoenergia bras',
-  ES: 'edp espirito',
-  GO: 'equatorial goi',
-  MA: 'equatorial maranh',
-  MG: 'cemig',
-  MS: 'energisa mato grosso do sul',
-  MT: 'energisa mato grosso',
-  PA: 'equatorial par',
-  PB: 'energisa paraiba',
-  PE: 'neoenergia pernambuco',
-  PI: 'equatorial piau',
-  PR: 'copel',
-  RJ: 'enel distribui',        // Enel RJ (maior cobertura)
-  RN: 'neoenergia cosern',
-  RO: 'energisa rondonia',
-  RR: 'roraima energia',
-  RS: 'ceee',
-  SC: 'celesc',
-  SE: 'energisa sergipe',
-  SP: 'enel distribui.*sp|cpfl paulista',  // SP tem múltiplas; Enel SP é maior
-  TO: 'energisa tocantins',
+const PAGE_SIZE = 1000;
+const dryRun = process.env.MAINTENANCE_DRY_RUN === '1';
+const AGENTS_BY_STATE = {
+  AC: ['EAC'], AL: ['EQUATORIAL AL'], AM: ['Âmbar Amazonas'], AP: ['CEA'],
+  BA: ['COELBA'], CE: ['ENEL CE'], DF: ['Neoenergia Brasília'], ES: ['EDP ES'],
+  GO: ['EQUATORIAL GO', 'CHESP'], MA: ['EQUATORIAL MA'], MG: ['CEMIG-D'], MS: ['EMS'],
+  MT: ['EMT'], PA: ['EQUATORIAL PA'], PB: ['EPB'], PE: ['Neoenergia PE'],
+  PI: ['EQUATORIAL PI'], PR: ['COPEL-DIS'], RJ: ['ENEL RJ', 'LIGHT SESA'],
+  RN: ['COSERN'], RO: ['ERO'], RR: ['ÂMBAR ENERGIA RR'],
+  RS: ['CEEE-D', 'RGE'], SC: ['CELESC'], SE: ['ESE', 'SULGIPE'],
+  SP: ['ELETROPAULO', 'EDP SP', 'CPFL-PAULISTA', 'CPFL-PIRATINING', 'ELEKTRO', 'CPFL Santa Cruz'],
+  TO: ['ETO'],
 };
+const STATES = Object.keys(AGENTS_BY_STATE);
 
-const STATES = Object.keys(DISTRIBUTOR_MAP);
-
-// ── Helpers ───────────────────────────────────────────────────────────────────
-
-function parseBRFloat(str) {
-  return parseFloat((str ?? '').replace(',', '.'));
+function parseBrNumber(value) {
+  return Number.parseFloat(String(value ?? '').replace(/\./g, '').replace(',', '.'));
 }
 
-function parseCSV(text) {
-  const lines = text.split('\n').map(l => l.trim()).filter(Boolean);
-  if (lines.length < 2) throw new Error('CSV vazio ou inválido');
-  const rawHeader = lines[0].replace(/^\uFEFF/, '');
-  const sep = rawHeader.includes(';') ? ';' : ',';
-  const headers = rawHeader.split(sep).map(h => h.replace(/"/g, '').trim());
-  return lines.slice(1).map(line => {
-    const cols = line.split(sep).map(c => c.replace(/"/g, '').trim());
-    return Object.fromEntries(headers.map((h, i) => [h, cols[i] ?? '']));
-  });
+async function fetchJson(url) {
+  const response = await fetch(url, { headers: { Accept: 'application/json', 'User-Agent': 'GuiaPBEV-Bot/2.0' } });
+  if (!response.ok) throw new Error(`ANEEL retornou HTTP ${response.status}`);
+  const data = await response.json();
+  if (!data?.success) throw new Error('ANEEL retornou success=false');
+  return data.result;
 }
 
-/**
- * Busca o CSV de tarifas vigentes na API CKAN da ANEEL.
- */
-async function getLatestCsvUrl() {
-  console.log('🔍 Buscando dataset na ANEEL CKAN API…');
-  const resp = await fetch(`${CKAN_API}/package_show?id=${PACKAGE_ID}`, {
-    headers: { 'Accept': 'application/json', 'User-Agent': 'GuiaPBEV-Bot/1.0' },
-  });
-  if (!resp.ok) throw new Error(`ANEEL API retornou ${resp.status}`);
-  const data = await resp.json();
-  if (!data.success) throw new Error('ANEEL API retornou success=false');
-
-  const resources = data.result?.resources ?? [];
-  // Prefere recurso com "vigente" ou "homologada" no nome, formato CSV
-  const csvs = resources.filter(r => {
-    const fmt  = (r.format ?? '').toUpperCase();
-    const name = (r.name ?? '').toLowerCase();
-    return fmt === 'CSV' && (name.includes('vigente') || name.includes('homolog') || name.includes('atual'));
-  });
-  const candidates = csvs.length ? csvs : resources.filter(r => (r.format ?? '').toUpperCase() === 'CSV');
-  if (!candidates.length) throw new Error('Nenhum recurso CSV encontrado');
-
-  const latest = candidates[candidates.length - 1];
-  console.log(`✅ Recurso: "${latest.name}" → ${latest.url}`);
-  return { url: latest.url, name: latest.name };
+async function discoverResource() {
+  const result = await fetchJson(`${CKAN_API}/package_show?id=${encodeURIComponent(PACKAGE_ID)}`);
+  const candidates = (result.resources ?? []).filter(resource =>
+    resource.datastore_active && /tarifas-homologadas-distribuidoras-energia-eletrica\.csv/i.test(resource.name ?? resource.url ?? ''),
+  );
+  if (!candidates.length) throw new Error('Recurso ativo de tarifas homologadas não encontrado na ANEEL');
+  const resource = candidates.at(-1);
+  if (!/^[0-9a-f-]{36}$/i.test(resource.id)) throw new Error('ID de recurso ANEEL inválido');
+  const url = new URL(resource.url);
+  if (url.protocol !== 'https:' || url.hostname !== 'dadosabertos.aneel.gov.br') throw new Error('URL de recurso ANEEL fora do host oficial');
+  return { id: resource.id, name: resource.name, url: resource.url, hash: resource.hash ?? null };
 }
 
-/**
- * Calcula tarifa B1 por estado: soma TE + TUSD da distribuidora principal.
- */
-function computeStateTariffs(rows) {
-  // Detecta nomes de colunas (a ANEEL muda às vezes)
-  if (!rows.length) throw new Error('CSV sem linhas');
-  const sample = rows[0];
-  const cols = Object.keys(sample);
+async function fetchResidentialRows(resourceId) {
+  const filters = JSON.stringify({
+    DscSubGrupo: 'B1',
+    DscBaseTarifaria: 'Tarifa de Aplicação',
+    DscClasse: 'Residencial',
+    DscSubClasse: 'Residencial',
+    DscModalidadeTarifaria: 'Convencional',
+  });
+  const rows = [];
+  let total = null;
+  for (let offset = 0; total === null || offset < total; offset += PAGE_SIZE) {
+    const query = new URLSearchParams({ id: resourceId, filters, limit: String(PAGE_SIZE), offset: String(offset) });
+    const result = await fetchJson(`${CKAN_API}/datastore_search?${query}`);
+    if (!Array.isArray(result.records)) throw new Error('ANEEL não retornou records');
+    total = Number(result.total);
+    if (!Number.isInteger(total) || total <= 0 || total > 50000) throw new Error(`Cardinalidade ANEEL inesperada: ${result.total}`);
+    rows.push(...result.records);
+  }
+  if (rows.length !== total) throw new Error(`Paginação ANEEL incompleta: ${rows.length}/${total}`);
+  return rows;
+}
 
-  const colAgent   = cols.find(c => /agente|distribu/i.test(c) && !/sig/i.test(c)) ?? cols.find(c => /agente/i.test(c));
-  const colModal   = cols.find(c => /modalidade/i.test(c));
-  const colTarifa  = cols.find(c => /sigtarifa|tipo.*tarifa|^tarifa$/i.test(c));
-  const colValor   = cols.find(c => /vlrtarifa|valor.*tarifa|^valor$/i.test(c));
-  const colFimVig  = cols.find(c => /fimvig|fim.*vig|dataterm/i.test(c));
-
-  console.log(`   Colunas detectadas: agente=${colAgent} modal=${colModal} tarifa=${colTarifa} valor=${colValor} vigência=${colFimVig}`);
-  if (!colAgent || !colValor) throw new Error('Colunas obrigatórias não encontradas no CSV');
-
-  const today = new Date();
-
-  // Acumula TE + TUSD por distribuidora
-  const accum = {}; // { nomAgente: { TE: val, TUSD: val } }
+function computeStateTariffs(rows, asOfDate) {
+  const byAgent = new Map();
+  let sourceUpdatedAt = null;
+  let currentRows = 0;
 
   for (const row of rows) {
-    // Filtra apenas B1
-    if (colModal && !(row[colModal] ?? '').toUpperCase().includes('B1')) continue;
-
-    // Filtra apenas tarifas em vigor (se coluna de fim de vigência existir)
-    if (colFimVig) {
-      const rawDate = row[colFimVig] ?? '';
-      if (rawDate) {
-        // Formato DD/MM/YYYY
-        const parts = rawDate.split('/');
-        if (parts.length === 3) {
-          const end = new Date(+parts[2], +parts[1] - 1, +parts[0]);
-          if (end < today) continue; // expirada
-        }
-      }
+    if (!(row.DatInicioVigencia <= asOfDate && row.DatFimVigencia >= asOfDate)) continue;
+    if (row.DscUnidadeTerciaria !== 'MWh' || row.DscDetalhe !== 'Não se aplica' || row.NomPostoTarifario !== 'Não se aplica') continue;
+    const tusd = parseBrNumber(row.VlrTUSD);
+    const te = parseBrNumber(row.VlrTE);
+    if (!Number.isFinite(tusd) || !Number.isFinite(te) || tusd <= 0 || te <= 0) continue;
+    byAgent.set(row.SigAgente, Math.round(((tusd + te) / 1000) * 100) / 100);
+    currentRows += 1;
+    if (row.DatGeracaoConjuntoDados && (!sourceUpdatedAt || row.DatGeracaoConjuntoDados > sourceUpdatedAt)) {
+      sourceUpdatedAt = row.DatGeracaoConjuntoDados;
     }
-
-    const agente = (row[colAgent] ?? '').toLowerCase().trim();
-    if (!agente) continue;
-
-    const tipoTarifa = (row[colTarifa] ?? '').toUpperCase().trim();
-    const valor = parseBRFloat(row[colValor]);
-    if (isNaN(valor) || valor <= 0) continue;
-
-    if (!accum[agente]) accum[agente] = { TE: 0, TUSD: 0, count: 0 };
-
-    if (tipoTarifa === 'TE')   accum[agente].TE   = valor;
-    if (tipoTarifa === 'TUSD') accum[agente].TUSD = valor;
-    accum[agente].count++;
   }
 
-  // Mapeia para estados
-  const result = {};
-  for (const [uf, pattern] of Object.entries(DISTRIBUTOR_MAP)) {
-    const regex = new RegExp(pattern, 'i');
-    const match = Object.entries(accum).find(([nome]) => regex.test(nome));
-    if (!match) {
-      console.warn(`⚠️  Sem dados para ${uf} (pattern: ${pattern})`);
+  const tariffs = {};
+  const missingAgents = {};
+  for (const [uf, agents] of Object.entries(AGENTS_BY_STATE)) {
+    const values = agents.map(agent => byAgent.get(agent)).filter(Number.isFinite);
+    if (values.length !== agents.length) {
+      missingAgents[uf] = agents.filter(agent => !byAgent.has(agent));
       continue;
     }
-    const [nome, { TE, TUSD }] = match;
-    const total = Math.round((TE + TUSD) * 100) / 100;
-    if (total > 0) {
-      result[uf] = total;
-      console.log(`   ${uf}: R$${total}/kWh (${nome})`);
-    }
+    tariffs[uf] = Math.round((values.reduce((sum, value) => sum + value, 0) / values.length) * 100) / 100;
   }
-
-  return result;
+  return { tariffs, sourceUpdatedAt, currentRows, missingAgents };
 }
 
-/**
- * Lê valores atuais de electricityPricesByState.ts.
- */
 function readCurrentTariffs() {
-  const src = readFileSync(TARGET_FILE, 'utf-8');
-  const result = {};
-  const re = /(\w{2}):\s*([\d.]+),/g;
-  let m;
-  while ((m = re.exec(src)) !== null) {
-    result[m[1]] = parseFloat(m[2]);
-  }
-  return result;
+  const source = readFileSync(TARGET_FILE, 'utf8');
+  const tariffs = {};
+  for (const match of source.matchAll(/(\w{2}):\s*([\d.]+),/g)) tariffs[match[1]] = Number(match[2]);
+  return {
+    source,
+    tariffs,
+    reference: source.match(/ELECTRICITY_PRICES_UPDATED = '([^']+)'/)?.[1] ?? null,
+  };
 }
 
-/**
- * Gera conteúdo atualizado de electricityPricesByState.ts.
- */
-function buildFileContent(tariffs, resourceName, now) {
-  const monthLabel = now.toLocaleDateString('pt-BR', { month: 'short', timeZone: 'America/Sao_Paulo' })
-    .replace('.', '').trim() + '/' + String(now.getFullYear()).slice(-2);
-  const isoDate = now.toISOString().split('T')[0];
-
-  // Lê arquivo atual para preservar comentários de distribuidoras
-  const current = readFileSync(TARGET_FILE, 'utf-8');
-
-  // Substitui apenas os valores numéricos, preservando comentários
-  let updated = current
-    .replace(/\/\/ Atualizado em: .+/, `// Atualizado em: ${isoDate}`)
-    .replace(/\/\/ Fonte: .+/, `// Fonte: dadosabertos.aneel.gov.br — ${resourceName}`)
+function buildTarget(currentSource, tariffs, resource, sourceUpdatedAt) {
+  const sourceDate = new Date(`${sourceUpdatedAt}T12:00:00Z`);
+  const monthLabel = sourceDate.toLocaleDateString('pt-BR', { month: 'short', year: 'numeric', timeZone: 'America/Sao_Paulo' }).replace('.', '');
+  let updated = currentSource
+    .replace(/\/\/ Fonte: .+/, `// Fonte: dadosabertos.aneel.gov.br — ${resource.name} · recurso ${resource.id}`)
+    .replace(/\/\/ Atualizado em: .+/, `// Atualizado em: ${sourceUpdatedAt}`)
     .replace(/export const ELECTRICITY_PRICES_UPDATED = '.+?'/, `export const ELECTRICITY_PRICES_UPDATED = '${monthLabel}'`);
-
-  for (const [uf, valor] of Object.entries(tariffs)) {
-    // Substitui só o valor do estado, preservando o comentário
-    updated = updated.replace(
-      new RegExp(`(  ${uf}: )[\\d.]+`),
-      `$1${valor.toFixed(2)}`
-    );
+  for (const [uf, value] of Object.entries(tariffs)) {
+    updated = updated.replace(new RegExp(`(  ${uf}: )[\\d.]+`), `$1${value.toFixed(2)}`);
   }
-
   return updated;
 }
 
-// ── Main ──────────────────────────────────────────────────────────────────────
+function findExistingPr(title) {
+  return runFile('gh', ['pr', 'list', '--state', 'open', '--search', `${title} in:title`, '--json', 'url', '--jq', '.[0].url // empty']);
+}
 
-async function main() {
-  const now = new Date();
-  const monthSlug = now.toLocaleDateString('pt-BR', { month: 'short', timeZone: 'America/Sao_Paulo' })
-    .replace('.', '').trim() + '-' + String(now.getFullYear()).slice(-2);
-
-  const { url: csvUrl, name: resourceName } = await getLatestCsvUrl();
-
-  console.log('⬇️  Baixando CSV da ANEEL…');
-  const csvResp = await fetch(csvUrl, { headers: { 'User-Agent': 'GuiaPBEV-Bot/1.0' } });
-  if (!csvResp.ok) throw new Error(`Erro ao baixar CSV: ${csvResp.status}`);
-  const csvText = await csvResp.text();
-  console.log(`   ${csvText.length.toLocaleString()} caracteres`);
-
-  console.log('📊 Calculando tarifas B1 por estado…');
-  const rows = parseCSV(csvText);
-  console.log(`   ${rows.length.toLocaleString()} linhas`);
-  const newTariffs = computeStateTariffs(rows);
-
-  const statesFound = Object.keys(newTariffs).length;
-  if (statesFound < 15) throw new Error(`Apenas ${statesFound} estados encontrados — dados provavelmente incompletos.`);
-  console.log(`   ${statesFound} estados mapeados`);
-
-  const current = readCurrentTariffs();
-  const changed = STATES.filter(uf => {
-    if (!newTariffs[uf] || !current[uf]) return false;
-    return Math.abs(newTariffs[uf] - current[uf]) >= 0.01;
-  });
-
-  if (changed.length === 0) {
-    console.log('✅ Nenhuma alteração significativa de tarifa detectada. Nada a fazer.');
-    return;
-  }
-  console.log(`🔄 ${changed.length} estados com tarifas alteradas: ${changed.join(', ')}`);
-
-  const newContent = buildFileContent(newTariffs, resourceName, now);
-  writeFileSync(TARGET_FILE, newContent, 'utf-8');
-  console.log(`✅ ${TARGET_FILE} atualizado`);
-
-  // Abre PR
-  const branch = `data/aneel-tariffs-${monthSlug}`;
+function publishPr(title, prBody, branchBase) {
+  const existing = findExistingPr(title);
+  if (existing) return existing;
+  const runSuffix = String(process.env.GITHUB_RUN_ID || Date.now()).replace(/[^0-9]/g, '');
+  const branch = `${branchBase}-${runSuffix}`;
   runFile('git', ['config', 'user.email', 'github-actions[bot]@users.noreply.github.com']);
   runFile('git', ['config', 'user.name', 'github-actions[bot]']);
   runFile('git', ['checkout', '-b', branch]);
-  runFile('git', ['add', TARGET_FILE]);
-  runFile('git', ['commit', '-m', `chore(data): atualizar tarifas ANEEL B1 — ${monthSlug}`]);
+  runFile('git', ['add', TARGET_FILE, PROVENANCE_FILE]);
+  runFile('git', ['commit', '-m', title]);
+  runFile('git', ['pull', '--rebase', 'origin', 'main']);
   runFile('git', ['push', 'origin', branch]);
-
-  const prBody = [
-    '## Atualização automática de tarifas de energia elétrica (ANEEL B1)',
-    '',
-    `**Fonte:** dadosabertos.aneel.gov.br`,
-    `**Recurso:** ${resourceName}`,
-    `**Estados alterados (${changed.length}):** ${changed.join(', ')}`,
-    '',
-    '### Variações detectadas',
-    ...changed.map(uf => {
-      const delta = (newTariffs[uf] - (current[uf] ?? 0));
-      const sign  = delta >= 0 ? '+' : '';
-      return `- **${uf}**: R$${(current[uf] ?? '?')}/kWh → R$${newTariffs[uf].toFixed(2)}/kWh (${sign}${delta.toFixed(2)})`;
-    }),
-    '',
-    '> ⚠️ Revisar antes de fazer merge — verificar se os valores correspondem às últimas resoluções da ANEEL.',
-    '',
-    '🤖 Gerado por [GuiaPBEV Bot](https://github.com/fabao2024/Guia-PBEV-Brasil/actions)',
-  ].join('\n');
-
-  runFile('gh', [
-    'pr', 'create',
-    '--title', `chore(data): tarifas ANEEL atualizadas — ${monthSlug}`,
-    '--body-file', '-',
-    '--base', 'main',
-    '--head', branch,
-  ], { input: prBody });
-  console.log(`🎉 PR aberto na branch ${branch}`);
+  return runFile('gh', ['pr', 'create', '--title', title, '--body-file', '-', '--base', 'main', '--head', branch], { input: prBody });
 }
 
-main().catch(err => {
-  console.error('❌ Falha ao atualizar tarifas ANEEL:', err.message);
-  process.exit(1);
-});
+async function collect() {
+  const checkedAt = new Date().toISOString();
+  const asOfDate = checkedAt.slice(0, 10);
+  const current = readCurrentTariffs();
+  const resource = await discoverResource();
+  const rows = await fetchResidentialRows(resource.id);
+  const computed = computeStateTariffs(rows, asOfDate);
+  const checkedStates = Object.keys(computed.tariffs).length;
+  if (checkedStates !== STATES.length) {
+    throw new Error(`Cobertura ANEEL incompleta: ${checkedStates}/${STATES.length} UFs; agentes ausentes: ${JSON.stringify(computed.missingAgents)}`);
+  }
+  if (!computed.sourceUpdatedAt) throw new Error('Data de geração ANEEL não identificada');
+
+  const changedStates = STATES.filter(uf => Math.abs(computed.tariffs[uf] - (current.tariffs[uf] ?? 0)) >= 0.01);
+  let prUrl = null;
+  if (changedStates.length > 0 && !dryRun) {
+    writeFileSync(TARGET_FILE, buildTarget(current.source, computed.tariffs, resource, computed.sourceUpdatedAt), 'utf8');
+    updateDatasetProvenance(SOURCE, {
+      sourceType: 'official_regulator',
+      sourceUrl: resource.url,
+      reference: resource.name,
+      sourceUpdatedAt: computed.sourceUpdatedAt,
+      verifiedAt: checkedAt.slice(0, 10),
+    });
+    const period = computed.sourceUpdatedAt.slice(0, 7);
+    const title = `chore(data): atualizar tarifas ANEEL B1 — ${period}`;
+    const body = [
+      '## Atualização automática de tarifas residenciais B1',
+      '',
+      `**Fonte oficial:** ${resource.url}`,
+      `**Recurso:** ${resource.id}`,
+      `**Referência da fonte:** ${computed.sourceUpdatedAt}`,
+      `**Cobertura:** ${checkedStates}/${STATES.length} UFs`,
+      `**Estados alterados (${changedStates.length}):** ${changedStates.join(', ')}`,
+      '',
+      '> Valores TE + TUSD, sem tributos e bandeira. Revisar os deltas antes do merge.',
+    ].join('\n');
+    prUrl = publishPr(title, body, `data/aneel-tariffs-${period}`);
+  }
+
+  return createMaintenanceResult({
+    source: SOURCE,
+    status: changedStates.length ? 'changed' : 'unchanged',
+    checkedAt,
+    sourceUpdatedAt: computed.sourceUpdatedAt,
+    repositoryReference: current.reference,
+    coverage: { checked: checkedStates, expected: STATES.length },
+    changes: changedStates.length,
+    prUrl,
+    details: {
+      resourceId: resource.id,
+      resourceUrl: resource.url,
+      resourceHash: resource.hash,
+      recordsScanned: rows.length,
+      currentRows: computed.currentRows,
+      changedStates,
+      dryRun,
+    },
+  });
+}
+
+const resultPath = collectorResultPath(SOURCE);
+try {
+  const result = await collect();
+  writeCollectorResult(resultPath, result);
+  console.log(`ANEEL: ${result.status}; cobertura ${result.coverage.checked}/${result.coverage.expected}; alterações ${result.changes}`);
+} catch (error) {
+  writeCollectorResult(resultPath, createMaintenanceResult({
+    source: SOURCE,
+    status: 'failed',
+    repositoryReference: readCurrentTariffs().reference,
+    error: error.message,
+  }));
+  console.error(`Falha no coletor ANEEL: ${error.message}`);
+  process.exitCode = 1;
+}

@@ -10,6 +10,8 @@ const monthly = read('.github/workflows/monthly-maintenance.yml');
 const anpScript = read('.github/scripts/update-anp-prices.mjs');
 const aneelScript = read('.github/scripts/update-aneel-tariffs.mjs');
 const newsScript = read('.github/scripts/check-ev-news.mjs');
+const brandScript = read('.github/scripts/check-brand-links.mjs');
+const issueScript = read('.github/scripts/create-maintenance-issue.cjs');
 
 const assertImmutableActionPins = (workflow: string) => {
   const refs = [...workflow.matchAll(/uses:\s+([^\s@]+)@([^\s]+)/g)];
@@ -71,7 +73,7 @@ describe('scheduled automation workflow hardening', () => {
 
     const pbev = job(monthly, 'check-pbev', 'update-aneel-tariffs');
     expect(pbev).toContain('contents: read');
-    expect(pbev).toContain('issues: write');
+    expect(pbev).not.toContain('issues: write');
     expect(pbev).not.toContain('contents: write');
 
     const aneel = job(monthly, 'update-aneel-tariffs', 'create-maintenance-issue');
@@ -85,9 +87,18 @@ describe('scheduled automation workflow hardening', () => {
     expect(report).toContain('if: always()');
   });
 
-  it('does not mask data job failures or push metadata directly to main', () => {
-    expect(monthly.match(/continue-on-error: true/g)?.length).toBe(2);
+  it('exports diagnostics before enforcing failures in every critical data job', () => {
+    expect(monthly.match(/continue-on-error: true/g)?.length).toBe(6);
+    expect(monthly.match(/node \.github\/scripts\/enforce-maintenance-result\.mjs/g)?.length).toBe(3);
     expect(aneelScript).not.toContain("run('git push origin main')");
+  });
+
+  it('propagates explicit collector JSON from every critical job into the issue aggregator', () => {
+    expect(monthly.match(/result: \$\{\{ steps\.export-result\.outputs\.result \}\}/g)?.length).toBe(3);
+    expect(monthly.match(/id: export-result/g)?.length).toBe(3);
+    expect(monthly).toContain('ANP_RESULT: ${{ needs.update-fuel-prices.outputs.result }}');
+    expect(monthly).toContain('PBEV_RESULT: ${{ needs.check-pbev.outputs.result }}');
+    expect(monthly).toContain('ANEEL_RESULT: ${{ needs.update-aneel-tariffs.outputs.result }}');
   });
 
   it('runs Git and GitHub CLI without shell command interpolation', () => {
@@ -106,8 +117,36 @@ describe('scheduled automation workflow hardening', () => {
     }
   });
 
+  it('supports side-effect-free dry runs for both data collectors', () => {
+    for (const script of [anpScript, aneelScript]) {
+      expect(script).toContain('MAINTENANCE_DRY_RUN');
+      expect(script).toMatch(/!dryRun/);
+    }
+  });
+
+  it('updates versioned dataset provenance in every automatic data pull request', () => {
+    for (const script of [anpScript, aneelScript]) {
+      expect(script).toContain("from './provenance-registry.mjs'");
+      expect(script).toContain('updateDatasetProvenance');
+      expect(script).toContain("runFile('git', ['add', TARGET_FILE, PROVENANCE_FILE])");
+    }
+  });
+
   it('uses a single-pass XML entity decoder for RSS content', () => {
     expect(newsScript).toContain("from './security-utils.mjs'");
     expect(newsScript).not.toMatch(/\.replace\(\/&amp;\/g/);
+  });
+
+  it('loads the real BRAND_URLS registry and captures initialization failures', () => {
+    expect(brandScript).toContain('BRAND_URLS');
+    expect(brandScript).toContain('function loadLinks');
+  });
+
+  it('updates or reopens the unique monthly issue by hidden marker across all states', () => {
+    expect(issueScript).toContain("state: 'all'");
+    expect(issueScript).toContain('maintenancePeriodMarker');
+    expect(issueScript).toContain('issue.body?.includes(marker)');
+    expect(issueScript).toContain("state: report.shouldClose ? 'closed' : 'open'");
+    expect(issueScript).toContain('github.rest.issues.update');
   });
 });

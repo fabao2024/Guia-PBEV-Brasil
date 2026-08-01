@@ -1,153 +1,156 @@
 /**
- * check-ev-news.mjs
- * Monitora feeds RSS de portais automotivos brasileiros em busca de
- * notícias sobre novos EVs nos últimos 35 dias.
- *
- * Fluxo:
- *  1. Busca RSS de múltiplas fontes brasileiras
- *  2. Filtra itens por palavras-chave e data (últimos 35 dias)
- *  3. Deduplica por título similar
- *  4. Salva em /tmp/ev-news-report.json
- *     { items: [{title, url, source, date}], fetchedAt: ISO }
- *
- * Usado por create-maintenance-issue.cjs para listar sugestões de verificação.
+ * Monitora fontes editoriais para descoberta de mudanças no mercado de BEVs.
+ * Notícias geram watchlist; somente fontes oficiais podem confirmar mutações do catálogo.
  */
-
-import { writeFileSync } from 'fs';
+import { readFileSync } from 'node:fs';
+import { classifyNewsItem, createMaintenanceResult } from './maintenance-core.mjs';
+import { collectorResultPath, writeCollectorResult } from './maintenance-io.mjs';
 import { decodeXmlEntities } from './security-utils.mjs';
 
-const REPORT_PATH = '/tmp/ev-news-report.json';
-const DAYS_BACK   = 35;
-const TIMEOUT_MS  = 12_000;
-
-// ── Fontes RSS ────────────────────────────────────────────────────────────────
-
+const SOURCE = 'news';
 const FEEDS = [
-  { source: 'Motor1 BR',      url: 'https://br.motor1.com/rss/news/all/' },
-  { source: 'Quatro Rodas',   url: 'https://quatrorodas.abril.com.br/feed/' },
-  { source: 'Autoesporte',    url: 'https://autoesporte.globo.com/rss' },
-  { source: 'Canaltech',      url: 'https://canaltech.com.br/rss/' },
-  { source: 'Electrosphere',  url: 'https://electrosphere.com.br/feed/' },
-  { source: 'Mobility Portal',url: 'https://mobilityportal.com.br/feed/' },
+  { name: 'Canaltech Carros', url: 'https://canaltech.com.br/rss/carros/' },
+  { name: 'InsideEVs Brasil', url: 'https://insideevs.uol.com.br/rss/news/all/' },
+  { name: 'Electrosphere', url: 'https://electrosphere.com.br/feed/' },
+  { name: 'Mobility Channel', url: 'https://mobilitychannel.com.br/feed/' },
+  { name: 'AutoEsporte', url: 'https://autoesporte.globo.com/rss/autoesporte/' },
+  { name: 'Quatro Rodas', url: 'https://quatrorodas.abril.com.br/feed/' },
 ];
+const MAX_ITEM_AGE_DAYS = 35;
+const REQUEST_TIMEOUT_MS = 15000;
+const catalog = JSON.parse(readFileSync('public/data/cars.json', 'utf8')).cars ?? [];
 
-// ── Palavras-chave para filtrar artigos relevantes ────────────────────────────
-// Regra: artigo deve conter pelo menos 1 termo primário (EV-específico).
-// Marcas sozinhas NÃO qualificam — evita artigos sobre carros a combustão.
-
-const PRIMARY_KEYWORDS = [
-  'elétrico', 'elétrica', 'elétricos', 'elétricas',
-  'veículo elétrico', 'carro elétrico',
-  'bev', 'reev', 'plug-in', 'plug in', 'zero emissão',
-  'recarga', 'carregamento', 'bateria de', 'autonomia de',
-  'vw id.', 'id.4', 'id.3', 'id.7', 'id.buzz',
-  'ioniq', 'ev6', 'ev9', 'niro ev',
-  'atto', 'dolphin', 'seal', 'han', 'tang', 'yuan',
-];
-
-function isRelevant(title) {
-  const lower = title.toLowerCase();
-  return PRIMARY_KEYWORDS.some(kw => lower.includes(kw));
+function stripMarkup(value) {
+  return decodeXmlEntities(String(value ?? '').replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' '));
 }
 
-// ── RSS parser leve (sem dependências externas) ───────────────────────────────
-
-function parseRSS(xml) {
-  const items = [];
-  const itemBlocks = [...xml.matchAll(/<item[^>]*>([\s\S]*?)<\/item>/gi)];
-  for (const [, block] of itemBlocks) {
-    const title   = decodeXmlEntities(tag(block, 'title'));
-    const link    = decodeXmlEntities(tag(block, 'link') || tag(block, 'guid'));
-    const pubDate = tag(block, 'pubDate') || tag(block, 'dc:date') || tag(block, 'published');
-    if (title && link) items.push({ title, link, pubDate });
-  }
-  return items;
+function extractTag(xml, tag) {
+  const match = String(xml).match(new RegExp(`<${tag}(?:\\s[^>]*)?>([\\s\\S]*?)<\\/${tag}>`, 'i'));
+  return match ? stripMarkup(match[1]) : '';
 }
 
-function tag(xml, name) {
-  const m = xml.match(new RegExp(`<${name}[^>]*>(?:<!\\[CDATA\\[)?([\\s\\S]*?)(?:\\]\\]>)?<\\/${name}>`, 'i'));
-  return m ? m[1].trim() : '';
+function parseFeed(xml, sourceName) {
+  const blocks = [...String(xml).matchAll(/<(?:item|entry)(?:\s[^>]*)?>([\s\S]*?)<\/(?:item|entry)>/gi)].map(match => match[1]);
+  return blocks.slice(0, 40).map(block => {
+    const href = block.match(/<link[^>]+href=["']([^"']+)["']/i)?.[1];
+    return {
+      source: sourceName,
+      sourceType: 'specialist_media',
+      title: extractTag(block, 'title'),
+      description: extractTag(block, 'description') || extractTag(block, 'summary') || extractTag(block, 'content'),
+      link: extractTag(block, 'link') || (href ? decodeXmlEntities(href) : ''),
+      publishedAt: extractTag(block, 'pubDate') || extractTag(block, 'published') || extractTag(block, 'updated'),
+    };
+  }).filter(item => item.title && /^https?:\/\//i.test(item.link));
 }
 
-// ── Helpers ───────────────────────────────────────────────────────────────────
-
-function isRecent(dateStr) {
-  if (!dateStr) return false;
-  try {
-    const d = new Date(dateStr);
-    if (isNaN(d.getTime())) return false;
-    const cutoff = Date.now() - DAYS_BACK * 24 * 60 * 60 * 1000;
-    return d.getTime() > cutoff;
-  } catch { return false; }
+function isRecent(value, now) {
+  const timestamp = Date.parse(value);
+  if (!Number.isFinite(timestamp)) return true;
+  return timestamp >= now.getTime() - MAX_ITEM_AGE_DAYS * 86400000;
 }
 
-function slugify(str) {
-  return str.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().slice(0, 60);
+function normalize(value) {
+  return String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 }
 
-// ── Busca um feed ─────────────────────────────────────────────────────────────
+function findCatalogMatch(item) {
+  const text = normalize(item.title);
+  return catalog.find(car => {
+    const brand = normalize(car.brand);
+    const model = normalize(car.model);
+    return brand.length >= 3 && model.length >= 3 && text.includes(brand) && text.includes(model);
+  }) ?? null;
+}
 
-async function fetchFeed({ source, url }) {
+async function fetchFeed(feed) {
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
+  const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
   try {
-    const resp = await fetch(url, {
+    const response = await fetch(feed.url, {
+      headers: { Accept: 'application/rss+xml, application/atom+xml, application/xml, text/xml', 'User-Agent': 'GuiaPBEV-Bot/2.0' },
+      redirect: 'follow',
       signal: controller.signal,
-      headers: { 'User-Agent': 'GuiaPBEV-Bot/1.0', 'Accept': 'application/rss+xml, application/xml, text/xml' },
     });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const xml = await response.text();
+    const items = parseFeed(xml, feed.name);
+    if (!items.length) throw new Error('feed sem itens válidos');
+    return { name: feed.name, url: feed.url, status: 'reachable', items };
+  } catch (error) {
+    return {
+      name: feed.name,
+      url: feed.url,
+      status: error.name === 'AbortError' ? 'timeout' : 'failed',
+      error: String(error.message).slice(0, 160),
+      items: [],
+    };
+  } finally {
     clearTimeout(timer);
-    if (!resp.ok) { console.warn(`  ⚠️  ${source}: HTTP ${resp.status}`); return []; }
-    const xml = await resp.text();
-    const items = parseRSS(xml);
-    const filtered = items.filter(i => isRecent(i.pubDate) && isRelevant(i.title));
-    console.log(`  ✅ ${source}: ${items.length} itens → ${filtered.length} relevantes`);
-    return filtered.map(i => ({
-      title:  i.title,
-      url:    i.link,
-      source,
-      date:   i.pubDate ? new Date(i.pubDate).toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' }) : '?',
-    }));
-  } catch (err) {
-    clearTimeout(timer);
-    console.warn(`  ⚠️  ${source}: ${err.name === 'AbortError' ? 'timeout' : err.message}`);
-    return [];
   }
 }
 
-// ── Main ──────────────────────────────────────────────────────────────────────
+async function collect() {
+  const now = new Date();
+  const feedResults = await Promise.all(FEEDS.map(fetchFeed));
+  const healthy = feedResults.filter(feed => feed.status === 'reachable');
+  const candidates = healthy.flatMap(feed => feed.items).filter(item => isRecent(item.publishedAt, now));
+  const unique = [...new Map(candidates.map(item => [item.link, item])).values()];
+  const findings = [];
+  const rejected = [];
+  let sourceUpdatedAt = null;
 
-async function main() {
-  console.log(`🗞️  Buscando notícias de EVs (últimos ${DAYS_BACK} dias)…`);
+  for (const item of unique) {
+    const published = Number.isFinite(Date.parse(item.publishedAt)) ? new Date(item.publishedAt).toISOString().slice(0, 10) : null;
+    if (published && (!sourceUpdatedAt || published > sourceUpdatedAt)) sourceUpdatedAt = published;
+    const classification = classifyNewsItem({
+      ...item,
+      sourceType: 'specialist_media',
+      evNative: item.source === 'InsideEVs Brasil',
+    });
+    const catalogMatch = findCatalogMatch(item);
+    if (classification.classification === 'irrelevant') {
+      rejected.push({ title: item.title, link: item.link, reason: classification.reason });
+      continue;
+    }
+    findings.push({
+      source: item.source,
+      title: item.title,
+      link: item.link,
+      publishedAt: published,
+      classification: catalogMatch ? 'already_known' : classification.classification,
+      confidence: classification.confidence,
+      reason: catalogMatch ? `Já relacionado a ${catalogMatch.brand} ${catalogMatch.model} no catálogo.` : classification.reason,
+    });
+  }
 
-  // Busca todos os feeds em paralelo
-  const allItems = (await Promise.all(FEEDS.map(fetchFeed))).flat();
-
-  // Deduplica por título similar (remove duplicatas entre fontes)
-  const seen = new Set();
-  const unique = allItems.filter(item => {
-    const key = slugify(item.title);
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
+  const failedFeeds = feedResults.filter(feed => feed.status !== 'reachable');
+  const status = failedFeeds.length > 0 ? 'partial' : findings.length > 0 ? 'changed' : 'unchanged';
+  return createMaintenanceResult({
+    source: SOURCE,
+    status,
+    checkedAt: now.toISOString(),
+    sourceUpdatedAt,
+    repositoryReference: `${catalog.length} veículos`,
+    coverage: { checked: healthy.length, expected: FEEDS.length },
+    changes: findings.filter(item => item.classification !== 'already_known').length,
+    error: failedFeeds.length ? `Cobertura RSS parcial: ${healthy.length}/${FEEDS.length} fontes` : null,
+    details: {
+      feeds: feedResults.map(({ name, url, status: feedStatus, error }) => ({ name, url, status: feedStatus, error: error ?? null })),
+      findings: findings.slice(0, 30),
+      rejected: rejected.slice(0, 30),
+      sourceHierarchy: ['official_manufacturer', 'official_regulator', 'official_press_release', 'specialist_media', 'speculative_watchlist'],
+    },
   });
-
-  // Ordena por data (mais recente primeiro)
-  unique.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-  console.log(`\n📰 ${unique.length} notícias relevantes encontradas (de ${allItems.length} totais)`);
-  unique.forEach(i => console.log(`   [${i.date}] ${i.source}: ${i.title.slice(0, 70)}`));
-
-  writeFileSync(REPORT_PATH, JSON.stringify({
-    items: unique,
-    fetchedAt: new Date().toISOString(),
-    daysBack: DAYS_BACK,
-  }, null, 2), 'utf-8');
-
-  console.log(`\n📄 Relatório salvo em ${REPORT_PATH}`);
 }
 
-main().catch(err => {
-  console.error('❌ Falha ao buscar notícias:', err.message);
-  writeFileSync(REPORT_PATH, JSON.stringify({ items: [], error: err.message, fetchedAt: new Date().toISOString() }, null, 2));
-  process.exit(0); // Não falha o job
-});
+const resultPath = collectorResultPath(SOURCE);
+try {
+  const result = await collect();
+  writeCollectorResult(resultPath, result);
+  console.log(`Notícias: ${result.status}; cobertura ${result.coverage.checked}/${result.coverage.expected}; achados ${result.changes}`);
+} catch (error) {
+  writeCollectorResult(resultPath, createMaintenanceResult({ source: SOURCE, status: 'failed', error: error.message }));
+  console.error(`Falha no monitor de notícias: ${error.message}`);
+  process.exitCode = 1;
+}

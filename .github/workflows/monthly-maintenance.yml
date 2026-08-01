@@ -1,62 +1,74 @@
-name: Manutenção Mensal de Dados
+name: Monthly Data Maintenance
 
 on:
   schedule:
-    - cron: '0 12 1 * *' # Dia 1, 09:00 BRT
+    - cron: '0 12 1 * *' # 09:00 BRT no primeiro dia de cada mês
   workflow_dispatch:
-
-permissions:
-  contents: read
 
 concurrency:
   group: monthly-data-maintenance
   cancel-in-progress: false
 
+permissions:
+  contents: read
+
+env:
+  MAINTENANCE_RESULTS_DIR: .maintenance-results
+
 jobs:
   update-fuel-prices:
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 15
     permissions:
       contents: write
       pull-requests: write
+    outputs:
+      result: ${{ steps.export-result.outputs.result }}
     steps:
-      - name: Checkout main
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           ref: main
           fetch-depth: 0
-
-      - name: Setup Node.js
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: '22'
-
-      - name: Atualizar preços combustível (ANP)
+      - name: Coletar preços ANP
+        continue-on-error: true
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
         run: node .github/scripts/update-anp-prices.mjs
+      - name: Exportar resultado ANP
+        id: export-result
+        if: always()
+        run: node .github/scripts/export-maintenance-result.mjs anp
+      - name: Aplicar política fail-closed ANP
+        if: always()
+        run: node .github/scripts/enforce-maintenance-result.mjs anp
 
   check-pbev:
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 10
     permissions:
       contents: read
-      issues: write
+    outputs:
+      result: ${{ steps.export-result.outputs.result }}
     steps:
-      - name: Checkout main
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           ref: main
-
-      - name: Setup Node.js
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: '22'
-
-      - name: Verificar nova tabela PBEV/INMETRO
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Verificar edição PBEV
+        continue-on-error: true
         run: node .github/scripts/check-pbev-update.mjs
+      - name: Exportar resultado PBEV
+        id: export-result
+        if: always()
+        run: node .github/scripts/export-maintenance-result.mjs pbev
+      - name: Aplicar política fail-closed PBEV
+        if: always()
+        run: node .github/scripts/enforce-maintenance-result.mjs pbev
 
   update-aneel-tariffs:
     runs-on: ubuntu-24.04
@@ -64,53 +76,63 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+    outputs:
+      result: ${{ steps.export-result.outputs.result }}
     steps:
-      - name: Checkout main
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           ref: main
           fetch-depth: 0
-
-      - name: Setup Node.js
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: '22'
-
-      - name: Atualizar tarifas energia elétrica (ANEEL B1)
+      - name: Coletar tarifas ANEEL
+        continue-on-error: true
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
         run: node .github/scripts/update-aneel-tariffs.mjs
+      - name: Exportar resultado ANEEL
+        id: export-result
+        if: always()
+        run: node .github/scripts/export-maintenance-result.mjs aneel
+      - name: Aplicar política fail-closed ANEEL
+        if: always()
+        run: node .github/scripts/enforce-maintenance-result.mjs aneel
 
   create-maintenance-issue:
     needs: [update-fuel-prices, check-pbev, update-aneel-tariffs]
-    if: always() && !cancelled()
+    if: always()
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 15
     permissions:
       contents: read
       issues: write
     steps:
-      - name: Checkout main
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           ref: main
-
-      - name: Setup Node.js
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: '22'
-
-      - name: Verificar links das marcas
-        run: node .github/scripts/check-brand-links.mjs
+      - name: Monitorar notícias
         continue-on-error: true
-
-      - name: Monitorar notícias de novos EVs (RSS)
         run: node .github/scripts/check-ev-news.mjs
+      - name: Verificar links de fabricantes
         continue-on-error: true
-
-      - name: Criar issue de manutenção mensal
+        run: node .github/scripts/check-brand-links.mjs
+      - name: Verificar proveniência do catálogo
+        continue-on-error: true
+        run: node .github/scripts/check-catalog-provenance.mjs
+      - name: Criar ou atualizar issue mensal única
+        id: monthly-issue
+        if: always()
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        env:
+          ANP_RESULT: ${{ needs.update-fuel-prices.outputs.result }}
+          PBEV_RESULT: ${{ needs.check-pbev.outputs.result }}
+          ANEEL_RESULT: ${{ needs.update-aneel-tariffs.outputs.result }}
+          WORKFLOW_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
         with:
           script: |
-            const fn = require('./.github/scripts/create-maintenance-issue.cjs');
-            await fn({ github, context });
+            const handler = require('./.github/scripts/create-maintenance-issue.cjs');
+            await handler({ github, context, core });
