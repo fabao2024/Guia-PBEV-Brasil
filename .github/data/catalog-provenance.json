@@ -23,10 +23,10 @@
     },
     "anp": {
       "sourceType": "official_regulator",
-      "sourceUrl": "https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos/serie-historica-de-precos-de-combustiveis",
-      "reference": "fev/2026",
-      "sourceUpdatedAt": "2026-02-01",
-      "verifiedAt": "2026-02-01"
+      "sourceUrl": "https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos/arquivos/shpc/dsan/2026/07-dados-abertos-precos-gasolina-etanol.csv",
+      "reference": "Julho de 2026",
+      "sourceUpdatedAt": "2026-07-31",
+      "verifiedAt": "2026-08-01"
     },
     "aneel": {
       "sourceType": "official_regulator",
