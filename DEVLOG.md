@@ -10,7 +10,8 @@ Notas técnicas selecionadas do produto público. Este documento não registra i
 | Formulário | Candidatura aparece antes dos preços e oferece apenas as modalidades ativas de wallbox e energia solar. |
 | Transparência | Termos completos permanecem acessíveis no formulário; preços futuros continuam visíveis depois da candidatura. |
 | Mensuração | Etapas de CTA, início, validação, tentativa, sucesso e erro mantêm eventos próprios e também geram pageviews virtuais agregadas, sem dados pessoais. |
-| Verificação | 200/200 testes, build Vite, rotas estáticas, scanner do artifact e E2E local do fluxo completo com POST isolado aprovados. |
+| SEO | Metadata estática e dinâmica da rota de parceiros permanecem alinhadas às modalidades ativas. |
+| Verificação | 201/201 testes, build Vite, rotas estáticas, scanner do artifact, E2E local com POST isolado e smoke de produção aprovados. |
 
 ## 01/08/2026 · Manutenção mensal de dados auditável
 
