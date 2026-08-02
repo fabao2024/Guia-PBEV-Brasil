@@ -36,6 +36,9 @@ describe('PartnerApplicationsPage', () => {
         'href',
         'https://guiapbev.cloud/parceiros/',
       );
+      const description = document.querySelector('meta[name="description"]');
+      expect(description).toHaveAttribute('content', expect.stringMatching(/wallbox.*energia solar.*são paulo/i));
+      expect(description).not.toHaveAttribute('content', expect.stringMatching(/seguro|financiamento|veículos/i));
     });
   });
 
@@ -46,8 +49,9 @@ describe('PartnerApplicationsPage', () => {
       </MemoryRouter>,
     );
 
-    expect(screen.getByRole('heading', { name: /programa de parceiros/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /receba oportunidades de quem já pesquisa mobilidade elétrica/i })).toBeInTheDocument();
     expect(screen.getByText(/piloto gratuito de encaminhamento está ativo para wallbox e energia solar em sp/i)).toBeInTheDocument();
+    expect(screen.getByText(/catálogo de bevs homologados, comparador e simuladores/i)).toBeInTheDocument();
     expect(screen.getByText(/até 2 leads qualificados aceitos por parceiro/i)).toBeInTheDocument();
     expect(screen.getByText(/os primeiros 2 leads aceitos são gratuitos/i)).toBeInTheDocument();
     expect(screen.getByText(/wallbox pf/i)).toHaveTextContent(/r\$\s*100/i);
@@ -61,12 +65,16 @@ describe('PartnerApplicationsPage', () => {
     expect(track).toHaveBeenCalledWith('partner_cta_click', expect.objectContaining({ placement: 'hero' }));
 
     const form = screen.getByRole('form', { name: /candidatura de parceiro/i });
+    const pricing = screen.getByRole('heading', { name: /condições previstas após o piloto/i });
     const details = screen.getByRole('heading', { name: /como funciona/i });
+    expect(form.compareDocumentPosition(pricing) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(form.compareDocumentPosition(details) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(screen.queryByLabelText(/site/i)).not.toBeInTheDocument();
     expect(screen.queryByLabelText(/ufs atendidas/i)).not.toBeInTheDocument();
     expect(screen.queryByLabelText(/sla de primeiro contato/i)).not.toBeInTheDocument();
     expect(screen.queryByLabelText(/faixa viável por lead/i)).not.toBeInTheDocument();
+    expect(screen.getAllByRole('checkbox', { name: /wallbox|energia solar/i })).toHaveLength(2);
+    expect(screen.queryByRole('checkbox', { name: /^(financiamento|seguro ev|venda \/ cotação de veículo|frota \/ b2b|documentação \/ despachante)$/i })).not.toBeInTheDocument();
     expect(track).toHaveBeenCalledWith('partner_page_view', expect.objectContaining({
       utm_source: 'instagram',
       utm_campaign: 'partner_program',

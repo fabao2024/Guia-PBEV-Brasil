@@ -2,6 +2,16 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 02/08/2026 · Funil de parceiros e landing orientada à conversão
+
+| Área | Mudança pública |
+|---|---|
+| Proposta | Headline e prova de produto passam a explicar o valor para fornecedores antes dos detalhes comerciais. |
+| Formulário | Candidatura aparece antes dos preços e oferece apenas as modalidades ativas de wallbox e energia solar. |
+| Transparência | Termos completos permanecem acessíveis no formulário; preços futuros continuam visíveis depois da candidatura. |
+| Mensuração | Etapas de CTA, início, validação, tentativa, sucesso e erro mantêm eventos próprios e também geram pageviews virtuais agregadas, sem dados pessoais. |
+| Verificação | 200/200 testes, build Vite, rotas estáticas, scanner do artifact e E2E local do fluxo completo com POST isolado aprovados. |
+
 ## 01/08/2026 · Manutenção mensal de dados auditável
 
 | Área | Mudança pública |

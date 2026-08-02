@@ -29,7 +29,7 @@ Operações administrativas, dados pessoais, regras de matching, credenciais, in
 | Segurança do cliente | ✅ | CSP, sanitização, rate limit e scanner de segredos no build |
 | Governança de dados | ✅ | Coletores oficiais, proveniência versionada, relatórios fail-closed e manutenção mensal auditável |
 | Interesse em serviços | ✅ | Formulário consentido para wallbox e energia solar em SP |
-| Programa de parceiros | ✅ | Candidatura pública com termos transparentes e revisão humana |
+| Programa de parceiros | ✅ | Landing focada nas modalidades ativas, termos transparentes, funil mensurável e revisão humana |
 
 ## Programa público de parceiros
 

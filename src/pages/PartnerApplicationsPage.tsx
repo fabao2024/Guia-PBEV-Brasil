@@ -8,13 +8,8 @@ import { attributionEventProps, getFirstTouchAttribution } from '../utils/attrib
 import { submitPartnerApplication } from '../utils/partnerApplications';
 
 const SERVICE_CATEGORIES = [
-  ['financiamento', 'Financiamento'],
-  ['seguro', 'Seguro EV'],
   ['wallbox', 'Wallbox / instalação'],
-  ['compra_veiculo', 'Venda / cotação de veículo'],
-  ['frota_b2b', 'Frota / B2B'],
   ['energia_solar_recarga', 'Energia solar / recarga'],
-  ['documentacao', 'Documentação / despachante'],
 ] as const;
 
 const STATES = ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'];
@@ -59,7 +54,7 @@ const cardClass = 'rounded-3xl border border-white/10 bg-white/[0.035] p-5 md:p-
 
 function PartnerPageHead() {
   const title = 'Programa de Parceiros | Guia PBEV Brasil';
-  const description = 'Candidate sua empresa ao programa de parceiros do Guia PBEV para wallbox, energia solar, seguro, financiamento, veículos e serviços EV.';
+  const description = 'Candidate sua empresa ao piloto gratuito do Guia PBEV para wallbox e energia solar integrada à recarga em São Paulo.';
   const canonicalUrl = 'https://guiapbev.cloud/parceiros/';
   return (
     <Helmet>
@@ -194,29 +189,20 @@ export default function PartnerApplicationsPage() {
         <section className="relative overflow-hidden rounded-[2rem] border border-[#00b4ff]/20 bg-gradient-to-br from-[#07111f] via-[#070a12] to-[#002b44] p-6 md:p-10 mb-8">
           <div className="relative max-w-4xl">
             <p className="text-xs font-black uppercase tracking-[0.24em] text-[#00b4ff]">Programa de parceiros</p>
-            <h1 className="text-4xl md:text-6xl font-black mt-3 leading-[0.96]">Programa de parceiros para o ecossistema de veículos elétricos.</h1>
+            <h1 className="text-4xl md:text-6xl font-black mt-3 leading-[0.96]">Receba oportunidades de quem já pesquisa mobilidade elétrica.</h1>
             <p className="text-white/75 mt-5 max-w-3xl text-lg leading-relaxed">Receba oportunidades de consumidores que já pesquisam veículos, calculam TCO e avaliam infraestrutura de recarga. O piloto gratuito de encaminhamento está ativo para wallbox e energia solar em SP, {isOneLeadPilot ? 'limitado a 1 lead válido e aceito por parceiro' : 'limitado a até 2 leads qualificados aceitos por parceiro'}, conforme disponibilidade.</p>
+            <p className="mt-4 max-w-3xl text-sm font-bold text-[#37f29b]">Aquisição apoiada pelo catálogo de BEVs homologados, comparador e simuladores de TCO, economia e recarga do Guia PBEV.</p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a href="#formulario-parceiro" onClick={() => track('partner_cta_click', { ...campaignProps, placement: 'hero' })} className="rounded-xl bg-[#00b4ff] px-5 py-3 font-black text-black">Candidatar em 2 minutos</a>
               <a href="#como-funciona" className="rounded-xl border border-white/10 bg-white/5 px-5 py-3 font-bold text-white/85">Ver como funciona</a>
             </div>
-            <div className="mt-7 grid gap-3 sm:grid-cols-3">
-              <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-2xl text-[#37f29b]">0</strong><p className="mt-1 text-sm text-white/60">lead enviado sem revisão humana</p></div>
+            <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-2xl text-[#37f29b]">Guia</strong><p className="mt-1 text-sm text-white/60">catálogo, comparador e simuladores</p></div>
               <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-2xl text-[#37f29b]">{pilotContract.freePilotLeadLimit}</strong><p className="mt-1 text-sm text-white/60">{isOneLeadPilot ? 'lead válido e aceito no piloto gratuito' : 'leads aceitos no piloto gratuito'}</p></div>
+              <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-2xl text-[#37f29b]">0</strong><p className="mt-1 text-sm text-white/60">lead enviado sem revisão humana</p></div>
               <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-2xl text-[#37f29b]">LGPD</strong><p className="mt-1 text-sm text-white/60">uso limitado ao interesse informado</p></div>
             </div>
           </div>
-        </section>
-
-        <section className={`${cardClass} mb-8`} aria-labelledby="precos-pos-piloto">
-          <div className="flex items-center gap-3"><Handshake className="h-7 w-7 text-[#37f29b]" /><h2 id="precos-pos-piloto" className="text-2xl font-black">Condições previstas após o piloto</h2></div>
-          <p className="mt-3 text-white/65">{isOneLeadPilot ? 'O primeiro lead válido e aceito é gratuito.' : 'Os primeiros 2 leads aceitos são gratuitos.'} Os valores abaixo só passam a valer após nova proposta, contrato, definição de estrutura jurídica e fiscal adequadas, forma de pagamento e concordância formal.</p>
-          <div className="mt-5 grid gap-3 md:grid-cols-3">
-            <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-white">Wallbox PF · R$ 100</strong><p className="mt-1 text-sm text-white/55">por lead qualificado e aceito após o piloto</p></div>
-            <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-white">Wallbox PJ · R$ 150</strong><p className="mt-1 text-sm text-white/55">por lead qualificado e aceito após o piloto</p></div>
-            <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-white">Energia solar PF/PJ · R$ 250</strong><p className="mt-1 text-sm text-white/55">por lead qualificado e aceito após o piloto</p></div>
-          </div>
-          <p className="mt-4 text-sm font-bold text-[#37f29b]">Nenhum lead adicional será encaminhado antes da formalização da continuidade.</p>
         </section>
 
         <form id="formulario-parceiro" aria-label="Candidatura de parceiro" onSubmit={handleSubmit} className="rounded-3xl border border-[#00b4ff]/20 bg-white/[0.045] p-5 md:p-8 space-y-6 scroll-mt-8 mb-8">
@@ -236,7 +222,7 @@ export default function PartnerApplicationsPage() {
 
           <fieldset>
             <legend className="text-xl font-black mb-3">Categoria de atuação *</legend>
-            <div className="grid md:grid-cols-2 gap-3">{SERVICE_CATEGORIES.map(([value, label]) => <label key={value} className="flex items-center gap-3 rounded-xl border border-white/10 bg-black/20 p-3 text-sm font-bold"><input type="checkbox" checked={form.serviceCategories.includes(value)} onChange={() => toggleCategory(value)} />{label}</label>)}</div>
+            <div className="grid sm:grid-cols-2 gap-3">{SERVICE_CATEGORIES.map(([value, label]) => <label key={value} className="flex items-center gap-3 rounded-xl border border-white/10 bg-black/20 p-3 text-sm font-bold"><input type="checkbox" checked={form.serviceCategories.includes(value)} onChange={() => toggleCategory(value)} />{label}</label>)}</div>
           </fieldset>
 
           <fieldset>
@@ -247,10 +233,25 @@ export default function PartnerApplicationsPage() {
             </div>
           </fieldset>
 
-          <label className="flex gap-3 rounded-2xl border border-white/10 bg-black/25 p-4 text-sm leading-relaxed text-white/80"><input required type="checkbox" checked={form.lgpdAcceptance} onChange={e => updateField('lgpdAcceptance', e.target.checked)} className="mt-1" /><span>Aceito os termos do piloto gratuito, {isOneLeadPilot ? 'limitado a 1 lead válido e aceito' : 'limitado a até 2 leads qualificados aceitos'} e sem cobrança durante o piloto. Conheço os preços previstos para eventual continuidade e entendo que nenhum lead adicional será encaminhado antes de nova proposta, contrato, estrutura jurídica e fiscal adequadas, forma de pagamento e concordância formal. Também aceito respeitar a LGPD, usar os dados somente para o interesse informado e aguardar aprovação.</span></label>
+          <details className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm text-white/70">
+            <summary className="cursor-pointer font-black text-white">Termos comerciais e uso dos dados</summary>
+            <p className="mt-3 leading-relaxed">O piloto é gratuito, {isOneLeadPilot ? 'limitado a 1 lead válido e aceito' : 'limitado a até 2 leads qualificados aceitos'} e sem cobrança. A eventual continuidade usa os preços informados nesta página e exige nova proposta, contrato, estrutura jurídica e fiscal adequadas, forma de pagamento e concordância formal. Nenhum lead adicional será encaminhado antes dessa formalização. Dados recebidos devem ser usados somente para o interesse consentido, conforme a LGPD.</p>
+          </details>
+          <label className="flex gap-3 rounded-2xl border border-[#00b4ff]/20 bg-[#00b4ff]/5 p-4 text-sm leading-relaxed text-white/85"><input required type="checkbox" checked={form.lgpdAcceptance} onChange={e => updateField('lgpdAcceptance', e.target.checked)} className="mt-1" /><span>Aceito os termos do piloto gratuito e as regras de uso dos dados descritas acima.</span></label>
           {error && <p role="alert" className="rounded-xl border border-red-400/30 bg-red-500/10 p-3 text-sm text-red-200">{error}</p>}
           <button disabled={submitting} className="inline-flex items-center gap-2 rounded-xl bg-[#00b4ff] px-6 py-3 font-black text-black disabled:opacity-60"><Send className="h-4 w-4" /> {submitting ? 'Enviando...' : 'Enviar candidatura'}</button>
         </form>
+
+        <section className={`${cardClass} mb-8`} aria-labelledby="precos-pos-piloto">
+          <div className="flex items-center gap-3"><Handshake className="h-7 w-7 text-[#37f29b]" /><h2 id="precos-pos-piloto" className="text-2xl font-black">Condições previstas após o piloto</h2></div>
+          <p className="mt-3 text-white/65">{isOneLeadPilot ? 'O primeiro lead válido e aceito é gratuito.' : 'Os primeiros 2 leads aceitos são gratuitos.'} Os valores abaixo só passam a valer após nova proposta, contrato, definição de estrutura jurídica e fiscal adequadas, forma de pagamento e concordância formal.</p>
+          <div className="mt-5 grid gap-3 md:grid-cols-3">
+            <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-white">Wallbox PF · R$ 100</strong><p className="mt-1 text-sm text-white/55">por lead qualificado e aceito após o piloto</p></div>
+            <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-white">Wallbox PJ · R$ 150</strong><p className="mt-1 text-sm text-white/55">por lead qualificado e aceito após o piloto</p></div>
+            <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-white">Energia solar PF/PJ · R$ 250</strong><p className="mt-1 text-sm text-white/55">por lead qualificado e aceito após o piloto</p></div>
+          </div>
+          <p className="mt-4 text-sm font-bold text-[#37f29b]">Nenhum lead adicional será encaminhado antes da formalização da continuidade.</p>
+        </section>
 
         <section id="como-funciona" className="grid gap-5 lg:grid-cols-3 mb-8 scroll-mt-8">
           <article className={cardClass}><Handshake className="h-7 w-7 text-[#00b4ff] mb-3" /><h2 className="text-2xl font-black">Como funciona</h2><p className="mt-3 text-white/65">A candidatura passa por revisão humana. Os detalhes operacionais são confirmados antes da homologação e cada oportunidade tem trilha de auditoria.</p></article>

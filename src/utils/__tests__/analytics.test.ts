@@ -42,6 +42,36 @@ describe('track()', () => {
     expect(mock).toHaveBeenCalledWith('Comparison Start', { props: { count: 2 } });
   });
 
+  it.each([
+    ['partner_cta_click', 'cta'],
+    ['partner_form_start', 'form-start'],
+    ['partner_form_validation_error', 'validation-error'],
+    ['partner_submit_attempt', 'submit-attempt'],
+    ['partner_submit_success', 'submit-success'],
+    ['partner_submit_error', 'submit-error'],
+  ])('emits a virtual pageview for %s', (eventName, virtualStage) => {
+    const mock = vi.fn();
+    (window as any).plausible = mock;
+
+    track(eventName, { utm_campaign: 'partner_program' });
+
+    expect(mock).toHaveBeenNthCalledWith(1, eventName, {
+      props: { utm_campaign: 'partner_program' },
+    });
+    expect(mock).toHaveBeenNthCalledWith(2, 'pageview', {
+      url: `${window.location.origin}/__funnel/partners/${virtualStage}`,
+    });
+  });
+
+  it('does not duplicate the real partner landing pageview', () => {
+    const mock = vi.fn();
+    (window as any).plausible = mock;
+
+    track('partner_page_view', { utm_source: 'instagram' });
+
+    expect(mock).toHaveBeenCalledOnce();
+  });
+
   it('does not call plausible when window is unavailable', () => {
     // Guard: no plausible on window — event must be silently dropped
     const fired: string[] = [];
