@@ -2,6 +2,14 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 13/08/2026 · Validação visível no formulário de interesse
+
+| Área | Mudança pública |
+|---|---|
+| Experiência | Pendências obrigatórias agora exibem aviso explícito ao lado do botão de envio, inclusive no navegador interno do WhatsApp. |
+| Mensuração | Início, validação local, tentativa, sucesso e erro geram pageviews virtuais agregadas, sem valores de campos ou dados pessoais. |
+| Verificação | 206/206 testes, build Vite e scanner do artifact aprovados. |
+
 ## 02/08/2026 · Funil de parceiros e landing orientada à conversão
 
 | Área | Mudança pública |

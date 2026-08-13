@@ -46,7 +46,9 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
   const [submitting, setSubmitting] = useState(false);
   const [leadId, setLeadId] = useState<number | null>(null);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [validationError, setValidationError] = useState(false);
   const formStartedRef = useRef(false);
+  const validationReportedRef = useRef(false);
 
   const vehicleLabel = selectedCar ? `${selectedCar.brand} ${selectedCar.model}` : '';
 
@@ -65,7 +67,9 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
     setSubmitting(false);
     setLeadId(null);
     setSubmitError(null);
+    setValidationError(false);
     formStartedRef.current = false;
+    validationReportedRef.current = false;
     setForm({
       ...INITIAL_FORM,
       interest: initialInterest,
@@ -91,11 +95,13 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
 
   const updateField = <K extends keyof LeadFormData>(field: K, value: LeadFormData[K]) => {
     markFormStarted();
+    validationReportedRef.current = false;
     setForm(prev => ({ ...prev, [field]: value }));
   };
 
   const updateQualification = (field: string, value: string) => {
     markFormStarted();
+    validationReportedRef.current = false;
     setForm(prev => ({
       ...prev,
       qualificationData: { ...prev.qualificationData, [field]: value },
@@ -104,6 +110,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
 
   const updateInterest = (interest: LeadInterest) => {
     markFormStarted();
+    validationReportedRef.current = false;
     setForm(prev => ({
       ...prev,
       interest,
@@ -115,6 +122,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
     event.preventDefault();
     setSubmitting(true);
     setSubmitError(null);
+    setValidationError(false);
     track('lead_submit_attempt', {
       source,
       interest: hydratedForm.interest,
@@ -142,6 +150,18 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
     }
   };
 
+  const handleInvalid = (event: React.InvalidEvent<HTMLFormElement>) => {
+    setValidationError(true);
+    if (validationReportedRef.current) return;
+    validationReportedRef.current = true;
+    const field = (event.target as HTMLInputElement | HTMLSelectElement).name || 'unknown';
+    track('lead_form_validation_error', {
+      source,
+      interest: hydratedForm.interest,
+      field,
+    });
+  };
+
   const inputClass = 'rounded-xl border border-white/10 bg-white/5 px-4 py-3 font-normal text-white placeholder:text-white/35 focus:ring-2 focus:ring-[#00b4ff] focus:border-[#00b4ff]/60 outline-none transition';
 
   return (
@@ -161,20 +181,20 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
           {vehicleLabel && <p className="mt-2 text-sm text-white/65">Veículo de interesse: <strong className="text-white">{vehicleLabel}</strong></p>}
         </div>
 
-        <form onSubmit={handleSubmit} className="relative p-6 grid grid-cols-1 md:grid-cols-2 gap-4 text-white">
+        <form onSubmit={handleSubmit} onInvalid={handleInvalid} className="relative p-6 grid grid-cols-1 md:grid-cols-2 gap-4 text-white">
           <label className="flex flex-col gap-1 text-sm font-bold text-white/80">
             Nome
-            <input required value={form.name} onChange={e => updateField('name', e.target.value)} className={inputClass} placeholder="Seu nome" autoComplete="name" />
+            <input required name="name" value={form.name} onChange={e => updateField('name', e.target.value)} className={inputClass} placeholder="Seu nome" autoComplete="name" />
           </label>
 
           <label className="flex flex-col gap-1 text-sm font-bold text-white/80">
             WhatsApp
-            <input required minLength={8} value={form.whatsapp} onChange={e => updateField('whatsapp', e.target.value)} className={inputClass} placeholder="(11) 99999-9999" inputMode="tel" autoComplete="tel" />
+            <input required name="whatsapp" minLength={8} value={form.whatsapp} onChange={e => updateField('whatsapp', e.target.value)} className={inputClass} placeholder="(11) 99999-9999" inputMode="tel" autoComplete="tel" />
           </label>
 
           <label className="flex flex-col gap-1 text-sm font-bold text-white/80">
             Cidade atendida
-            <select required value={form.city} onChange={e => updateField('city', e.target.value)} className={`${inputClass} bg-[#08090e]`}>
+            <select required name="city" value={form.city} onChange={e => updateField('city', e.target.value)} className={`${inputClass} bg-[#08090e]`}>
               <option value="" disabled>Selecione a cidade</option>
               {PILOT_CITIES.map(city => <option key={city} value={city}>{city}/SP</option>)}
             </select>
@@ -182,7 +202,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
 
           <label className="flex flex-col gap-1 text-sm font-bold text-white/80">
             Perfil
-            <select required value={form.customerType} onChange={e => updateField('customerType', e.target.value as 'pf' | 'pj')} className={`${inputClass} bg-[#08090e]`}>
+            <select required name="customerType" value={form.customerType} onChange={e => updateField('customerType', e.target.value as 'pf' | 'pj')} className={`${inputClass} bg-[#08090e]`}>
               <option value="pf">Pessoa física</option>
               <option value="pj">Empresa / condomínio</option>
             </select>
@@ -190,14 +210,14 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
 
           <label className="md:col-span-2 flex flex-col gap-1 text-sm font-bold text-white/80">
             Serviço desejado
-            <select required value={form.interest} onChange={e => updateInterest(e.target.value as LeadInterest)} className={`${inputClass} bg-[#08090e]`}>
+            <select required name="interest" value={form.interest} onChange={e => updateInterest(e.target.value as LeadInterest)} className={`${inputClass} bg-[#08090e]`}>
               {INTEREST_OPTIONS.map(option => <option key={option.value || 'empty'} value={option.value} disabled={option.value === ''}>{option.label}</option>)}
             </select>
           </label>
 
           <label className="flex flex-col gap-1 text-sm font-bold text-white/80">
             Tipo de imóvel
-            <select required value={form.qualificationData.property_situation} onChange={e => updateQualification('property_situation', e.target.value)} className={`${inputClass} bg-[#08090e]`}>
+            <select required name="property_situation" value={form.qualificationData.property_situation} onChange={e => updateQualification('property_situation', e.target.value)} className={`${inputClass} bg-[#08090e]`}>
               <option value="" disabled>Selecione</option>
               <option value="casa_propria">Casa própria</option>
               <option value="condominio_apartamento">Condomínio / apartamento</option>
@@ -208,7 +228,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
 
           <label className="flex flex-col gap-1 text-sm font-bold text-white/80">
             Prazo para contratar
-            <select required value={form.qualificationData.timeline} onChange={e => updateQualification('timeline', e.target.value)} className={`${inputClass} bg-[#08090e]`}>
+            <select required name="timeline" value={form.qualificationData.timeline} onChange={e => updateQualification('timeline', e.target.value)} className={`${inputClass} bg-[#08090e]`}>
               <option value="" disabled>Selecione</option>
               <option value="imediato">Imediato</option>
               <option value="30_dias">Em até 30 dias</option>
@@ -220,7 +240,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
           {form.interest === 'wallbox' && (
             <label className="md:col-span-2 flex flex-col gap-1 text-sm font-bold text-white/80">
               Necessidade de recarga
-              <select required value={form.qualificationData.service_detail} onChange={e => updateQualification('service_detail', e.target.value)} className={`${inputClass} bg-[#08090e]`}>
+              <select required name="service_detail" value={form.qualificationData.service_detail} onChange={e => updateQualification('service_detail', e.target.value)} className={`${inputClass} bg-[#08090e]`}>
                 <option value="" disabled>Selecione</option>
                 <option value="equipamento_instalacao">Preciso do equipamento e da instalação</option>
                 <option value="somente_instalacao">Já tenho equipamento e preciso instalar</option>
@@ -232,7 +252,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
           {form.interest === 'energia_solar_recarga' && (
             <label className="md:col-span-2 flex flex-col gap-1 text-sm font-bold text-white/80">
               Conta mensal de energia
-              <select required value={form.qualificationData.service_detail} onChange={e => updateQualification('service_detail', e.target.value)} className={`${inputClass} bg-[#08090e]`}>
+              <select required name="service_detail" value={form.qualificationData.service_detail} onChange={e => updateQualification('service_detail', e.target.value)} className={`${inputClass} bg-[#08090e]`}>
                 <option value="" disabled>Selecione</option>
                 <option value="ate_300">Até R$ 300</option>
                 <option value="301_700">R$ 301 a R$ 700</option>
@@ -249,13 +269,19 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
           </label>
 
           <label className="md:col-span-2 flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-4 text-sm font-semibold text-white/80">
-            <input required type="checkbox" checked={form.consentAccepted} onChange={e => updateField('consentAccepted', e.target.checked)} className="mt-1 h-4 w-4 accent-[#00b4ff]" />
+            <input required name="consentAccepted" type="checkbox" checked={form.consentAccepted} onChange={e => updateField('consentAccepted', e.target.checked)} className="mt-1 h-4 w-4 accent-[#00b4ff]" />
             <span>
               Autorizo o Guia PBEV Brasil a utilizar os dados informados para qualificar esta solicitação e, após análise, compartilhá-los com um parceiro indicado pela plataforma que atenda à minha região e ao serviço solicitado. Li a{' '}
               <a href={`${import.meta.env.BASE_URL}privacy.html`} target="_blank" rel="noopener noreferrer" className="text-[#00b4ff] underline">Política de Privacidade</a>{' '}
               e entendo que o envio não garante proposta, preço ou contratação.
             </span>
           </label>
+
+          {validationError && (
+            <div role="alert" className="md:col-span-2 rounded-xl border border-amber-400/30 bg-amber-400/10 p-3 text-sm font-semibold text-amber-100">
+              Preencha todos os campos obrigatórios e marque a autorização antes de enviar.
+            </div>
+          )}
 
           <div className="md:col-span-2 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between pt-2">
             <p className="text-xs text-white/45 flex items-center gap-2">

@@ -43,13 +43,18 @@ describe('track()', () => {
   });
 
   it.each([
-    ['partner_cta_click', 'cta'],
-    ['partner_form_start', 'form-start'],
-    ['partner_form_validation_error', 'validation-error'],
-    ['partner_submit_attempt', 'submit-attempt'],
-    ['partner_submit_success', 'submit-success'],
-    ['partner_submit_error', 'submit-error'],
-  ])('emits a virtual pageview for %s', (eventName, virtualStage) => {
+    ['partner_cta_click', 'partners', 'cta'],
+    ['partner_form_start', 'partners', 'form-start'],
+    ['partner_form_validation_error', 'partners', 'validation-error'],
+    ['partner_submit_attempt', 'partners', 'submit-attempt'],
+    ['partner_submit_success', 'partners', 'submit-success'],
+    ['partner_submit_error', 'partners', 'submit-error'],
+    ['lead_form_start', 'leads', 'form-start'],
+    ['lead_form_validation_error', 'leads', 'validation-error'],
+    ['lead_submit_attempt', 'leads', 'submit-attempt'],
+    ['lead_success', 'leads', 'submit-success'],
+    ['lead_error', 'leads', 'submit-error'],
+  ])('emits a virtual pageview for %s', (eventName, funnel, virtualStage) => {
     const mock = vi.fn();
     (window as any).plausible = mock;
 
@@ -59,7 +64,7 @@ describe('track()', () => {
       props: { utm_campaign: 'partner_program' },
     });
     expect(mock).toHaveBeenNthCalledWith(2, 'pageview', {
-      url: `${window.location.origin}/__funnel/partners/${virtualStage}`,
+      url: `${window.location.origin}/__funnel/${funnel}/${virtualStage}`,
     });
   });
 

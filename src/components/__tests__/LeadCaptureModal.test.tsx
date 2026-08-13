@@ -65,6 +65,12 @@ describe('LeadCaptureModal', () => {
 
     await user.click(screen.getByRole('button', { name: /solicitar contato/i }));
     expect(submitLead).not.toHaveBeenCalled();
+    expect(screen.getByRole('alert')).toHaveTextContent(/preencha todos os campos obrigatórios/i);
+    expect(track).toHaveBeenCalledWith('lead_form_validation_error', {
+      source: 'vehicle_detail',
+      interest: 'wallbox',
+      field: 'consentAccepted',
+    });
 
     expect(screen.getByRole('link', { name: /política de privacidade/i })).toHaveAttribute('href', '/privacy.html');
     await user.click(screen.getByLabelText(/autorizo o guia pbev brasil/i));
