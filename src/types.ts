@@ -37,7 +37,7 @@ export interface ChatMessage {
   sources?: { uri: string; title: string }[];
 }
 
-export type LeadInterest = '' | 'wallbox' | 'energia_solar_recarga';
+export type LeadInterest = '' | 'wallbox' | 'energia_solar_recarga' | 'limpeza_sistema_solar';
 
 export interface LeadFormData {
   name: string;

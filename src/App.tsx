@@ -76,7 +76,11 @@ export default function App() {
     if (!LEAD_CAPTURE_ENABLED || !isLeadCapturePath(location.pathname)) return;
     const params = new URLSearchParams(location.search);
     const serviceParam = params.get('servico');
-    const interest: LeadInterest = serviceParam === 'wallbox' || serviceParam === 'energia_solar_recarga' ? serviceParam : '';
+    const interest: LeadInterest = serviceParam === 'wallbox'
+      || serviceParam === 'energia_solar_recarga'
+      || serviceParam === 'limpeza_sistema_solar'
+      ? serviceParam
+      : '';
     const rawSource = params.get('origem') || 'interest_page';
     const source = rawSource.replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 80) || 'interest_page';
     setLeadSource(source);
@@ -492,7 +496,7 @@ export default function App() {
             <section className="mb-4 rounded-2xl border border-[#00b4ff]/20 bg-gradient-to-r from-[#07111f] via-[#0a0b12] to-[#002b44] p-5 md:p-6 shadow-[0_0_35px_rgba(0,180,255,0.10)] flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div>
                 <p className="text-xs font-black uppercase tracking-[0.24em] text-[#00b4ff] mb-2">Ecossistema para seu EV</p>
-                <h2 className="font-display text-xl md:text-2xl font-bold leading-tight text-white">Energia solar e wallbox com atendimento qualificado</h2>
+                <h2 className="font-display text-xl md:text-2xl font-bold leading-tight text-white">Energia solar, wallbox e limpeza de placas com atendimento qualificado</h2>
                 <p className="text-sm text-white/60 mt-1">Piloto regional com revisão humana antes do encaminhamento ao parceiro.</p>
               </div>
               <div className="flex flex-col sm:flex-row gap-2">
@@ -507,6 +511,12 @@ export default function App() {
                   className="border border-[#00b4ff]/40 hover:bg-[#00b4ff]/10 text-[#72d7ff] font-black px-5 py-3 rounded-xl transition active:scale-[0.98] whitespace-nowrap"
                 >
                   Quero wallbox
+                </button>
+                <button
+                  onClick={() => openLeadModal('catalog_banner_cleaning', null, 'limpeza_sistema_solar')}
+                  className="border border-emerald-400/40 hover:bg-emerald-400/10 text-emerald-300 font-black px-5 py-3 rounded-xl transition active:scale-[0.98] whitespace-nowrap"
+                >
+                  Quero limpeza de placas
                 </button>
               </div>
             </section>

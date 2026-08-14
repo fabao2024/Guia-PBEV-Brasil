@@ -28,7 +28,7 @@ Operações administrativas, dados pessoais, regras de matching, credenciais, in
 | Observabilidade pública | ✅ | Eventos de produto sem identificação pessoal |
 | Segurança do cliente | ✅ | CSP, sanitização, rate limit e scanner de segredos no build |
 | Governança de dados | ✅ | Coletores oficiais, proveniência versionada, relatórios fail-closed e manutenção mensal auditável |
-| Interesse em serviços | ✅ | Formulário consentido para wallbox e energia solar em SP |
+| Interesse em serviços | ✅ | Formulário consentido para wallbox, energia solar e limpeza de placas solares em SP |
 | Programa de parceiros | ✅ | Landing com cadastro aberto para wallbox, energia solar e limpeza de sistemas solares, termos transparentes, funil mensurável e revisão humana |
 
 ## Programa público de parceiros

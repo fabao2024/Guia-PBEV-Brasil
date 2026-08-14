@@ -13,11 +13,17 @@ interface LeadCaptureModalProps {
 }
 
 const PILOT_CONSENT_TEXT_VERSION = 'pilot-v3-2026-07-15';
-const PILOT_CITIES = ['Jundiaí', 'Campinas', 'São Paulo', 'Itupeva', 'Várzea Paulista', 'Campo Limpo Paulista'];
+const PILOT_CITIES = [
+  "Santa Bárbara d'Oeste", 'Americana', 'Nova Odessa', 'Sumaré', 'Piracicaba', 'Hortolândia',
+  'Limeira', 'Paulínia', 'Iracemápolis', 'Monte Mor', 'Cordeirópolis', 'Rio das Pedras',
+  'Campinas', 'Cosmópolis', 'Artur Nogueira', 'Capivari', 'Jundiaí', 'São Paulo', 'Itupeva',
+  'Várzea Paulista', 'Campo Limpo Paulista',
+];
 const INTEREST_OPTIONS: { value: LeadInterest; label: string }[] = [
   { value: '', label: 'Selecione o serviço' },
   { value: 'wallbox', label: 'Wallbox e instalação de recarga' },
   { value: 'energia_solar_recarga', label: 'Energia solar para recarga' },
+  { value: 'limpeza_sistema_solar', label: 'Limpeza de placas solares' },
 ];
 
 const INITIAL_FORM: LeadFormData = {
@@ -174,7 +180,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
             <X className="w-5 h-5" />
           </button>
           <p className="text-xs font-black uppercase tracking-[0.28em] text-[#00b4ff] mb-2">Piloto Guia PBEV Brasil</p>
-          <h2 id="lead-form-title" className="text-2xl md:text-3xl font-black leading-tight">Solicitar energia solar ou wallbox</h2>
+          <h2 id="lead-form-title" className="text-2xl md:text-3xl font-black leading-tight">Solicitar energia solar, wallbox ou limpeza de placas</h2>
           <p className="mt-2 text-sm text-white/65">
             O Guia qualifica sua solicitação e, após revisão humana, pode encaminhá-la a um parceiro compatível com a região e o serviço solicitado.
           </p>
@@ -262,6 +268,19 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
             </label>
           )}
 
+          {form.interest === 'limpeza_sistema_solar' && (
+            <label className="md:col-span-2 flex flex-col gap-1 text-sm font-bold text-white/80">
+              Quantidade aproximada de placas
+              <select required name="service_detail" value={form.qualificationData.service_detail} onChange={e => updateQualification('service_detail', e.target.value)} className={`${inputClass} bg-[#08090e]`}>
+                <option value="" disabled>Selecione</option>
+                <option value="ate_20_placas">Até 20 placas</option>
+                <option value="21_50_placas">21 a 50 placas</option>
+                <option value="51_100_placas">51 a 100 placas</option>
+                <option value="acima_100_placas">Acima de 100 placas</option>
+                <option value="nao_sei_quantidade">Não sei informar</option>
+              </select>
+            </label>
+          )}
 
           <label className="md:col-span-2 flex flex-col gap-1 text-sm font-bold text-white/80">
             Contexto adicional

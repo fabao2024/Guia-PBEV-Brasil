@@ -8,7 +8,7 @@ vi.mock('react-i18next', () => ({
 }));
 
 describe('SavingsSimulatorModal lead CTA', () => {
-  it('offers the active wallbox and solar pilot for simulations in SP', async () => {
+  it('offers the active wallbox, solar and cleaning pilot for simulations in SP', async () => {
     localStorage.setItem('selectedState', 'SP');
     const onLeadRequest = vi.fn();
     const user = userEvent.setup();
@@ -24,8 +24,10 @@ describe('SavingsSimulatorModal lead CTA', () => {
     expect(screen.getByText(/planeje sua recarga residencial em sp/i)).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /avaliar wallbox/i }));
     await user.click(screen.getByRole('button', { name: /avaliar energia solar/i }));
+    await user.click(screen.getByRole('button', { name: /avaliar limpeza de placas/i }));
 
     expect(onLeadRequest).toHaveBeenNthCalledWith(1, 'wallbox');
     expect(onLeadRequest).toHaveBeenNthCalledWith(2, 'energia_solar_recarga');
+    expect(onLeadRequest).toHaveBeenNthCalledWith(3, 'limpeza_sistema_solar');
   });
 });

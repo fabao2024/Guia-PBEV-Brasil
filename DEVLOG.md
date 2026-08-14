@@ -2,6 +2,16 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 14/08/2026 · Solicitações de limpeza de placas solares
+
+| Área | Mudança pública |
+|---|---|
+| Formulário | “Limpeza de placas solares” passa a ser uma opção de serviço, com qualificação obrigatória pela quantidade aproximada de placas. |
+| Cobertura | O formulário reúne 21 cidades de SP cobertas pelos parceiros homologados para wallbox, energia solar e limpeza solar. |
+| Entrada | Banner, simulador, consultor e deep links `/interesse` direcionam a nova modalidade sem convertê-la em energia solar genérica. |
+| Privacidade | Consentimento explícito, revisão humana e compartilhamento somente com parceiro selecionado permanecem obrigatórios; a política pública foi atualizada. |
+| Verificação | 209/209 testes, build Vite com rota estática e scanner de segredos aprovados. |
+
 ## 14/08/2026 · Limpeza de sistema solar no programa de parceiros
 
 | Área | Mudança pública |

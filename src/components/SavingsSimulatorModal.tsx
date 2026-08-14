@@ -819,10 +819,11 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [], onLea
                         <section className="mt-6 rounded-2xl border border-[#00b4ff]/25 bg-[#00b4ff]/[0.06] p-4 md:p-5">
                             <p className="text-xs font-black uppercase tracking-[0.18em] text-[#00b4ff]">Piloto com revisão humana</p>
                             <h3 className="mt-1 text-lg font-black text-white">Planeje sua recarga residencial em SP</h3>
-                            <p className="mt-1 text-sm text-white/55">Peça uma avaliação para wallbox ou energia solar. Seus dados só seguem ao parceiro após qualificação e consentimento.</p>
+                            <p className="mt-1 text-sm text-white/55">Peça uma avaliação para wallbox, energia solar ou limpeza de placas. Seus dados só seguem ao parceiro após qualificação e consentimento.</p>
                             <div className="mt-4 flex flex-col sm:flex-row gap-2">
                                 <button onClick={() => onLeadRequest('wallbox')} className="rounded-xl bg-[#00b4ff] px-4 py-3 text-sm font-black text-black">Avaliar wallbox</button>
                                 <button onClick={() => onLeadRequest('energia_solar_recarga')} className="rounded-xl border border-[#00b4ff]/35 px-4 py-3 text-sm font-black text-[#72d7ff]">Avaliar energia solar</button>
+                                <button onClick={() => onLeadRequest('limpeza_sistema_solar')} className="rounded-xl border border-emerald-400/35 px-4 py-3 text-sm font-black text-emerald-300">Avaliar limpeza de placas</button>
                             </div>
                         </section>
                     )}

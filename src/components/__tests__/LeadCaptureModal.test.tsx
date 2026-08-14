@@ -43,7 +43,7 @@ describe('LeadCaptureModal', () => {
       />
     );
 
-    expect(screen.getByRole('heading', { name: /solicitar energia solar ou wallbox/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /solicitar energia solar, wallbox ou limpeza de placas/i })).toBeInTheDocument();
     expect(screen.queryByText(/E\.R SOLAR/i)).not.toBeInTheDocument();
     expect(screen.getByText(/parceiro indicado pela plataforma que atenda à minha região/i)).toBeInTheDocument();
     expect(screen.queryByText(/informado antes do compartilhamento/i)).not.toBeInTheDocument();
@@ -111,5 +111,47 @@ describe('LeadCaptureModal', () => {
       interest: 'wallbox',
     });
     expect(track).not.toHaveBeenCalledWith('lead_submit', expect.anything());
+  });
+
+  it('offers solar-panel cleaning with system-size qualification across the active coverage', async () => {
+    const user = userEvent.setup();
+    render(
+      <LeadCaptureModal
+        isOpen
+        selectedCar={null}
+        source="catalog_banner_cleaning"
+        initialInterest="limpeza_sistema_solar"
+        onClose={vi.fn()}
+      />
+    );
+
+    expect(screen.getByRole('heading', { name: /energia solar, wallbox ou limpeza de placas/i })).toBeInTheDocument();
+    expect(screen.getByLabelText(/serviço desejado/i)).toHaveDisplayValue(/limpeza de placas solares/i);
+    expect(screen.getByRole('option', { name: 'Americana/SP' })).toBeInTheDocument();
+    expect(screen.getByRole('option', { name: 'Jundiaí/SP' })).toBeInTheDocument();
+
+    await user.type(screen.getByLabelText(/^nome/i), 'Cliente Limpeza');
+    await user.type(screen.getByLabelText(/whatsapp/i), '11999999999');
+    await user.selectOptions(screen.getByLabelText(/cidade atendida/i), 'Americana');
+    await user.selectOptions(screen.getByLabelText(/tipo de imóvel/i), 'casa_propria');
+    await user.selectOptions(screen.getByLabelText(/prazo para contratar/i), '30_dias');
+    await user.selectOptions(screen.getByLabelText(/quantidade aproximada de placas/i), '21_50_placas');
+    await user.click(screen.getByLabelText(/autorizo o guia pbev brasil/i));
+    await user.click(screen.getByRole('button', { name: /solicitar contato/i }));
+
+    await waitFor(() => expect(submitLead).toHaveBeenCalledTimes(1));
+    expect(submitLead).toHaveBeenCalledWith(
+      expect.objectContaining({
+        city: 'Americana',
+        interest: 'limpeza_sistema_solar',
+        qualificationData: {
+          property_situation: 'casa_propria',
+          timeline: '30_dias',
+          service_detail: '21_50_placas',
+        },
+        consentAccepted: true,
+      }),
+      'catalog_banner_cleaning',
+    );
   });
 });

@@ -4,6 +4,8 @@ describe('ChatWidget routing', () => {
   it('separates partners, pilot services and unsupported vehicle financing', () => {
     expect(classifyPbevInteraction('Somos instaladores de wallbox e queremos receber leads')).toEqual({ type: 'partner' });
     expect(classifyPbevInteraction('Quero instalar um wallbox em casa')).toEqual({ type: 'lead', modality: 'wallbox' });
+    expect(classifyPbevInteraction('Quero contratar limpeza das placas solares')).toEqual({ type: 'lead', modality: 'limpeza_sistema_solar' });
+    expect(classifyPbevInteraction('Quero lavar minhas placas fotovoltaicas')).toEqual({ type: 'lead', modality: 'limpeza_sistema_solar' });
     expect(classifyPbevInteraction('Quero financiamento para meu projeto de energia solar')).toEqual({ type: 'lead', modality: 'energia_solar_recarga' });
     expect(classifyPbevInteraction('Quero financiar um BYD Dolphin')).toEqual({ type: 'lead', modality: 'financiamento' });
     expect(classifyPbevInteraction('Quero fazer leasing de um carro elétrico')).toEqual({ type: 'lead', modality: 'financiamento' });
@@ -22,6 +24,10 @@ describe('ChatWidget routing', () => {
     expect(wallbox).toContain('/interesse?servico=wallbox&origem=chat');
     expect(wallbox).toContain('consentimento explícito');
     expect(wallbox).toContain('parceiro selecionado');
+
+    const cleaning = buildPbevRedirectResponse({ type: 'lead', modality: 'limpeza_sistema_solar' }, 'pt-BR', true);
+    expect(cleaning).toContain('/interesse?servico=limpeza_sistema_solar&origem=chat');
+    expect(cleaning).toContain('limpeza de placas solares');
 
     const financing = buildPbevRedirectResponse({ type: 'lead', modality: 'financiamento' }, 'pt-BR');
     expect(financing).toContain('não oferece nem encaminha financiamento para aquisição de veículos');
