@@ -9,7 +9,7 @@ const routes = [
   {
     path: 'parceiros',
     title: 'Programa de Parceiros | Guia PBEV Brasil',
-    description: 'Candidate sua empresa ao piloto gratuito do Guia PBEV para wallbox e energia solar integrada à recarga em São Paulo.',
+    description: 'Candidate sua empresa ao piloto gratuito do Guia PBEV para wallbox, energia solar e limpeza de sistemas solares em São Paulo.',
     canonicalUrl: 'https://guiapbev.cloud/parceiros/',
   },
   ...(leadCaptureEnabled ? [{ path: 'interesse' }] : []),

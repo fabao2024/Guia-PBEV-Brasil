@@ -42,7 +42,7 @@ describe('PartnerApplicationsPage', () => {
     });
   });
 
-  it('renders an active-pilot proposition and the short form before details', async () => {
+  it('renders a supply-side proposition and the short form before details', async () => {
     render(
       <MemoryRouter>
         <PartnerApplicationsPage />
@@ -50,13 +50,14 @@ describe('PartnerApplicationsPage', () => {
     );
 
     expect(screen.getByRole('heading', { name: /receba oportunidades de quem já pesquisa mobilidade elétrica/i })).toBeInTheDocument();
-    expect(screen.getByText(/piloto gratuito de encaminhamento está ativo para wallbox e energia solar em sp/i)).toBeInTheDocument();
+    expect(screen.getByText(/candidaturas estão abertas para wallbox, energia solar e limpeza de sistemas solares em sp\. o piloto gratuito de encaminhamento, sujeito à cobertura operacional/i)).toBeInTheDocument();
     expect(screen.getByText(/catálogo de bevs homologados, comparador e simuladores/i)).toBeInTheDocument();
     expect(screen.getByText(/até 2 leads qualificados aceitos por parceiro/i)).toBeInTheDocument();
     expect(screen.getByText(/os primeiros 2 leads aceitos são gratuitos/i)).toBeInTheDocument();
     expect(screen.getByText(/wallbox pf/i)).toHaveTextContent(/r\$\s*100/i);
     expect(screen.getByText(/wallbox pj/i)).toHaveTextContent(/r\$\s*150/i);
     expect(screen.getByText(/energia solar pf\/pj/i)).toHaveTextContent(/r\$\s*250/i);
+    expect(screen.getByText(/limpeza de sistema solar pf\/pj/i)).toHaveTextContent(/r\$\s*35/i);
     expect(screen.getByText(/nenhum lead adicional será encaminhado antes da formalização/i)).toBeInTheDocument();
     expect(screen.getAllByText(/estrutura jurídica e fiscal adequadas/i).length).toBeGreaterThanOrEqual(2);
     const cta = screen.getByRole('link', { name: /candidatar em 2 minutos/i });
@@ -73,7 +74,7 @@ describe('PartnerApplicationsPage', () => {
     expect(screen.queryByLabelText(/ufs atendidas/i)).not.toBeInTheDocument();
     expect(screen.queryByLabelText(/sla de primeiro contato/i)).not.toBeInTheDocument();
     expect(screen.queryByLabelText(/faixa viável por lead/i)).not.toBeInTheDocument();
-    expect(screen.getAllByRole('checkbox', { name: /wallbox|energia solar/i })).toHaveLength(2);
+    expect(screen.getAllByRole('checkbox', { name: /wallbox|energia solar|limpeza de sistema de placa solar/i })).toHaveLength(3);
     expect(screen.queryByRole('checkbox', { name: /^(financiamento|seguro ev|venda \/ cotação de veículo|frota \/ b2b|documentação \/ despachante)$/i })).not.toBeInTheDocument();
     expect(track).toHaveBeenCalledWith('partner_page_view', expect.objectContaining({
       utm_source: 'instagram',
@@ -112,7 +113,7 @@ describe('PartnerApplicationsPage', () => {
 
     await waitFor(() => expect(submitPartnerApplication).toHaveBeenCalledTimes(1));
     expect(submitPartnerApplication).toHaveBeenCalledWith(expect.objectContaining({
-      termsVersion: '2026-07-31-pilot-one-lead-v1',
+      termsVersion: '2026-08-14-pilot-one-lead-v2',
       freePilotLeadLimit: 1,
     }));
   });
@@ -134,6 +135,7 @@ describe('PartnerApplicationsPage', () => {
     await user.selectOptions(screen.getByLabelText(/uf principal/i), 'SP');
     await user.click(screen.getByRole('checkbox', { name: /^wallbox \/ instalação$/i }));
     await user.click(screen.getByRole('checkbox', { name: /^energia solar \/ recarga$/i }));
+    await user.click(screen.getByRole('checkbox', { name: /^limpeza de sistema de placa solar$/i }));
     await user.click(screen.getByLabelText(/pessoa física/i));
     await user.click(screen.getByLabelText(/^atende cnpj\/frota$/i));
     await user.click(screen.getByLabelText(/aceito os termos do piloto gratuito/i));
@@ -144,22 +146,23 @@ describe('PartnerApplicationsPage', () => {
       companyName: 'Wallbox Teste Ltda',
       email: 'maria@wallbox.example.com',
       state: 'SP',
-      serviceCategories: ['wallbox', 'energia_solar_recarga'],
+      serviceCategories: ['wallbox', 'energia_solar_recarga', 'limpeza_sistema_solar'],
       coverageStates: ['SP'],
       commercialModelInterest: 'piloto_gratuito_com_cpl_futuro',
       acceptablePriceRange: 'Piloto gratuito; CPL futuro conforme modalidade',
       leadPriceByModality: {
         wallbox: 'PF R$ 100; PJ R$ 150 por lead aceito após o piloto',
         energia_solar_recarga: 'PF/PJ R$ 250 por lead aceito após o piloto',
+        limpeza_sistema_solar: 'PF/PJ R$ 35 por lead aceito após o piloto',
       },
-      termsVersion: '2026-07-30-pilot-v2',
+      termsVersion: '2026-08-14-pilot-v3',
       freePilotLeadLimit: 2,
-      matchCodes: expect.arrayContaining(['uf_exact', 'serves_pf', 'serves_pj_fleet', 'home_charging', 'solar_cross_sell']),
+      matchCodes: expect.arrayContaining(['uf_exact', 'serves_pf', 'serves_pj_fleet', 'home_charging', 'solar_cross_sell', 'solar_cleaning']),
       lgpdAcceptance: true,
     }));
     expect(track).toHaveBeenCalledWith('partner_form_start', expect.objectContaining({ landing_path: '/parceiros' }));
-    expect(track).toHaveBeenCalledWith('partner_submit_attempt', expect.objectContaining({ category_count: 2 }));
-    expect(track).toHaveBeenCalledWith('partner_submit_success', expect.objectContaining({ category_count: 2 }));
+    expect(track).toHaveBeenCalledWith('partner_submit_attempt', expect.objectContaining({ category_count: 3 }));
+    expect(track).toHaveBeenCalledWith('partner_submit_success', expect.objectContaining({ category_count: 3 }));
     expect(await screen.findByText(/candidatura recebida/i)).toBeInTheDocument();
   });
 });

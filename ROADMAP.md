@@ -29,16 +29,17 @@ Operações administrativas, dados pessoais, regras de matching, credenciais, in
 | Segurança do cliente | ✅ | CSP, sanitização, rate limit e scanner de segredos no build |
 | Governança de dados | ✅ | Coletores oficiais, proveniência versionada, relatórios fail-closed e manutenção mensal auditável |
 | Interesse em serviços | ✅ | Formulário consentido para wallbox e energia solar em SP |
-| Programa de parceiros | ✅ | Landing focada nas modalidades ativas, termos transparentes, funil mensurável e revisão humana |
+| Programa de parceiros | ✅ | Landing com cadastro aberto para wallbox, energia solar e limpeza de sistemas solares, termos transparentes, funil mensurável e revisão humana |
 
 ## Programa público de parceiros
 
-O piloto para wallbox e energia solar em SP segue regras visíveis na própria landing `/parceiros/`:
+O cadastro de parceiros para wallbox, energia solar e limpeza de sistemas solares em SP segue regras visíveis na própria landing `/parceiros/`:
 
 - limite gratuito exibido e aceito na própria landing: até 2 leads no acesso padrão ou 1 lead válido em convite de campanha explicitamente versionado;
 - Wallbox PF: R$ 100 por lead aceito após o piloto;
 - Wallbox PJ: R$ 150 por lead aceito após o piloto;
 - energia solar integrada à recarga PF/PJ: R$ 250 por lead aceito após o piloto;
+- limpeza de sistema de placa solar PF/PJ: R$ 35 por lead aceito após o piloto;
 - nenhum lead adicional antes de nova proposta, contrato, estrutura jurídica e fiscal adequadas, forma de pagamento e aceite formal;
 - sem promessa de volume ou conversão;
 - compartilhamento de contato somente após consentimento e revisão humana.

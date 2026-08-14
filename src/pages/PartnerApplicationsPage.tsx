@@ -10,6 +10,7 @@ import { submitPartnerApplication } from '../utils/partnerApplications';
 const SERVICE_CATEGORIES = [
   ['wallbox', 'Wallbox / instalação'],
   ['energia_solar_recarga', 'Energia solar / recarga'],
+  ['limpeza_sistema_solar', 'Limpeza de sistema de placa solar'],
 ] as const;
 
 const STATES = ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'];
@@ -21,11 +22,11 @@ type PilotContract = {
 
 const ONE_LEAD_OUTREACH_CAMPAIGN = 'partner_pilot_sp_2026q3_one_lead_20260731';
 const DEFAULT_PILOT_CONTRACT = {
-  termsVersion: '2026-07-30-pilot-v2',
+  termsVersion: '2026-08-14-pilot-v3',
   freePilotLeadLimit: 2,
 } as const;
 const ONE_LEAD_PILOT_CONTRACT = {
-  termsVersion: '2026-07-31-pilot-one-lead-v1',
+  termsVersion: '2026-08-14-pilot-one-lead-v2',
   freePilotLeadLimit: 1,
 } as const;
 
@@ -54,7 +55,7 @@ const cardClass = 'rounded-3xl border border-white/10 bg-white/[0.035] p-5 md:p-
 
 function PartnerPageHead() {
   const title = 'Programa de Parceiros | Guia PBEV Brasil';
-  const description = 'Candidate sua empresa ao piloto gratuito do Guia PBEV para wallbox e energia solar integrada à recarga em São Paulo.';
+  const description = 'Candidate sua empresa ao piloto gratuito do Guia PBEV para wallbox, energia solar e limpeza de sistemas solares em São Paulo.';
   const canonicalUrl = 'https://guiapbev.cloud/parceiros/';
   return (
     <Helmet>
@@ -76,6 +77,7 @@ function deriveMatchCodes(form: PartnerApplicationFormData): string[] {
   if (form.servesPj) codes.add('serves_pj_fleet');
   if (form.serviceCategories.includes('wallbox')) codes.add('home_charging');
   if (form.serviceCategories.includes('energia_solar_recarga')) codes.add('solar_cross_sell');
+  if (form.serviceCategories.includes('limpeza_sistema_solar')) codes.add('solar_cleaning');
   if (form.serviceCategories.includes('seguro')) codes.add('insurance_ev');
   if (form.serviceCategories.includes('financiamento')) codes.add('financing_ev');
   if (form.serviceCategories.includes('compra_veiculo')) codes.add('dealer_quote');
@@ -141,6 +143,7 @@ export default function PartnerApplicationsPage() {
       leadPriceByModality: {
         wallbox: 'PF R$ 100; PJ R$ 150 por lead aceito após o piloto',
         energia_solar_recarga: 'PF/PJ R$ 250 por lead aceito após o piloto',
+        limpeza_sistema_solar: 'PF/PJ R$ 35 por lead aceito após o piloto',
       },
       termsVersion: pilotContract.termsVersion,
       freePilotLeadLimit: pilotContract.freePilotLeadLimit,
@@ -190,7 +193,7 @@ export default function PartnerApplicationsPage() {
           <div className="relative max-w-4xl">
             <p className="text-xs font-black uppercase tracking-[0.24em] text-[#00b4ff]">Programa de parceiros</p>
             <h1 className="text-4xl md:text-6xl font-black mt-3 leading-[0.96]">Receba oportunidades de quem já pesquisa mobilidade elétrica.</h1>
-            <p className="text-white/75 mt-5 max-w-3xl text-lg leading-relaxed">Receba oportunidades de consumidores que já pesquisam veículos, calculam TCO e avaliam infraestrutura de recarga. O piloto gratuito de encaminhamento está ativo para wallbox e energia solar em SP, {isOneLeadPilot ? 'limitado a 1 lead válido e aceito por parceiro' : 'limitado a até 2 leads qualificados aceitos por parceiro'}, conforme disponibilidade.</p>
+            <p className="text-white/75 mt-5 max-w-3xl text-lg leading-relaxed">Receba oportunidades de consumidores que já pesquisam veículos, calculam TCO e avaliam infraestrutura de recarga. Candidaturas estão abertas para wallbox, energia solar e limpeza de sistemas solares em SP. O piloto gratuito de encaminhamento, sujeito à cobertura operacional, é {isOneLeadPilot ? 'limitado a 1 lead válido e aceito por parceiro' : 'limitado a até 2 leads qualificados aceitos por parceiro'}, conforme disponibilidade.</p>
             <p className="mt-4 max-w-3xl text-sm font-bold text-[#37f29b]">Aquisição apoiada pelo catálogo de BEVs homologados, comparador e simuladores de TCO, economia e recarga do Guia PBEV.</p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a href="#formulario-parceiro" onClick={() => track('partner_cta_click', { ...campaignProps, placement: 'hero' })} className="rounded-xl bg-[#00b4ff] px-5 py-3 font-black text-black">Candidatar em 2 minutos</a>
@@ -222,7 +225,7 @@ export default function PartnerApplicationsPage() {
 
           <fieldset>
             <legend className="text-xl font-black mb-3">Categoria de atuação *</legend>
-            <div className="grid sm:grid-cols-2 gap-3">{SERVICE_CATEGORIES.map(([value, label]) => <label key={value} className="flex items-center gap-3 rounded-xl border border-white/10 bg-black/20 p-3 text-sm font-bold"><input type="checkbox" checked={form.serviceCategories.includes(value)} onChange={() => toggleCategory(value)} />{label}</label>)}</div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">{SERVICE_CATEGORIES.map(([value, label]) => <label key={value} className="flex items-center gap-3 rounded-xl border border-white/10 bg-black/20 p-3 text-sm font-bold"><input type="checkbox" checked={form.serviceCategories.includes(value)} onChange={() => toggleCategory(value)} />{label}</label>)}</div>
           </fieldset>
 
           <fieldset>
@@ -245,10 +248,11 @@ export default function PartnerApplicationsPage() {
         <section className={`${cardClass} mb-8`} aria-labelledby="precos-pos-piloto">
           <div className="flex items-center gap-3"><Handshake className="h-7 w-7 text-[#37f29b]" /><h2 id="precos-pos-piloto" className="text-2xl font-black">Condições previstas após o piloto</h2></div>
           <p className="mt-3 text-white/65">{isOneLeadPilot ? 'O primeiro lead válido e aceito é gratuito.' : 'Os primeiros 2 leads aceitos são gratuitos.'} Os valores abaixo só passam a valer após nova proposta, contrato, definição de estrutura jurídica e fiscal adequadas, forma de pagamento e concordância formal.</p>
-          <div className="mt-5 grid gap-3 md:grid-cols-3">
+          <div className="mt-5 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
             <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-white">Wallbox PF · R$ 100</strong><p className="mt-1 text-sm text-white/55">por lead qualificado e aceito após o piloto</p></div>
             <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-white">Wallbox PJ · R$ 150</strong><p className="mt-1 text-sm text-white/55">por lead qualificado e aceito após o piloto</p></div>
             <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-white">Energia solar PF/PJ · R$ 250</strong><p className="mt-1 text-sm text-white/55">por lead qualificado e aceito após o piloto</p></div>
+            <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-white">Limpeza de sistema solar PF/PJ · R$ 35</strong><p className="mt-1 text-sm text-white/55">por lead qualificado e aceito após o piloto</p></div>
           </div>
           <p className="mt-4 text-sm font-bold text-[#37f29b]">Nenhum lead adicional será encaminhado antes da formalização da continuidade.</p>
         </section>
@@ -261,7 +265,7 @@ export default function PartnerApplicationsPage() {
 
         <section className={`${cardClass} mb-8`}>
           <div className="flex items-center gap-3"><Building2 className="h-7 w-7 text-[#00b4ff]" /><h2 className="text-2xl font-black">Categorias em formação</h2></div>
-          <p className="mt-3 text-white/65">Wallbox e energia solar participam do piloto gratuito em SP. Seguro EV, financiamento, compra de veículos, frotas e documentação permanecem em formação. A operação começa manual, {isOneLeadPilot ? 'limitada a 1 lead válido e aceito por parceiro' : 'limitada a até 2 leads aceitos por parceiro'} e sem promessa de volume ou conversão.</p>
+          <p className="mt-3 text-white/65">Wallbox e energia solar participam do piloto gratuito em SP. O cadastro também está aberto para limpeza de sistemas solares, com encaminhamento sujeito à cobertura operacional. Seguro EV, financiamento, compra de veículos, frotas e documentação permanecem em formação. A operação começa manual, {isOneLeadPilot ? 'limitada a 1 lead válido e aceito por parceiro' : 'limitada a até 2 leads aceitos por parceiro'} e sem promessa de volume ou conversão.</p>
         </section>
       </div>
     </main>

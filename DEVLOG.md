@@ -2,6 +2,16 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 14/08/2026 · Limpeza de sistema solar no programa de parceiros
+
+| Área | Mudança pública |
+|---|---|
+| Categoria | A landing e a candidatura passam a incluir “Limpeza de sistema de placa solar” entre as modalidades disponíveis para cadastro em SP; o encaminhamento depende de cobertura operacional. |
+| Transparência | O valor previsto após o piloto é R$ 35 por lead qualificado e aceito, sempre sujeito à formalização de continuidade já descrita na landing. |
+| Consentimento | Novas candidaturas usam termos versionados em 14/08/2026; versões anteriores permanecem preservadas. |
+| SEO | Metadata estática e dinâmica e roadmap público foram alinhados à nova modalidade. |
+| Verificação | 206/206 testes, build Vite, rota estática, scanner de segredos e inspeção visual local aprovados. |
+
 ## 13/08/2026 · Validação visível no formulário de interesse
 
 | Área | Mudança pública |
