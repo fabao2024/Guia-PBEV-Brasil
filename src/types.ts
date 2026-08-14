@@ -39,6 +39,14 @@ export interface ChatMessage {
 
 export type LeadInterest = '' | 'wallbox' | 'energia_solar_recarga' | 'limpeza_sistema_solar';
 
+export interface LeadQualificationData {
+  qualification_version: 'pilot-q2-2026-08-14';
+  property_situation: string;
+  timeline: string;
+  service_detail: string;
+  preferred_contact: string;
+}
+
 export interface LeadFormData {
   name: string;
   whatsapp: string;
@@ -49,7 +57,7 @@ export interface LeadFormData {
   interest: LeadInterest;
   vehicleModel?: string;
   vehicleBrand?: string;
-  qualificationData: Record<string, string>;
+  qualificationData: LeadQualificationData;
   consentAccepted: boolean;
   consentTextVersion: 'pilot-v3-2026-07-15';
   message: string;

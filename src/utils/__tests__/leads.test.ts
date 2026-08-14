@@ -12,9 +12,11 @@ const lead: LeadFormData = {
   vehicleBrand: 'Renault',
   vehicleModel: 'Kwid E-Tech',
   qualificationData: {
+    qualification_version: 'pilot-q2-2026-08-14',
     property_situation: 'casa_propria',
     timeline: '30_dias',
     service_detail: 'equipamento_instalacao',
+    preferred_contact: 'whatsapp_primeiro',
   },
   consentAccepted: true,
   consentTextVersion: 'pilot-v3-2026-07-15',

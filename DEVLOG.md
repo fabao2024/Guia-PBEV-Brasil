@@ -2,6 +2,17 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 14/08/2026 · Qualificação q2 e proposta de valor para parceiros
+
+| Área | Mudança pública |
+|---|---|
+| Parceiros | A landing passa a explicar o contexto entregue antes do contato: serviço, região, perfil, imóvel, prazo, preferência de contato, consentimento e revisão humana. |
+| Candidatura | O CTA destaca o piloto gratuito sem prometer aprovação, volume, exclusividade ou conversão. |
+| Consumidor | O questionário q2 adiciona preferência obrigatória para o primeiro contato, sem duplicar a pergunta de prazo, e informa com transparência o resumo compartilhado com o parceiro selecionado. |
+| Compatibilidade | A versão do questionário acompanha o lead; formulários legados permanecem compatíveis com a API durante o rollout. |
+| Privacidade | A política pública explicita preferência de contato e versão do questionário entre os dados tratados. |
+| Verificação | TDD RED→GREEN, 209/209 testes, build Vite, rota estática e scanner de segredos aprovados. |
+
 ## 14/08/2026 · Solicitações de limpeza de placas solares
 
 | Área | Mudança pública |

@@ -49,9 +49,12 @@ describe('PartnerApplicationsPage', () => {
       </MemoryRouter>,
     );
 
-    expect(screen.getByRole('heading', { name: /receba oportunidades de quem já pesquisa mobilidade elétrica/i })).toBeInTheDocument();
-    expect(screen.getByText(/candidaturas estão abertas para wallbox, energia solar e limpeza de sistemas solares em sp\. o piloto gratuito de encaminhamento, sujeito à cobertura operacional/i)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /receba oportunidades qualificadas por serviço, região e momento de decisão/i })).toBeInTheDocument();
+    expect(screen.getByText(/o guia atrai a demanda e organiza a qualificação antes do primeiro contato/i)).toBeInTheDocument();
     expect(screen.getByText(/catálogo de bevs homologados, comparador e simuladores/i)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /o que chega antes do primeiro contato/i })).toBeInTheDocument();
+    expect(screen.getByText(/serviço, cidade, perfil, imóvel, prazo e preferência de contato/i)).toBeInTheDocument();
+    expect(screen.getByText(/sem montar campanha, formulário e triagem do zero/i)).toBeInTheDocument();
     expect(screen.getByText(/até 2 leads qualificados aceitos por parceiro/i)).toBeInTheDocument();
     expect(screen.getByText(/os primeiros 2 leads aceitos são gratuitos/i)).toBeInTheDocument();
     expect(screen.getByText(/wallbox pf/i)).toHaveTextContent(/r\$\s*100/i);
@@ -60,7 +63,7 @@ describe('PartnerApplicationsPage', () => {
     expect(screen.getByText(/limpeza de sistema solar pf\/pj/i)).toHaveTextContent(/r\$\s*35/i);
     expect(screen.getByText(/nenhum lead adicional será encaminhado antes da formalização/i)).toBeInTheDocument();
     expect(screen.getAllByText(/estrutura jurídica e fiscal adequadas/i).length).toBeGreaterThanOrEqual(2);
-    const cta = screen.getByRole('link', { name: /candidatar em 2 minutos/i });
+    const cta = screen.getByRole('link', { name: /quero testar o piloto gratuito/i });
     expect(cta).toHaveAttribute('href', '#formulario-parceiro');
     await userEvent.click(cta);
     expect(track).toHaveBeenCalledWith('partner_cta_click', expect.objectContaining({ placement: 'hero' }));

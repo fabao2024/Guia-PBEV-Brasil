@@ -37,9 +37,11 @@ const INITIAL_FORM: LeadFormData = {
   vehicleModel: '',
   vehicleBrand: '',
   qualificationData: {
+    qualification_version: 'pilot-q2-2026-08-14',
     property_situation: '',
     timeline: '',
     service_detail: '',
+    preferred_contact: '',
   },
   consentAccepted: false,
   consentTextVersion: PILOT_CONSENT_TEXT_VERSION,
@@ -184,6 +186,9 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
           <p className="mt-2 text-sm text-white/65">
             O Guia qualifica sua solicitação e, após revisão humana, pode encaminhá-la a um parceiro compatível com a região e o serviço solicitado.
           </p>
+          <p className="mt-2 text-xs font-semibold text-[#37f29b]">
+            O parceiro selecionado receberá serviço, cidade, perfil, imóvel, prazo e preferência de contato antes de falar com você.
+          </p>
           {vehicleLabel && <p className="mt-2 text-sm text-white/65">Veículo de interesse: <strong className="text-white">{vehicleLabel}</strong></p>}
         </div>
 
@@ -281,6 +286,20 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
               </select>
             </label>
           )}
+
+          <label className="md:col-span-2 flex flex-col gap-1 text-sm font-bold text-white/80">
+            Como prefere o primeiro contato?
+            <select required name="preferred_contact" aria-describedby="preferred-contact-help" value={form.qualificationData.preferred_contact} onChange={e => updateQualification('preferred_contact', e.target.value)} className={`${inputClass} bg-[#08090e]`}>
+              <option value="" disabled>Selecione</option>
+              <option value="whatsapp_primeiro">Mensagem no WhatsApp primeiro</option>
+              <option value="ligacao_manha">Ligação pela manhã</option>
+              <option value="ligacao_tarde">Ligação à tarde</option>
+              <option value="ligacao_noite">Ligação à noite</option>
+            </select>
+            <span id="preferred-contact-help" className="text-xs font-normal text-white/45">
+              Essa preferência acompanha a oportunidade para evitar contato no canal ou horário errado.
+            </span>
+          </label>
 
           <label className="md:col-span-2 flex flex-col gap-1 text-sm font-bold text-white/80">
             Contexto adicional

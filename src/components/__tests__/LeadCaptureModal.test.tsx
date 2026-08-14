@@ -50,6 +50,9 @@ describe('LeadCaptureModal', () => {
     expect(screen.queryByLabelText(/financiamento do equipamento ou projeto/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/seguro ev/i)).not.toBeInTheDocument();
     expect(screen.getByLabelText(/serviço desejado/i)).toHaveDisplayValue(/wallbox/i);
+    expect(screen.getByText(/o parceiro selecionado receberá.*serviço.*prazo.*preferência de contato/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/como prefere o primeiro contato/i)).toHaveAttribute('aria-describedby', 'preferred-contact-help');
+    expect(screen.getByText(/evitar contato no canal ou horário errado/i)).toBeInTheDocument();
 
     await user.type(screen.getByLabelText(/^nome/i), 'Fabio Teste');
     expect(track).toHaveBeenCalledWith('lead_form_start', {
@@ -66,6 +69,15 @@ describe('LeadCaptureModal', () => {
     await user.click(screen.getByRole('button', { name: /solicitar contato/i }));
     expect(submitLead).not.toHaveBeenCalled();
     expect(screen.getByRole('alert')).toHaveTextContent(/preencha todos os campos obrigatórios/i);
+    expect(track).toHaveBeenCalledWith('lead_form_validation_error', {
+      source: 'vehicle_detail',
+      interest: 'wallbox',
+      field: 'preferred_contact',
+    });
+
+    await user.selectOptions(screen.getByLabelText(/como prefere o primeiro contato/i), 'whatsapp_primeiro');
+    await user.click(screen.getByRole('button', { name: /solicitar contato/i }));
+    expect(submitLead).not.toHaveBeenCalled();
     expect(track).toHaveBeenCalledWith('lead_form_validation_error', {
       source: 'vehicle_detail',
       interest: 'wallbox',
@@ -91,9 +103,11 @@ describe('LeadCaptureModal', () => {
         vehicleBrand: 'Renault',
         vehicleModel: 'Kwid E-Tech',
         qualificationData: {
+          qualification_version: 'pilot-q2-2026-08-14',
           property_situation: 'casa_propria',
           timeline: '30_dias',
           service_detail: 'equipamento_instalacao',
+          preferred_contact: 'whatsapp_primeiro',
         },
         consentAccepted: true,
         consentTextVersion: 'pilot-v3-2026-07-15',
@@ -136,6 +150,7 @@ describe('LeadCaptureModal', () => {
     await user.selectOptions(screen.getByLabelText(/tipo de imóvel/i), 'casa_propria');
     await user.selectOptions(screen.getByLabelText(/prazo para contratar/i), '30_dias');
     await user.selectOptions(screen.getByLabelText(/quantidade aproximada de placas/i), '21_50_placas');
+    await user.selectOptions(screen.getByLabelText(/como prefere o primeiro contato/i), 'ligacao_tarde');
     await user.click(screen.getByLabelText(/autorizo o guia pbev brasil/i));
     await user.click(screen.getByRole('button', { name: /solicitar contato/i }));
 
@@ -145,9 +160,11 @@ describe('LeadCaptureModal', () => {
         city: 'Americana',
         interest: 'limpeza_sistema_solar',
         qualificationData: {
+          qualification_version: 'pilot-q2-2026-08-14',
           property_situation: 'casa_propria',
           timeline: '30_dias',
           service_detail: '21_50_placas',
+          preferred_contact: 'ligacao_tarde',
         },
         consentAccepted: true,
       }),

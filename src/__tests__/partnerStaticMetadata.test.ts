@@ -31,6 +31,7 @@ describe('partner static route metadata', () => {
     );
 
     expect(staticDescription).toBe(reactDescription);
+    expect(staticDescription).toMatch(/oportunidades qualificadas por serviço, região e momento de decisão/i);
     expect(staticDescription).not.toMatch(/seguro|financiamento|veículos/i);
   });
 });

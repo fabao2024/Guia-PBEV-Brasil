@@ -55,7 +55,7 @@ const cardClass = 'rounded-3xl border border-white/10 bg-white/[0.035] p-5 md:p-
 
 function PartnerPageHead() {
   const title = 'Programa de Parceiros | Guia PBEV Brasil';
-  const description = 'Candidate sua empresa ao piloto gratuito do Guia PBEV para wallbox, energia solar e limpeza de sistemas solares em São Paulo.';
+  const description = 'Receba oportunidades qualificadas por serviço, região e momento de decisão no piloto Guia PBEV de wallbox, energia solar e limpeza de placas em São Paulo.';
   const canonicalUrl = 'https://guiapbev.cloud/parceiros/';
   return (
     <Helmet>
@@ -192,11 +192,11 @@ export default function PartnerApplicationsPage() {
         <section className="relative overflow-hidden rounded-[2rem] border border-[#00b4ff]/20 bg-gradient-to-br from-[#07111f] via-[#070a12] to-[#002b44] p-6 md:p-10 mb-8">
           <div className="relative max-w-4xl">
             <p className="text-xs font-black uppercase tracking-[0.24em] text-[#00b4ff]">Programa de parceiros</p>
-            <h1 className="text-4xl md:text-6xl font-black mt-3 leading-[0.96]">Receba oportunidades de quem já pesquisa mobilidade elétrica.</h1>
-            <p className="text-white/75 mt-5 max-w-3xl text-lg leading-relaxed">Receba oportunidades de consumidores que já pesquisam veículos, calculam TCO e avaliam infraestrutura de recarga. Candidaturas estão abertas para wallbox, energia solar e limpeza de sistemas solares em SP. O piloto gratuito de encaminhamento, sujeito à cobertura operacional, é {isOneLeadPilot ? 'limitado a 1 lead válido e aceito por parceiro' : 'limitado a até 2 leads qualificados aceitos por parceiro'}, conforme disponibilidade.</p>
+            <h1 className="text-4xl md:text-6xl font-black mt-3 leading-[0.96]">Receba oportunidades qualificadas por serviço, região e momento de decisão.</h1>
+            <p className="text-white/75 mt-5 max-w-3xl text-lg leading-relaxed">O Guia atrai a demanda e organiza a qualificação antes do primeiro contato. As oportunidades surgem de consumidores que pesquisam veículos, calculam TCO e avaliam infraestrutura de recarga. O piloto gratuito, sujeito à cobertura operacional, é {isOneLeadPilot ? 'limitado a 1 lead válido e aceito por parceiro' : 'limitado a até 2 leads qualificados aceitos por parceiro'}, conforme disponibilidade.</p>
             <p className="mt-4 max-w-3xl text-sm font-bold text-[#37f29b]">Aquisição apoiada pelo catálogo de BEVs homologados, comparador e simuladores de TCO, economia e recarga do Guia PBEV.</p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <a href="#formulario-parceiro" onClick={() => track('partner_cta_click', { ...campaignProps, placement: 'hero' })} className="rounded-xl bg-[#00b4ff] px-5 py-3 font-black text-black">Candidatar em 2 minutos</a>
+              <a href="#formulario-parceiro" onClick={() => track('partner_cta_click', { ...campaignProps, placement: 'hero' })} className="rounded-xl bg-[#00b4ff] px-5 py-3 font-black text-black">Quero testar o piloto gratuito</a>
               <a href="#como-funciona" className="rounded-xl border border-white/10 bg-white/5 px-5 py-3 font-bold text-white/85">Ver como funciona</a>
             </div>
             <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -205,6 +205,31 @@ export default function PartnerApplicationsPage() {
               <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-2xl text-[#37f29b]">0</strong><p className="mt-1 text-sm text-white/60">lead enviado sem revisão humana</p></div>
               <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-2xl text-[#37f29b]">LGPD</strong><p className="mt-1 text-sm text-white/60">uso limitado ao interesse informado</p></div>
             </div>
+          </div>
+        </section>
+
+        <section className={`${cardClass} mb-8`} aria-labelledby="qualificacao-antes-do-contato">
+          <div className="max-w-3xl">
+            <p className="text-xs font-black uppercase tracking-[0.22em] text-[#00b4ff]">Lead com contexto</p>
+            <h2 id="qualificacao-antes-do-contato" className="mt-2 text-3xl font-black">O que chega antes do primeiro contato</h2>
+            <p className="mt-3 text-white/65">O parceiro entra para atender a oportunidade, sem montar campanha, formulário e triagem do zero.</p>
+          </div>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            <article className="rounded-2xl border border-white/10 bg-black/20 p-5">
+              <Target className="h-6 w-6 text-[#37f29b]" />
+              <h3 className="mt-3 font-black">Contexto de intenção</h3>
+              <p className="mt-2 text-sm text-white/60">A demanda nasce no catálogo, comparador, simuladores e conteúdos sobre mobilidade elétrica.</p>
+            </article>
+            <article className="rounded-2xl border border-white/10 bg-black/20 p-5">
+              <Handshake className="h-6 w-6 text-[#00b4ff]" />
+              <h3 className="mt-3 font-black">Qualificação útil</h3>
+              <p className="mt-2 text-sm text-white/60">Serviço, cidade, perfil, imóvel, prazo e preferência de contato acompanham a oportunidade.</p>
+            </article>
+            <article className="rounded-2xl border border-white/10 bg-black/20 p-5">
+              <ShieldCheck className="h-6 w-6 text-[#37f29b]" />
+              <h3 className="mt-3 font-black">Handoff governado</h3>
+              <p className="mt-2 text-sm text-white/60">Consentimento, aderência à cobertura e revisão humana vêm antes da liberação dos dados.</p>
+            </article>
           </div>
         </section>
 
