@@ -55,8 +55,9 @@ describe('PartnerApplicationsPage', () => {
     expect(screen.getByRole('heading', { name: /o que chega antes do primeiro contato/i })).toBeInTheDocument();
     expect(screen.getByText(/serviço, cidade, perfil, imóvel, prazo e preferência de contato/i)).toBeInTheDocument();
     expect(screen.getByText(/sem montar campanha, formulário e triagem do zero/i)).toBeInTheDocument();
-    expect(screen.getByText(/até 2 leads qualificados aceitos por parceiro/i)).toBeInTheDocument();
-    expect(screen.getByText(/os primeiros 2 leads aceitos são gratuitos/i)).toBeInTheDocument();
+    expect(screen.getByText(/limitado a 1 lead qualificado e aceito por parceiro, sem custo/i)).toBeInTheDocument();
+    expect(screen.getByText(/o primeiro lead qualificado e aceito não tem custo/i)).toBeInTheDocument();
+    expect(screen.queryByText(/2 leads/i)).not.toBeInTheDocument();
     expect(screen.getByText(/wallbox pf/i)).toHaveTextContent(/r\$\s*100/i);
     expect(screen.getByText(/wallbox pj/i)).toHaveTextContent(/r\$\s*150/i);
     expect(screen.getByText(/energia solar pf\/pj/i)).toHaveTextContent(/r\$\s*250/i);
@@ -85,13 +86,13 @@ describe('PartnerApplicationsPage', () => {
     }));
   });
 
-  it('uses the one-lead contract only for the versioned outreach campaign', async () => {
+  it('uses the one-lead contract for campaigns that previously offered two leads', async () => {
     const user = userEvent.setup();
     window.sessionStorage.clear();
     window.history.replaceState(
       {},
       '',
-      '/parceiros?utm_source=instagram&utm_medium=dm&utm_campaign=partner_pilot_sp_2026q3_one_lead_20260731&utm_content=empresa_teste',
+      '/parceiros?utm_source=instagram&utm_medium=dm&utm_campaign=partner_pilot_sp_2026q3&utm_content=empresa_teste',
     );
 
     render(
@@ -100,8 +101,8 @@ describe('PartnerApplicationsPage', () => {
       </MemoryRouter>,
     );
 
-    expect(screen.getByText(/limitado a 1 lead válido e aceito por parceiro/i)).toBeInTheDocument();
-    expect(screen.getByText(/o primeiro lead válido e aceito é gratuito/i)).toBeInTheDocument();
+    expect(screen.getByText(/limitado a 1 lead qualificado e aceito por parceiro, sem custo/i)).toBeInTheDocument();
+    expect(screen.getByText(/o primeiro lead qualificado e aceito não tem custo/i)).toBeInTheDocument();
     expect(screen.queryByText(/os primeiros 2 leads aceitos são gratuitos/i)).not.toBeInTheDocument();
 
     fireEvent.change(screen.getByLabelText(/nome da empresa/i), { target: { value: 'Empresa Rodada Um Lead' } });
@@ -158,8 +159,8 @@ describe('PartnerApplicationsPage', () => {
         energia_solar_recarga: 'PF/PJ R$ 250 por lead aceito após o piloto',
         limpeza_sistema_solar: 'PF/PJ R$ 35 por lead aceito após o piloto',
       },
-      termsVersion: '2026-08-14-pilot-v3',
-      freePilotLeadLimit: 2,
+      termsVersion: '2026-08-14-pilot-one-lead-v2',
+      freePilotLeadLimit: 1,
       matchCodes: expect.arrayContaining(['uf_exact', 'serves_pf', 'serves_pj_fleet', 'home_charging', 'solar_cross_sell', 'solar_cleaning']),
       lgpdAcceptance: true,
     }));

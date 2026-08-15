@@ -2,6 +2,16 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 15/08/2026 · Piloto único de um lead gratuito
+
+| Área | Mudança pública |
+|---|---|
+| Landing | Todos os acessos a `/parceiros/`, independentemente de campanha ou UTM, exibem o mesmo limite de 1 lead qualificado e aceito, sem custo, por parceiro. |
+| Candidatura | O formulário envia `termsVersion=2026-08-14-pilot-one-lead-v2` e `freePilotLeadLimit=1`, sem fallback para contrato de dois leads. |
+| Continuidade | O primeiro lead qualificado e aceito não tem custo; qualquer lead adicional depende de nova proposta, contrato e aceite formal. Não há promessa de aprovação, volume ou conversão. |
+| Histórico | Aceites e comunicações anteriores não são reescritos. |
+| Verificação | TDD RED→GREEN, 209/209 testes, build Vite, rota estática e scanner de segredos aprovados. |
+
 ## 14/08/2026 · Qualificação q2 e proposta de valor para parceiros
 
 | Área | Mudança pública |

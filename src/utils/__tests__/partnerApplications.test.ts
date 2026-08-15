@@ -28,12 +28,13 @@ const application: PartnerApplicationFormData = {
   leadPriceByModality: {
     wallbox: 'PF R$ 100; PJ R$ 150 por lead aceito após o piloto',
     energia_solar_recarga: 'PF/PJ R$ 250 por lead aceito após o piloto',
+    limpeza_sistema_solar: 'PF/PJ R$ 35 por lead aceito após o piloto',
   },
   matchCodes: ['uf_exact', 'city_priority', 'home_charging', 'fast_sla_4h'],
   notes: 'Teste de candidatura.',
   lgpdAcceptance: true,
-  termsVersion: '2026-07-30-pilot-v2',
-  freePilotLeadLimit: 2,
+  termsVersion: '2026-08-14-pilot-one-lead-v2',
+  freePilotLeadLimit: 1,
 };
 
 describe('submitPartnerApplication()', () => {

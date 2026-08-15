@@ -35,7 +35,7 @@ Operações administrativas, dados pessoais, regras de matching, credenciais, in
 
 O cadastro de parceiros para wallbox, energia solar e limpeza de sistemas solares em SP segue regras visíveis na própria landing `/parceiros/`:
 
-- limite gratuito exibido e aceito na própria landing: até 2 leads no acesso padrão ou 1 lead válido em convite de campanha explicitamente versionado;
+- limite gratuito único exibido e aceito na própria landing: 1 lead qualificado e aceito, sem custo, por parceiro, independentemente da origem ou campanha;
 - Wallbox PF: R$ 100 por lead aceito após o piloto;
 - Wallbox PJ: R$ 150 por lead aceito após o piloto;
 - energia solar integrada à recarga PF/PJ: R$ 250 por lead aceito após o piloto;
