@@ -9,6 +9,7 @@ import { CAR_DB, isCarNew, BRAND_URLS } from './constants';
 import Sidebar from './components/Sidebar';
 import CarCard from './components/CarCard';
 import ChatWidget from './components/ChatWidget';
+import WhatsAppCta from './components/WhatsAppCta';
 import LeadCaptureModal from './components/LeadCaptureModal';
 import CarDetailsModal from './components/CarDetailsModal';
 import ComparisonModal from './components/ComparisonModal';
@@ -491,6 +492,17 @@ export default function App() {
               </p>
             )}
           </div>
+
+          <section className="mb-4 rounded-2xl border border-[#37f29b]/20 bg-gradient-to-r from-[#071f18] via-[#0a0b12] to-[#003a2b] p-4 md:p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+            <div>
+              <p className="text-xs font-black uppercase tracking-[0.24em] text-[#37f29b] mb-1">Atendimento humano</p>
+              <p className="text-sm text-white/70">Prefere conversar antes de preencher? Fale com a Guia PBEV pelo WhatsApp.</p>
+            </div>
+            <WhatsAppCta
+              placement={isLeadCapturePath(location.pathname) ? 'interest' : 'home'}
+              className="border border-[#37f29b]/40 bg-[#37f29b]/10 px-4 py-2.5 text-[#8affc7] hover:bg-[#37f29b]/20 whitespace-nowrap"
+            />
+          </section>
 
           {LEAD_CAPTURE_ENABLED && (
             <section className="mb-4 rounded-2xl border border-[#00b4ff]/20 bg-gradient-to-r from-[#07111f] via-[#0a0b12] to-[#002b44] p-5 md:p-6 shadow-[0_0_35px_rgba(0,180,255,0.10)] flex flex-col md:flex-row md:items-center md:justify-between gap-4">

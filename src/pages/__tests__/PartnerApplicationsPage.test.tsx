@@ -64,6 +64,10 @@ describe('PartnerApplicationsPage', () => {
     expect(screen.getByText(/limpeza de sistema solar pf\/pj/i)).toHaveTextContent(/r\$\s*35/i);
     expect(screen.getByText(/nenhum lead adicional será encaminhado antes da formalização/i)).toBeInTheDocument();
     expect(screen.getAllByText(/estrutura jurídica e fiscal adequadas/i).length).toBeGreaterThanOrEqual(2);
+    expect(screen.getByRole('link', { name: /falar com a guia pelo whatsapp/i })).toHaveAttribute(
+      'href',
+      expect.stringContaining('https://wa.me/551133958879'),
+    );
     const cta = screen.getByRole('link', { name: /quero testar o piloto gratuito/i });
     expect(cta).toHaveAttribute('href', '#formulario-parceiro');
     await userEvent.click(cta);

@@ -22,6 +22,7 @@ const FUNNEL_VIRTUAL_PATHS: Record<string, string> = {
   lead_submit_attempt: '/__funnel/leads/submit-attempt',
   lead_success: '/__funnel/leads/submit-success',
   lead_error: '/__funnel/leads/submit-error',
+  whatsapp_cta_click: '/__funnel/whatsapp/cta',
 };
 
 export function track(

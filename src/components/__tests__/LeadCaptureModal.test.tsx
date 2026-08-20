@@ -49,6 +49,10 @@ describe('LeadCaptureModal', () => {
     expect(screen.queryByText(/informado antes do compartilhamento/i)).not.toBeInTheDocument();
     expect(screen.queryByLabelText(/financiamento do equipamento ou projeto/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/seguro ev/i)).not.toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /falar com a guia antes de preencher/i })).toHaveAttribute(
+      'href',
+      expect.stringContaining('https://wa.me/551133958879'),
+    );
     expect(screen.getByLabelText(/serviço desejado/i)).toHaveDisplayValue(/wallbox/i);
     expect(screen.getByText(/o parceiro selecionado receberá.*serviço.*prazo.*preferência de contato/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/como prefere o primeiro contato/i)).toHaveAttribute('aria-describedby', 'preferred-contact-help');

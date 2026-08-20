@@ -3,6 +3,7 @@ import { Send, ShieldCheck, X, Zap } from 'lucide-react';
 import { Car, LeadFormData, LeadInterest } from '../types';
 import { track } from '../utils/analytics';
 import { submitLead } from '../utils/leads';
+import WhatsAppCta from './WhatsAppCta';
 
 interface LeadCaptureModalProps {
   isOpen: boolean;
@@ -189,6 +190,15 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
           <p className="mt-2 text-xs font-semibold text-[#37f29b]">
             O parceiro selecionado receberá serviço, cidade, perfil, imóvel, prazo e preferência de contato antes de falar com você.
           </p>
+          <div className="mt-4 flex flex-col gap-2 rounded-2xl border border-[#37f29b]/20 bg-[#37f29b]/5 p-3 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-xs text-white/60">Prefere conversar antes de preencher? A equipe atende manualmente.</p>
+            <WhatsAppCta
+              placement="interest"
+              className="border border-[#37f29b]/40 bg-[#37f29b]/10 px-3 py-2 text-xs text-[#8affc7] hover:bg-[#37f29b]/20 whitespace-nowrap"
+            >
+              Falar com a Guia antes de preencher
+            </WhatsAppCta>
+          </div>
           {vehicleLabel && <p className="mt-2 text-sm text-white/65">Veículo de interesse: <strong className="text-white">{vehicleLabel}</strong></p>}
         </div>
 

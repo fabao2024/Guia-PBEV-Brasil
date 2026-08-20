@@ -24,6 +24,21 @@ describe('App partner CTA', () => {
     expect(partnerLinks.every(link => link.getAttribute('href') === '/parceiros/')).toBe(true);
   });
 
+  it('adds a direct WhatsApp entry point on the catalog home', () => {
+    render(
+      <HelmetProvider>
+        <MemoryRouter initialEntries={['/']}>
+          <App />
+        </MemoryRouter>
+      </HelmetProvider>,
+    );
+
+    expect(screen.getByRole('link', { name: /continuar no whatsapp/i })).toHaveAttribute(
+      'href',
+      expect.stringContaining('https://wa.me/551133958879'),
+    );
+  });
+
   it('opens the consumer form with solar-panel cleaning preselected', async () => {
     const user = userEvent.setup();
     render(

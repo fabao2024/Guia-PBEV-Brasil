@@ -9,6 +9,7 @@ import { Car, ChatMessage } from '../types';
 import { sanitizeChatInput, validateChatInput } from '../utils/sanitize';
 import { traceLLMCall } from '../utils/tracing';
 import { track } from '../utils/analytics';
+import WhatsAppCta from './WhatsAppCta';
 import { useRateLimit } from '../hooks/useRateLimit';
 import { FUEL_PRICES_BY_STATE, FUEL_PRICES_UPDATED } from '../constants/fuelPricesByState';
 import { ELECTRICITY_PRICES_BY_STATE, ELECTRICITY_PRICES_UPDATED } from '../constants/electricityPricesByState';
@@ -865,6 +866,11 @@ SUGGEST_EV_READY:{"brand":"MARCA","model":"MODELO","price":"PRECO","range":"AUTO
         <p className="text-xs text-slate-500 leading-relaxed">{t('chat.keyPrivacy')}</p>
       </div>
 
+      <WhatsAppCta
+        placement="chat_widget"
+        className="mb-3 w-full border border-[#37f29b]/40 bg-[#37f29b]/10 px-3 py-2.5 text-xs text-[#8affc7] hover:bg-[#37f29b]/20"
+      />
+
       {/* Bottom: quiz option — always visible */}
       <div className="pt-3 border-t border-white/10 text-center">
         <p className="text-xs text-slate-400 mb-2">{t('chat.orTryQuiz')}</p>
@@ -1112,6 +1118,10 @@ SUGGEST_EV_READY:{"brand":"MARCA","model":"MODELO","price":"PRECO","range":"AUTO
 
               {/* Input — hidden in quiz-only mode (no key) */}
               <div className="p-3 bg-[#1c1e26] border-t border-white/10">
+              <WhatsAppCta
+                placement="chat_widget"
+                className="mb-2 w-full border border-[#37f29b]/40 bg-[#37f29b]/10 px-3 py-2.5 text-xs text-[#8affc7] hover:bg-[#37f29b]/20"
+              />
               {!hasKey ? (
                 <button
                   onClick={() => { setQuizStep(0); setQuizDone(false); setMessages([{ role: 'model', text: t('chat.welcome') }]); setChipsVisible(true); }}

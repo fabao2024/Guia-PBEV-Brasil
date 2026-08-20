@@ -54,6 +54,7 @@ describe('track()', () => {
     ['lead_submit_attempt', 'leads', 'submit-attempt'],
     ['lead_success', 'leads', 'submit-success'],
     ['lead_error', 'leads', 'submit-error'],
+    ['whatsapp_cta_click', 'whatsapp', 'cta'],
   ])('emits a virtual pageview for %s', (eventName, funnel, virtualStage) => {
     const mock = vi.fn();
     (window as any).plausible = mock;

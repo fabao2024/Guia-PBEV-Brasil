@@ -6,6 +6,7 @@ import { PartnerApplicationFormData } from '../types';
 import { track } from '../utils/analytics';
 import { attributionEventProps, getFirstTouchAttribution } from '../utils/attribution';
 import { submitPartnerApplication } from '../utils/partnerApplications';
+import WhatsAppCta from '../components/WhatsAppCta';
 
 const SERVICE_CATEGORIES = [
   ['wallbox', 'Wallbox / instalação'],
@@ -179,6 +180,11 @@ export default function PartnerApplicationsPage() {
             <div className="mt-7 flex flex-wrap gap-3">
               <a href="#formulario-parceiro" onClick={() => track('partner_cta_click', { ...campaignProps, placement: 'hero' })} className="rounded-xl bg-[#00b4ff] px-5 py-3 font-black text-black">Quero testar o piloto gratuito</a>
               <a href="#como-funciona" className="rounded-xl border border-white/10 bg-white/5 px-5 py-3 font-bold text-white/85">Ver como funciona</a>
+              <WhatsAppCta
+                audience="partner"
+                placement="partner"
+                className="border border-[#37f29b]/40 bg-[#37f29b]/10 px-5 py-3 text-[#8affc7] hover:bg-[#37f29b]/20"
+              />
             </div>
             <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><strong className="text-2xl text-[#37f29b]">Guia</strong><p className="mt-1 text-sm text-white/60">catálogo, comparador e simuladores</p></div>
