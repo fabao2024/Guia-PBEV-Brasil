@@ -187,7 +187,7 @@
     "configError": "Erro de Configuração: API Key não encontrada. Verifique o arquivo .env.local.",
     "techError": "Erro técnico: {{message}}",
     "connectError": "Erro ao conectar: {{message}}",
-    "headerTitle": "Consultor EletriBrasil v4.0 (Gemini 2.5 Lite)",
+    "headerTitle": "Consultor EletriBrasil v4.0 (Gemini 3.5 Flash-Lite)",
     "headerSubtitle": "Powered by Gemini",
     "placeholder": "Ex: Qual a autonomia real do Dolphin?",
     "toggleLabel": "Consultor IA",

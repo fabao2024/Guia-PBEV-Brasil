@@ -28,6 +28,20 @@ describe('EletriBrasil model configuration', () => {
     expect(widget).not.toContain('gemini-2.5-flash-lite');
   });
 
+  it('describes the current consultant model in the public locale labels', () => {
+    const ptLocale = JSON.parse(
+      fs.readFileSync(path.join(repoRoot, 'src/i18n/locales/pt-BR.json'), 'utf8'),
+    );
+    const enLocale = JSON.parse(
+      fs.readFileSync(path.join(repoRoot, 'src/i18n/locales/en.json'), 'utf8'),
+    );
+
+    expect(ptLocale.chat.headerTitle).toContain('Gemini 3.5 Flash-Lite');
+    expect(enLocale.chat.headerTitle).toContain('Gemini 3.5 Flash-Lite');
+    expect(ptLocale.chat.headerTitle).not.toContain('Gemini 2.5');
+    expect(enLocale.chat.headerTitle).not.toContain('Gemini 2.5');
+  });
+
   it('describes the source as the current Guia PBEV catalog in both languages', () => {
     const widget = fs.readFileSync(path.join(repoRoot, 'src/components/ChatWidget.tsx'), 'utf8');
 

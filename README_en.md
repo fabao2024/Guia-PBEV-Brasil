@@ -30,8 +30,8 @@ The project adopts a **Client-Side Rendering (CSR)** architecture optimized for 
 - **Animations**: CSS Transitions & Transform (Hardware Accelerated)
 
 ### Artificial Intelligence
-- **Engine**: Google Gemini 2.5 Flash (Latest)
-- **Integration**: Google Generative AI SDK (`@google/generative-ai`)
+- **Engine**: Google Gemini 3.5 Flash-Lite
+- **Integration**: Google Generative AI SDK (`@google/genai`)
 - **Features**: Context-aware Chatbot with catalog knowledge (`CAR_DB`).
 
 ## 📂 Project Structure

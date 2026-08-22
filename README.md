@@ -25,7 +25,7 @@ Progressive Web App (PWA) para o mercado de veículos elétricos (BEV) no Brasil
 | ⚖️ Comparação | Comparativo lado a lado de até 3 veículos |
 | 💰 Simulador de Economia | Calcula economia mensal vs. combustão com IPVA real por estado |
 | 📊 TCO 4 anos | Custo total de propriedade: energia, seguro, manutenção, IPVA e depreciação |
-| 🤖 Assistente IA | Chat especializado em EVs com dados PBEV (Gemini 2.5 Flash Lite) |
+| 🤖 Assistente IA | Chat especializado em EVs com dados PBEV (Gemini 3.5 Flash-Lite) |
 | 🏆 Quiz de Recomendação | Recomenda o EV ideal por perfil — 100% offline, sem chave de API |
 | 🏅 Certificação PBE | Rating PBE/INMETRO (A–E) e consumo em MJ/km por modelo |
 | 🧾 IPVA 2026 | Calculadora de IPVA nos 27 estados com isenções para EVs |
@@ -38,7 +38,7 @@ Progressive Web App (PWA) para o mercado de veículos elétricos (BEV) no Brasil
 - **Framework**: React 19 + TypeScript (strict, ES2022)
 - **Build**: Vite 6 — deploy automático via GitHub Actions
 - **Estilos**: Tailwind CSS 4
-- **IA**: Google Generative AI SDK (`gemini-2.5-flash-lite`)
+- **IA**: Google Generative AI SDK (`gemini-3.5-flash-lite`)
 - **i18n**: i18next + react-i18next (PT-BR padrão, EN)
 - **Testes**: Vitest 4 + Testing Library + happy-dom (70 testes)
 - **Segurança**: Sanitização XSS, rate limiting, detecção de prompt injection (12 padrões)
@@ -119,7 +119,7 @@ Progressive Web App (PWA) for the Brazilian Electric Vehicle (BEV) market. Inter
 | ⚖️ Comparison | Side-by-side comparison of up to 3 vehicles |
 | 💰 Savings Simulator | Monthly savings vs. combustion with real state IPVA tax |
 | 📊 4-year TCO | Total cost of ownership: energy, insurance, maintenance, IPVA and depreciation |
-| 🤖 AI Assistant | EV-specialized chat with PBEV data (Gemini 2.5 Flash Lite) |
+| 🤖 AI Assistant | EV-specialized chat with PBEV data (Gemini 3.5 Flash-Lite) |
 | 🏆 Recommendation Quiz | Recommends the ideal EV by profile — 100% offline, no API key needed |
 | 🏅 PBE Certification | PBE/INMETRO rating (A–E) and energy consumption in MJ/km per model |
 | 🧾 IPVA 2026 | Vehicle tax calculator across all 27 Brazilian states with EV exemptions |
@@ -132,7 +132,7 @@ Progressive Web App (PWA) for the Brazilian Electric Vehicle (BEV) market. Inter
 - **Framework**: React 19 + TypeScript (strict, ES2022)
 - **Build**: Vite 6 — automated deploy via GitHub Actions
 - **Styling**: Tailwind CSS 4
-- **AI**: Google Generative AI SDK (`gemini-2.5-flash-lite`)
+- **AI**: Google Generative AI SDK (`gemini-3.5-flash-lite`)
 - **i18n**: i18next + react-i18next (PT-BR default, EN)
 - **Testing**: Vitest 4 + Testing Library + happy-dom (70 tests)
 - **Security**: XSS sanitization, rate limiting, prompt injection detection (12 patterns)
