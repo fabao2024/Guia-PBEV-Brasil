@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-24T14:27:13.970Z",
+  "generated_at": "2026-08-24T21:16:43.752Z",
   "total": 109,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "evidence": {
     "official_source": "PBEV/Inmetro",
-    "official_reference": "Tabela PBEV 2026_3_JUN-1",
+    "official_reference": "Tabela PBEV 2026_14_AGOd",
     "official_source_url": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
     "market_source": "Pesquisa de mercado do Guia PBEV",
     "market_history_through": "julho/2026",
@@ -1217,8 +1217,8 @@
       "charge_dc_kw": 153,
       "warranty_years": 4,
       "warranty_battery_years": 8,
-      "pbe_rating": null,
-      "energy_mj_km": null,
+      "pbe_rating": "A",
+      "energy_mj_km": 0.62,
       "features": [
         "2 motores elétricos (AWD) — 428 cv / 55,4 kgfm — 0–100 km/h em 3,6 s",
         "Bateria NMC 69 kWh",
@@ -1818,7 +1818,7 @@
       "model": "E-J7",
       "brand": "JAC",
       "price": 259900,
-      "range_km": 249,
+      "range_km": 263,
       "category": "Sedan",
       "image_url": "https://guiapbev.cloud/car-images/jac-ej7.jpg",
       "traction": "FWD",
@@ -1829,8 +1829,8 @@
       "charge_dc_kw": 40,
       "warranty_years": 3,
       "warranty_battery_years": 8,
-      "pbe_rating": null,
-      "energy_mj_km": null,
+      "pbe_rating": "A",
+      "energy_mj_km": 0.5,
       "features": [
         "Bateria LFP 50 kWh (>2.000 ciclos completos)",
         "Carregamento AC: 20–100% em 6h40 / DC: 20–100% em 1h",
@@ -2342,7 +2342,7 @@
       "warranty_years": 3,
       "warranty_battery_years": 8,
       "pbe_rating": "A",
-      "energy_mj_km": 0.64,
+      "energy_mj_km": 0.61,
       "features": [
         "Bateria NMC 94,9 kWh – Plataforma PPE 800V",
         "Carregamento AC 11 kW / DC 270 kW (10-80% em 21 min)",
@@ -2374,7 +2374,7 @@
       "warranty_years": 3,
       "warranty_battery_years": 8,
       "pbe_rating": "A",
-      "energy_mj_km": 0.64,
+      "energy_mj_km": 0.6,
       "features": [
         "Bateria NMC 100 kWh – Plataforma PPE 800V",
         "Carregamento AC 11 kW / DC 270 kW (10-80% em 21 min)",

@@ -768,6 +768,7 @@ export const CAR_DB: Car[] = [
       "Interior em materiais reciclados e sustentáveis",
       "Atualização OTA"
     ],
+    pbeRating: 'A', energyMJkm: 0.62,
     warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 153,
   },
   {
@@ -1074,7 +1075,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 80,
   },
   {
-    model: "E-J7", brand: "JAC", price: 259900, range: 249, cat: "Sedan",
+    model: "E-J7", brand: "JAC", price: 259900, range: 263, cat: "Sedan",
     img: "/car-images/jac-ej7.jpg",
     power: 193, torque: 34.7, traction: 'FWD', battery: 50,
     features: [
@@ -1087,6 +1088,7 @@ export const CAR_DB: Car[] = [
       "Entrada sem chave (keyless entry)",
       "0–100 km/h em 5,9s"
     ],
+    pbeRating: 'A', energyMJkm: 0.5,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 40,
   },
   {
@@ -1351,7 +1353,7 @@ export const CAR_DB: Car[] = [
       "Bancos S Line com ventilação + som Bang & Olufsen 3D",
       "Teto panorâmico + atualização OTA + 0-100 km/h em 5,9 s"
     ],
-    pbeRating: 'A', energyMJkm: 0.64,
+    pbeRating: 'A', energyMJkm: 0.61,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 270,
   },
   {
@@ -1368,7 +1370,7 @@ export const CAR_DB: Car[] = [
       "Bancos S com ventilação, aquecimento e massagem + som Bang & Olufsen",
       "0-100 km/h em 4,4 s + Launch Control + atualização OTA"
     ],
-    pbeRating: 'A', energyMJkm: 0.64,
+    pbeRating: 'A', energyMJkm: 0.6,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 270,
   },
   {

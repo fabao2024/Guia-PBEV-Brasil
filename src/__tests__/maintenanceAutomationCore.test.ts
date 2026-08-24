@@ -218,8 +218,8 @@ describe('maintenance automation core', () => {
       'official_press_release',
     ]);
     expect(registry.datasets.pbev).toMatchObject({
-      reference: 'PBEV 2026_27_FEV-REV05',
-      reviewStatus: 'pending_full_diff',
+      reference: 'Tabela PBEV 2026_14_AGOd.pdf',
+      reviewStatus: 'manual_diff_applied',
     });
     expect(Object.keys(registry.vehicles).sort()).toEqual(cars.map((car: { slug: string }) => car.slug).sort());
     for (const entry of Object.values(registry.vehicles) as Array<{ fields: Record<string, unknown> }>) {
