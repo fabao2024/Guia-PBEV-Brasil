@@ -1,7 +1,15 @@
 {
-  "generated_at": "2026-07-17T13:02:04.196Z",
+  "generated_at": "2026-08-24T14:27:13.970Z",
   "total": 109,
   "base_image_url": "https://guiapbev.cloud/car-images",
+  "evidence": {
+    "official_source": "PBEV/Inmetro",
+    "official_reference": "Tabela PBEV 2026_3_JUN-1",
+    "official_source_url": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+    "market_source": "Pesquisa de mercado do Guia PBEV",
+    "market_history_through": "julho/2026",
+    "price_disclaimer": "Preços indicativos, sujeitos a alteração e confirmação com a marca."
+  },
   "cars": [
     {
       "model": "Kwid E-Tech",

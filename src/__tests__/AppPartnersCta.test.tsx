@@ -9,6 +9,10 @@ vi.mock('../config/leadCapture', () => ({
   isLeadCapturePath: (pathname: string) => pathname.replace(/\/+$/, '') === '/interesse',
 }));
 
+// Cada teste monta o App completo com o catálogo inteiro; em CI, o último
+// teste acumulava o custo dos renders anteriores e estourava o timeout
+// padrão de 5s. O orçamento explícito mantém o gate estável sem mascarar
+// falhas de asserção.
 describe('App partner CTA', () => {
   it('links the catalog home to the partner application page for Instagram bio visitors', () => {
     render(
@@ -22,7 +26,7 @@ describe('App partner CTA', () => {
     const partnerLinks = screen.getAllByRole('link', { name: /programa de parceiros|parceiros|fornecedores/i });
     expect(partnerLinks.length).toBeGreaterThan(0);
     expect(partnerLinks.every(link => link.getAttribute('href') === '/parceiros/')).toBe(true);
-  });
+  }, 30_000);
 
   it('adds a direct WhatsApp entry point on the catalog home', () => {
     render(
@@ -37,7 +41,7 @@ describe('App partner CTA', () => {
       'href',
       expect.stringContaining('https://wa.me/551133958879'),
     );
-  });
+  }, 30_000);
 
   it('opens the consumer form with solar-panel cleaning preselected', async () => {
     const user = userEvent.setup();
@@ -51,7 +55,7 @@ describe('App partner CTA', () => {
 
     await user.click(screen.getByRole('button', { name: /quero limpeza de placas/i }));
     expect(screen.getByLabelText(/serviço desejado/i)).toHaveDisplayValue(/limpeza de placas solares/i);
-  });
+  }, 30_000);
 
   it('accepts a direct solar-cleaning interest URL', () => {
     render(
@@ -63,5 +67,5 @@ describe('App partner CTA', () => {
     );
 
     expect(screen.getByLabelText(/serviço desejado/i)).toHaveDisplayValue(/limpeza de placas solares/i);
-  });
+  }, 30_000);
 });

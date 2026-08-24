@@ -13,6 +13,7 @@ import { IPVA_BY_STATE, calcIpva, IPVA_DATA_UPDATED } from '../constants/ipvaByS
 import { getPriceDelta, getLastSnapshot } from '../constants/priceHistory';
 import { track } from '../utils/analytics';
 import { resolveCarImageUrl } from '../utils/imageUrl';
+import DataEvidence from '../components/DataEvidence';
 
 const MAX_RANGE_KM = 700;
 
@@ -336,6 +337,8 @@ export default function CarDetailPage() {
                   </span>
                 )}
               </div>
+
+              <DataEvidence compact />
 
               {/* Action buttons */}
               <div className="flex gap-2.5">

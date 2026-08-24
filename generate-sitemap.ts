@@ -11,6 +11,7 @@ import { writeFileSync, readFileSync, mkdirSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { CAR_DB, isCarNew } from './src/constants';
+import { CATALOG_EVIDENCE } from './src/constants/catalogEvidence';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -80,6 +81,14 @@ const carsJson = {
   generated_at: new Date().toISOString(),
   total: CAR_DB.length,
   base_image_url: 'https://guiapbev.cloud/car-images',
+  evidence: {
+    official_source: CATALOG_EVIDENCE.officialSourceLabel,
+    official_reference: CATALOG_EVIDENCE.officialReference,
+    official_source_url: CATALOG_EVIDENCE.officialSourceUrl,
+    market_source: CATALOG_EVIDENCE.marketSourceLabel,
+    market_history_through: CATALOG_EVIDENCE.marketHistoryThrough,
+    price_disclaimer: CATALOG_EVIDENCE.priceDisclaimer,
+  },
   cars: CAR_DB.map(car => ({
     model:                  car.model,
     brand:                  car.brand,

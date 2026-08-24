@@ -18,7 +18,7 @@ import { isLeadCapturePath, LEAD_CAPTURE_ENABLED } from './config/leadCapture';
 import SavingsSimulatorModal from './components/SavingsSimulatorModal';
 import { ChargingMapModal } from './components/ChargingMapModal';
 import { RoutePlannerModal } from './components/RoutePlannerModal';
-import { Zap, Printer, Search, SlidersHorizontal, Scale, X, ArrowRight, Heart, BarChart2, Lightbulb, XCircle, MapPin, Route as RouteIcon } from 'lucide-react';
+import { Zap, Printer, Search, SlidersHorizontal, Scale, X, ArrowRight, Heart, BarChart2, Lightbulb, XCircle, MapPin, Route as RouteIcon, ArrowDownUp } from 'lucide-react';
 import { useCarFilter } from './hooks/useCarFilter';
 import { useFavorites } from './hooks/useFavorites';
 import { useCompare } from './hooks/useCompare';
@@ -27,6 +27,8 @@ import { useJsonLd } from './hooks/useJsonLd';
 import { Car, LeadInterest } from './types';
 import { track } from './utils/analytics';
 import { resolveCarImageUrl } from './utils/imageUrl';
+import { sortCars, type RankMode } from './utils/ranking';
+import DataEvidence from './components/DataEvidence';
 
 export default function App() {
   const { t } = useTranslation();
@@ -133,6 +135,7 @@ export default function App() {
   const [isRoutePlannerOpen, setIsRoutePlannerOpen] = useState(false);
   const [showSuggestMenu, setShowSuggestMenu] = useState(false);
   const [triggerSuggestChat, setTriggerSuggestChat] = useState(false);
+  const [rankMode, setRankMode] = useState<RankMode>('catalog');
 
   const { query, setQuery, searchResults, clearSearch, isSearching } = useSearch(CAR_DB);
 
@@ -182,6 +185,8 @@ export default function App() {
     });
   }, [filters, showFavoritesOnly, favorites, searchResults]);
 
+  const rankedCars = useMemo(() => sortCars(filteredCars, rankMode), [filteredCars, rankMode]);
+
   // Combined reset for filters, favorites mode and search
   const handleResetFilters = () => {
     resetFilters();
@@ -205,7 +210,7 @@ export default function App() {
 
   const helmetDesc = selectedCar
     ? `${selectedCar.brand} ${selectedCar.model}: autonomia ${selectedCar.range} km (PBEV/Inmetro), preço a partir de R$ ${selectedCar.price.toLocaleString('pt-BR')}. Compare com outros elétricos no Guia PBEV Brasil.`
-    : 'Guia completo dos 88 veículos elétricos homologados no Brasil pelo PBEV/Inmetro. Compare autonomia, preço e especificações.';
+    : `Catálogo público com ${CAR_DB.length} veículos elétricos homologados no Brasil pelo PBEV/Inmetro. Compare autonomia, preço e especificações.`;
 
   const helmetImage = selectedCar && selectedCar.img.startsWith('/car-images/')
     ? `https://guiapbev.cloud${selectedCar.img}`
@@ -462,6 +467,8 @@ export default function App() {
             </a>
           </div>
 
+          <DataEvidence />
+
           {/* Search Bar */}
           <div className="mb-4 relative">
             <div className="relative flex items-center">
@@ -491,6 +498,25 @@ export default function App() {
                   : t('search.noResults', { query: query.trim() })}
               </p>
             )}
+          </div>
+
+          <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-center gap-2 text-xs text-white/45">
+              <ArrowDownUp className="h-3.5 w-3.5 text-[#00b4ff]" aria-hidden="true" />
+              <label htmlFor="catalog-rank" className="font-semibold">Ordenar catálogo</label>
+            </div>
+            <select
+              id="catalog-rank"
+              value={rankMode}
+              onChange={event => setRankMode(event.target.value as RankMode)}
+              className="w-full sm:w-auto rounded-xl border border-white/10 bg-[#0a0b12]/80 px-3 py-2 text-sm font-semibold text-white/75 focus:border-[#00b4ff]/50 focus:outline-none"
+            >
+              <option value="catalog">Ordem do catálogo</option>
+              <option value="price-asc">Menor preço</option>
+              <option value="range-desc">Maior autonomia</option>
+              <option value="efficiency-asc">Menor consumo PBE</option>
+              <option value="power-desc">Maior potência</option>
+            </select>
           </div>
 
           <section className="mb-4 rounded-2xl border border-[#37f29b]/20 bg-gradient-to-r from-[#071f18] via-[#0a0b12] to-[#003a2b] p-4 md:p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
@@ -597,7 +623,7 @@ export default function App() {
 
           {/* Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-3 sm:gap-6 pb-20">
-            {filteredCars.map((car, index) => (
+            {rankedCars.map((car, index) => (
               <div
                 key={`${car.model}-${index}`}
                 className="card-enter h-full"

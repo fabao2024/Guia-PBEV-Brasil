@@ -9,6 +9,7 @@ import { IPVA_BY_STATE, calcIpva, IPVA_DATA_UPDATED } from '../constants/ipvaByS
 import { getPriceDelta, getLastSnapshot } from '../constants/priceHistory';
 import { track } from '../utils/analytics';
 import { resolveCarImageUrl } from '../utils/imageUrl';
+import DataEvidence from './DataEvidence';
 
 interface CarDetailsModalProps {
     car: Car;
@@ -634,6 +635,8 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                                 </span>
                             )}
                         </div>
+
+                        <DataEvidence compact />
 
                         {/* Action buttons */}
                         <div className="flex gap-2.5">

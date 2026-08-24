@@ -5,6 +5,7 @@ import { CAR_DB } from '../constants';
 import { findCarBySlug, toSlug } from '../utils/slug';
 import { ArrowLeft, Zap, BatteryCharging, CheckCircle2, XCircle } from 'lucide-react';
 import { resolveCarImageUrl } from '../utils/imageUrl';
+import DataEvidence from '../components/DataEvidence';
 
 function imgSrc(car: (typeof CAR_DB)[0]): string {
   return resolveCarImageUrl(car.img, 800);
@@ -122,7 +123,8 @@ export default function CompareDetailPage() {
             <span className="text-white/30">vs</span>{' '}
             {carB.brand} {carB.model}
           </h1>
-          <p className="text-white/40 text-sm mb-8">Comparativo PBEV · Dados INMETRO</p>
+          <p className="text-white/40 text-sm mb-4">Comparativo PBEV · Dados INMETRO</p>
+          <DataEvidence compact />
 
           {/* Images */}
           <div className="grid grid-cols-2 gap-4 mb-8">
