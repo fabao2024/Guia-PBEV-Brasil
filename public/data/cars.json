@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T21:16:43.752Z",
+  "generated_at": "2026-08-24T21:46:26.536Z",
   "total": 109,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "evidence": {
@@ -39,7 +39,7 @@
         "Montagem nacional (São José dos Pinhais - PR)"
       ],
       "is_new": false,
-      "discontinued": false,
+      "discontinued": true,
       "slug": "renault-kwid-e-tech",
       "detail_url": "https://guiapbev.cloud/carro/renault-kwid-e-tech"
     },
@@ -1477,7 +1477,7 @@
       "warranty_years": 4,
       "warranty_battery_years": 8,
       "pbe_rating": "A",
-      "energy_mj_km": 0.59,
+      "energy_mj_km": 0.51,
       "features": [
         "Bateria NMC 69 kWh",
         "Carregamento AC 11 kW / DC 150 kW",

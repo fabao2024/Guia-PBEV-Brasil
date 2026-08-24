@@ -39,4 +39,18 @@ describe('CAR_DB values per PBEV/Inmetro table 2026_14_AGOd', () => {
     expect(byModel('EX30 Ultra').pbeRating).toBe('A');
     expect(byModel('EX30 Ultra').energyMJkm).toBeCloseTo(0.62, 5);
   });
+
+  it('Volvo EC40 single-motor should use its own homologated consumption, not the P8 one', () => {
+    // Site entry is the single motor (RWD, 69 kWh); table row EC40 '6 CORE/PLUS/ULTRA' = 385 km / 0.51 MJ/km / A.
+    // The previous 0.59 value belonged to the '8' (P8 AWD) rows.
+    const ec40 = byModel('EC40 (C40)');
+    expect(ec40.range).toBe(385);
+    expect(ec40.energyMJkm).toBeCloseTo(0.51, 5);
+  });
+
+  it('Renault Kwid E-Tech should be flagged as discontinued', () => {
+    // Renault BR official site no longer lists the Kwid E-Tech; KWID menu entry is flex-only,
+    // and the only remaining 100% electric Renault in Brazil is the Megane E-Tech.
+    expect(byModel('Kwid E-Tech').discontinued).toBe(true);
+  });
 });

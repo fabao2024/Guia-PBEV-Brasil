@@ -143,7 +143,7 @@ export const CAR_DB: Car[] = [
       "Ar-condicionado automático",
       "Montagem nacional (São José dos Pinhais - PR)"
     ],
-    pbeRating: 'A', energyMJkm: 0.44,
+    pbeRating: 'A', energyMJkm: 0.44, discontinued: true,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 30,
   },
   {
@@ -904,7 +904,7 @@ export const CAR_DB: Car[] = [
       "Design fastback coupé (teto fixo de vidro, sem abertura)",
       "Bancos aquecidos + acabamento sem couro (interior vegan)"
     ],
-    pbeRating: 'A', energyMJkm: 0.59,
+    pbeRating: 'A', energyMJkm: 0.51,
     warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
   },
   {
