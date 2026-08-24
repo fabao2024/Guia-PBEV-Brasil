@@ -53,4 +53,23 @@ describe('CAR_DB values per PBEV/Inmetro table 2026_14_AGOd', () => {
     // and the only remaining 100% electric Renault in Brazil is the Megane E-Tech.
     expect(byModel('Kwid E-Tech').discontinued).toBe(true);
   });
+
+  it('BMW iX3 should reflect the new NA5 generation on sale in Brazil', () => {
+    // bmw.com.br official page (checked 2026-08-24): iX3 50 xDrive, from R$ 582.950,
+    // 570 km PBEV range (Inmetro), 469 cv combined, 10-80% in 21 min at 320 kW DC.
+    // PBEV table row: iX3 '50 XDRIVE MSP' = 570 km / 0.54 MJ/km / PBE A.
+    const ix3 = byModel('iX3');
+    expect(ix3.price).toBe(582950);
+    expect(ix3.range).toBe(570);
+    expect(ix3.power).toBe(469);
+    expect(ix3.battery).toBe(80);
+    expect(ix3.pbeRating).toBe('A');
+    expect(ix3.energyMJkm).toBeCloseTo(0.54, 5);
+    expect(ix3.traction).toBe('AWD');
+  });
+
+  it('Nissan Ariya should be flagged as discontinued', () => {
+    // Absent from the FIPE table and from the nissan.com.br model menu (checked 2026-08-24).
+    expect(byModel('Ariya').discontinued).toBe(true);
+  });
 });

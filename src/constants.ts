@@ -1105,6 +1105,7 @@ export const CAR_DB: Car[] = [
       "Bancos aquecidos e ventilados (Zero-Gravity seats)",
       "Teto solar panorâmico"
     ],
+    discontinued: true,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 7.4, chargeDC: 130,
   },
   {
@@ -1142,20 +1143,20 @@ export const CAR_DB: Car[] = [
     warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 200,
   },
   {
-    model: "iX3", brand: "BMW", price: 500950, range: 381, cat: "Luxo",
+    model: "iX3", brand: "BMW", price: 582950, range: 570, cat: "Luxo",
     img: "/car-images/ix3.jpg",
-    power: 286, torque: 40.8, traction: 'RWD', battery: 74,
+    power: 469, torque: 65.3, traction: 'AWD', battery: 80,
     features: [
-      "Bateria NMC 74 kWh",
-      "Carregamento AC 11 kW / DC 150 kW",
-      "BMW Curved Display: tela 12,3\" + 14,9\" com iDrive 8",
-      "6 airbags",
-      "BMW Driving Assistant Professional: ACC + LCC + AEB + BSM + Park Assist remoto",
-      "Câmera 360°",
-      "Bancos aquecidos e ventilados + teto panorâmico",
-      "Som Harman Kardon premium + head-up display"
+      "Nova geração Neue Klasse — bateria NMC 80 kWh útil",
+      "Autonomia PBEV/Inmetro de 570 km",
+      "Carregamento DC ultrarrápido até 320 kW (10–80% em 21 min)",
+      "469 cv combinados com BMW Heart of Joy",
+      "BMW Panoramic iDrive com Panoramic Vision",
+      "6 airbags + assistência ao motorista otimizada",
+      "Porta-malas 520 L + frunk 58 L"
     ],
-    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
+    pbeRating: 'A', energyMJkm: 0.54,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 320,
   },
 
   // 3. LUXO & PERFORMANCE
