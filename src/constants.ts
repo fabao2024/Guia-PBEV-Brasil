@@ -224,6 +224,7 @@ export const CAR_DB: Car[] = [
       "Piloto automático (controle de cruzeiro adaptativo)",
       "Rodas de liga leve aro 17 com estepe"
     ],
+    pbeRating: 'A', energyMJkm: 0.51,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 64,
   },
   {
@@ -242,6 +243,7 @@ export const CAR_DB: Car[] = [
       "Carregador sem fio por indução para celular",
       "Faróis inteligentes com ajuste automático de feixe"
     ],
+    pbeRating: 'A', energyMJkm: 0.57,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 87,
   },
   {
@@ -359,6 +361,7 @@ export const CAR_DB: Car[] = [
       "Teto solar panorâmico",
       "Design SUV com acabamento premium"
     ],
+    pbeRating: 'A', energyMJkm: 0.49,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 120,
   },
   {
@@ -532,6 +535,7 @@ export const CAR_DB: Car[] = [
       "Ar-condicionado dual zone automático",
       "Chave virtual NFC"
     ],
+    pbeRating: 'A', energyMJkm: 0.45,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 70,
   },
   {
@@ -582,6 +586,7 @@ export const CAR_DB: Car[] = [
       "Teto solar panorâmico elétrico",
       "Bancos elétricos com ajuste lombar"
     ],
+    pbeRating: 'A', energyMJkm: 0.54,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 180,
   },
   {
@@ -631,6 +636,7 @@ export const CAR_DB: Car[] = [
       "Espaço interno generoso para família (5 lugares confortáveis)",
       "OnStar conectado (assistência remota)"
     ],
+    pbeRating: 'A', energyMJkm: 0.62,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 80,
   },
   {
@@ -668,6 +674,7 @@ export const CAR_DB: Car[] = [
       "Head-up display (HUD)",
       "Bancos aquecidos e ventilados + teto solar"
     ],
+    pbeRating: 'A', energyMJkm: 0.51,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 160,
   },
   {
@@ -684,6 +691,7 @@ export const CAR_DB: Car[] = [
       "Head-up display (HUD)",
       "Bancos aquecidos e ventilados + teto solar"
     ],
+    pbeRating: 'A', energyMJkm: 0.42,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 160,
   },
   {
@@ -837,6 +845,7 @@ export const CAR_DB: Car[] = [
       "OnStar conectado (telemetria, assistência remota, Wi-Fi)",
       "Atualização OTA"
     ],
+    pbeRating: 'A', energyMJkm: 0.56,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11.5, chargeDC: 150,
   },
   {
@@ -871,6 +880,7 @@ export const CAR_DB: Car[] = [
       "Câmera 360° surround view",
       "iTAC — controle inteligente de torque por eixo"
     ],
+    pbeRating: 'A', energyMJkm: 0.66,
     warrantyYears: 6, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
   },
   {
@@ -989,6 +999,7 @@ export const CAR_DB: Car[] = [
       "Câmera 360° surround view + câmera de estacionamento HD",
       "Bancos aquecidos, ventilados e com suporte lombar elétrico"
     ],
+    pbeRating: 'A', energyMJkm: 0.66,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 220,
   },
   {
@@ -1174,6 +1185,7 @@ export const CAR_DB: Car[] = [
       "V2L – Vehicle-to-Load",
       "Bancos aquecidos e ventilados + som Dynaudio + atualização OTA"
     ],
+    pbeRating: 'A', energyMJkm: 0.62,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
   },
   {
@@ -1255,6 +1267,7 @@ export const CAR_DB: Car[] = [
       "Teto solar panorâmico elétrico + som Dynaudio premium",
       "AWD e-4WD dual motor + V2L + atualização OTA"
     ],
+    pbeRating: 'A', energyMJkm: 0.73,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 110,
   },
   {
@@ -1271,6 +1284,7 @@ export const CAR_DB: Car[] = [
       "Teto solar panorâmico + som Dynaudio premium",
       "Chave NFC + AWD dual motor (0-100 km/h em ~3,9 s)"
     ],
+    pbeRating: 'A', energyMJkm: 0.69,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 120,
   },
   {
@@ -1404,6 +1418,7 @@ export const CAR_DB: Car[] = [
       "Bancos M esportivos com ventilação e massagem + som Bowers & Wilkins Diamond",
       "Suspensão adaptativa M + teto panorâmico + atualização OTA"
     ],
+    pbeRating: 'A', energyMJkm: 0.61,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 205,
   },
   {
@@ -1453,6 +1468,7 @@ export const CAR_DB: Car[] = [
       "Bancos elétricos aquecidos e ventilados",
       "Som imersivo 12 alto-falantes + teto panorâmico elétrico + atualização OTA"
     ],
+    pbeRating: 'A', energyMJkm: 0.53,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
   },
   {
@@ -1485,6 +1501,7 @@ export const CAR_DB: Car[] = [
       "Som Bowers & Wilkins Diamond Surround (36 alto-falantes)",
       "Teto Sky Lounge LED panorâmico + chave de cristal iluminado + atualização OTA"
     ],
+    pbeRating: 'A', energyMJkm: 0.65,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 195,
   },
   {
@@ -1815,7 +1832,8 @@ export const CAR_DB: Car[] = [
       'Bateria 61 kWh íons de lítio',
       'AWD dual motor 184 cv / 31,2 kgfm'
     ],
-    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 100,
+    warrantyYears: 3, warrantyBatteryYears: 8, pbeRating: 'A', energyMJkm: 0.58,
+    chargeAC: 11, chargeDC: 100,
   },
 
   // FARIZON (Grupo Geely — comerciais elétricos)
@@ -1970,6 +1988,7 @@ export const CAR_DB: Car[] = [
       "Mais de 40 combinações de personalização",
       "Rival direta de BMW iX, Audi Q8 e-tron e Porsche Macan EV"
     ],
+    pbeRating: 'A', energyMJkm: 0.6,
     warrantyYears: 3, warrantyBatteryYears: 8,
   },
 ];
