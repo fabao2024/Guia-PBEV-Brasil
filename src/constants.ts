@@ -182,10 +182,10 @@ export const CAR_DB: Car[] = [
   {
     model: "Dolphin Mini GS", brand: "BYD", price: 119990, range: 280, cat: "Urbano",
     img: "/car-images/Dolphin-mini.png",
-    power: 75, torque: 13.8, traction: 'FWD', battery: 38,
+    power: 75, torque: 13.8, traction: 'FWD', battery: 38.88,
     features: [
-      "Bateria LFP Blade 38 kWh (segurança superior a NMC)",
-      "Carregamento AC 6,6 kW / DC 30 kW",
+      "Bateria LFP Blade 38,88 kWh (segurança superior a NMC)",
+      "Carregamento AC 6,6 kW / DC 40 kW",
       "Tela 10,1\" com BYD DiLink (CarPlay e Android Auto)",
       "6 airbags",
       "ADAS básico: AEB + alerta de colisão frontal",
@@ -194,7 +194,7 @@ export const CAR_DB: Car[] = [
       "Atualização de software OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.41,
-    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 30,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 40,
   },
   {
     model: "Dolphin Mini GL", brand: "BYD", price: 109990, range: 224, cat: "Urbano",
@@ -389,7 +389,7 @@ export const CAR_DB: Car[] = [
     power: 95, torque: 18.3, traction: 'FWD', battery: 44.9,
     features: [
       "Bateria LFP Blade 44,9 kWh",
-      "Carregamento AC 7 kW / DC 60 kW",
+      "Carregamento AC 6,6 kW / DC 60 kW",
       "Tela 12,8\" rotativa com BYD DiLink 4.0 (CarPlay e Android Auto)",
       "6 airbags",
       "DiPilot: ACC + AEB + manutenção de faixa (LKA)",
@@ -398,7 +398,7 @@ export const CAR_DB: Car[] = [
       "Atualização OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.42,
-    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 60,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 60,
   },
   {
     model: "500e Icon", brand: "Fiat", price: 214990, range: 227, cat: "Compacto",
@@ -489,9 +489,9 @@ export const CAR_DB: Car[] = [
   {
     model: "Dolphin Plus", brand: "BYD", price: 184800, range: 330, cat: "Compacto",
     img: "/car-images/dolphin-plus.jpg",
-    power: 204, torque: 31.6, traction: 'FWD', battery: 60.4,
+    power: 204, torque: 31.6, traction: 'FWD', battery: 60.48,
     features: [
-      "Bateria LFP Blade 60,4 kWh",
+      "Bateria LFP Blade 60,48 kWh",
       "Carregamento AC 11 kW / DC 80 kW",
       "Tela 12,8\" rotativa com BYD DiLink 4.0 (CarPlay e Android Auto)",
       "6 airbags",
@@ -544,10 +544,10 @@ export const CAR_DB: Car[] = [
   {
     model: "Yuan Pro", brand: "BYD", price: 182990, range: 250, cat: "SUV",
     img: "/car-images/yuan-pro.jpg",
-    power: 177, torque: 29.5, traction: 'FWD', battery: 45,
+    power: 177, torque: 29.5, traction: 'FWD', battery: 45.12,
     features: [
-      "Bateria LFP Blade 45 kWh",
-      "Carregamento AC 7 kW / DC 60 kW",
+      "Bateria LFP Blade 45,12 kWh",
+      "Carregamento AC 6,6 kW / DC 65 kW",
       "Tela 12,8\" rotativa com BYD DiLink (CarPlay e Android Auto)",
       "6 airbags",
       "DiPilot: ACC + AEB + manutenção de faixa (LKA)",
@@ -556,7 +556,7 @@ export const CAR_DB: Car[] = [
       "Atualização OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.51,
-    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 60,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 65,
   },
   {
     model: "Aion Y Elite", brand: "GAC", price: 187990, range: 318, cat: "SUV",
@@ -1179,10 +1179,10 @@ export const CAR_DB: Car[] = [
   {
     model: "Seal AWD", brand: "BYD", price: 299990, range: 372, cat: "Sedan",
     img: "/car-images/seal.jpg",
-    power: 531, torque: 60.2, traction: 'AWD', battery: 82.5,
+    power: 531, torque: 60.2, traction: 'AWD', battery: 82.56,
     features: [
-      "Bateria LFP Blade 82,5 kWh – Plataforma e-Platform 3.0",
-      "Carregamento AC 11 kW / DC 150 kW",
+      "Bateria LFP Blade 82,56 kWh – Plataforma e-Platform 3.0",
+      "Carregamento AC 6,6 kW / DC 150 kW",
       "Tela 15,6\" rotativa com BYD DiLink 4.0 (CarPlay e Android Auto)",
       "6 airbags",
       "DiPilot Nível 2: ACC + LCC + AEB + LKA + BSM + câmera 360°",
@@ -1191,7 +1191,7 @@ export const CAR_DB: Car[] = [
       "Bancos aquecidos e ventilados + som Dynaudio + atualização OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.62,
-    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 150,
   },
   {
     model: "001 Premium", brand: "Zeekr", price: 428000, range: 426, cat: "Luxo",
@@ -1265,7 +1265,7 @@ export const CAR_DB: Car[] = [
     power: 517, torque: 69.3, traction: 'AWD', battery: 108.8,
     features: [
       "Bateria LFP Blade 108,8 kWh (maior da linha BYD)",
-      "Carregamento AC 11 kW / DC 110 kW",
+      "Carregamento AC 11 kW / DC 170 kW",
       "Tela 15,6\" rotativa com BYD DiLink 4.0 (CarPlay e Android Auto)",
       "6 airbags",
       "DiPilot: ACC + LCC + AEB + BSM + câmera 360°",
@@ -1274,7 +1274,7 @@ export const CAR_DB: Car[] = [
       "AWD e-4WD dual motor + V2L + atualização OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.73,
-    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 110,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 170,
   },
   {
     model: "Han EV", brand: "BYD", price: 559800, range: 349, cat: "Luxo",
@@ -1282,7 +1282,7 @@ export const CAR_DB: Car[] = [
     power: 517, torque: 71.4, traction: 'AWD', battery: 85.4,
     features: [
       "Bateria LFP Blade 85,4 kWh",
-      "Carregamento AC 11 kW / DC 120 kW",
+      "Carregamento AC 6,6 kW / DC 120 kW",
       "Tela 15,6\" rotativa com BYD DiLink 4.0 (CarPlay e Android Auto)",
       "6 airbags",
       "DiPilot Nível 2+: ACC + LCC + AEB + BSM + câmera 360°",
@@ -1291,7 +1291,7 @@ export const CAR_DB: Car[] = [
       "Chave NFC + AWD dual motor (0-100 km/h em ~3,9 s)"
     ],
     pbeRating: 'A', energyMJkm: 0.69,
-    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 120,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 120,
   },
   {
     model: "Macan EV", brand: "Porsche", price: 560000, range: 443, cat: "Luxo",

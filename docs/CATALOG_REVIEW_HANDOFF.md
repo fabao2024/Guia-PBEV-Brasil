@@ -66,15 +66,16 @@ Relatório: `.github/data/bloco4-precos-relatorio-2026-08-24.md`
 
 ### Bloco 5 — proveniência campo a campo
 
-Status: em execução; cobertura verificada em **307/763** campos com fonte oficial direta por campo. Lotes de marcas e o pareamento completo da tabela PBEV concluídos.
+Status: em execução; cobertura verificada em **339/763** campos com fonte oficial direta por campo. Lotes de marcas, o pareamento completo da tabela PBEV e o lote de fichas técnicas BYD concluídos.
 
-Documentos: matriz (`bloco5-matriz-proveniencia-2026-08-25.md`) e relatórios de lote (`lote-piloto-volvo`, `lote-marcas`, `itens-1-a-4`, `lote-pbev-consumo`, `lote-audi`, `lote-decisoes-pendentes`, `lote-gac`, `lote-geely`, `lote-jac`, `lote-kia-lexus-nissan`, `lote-peugeot-renault-audi`, `lote-pbev-final`).
+Documentos: matriz (`bloco5-matriz-proveniencia-2026-08-25.md`) e relatórios de lote (`lote-piloto-volvo`, `lote-marcas`, `itens-1-a-4`, `lote-pbev-consumo`, `lote-audi`, `lote-decisoes-pendentes`, `lote-gac`, `lote-geely`, `lote-jac`, `lote-kia-lexus-nissan`, `lote-peugeot-renault-audi`, `lote-pbev-final`, `lote-tracoes`, `lote-byd-fichas`).
 
 - Registro ampliado de 3 para 7 campos (`price`, `range_km`, `consumption`, `power`, `battery`, `charging`, `availability`) com bootstrap sem inventar evidência.
 - Tabela PBEV vigente auditada ponta a ponta: extração linha a linha do PDF oficial, pareamento manual auditado por família, consumo e autonomia alinhados (inclui correções BYD Dolphin/GWM Ora/MG4/Zeekr/Volvo, preenchimentos Leapmotor/iEV330P e autonomias iX/Blazer/Q8).
 - Marcas com lote concluído: Volvo, BYD, BMW, Chevrolet, Hyundai, Mercedes-Benz, GAC, Geely, JAC, Kia, Lexus, Nissan, Peugeot, Renault, Audi.
 - Triagens concluídas: BMW i4 eDrive35, Mercedes EQE 300 SUV, BYD eT3 e Audi Q8 e-tron descontinuados; Kwid E-Tech reativado (voltou ao site oficial); EQB renomeado para EQB 250+; Yuan Plus AWD confirmado à venda.
-- Pendências: trações divergentes (Ioniq 5 RWD→AWD HTRAC oficial; Geely EX2 FWD→tração traseira oficial); fail-closed documentados (Mini Cooper/JCW, Macan variantes, família e-tron GT, vans Cargo-only, Kangoo preço); lacunas de cobertura à triagem (Aion Y Premium, Hyptec HT Ultra); reavaliações (Equinox EV esgotado mantido ativo por decisão; Yuan Plus FWD fora da linha 2027).
+- Pendências: trações divergentes resolvidas (Ioniq 5 AWD HTRAC; Geely EX2 tração traseira); fail-closed documentados (Mini Cooper/JCW, Macan variantes, família e-tron GT, vans Cargo-only, Kangoo preço, Yuan Plus FWD fora da linha 2027); lacunas de cobertura à triagem (Aion Y Premium, Hyptec HT Ultra); reavaliações (Equinox EV esgotado mantido ativo por decisão).
+- Lote BYD por ficha técnica oficial (09/07/2026): +32 campos verificados; 10 correções aprovadas (baterias Mini GS/Plus/Seal/Yuan Pro; carregamentos Dolphin GS, Han, Seal, Tan DC 170 kW e Yuan Pro); consumo MJ/km conferido em 10 modelos sem divergência.
 - Commits: `8a6ffdf`, `4a4b5c4`, `1638a87`, `1b98995`, `9584b78`, `7a0baeb`, `ed2322f`, `aa7aae2`, `7f2b358`, `61d709a`, `e1b841a`, `bd3ca4c`, `c022128`, `58ad51c`.
 
 ### Bloco 6 — documentação do ciclo
@@ -105,8 +106,8 @@ Ao voltar ao trabalho, independentemente do modelo de LLM:
    - fazer `git pull --rebase origin main` antes do push;
    - commit e push somente após aprovação;
    - acompanhar o CI/deploy e conferir `https://guiapbev.cloud/data/cars.json`.
-5. Deixar casos sem evidência conclusiva sem alteração até haver decisão explícita (hoje: Equinox EV — esgotado sem previsão de retorno, mantido à venda por decisão do mantenedor; Yuan Plus FWD — linha atual é versão única AWD; tração do Ioniq 5).
-6. Retomar o Bloco 5 pelos lotes restantes: marcas ainda não verificadas (GAC, Geely, JAC, Kia, Lexus, Nissan, Peugeot, Renault e Audi Q8/e-tron GT), os ~38 pares PBEV não marcados e as divergências menores listadas no lote PBEV.
+5. Deixar casos sem evidência conclusiva sem alteração até haver decisão explícita (hoje: Equinox EV — esgotado sem previsão de retorno, mantido à venda por decisão do mantenedor; Yuan Plus FWD — linha atual é versão única AWD; BYD Tan EV — página oficial cita 110 kW DC e a ficha técnica oficial 170 kW; prevaleceu a ficha).
+6. Retomar o Bloco 5 pelas marcas com campos ainda não verificados (MG Motor, Mini, GWM, Porsche, Zeekr, Neta, Volkswagen e demais), priorizando as fichas técnicas oficiais por modelo como fonte primária, seguido da varredura final de `availability`.
 7. Manter a documentação pública atualizada com fatos verificáveis e sem informações privadas.
 
 ## Regras que continuam válidas

@@ -293,6 +293,74 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(byModel('Dolphin Plus').energyMJkm).toBeCloseTo(0.51, 5);
   });
 
+  it('BYD corrections should match the official specification sheets (jul/2026)', () => {
+    // Official BYD Brasil spec sheet PDFs "Revisado em: 09/07/2026", linked from
+    // each model page on byd.com/br (checked 2026-08-25):
+    // - Dolphin Mini GS: LFP Blade 38,88 kWh, AC 6,6 kW / DC 40 kW;
+    // - Dolphin GS: AC 6,6 kW / DC 60 kW;
+    // - Dolphin Plus: LFP Blade 60,48 kWh;
+    // - Han: AC 6,6 kW / DC 120 kW;
+    // - Seal AWD: LFP Blade 82,56 kWh, AC 6,6 kW / DC 150 kW;
+    // - Tan: AC 11 kW / DC 170 kW;
+    // - Yuan Pro: LFP Blade 45,12 kWh, AC 6,6 kW / DC 65 kW.
+    const miniGs = byModel('Dolphin Mini GS');
+    expect(miniGs.battery).toBe(38.88);
+    expect(miniGs.chargeAC).toBe(6.6);
+    expect(miniGs.chargeDC).toBe(40);
+    expect(byModel('Dolphin GS').chargeAC).toBe(6.6);
+    expect(byModel('Dolphin Plus').battery).toBe(60.48);
+    const han = byModel('Han EV');
+    expect(han.chargeAC).toBe(6.6);
+    expect(han.chargeDC).toBe(120);
+    const seal = byModel('Seal AWD');
+    expect(seal.battery).toBe(82.56);
+    expect(seal.chargeAC).toBe(6.6);
+    expect(seal.chargeDC).toBe(150);
+    expect(byModel('Tan EV').chargeDC).toBe(170);
+    const yuanPro = byModel('Yuan Pro');
+    expect(yuanPro.battery).toBe(45.12);
+    expect(yuanPro.chargeAC).toBe(6.6);
+    expect(yuanPro.chargeDC).toBe(65);
+  });
+
+  it('BYD identical specification-sheet values should stay pinned', () => {
+    // Same official spec sheets (checked 2026-08-25): values below already matched
+    // the catalog exactly and are now pinned against regressions.
+    const gl = byModel('Dolphin Mini GL');
+    expect(gl.range).toBe(224);
+    expect(gl.battery).toBe(30.08);
+    expect(gl.chargeAC).toBe(6.6);
+    expect(gl.chargeDC).toBe(30);
+    const gs = byModel('Dolphin GS');
+    expect(gs.power).toBe(95);
+    expect(gs.battery).toBe(44.9);
+    expect(gs.chargeDC).toBe(60);
+    const plus = byModel('Dolphin Plus');
+    expect(plus.power).toBe(204);
+    expect(plus.chargeAC).toBe(11);
+    expect(plus.chargeDC).toBe(80);
+    const se = byModel('Dolphin Special Edition');
+    expect(se.range).toBe(272);
+    expect(se.power).toBe(177);
+    expect(se.battery).toBe(45.12);
+    expect(se.chargeAC).toBe(6.6);
+    expect(se.chargeDC).toBe(80);
+    const han = byModel('Han EV');
+    expect(han.power).toBe(517);
+    expect(han.battery).toBe(85.4);
+    expect(byModel('Seal AWD').power).toBe(531);
+    const sealion = byModel('Sealion 7');
+    expect(sealion.power).toBe(531);
+    expect(sealion.battery).toBe(82.5);
+    expect(sealion.chargeAC).toBe(11);
+    expect(sealion.chargeDC).toBe(150);
+    const tan = byModel('Tan EV');
+    expect(tan.power).toBe(517);
+    expect(tan.battery).toBe(108.8);
+    expect(tan.chargeAC).toBe(11);
+    expect(byModel('Yuan Pro').power).toBe(177);
+  });
+
   it('traction should match the official drivetrain of the sold versions', () => {
     // hyundai.com.br official catalog (checked 2026-08-25): Ioniq 5 Signature
     // AWD HTRAC, dual motor, 325 cv combined.

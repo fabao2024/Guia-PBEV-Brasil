@@ -2,6 +2,14 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 25/08/2026 · Fichas técnicas oficiais BYD no Bloco 5
+
+| Área | Mudança pública |
+|---|---|
+| Especificações BYD | Baterias corrigidas conforme as fichas técnicas oficiais (09/07/2026): 38,88 kWh (Dolphin Mini GS), 60,48 kWh (Dolphin Plus), 82,56 kWh (Seal AWD) e 45,12 kWh (Yuan Pro). Carregamentos alinhados: Dolphin GS AC 6,6 kW; Han EV AC 6,6 kW; Seal AWD AC 6,6 kW; Tan EV DC 170 kW; Yuan Pro 6,6/65 kW; Dolphin Mini GS DC 40 kW. |
+| Proveniência | Cobertura verificada subiu de 307/763 para **339/763** campos com fonte oficial direta por campo, incluindo as fichas técnicas BYD e a disponibilidade do Dolphin Plus. Consumo MJ/km das fichas confere com a tabela PBEV em 10 modelos. |
+| Verificação | TDD RED→GREEN, 283/283 testes, TypeScript limpo, build Vite, rotas estáticas, scanner de segredos e verificador de proveniência aprovados. |
+
 ## 25/08/2026 · Decisões pendentes do Bloco 5
 
 | Área | Mudança pública |
