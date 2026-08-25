@@ -258,11 +258,11 @@
    "model": "i7 xDrive60",
    "fields": {
     "price": {
-     "verificationStatus": "legacy_unverified",
-     "sourceType": null,
-     "sourceUrl": null,
-     "sourceUpdatedAt": null,
-     "verifiedAt": null
+     "verificationStatus": "verified",
+     "sourceType": "official_manufacturer",
+     "sourceUrl": "https://www.bmw.com.br/pt/all-models/bmw-i/i7/bmw-i7.html",
+     "sourceUpdatedAt": "2026-08-24",
+     "verifiedAt": "2026-08-25"
     },
     "range_km": {
      "verificationStatus": "legacy_unverified",

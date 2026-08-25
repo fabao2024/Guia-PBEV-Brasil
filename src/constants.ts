@@ -1488,7 +1488,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 270,
   },
   {
-    model: "i7 xDrive60", brand: "BMW", price: 1321950, range: 467, cat: "Luxo",
+    model: "i7 xDrive60", brand: "BMW", price: 1373950, range: 467, cat: "Luxo",
     img: "/car-images/i7.jpg",
     power: 544, torque: 76, traction: 'AWD', battery: 101.7,
     features: [
