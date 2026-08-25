@@ -971,9 +971,9 @@ export const CAR_DB: Car[] = [
   {
     model: "EV5 Land", brand: "Kia", price: 389990, range: 402, cat: "SUV",
     img: "/car-images/ev5.jpg",
-    power: 217, torque: 31.6, traction: 'FWD', battery: 88,
+    power: 217, torque: 31.6, traction: 'FWD', battery: 88.16,
     features: [
-      "Bateria NMC 88 kWh",
+      "Bateria LFP Blade 88,16 kWh",
       "Carregamento AC 11 kW / DC 135 kW",
       "Tela panorâmica Kia 27\" (painel 12\" + central 12\" integrados)",
       "6 airbags",
@@ -1441,7 +1441,7 @@ export const CAR_DB: Car[] = [
   {
     model: "EV9 GT-Line", brand: "Kia", price: 749990, range: 434, cat: "Luxo",
     img: "/car-images/ev9.jpg",
-    power: 384, torque: 71.4, traction: 'AWD', battery: 99.8,
+    power: 385, torque: 71.4, traction: 'AWD', battery: 99.8,
     features: [
       "Bateria NMC 99,8 kWh – Plataforma E-GMP 800V",
       "Carregamento AC 11 kW / DC 240 kW (ultrarrápido 800V)",
@@ -1965,15 +1965,16 @@ export const CAR_DB: Car[] = [
   {
     model: "RZ 500e", brand: "Lexus", price: 499990, range: 357, cat: "SUV",
     img: "/car-images/lexus-rz-500e.jpg",
-    power: 381, traction: 'AWD',
+    power: 381, traction: 'AWD', battery: 77,
     features: [
       "1º veículo 100% elétrico da Lexus no Brasil",
+      "Bateria de íons de lítio 77 kWh",
       "Tração integral DIRECT4",
       "0-100 km/h em 4,6 s",
-      "Recarga DC até 150 kW — 30 min para 80%",
+      "Recarga DC até 150 kW - 30 min para 80%",
       "Financiamento Lexus Privilege com recompra garantida"
     ],
-    warrantyYears: 3, warrantyBatteryYears: 10, chargeDC: 150,
+    warrantyYears: 3, warrantyBatteryYears: 10, chargeAC: 22, chargeDC: 150,
   },
 
   // CAOA CHANGAN — Avatr 11 (linha de luxo elétrico, estreia da marca no catálogo)

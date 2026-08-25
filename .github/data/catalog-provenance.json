@@ -3452,11 +3452,11 @@
       "model": "EV5 Land",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.kia.com.br/ev5",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "range_km": {
           "verificationStatus": "verified",
@@ -3473,32 +3473,32 @@
           "verifiedAt": "2026-08-25"
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.kia.com.br/ev5/especificacoes",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.kia.com.br/ev5/especificacoes",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "charging": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.kia.com.br/ev5/especificacoes",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "availability": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.kia.com.br/ev5",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         }
       }
     },
@@ -3507,18 +3507,18 @@
       "model": "EV9 GT-Line",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.kia.com.br/ev9",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "range_km": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://kiasiteblob.kia.com.br/site/Fichas%20T%C3%A9cnicas/ficha-tecnica-ev9.pdf",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "consumption": {
           "verificationStatus": "legacy_unverified",
@@ -3528,32 +3528,32 @@
           "verifiedAt": null
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://kiasiteblob.kia.com.br/site/Fichas%20T%C3%A9cnicas/ficha-tecnica-ev9.pdf",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://kiasiteblob.kia.com.br/site/Fichas%20T%C3%A9cnicas/ficha-tecnica-ev9.pdf",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "charging": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://kiasiteblob.kia.com.br/site/Fichas%20T%C3%A9cnicas/ficha-tecnica-ev9.pdf",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "availability": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.kia.com.br/ev9",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         }
       }
     },

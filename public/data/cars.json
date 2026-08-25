@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T21:21:01.325Z",
+  "generated_at": "2026-08-25T21:30:55.821Z",
   "total": 109,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "evidence": {
@@ -1599,7 +1599,7 @@
       "traction": "FWD",
       "power_cv": 217,
       "torque_kgfm": 31.6,
-      "battery_kwh": 88,
+      "battery_kwh": 88.16,
       "charge_ac_kw": 11,
       "charge_dc_kw": 135,
       "warranty_years": 7,
@@ -1607,7 +1607,7 @@
       "pbe_rating": "A",
       "energy_mj_km": 0.6,
       "features": [
-        "Bateria NMC 88 kWh",
+        "Bateria LFP Blade 88,16 kWh",
         "Carregamento AC 11 kW / DC 135 kW",
         "Tela panorâmica Kia 27\" (painel 12\" + central 12\" integrados)",
         "6 airbags",
@@ -2493,7 +2493,7 @@
       "category": "Luxo",
       "image_url": "https://guiapbev.cloud/car-images/ev9.jpg",
       "traction": "AWD",
-      "power_cv": 384,
+      "power_cv": 385,
       "torque_kgfm": 71.4,
       "battery_kwh": 99.8,
       "charge_ac_kw": 11,
@@ -3448,8 +3448,8 @@
       "traction": "AWD",
       "power_cv": 381,
       "torque_kgfm": null,
-      "battery_kwh": null,
-      "charge_ac_kw": null,
+      "battery_kwh": 77,
+      "charge_ac_kw": 22,
       "charge_dc_kw": 150,
       "warranty_years": 3,
       "warranty_battery_years": 10,
@@ -3457,9 +3457,10 @@
       "energy_mj_km": null,
       "features": [
         "1º veículo 100% elétrico da Lexus no Brasil",
+        "Bateria de íons de lítio 77 kWh",
         "Tração integral DIRECT4",
         "0-100 km/h em 4,6 s",
-        "Recarga DC até 150 kW — 30 min para 80%",
+        "Recarga DC até 150 kW - 30 min para 80%",
         "Financiamento Lexus Privilege com recompra garantida"
       ],
       "is_new": true,

@@ -198,4 +198,31 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(js4.power).toBe(200);
     expect(js4.battery).toBe(55);
   });
+
+  it('Kia EV5 Land and EV9 GT-Line should match the official Kia Brasil specification sheets', () => {
+    // kia.com.br specification pages and official spec sheets (checked 2026-08-25):
+    // EV5 Land R$ 389.990 with LFP Blade 88,16 kWh; EV9 GT-Line R$ 749.990 with
+    // NCM 99,8 kWh and combined output of 283 kW (385 cv).
+    const ev5 = byModel('EV5 Land');
+    expect(ev5.price).toBe(389990);
+    expect(ev5.battery).toBe(88.16);
+    expect(ev5.power).toBe(217);
+    const ev9 = byModel('EV9 GT-Line');
+    expect(ev9.price).toBe(749990);
+    expect(ev9.power).toBe(385);
+    expect(ev9.battery).toBe(99.8);
+    expect(ev9.range).toBe(434);
+  });
+
+  it('Lexus RZ 500e should carry the manufacturer battery and AC charging figures', () => {
+    // Manufacturer data announced at the Brazilian launch (May/2026), converged
+    // across specialist coverage of the official press material: lithium-ion
+    // battery 77 kWh and 22 kW AC onboard charging; DC up to 150 kW.
+    const rz = byModel('RZ 500e');
+    expect(rz.price).toBe(499990);
+    expect(rz.battery).toBe(77);
+    expect(rz.chargeAC).toBe(22);
+    expect(rz.chargeDC).toBe(150);
+    expect(rz.power).toBe(381);
+  });
 });
