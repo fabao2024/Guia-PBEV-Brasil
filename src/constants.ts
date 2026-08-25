@@ -1338,9 +1338,9 @@ export const CAR_DB: Car[] = [
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 270,
   },
   {
-    model: "Q6 e-tron", brand: "Audi", price: 529990, range: 411, cat: "Luxo",
+    model: "Q6 e-tron", brand: "Audi", price: 695990, range: 411, cat: "Luxo",
     img: "/car-images/audi-q6-etron.jpg",
-    power: 299, torque: 47.6, traction: 'AWD', battery: 94.9,
+    power: 428, torque: 47.6, traction: 'AWD', battery: 94.9,
     features: [
       "Bateria NMC 94,9 kWh – Plataforma PPE 800V",
       "Carregamento AC 11 kW / DC 270 kW (10-80% em 21 min)",
@@ -1355,9 +1355,9 @@ export const CAR_DB: Car[] = [
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 270,
   },
   {
-    model: "Q6 Sportback e-tron", brand: "Audi", price: 569990, range: 427, cat: "Luxo",
+    model: "Q6 Sportback e-tron", brand: "Audi", price: 710990, range: 427, cat: "Luxo",
     img: "/car-images/audi-q6-sportback.jpg",
-    power: 299, torque: 47.6, traction: 'AWD', battery: 94.9,
+    power: 428, torque: 47.6, traction: 'AWD', battery: 94.9,
     features: [
       "Bateria NMC 94,9 kWh – Plataforma PPE 800V",
       "Carregamento AC 11 kW / DC 270 kW (10-80% em 21 min)",
@@ -1372,9 +1372,9 @@ export const CAR_DB: Car[] = [
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 270,
   },
   {
-    model: "SQ6 Sportback e-tron", brand: "Audi", price: 684990, range: 428, cat: "Luxo",
+    model: "SQ6 Sportback e-tron", brand: "Audi", price: 790990, range: 428, cat: "Luxo",
     img: "/car-images/audi-sq6-sportback.png",
-    power: 367, torque: 76.5, traction: 'AWD', battery: 100,
+    power: 517, torque: 76.5, traction: 'AWD', battery: 100,
     features: [
       "Bateria NMC 100 kWh – Plataforma PPE 800V",
       "Carregamento AC 11 kW / DC 270 kW (10-80% em 21 min)",

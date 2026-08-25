@@ -73,4 +73,19 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(byModel('i4 eDrive35').discontinued).toBe(true);
     expect(byModel('EQE 300 SUV').discontinued).toBe(true);
   });
+
+  it('Audi Q6 line should match the official 2026 launch release', () => {
+    // audi-imprensa.com.br (24/04/2026): Q6 e-tron S Line R$ 695.990 and
+    // Q6 Sportback e-tron S Line R$ 710.990, both 315 kW / 428 cv;
+    // SQ6 Sportback e-tron R$ 790.990 with 517 cv.
+    const q6 = byModel('Q6 e-tron');
+    const sportback = byModel('Q6 Sportback e-tron');
+    const sq6 = byModel('SQ6 Sportback e-tron');
+    expect(q6.price).toBe(695990);
+    expect(q6.power).toBe(428);
+    expect(sportback.price).toBe(710990);
+    expect(sportback.power).toBe(428);
+    expect(sq6.price).toBe(790990);
+    expect(sq6.power).toBe(517);
+  });
 });
