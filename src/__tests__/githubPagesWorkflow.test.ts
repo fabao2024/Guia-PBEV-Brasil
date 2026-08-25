@@ -5,7 +5,7 @@ import { resolve } from 'node:path';
 const workflow = readFileSync(
   resolve(process.cwd(), '.github/workflows/deploy.yml'),
   'utf8',
-);
+).replace(/\r\n/g, '\n');
 
 const deployJob = workflow.slice(workflow.indexOf('\n  deploy:'));
 

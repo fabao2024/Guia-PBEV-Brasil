@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const read = (path: string) =>
-  readFileSync(resolve(process.cwd(), path), 'utf8');
+  readFileSync(resolve(process.cwd(), path), 'utf8').replace(/\r\n/g, '\n');
 
 const weekly = read('.github/workflows/weekly-ev-suggestions.yml');
 const monthly = read('.github/workflows/monthly-maintenance.yml');
