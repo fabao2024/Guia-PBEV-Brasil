@@ -2648,32 +2648,32 @@
           "verifiedAt": "2026-08-25"
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.geelybrasil.com.br/ex2",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.geelybrasil.com.br/ex2",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "charging": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.geelybrasil.com.br/ex2",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "availability": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.geelybrasil.com.br/ex2",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         }
       }
     },
@@ -2689,11 +2689,11 @@
           "verifiedAt": null
         },
         "range_km": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.geelybrasil.com.br/ex2",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "consumption": {
           "verificationStatus": "legacy_unverified",
@@ -2703,32 +2703,32 @@
           "verifiedAt": null
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.geelybrasil.com.br/ex2",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.geelybrasil.com.br/ex2",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "charging": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.geelybrasil.com.br/ex2",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "availability": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.geelybrasil.com.br/ex2",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         }
       }
     },
@@ -2737,18 +2737,18 @@
       "model": "EX5 Max",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.geelybrasil.com.br/ofertas/oferta-geely-ex5-max",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "range_km": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://static.autoforce.com/plugins/files/clientes/geely-brasil/produtos/ws/ficha-tecnica-geely-ex5.pdf",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "consumption": {
           "verificationStatus": "legacy_unverified",
@@ -2758,32 +2758,32 @@
           "verifiedAt": null
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://static.autoforce.com/plugins/files/clientes/geely-brasil/produtos/ws/ficha-tecnica-geely-ex5.pdf",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://static.autoforce.com/plugins/files/clientes/geely-brasil/produtos/ws/ficha-tecnica-geely-ex5.pdf",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "charging": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://static.autoforce.com/plugins/files/clientes/geely-brasil/produtos/ws/ficha-tecnica-geely-ex5.pdf",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "availability": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.geelybrasil.com.br/ex5",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         }
       }
     },
@@ -2792,18 +2792,18 @@
       "model": "EX5 Pro",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.geelybrasil.com.br/geely-ex5-entra-em-pre-venda-on-line-com-preco-a-partir-de-r19580000-e-condicoes-especiais",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "range_km": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://static.autoforce.com/plugins/files/clientes/geely-brasil/produtos/ws/ficha-tecnica-geely-ex5.pdf",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "consumption": {
           "verificationStatus": "legacy_unverified",
@@ -2813,32 +2813,32 @@
           "verifiedAt": null
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://static.autoforce.com/plugins/files/clientes/geely-brasil/produtos/ws/ficha-tecnica-geely-ex5.pdf",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://static.autoforce.com/plugins/files/clientes/geely-brasil/produtos/ws/ficha-tecnica-geely-ex5.pdf",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "charging": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://static.autoforce.com/plugins/files/clientes/geely-brasil/produtos/ws/ficha-tecnica-geely-ex5.pdf",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "availability": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.geelybrasil.com.br/ex5",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         }
       }
     },

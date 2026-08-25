@@ -252,7 +252,7 @@ export const CAR_DB: Car[] = [
     power: 116, torque: 15.3, traction: 'FWD', battery: 39.4,
     features: [
       "Bateria LFP de 39,4 kWh",
-      "Carregamento AC 7 kW / DC 70 kW",
+      "Carregamento AC 6,6 kW / DC 70 kW",
       "Tela central 10,25\" com CarPlay e Android Auto",
       "6 airbags",
       "ADAS: ACC + AEB + alerta de saída de faixa",
@@ -261,15 +261,15 @@ export const CAR_DB: Car[] = [
       "Faróis LED full"
     ],
     pbeRating: 'A', energyMJkm: 0.39,
-    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 70,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 70,
   },
   {
     model: "EX2 Pro", brand: "Geely", price: 123800, range: 289, cat: "Compacto",
     img: "/car-images/geely-ex2-pro.webp",
-    power: 116, torque: 15.3, traction: 'FWD', battery: 39,
+    power: 116, torque: 15.3, traction: 'FWD', battery: 39.4,
     features: [
-      "Bateria LFP de 39 kWh",
-      "Carregamento AC 7 kW / DC 70 kW",
+      "Bateria LFP de 39,4 kWh",
+      "Carregamento AC 6,6 kW / DC 70 kW",
       "Tela central 14,6\" com CarPlay e Android Auto",
       "Painel digital 8,8\"",
       "6 airbags",
@@ -278,7 +278,7 @@ export const CAR_DB: Car[] = [
       "Rodas de aço aro 15\"",
       "Seletor de modos de condução"
     ],
-    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 70,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 70,
   },
   {
     model: "Aya Luxury", brand: "Neta", price: 149900, range: 263, cat: "Compacto",
@@ -661,12 +661,12 @@ export const CAR_DB: Car[] = [
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 80,
   },
   {
-    model: "EX5 Max", brand: "Geely", price: 215800, range: 349, cat: "SUV",
+    model: "EX5 Max", brand: "Geely", price: 225800, range: 349, cat: "SUV",
     img: "/car-images/ex5-max.jpg",
-    power: 218, torque: 32.6, traction: 'FWD', battery: 60.1,
+    power: 218, torque: 32.6, traction: 'FWD', battery: 60.22,
     features: [
-      "Bateria LFP de 60,2 kWh",
-      "Carregamento AC 11 kW / DC 160 kW",
+      "Bateria LFP de 60,22 kWh",
+      "Carregamento AC 11 kW / DC 100 kW",
       "Tela dupla 12,3\" (painel + central) com CarPlay e Android Auto",
       "6 airbags",
       "ADAS: ACC + LCC + AEB + LKA + alerta de ponto cego (BSM)",
@@ -675,15 +675,15 @@ export const CAR_DB: Car[] = [
       "Bancos aquecidos e ventilados + teto solar"
     ],
     pbeRating: 'A', energyMJkm: 0.51,
-    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 160,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 100,
   },
   {
-    model: "EX5 Pro", brand: "Geely", price: 195800, range: 413, cat: "SUV",
+    model: "EX5 Pro", brand: "Geely", price: 205800, range: 413, cat: "SUV",
     img: "/car-images/geely-ex5-pro.webp",
     power: 218, torque: 32.6, traction: 'FWD', battery: 60.2,
     features: [
-      "Bateria LFP de 60,2 kWh — maior autonomia da linha EX5",
-      "Carregamento AC 11 kW / DC 160 kW",
+      "Bateria LFP de 60,2 kWh - maior autonomia da linha EX5",
+      "Carregamento AC 11 kW / DC 100 kW",
       "Tela dupla 12,3\" (painel + central) com CarPlay e Android Auto",
       "6 airbags",
       "ADAS: ACC + LCC + AEB + LKA + alerta de ponto cego (BSM)",
@@ -692,7 +692,7 @@ export const CAR_DB: Car[] = [
       "Bancos aquecidos e ventilados + teto solar"
     ],
     pbeRating: 'A', energyMJkm: 0.42,
-    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 160,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 100,
   },
   {
     model: "Kona EV", brand: "Hyundai", price: 219990, range: 252, cat: "SUV", discontinued: true,

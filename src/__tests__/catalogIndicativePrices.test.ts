@@ -157,4 +157,31 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(ht.chargeDC).toBe(280);
     expect(ht.power).toBe(340);
   });
+
+  it('Geely EX5 should match the official table prices and specification sheet', () => {
+    // geelybrasil.com.br release (jul/2025) + current official offers (checked
+    // 2026-08-25): EX5 Pro R$ 205.800 and EX5 Max R$ 225.800 table prices; the
+    // advertised R$ 195.800 for the Pro includes the promotional bonus.
+    // Official spec sheet: LFP Short Blade 60,22 kWh, AC 11 kW / DC 100 kW.
+    const pro = byModel('EX5 Pro');
+    expect(pro.price).toBe(205800);
+    expect(pro.battery).toBe(60.2);
+    expect(pro.chargeDC).toBe(100);
+    const max = byModel('EX5 Max');
+    expect(max.price).toBe(225800);
+    expect(max.battery).toBe(60.22);
+    expect(max.chargeDC).toBe(100);
+  });
+
+  it('Geely EX2 versions should match the official specification sheet', () => {
+    // Official Geely Brasil EX2 spec sheet and model page (checked 2026-08-25):
+    // LFP 39,4 kWh in both versions, AC 6,6 kW / DC 70 kW, up to 289 km (INMETRO).
+    const pro = byModel('EX2 Pro');
+    expect(pro.battery).toBe(39.4);
+    expect(pro.chargeAC).toBe(6.6);
+    expect(pro.chargeDC).toBe(70);
+    const max = byModel('EX2 Max');
+    expect(max.battery).toBe(39.4);
+    expect(max.chargeAC).toBe(6.6);
+  });
 });
