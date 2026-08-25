@@ -812,11 +812,11 @@
       "model": "Dolphin Mini GL",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/br/condicoes",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "range_km": {
           "verificationStatus": "legacy_unverified",
@@ -867,11 +867,11 @@
       "model": "Dolphin Mini GS",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/br/condicoes",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "range_km": {
           "verificationStatus": "verified",
@@ -1369,11 +1369,11 @@
           "verifiedAt": null
         },
         "range_km": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/br/car/yuan-plus",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "consumption": {
           "verificationStatus": "legacy_unverified",
@@ -1383,11 +1383,11 @@
           "verifiedAt": null
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/br/car/yuan-plus",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "battery": {
           "verificationStatus": "legacy_unverified",
@@ -1397,18 +1397,18 @@
           "verifiedAt": null
         },
         "charging": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/br/car/yuan-plus",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "availability": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/br/car/yuan-plus",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         }
       }
     },
@@ -3095,11 +3095,11 @@
           "verifiedAt": "2026-08-25"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.hyundai.com.br/veiculos/ioniq-5.html",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "charging": {
           "verificationStatus": "legacy_unverified",
@@ -3782,11 +3782,11 @@
       "model": "EQB 250",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://imprensa.mercedes-benz.com.br/releases/mercedes-benz-eqb-250-chega-com-mais-autonomia-e-eficiencia-no-mercado-brasileiro",
+          "sourceUpdatedAt": "2025-07-28",
+          "verifiedAt": "2026-08-25"
         },
         "range_km": {
           "verificationStatus": "verified",
@@ -3803,32 +3803,32 @@
           "verifiedAt": "2026-08-25"
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://imprensa.mercedes-benz.com.br/releases/mercedes-benz-eqb-250-chega-com-mais-autonomia-e-eficiencia-no-mercado-brasileiro",
+          "sourceUpdatedAt": "2025-07-28",
+          "verifiedAt": "2026-08-25"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://imprensa.mercedes-benz.com.br/releases/mercedes-benz-eqb-250-chega-com-mais-autonomia-e-eficiencia-no-mercado-brasileiro",
+          "sourceUpdatedAt": "2025-07-28",
+          "verifiedAt": "2026-08-25"
         },
         "charging": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://imprensa.mercedes-benz.com.br/releases/mercedes-benz-eqb-250-chega-com-mais-autonomia-e-eficiencia-no-mercado-brasileiro",
+          "sourceUpdatedAt": "2025-07-28",
+          "verifiedAt": "2026-08-25"
         },
         "availability": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www2.mercedes-benz.com.br/passengercars/models/suv/eqb/overview.html",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         }
       }
     },

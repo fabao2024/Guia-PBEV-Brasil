@@ -65,6 +65,10 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(byModel('Seal AWD').price).toBe(299990);
     expect(byModel('Yuan Pro').price).toBe(182990);
     expect(byModel('Dolphin Plus').price).toBe(184800);
+    // Same official document: DOLPHIN MINI GL 2025/2026 and 2026/2027 suggested
+    // price R$ 109.990 à vista; DOLPHIN MINI GS confirmed at R$ 119.990.
+    expect(byModel('Dolphin Mini GL').price).toBe(109990);
+    expect(byModel('Dolphin Mini GS').price).toBe(119990);
   });
 
   it('should flag versions removed from official lineups as discontinued', () => {
@@ -72,6 +76,9 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     // Mercedes-Benz launch (Jul/2024): EQE 300 SUV replaced by EQE 350+ SUV.
     expect(byModel('i4 eDrive35').discontinued).toBe(true);
     expect(byModel('EQE 300 SUV').discontinued).toBe(true);
+    // byd.com/br model menu (checked 2026-08-25): eT3 absent from the official lineup;
+    // FIPE lists only the 2022 model year.
+    expect(byModel('eT3').discontinued).toBe(true);
   });
 
   it('Audi Q6 line should match the official 2026 launch release', () => {
@@ -87,5 +94,39 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(sportback.power).toBe(428);
     expect(sq6.price).toBe(790990);
     expect(sq6.power).toBe(517);
+  });
+
+  it('BYD Yuan Plus AWD should match the official PBEV range and drivetrain of the current page', () => {
+    // byd.com/br/car/yuan-plus (checked 2026-08-25): footnote "autonomia de até
+    // 378 km conforme medição PBEV (Inmetro)"; DC 205 kW (20-80% em 20 min) and
+    // optional 11 kW wallbox confirmed on the same page.
+    const yuan = byModel('Yuan Plus AWD');
+    expect(yuan.range).toBe(378);
+    expect(yuan.power).toBe(449);
+    expect(yuan.chargeDC).toBe(205);
+    expect(yuan.chargeAC).toBe(11);
+  });
+
+  it('Mercedes-Benz EQB entry should reflect the current EQB 250+ nomenclature', () => {
+    // imprensa.mercedes-benz.com.br EQB 250+ release + www2.mercedes-benz.com.br
+    // (checked 2026-08-25): 190 cv, 70,5 kWh, up to 376 km (INMETRO), 11 kW AC /
+    // 100 kW DC, suggested price R$ 399.900 - identical to the catalog entry.
+    const eqb = byModel('EQB 250+');
+    expect(eqb.price).toBe(399900);
+    expect(eqb.range).toBe(376);
+    expect(eqb.power).toBe(190);
+    expect(eqb.battery).toBe(70.5);
+    expect(eqb.chargeAC).toBe(11);
+    expect(eqb.chargeDC).toBe(100);
+  });
+
+  it('Hyundai Ioniq 5 should use the officially published battery capacity and Signature table price', () => {
+    // hyundai.com.br/veiculos/ioniq-5 + official digital catalog PDF (checked
+    // 2026-08-25): lithium-ion battery 84 kWh, 325 cv, up to 374 km (INMETRO).
+    // Price R$ 409.990 per the Signature version announced in the Hyundai press
+    // conference (Salão do Automóvel 2025), converging across independent sources.
+    const ioniq = byModel('Ioniq 5');
+    expect(ioniq.battery).toBe(84);
+    expect(ioniq.price).toBe(409990);
   });
 });

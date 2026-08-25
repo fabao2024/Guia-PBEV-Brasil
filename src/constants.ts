@@ -197,7 +197,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 30,
   },
   {
-    model: "Dolphin Mini GL", brand: "BYD", price: 118990, range: 224, cat: "Urbano",
+    model: "Dolphin Mini GL", brand: "BYD", price: 109990, range: 224, cat: "Urbano",
     img: "/car-images/byd-dolphin-mini-gl.jpg",
     power: 75, torque: 13.8, traction: 'FWD', battery: 30.08,
     features: [
@@ -728,7 +728,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 88,
   },
   {
-    model: "Yuan Plus AWD", brand: "BYD", price: 269990, range: 350, cat: "SUV",
+    model: "Yuan Plus AWD", brand: "BYD", price: 269990, range: 378, cat: "SUV",
     img: "/car-images/byd-yuan-plus-awd.jpg",
     power: 449, torque: 56, traction: 'AWD', battery: 74.88,
     features: [
@@ -986,11 +986,11 @@ export const CAR_DB: Car[] = [
     warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 11, chargeDC: 135,
   },
   {
-    model: "Ioniq 5", brand: "Hyundai", price: 394990, range: 374, cat: "SUV",
+    model: "Ioniq 5", brand: "Hyundai", price: 409990, range: 374, cat: "SUV",
     img: "/car-images/ioniq-5.jpg",
-    power: 325, torque: 61.6, traction: 'RWD', battery: 72.6,
+    power: 325, torque: 61.6, traction: 'RWD', battery: 84,
     features: [
-      "Bateria NMC 72,6 kWh – Plataforma E-GMP 800V (carregamento ultrarrápido)",
+      "Bateria NMC 84 kWh – Plataforma E-GMP 800V (carregamento ultrarrápido)",
       "Carregamento AC 11 kW / DC 220 kW",
       "Tela dual 12\" integrada (painel digital + central) com CarPlay e Android Auto",
       "6 airbags",
@@ -1019,7 +1019,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 3, warrantyBatteryYears: 10, chargeAC: 11, chargeDC: 100,
   },
   {
-    model: "EQB 250", brand: "Mercedes-Benz", price: 399900, range: 376, cat: "Luxo",
+    model: "EQB 250+", brand: "Mercedes-Benz", price: 399900, range: 376, cat: "Luxo",
     img: "/car-images/eqb-250.jpg",
     power: 190, torque: 38.5, traction: 'FWD', battery: 70.5,
     features: [
@@ -1591,7 +1591,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 135,
   },
   {
-    model: "eT3", brand: "BYD", price: 229990, range: 170, cat: "Comercial",
+    model: "eT3", brand: "BYD", price: 229990, range: 170, cat: "Comercial", discontinued: true,
     img: "/car-images/et3.jpg",
     power: 136, torque: 21.4, traction: 'FWD', battery: 50.3,
     features: [

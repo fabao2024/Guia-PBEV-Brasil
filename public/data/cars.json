@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T19:13:41.958Z",
+  "generated_at": "2026-08-25T20:37:18.029Z",
   "total": 109,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "evidence": {
@@ -142,7 +142,7 @@
     {
       "model": "Dolphin Mini GL",
       "brand": "BYD",
-      "price": 118990,
+      "price": 109990,
       "range_km": 224,
       "category": "Urbano",
       "image_url": "https://guiapbev.cloud/car-images/byd-dolphin-mini-gl.jpg",
@@ -1142,7 +1142,7 @@
       "model": "Yuan Plus AWD",
       "brand": "BYD",
       "price": 269990,
-      "range_km": 350,
+      "range_km": 378,
       "category": "SUV",
       "image_url": "https://guiapbev.cloud/car-images/byd-yuan-plus-awd.jpg",
       "traction": "AWD",
@@ -1624,14 +1624,14 @@
     {
       "model": "Ioniq 5",
       "brand": "Hyundai",
-      "price": 394990,
+      "price": 409990,
       "range_km": 374,
       "category": "SUV",
       "image_url": "https://guiapbev.cloud/car-images/ioniq-5.jpg",
       "traction": "RWD",
       "power_cv": 325,
       "torque_kgfm": 61.6,
-      "battery_kwh": 72.6,
+      "battery_kwh": 84,
       "charge_ac_kw": 11,
       "charge_dc_kw": 220,
       "warranty_years": 5,
@@ -1639,7 +1639,7 @@
       "pbe_rating": "A",
       "energy_mj_km": 0.66,
       "features": [
-        "Bateria NMC 72,6 kWh – Plataforma E-GMP 800V (carregamento ultrarrápido)",
+        "Bateria NMC 84 kWh – Plataforma E-GMP 800V (carregamento ultrarrápido)",
         "Carregamento AC 11 kW / DC 220 kW",
         "Tela dual 12\" integrada (painel digital + central) com CarPlay e Android Auto",
         "6 airbags",
@@ -1686,7 +1686,7 @@
       "detail_url": "https://guiapbev.cloud/carro/mercedes-benz-eqa-250"
     },
     {
-      "model": "EQB 250",
+      "model": "EQB 250+",
       "brand": "Mercedes-Benz",
       "price": 399900,
       "range_km": 376,
@@ -2801,7 +2801,7 @@
         "Atualização OTA – ideal para logística urbana de última milha"
       ],
       "is_new": false,
-      "discontinued": false,
+      "discontinued": true,
       "slug": "byd-et3",
       "detail_url": "https://guiapbev.cloud/carro/byd-et3"
     },
