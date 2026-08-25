@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T21:11:35.543Z",
+  "generated_at": "2026-08-25T21:21:01.325Z",
   "total": 109,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "evidence": {
@@ -85,7 +85,7 @@
       "traction": "FWD",
       "power_cv": 62,
       "torque_kgfm": 15.3,
-      "battery_kwh": 30.2,
+      "battery_kwh": 31.4,
       "charge_ac_kw": 6.6,
       "charge_dc_kw": 40,
       "warranty_years": 3,
@@ -93,7 +93,7 @@
       "pbe_rating": "E",
       "energy_mj_km": 0.5,
       "features": [
-        "Bateria LFP 30,2 kWh",
+        "Bateria LFP 31,4 kWh",
         "Carregamento AC 6,6 kW / DC 40 kW",
         "Tela central 10,1\" com CarPlay e Android Auto",
         "6 airbags",
@@ -1790,7 +1790,7 @@
       "category": "SUV",
       "image_url": "https://guiapbev.cloud/car-images/e-js4.png",
       "traction": "FWD",
-      "power_cv": 150,
+      "power_cv": 200,
       "torque_kgfm": 34.7,
       "battery_kwh": 55,
       "charge_ac_kw": 7,
@@ -1800,7 +1800,7 @@
       "pbe_rating": "A",
       "energy_mj_km": 0.47,
       "features": [
-        "Bateria NMC 55 kWh",
+        "Bateria LFP 55 kWh",
         "Carregamento AC 7 kW / DC 80 kW",
         "Tela central 12,3\" com CarPlay e Android Auto",
         "6 airbags",

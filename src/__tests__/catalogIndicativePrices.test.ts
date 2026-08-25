@@ -184,4 +184,18 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(max.battery).toBe(39.4);
     expect(max.chargeAC).toBe(6.6);
   });
+
+  it('JAC E-JS1 and E-JS4 should match the official Brazilian model pages', () => {
+    // jacmotors.com.br model pages (checked 2026-08-25): E-JS1 with LFP
+    // 31,4 kWh battery, 62 cv, from R$ 119.900; E-JS4 with 147 kW (200 cv),
+    // 55 kWh, R$ 254.900 and up to 307 km (INMETRO).
+    const js1 = byModel('E-JS1');
+    expect(js1.price).toBe(119900);
+    expect(js1.battery).toBe(31.4);
+    expect(js1.power).toBe(62);
+    const js4 = byModel('E-JS4');
+    expect(js4.price).toBe(254900);
+    expect(js4.power).toBe(200);
+    expect(js4.battery).toBe(55);
+  });
 });

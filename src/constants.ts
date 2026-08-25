@@ -165,9 +165,9 @@ export const CAR_DB: Car[] = [
   {
     model: "E-JS1", brand: "JAC", price: 119900, range: 181, cat: "Urbano",
     img: "/car-images/e-js1.png",
-    power: 62, torque: 15.3, traction: 'FWD', battery: 30.2,
+    power: 62, torque: 15.3, traction: 'FWD', battery: 31.4,
     features: [
-      "Bateria LFP 30,2 kWh",
+      "Bateria LFP 31,4 kWh",
       "Carregamento AC 6,6 kW / DC 40 kW",
       "Tela central 10,1\" com CarPlay e Android Auto",
       "6 airbags",
@@ -1071,9 +1071,9 @@ export const CAR_DB: Car[] = [
   {
     model: "E-JS4", brand: "JAC", price: 254900, range: 307, cat: "SUV",
     img: "/car-images/e-js4.png",
-    power: 150, torque: 34.7, traction: 'FWD', battery: 55,
+    power: 200, torque: 34.7, traction: 'FWD', battery: 55,
     features: [
-      "Bateria NMC 55 kWh",
+      "Bateria LFP 55 kWh",
       "Carregamento AC 7 kW / DC 80 kW",
       "Tela central 12,3\" com CarPlay e Android Auto",
       "6 airbags",
