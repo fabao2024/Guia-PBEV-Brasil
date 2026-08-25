@@ -10,7 +10,7 @@ Notas técnicas selecionadas do produto público. Este documento não registra i
 | Especificações | Ioniq 5 passa a exibir a bateria de 84 kWh publicada pelo site/catálogo oficial Hyundai; Yuan Plus AWD com autonomia PBEV/Inmetro de 378 km conforme a página oficial do modelo. |
 | Nomenclatura | Entrada do catálogo renomeada para Mercedes-Benz EQB 250+, idêntica à versão atual da montadora (URL do veículo preservada). |
 | Disponibilidade | BYD eT3 marcado como descontinuado (fora do menu oficial; FIPE lista apenas o ano 2022). |
-| Proveniência | Cobertura verificada subiu de 171/763 para **232/763** campos com fonte oficial direta por campo, incluindo os lotes GAC e Geely. |
+| Proveniência | Cobertura verificada subiu de 171/763 para **307/763** campos com fonte oficial direta por campo, incluindo os lotes de todas as marcas restantes e a auditoria ponta a ponta da tabela PBEV. |
 | Verificação | TDD RED→GREEN em cada lote, 273/273 testes, TypeScript, build Vite, rotas estáticas, scanner de segredos e verificador de proveniência aprovados. |
 
 ## 25/08/2026 · Blocos 4 e 5 da revisão do catálogo
