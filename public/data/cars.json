@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T22:17:52.761Z",
+  "generated_at": "2026-08-25T22:27:30.152Z",
   "total": 109,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "evidence": {
@@ -242,7 +242,7 @@
       "range_km": 289,
       "category": "Compacto",
       "image_url": "https://guiapbev.cloud/car-images/geely-ex2-max.jpg",
-      "traction": "FWD",
+      "traction": "RWD",
       "power_cv": 116,
       "torque_kgfm": 15.3,
       "battery_kwh": 39.4,
@@ -274,7 +274,7 @@
       "range_km": 289,
       "category": "Compacto",
       "image_url": "https://guiapbev.cloud/car-images/geely-ex2-pro.webp",
-      "traction": "FWD",
+      "traction": "RWD",
       "power_cv": 116,
       "torque_kgfm": 15.3,
       "battery_kwh": 39.4,
@@ -1628,7 +1628,7 @@
       "range_km": 374,
       "category": "SUV",
       "image_url": "https://guiapbev.cloud/car-images/ioniq-5.jpg",
-      "traction": "RWD",
+      "traction": "AWD",
       "power_cv": 325,
       "torque_kgfm": 61.6,
       "battery_kwh": 84,

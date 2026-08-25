@@ -250,7 +250,7 @@ export const CAR_DB: Car[] = [
   {
     model: "EX2 Max", brand: "Geely", price: 136800, range: 289, cat: "Compacto",
     img: "/car-images/geely-ex2-max.jpg",
-    power: 116, torque: 15.3, traction: 'FWD', battery: 39.4,
+    power: 116, torque: 15.3, traction: 'RWD', battery: 39.4,
     features: [
       "Bateria LFP de 39,4 kWh",
       "Carregamento AC 6,6 kW / DC 70 kW",
@@ -267,7 +267,7 @@ export const CAR_DB: Car[] = [
   {
     model: "EX2 Pro", brand: "Geely", price: 123800, range: 289, cat: "Compacto",
     img: "/car-images/geely-ex2-pro.webp",
-    power: 116, torque: 15.3, traction: 'FWD', battery: 39.4,
+    power: 116, torque: 15.3, traction: 'RWD', battery: 39.4,
     features: [
       "Bateria LFP de 39,4 kWh",
       "Carregamento AC 6,6 kW / DC 70 kW",
@@ -993,7 +993,7 @@ export const CAR_DB: Car[] = [
   {
     model: "Ioniq 5", brand: "Hyundai", price: 409990, range: 374, cat: "SUV",
     img: "/car-images/ioniq-5.jpg",
-    power: 325, torque: 61.6, traction: 'RWD', battery: 84,
+    power: 325, torque: 61.6, traction: 'AWD', battery: 84,
     features: [
       "Bateria NMC 84 kWh – Plataforma E-GMP 800V (carregamento ultrarrápido)",
       "Carregamento AC 11 kW / DC 220 kW",

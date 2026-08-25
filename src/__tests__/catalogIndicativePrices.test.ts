@@ -292,4 +292,14 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(byModel('Yuan Plus').energyMJkm).toBeCloseTo(0.56, 5);
     expect(byModel('Dolphin Plus').energyMJkm).toBeCloseTo(0.51, 5);
   });
+
+  it('traction should match the official drivetrain of the sold versions', () => {
+    // hyundai.com.br official catalog (checked 2026-08-25): Ioniq 5 Signature
+    // AWD HTRAC, dual motor, 325 cv combined.
+    expect(byModel('Ioniq 5').traction).toBe('AWD');
+    // geelybrasil.com.br EX2 page and spec sheet (checked 2026-08-25): rear
+    // electric motor, rear-wheel drive - "o único do segmento com tração traseira".
+    expect(byModel('EX2 Pro').traction).toBe('RWD');
+    expect(byModel('EX2 Max').traction).toBe('RWD');
+  });
 });
