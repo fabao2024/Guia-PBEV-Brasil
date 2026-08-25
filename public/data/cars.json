@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T21:30:55.821Z",
+  "generated_at": "2026-08-25T21:45:39.677Z",
   "total": 109,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "evidence": {
@@ -15,7 +15,7 @@
       "model": "Kwid E-Tech",
       "brand": "Renault",
       "price": 99990,
-      "range_km": 180,
+      "range_km": 185,
       "category": "Urbano",
       "image_url": "https://guiapbev.cloud/car-images/renault-kwid-e-tech-2026-diagonal-dianteira.avif",
       "traction": "FWD",
@@ -39,7 +39,7 @@
         "Montagem nacional (São José dos Pinhais - PR)"
       ],
       "is_new": false,
-      "discontinued": true,
+      "discontinued": false,
       "slug": "renault-kwid-e-tech",
       "detail_url": "https://guiapbev.cloud/carro/renault-kwid-e-tech"
     },
@@ -1243,9 +1243,9 @@
       "category": "SUV",
       "image_url": "https://guiapbev.cloud/car-images/e-2008.jpg",
       "traction": "FWD",
-      "power_cv": 136,
+      "power_cv": 158,
       "torque_kgfm": 26.5,
-      "battery_kwh": 50,
+      "battery_kwh": 54,
       "charge_ac_kw": 11,
       "charge_dc_kw": 100,
       "warranty_years": 2,
@@ -1253,7 +1253,7 @@
       "pbe_rating": "A",
       "energy_mj_km": 0.55,
       "features": [
-        "Bateria NMC 50 kWh",
+        "Bateria LFP 54 kWh",
         "Carregamento AC 11 kW / DC 100 kW",
         "Cockpit i-Cockpit: tela 10\" + painel digital 3D",
         "6 airbags",
@@ -1270,7 +1270,7 @@
     {
       "model": "Megane E-Tech",
       "brand": "Renault",
-      "price": 279900,
+      "price": 279990,
       "range_km": 337,
       "category": "SUV",
       "image_url": "https://guiapbev.cloud/car-images/megane-etech.webp",
@@ -2257,7 +2257,7 @@
         "Suspensão pneumática adaptativa + faróis Matrix LED + atualização OTA"
       ],
       "is_new": false,
-      "discontinued": false,
+      "discontinued": true,
       "slug": "audi-q8-e-tron",
       "detail_url": "https://guiapbev.cloud/carro/audi-q8-e-tron"
     },

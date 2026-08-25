@@ -130,7 +130,7 @@ const getBrandImage = (brand: string): string => {
 export const CAR_DB: Car[] = [
   // 1. COMPACTOS & HATCHES
   {
-    model: "Kwid E-Tech", brand: "Renault", price: 99990, range: 180, cat: "Urbano",
+    model: "Kwid E-Tech", brand: "Renault", price: 99990, range: 185, cat: "Urbano",
     img: "/car-images/renault-kwid-e-tech-2026-diagonal-dianteira.avif",
     power: 65, torque: 11.5, traction: 'FWD', battery: 26.8,
     features: [
@@ -143,7 +143,7 @@ export const CAR_DB: Car[] = [
       "Ar-condicionado automático",
       "Montagem nacional (São José dos Pinhais - PR)"
     ],
-    pbeRating: 'A', energyMJkm: 0.44, discontinued: true,
+    pbeRating: 'A', energyMJkm: 0.44,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 30,
   },
   {
@@ -783,9 +783,9 @@ export const CAR_DB: Car[] = [
     model: "e-2008", brand: "Peugeot", price: 269990, range: 261, cat: "SUV",
     img: "/car-images/e-2008.jpg",
     discontinued: true,
-    power: 136, torque: 26.5, traction: 'FWD', battery: 50,
+    power: 158, torque: 26.5, traction: 'FWD', battery: 54,
     features: [
-      "Bateria NMC 50 kWh",
+      "Bateria LFP 54 kWh",
       "Carregamento AC 11 kW / DC 100 kW",
       "Cockpit i-Cockpit: tela 10\" + painel digital 3D",
       "6 airbags",
@@ -798,7 +798,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 2, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 100,
   },
   {
-    model: "Megane E-Tech", brand: "Renault", price: 279900, range: 337, cat: "SUV",
+    model: "Megane E-Tech", brand: "Renault", price: 279990, range: 337, cat: "SUV",
     img: "/car-images/megane-etech.webp",
     power: 220, torque: 30.6, traction: 'FWD', battery: 60,
     features: [
@@ -1305,7 +1305,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 270,
   },
   {
-    model: "Q8 e-tron", brand: "Audi", price: 699000, range: 332, cat: "Luxo",
+    model: "Q8 e-tron", brand: "Audi", price: 699000, range: 332, cat: "Luxo", discontinued: true,
     img: "/car-images/q8-etron.jpg",
     power: 408, torque: 67.7, traction: 'AWD', battery: 106,
     features: [

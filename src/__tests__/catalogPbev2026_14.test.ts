@@ -48,10 +48,15 @@ describe('CAR_DB values per PBEV/Inmetro table 2026_14_AGOd', () => {
     expect(ec40.energyMJkm).toBeCloseTo(0.51, 5);
   });
 
-  it('Renault Kwid E-Tech should be flagged as discontinued', () => {
-    // Renault BR official site no longer lists the Kwid E-Tech; KWID menu entry is flex-only,
-    // and the only remaining 100% electric Renault in Brazil is the Megane E-Tech.
-    expect(byModel('Kwid E-Tech').discontinued).toBe(true);
+  it('Renault Kwid E-Tech should be back on sale per the official Renault Brazil site', () => {
+    // renault.com.br versions-and-prices page (checked 2026-08-25): KWID E-TECH
+    // actively offered from R$ 99.990, reversing the Bloco 2 triage that had
+    // flagged it as discontinued when the official site omitted the model.
+    // PBEV table row homologates 185 km; catalog previously carried 180 km.
+    const kwid = byModel('Kwid E-Tech');
+    expect(kwid.discontinued ?? false).toBe(false);
+    expect(kwid.range).toBe(185);
+    expect(kwid.price).toBe(99990);
   });
 
   it('BMW iX3 should reflect the new NA5 generation on sale in Brazil', () => {

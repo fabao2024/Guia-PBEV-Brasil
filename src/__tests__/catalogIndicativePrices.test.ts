@@ -225,4 +225,31 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(rz.chargeDC).toBe(150);
     expect(rz.power).toBe(381);
   });
+
+  it('Renault entries should match the official Brazilian prices page', () => {
+    // renault.com.br versions-and-prices pages (checked 2026-08-25): Megane
+    // E-Tech from R$ 279.990; Kwid E-Tech actively offered from R$ 99.990.
+    // PBEV table homologates the Kwid at 185 km (catalog carried 180).
+    const megane = byModel('Megane E-Tech');
+    expect(megane.price).toBe(279990);
+    const kwid = byModel('Kwid E-Tech');
+    expect(kwid.price).toBe(99990);
+    expect(kwid.range).toBe(185);
+    expect(kwid.discontinued ?? false).toBe(false);
+  });
+
+  it('Peugeot e-2008 should carry the facelift powertrain of the sold version', () => {
+    // Official Stellantis/Peugeot launch release (Oct/2024): new e-2008 with
+    // 158 cv, battery increased from 50 to 54 kWh, up to 261 km PBEV (INMETRO).
+    const e2008 = byModel('e-2008');
+    expect(e2008.power).toBe(158);
+    expect(e2008.battery).toBe(54);
+    expect(e2008.range).toBe(261);
+  });
+
+  it('Audi Q8 e-tron should be flagged as discontinued after end of production', () => {
+    // Global production of the Q8 e-tron family ended in Brussels in Feb/2025;
+    // the Audi Brazil 2026 lineup releases no longer include the model.
+    expect(byModel('Q8 e-tron').discontinued).toBe(true);
+  });
 });

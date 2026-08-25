@@ -4944,11 +4944,11 @@
           "verifiedAt": null
         },
         "range_km": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.media.stellantis.com/br-pt/peugeot/press/peugeot-inicia-vendas-do-novo-peugeot-e-2008-no-brasil",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "consumption": {
           "verificationStatus": "legacy_unverified",
@@ -4958,18 +4958,18 @@
           "verifiedAt": null
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.media.stellantis.com/br-pt/peugeot/press/peugeot-inicia-vendas-do-novo-peugeot-e-2008-no-brasil",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.media.stellantis.com/br-pt/peugeot/press/peugeot-inicia-vendas-do-novo-peugeot-e-2008-no-brasil",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "charging": {
           "verificationStatus": "legacy_unverified",
@@ -5322,18 +5322,18 @@
       "model": "Kwid E-Tech",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.renault.com.br/veiculos-eletricos/kwid-e-tech/versoes-e-precos.html",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "range_km": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "consumption": {
           "verificationStatus": "legacy_unverified",
@@ -5364,11 +5364,11 @@
           "verifiedAt": null
         },
         "availability": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.renault.com.br/veiculos-eletricos/kwid-e-tech/versoes-e-precos.html",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         }
       }
     },
@@ -5377,11 +5377,11 @@
       "model": "Megane E-Tech",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.renault.com.br/electric-vehicles/megane-e-tech/prices-offers.html",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "range_km": {
           "verificationStatus": "verified",
@@ -5398,18 +5398,18 @@
           "verifiedAt": "2026-08-25"
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.renault.com.br/veiculos-eletricos/megane-e-tech.html",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.renault.com.br/veiculos-eletricos/megane-e-tech.html",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "charging": {
           "verificationStatus": "legacy_unverified",
@@ -5419,11 +5419,11 @@
           "verifiedAt": null
         },
         "availability": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.renault.com.br/electric-vehicles/megane-e-tech/prices-offers.html",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         }
       }
     },
