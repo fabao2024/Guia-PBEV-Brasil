@@ -269,18 +269,18 @@
           "verifiedAt": null
         },
         "range_km": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "legacy_unverified",
@@ -544,18 +544,18 @@
           "verifiedAt": null
         },
         "range_km": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "legacy_unverified",
@@ -764,18 +764,18 @@
           "verifiedAt": null
         },
         "range_km": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "legacy_unverified",
@@ -826,11 +826,11 @@
           "verifiedAt": null
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "legacy_unverified",
@@ -881,11 +881,11 @@
           "verifiedAt": "2026-08-25"
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "legacy_unverified",
@@ -936,11 +936,11 @@
           "verifiedAt": "2026-08-25"
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "legacy_unverified",
@@ -991,11 +991,11 @@
           "verifiedAt": null
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "legacy_unverified",
@@ -1321,11 +1321,11 @@
           "verifiedAt": null
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "legacy_unverified",
@@ -1376,11 +1376,11 @@
           "verifiedAt": "2026-08-25"
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "verified",
@@ -1589,18 +1589,18 @@
           "verifiedAt": "2026-08-25"
         },
         "range_km": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "legacy_unverified",
@@ -1699,18 +1699,18 @@
           "verifiedAt": null
         },
         "range_km": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "legacy_unverified",
@@ -1974,18 +1974,18 @@
           "verifiedAt": null
         },
         "range_km": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "legacy_unverified",
@@ -2696,11 +2696,11 @@
           "verifiedAt": "2026-08-25"
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "verified",
@@ -2861,11 +2861,11 @@
           "verifiedAt": "2026-08-25"
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "legacy_unverified",
@@ -2916,11 +2916,11 @@
           "verifiedAt": "2026-08-25"
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "legacy_unverified",
@@ -3019,18 +3019,18 @@
           "verifiedAt": null
         },
         "range_km": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "legacy_unverified",
@@ -3404,18 +3404,18 @@
           "verifiedAt": null
         },
         "range_km": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "legacy_unverified",
@@ -3576,11 +3576,11 @@
           "verifiedAt": null
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "legacy_unverified",
@@ -3624,18 +3624,18 @@
           "verifiedAt": null
         },
         "range_km": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "legacy_unverified",
@@ -4071,11 +4071,11 @@
           "verifiedAt": "2026-08-25"
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "legacy_unverified",
@@ -4126,11 +4126,11 @@
           "verifiedAt": "2026-08-25"
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "legacy_unverified",
@@ -4504,18 +4504,18 @@
           "verifiedAt": null
         },
         "range_km": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "legacy_unverified",
@@ -5109,18 +5109,18 @@
           "verifiedAt": null
         },
         "range_km": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "legacy_unverified",
@@ -5336,11 +5336,11 @@
           "verifiedAt": "2026-08-25"
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "legacy_unverified",
@@ -5666,11 +5666,11 @@
           "verifiedAt": "2026-08-25"
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "verified",
@@ -5721,11 +5721,11 @@
           "verifiedAt": "2026-08-24"
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "verified",
@@ -5769,18 +5769,18 @@
           "verifiedAt": "2026-08-25"
         },
         "range_km": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "verified",
@@ -5996,11 +5996,11 @@
           "verifiedAt": "2026-08-25"
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "legacy_unverified",

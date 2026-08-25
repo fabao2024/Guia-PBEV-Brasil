@@ -252,4 +252,44 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     // the Audi Brazil 2026 lineup releases no longer include the model.
     expect(byModel('Q8 e-tron').discontinued).toBe(true);
   });
+
+  it('PBEV table 2026_14_AGOd alignment for consumption and range', () => {
+    // Final PBEV lot (checked 2026-08-25 against the official Inmetro PDF,
+    // SHA-256 confirmed): values extracted row by row and manually paired.
+    const pbev: Array<[string, number | null, number]> = [
+      // pacote B - consumption corrections
+      ['Dolphin Mini GS', 0.41, 280],
+      ['Dolphin GS', 0.42, 291],
+      ['Ora 03 Skin BEV48', 0.52, 232],
+      ['Ora 03 GT BEV63', 0.54, 295],
+      ['MG4 Comfort', 0.5, 364],
+      ['MG4 Luxury', 0.5, 364],
+      ['Zeekr X', 0.55, 332],
+      ['EX30 Plus', 0.55, 250],
+      ['EX40 (XC40)', 0.55, 364],
+      // pacote C - fills
+      ['Dolphin Mini GL', 0.39, 224],
+      ['Dolphin Special Edition', 0.49, 272],
+      ['Yuan Plus AWD', 0.58, 378],
+      ['EX2 Pro', 0.39, 289],
+      ['B10 BEV', 0.55, 288],
+      ['iEV330P', 0.75, 226],
+      // pacote D - range corrections + fills
+      ['iX xDrive40', 0.59, 327],
+      ['Blazer EV RS', 0.63, 481],
+      ['Q8 e-tron', 0.61, 424],
+    ];
+    for (const [model, mj, range] of pbev) {
+      const car = byModel(model);
+      expect(car.energyMJkm ?? null).toBe(mj);
+      expect(car.range).toBe(range);
+    }
+    // pacote A - identical values now pinned as verified
+    expect(byModel('Equinox EV').energyMJkm).toBeCloseTo(0.56, 5);
+    expect(byModel('Cayenne EV').range).toBe(493);
+    expect(byModel('Taycan 4S').energyMJkm).toBeCloseTo(0.69, 5);
+    expect(byModel('Kwid E-Tech').energyMJkm).toBeCloseTo(0.44, 5);
+    expect(byModel('Yuan Plus').energyMJkm).toBeCloseTo(0.56, 5);
+    expect(byModel('Dolphin Plus').energyMJkm).toBeCloseTo(0.51, 5);
+  });
 });

@@ -193,7 +193,7 @@ export const CAR_DB: Car[] = [
       "Controle de cruzeiro adaptativo (ACC)",
       "Atualização de software OTA"
     ],
-    pbeRating: 'A', energyMJkm: 0.39,
+    pbeRating: 'A', energyMJkm: 0.41,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 30,
   },
   {
@@ -208,6 +208,7 @@ export const CAR_DB: Car[] = [
       "ADAS básico: AEB + alerta de colisão frontal",
       "Atualização de software OTA"
     ],
+    pbeRating: 'A', energyMJkm: 0.39,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 30,
   },
   {
@@ -278,6 +279,7 @@ export const CAR_DB: Car[] = [
       "Rodas de aço aro 15\"",
       "Seletor de modos de condução"
     ],
+    pbeRating: 'A', energyMJkm: 0.39,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 70,
   },
   {
@@ -310,7 +312,7 @@ export const CAR_DB: Car[] = [
       "Design retrô estilo vintage",
       "Ar-condicionado automático bizona"
     ],
-    pbeRating: 'A', energyMJkm: 0.51,
+    pbeRating: 'A', energyMJkm: 0.52,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 64,
   },
   {
@@ -344,7 +346,7 @@ export const CAR_DB: Car[] = [
       "Bancos aquecidos e ventilados com massagem",
       "Design esportivo GT com difusor traseiro"
     ],
-    pbeRating: 'A', energyMJkm: 0.51,
+    pbeRating: 'A', energyMJkm: 0.54,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 67,
   },
   {
@@ -395,7 +397,7 @@ export const CAR_DB: Car[] = [
       "Faróis LED full com DRL",
       "Atualização OTA"
     ],
-    pbeRating: 'A', energyMJkm: 0.51,
+    pbeRating: 'A', energyMJkm: 0.42,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 60,
   },
   {
@@ -517,6 +519,7 @@ export const CAR_DB: Car[] = [
       "Atualização OTA",
       "Autonomia 300 km (estimativa Inmetro — fabricante)"
     ],
+    pbeRating: 'A', energyMJkm: 0.49,
     warrantyYears: 6, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 80,
   },
 
@@ -603,6 +606,7 @@ export const CAR_DB: Car[] = [
       "Plataforma proprietária Leapmotor (LEAP 3.0)",
       "Motor traseiro RWD de alto torque"
     ],
+    pbeRating: 'A', energyMJkm: 0.55,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 80,
   },
   {
@@ -741,6 +745,7 @@ export const CAR_DB: Car[] = [
       "Bancos aquecidos",
       "Atualização OTA"
     ],
+    pbeRating: 'A', energyMJkm: 0.58,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 205,
     // range Inmetro: 350 km
   },
@@ -758,7 +763,7 @@ export const CAR_DB: Car[] = [
       "Interior em materiais reciclados e sustentáveis",
       "Atualização OTA"
     ],
-    pbeRating: 'A', energyMJkm: 0.57,
+    pbeRating: 'A', energyMJkm: 0.55,
     warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 153,
   },
   {
@@ -884,7 +889,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 6, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
   },
   {
-    model: "EX40 (XC40)", brand: "Volvo", price: 329950, range: 385, cat: "SUV",
+    model: "EX40 (XC40)", brand: "Volvo", price: 329950, range: 364, cat: "SUV",
     img: "/car-images/ex40.jpg",
     power: 238, torque: 42.8, traction: 'RWD', battery: 69,
     features: [
@@ -897,7 +902,7 @@ export const CAR_DB: Car[] = [
       "Bancos aquecidos e ventilados + teto solar panorâmico",
       "Atualização OTA"
     ],
-    pbeRating: 'A', energyMJkm: 0.59,
+    pbeRating: 'A', energyMJkm: 0.55,
     warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
   },
   {
@@ -1133,7 +1138,7 @@ export const CAR_DB: Car[] = [
       "Bancos aquecidos e ventilados + teto solar panorâmico",
       "Atualização OTA"
     ],
-    pbeRating: 'A', energyMJkm: 0.59,
+    pbeRating: 'A', energyMJkm: 0.55,
     warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
   },
   {
@@ -1238,7 +1243,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
   },
   {
-    model: "Blazer EV RS", brand: "Chevrolet", price: 503190, range: 483, cat: "Luxo",
+    model: "Blazer EV RS", brand: "Chevrolet", price: 503190, range: 481, cat: "Luxo",
     img: "/car-images/blazer-ev.jpg",
     power: 347, torque: 44.9, traction: 'RWD', battery: 85,
     features: [
@@ -1251,6 +1256,7 @@ export const CAR_DB: Car[] = [
       "Bancos RS aquecidos e ventilados + head-up display",
       "Modo RS esportivo + OnStar + atualização OTA"
     ],
+    pbeRating: 'A', energyMJkm: 0.63,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11.5, chargeDC: 150,
   },
   {
@@ -1305,7 +1311,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 270,
   },
   {
-    model: "Q8 e-tron", brand: "Audi", price: 699000, range: 332, cat: "Luxo", discontinued: true,
+    model: "Q8 e-tron", brand: "Audi", price: 699000, range: 424, cat: "Luxo", discontinued: true,
     img: "/car-images/q8-etron.jpg",
     power: 408, torque: 67.7, traction: 'AWD', battery: 106,
     features: [
@@ -1318,6 +1324,7 @@ export const CAR_DB: Car[] = [
       "Bancos Contour com ventilação e massagem + som Bang & Olufsen 3D",
       "Suspensão pneumática adaptativa + faróis Matrix LED + atualização OTA"
     ],
+    pbeRating: 'A', energyMJkm: 0.61,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 22, chargeDC: 170,
   },
   {
@@ -1389,7 +1396,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 270,
   },
   {
-    model: "iX xDrive40", brand: "BMW", price: 699950, range: 329, cat: "Luxo",
+    model: "iX xDrive40", brand: "BMW", price: 699950, range: 327, cat: "Luxo",
     img: "/car-images/ix.jpg",
     power: 326, torque: 64.2, traction: 'AWD', battery: 71,
     features: [
@@ -1402,6 +1409,7 @@ export const CAR_DB: Car[] = [
       "Bancos aquecidos, ventilados e com massagem",
       "Som Bowers & Wilkins Diamond (31 alto-falantes) + teto panorâmico cristal"
     ],
+    pbeRating: 'A', energyMJkm: 0.59,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 200,
   },
   {
@@ -1723,7 +1731,7 @@ export const CAR_DB: Car[] = [
       "Motor traseiro RWD de alto desempenho",
       "Design esportivo hatch"
     ],
-    pbeRating: 'A', energyMJkm: 0.59,
+    pbeRating: 'A', energyMJkm: 0.5,
     warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 6.6, chargeDC: 87,
   },
   {
@@ -1740,7 +1748,7 @@ export const CAR_DB: Car[] = [
       "Teto solar panorâmico + bancos aquecidos",
       "Plataforma MSP (Motor Skateboard Platform)"
     ],
-    pbeRating: 'A', energyMJkm: 0.59,
+    pbeRating: 'A', energyMJkm: 0.5,
     warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 6.6, chargeDC: 140,
   },
   {
@@ -1938,9 +1946,10 @@ export const CAR_DB: Car[] = [
       "Central multimídia com tela 10,25\"",
       "Painel de instrumentos em LED"
     ],
-    pbeRating: 'A',
+    pbeRating: 'A', energyMJkm: 0.75,
     warrantyYears: 3, warrantyBatteryYears: 8,
   },
+
 
   // MERCEDES-BENZ eSprinter (furgão premium)
   {
