@@ -361,6 +361,82 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(byModel('Yuan Pro').power).toBe(177);
   });
 
+  it('MG Motor line should match the official specification sheets and table prices', () => {
+    // Official MG Motor Brasil spec sheet PDFs linked from each model page and
+    // /oferta MY 26/27 pages on mgmotoroficial.com.br (checked 2026-08-25):
+    // - MG4 (Comfort/Luxury/XPower): AC 11 kW; Comfort DC 140 kW; nominal 64 kWh;
+    // - MG4 Urban: AC 11 kW; DC 82 kW (43 kWh versions); nominal 42,8/53,9 kWh;
+    // - MGS5: 205 cv, AC 7 kW / DC 150 kW, nominal 64 kWh;
+    // - Cyberster: AC 11 kW / DC 150 kW;
+    // - Table prices: MG4 Comfort R$ 184.600, MG4 Luxury R$ 199.800,
+    //   MGS5 Comfort R$ 218.800, MGS5 Luxury R$ 238.800.
+    const urban = byModel('MG4 Urban Comfort');
+    expect(urban.battery).toBe(42.8);
+    expect(urban.chargeAC).toBe(11);
+    expect(urban.chargeDC).toBe(82);
+    const urban54 = byModel('MG4 Urban Luxury 54kWh');
+    expect(urban54.battery).toBe(53.9);
+    expect(urban54.chargeAC).toBe(11);
+    expect(urban54.chargeDC).toBe(87);
+    const comfort = byModel('MG4 Comfort');
+    expect(comfort.price).toBe(184600);
+    expect(comfort.chargeAC).toBe(11);
+    expect(comfort.chargeDC).toBe(140);
+    const luxury = byModel('MG4 Luxury');
+    expect(luxury.price).toBe(199800);
+    expect(luxury.chargeAC).toBe(11);
+    expect(luxury.chargeDC).toBe(140);
+    expect(byModel('MG4 XPower').chargeAC).toBe(11);
+    const s5c = byModel('MGS5 Comfort');
+    expect(s5c.price).toBe(218800);
+    expect(s5c.power).toBe(205);
+    expect(s5c.chargeAC).toBe(7);
+    expect(s5c.chargeDC).toBe(150);
+    const s5l = byModel('MGS5 Luxury');
+    expect(s5l.price).toBe(238800);
+    expect(s5l.power).toBe(205);
+    expect(s5l.chargeAC).toBe(7);
+    expect(s5l.chargeDC).toBe(150);
+    const cyberster = byModel('Cyberster');
+    expect(cyberster.chargeAC).toBe(11);
+    expect(cyberster.chargeDC).toBe(150);
+  });
+
+  it('MG Motor identical specification-sheet values should stay pinned', () => {
+    // Same official spec sheets (checked 2026-08-25): values below already matched
+    // the catalog exactly and are now pinned against regressions.
+    const comfort = byModel('MG4 Comfort');
+    expect(comfort.range).toBe(364);
+    expect(comfort.power).toBe(190);
+    expect(comfort.battery).toBe(64);
+    const luxury = byModel('MG4 Luxury');
+    expect(luxury.range).toBe(364);
+    expect(luxury.power).toBe(190);
+    expect(luxury.battery).toBe(64);
+    const xpower = byModel('MG4 XPower');
+    expect(xpower.range).toBe(279);
+    expect(xpower.power).toBe(435);
+    expect(xpower.battery).toBe(64);
+    expect(xpower.chargeDC).toBe(140);
+    const urban = byModel('MG4 Urban Comfort');
+    expect(urban.range).toBe(299);
+    expect(urban.power).toBe(150);
+    const urbanL = byModel('MG4 Urban Luxury');
+    expect(urbanL.range).toBe(299);
+    expect(urbanL.power).toBe(150);
+    expect(byModel('MG4 Urban Luxury 54kWh').range).toBe(358);
+    expect(byModel('MG4 Urban Luxury 54kWh').power).toBe(160);
+    const s5 = byModel('MGS5 Comfort');
+    expect(s5.range).toBe(351);
+    expect(s5.battery).toBe(64);
+    expect(byModel('MGS5 Luxury').range).toBe(351);
+    expect(byModel('MGS5 Luxury').battery).toBe(64);
+    const cyberster = byModel('Cyberster');
+    expect(cyberster.range).toBe(342);
+    expect(cyberster.power).toBe(510);
+    expect(cyberster.battery).toBe(77);
+  });
+
   it('traction should match the official drivetrain of the sold versions', () => {
     // hyundai.com.br official catalog (checked 2026-08-25): Ioniq 5 Signature
     // AWD HTRAC, dual motor, 325 cv combined.

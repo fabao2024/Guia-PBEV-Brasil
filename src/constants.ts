@@ -1673,9 +1673,9 @@ export const CAR_DB: Car[] = [
   {
     model: "MG4 Urban Comfort", brand: "MG Motor", price: 129990, range: 299, cat: "Compacto",
     img: "/car-images/mg4-urban-comfort.webp",
-    power: 150, traction: 'FWD', battery: 43,
+    power: 150, traction: 'FWD', battery: 42.8,
     features: [
-      "Bateria LFP 43 kWh",
+      "Bateria LFP 42,8 kWh (nominal)",
       "Versão de entrada da linha MG4 Urban — rodas aro 16",
       "Tela central 12,8\" com CarPlay e Android Auto",
       "7 airbags",
@@ -1683,14 +1683,14 @@ export const CAR_DB: Car[] = [
       "Recarga DC 10-80% em 28 minutos"
     ],
     pbeRating: 'A', energyMJkm: 0.40,
-    warrantyYears: 7, warrantyBatteryYears: 7, chargeDC: 87,
+    warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 11, chargeDC: 82,
   },
   {
     model: "MG4 Urban Luxury", brand: "MG Motor", price: 139990, range: 299, cat: "Compacto",
     img: "/car-images/mg4-urban-luxury.webp",
-    power: 150, traction: 'FWD', battery: 43,
+    power: 150, traction: 'FWD', battery: 42.8,
     features: [
-      "Bateria LFP 43 kWh",
+      "Bateria LFP 42,8 kWh (nominal)",
       "Câmera 360° HD de série",
       "Bancos e volante aquecidos, ajuste elétrico 6 posições",
       "Carregador wireless para smartphone",
@@ -1699,14 +1699,14 @@ export const CAR_DB: Car[] = [
       "7 airbags"
     ],
     pbeRating: 'A', energyMJkm: 0.40,
-    warrantyYears: 7, warrantyBatteryYears: 7, chargeDC: 87,
+    warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 11, chargeDC: 82,
   },
   {
     model: "MG4 Urban Luxury 54kWh", brand: "MG Motor", price: 149990, range: 358, cat: "Compacto",
     img: "/car-images/mg4-urban-luxury-54.webp",
-    power: 160, traction: 'FWD', battery: 54,
+    power: 160, traction: 'FWD', battery: 53.9,
     features: [
-      "Bateria LFP 54 kWh — maior autonomia da linha Urban (358 km Inmetro)",
+      "Bateria LFP 53,9 kWh (nominal) — maior autonomia da linha Urban (358 km Inmetro)",
       "Câmera 360° HD de série",
       "Bancos e volante aquecidos, ajuste elétrico 6 posições",
       "Carregador wireless para smartphone",
@@ -1715,15 +1715,15 @@ export const CAR_DB: Car[] = [
       "7 airbags"
     ],
     pbeRating: 'A', energyMJkm: 0.42,
-    warrantyYears: 7, warrantyBatteryYears: 7, chargeDC: 87,
+    warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 11, chargeDC: 87,
   },
   {
-    model: "MG4 Comfort", brand: "MG Motor", price: 164600, range: 364, cat: "Compacto",
+    model: "MG4 Comfort", brand: "MG Motor", price: 184600, range: 364, cat: "Compacto",
     img: "/car-images/mg4-comfort.webp",
     power: 190, torque: 35, traction: 'RWD', battery: 64,
     features: [
       "Bateria LFP 64 kWh (maior autonomia da linha MG4)",
-      "Carregamento AC 6,6 kW / DC 87 kW",
+      "Carregamento AC 11 kW / DC 140 kW",
       "Tela central 10,25\" com CarPlay e Android Auto",
       "6 airbags",
       "ADAS Nível 1: AEB + alerta de saída de faixa (LDW) + ACC básico",
@@ -1732,10 +1732,10 @@ export const CAR_DB: Car[] = [
       "Design esportivo hatch"
     ],
     pbeRating: 'A', energyMJkm: 0.5,
-    warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 6.6, chargeDC: 87,
+    warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 11, chargeDC: 140,
   },
   {
-    model: "MG4 Luxury", brand: "MG Motor", price: 189800, range: 364, cat: "Compacto",
+    model: "MG4 Luxury", brand: "MG Motor", price: 199800, range: 364, cat: "Compacto",
     img: "/car-images/mg4-luxury.webp",
     power: 190, torque: 35, traction: 'RWD', battery: 64,
     features: [
@@ -1749,7 +1749,7 @@ export const CAR_DB: Car[] = [
       "Plataforma MSP (Motor Skateboard Platform)"
     ],
     pbeRating: 'A', energyMJkm: 0.5,
-    warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 6.6, chargeDC: 140,
+    warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 11, chargeDC: 140,
   },
   {
     model: "MG4 XPower", brand: "MG Motor", price: 229800, range: 279, cat: "Compacto",
@@ -1757,7 +1757,7 @@ export const CAR_DB: Car[] = [
     power: 435, torque: 60, traction: 'AWD', battery: 64,
     features: [
       "Bateria NMC 64 kWh",
-      "Carregamento AC 6,6 kW / DC 140 kW",
+      "Carregamento AC 11 kW / DC 140 kW",
       "Tela central 10,25\" com CarPlay e Android Auto",
       "6 airbags",
       "ADAS Nível 2: ACC + LCC + AEB + alerta de ponto cego (BSM)",
@@ -1766,15 +1766,15 @@ export const CAR_DB: Car[] = [
       "Atualização OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.59,
-    warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 6.6, chargeDC: 140,
+    warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 11, chargeDC: 140,
   },
   {
-    model: "MGS5 Comfort", brand: "MG Motor", price: 195800, range: 351, cat: "SUV",
+    model: "MGS5 Comfort", brand: "MG Motor", price: 218800, range: 351, cat: "SUV",
     img: "/car-images/mgs5-comfort.webp",
-    power: 204, torque: 35.7, traction: 'RWD', battery: 64,
+    power: 205, torque: 35.7, traction: 'RWD', battery: 64,
     features: [
-      "Bateria NMC 61,1 kWh",
-      "Carregamento AC 6,6 kW / DC 100 kW",
+      "Bateria NMC 64 kWh (nominal)",
+      "Carregamento AC 7 kW / DC 150 kW",
       "Tela central 12,3\" com CarPlay e Android Auto",
       "6 airbags",
       "ADAS: AEB + alerta de saída de faixa (LDW) + ACC + câmera de ré",
@@ -1783,15 +1783,15 @@ export const CAR_DB: Car[] = [
       "Faróis LED full"
     ],
     pbeRating: 'A', energyMJkm: 0.51,
-    warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 6.6, chargeDC: 100,
+    warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 7, chargeDC: 150,
   },
   {
-    model: "MGS5 Luxury", brand: "MG Motor", price: 219800, range: 351, cat: "SUV",
+    model: "MGS5 Luxury", brand: "MG Motor", price: 238800, range: 351, cat: "SUV",
     img: "/car-images/mgs5-luxury.webp",
-    power: 204, torque: 35.7, traction: 'RWD', battery: 64,
+    power: 205, torque: 35.7, traction: 'RWD', battery: 64,
     features: [
-      "Bateria NMC 61,1 kWh",
-      "Carregamento AC 6,6 kW / DC 100 kW",
+      "Bateria NMC 64 kWh (nominal)",
+      "Carregamento AC 7 kW / DC 150 kW",
       "Tela central 12,3\" com CarPlay e Android Auto",
       "6 airbags",
       "ADAS Nível 2: ACC + LCC + AEB + alerta de ponto cego (BSM) + câmera 360°",
@@ -1800,7 +1800,7 @@ export const CAR_DB: Car[] = [
       "Interior premium com iluminação ambiente"
     ],
     pbeRating: 'A', energyMJkm: 0.51,
-    warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 6.6, chargeDC: 100,
+    warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 7, chargeDC: 150,
   },
   {
     model: "Cyberster", brand: "MG Motor", price: 499800, range: 342, cat: "Luxo",
@@ -1808,7 +1808,7 @@ export const CAR_DB: Car[] = [
     power: 510, torque: 74, traction: 'AWD', battery: 77,
     features: [
       "Bateria NMC 77 kWh",
-      "Carregamento AC 6,6 kW / DC 140 kW",
+      "Carregamento AC 11 kW / DC 150 kW",
       "Tela dupla 27\" (painel + central) + HUD projetado no para-brisa",
       "6 airbags",
       "ADAS: ACC + AEB + LKA + câmera de ré",
@@ -1817,7 +1817,7 @@ export const CAR_DB: Car[] = [
       "Bancos Alcantara com aquecimento + design roadster esportivo clássico"
     ],
     pbeRating: 'A', energyMJkm: 0.56,
-    warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 6.6, chargeDC: 140,
+    warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 11, chargeDC: 150,
   },
   {
     model: 'e-Vitara',
