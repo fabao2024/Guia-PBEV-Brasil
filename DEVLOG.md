@@ -2,6 +2,15 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 25/08/2026 · Handoff da revisão do catálogo
+
+- Documentada a sequência de blocos da revisão do catálogo em [`docs/CATALOG_REVIEW_HANDOFF.md`](./docs/CATALOG_REVIEW_HANDOFF.md), com commits, estado, relatório de preços e instruções de retomada independentes do modelo de LLM.
+- Blocos 1, 2 e 3 permanecem concluídos e publicados.
+- Bloco 4 tem pesquisa concluída, mas nenhuma alteração de preço foi aplicada; o relatório registra uma divergência confirmada no BMW i7 e três casos ambíguos.
+- Blocos 5 e 6 permanecem na fila.
+- A documentação não autoriza alteração, commit, push ou deploy; qualquer mudança futura deve seguir TDD, regenerar artefatos e passar pelas validações do repositório.
+
+
 ## 15/08/2026 · Piloto único de um lead gratuito
 
 | Área | Mudança pública |
