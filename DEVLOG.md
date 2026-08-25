@@ -2,6 +2,18 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 25/08/2026 · Blocos 4 e 5 da revisão do catálogo
+
+| Área | Mudança pública |
+|---|---|
+| Preço oficial | BMW i7 xDrive60 alinhado à tabela da montadora (R$ 1.373.950), com teste de regressão e snapshot no histórico de preços. |
+| Correções aprovadas | 15 valores em 12 veículos após evidência oficial e aprovação explícita: linha Volvo (EX30 Plus/Ultra, EX40, EC40, EX90 com potência e torque da versão vendida), Blazer EV RS, EQA 250 (autonomia Inmetro), EQE 350 (potência e carregamento CA) e BYD Seal, Yuan Pro e Dolphin Plus. |
+| Descontinuações | BMW i4 eDrive35 (linha oficial reduzida a eDrive40/M50) e Mercedes-Benz EQE 300 SUV (substituído pelo 350+) marcados como fora de linha. |
+| Proveniência | Registro ampliado de 3 para 7 campos por veículo (preço, autonomia, consumo, potência, bateria, carregamento, disponibilidade); cobertura verificada subiu de 5/763 para 62/763 com fonte oficial por campo, sem transformar ausência de fonte em estimativa. |
+| Documentação | Matriz de proveniência por campo e relatórios de lote (Volvo, marcas e itens 1–4) publicados em `.github/data/`; handoff atualizado com o estado real dos blocos. |
+| Verificação | TDD RED→GREEN em cada lote, 262/265 testes (3 falhas pré-existentes conhecidas em testes de workflow), TypeScript, build Vite, rotas estáticas, scanner de segredos, CI/deploy e checagens ao vivo aprovadas. |
+
+
 ## 25/08/2026 · Handoff da revisão do catálogo
 
 - Documentada a sequência de blocos da revisão do catálogo em [`docs/CATALOG_REVIEW_HANDOFF.md`](./docs/CATALOG_REVIEW_HANDOFF.md), com commits, estado, relatório de preços e instruções de retomada independentes do modelo de LLM.

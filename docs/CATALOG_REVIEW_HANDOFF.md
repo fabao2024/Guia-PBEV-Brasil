@@ -1,6 +1,6 @@
 # Handoff da revisão do catálogo
 
-Última atualização: 2026-08-25 11:55 UTC
+Última atualização: 2026-08-25 18:05 UTC
 
 Este documento é um ponto de retomada independente do modelo de LLM usado. Ele registra o ciclo de revisão do catálogo público, o que já foi publicado e o que ainda exige decisão explícita.
 
@@ -53,31 +53,34 @@ Status: concluído, publicado e verificado.
 
 ### Bloco 4 — revisão dos preços indicativos
 
-Status: pesquisa concluída; catálogo não alterado.
+Status: concluído, publicado e verificado.
 
 Relatório: `.github/data/bloco4-precos-relatorio-2026-08-24.md`
 
 - Oito preços foram verificados e permaneceram iguais ao catálogo.
-- Uma divergência foi confirmada:
-  - BMW i7 xDrive60 M Sport: R$ 1.321.950 no catálogo;
-  - R$ 1.373.950 na fonte oficial BMW, válido para agosto de 2026.
-- Permaneceram ambíguos e não devem ser alterados sem nova decisão:
-  - Hyundai Ioniq 5;
-  - Chevrolet Equinox EV;
-  - Mercedes-Benz EQA 250.
+- Uma divergência foi confirmada e corrigida com aprovação explícita, teste RED→GREEN, histórico de preços e verificação ao vivo:
+  - BMW i7 xDrive60 M Sport: R$ 1.321.950 → R$ 1.373.950 (fonte oficial BMW).
+- Casos ambíguos seguiram para tratamento nos lotes do Bloco 5 (Ioniq 5 teve autonomia e potência verificadas na página oficial; preço segue pendente).
 - Promoções temporárias não foram tratadas como preço de tabela.
+- Commit: `1cc8f44` (`fix(catalog): align BMW i7 xDrive60 price with official BMW table`).
 
 ### Bloco 5 — proveniência campo a campo
 
-Status: não iniciado.
+Status: em execução; lotes de 2026-08-25 publicados e verificados.
 
-Objetivo: substituir registros genéricos de dados legados não verificados por evidência específica para campos como preço, autonomia, potência, bateria, carregamento e consumo, com fonte, data, referência e validade.
+Documentos: `.github/data/bloco5-matriz-proveniencia-2026-08-25.md` e relatórios de lote (`bloco5-lote-piloto-volvo`, `bloco5-lote-marcas`, `bloco5-itens-1-a-4`).
 
-Não é autorização para alterar valores. Primeiro deve ser definida a fonte de cada campo e mantida a regra de não inventar dados.
+- Matriz de proveniência por campo publicada; registro ampliado de 3 para 7 campos (`price`, `range_km`, `consumption`, `power`, `battery`, `charging`, `availability`) com bootstrap sem inventar evidência.
+- Cobertura verificada: 62/763 campos com fonte oficial direta por campo.
+- Correções de valor aplicadas somente após aprovação explícita, sempre via TDD, com snapshots em `src/constants/priceHistory.ts`: Volvo (EX30 Plus/Ultra, EX40, EC40, EX90 preço/potência/torque), Chevrolet Blazer EV RS, Mercedes EQA 250 (autonomia) e EQE 350 (potência/carregamento CA), BYD Seal, Yuan Pro e Dolphin Plus.
+- Triagens com evidência oficial: BMW i4 eDrive35 e Mercedes-Benz EQE 300 SUV marcados como descontinuados; Yuan Plus AWD e BYD eT3 ausentes do menu oficial seguem para triagem futura.
+- Coletor PBEV confirma a tabela `2026_14_AGOd` vigente.
+- Pendências: extração de linhas do PDF PBEV para verificar `consumption`; lotes das demais marcas; preços BYD ambíguos (Dolphin Mini GL/GS, Yuan Plus); renome EQB 250+ pendente de fonte oficial.
+- Commits: `8a6ffdf`, `4a4b5c4`, `1638a87`, `1b98995`, `9584b78`, `7a0baeb`.
 
 ### Bloco 6 — documentação do ciclo
 
-Status: este handoff iniciou a documentação; a consolidação final em `DEVLOG.md` e `ROADMAP.md` ainda pode ser feita em uma etapa própria.
+Status: concluído nesta data; este handoff, `DEVLOG.md` e o roadmap público refletem o estado real dos blocos.
 
 ## Como retomar
 
@@ -93,9 +96,9 @@ Ao voltar ao trabalho, independentemente do modelo de LLM:
    ```
 
 3. Não alterar o catálogo automaticamente. Confirmar primeiro qual bloco será retomado e qual escopo foi aprovado.
-4. Para concluir o Bloco 4, a sequência aprovada deve ser:
-   - obter aprovação explícita para corrigir o i7;
-   - criar teste RED para o novo preço;
+4. Para concluir um bloco, a sequência aprovada é:
+   - obter aprovação explícita para cada alteração de valor;
+   - criar teste RED para os novos valores;
    - alterar somente `src/constants.ts` e a proveniência/evidência necessária;
    - regenerar `public/data/cars.json` e demais artefatos;
    - executar testes, TypeScript, build e scanner;
@@ -103,9 +106,9 @@ Ao voltar ao trabalho, independentemente do modelo de LLM:
    - fazer `git pull --rebase origin main` antes do push;
    - commit e push somente após aprovação;
    - acompanhar o CI/deploy e conferir `https://guiapbev.cloud/data/cars.json`.
-5. Deixar Ioniq 5, Equinox EV e EQA 250 sem alteração até haver evidência suficiente ou nova decisão.
-6. Depois do Bloco 4, retomar o Bloco 5 com uma matriz de proveniência por campo, sem transformar ausência de fonte em estimativa.
-7. Fechar o Bloco 6 atualizando a documentação pública com fatos verificáveis e sem informações privadas.
+5. Deixar casos sem evidência conclusiva sem alteração até haver decisão explícita (hoje: Dolphin Mini GL/GS, Yuan Plus, Yuan Plus AWD, eT3, renome EQB 250+, preço do Ioniq 5 e do Equinox EV).
+6. Retomar o Bloco 5 pelos lotes restantes: parser de linhas do PDF PBEV (`consumption`), marcas ainda não verificadas (Audi, GAC, Geely, JAC, Kia, Lexus, Nissan, Peugeot, Renault, Toyota e outras) e triagens pendentes.
+7. Manter a documentação pública atualizada com fatos verificáveis e sem informações privadas.
 
 ## Regras que continuam válidas
 
