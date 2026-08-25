@@ -2,6 +2,17 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 25/08/2026 · Decisões pendentes do Bloco 5
+
+| Área | Mudança pública |
+|---|---|
+| Preços | BYD Dolphin Mini GL alinhado ao documento oficial de condições comerciais de agosto/2026 (R$ 109.990); GS confirmado em R$ 119.990 pela mesma fonte oficial; Hyundai Ioniq 5 Signature realinhado a R$ 409.990 com snapshot no histórico. |
+| Especificações | Ioniq 5 passa a exibir a bateria de 84 kWh publicada pelo site/catálogo oficial Hyundai; Yuan Plus AWD com autonomia PBEV/Inmetro de 378 km conforme a página oficial do modelo. |
+| Nomenclatura | Entrada do catálogo renomeada para Mercedes-Benz EQB 250+, idêntica à versão atual da montadora (URL do veículo preservada). |
+| Disponibilidade | BYD eT3 marcado como descontinuado (fora do menu oficial; FIPE lista apenas o ano 2022). |
+| Proveniência | Cobertura verificada subiu de 171/763 para 183/763 campos com fonte oficial direta por campo. |
+| Verificação | TDD RED→GREEN em cada lote, 269/269 testes, TypeScript, build Vite, rotas estáticas, scanner de segredos e verificador de proveniência aprovados. |
+
 ## 25/08/2026 · Blocos 4 e 5 da revisão do catálogo
 
 | Área | Mudança pública |

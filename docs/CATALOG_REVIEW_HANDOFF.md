@@ -1,6 +1,6 @@
 # Handoff da revisão do catálogo
 
-Última atualização: 2026-08-25 18:05 UTC
+Última atualização: 2026-08-25 21:00 UTC
 
 Este documento é um ponto de retomada independente do modelo de LLM usado. Ele registra o ciclo de revisão do catálogo público, o que já foi publicado e o que ainda exige decisão explícita.
 
@@ -66,17 +66,17 @@ Relatório: `.github/data/bloco4-precos-relatorio-2026-08-24.md`
 
 ### Bloco 5 — proveniência campo a campo
 
-Status: em execução; lotes de 2026-08-25 publicados e verificados.
+Status: em execução; cobertura verificada em **183/763** campos com fonte oficial direta por campo.
 
-Documentos: `.github/data/bloco5-matriz-proveniencia-2026-08-25.md` e relatórios de lote (`bloco5-lote-piloto-volvo`, `bloco5-lote-marcas`, `bloco5-itens-1-a-4`).
+Documentos: matriz (`bloco5-matriz-proveniencia-2026-08-25.md`) e relatórios de lote (`lote-piloto-volvo`, `lote-marcas`, `itens-1-a-4`, `lote-pbev-consumo`, `lote-audi`, `lote-decisoes-pendentes`).
 
-- Matriz de proveniência por campo publicada; registro ampliado de 3 para 7 campos (`price`, `range_km`, `consumption`, `power`, `battery`, `charging`, `availability`) com bootstrap sem inventar evidência.
-- Cobertura verificada: 62/763 campos com fonte oficial direta por campo.
-- Correções de valor aplicadas somente após aprovação explícita, sempre via TDD, com snapshots em `src/constants/priceHistory.ts`: Volvo (EX30 Plus/Ultra, EX40, EC40, EX90 preço/potência/torque), Chevrolet Blazer EV RS, Mercedes EQA 250 (autonomia) e EQE 350 (potência/carregamento CA), BYD Seal, Yuan Pro e Dolphin Plus.
-- Triagens com evidência oficial: BMW i4 eDrive35 e Mercedes-Benz EQE 300 SUV marcados como descontinuados; Yuan Plus AWD e BYD eT3 ausentes do menu oficial seguem para triagem futura.
-- Coletor PBEV confirma a tabela `2026_14_AGOd` vigente.
-- Pendências: extração de linhas do PDF PBEV para verificar `consumption`; lotes das demais marcas; preços BYD ambíguos (Dolphin Mini GL/GS, Yuan Plus); renome EQB 250+ pendente de fonte oficial.
-- Commits: `8a6ffdf`, `4a4b5c4`, `1638a87`, `1b98995`, `9584b78`, `7a0baeb`.
+- Registro ampliado de 3 para 7 campos (`price`, `range_km`, `consumption`, `power`, `battery`, `charging`, `availability`) com bootstrap sem inventar evidência.
+- Consumo verificado contra o PDF oficial da tabela PBEV vigente (`2026_14_AGOd`, SHA-256 confirmado pelo coletor): 44 campos `consumption` e 39 `range_km` adicionais marcados como verificados.
+- Correções aplicadas somente após aprovação explícita, sempre via TDD, com snapshots em `src/constants/priceHistory.ts`: linha Volvo (EX30 Plus/Ultra, EX40, EC40, EX90 preço/potência/torque), Chevrolet Blazer EV RS, Mercedes EQA 250/EQE 350, BYD Seal/Yuan Pro/Dolphin Plus/Dolphin Mini GL, linha Audi Q6 2026, Yuan Plus AWD (autonomia 378 km PBEV) e Ioniq 5 (bateria 84 kWh, preço R$ 409.990).
+- Triagens concluídas: BMW i4 eDrive35, Mercedes-Benz EQE 300 SUV e BYD eT3 descontinuados; EQB renomeado para EQB 250+ (slug preservado); Yuan Plus AWD confirmado à venda.
+- Casos encerrados nesta data: Dolphin Mini GS confirmado em R$ 119.990 pelo documento oficial de condições comerciais ago/2026; Toyota sem veículos BEV no catálogo.
+- Pendências: lote das marcas restantes (GAC, Geely, JAC, Kia, Lexus, Nissan, Peugeot, Renault) e Audi Q8/e-tron GT; ~38 pares PBEV não marcados; divergências menores (Kwid, Dolphin GS, MG4, EX30 Plus, Zeekr X); tração do Ioniq 5 (RWD vs AWD HTRAC oficial); reavaliação do Equinox EV e do Yuan Plus FWD.
+- Commits: `8a6ffdf`, `4a4b5c4`, `1638a87`, `1b98995`, `9584b78`, `7a0baeb`, `ed2322f`, `aa7aae2`, `7f2b358`.
 
 ### Bloco 6 — documentação do ciclo
 
@@ -106,8 +106,8 @@ Ao voltar ao trabalho, independentemente do modelo de LLM:
    - fazer `git pull --rebase origin main` antes do push;
    - commit e push somente após aprovação;
    - acompanhar o CI/deploy e conferir `https://guiapbev.cloud/data/cars.json`.
-5. Deixar casos sem evidência conclusiva sem alteração até haver decisão explícita (hoje: Dolphin Mini GL/GS, Yuan Plus, Yuan Plus AWD, eT3, renome EQB 250+, preço do Ioniq 5 e do Equinox EV).
-6. Retomar o Bloco 5 pelos lotes restantes: parser de linhas do PDF PBEV (`consumption`), marcas ainda não verificadas (Audi, GAC, Geely, JAC, Kia, Lexus, Nissan, Peugeot, Renault, Toyota e outras) e triagens pendentes.
+5. Deixar casos sem evidência conclusiva sem alteração até haver decisão explícita (hoje: Equinox EV — esgotado sem previsão de retorno, mantido à venda por decisão do mantenedor; Yuan Plus FWD — linha atual é versão única AWD; tração do Ioniq 5).
+6. Retomar o Bloco 5 pelos lotes restantes: marcas ainda não verificadas (GAC, Geely, JAC, Kia, Lexus, Nissan, Peugeot, Renault e Audi Q8/e-tron GT), os ~38 pares PBEV não marcados e as divergências menores listadas no lote PBEV.
 7. Manter a documentação pública atualizada com fatos verificáveis e sem informações privadas.
 
 ## Regras que continuam válidas
