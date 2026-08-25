@@ -129,4 +129,32 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(ioniq.battery).toBe(84);
     expect(ioniq.price).toBe(409990);
   });
+
+  it('GAC Aion ES and Aion V Elite should match the official Brazilian specification pages', () => {
+    // gacgroup.com/pt-br configuration pages + model landings (checked 2026-08-25):
+    // AION ES: LFP 55,2 kWh, DC 68 kW, AC 6,6 kW, from R$ 170.990;
+    // AION V Elite: LFP 75,3 kWh, DC 180 kW, AC 6,6 kW, landing "A partir de R$ 219.990".
+    const es = byModel('Aion ES');
+    expect(es.price).toBe(170990);
+    expect(es.battery).toBe(55.2);
+    expect(es.chargeDC).toBe(68);
+    expect(es.chargeAC).toBe(6.6);
+    const v = byModel('Aion V Elite');
+    expect(v.price).toBe(219990);
+    expect(v.battery).toBe(75.3);
+    expect(v.chargeAC).toBe(6.6);
+    expect(v.chargeDC).toBe(180);
+  });
+
+  it('GAC Hyptec HT should match the official current-line Elite entry point', () => {
+    // gacgroup.com/pt-br hyptec-ht landing (checked 2026-08-25): "A partir de
+    // R$ 314.990"; official configuration page: 250 kW (340 cv), LFP 83 kWh,
+    // AC 6,6 kW / DC 280 kW, rear-wheel drive.
+    const ht = byModel('Hyptec HT');
+    expect(ht.price).toBe(314990);
+    expect(ht.battery).toBe(83);
+    expect(ht.chargeAC).toBe(6.6);
+    expect(ht.chargeDC).toBe(280);
+    expect(ht.power).toBe(340);
+  });
 });

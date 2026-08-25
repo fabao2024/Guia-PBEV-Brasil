@@ -524,10 +524,10 @@ export const CAR_DB: Car[] = [
   {
     model: "Aion ES", brand: "GAC", price: 170990, range: 314, cat: "Sedan",
     img: "/car-images/aion-es.jpg",
-    power: 136, torque: 23, traction: 'FWD', battery: 55,
+    power: 136, torque: 23, traction: 'FWD', battery: 55.2,
     features: [
-      "Bateria NMC 55 kWh",
-      "Carregamento AC 6,6 kW / DC 70 kW",
+      "Bateria LFP 55,2 kWh",
+      "Carregamento AC 6,6 kW / DC 68 kW",
       "Tela central flutuante 14,6\" com CarPlay e Android Auto",
       "6 airbags",
       "ADAS: ACC + AEB + manutenção de faixa (LKA) + câmera 360°",
@@ -536,7 +536,7 @@ export const CAR_DB: Car[] = [
       "Chave virtual NFC"
     ],
     pbeRating: 'A', energyMJkm: 0.45,
-    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 70,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 68,
   },
   {
     model: "Yuan Pro", brand: "BYD", price: 182990, range: 250, cat: "SUV",
@@ -573,12 +573,12 @@ export const CAR_DB: Car[] = [
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 75,
   },
   {
-    model: "Aion V Elite", brand: "GAC", price: 219000, range: 389, cat: "SUV",
+    model: "Aion V Elite", brand: "GAC", price: 219990, range: 389, cat: "SUV",
     img: "/car-images/aion-v.jpg",
-    power: 204, torque: 24.5, traction: 'FWD', battery: 75,
+    power: 204, torque: 24.5, traction: 'FWD', battery: 75.3,
     features: [
-      "Bateria LFP 75 kWh",
-      "Carregamento AC 11 kW / DC 180 kW",
+      "Bateria LFP 75,3 kWh",
+      "Carregamento AC 6,6 kW / DC 180 kW",
       "Tela central 14,6\" com CarPlay e Android Auto",
       "6 airbags",
       "ADAS Nível 2+: ACC + LCC + AEB + alerta de ponto cego (BSM) + câmera 360°",
@@ -587,7 +587,7 @@ export const CAR_DB: Car[] = [
       "Bancos elétricos com ajuste lombar"
     ],
     pbeRating: 'A', energyMJkm: 0.54,
-    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 180,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 180,
   },
   {
     model: "B10 BEV", brand: "Leapmotor", price: 182990, range: 288, cat: "SUV",
@@ -1455,12 +1455,12 @@ export const CAR_DB: Car[] = [
     warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 11, chargeDC: 240,
   },
   {
-    model: "Hyptec HT", brand: "GAC", price: 359990, range: 431, cat: "Luxo",
+    model: "Hyptec HT", brand: "GAC", price: 314990, range: 431, cat: "Luxo",
     img: "/car-images/hyptec-ht.jpg",
-    power: 340, torque: 43.8, traction: 'RWD', battery: 80,
+    power: 340, torque: 43.8, traction: 'RWD', battery: 83,
     features: [
-      "Bateria NMC 80 kWh",
-      "Carregamento AC 11 kW / DC 150 kW",
+      "Bateria LFP 83 kWh",
+      "Carregamento AC 6,6 kW / DC 280 kW",
       "Tela central 15,6\" com Hyptec OS integrado e CarPlay",
       "8 airbags",
       "ADAS Nível 2+: ACC + LCC + AEB + BSM + câmera 360°",
@@ -1469,7 +1469,7 @@ export const CAR_DB: Car[] = [
       "Som imersivo 12 alto-falantes + teto panorâmico elétrico + atualização OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.53,
-    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 280,
   },
   {
     model: "e-tron GT", brand: "Audi", price: 769990, range: 318, cat: "Luxo",
