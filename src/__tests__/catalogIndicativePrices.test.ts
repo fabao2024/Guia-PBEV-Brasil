@@ -58,4 +58,19 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(eqe.power).toBe(292);
     expect(eqe.chargeAC).toBe(22);
   });
+
+  it('BYD prices should match the official August/2026 commercial conditions', () => {
+    // byd.com/br/condicoes (checked 2026-08-25): SEAL 2026/2027 suggested price R$ 299.990;
+    // YUAN PRO suggested price R$ 182.990. Dolphin Plus per converging market sources: R$ 184.800.
+    expect(byModel('Seal AWD').price).toBe(299990);
+    expect(byModel('Yuan Pro').price).toBe(182990);
+    expect(byModel('Dolphin Plus').price).toBe(184800);
+  });
+
+  it('should flag versions removed from official lineups as discontinued', () => {
+    // BMW press release (Apr/2025): renewed i4 line offers only eDrive40 M Sport and M50;
+    // Mercedes-Benz launch (Jul/2024): EQE 300 SUV replaced by EQE 350+ SUV.
+    expect(byModel('i4 eDrive35').discontinued).toBe(true);
+    expect(byModel('EQE 300 SUV').discontinued).toBe(true);
+  });
 });

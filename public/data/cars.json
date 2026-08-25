@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T17:28:58.374Z",
+  "generated_at": "2026-08-25T17:56:03.743Z",
   "total": 109,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "evidence": {
@@ -687,7 +687,7 @@
     {
       "model": "Dolphin Plus",
       "brand": "BYD",
-      "price": 179800,
+      "price": 184800,
       "range_km": 330,
       "category": "Compacto",
       "image_url": "https://guiapbev.cloud/car-images/dolphin-plus.jpg",
@@ -785,7 +785,7 @@
     {
       "model": "Yuan Pro",
       "brand": "BYD",
-      "price": 182900,
+      "price": 182990,
       "range_km": 250,
       "category": "SUV",
       "image_url": "https://guiapbev.cloud/car-images/yuan-pro.jpg",
@@ -1976,7 +1976,7 @@
     {
       "model": "Seal AWD",
       "brand": "BYD",
-      "price": 269990,
+      "price": 299990,
       "range_km": 372,
       "category": "Sedan",
       "image_url": "https://guiapbev.cloud/car-images/seal.jpg",
@@ -2065,7 +2065,7 @@
         "Som Harman Kardon + design Gran Coupé aerodinâmico"
       ],
       "is_new": false,
-      "discontinued": false,
+      "discontinued": true,
       "slug": "bmw-i4-edrive35",
       "detail_url": "https://guiapbev.cloud/carro/bmw-i4-edrive35"
     },
@@ -2641,7 +2641,7 @@
         "Teto panorâmico + Hey Mercedes + atualização OTA"
       ],
       "is_new": false,
-      "discontinued": false,
+      "discontinued": true,
       "slug": "mercedes-benz-eqe-300-suv",
       "detail_url": "https://guiapbev.cloud/carro/mercedes-benz-eqe-300-suv"
     },

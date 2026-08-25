@@ -485,7 +485,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 95,
   },
   {
-    model: "Dolphin Plus", brand: "BYD", price: 179800, range: 330, cat: "Compacto",
+    model: "Dolphin Plus", brand: "BYD", price: 184800, range: 330, cat: "Compacto",
     img: "/car-images/dolphin-plus.jpg",
     power: 204, torque: 31.6, traction: 'FWD', battery: 60.4,
     features: [
@@ -539,7 +539,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 70,
   },
   {
-    model: "Yuan Pro", brand: "BYD", price: 182900, range: 250, cat: "SUV",
+    model: "Yuan Pro", brand: "BYD", price: 182990, range: 250, cat: "SUV",
     img: "/car-images/yuan-pro.jpg",
     power: 177, torque: 29.5, traction: 'FWD', battery: 45,
     features: [
@@ -1172,7 +1172,7 @@ export const CAR_DB: Car[] = [
 
   // 3. LUXO & PERFORMANCE
   {
-    model: "Seal AWD", brand: "BYD", price: 269990, range: 372, cat: "Sedan",
+    model: "Seal AWD", brand: "BYD", price: 299990, range: 372, cat: "Sedan",
     img: "/car-images/seal.jpg",
     power: 531, torque: 60.2, traction: 'AWD', battery: 82.5,
     features: [
@@ -1206,7 +1206,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 200,
   },
   {
-    model: "i4 eDrive35", brand: "BMW", price: 449950, range: 422, cat: "Luxo",
+    model: "i4 eDrive35", brand: "BMW", price: 449950, range: 422, cat: "Luxo", discontinued: true,
     img: "/car-images/bmw-i4-edrive35.webp",
     power: 286, torque: 40.8, traction: 'RWD', battery: 70,
     features: [
@@ -1518,7 +1518,7 @@ export const CAR_DB: Car[] = [
       "Bancos multicontour com aquecimento e ventilação + som Burmester Premium",
       "Teto panorâmico + Hey Mercedes + atualização OTA"
     ],
-    warrantyYears: 3, warrantyBatteryYears: 10, chargeAC: 11, chargeDC: 170,
+    warrantyYears: 3, warrantyBatteryYears: 10, chargeAC: 11, chargeDC: 170, discontinued: true,
   },
 
   {
