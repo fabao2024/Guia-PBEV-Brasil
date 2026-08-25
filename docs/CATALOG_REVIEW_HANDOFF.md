@@ -66,17 +66,17 @@ Relatório: `.github/data/bloco4-precos-relatorio-2026-08-24.md`
 
 ### Bloco 5 — proveniência campo a campo
 
-Status: em execução; cobertura verificada em **183/763** campos com fonte oficial direta por campo.
+Status: em execução; cobertura verificada em **232/763** campos com fonte oficial direta por campo.
 
-Documentos: matriz (`bloco5-matriz-proveniencia-2026-08-25.md`) e relatórios de lote (`lote-piloto-volvo`, `lote-marcas`, `itens-1-a-4`, `lote-pbev-consumo`, `lote-audi`, `lote-decisoes-pendentes`).
+Documentos: matriz (`bloco5-matriz-proveniencia-2026-08-25.md`) e relatórios de lote (`lote-piloto-volvo`, `lote-marcas`, `itens-1-a-4`, `lote-pbev-consumo`, `lote-audi`, `lote-decisoes-pendentes`, `lote-gac`, `lote-geely`).
 
 - Registro ampliado de 3 para 7 campos (`price`, `range_km`, `consumption`, `power`, `battery`, `charging`, `availability`) com bootstrap sem inventar evidência.
 - Consumo verificado contra o PDF oficial da tabela PBEV vigente (`2026_14_AGOd`, SHA-256 confirmado pelo coletor): 44 campos `consumption` e 39 `range_km` adicionais marcados como verificados.
-- Correções aplicadas somente após aprovação explícita, sempre via TDD, com snapshots em `src/constants/priceHistory.ts`: linha Volvo (EX30 Plus/Ultra, EX40, EC40, EX90 preço/potência/torque), Chevrolet Blazer EV RS, Mercedes EQA 250/EQE 350, BYD Seal/Yuan Pro/Dolphin Plus/Dolphin Mini GL, linha Audi Q6 2026, Yuan Plus AWD (autonomia 378 km PBEV) e Ioniq 5 (bateria 84 kWh, preço R$ 409.990).
+- Correções aplicadas somente após aprovação explícita, sempre via TDD, com snapshots em `src/constants/priceHistory.ts`: linha Volvo (EX30 Plus/Ultra, EX40, EC40, EX90 preço/potência/torque), Chevrolet Blazer EV RS, Mercedes EQA 250/EQE 350/EQB 250+, BYD Seal/Yuan Pro/Dolphin Plus/Dolphin Mini GL/Yuan Plus AWD, linha Audi Q6 2026, Ioniq 5 (bateria 84 kWh, preço R$ 409.990), GAC (Aion ES/V Elite/Hyptec HT) e Geely (EX5 Pro/Max tabela 205.800/225.800, CC 100 kW; EX2 baterias e CA).
 - Triagens concluídas: BMW i4 eDrive35, Mercedes-Benz EQE 300 SUV e BYD eT3 descontinuados; EQB renomeado para EQB 250+ (slug preservado); Yuan Plus AWD confirmado à venda.
 - Casos encerrados nesta data: Dolphin Mini GS confirmado em R$ 119.990 pelo documento oficial de condições comerciais ago/2026; Toyota sem veículos BEV no catálogo.
-- Pendências: lote das marcas restantes (GAC, Geely, JAC, Kia, Lexus, Nissan, Peugeot, Renault) e Audi Q8/e-tron GT; ~38 pares PBEV não marcados; divergências menores (Kwid, Dolphin GS, MG4, EX30 Plus, Zeekr X); tração do Ioniq 5 (RWD vs AWD HTRAC oficial); reavaliação do Equinox EV e do Yuan Plus FWD.
-- Commits: `8a6ffdf`, `4a4b5c4`, `1638a87`, `1b98995`, `9584b78`, `7a0baeb`, `ed2322f`, `aa7aae2`, `7f2b358`.
+- Pendências: lote das marcas restantes (JAC, Kia, Lexus, Nissan, Peugeot, Renault) e Audi Q8/e-tron GT; ~38 pares PBEV não marcados; divergências menores (Kwid, Dolphin GS, MG4, EX30 Plus, Zeekr X); tração do Ioniq 5 (RWD vs AWD HTRAC oficial) e dos Geely EX2 (FWD vs tração traseira oficial); reavaliação do Equinox EV e do Yuan Plus FWD; lacunas de cobertura (Aion Y Premium, Hyptec HT Ultra).
+- Commits: `8a6ffdf`, `4a4b5c4`, `1638a87`, `1b98995`, `9584b78`, `7a0baeb`, `ed2322f`, `aa7aae2`, `7f2b358`, `61d709a`, `e1b841a`.
 
 ### Bloco 6 — documentação do ciclo
 
