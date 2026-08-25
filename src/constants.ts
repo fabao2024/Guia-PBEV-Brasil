@@ -745,7 +745,7 @@ export const CAR_DB: Car[] = [
     // range Inmetro: 350 km
   },
   {
-    model: "EX30 Plus", brand: "Volvo", price: 239950, range: 250, cat: "SUV",
+    model: "EX30 Plus", brand: "Volvo", price: 249950, range: 250, cat: "SUV",
     img: "/car-images/ex30.jpg",
     power: 272, torque: 35, traction: 'RWD', battery: 51,
     features: [
@@ -762,7 +762,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 153,
   },
   {
-    model: "EX30 Ultra", brand: "Volvo", price: 309950, range: 316, cat: "SUV",
+    model: "EX30 Ultra", brand: "Volvo", price: 319950, range: 316, cat: "SUV",
     img: "/car-images/volvo-ex30-ultra.jpg",
     power: 428, torque: 55.4, traction: 'AWD', battery: 69,
     features: [
@@ -884,7 +884,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 6, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
   },
   {
-    model: "EX40 (XC40)", brand: "Volvo", price: 342950, range: 385, cat: "SUV",
+    model: "EX40 (XC40)", brand: "Volvo", price: 329950, range: 385, cat: "SUV",
     img: "/car-images/ex40.jpg",
     power: 238, torque: 42.8, traction: 'RWD', battery: 69,
     features: [
@@ -901,7 +901,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
   },
   {
-    model: "EC40 (C40)", brand: "Volvo", price: 359950, range: 385, cat: "SUV",
+    model: "EC40 (C40)", brand: "Volvo", price: 334950, range: 385, cat: "SUV",
     img: "/car-images/ec40.jpg",
     power: 238, torque: 42.8, traction: 'RWD', battery: 69,
     features: [
@@ -918,9 +918,9 @@ export const CAR_DB: Car[] = [
     warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
   },
   {
-    model: "EX90 Twin", brand: "Volvo", price: 849990, range: 459, cat: "SUV",
+    model: "EX90 Twin", brand: "Volvo", price: 849950, range: 459, cat: "SUV",
     img: "/car-images/volvo-ex90.jpg",
-    power: 408, torque: 78.5, traction: 'AWD', battery: 111,
+    power: 517, torque: 92.8, traction: 'AWD', battery: 111,
     features: [
       "Bateria NMC 111 kWh",
       "Carregamento AC 11 kW / DC 250 kW",
@@ -1003,7 +1003,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 220,
   },
   {
-    model: "EQA 250", brand: "Mercedes-Benz", price: 369900, range: 370, cat: "Luxo",
+    model: "EQA 250", brand: "Mercedes-Benz", price: 369900, range: 321, cat: "Luxo",
     img: "/car-images/eqa-250.jpg",
     power: 190, torque: 38.5, traction: 'FWD', battery: 66.5,
     features: [
@@ -1038,10 +1038,10 @@ export const CAR_DB: Car[] = [
   {
     model: "EQE 350", brand: "Mercedes-Benz", price: 649900, range: 421, cat: "Sedan",
     img: "/car-images/eqe-350.jpg",
-    power: 320, torque: 56.5, traction: 'RWD', battery: 96,
+    power: 292, torque: 56.5, traction: 'RWD', battery: 96,
     features: [
       "Bateria NMC 96 kWh",
-      "Carregamento AC 11 kW / DC 170 kW",
+      "Carregamento AC 22 kW / DC 170 kW",
       "MBUX Hyperscreen opcional (56\" curvo) ou tela central 12,8\"",
       "7 airbags",
       "DISTRONIC Plus: ACC + LCC + AEB + BSM + Park Pilot",
@@ -1050,7 +1050,7 @@ export const CAR_DB: Car[] = [
       "Carregamento bidirecional V2H",
       "0–100 km/h em 6,4 s"
     ],
-    warrantyYears: 3, warrantyBatteryYears: 10, chargeAC: 11, chargeDC: 170,
+    warrantyYears: 3, warrantyBatteryYears: 10, chargeAC: 22, chargeDC: 170,
   },
   {
     model: "Neta X 500", brand: "Neta", price: 214900, range: 317, cat: "SUV",
@@ -1238,7 +1238,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
   },
   {
-    model: "Blazer EV RS", brand: "Chevrolet", price: 489000, range: 483, cat: "Luxo",
+    model: "Blazer EV RS", brand: "Chevrolet", price: 503190, range: 483, cat: "Luxo",
     img: "/car-images/blazer-ev.jpg",
     power: 347, torque: 44.9, traction: 'RWD', battery: 85,
     features: [
