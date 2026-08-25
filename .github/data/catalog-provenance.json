@@ -647,11 +647,11 @@
       "model": "iX2 xDrive30",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.bmw.com.br/pt/all-models/bmw-i/ix2/bmw-ix2-overview.html",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "range_km": {
           "verificationStatus": "legacy_unverified",
@@ -675,11 +675,11 @@
           "verifiedAt": null
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.bmw.com.br/pt/all-models/bmw-i/ix2/bmw-ix2-overview.html",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "charging": {
           "verificationStatus": "legacy_unverified",
@@ -1197,11 +1197,11 @@
       "model": "Sealion 7",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.byd.com/br/byd-Sealion-7-chega-ao-Brasil-com-performance-de-superesportivo",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "range_km": {
           "verificationStatus": "legacy_unverified",
@@ -1582,11 +1582,11 @@
       "model": "Blazer EV RS",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.chevrolet.com.br/",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "range_km": {
           "verificationStatus": "legacy_unverified",
@@ -1644,11 +1644,11 @@
           "verifiedAt": null
         },
         "range_km": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.chevrolet.com.br/eletrico/captiva-ev",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "consumption": {
           "verificationStatus": "legacy_unverified",
@@ -1665,11 +1665,11 @@
           "verifiedAt": null
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.chevrolet.com.br/eletrico/captiva-ev",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "charging": {
           "verificationStatus": "legacy_unverified",
@@ -1747,18 +1747,18 @@
       "model": "Spark EUV",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.chevrolet.com.br/eletrico/spark-euv",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "range_km": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.chevrolet.com.br/eletrico/spark-euv",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "consumption": {
           "verificationStatus": "legacy_unverified",
@@ -1768,18 +1768,18 @@
           "verifiedAt": null
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.chevrolet.com.br/eletrico/spark-euv",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.chevrolet.com.br/eletrico/spark-euv",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "charging": {
           "verificationStatus": "legacy_unverified",
@@ -3074,11 +3074,11 @@
           "verifiedAt": null
         },
         "range_km": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.hyundai.com.br/veiculos/ioniq-5.html",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "consumption": {
           "verificationStatus": "legacy_unverified",
@@ -3088,11 +3088,11 @@
           "verifiedAt": null
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.hyundai.com.br/veiculos/ioniq-5.html",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "battery": {
           "verificationStatus": "legacy_unverified",
@@ -3734,11 +3734,11 @@
           "verifiedAt": null
         },
         "range_km": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://imprensa.mercedes-benz.com.br/releases/novos-mercedes-benz-eqa-e-eqb-100-eletricos-chegam-ao-pais-com-mais-eficiencia-e-esportividade",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "consumption": {
           "verificationStatus": "legacy_unverified",
@@ -3748,25 +3748,25 @@
           "verifiedAt": null
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://imprensa.mercedes-benz.com.br/releases/novos-mercedes-benz-eqa-e-eqb-100-eletricos-chegam-ao-pais-com-mais-eficiencia-e-esportividade",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://imprensa.mercedes-benz.com.br/releases/novos-mercedes-benz-eqa-e-eqb-100-eletricos-chegam-ao-pais-com-mais-eficiencia-e-esportividade",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "charging": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://imprensa.mercedes-benz.com.br/releases/novos-mercedes-benz-eqa-e-eqb-100-eletricos-chegam-ao-pais-com-mais-eficiencia-e-esportividade",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "availability": {
           "verificationStatus": "legacy_unverified",
@@ -5597,11 +5597,11 @@
       "model": "EC40 (C40)",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.volvocars.com/br/cars/ec40-electric/specifications/",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "range_km": {
           "verificationStatus": "verified",
@@ -5652,11 +5652,11 @@
       "model": "EX30 Plus",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.volvocars.com/br/cars/ex30-electric/",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "range_km": {
           "verificationStatus": "verified",
@@ -5707,11 +5707,11 @@
       "model": "EX30 Ultra",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.volvocars.com/br/cars/ex30-electric/",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "range_km": {
           "verificationStatus": "verified",
@@ -5762,11 +5762,11 @@
       "model": "EX40 (XC40)",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.volvocars.com/br/cars/ex40-electric/specifications/",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "range_km": {
           "verificationStatus": "legacy_unverified",
@@ -5817,11 +5817,11 @@
       "model": "EX90 Twin",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.volvocars.com/br/cars/ex90-electric/specifications/",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "range_km": {
           "verificationStatus": "verified",
@@ -5838,11 +5838,11 @@
           "verifiedAt": null
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.volvocars.com/br/cars/ex90-electric/specifications/",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-25"
         },
         "battery": {
           "verificationStatus": "legacy_unverified",
