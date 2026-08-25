@@ -223,9 +223,15 @@ describe('maintenance automation core', () => {
     });
     expect(Object.keys(registry.vehicles).sort()).toEqual(cars.map((car: { slug: string }) => car.slug).sort());
     for (const entry of Object.values(registry.vehicles) as Array<{ fields: Record<string, unknown> }>) {
-      expect(entry.fields).toHaveProperty('price');
-      expect(entry.fields).toHaveProperty('range_km');
-      expect(entry.fields).toHaveProperty('availability');
+      expect(Object.keys(entry.fields)).toEqual([
+        'price',
+        'range_km',
+        'consumption',
+        'power',
+        'battery',
+        'charging',
+        'availability',
+      ]);
     }
   });
 
