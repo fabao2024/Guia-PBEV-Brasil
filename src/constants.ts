@@ -149,6 +149,7 @@ export const CAR_DB: Car[] = [
   {
     model: "iCar EQ", brand: "CAOA Chery", price: 119990, range: 197, cat: "Urbano",
     img: "/car-images/chery-icar.webp",
+    discontinued: true,
     power: 61, torque: 15.3, traction: 'RWD', battery: 30.8,
     features: [
       "Bateria LFP 30,8 kWh",
@@ -646,9 +647,9 @@ export const CAR_DB: Car[] = [
   {
     model: "Omoda E5", brand: "Omoda", price: 209990, range: 345, cat: "SUV",
     img: "/car-images/omoda-5.jpg",
-    power: 204, torque: 34.7, traction: 'FWD', battery: 61,
+    power: 204, torque: 34.7, traction: 'FWD', battery: 61.1,
     features: [
-      "Bateria LFP Blade de 61 kWh",
+      "Bateria LFP de 61,1 kWh",
       "Carregamento AC 11 kW / DC 80 kW",
       "Tela central 15,6\" com CarPlay e Android Auto",
       "6 airbags",
@@ -1551,10 +1552,10 @@ export const CAR_DB: Car[] = [
   {
     model: "e-Transit", brand: "Ford", price: 542000, range: 203, cat: "Comercial",
     img: "/car-images/etransit.avif",
-    power: 198, torque: 43.8, traction: 'RWD', battery: 68,
+    power: 269, torque: 43.8, traction: 'RWD', battery: 68,
     features: [
       "Bateria NMC 68 kWh",
-      "Carregamento AC 11,3 kW / DC 115 kW",
+      "Carregamento AC 11,5 kW / DC 115 kW",
       "Tela SYNC 4 12\" com CarPlay e Android Auto",
       "2 airbags",
       "ADAS: AEB + alerta de saída de faixa + câmera de ré",
@@ -1563,7 +1564,7 @@ export const CAR_DB: Car[] = [
       "Capacidade de carga 758-1.032 kg (furgão, chassi ou plataforma)"
     ],
     pbeRating: 'A', energyMJkm: 1.02,
-    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11.3, chargeDC: 115,
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11.5, chargeDC: 115,
   },
   {
     model: "Kangoo E-Tech", brand: "Renault", price: 259000, range: 210, cat: "Comercial",
@@ -1583,11 +1584,11 @@ export const CAR_DB: Car[] = [
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 80,
   },
   {
-    model: "ID.Buzz", brand: "Volkswagen", price: 340000, range: 341, cat: "Comercial",
+    model: "ID.Buzz", brand: "Volkswagen", price: 340000, range: 337, cat: "Comercial",
     img: "/car-images/idbuzz.jpg",
     power: 204, torque: 31.6, traction: 'RWD', battery: 77,
     features: [
-      "Bateria NMC 77 kWh",
+      "Bateria NMC 77 kWh (útil; 82 kWh brutos)",
       "Carregamento AC 11 kW / DC 135 kW",
       "Tela central 12\" com CarPlay e Android Auto",
       "9 airbags",
@@ -1990,7 +1991,7 @@ export const CAR_DB: Car[] = [
   {
     model: "Avatr 11", brand: "CAOA Changan", price: 599990, range: 497, cat: "SUV",
     img: "/car-images/caoa-changan-avatr-11.jpg",
-    power: 585, torque: 61.1, traction: 'AWD', battery: 116,
+    power: 578, torque: 61.1, traction: 'AWD', battery: 116,
     features: [
       "Bateria CATL 116 kWh",
       "0-100 km/h em 3,9 s",

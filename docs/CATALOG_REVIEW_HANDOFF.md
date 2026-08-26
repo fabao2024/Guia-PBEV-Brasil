@@ -66,9 +66,9 @@ Relatório: `.github/data/bloco4-precos-relatorio-2026-08-24.md`
 
 ### Bloco 5 — proveniência campo a campo
 
-Status: em execução; cobertura verificada em **435/763** campos com fonte oficial direta por campo. Lotes de marcas, o pareamento completo da tabela PBEV e os lotes de fichas técnicas BYD, MG Motor, Mini e GWM/Porsche/Zeekr/Neta concluídos.
+Status: em execução; cobertura verificada em **456/763** campos com fonte oficial direta por campo. Lotes de marcas, o pareamento completo da tabela PBEV e os lotes BYD, MG Motor, Mini, GWM/Porsche/Zeekr/Neta e carros de passeio (lote A) concluídos.
 
-Documentos: matriz (`bloco5-matriz-proveniencia-2026-08-25.md`) e relatórios de lote (`lote-piloto-volvo`, `lote-marcas`, `itens-1-a-4`, `lote-pbev-consumo`, `lote-audi`, `lote-decisoes-pendentes`, `lote-gac`, `lote-geely`, `lote-jac`, `lote-kia-lexus-nissan`, `lote-peugeot-renault-audi`, `lote-pbev-final`, `lote-tracoes`, `lote-byd-fichas`, `lote-mg-motor`, `lote-mini`, `lote-gwm-porsche-zeekr-neta`).
+Documentos: matriz (`bloco5-matriz-proveniencia-2026-08-25.md`) e relatórios de lote (`lote-piloto-volvo`, `lote-marcas`, `itens-1-a-4`, `lote-pbev-consumo`, `lote-audi`, `lote-decisoes-pendentes`, `lote-gac`, `lote-geely`, `lote-jac`, `lote-kia-lexus-nissan`, `lote-peugeot-renault-audi`, `lote-pbev-final`, `lote-tracoes`, `lote-byd-fichas`, `lote-mg-motor`, `lote-mini`, `lote-gwm-porsche-zeekr-neta`, `lote-a-passeio`).
 
 - Registro ampliado de 3 para 7 campos (`price`, `range_km`, `consumption`, `power`, `battery`, `charging`, `availability`) com bootstrap sem inventar evidência.
 - Tabela PBEV vigente auditada ponta a ponta: extração linha a linha do PDF oficial, pareamento manual auditado por família, consumo e autonomia alinhados (inclui correções BYD Dolphin/GWM Ora/MG4/Zeekr/Volvo, preenchimentos Leapmotor/iEV330P e autonomias iX/Blazer/Q8).
@@ -79,6 +79,7 @@ Documentos: matriz (`bloco5-matriz-proveniencia-2026-08-25.md`) e relatórios de
 - Lote MG Motor por fichas técnicas oficiais e tabela MY 26/27: +42 campos verificados; 15 correções aprovadas (preços MG4 Comfort/Luxury e MGS5 Comfort/Luxury; carregamentos AC 11 kW da linha MG4, AC 7/DC 150 kW do MGS5 e AC 11/DC 150 kW do Cyberster; baterias nominais 42,8/53,9 kWh do Urban; potência 205 cv do MGS5).
 - Lote Mini por lista de preços oficial ago/26 e releases BMW Group Brasil: +19 campos verificados; fechou o fail-closed do pareamento PBEV das linhas Mini (Cooper E 239 km/0,46; JCW-E 306 km/0,48); correções aprovadas em autonomia/consumo/preço do Cooper E, consumo/preço do JCW-E, preço do Aceman SE e bateria (66,45 kWh bruta)/preço do Countryman SE.
 - Lote GWM/Porsche/Zeekr/Neta por páginas e documentos oficiais: +35 campos verificados; 8 correções aprovadas (Ora 5 R$ 163.990; Cayenne 442 cv/113 kWh/DC 390 kW; Macan = linha MACAN E4 da tabela com consumo 0,60 MJ/km e preço R$ 690.000 do Macan 4; Taycan MY27 R$ 1.080.000; Neta X 500 com bateria LFP 64,1 kWh). Renomeações de nomenclatura (Macan 4, Taycan 4S Cross Turismo) avaliadas e não aplicadas para preservar URLs canônicas.
+- Lote A (carros de passeio): +21 campos verificados; correções aprovadas no ID.Buzz (337 km INMETRO), e-Transit (269 cv — kW lido como cv — e AC 11,5 kW), Omoda E5 (61,1 kWh), Avatr 11 (578 cv do site oficial) e iCar EQ descontinuado; ficha Ford confirmou todos os valores do Mach-E; VW ID.4 segue legado até a publicação das specs da versão de varejo.
 - Commits: `8a6ffdf`, `4a4b5c4`, `1638a87`, `1b98995`, `9584b78`, `7a0baeb`, `ed2322f`, `aa7aae2`, `7f2b358`, `61d709a`, `e1b841a`, `bd3ca4c`, `c022128`, `58ad51c`.
 
 ### Bloco 6 — documentação do ciclo
@@ -110,7 +111,7 @@ Ao voltar ao trabalho, independentemente do modelo de LLM:
    - commit e push somente após aprovação;
    - acompanhar o CI/deploy e conferir `https://guiapbev.cloud/data/cars.json`.
 5. Deixar casos sem evidência conclusiva sem alteração até haver decisão explícita (hoje: Equinox EV — esgotado sem previsão de retorno, mantido à venda por decisão do mantenedor; Yuan Plus FWD — linha atual é versão única AWD; BYD Tan EV — página oficial cita 110 kW DC e a ficha técnica oficial 170 kW; prevaleceu a ficha).
-6. Retomar o Bloco 5 pelas marcas com campos ainda não verificados (Volkswagen, Fiat, Ford, Leapmotor, Farizon, Foton, CAOA Chery/Changan, Citroen, Omoda e Suzuki), priorizando as fichas técnicas oficiais por modelo como fonte primária, seguido da varredura final de `availability`.
+6. Retomar o Bloco 5 pelo lote B (comerciais leves e Leapmotor: Citroën e-Jumpy, Fiat e-Scudo, Farizon ×2, Foton ×2, Leapmotor ×2), seguido da varredura final de `availability`.
 7. Manter a documentação pública atualizada com fatos verificáveis e sem informações privadas.
 
 ## Regras que continuam válidas

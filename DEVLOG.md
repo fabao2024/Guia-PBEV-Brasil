@@ -2,6 +2,16 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 26/08/2026 · Lote A de carros de passeio no Bloco 5
+
+| Área | Mudança pública |
+|---|---|
+| Especificações | ID.Buzz com autonomia oficial de 337 km INMETRO (era 341); e-Transit com potência correta de 269 cv (o catálogo havia lido 198 kW como cv) e carregamento AC 11,5 kW; Omoda E5 com bateria de 61,1 kWh; Avatr 11 com os 578 cv da página oficial. |
+| Disponibilidade | Chery iCar EQ marcado como descontinuado (fora do site oficial da CAOA desde mar/2026); Mustang Mach-E com todos os valores confirmados pela ficha técnica oficial Ford. |
+| Transparência | VW ID.4 permanece com dados legados: a montadora anunciou a chegada ao varejo em nova configuração, ainda sem specs ou preço publicados. |
+| Proveniência | Cobertura verificada subiu de 435/763 para **456/763** campos com fonte oficial direta por campo (+21), incluindo preços de tabela Omoda/Suzuki/Avatr e disponibilidade de sete veículos. |
+| Verificação | TDD RED→GREEN, 291/291 testes, TypeScript limpo, build Vite, rotas estáticas, scanner de segredos e verificador de proveniência aprovados. |
+
 ## 26/08/2026 · Lote GWM, Porsche, Zeekr e Neta no Bloco 5
 
 | Área | Mudança pública |

@@ -1472,18 +1472,18 @@
       "model": "Avatr 11",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://avatr.caoachangan.com.br/novos/avatr-11",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "range_km": {
           "verificationStatus": "verified",
           "sourceType": "official_regulator",
           "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
           "sourceUpdatedAt": "2026-08-14",
-          "verifiedAt": "2026-08-25"
+          "verifiedAt": "2026-08-26"
         },
         "consumption": {
           "verificationStatus": "verified",
@@ -1493,11 +1493,11 @@
           "verifiedAt": "2026-08-25"
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://avatr.caoachangan.com.br/novos/avatr-11",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "battery": {
           "verificationStatus": "legacy_unverified",
@@ -1514,11 +1514,11 @@
           "verifiedAt": null
         },
         "availability": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://avatr.caoachangan.com.br/novos/avatr-11",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         }
       }
     },
@@ -2009,11 +2009,11 @@
           "verifiedAt": null
         },
         "availability": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://500e.fiat.com.br/",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         }
       }
     },
@@ -2098,32 +2098,32 @@
           "verifiedAt": "2026-08-25"
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.ford.com.br/veiculos-comerciais/e-transit-furgao/",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.ford.com.br/veiculos-comerciais/e-transit-furgao/",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "charging": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.ford.com.br/veiculos-comerciais/e-transit-furgao/",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "availability": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.ford.com.br/veiculos-comerciais/e-transit-furgao/",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         }
       }
     },
@@ -2139,11 +2139,11 @@
           "verifiedAt": null
         },
         "range_km": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.ford.com.br/content/dam/Ford/website-assets/latam/br/nameplate/2024/mustang-mach-e/pdf/fbr-ficha-tecnica-mustang-mach-e.pdf",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "consumption": {
           "verificationStatus": "legacy_unverified",
@@ -2153,25 +2153,25 @@
           "verifiedAt": null
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.ford.com.br/content/dam/Ford/website-assets/latam/br/nameplate/2024/mustang-mach-e/pdf/fbr-ficha-tecnica-mustang-mach-e.pdf",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.ford.com.br/content/dam/Ford/website-assets/latam/br/nameplate/2024/mustang-mach-e/pdf/fbr-ficha-tecnica-mustang-mach-e.pdf",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "charging": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.ford.com.br/content/dam/Ford/website-assets/latam/br/nameplate/2024/mustang-mach-e/pdf/fbr-ficha-tecnica-mustang-mach-e.pdf",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "availability": {
           "verificationStatus": "legacy_unverified",
@@ -4882,11 +4882,11 @@
       "model": "Omoda E5",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.omodajaecoo.com.br/omoda-e5",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "range_km": {
           "verificationStatus": "verified",
@@ -4903,18 +4903,18 @@
           "verifiedAt": "2026-08-25"
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://omodajaecoonow.com.br/assets/files/ficha-tecnica-e5.pdf",
+          "sourceUpdatedAt": "2025-05-07",
+          "verifiedAt": "2026-08-26"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://omodajaecoonow.com.br/assets/files/ficha-tecnica-e5.pdf",
+          "sourceUpdatedAt": "2025-05-07",
+          "verifiedAt": "2026-08-26"
         },
         "charging": {
           "verificationStatus": "legacy_unverified",
@@ -4924,11 +4924,11 @@
           "verifiedAt": null
         },
         "availability": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.omodajaecoo.com.br/omoda-e5",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         }
       }
     },
@@ -5432,11 +5432,11 @@
       "model": "e-Vitara",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.suzukiveiculos.com.br/veiculos/evitara/",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "range_km": {
           "verificationStatus": "verified",
@@ -5453,11 +5453,11 @@
           "verifiedAt": "2026-08-25"
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "http://www.suzukiveiculos.com.br/wp-content/uploads/2026/02/FT_eVitara__v2-1-scaled.png",
+          "sourceUpdatedAt": "2026-02-01",
+          "verifiedAt": "2026-08-26"
         },
         "battery": {
           "verificationStatus": "legacy_unverified",
@@ -5474,11 +5474,11 @@
           "verifiedAt": null
         },
         "availability": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.suzukiveiculos.com.br/veiculos/evitara/",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         }
       }
     },
@@ -5549,11 +5549,11 @@
           "verifiedAt": null
         },
         "range_km": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.vw.com.br/pt/carros/id-buzz.html",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "consumption": {
           "verificationStatus": "legacy_unverified",
@@ -5563,18 +5563,18 @@
           "verifiedAt": null
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.vw.com.br/pt/carros/id-buzz.html",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.vw.com.br/pt/carros/id-buzz.html",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "charging": {
           "verificationStatus": "legacy_unverified",
@@ -5584,11 +5584,11 @@
           "verifiedAt": null
         },
         "availability": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.vw.com.br/pt/carros/id-buzz.html",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         }
       }
     },

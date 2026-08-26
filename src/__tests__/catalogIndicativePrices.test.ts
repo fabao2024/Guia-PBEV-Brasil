@@ -553,6 +553,54 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(byModel('Neta X 500').power).toBe(163);
   });
 
+  it('Lote A corrections should match official Brazilian sources', () => {
+    // vw.com.br official ID.Buzz page (checked 2026-08-26): "Bateria com 77 kWh
+    // (82 kWh brutos), suficiente para uma autonomia de 337 Km (INMETRO)".
+    expect(byModel('ID.Buzz').range).toBe(337);
+    // ford.com.br E-Transit pages: "E-Motor 198 kW com 269cv" and wallbox
+    // charging of 11.5 kW (catalog had misread kW as cv).
+    const etransit = byModel('e-Transit');
+    expect(etransit.power).toBe(269);
+    expect(etransit.chargeAC).toBe(11.5);
+    // omodajaecoo.com.br official spec sheet (rev. 07/05/2025): LFP 61,1 kWh.
+    expect(byModel('Omoda E5').battery).toBe(61.1);
+    // avatr.caoachangan.com.br official page: combined output 578 cv.
+    expect(byModel('Avatr 11').power).toBe(578);
+    // caochery.com.br lineup (checked 2026-08-26): iCar removed; sales
+    // suspended since March/2026.
+    expect(byModel('iCar EQ').discontinued).toBe(true);
+  });
+
+  it('Lote A identical official values should stay pinned', () => {
+    // Same official sources (checked 2026-08-26).
+    const buzz = byModel('ID.Buzz');
+    expect(buzz.power).toBe(204);
+    expect(buzz.battery).toBe(77);
+    const machE = byModel('Mustang Mach-E');
+    // Official Ford BR spec sheet: GT Performance AWD Extended Range.
+    expect(machE.range).toBe(379);
+    expect(machE.power).toBe(487);
+    expect(machE.battery).toBe(91);
+    expect(machE.chargeAC).toBe(11);
+    expect(machE.chargeDC).toBe(150);
+    const etransit = byModel('e-Transit');
+    expect(etransit.battery).toBe(68);
+    expect(etransit.chargeDC).toBe(115);
+    expect(etransit.range).toBe(203);
+    const omoda = byModel('Omoda E5');
+    expect(omoda.price).toBe(209990);
+    expect(omoda.power).toBe(204);
+    expect(omoda.range).toBe(345);
+    const evitara = byModel('e-Vitara');
+    expect(evitara.price).toBe(269990);
+    expect(evitara.power).toBe(184);
+    expect(evitara.range).toBe(293);
+    const avatr = byModel('Avatr 11');
+    expect(avatr.price).toBe(599990);
+    expect(avatr.range).toBe(497);
+    expect(avatr.battery).toBe(116);
+  });
+
   it('traction should match the official drivetrain of the sold versions', () => {
     // hyundai.com.br official catalog (checked 2026-08-25): Ioniq 5 Signature
     // AWD HTRAC, dual motor, 325 cv combined.

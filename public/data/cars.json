@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T11:47:20.291Z",
+  "generated_at": "2026-08-26T12:55:51.324Z",
   "total": 109,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "evidence": {
@@ -71,7 +71,7 @@
         "Sensores de estacionamento dianteiros e traseiros"
       ],
       "is_new": false,
-      "discontinued": false,
+      "discontinued": true,
       "slug": "caoa-chery-icar-eq",
       "detail_url": "https://guiapbev.cloud/carro/caoa-chery-icar-eq"
     },
@@ -984,7 +984,7 @@
       "traction": "FWD",
       "power_cv": 204,
       "torque_kgfm": 34.7,
-      "battery_kwh": 61,
+      "battery_kwh": 61.1,
       "charge_ac_kw": 11,
       "charge_dc_kw": 80,
       "warranty_years": 3,
@@ -992,7 +992,7 @@
       "pbe_rating": "A",
       "energy_mj_km": 0.51,
       "features": [
-        "Bateria LFP Blade de 61 kWh",
+        "Bateria LFP de 61,1 kWh",
         "Carregamento AC 11 kW / DC 80 kW",
         "Tela central 15,6\" com CarPlay e Android Auto",
         "6 airbags",
@@ -2685,10 +2685,10 @@
       "category": "Comercial",
       "image_url": "https://guiapbev.cloud/car-images/etransit.avif",
       "traction": "RWD",
-      "power_cv": 198,
+      "power_cv": 269,
       "torque_kgfm": 43.8,
       "battery_kwh": 68,
-      "charge_ac_kw": 11.3,
+      "charge_ac_kw": 11.5,
       "charge_dc_kw": 115,
       "warranty_years": 3,
       "warranty_battery_years": 8,
@@ -2696,7 +2696,7 @@
       "energy_mj_km": 1.02,
       "features": [
         "Bateria NMC 68 kWh",
-        "Carregamento AC 11,3 kW / DC 115 kW",
+        "Carregamento AC 11,5 kW / DC 115 kW",
         "Tela SYNC 4 12\" com CarPlay e Android Auto",
         "2 airbags",
         "ADAS: AEB + alerta de saída de faixa + câmera de ré",
@@ -2745,7 +2745,7 @@
       "model": "ID.Buzz",
       "brand": "Volkswagen",
       "price": 340000,
-      "range_km": 341,
+      "range_km": 337,
       "category": "Comercial",
       "image_url": "https://guiapbev.cloud/car-images/idbuzz.jpg",
       "traction": "RWD",
@@ -2759,7 +2759,7 @@
       "pbe_rating": null,
       "energy_mj_km": null,
       "features": [
-        "Bateria NMC 77 kWh",
+        "Bateria NMC 77 kWh (útil; 82 kWh brutos)",
         "Carregamento AC 11 kW / DC 135 kW",
         "Tela central 12\" com CarPlay e Android Auto",
         "9 airbags",
@@ -3476,7 +3476,7 @@
       "category": "SUV",
       "image_url": "https://guiapbev.cloud/car-images/caoa-changan-avatr-11.jpg",
       "traction": "AWD",
-      "power_cv": 585,
+      "power_cv": 578,
       "torque_kgfm": 61.1,
       "battery_kwh": 116,
       "charge_ac_kw": null,
