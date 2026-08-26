@@ -2,6 +2,17 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 25/08/2026 · Lotes MG Motor e Mini no Bloco 5
+
+| Área | Mudança pública |
+|---|---|
+| Especificações MG | Fichas técnicas oficiais auditadas: baterias nominais do MG4 Urban corrigidas para 42,8/53,9 kWh; carregamentos alinhados (AC 11 kW na linha MG4, MGS5 AC 7/DC 150 kW, Cyberster AC 11/DC 150 kW, MG4 Comfort DC 140 kW); MGS5 com potência oficial de 205 cv. |
+| Preços MG | Tabela MY 26/27 aplicada: MG4 Comfort R$ 184.600, MG4 Luxury R$ 199.800, MGS5 Comfort R$ 218.800 e MGS5 Luxury R$ 238.800, com snapshots no histórico (promoções não tratadas como preço de tabela). |
+| Especificações Mini | Pareamento PBEV das linhas Mini fechado com as páginas oficiais: Cooper E passa a exibir 239 km/0,46 MJ/km e JCW E 0,48 MJ/km conforme o Inmetro; Countryman SE passa a exibir a bateria bruta de 66,45 kWh do release oficial. |
+| Preços Mini | Lista oficial de agosto/2026 aplicada: Cooper E R$ 264.990, JCW E R$ 349.990, Aceman SE R$ 325.990 e Countryman SE R$ 409.990, com snapshots no histórico. |
+| Proveniência | Cobertura verificada subiu de 339/763 para **400/763** campos com fonte oficial direta por campo (+42 MG, +19 Mini), incluindo disponibilidade de todos os veículos das duas marcas. |
+| Verificação | TDD RED→GREEN em cada lote, 287/287 testes, TypeScript limpo, build Vite, rotas estáticas, scanner de segredos e verificador de proveniência aprovados. |
+
 ## 25/08/2026 · Fichas técnicas oficiais BYD no Bloco 5
 
 | Área | Mudança pública |

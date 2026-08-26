@@ -436,7 +436,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 2, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 100,
   },
   {
-    model: "Cooper E", brand: "Mini", price: 260990, range: 246, cat: "Compacto",
+    model: "Cooper E", brand: "Mini", price: 264990, range: 239, cat: "Compacto",
     img: "/car-images/cooper e.avif",
     power: 184, torque: 29.6, traction: 'FWD', battery: 40.7,
     features: [
@@ -449,11 +449,11 @@ export const CAR_DB: Car[] = [
       "Experiência sonora imersiva (motor e aceleração simulados)",
       "Design icônico Mini premium com acabamentos exclusivos"
     ],
-    pbeRating: 'A', energyMJkm: 0.48,
+    pbeRating: 'A', energyMJkm: 0.46,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 75,
   },
   {
-    model: "JCW-E", brand: "Mini", price: 330990, range: 306, cat: "Compacto",
+    model: "JCW-E", brand: "Mini", price: 349990, range: 306, cat: "Compacto",
     img: "/car-images/mini-jcw-e.jpg",
     power: 258, torque: 34.6, traction: 'FWD', battery: 54.2,
     features: [
@@ -466,11 +466,11 @@ export const CAR_DB: Car[] = [
       "Modos de condução Go Kart e JCW com steering sharpener",
       "Visual exclusivo JCW: bancos esportivos, freios vermelhos e rodas 18\""
     ],
-    pbeRating: 'A', energyMJkm: 0.5,
+    pbeRating: 'A', energyMJkm: 0.48,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 95,
   },
   {
-    model: "Aceman SE", brand: "Mini", price: 304990, range: 270, cat: "Compacto",
+    model: "Aceman SE", brand: "Mini", price: 325990, range: 270, cat: "Compacto",
     img: "/car-images/mini-aceman.jpg",
     power: 218, torque: 33.6, traction: 'FWD', battery: 54.2,
     features: [
@@ -820,11 +820,11 @@ export const CAR_DB: Car[] = [
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 22, chargeDC: 130,
   },
   {
-    model: "Countryman SE", brand: "Mini", price: 340990, range: 320, cat: "SUV",
+    model: "Countryman SE", brand: "Mini", price: 409990, range: 320, cat: "SUV",
     img: "/car-images/countryman-se.jpg",
-    power: 306, torque: 50.3, traction: 'AWD', battery: 64.6,
+    power: 306, torque: 50.3, traction: 'AWD', battery: 66.45,
     features: [
-      "Bateria NMC 64,6 kWh",
+      "Bateria NMC 66,45 kWh",
       "Carregamento AC 11 kW / DC 130 kW",
       "Tela OLED circular 9,4\" com CarPlay e Android Auto",
       "8 airbags",

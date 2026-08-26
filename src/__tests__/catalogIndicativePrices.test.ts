@@ -437,6 +437,50 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(cyberster.battery).toBe(77);
   });
 
+  it('Mini electric line should match the official Brazilian sources', () => {
+    // mini.com.br official pages, MINI Brasil price list (aug/2026) and BMW Group
+    // Brazil press releases (checked 2026-08-25):
+    // - Cooper E: PBEV range 239 km / 0.46 MJ/km per the current Inmetro table and
+    //   the official performance page; table price R$ 264.990;
+    // - JCW E: 0.48 MJ/km per the Inmetro row "MINI JCW-E 3P"; table price R$ 349.990;
+    // - Aceman SE: table price R$ 325.990;
+    // - Countryman SE ALL4: battery 66.45 kWh gross per the official launch release,
+    //   current model page price R$ 409.990.
+    const cooper = byModel('Cooper E');
+    expect(cooper.range).toBe(239);
+    expect(cooper.energyMJkm).toBeCloseTo(0.46, 5);
+    expect(cooper.price).toBe(264990);
+    const jcw = byModel('JCW-E');
+    expect(jcw.energyMJkm).toBeCloseTo(0.48, 5);
+    expect(jcw.price).toBe(349990);
+    expect(byModel('Aceman SE').price).toBe(325990);
+    const countryman = byModel('Countryman SE');
+    expect(countryman.battery).toBe(66.45);
+    expect(countryman.price).toBe(409990);
+  });
+
+  it('Mini identical official values should stay pinned', () => {
+    // Same official sources (checked 2026-08-25): values below already matched
+    // the catalog exactly and are now pinned against regressions.
+    const cooper = byModel('Cooper E');
+    expect(cooper.power).toBe(184);
+    expect(cooper.battery).toBe(40.7);
+    expect(cooper.chargeAC).toBe(11);
+    const jcw = byModel('JCW-E');
+    expect(jcw.power).toBe(258);
+    expect(jcw.battery).toBe(54.2);
+    expect(jcw.chargeAC).toBe(11);
+    expect(jcw.range).toBe(306);
+    const aceman = byModel('Aceman SE');
+    expect(aceman.power).toBe(218);
+    expect(aceman.battery).toBe(54.2);
+    expect(aceman.range).toBe(270);
+    const countryman = byModel('Countryman SE');
+    expect(countryman.power).toBe(306);
+    expect(countryman.range).toBe(320);
+    expect(countryman.chargeDC).toBe(130);
+  });
+
   it('traction should match the official drivetrain of the sold versions', () => {
     // hyundai.com.br official catalog (checked 2026-08-25): Ioniq 5 Signature
     // AWD HTRAC, dual motor, 325 cv combined.
