@@ -106,7 +106,7 @@ export const PRICE_HISTORY: Record<string, PriceSnapshot[]> = {
   "V6E": [{ date: '2026-05', price: 260000 }],
   "SuperVan SV": [{ date: '2026-05', price: 425000 }],
   "eWonder": [{ date: '2026-05', price: 235900 }],
-  "eView Grand": [{ date: '2026-05', price: 299900 }],
+  "eView Grand": [{ date: '2026-05', price: 299900 }, { date: '2026-08', price: 329900 }],
   "E-JV5.5": [{ date: '2026-05', price: 314900 }],
   "eSprinter 320": [{ date: '2026-05', price: 482900 }],
   "Aion UT Premium": [{ date: '2026-06', price: 139990 }],

@@ -2,6 +2,16 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 26/08/2026 · Lote B de comerciais leves e Leapmotor no Bloco 5
+
+| Área | Mudança pública |
+|---|---|
+| Comerciais leves | e-Jumpy alinhada à versão Cargo vigente (258 km); Farizon V6E corrigida para bateria de 41,86 kWh e recarga 6,6/41 kW; SuperVan com 82,33 kWh; e-Scudo marcada como descontinuada. |
+| Foton | Catálogo passa a representar a eView Grand 77 atualmente vendida: R$ 329.900, 187 km, 1,00 MJ/km e recarga 6,6/77 kW. eWonder corrigida para recarga 6,6/41,8 kW. |
+| Leapmotor | C10 BEV alinhado à recarga DC oficial de 84 kW; preços, potências, baterias e autonomias de B10/C10 foram fixados em testes de regressão. |
+| Proveniência | Verificador registra **486/763** campos com fonte oficial direta; o lote acrescentou 29 verificações por campo e documentou os pareamentos de versões comerciais. |
+| Verificação | TDD RED→GREEN, suíte Vitest, TypeScript, build Vite, rotas estáticas, scanner de segredos e verificador de proveniência aprovados. |
+
 ## 26/08/2026 · Lote A de carros de passeio no Bloco 5
 
 | Área | Mudança pública |

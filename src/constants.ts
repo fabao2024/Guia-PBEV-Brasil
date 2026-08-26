@@ -616,7 +616,7 @@ export const CAR_DB: Car[] = [
     power: 218, torque: 32.6, traction: 'RWD', battery: 69.9,
     features: [
       "Bateria NMC 69,9 kWh",
-      "Carregamento AC 11 kW / DC 100 kW",
+      "Carregamento AC 11 kW / DC 84 kW",
       "Tela central 14,6\" com CarPlay e Android Auto",
       "6 airbags",
       "ADAS Nível 2: ACC + LCC + AEB + LKA + alerta de ponto cego (BSM)",
@@ -625,7 +625,7 @@ export const CAR_DB: Car[] = [
       "Atualização OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.61,
-    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 100,
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 84,
   },
   {
     model: "Captiva EV", brand: "Chevrolet", price: 199990, range: 304, cat: "SUV",
@@ -1635,7 +1635,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 2, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 100,
   },
   {
-    model: "e-Scudo", brand: "Fiat", price: 329990, range: 289, cat: "Comercial",
+    model: "e-Scudo", brand: "Fiat", price: 329990, range: 289, cat: "Comercial", discontinued: true,
     img: "/car-images/e-scudo.jpg",
     power: 136, torque: 26.5, traction: 'FWD', battery: 75,
     features: [
@@ -1651,7 +1651,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 2, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 100,
   },
   {
-    model: "e-Jumpy", brand: "Citroen", price: 329990, range: 330, cat: "Comercial",
+    model: "e-Jumpy", brand: "Citroen", price: 329990, range: 258, cat: "Comercial",
     img: "/car-images/e-jumpy.jpg",
     power: 136, torque: 26.5, traction: 'FWD', battery: 75,
     features: [
@@ -1849,10 +1849,10 @@ export const CAR_DB: Car[] = [
   {
     model: "V6E", brand: "Farizon", price: 260000, range: 156, cat: "Comercial",
     img: "/car-images/farizon-v6e.webp",
-    power: 136, torque: 20, traction: 'RWD', battery: 81,
+    power: 136, torque: 20, traction: 'RWD', battery: 41.86,
     features: [
-      "Bateria LFP 81 kWh",
-      "Carregamento AC 7 kW / DC 80 kW (20%→80% em ~30 min)",
+      "Bateria LFP 41,86 kWh",
+      "Carregamento AC 6,6 kW / DC 41 kW",
       "Volume de carga 5,9 m³ · capacidade 1.150 kg",
       "Piso em aço de alta resistência (suporta 1,5 t)",
       "Direção assistida elétrica",
@@ -1861,14 +1861,14 @@ export const CAR_DB: Car[] = [
       "Velocidade máxima 110 km/h"
     ],
     pbeRating: 'A', energyMJkm: 0.72,
-    warrantyYears: 3, warrantyBatteryYears: 5, chargeAC: 7, chargeDC: 80,
+    warrantyYears: 3, warrantyBatteryYears: 5, chargeAC: 6.6, chargeDC: 41,
   },
   {
     model: "SuperVan SV", brand: "Farizon", price: 425000, range: 239, cat: "Comercial",
     img: "/car-images/farizon-sv.webp",
-    power: 231, torque: 44, traction: 'FWD', battery: 82.9,
+    power: 231, torque: 44, traction: 'FWD', battery: 82.33,
     features: [
-      "Bateria LFP 82,9 kWh (opção 102 kWh)",
+      "Bateria LFP 82,33 kWh",
       "Carregamento AC 11 kW / DC 80 kW",
       "Volume de carga 11 m³ · capacidade 1.075 kg",
       "Minibus/van de grande porte (5,99 m)",
@@ -1888,7 +1888,7 @@ export const CAR_DB: Car[] = [
     power: 102, torque: 22, traction: 'RWD', battery: 41.86,
     features: [
       "Bateria 41,86 kWh",
-      "Carregamento AC 7 kW / DC 60 kW",
+      "Carregamento AC 6,6 kW / DC 41,8 kW",
       "Mini caminhão urbano elétrico",
       "Capacidade de carga 800 kg",
       "Direção assistida",
@@ -1896,23 +1896,23 @@ export const CAR_DB: Car[] = [
       "Câmera de ré"
     ],
     pbeRating: 'A', energyMJkm: 0.58,
-    warrantyYears: 3, warrantyBatteryYears: 5, chargeAC: 7, chargeDC: 60,
+    warrantyYears: 3, warrantyBatteryYears: 5, chargeAC: 6.6, chargeDC: 41.8,
   },
   {
-    model: "eView Grand", brand: "Foton", price: 299900, range: 162, cat: "Comercial",
+    model: "eView Grand", brand: "Foton", price: 329900, range: 187, cat: "Comercial",
     img: "/car-images/foton-eview-grand.jpg",
     power: 184, torque: 34, traction: 'FWD', battery: 77.28,
     features: [
       "Bateria 77,28 kWh",
-      "Carregamento AC 11 kW / DC 80 kW (60% em 36 min)",
+      "Carregamento AC 6,6 kW / DC 77 kW",
       "Volume de carga 6,8 m³ · PBTC 3.495 kg",
       "Capacidade de carga 1.300 kg",
       "Painel digital",
       "Ar-condicionado",
       "Câmera de ré + sensores de estacionamento"
     ],
-    pbeRating: 'A', energyMJkm: 0.82,
-    warrantyYears: 3, warrantyBatteryYears: 5, chargeAC: 11, chargeDC: 80,
+    pbeRating: 'A', energyMJkm: 1.00,
+    warrantyYears: 3, warrantyBatteryYears: 5, chargeAC: 6.6, chargeDC: 77,
   },
 
   // JAC E-JV5.5 (furgão de entrega)

@@ -601,6 +601,71 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(avatr.battery).toBe(116);
   });
 
+  it('Lote B corrections should match official Brazilian sources', () => {
+    // Tabela PBEV 2026_14_AGOd rows: E-JUMPY CARGO = 0.75 MJ/km / 258 km;
+    // EVIEW GRAND77 = 1.00 MJ/km / 187 km (the version actually sold today).
+    const jumpy = byModel('e-Jumpy');
+    expect(jumpy.range).toBe(258);
+    expect(jumpy.energyMJkm).toBeCloseTo(0.75, 5);
+    // Stellantis official C10 spec sheet: AC 11 kW / DC 84 kW.
+    expect(byModel('C10 BEV').chargeDC).toBe(84);
+    // farizontimber.com.br official site and spec sheets.
+    expect(byModel('SuperVan SV').battery).toBe(82.33);
+    const v6e = byModel('V6E');
+    expect(v6e.battery).toBe(41.86);
+    expect(v6e.chargeAC).toBe(6.6);
+    expect(v6e.chargeDC).toBe(41);
+    // fotondobrasil.com.br official offers (aug/2026) and spec sheets Ed4 07/2026
+    // / Ed3 03/2026.
+    const eview = byModel('eView Grand');
+    expect(eview.range).toBe(187);
+    expect(eview.energyMJkm).toBeCloseTo(1.0, 5);
+    expect(eview.price).toBe(329900);
+    expect(eview.chargeAC).toBe(6.6);
+    expect(eview.chargeDC).toBe(77);
+    const ewonder = byModel('eWonder');
+    expect(ewonder.chargeAC).toBe(6.6);
+    expect(ewonder.chargeDC).toBe(41.8);
+    // fiat.com.br lineup: e-Scudo reduced to an "avise-me" page; removed from the
+    // current PBEV table.
+    expect(byModel('e-Scudo').discontinued).toBe(true);
+  });
+
+  it('Lote B identical official values should stay pinned', () => {
+    // Same official sources (checked 2026-08-26).
+    const jumpy = byModel('e-Jumpy');
+    expect(jumpy.power).toBe(136);
+    expect(jumpy.battery).toBe(75);
+    expect(jumpy.chargeAC).toBe(11);
+    expect(jumpy.chargeDC).toBe(100);
+    const b10 = byModel('B10 BEV');
+    expect(b10.price).toBe(182990);
+    expect(b10.power).toBe(218);
+    expect(b10.battery).toBe(56.2);
+    expect(b10.range).toBe(288);
+    const c10 = byModel('C10 BEV');
+    expect(c10.price).toBe(204990);
+    expect(c10.power).toBe(218);
+    expect(c10.battery).toBe(69.9);
+    expect(c10.range).toBe(338);
+    const sv = byModel('SuperVan SV');
+    expect(sv.price).toBe(425000);
+    expect(sv.power).toBe(231);
+    expect(sv.range).toBe(239);
+    const v6e = byModel('V6E');
+    expect(v6e.price).toBe(260000);
+    expect(v6e.power).toBe(136);
+    expect(v6e.range).toBe(156);
+    const eview = byModel('eView Grand');
+    expect(eview.power).toBe(184);
+    expect(eview.battery).toBe(77.28);
+    const ewonder = byModel('eWonder');
+    expect(ewonder.price).toBe(235900);
+    expect(ewonder.power).toBe(102);
+    expect(ewonder.battery).toBe(41.86);
+    expect(ewonder.range).toBe(189);
+  });
+
   it('traction should match the official drivetrain of the sold versions', () => {
     // hyundai.com.br official catalog (checked 2026-08-25): Ioniq 5 Signature
     // AWD HTRAC, dual motor, 325 cv combined.
