@@ -481,6 +481,78 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(countryman.chargeDC).toBe(130);
   });
 
+  it('GWM, Porsche and Neta corrections should match official Brazilian sources', () => {
+    // gwmmotors.com.br model page and commercial conditions (checked 2026-08-25):
+    // ORA 5 single version currently R$ 163.990; ORA 03 Skin BEV48 and GT BEV63
+    // removed from the official site menu (redirect/404).
+    expect(byModel('Ora 5').price).toBe(163990);
+    // porsche.com/brazil model pages, configurator and newsroom (checked 2026-08-25):
+    // - Cayenne Electric: 442 cv Overboost, 113 kWh gross battery, DC up to 390 kW;
+    // - Macan 4: PBEV row MACAN E4 = 443 km / 0.60 MJ/km, from R$ 690.000;
+    // - Taycan 4S Cross Turismo MY2027: R$ 1.080.000.
+    const cayenne = byModel('Cayenne EV');
+    expect(cayenne.power).toBe(442);
+    expect(cayenne.battery).toBe(113);
+    expect(cayenne.chargeDC).toBe(390);
+    const macan = byModel('Macan EV');
+    expect(macan.energyMJkm).toBeCloseTo(0.6, 5);
+    expect(macan.price).toBe(690000);
+    expect(byModel('Taycan 4S').price).toBe(1080000);
+    // netaauto.com.br official page/post: NETA X 500 carries the CATL LFP 64.1 kWh pack.
+    expect(byModel('Neta X 500').battery).toBe(64.1);
+    // Official GWM site triage: both ORA 03 variants below left the current lineup.
+    expect(byModel('Ora 03 Skin BEV48').discontinued).toBe(true);
+    expect(byModel('Ora 03 GT BEV63').discontinued).toBe(true);
+  });
+
+  it('GWM, Porsche, Zeekr and Neta identical official values should stay pinned', () => {
+    // Same official sources (checked 2026-08-25): values below already matched
+    // the catalog exactly and are now pinned against regressions.
+    const skin48 = byModel('Ora 03 Skin BEV48');
+    expect(skin48.power).toBe(171);
+    expect(skin48.battery).toBe(48);
+    expect(skin48.chargeAC).toBe(11);
+    expect(skin48.chargeDC).toBe(64);
+    const gt = byModel('Ora 03 GT BEV63');
+    expect(gt.power).toBe(171);
+    expect(gt.battery).toBe(63);
+    expect(gt.chargeAC).toBe(11);
+    expect(gt.chargeDC).toBe(67);
+    const skin58 = byModel('Ora 03 Skin BEV58');
+    expect(skin58.price).toBe(169000);
+    expect(skin58.power).toBe(171);
+    expect(skin58.battery).toBe(58);
+    const ora5 = byModel('Ora 5');
+    expect(ora5.power).toBe(204);
+    expect(ora5.battery).toBe(58.3);
+    const cayenne = byModel('Cayenne EV');
+    expect(cayenne.price).toBe(900000);
+    expect(cayenne.range).toBe(493);
+    const macan = byModel('Macan EV');
+    expect(macan.power).toBe(408);
+    expect(macan.battery).toBe(100);
+    expect(macan.range).toBe(443);
+    const taycan = byModel('Taycan 4S');
+    expect(taycan.power).toBe(598);
+    expect(taycan.battery).toBe(105);
+    expect(taycan.chargeAC).toBe(11);
+    expect(taycan.chargeDC).toBe(320);
+    const zeekr001 = byModel('001 Premium');
+    expect(zeekr001.power).toBe(544);
+    expect(zeekr001.battery).toBe(100);
+    expect(zeekr001.range).toBe(426);
+    const zeekr7x = byModel('7X');
+    expect(zeekr7x.power).toBe(646);
+    expect(zeekr7x.battery).toBe(100);
+    expect(zeekr7x.range).toBe(423);
+    const zeekrX = byModel('Zeekr X');
+    expect(zeekrX.power).toBe(272);
+    expect(zeekrX.battery).toBe(66);
+    expect(zeekrX.range).toBe(332);
+    expect(byModel('Aya Luxury').power).toBe(95);
+    expect(byModel('Neta X 500').power).toBe(163);
+  });
+
   it('traction should match the official drivetrain of the sold versions', () => {
     // hyundai.com.br official catalog (checked 2026-08-25): Ioniq 5 Signature
     // AWD HTRAC, dual motor, 325 cv combined.

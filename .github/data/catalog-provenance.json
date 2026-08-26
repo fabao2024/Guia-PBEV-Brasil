@@ -2957,11 +2957,11 @@
       "model": "Ora 03 Skin BEV58",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/saiba-mais/condicoes-comerciais",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-26"
         },
         "range_km": {
           "verificationStatus": "verified",
@@ -2978,18 +2978,18 @@
           "verifiedAt": "2026-08-25"
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/modelos/ora-03-bev58/specification",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-26"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/modelos/ora-03-bev58/specification",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-26"
         },
         "charging": {
           "verificationStatus": "legacy_unverified",
@@ -2999,11 +2999,11 @@
           "verifiedAt": null
         },
         "availability": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/modelos/ora-03-bev58",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-26"
         }
       }
     },
@@ -3012,11 +3012,11 @@
       "model": "Ora 5",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/saiba-mais/condicoes-comerciais",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-26"
         },
         "range_km": {
           "verificationStatus": "verified",
@@ -3033,18 +3033,18 @@
           "verifiedAt": "2026-08-25"
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/modelos/ora5/specification",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-26"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/modelos/ora5/specification",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-26"
         },
         "charging": {
           "verificationStatus": "legacy_unverified",
@@ -3054,11 +3054,11 @@
           "verifiedAt": null
         },
         "availability": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/modelos/ora5",
+          "sourceUpdatedAt": "2026-08-25",
+          "verifiedAt": "2026-08-26"
         }
       }
     },
@@ -4738,11 +4738,11 @@
           "verifiedAt": null
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://netaauto.com.br/neta-aya/",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "battery": {
           "verificationStatus": "legacy_unverified",
@@ -4793,18 +4793,18 @@
           "verifiedAt": null
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://netaauto.com.br/neta-x/",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://netaauto.com.br/neta-x/",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "charging": {
           "verificationStatus": "legacy_unverified",
@@ -5102,11 +5102,11 @@
       "model": "Cayenne EV",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.porsche.com/brazil/pt/models/cayenne/cayenne-electric-models/cayenne-electric/",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "range_km": {
           "verificationStatus": "verified",
@@ -5123,32 +5123,32 @@
           "verifiedAt": "2026-08-25"
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.porsche.com/brazil/pt/models/cayenne/cayenne-electric-models/cayenne-electric/",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://newsroom.porsche.com/en/2025/products/porsche-cayenne-electric-questions-answers-41124.html",
+          "sourceUpdatedAt": "2025-11-19",
+          "verifiedAt": "2026-08-26"
         },
         "charging": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.porsche.com/brazil/pt/models/cayenne/cayenne-electric-models/cayenne-electric/",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "availability": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.porsche.com/brazil/pt/models/cayenne/cayenne-electric-models/cayenne-electric/",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         }
       }
     },
@@ -5157,39 +5157,39 @@
       "model": "Macan EV",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://models.porsche.com/pt-BR/model-start/macan",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "range_km": {
           "verificationStatus": "verified",
           "sourceType": "official_regulator",
           "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
           "sourceUpdatedAt": "2026-08-14",
-          "verifiedAt": "2026-08-25"
+          "verifiedAt": "2026-08-26"
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-26"
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.porsche.com/brazil/pt/models/macan/macan-electric-models/macan-4-electric/",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.porsche.com/brazil/pt/models/macan/macan-electric-models/macan-4-electric/",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "charging": {
           "verificationStatus": "legacy_unverified",
@@ -5199,11 +5199,11 @@
           "verifiedAt": null
         },
         "availability": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.porsche.com/brazil/pt/models/macan/macan-electric-models/macan-4-electric/",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         }
       }
     },
@@ -5212,11 +5212,11 @@
       "model": "Taycan 4S",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://configurator.porsche.com/pt-BR/mode/model/Y1BDJ1",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "range_km": {
           "verificationStatus": "verified",
@@ -5233,32 +5233,32 @@
           "verifiedAt": "2026-08-25"
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.porsche.com/brazil/pt/models/taycan/taycan-cross-turismo-models/taycan-4s-cross-turismo/",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://newsroom.porsche.com/dam/jcr:5d8aa8e0-5628-4fea-8c7c-2e4abf3cf828/pag-taycan-performance-battery-plus-td-en.pdf.PDF",
+          "sourceUpdatedAt": "2024-03-18",
+          "verifiedAt": "2026-08-26"
         },
         "charging": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://newsroom.porsche.com/dam/jcr:5d8aa8e0-5628-4fea-8c7c-2e4abf3cf828/pag-taycan-performance-battery-plus-td-en.pdf.PDF",
+          "sourceUpdatedAt": "2024-03-18",
+          "verifiedAt": "2026-08-26"
         },
         "availability": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.porsche.com/brazil/pt/models/taycan/taycan-cross-turismo-models/taycan-4s-cross-turismo/",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         }
       }
     },
@@ -5880,10 +5880,10 @@
         },
         "range_km": {
           "verificationStatus": "verified",
-          "sourceType": "official_regulator",
-          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
-          "sourceUpdatedAt": "2026-08-14",
-          "verifiedAt": "2026-08-25"
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/001",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "consumption": {
           "verificationStatus": "verified",
@@ -5893,18 +5893,18 @@
           "verifiedAt": "2026-08-25"
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/001",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/001",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "charging": {
           "verificationStatus": "legacy_unverified",
@@ -5914,11 +5914,11 @@
           "verifiedAt": null
         },
         "availability": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/001",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         }
       }
     },
@@ -5938,7 +5938,7 @@
           "sourceType": "official_regulator",
           "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
           "sourceUpdatedAt": "2026-08-14",
-          "verifiedAt": "2026-08-25"
+          "verifiedAt": "2026-08-26"
         },
         "consumption": {
           "verificationStatus": "verified",
@@ -5948,18 +5948,18 @@
           "verifiedAt": "2026-08-25"
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/posts/suv-zeekr-7x-chega-ao-mercado-de-eletricos-premium",
+          "sourceUpdatedAt": "2025-08-21",
+          "verifiedAt": "2026-08-26"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/posts/suv-zeekr-7x-chega-ao-mercado-de-eletricos-premium",
+          "sourceUpdatedAt": "2025-08-21",
+          "verifiedAt": "2026-08-26"
         },
         "charging": {
           "verificationStatus": "legacy_unverified",
@@ -5969,11 +5969,11 @@
           "verifiedAt": null
         },
         "availability": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/posts/suv-zeekr-7x-chega-ao-mercado-de-eletricos-premium",
+          "sourceUpdatedAt": "2025-08-21",
+          "verifiedAt": "2026-08-26"
         }
       }
     },
@@ -5990,10 +5990,10 @@
         },
         "range_km": {
           "verificationStatus": "verified",
-          "sourceType": "official_regulator",
-          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
-          "sourceUpdatedAt": "2026-08-14",
-          "verifiedAt": "2026-08-25"
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/x",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "consumption": {
           "verificationStatus": "verified",
@@ -6003,18 +6003,18 @@
           "verifiedAt": "2026-08-25"
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/x",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/x",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "charging": {
           "verificationStatus": "legacy_unverified",
@@ -6024,11 +6024,11 @@
           "verifiedAt": null
         },
         "availability": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/x",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         }
       }
     }

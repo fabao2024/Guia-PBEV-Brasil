@@ -350,7 +350,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 67,
   },
   {
-    model: "Ora 5", brand: "GWM", price: 159000, range: 349, cat: "SUV",
+    model: "Ora 5", brand: "GWM", price: 163990, range: 349, cat: "SUV",
     img: "/car-images/Ora 05.jpg",
     power: 204, torque: 26.5, traction: 'FWD', battery: 58.3,
     features: [
@@ -1060,9 +1060,9 @@ export const CAR_DB: Car[] = [
   {
     model: "Neta X 500", brand: "Neta", price: 214900, range: 317, cat: "SUV",
     img: "/car-images/neta-x.jpg",
-    power: 163, torque: 21.4, traction: 'FWD', battery: 52,
+    power: 163, torque: 21.4, traction: 'FWD', battery: 64.1,
     features: [
-      "Bateria NMC 52 kWh",
+      "Bateria LFP CATL 64,1 kWh",
       "Carregamento AC 6,6 kW / DC 80 kW",
       "Tela central 14,6\" com CarPlay e Android Auto",
       "6 airbags",
@@ -1294,7 +1294,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 120,
   },
   {
-    model: "Macan EV", brand: "Porsche", price: 560000, range: 443, cat: "Luxo",
+    model: "Macan EV", brand: "Porsche", price: 690000, range: 443, cat: "Luxo",
     img: "/car-images/macan-ev.jpg",
     power: 408, torque: 66.3, traction: 'AWD', battery: 100,
     features: [
@@ -1307,7 +1307,7 @@ export const CAR_DB: Car[] = [
       "Bancos esportivos com ajuste pneumático, aquecimento e ventilação",
       "Suspensão pneumática Porsche Active Ride + som BOSE/Burmester opcional"
     ],
-    pbeRating: 'A', energyMJkm: 0.61,
+    pbeRating: 'A', energyMJkm: 0.6,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 270,
   },
   {
@@ -1430,7 +1430,7 @@ export const CAR_DB: Car[] = [
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 205,
   },
   {
-    model: "Taycan 4S", brand: "Porsche", price: 980000, range: 415, cat: "Luxo",
+    model: "Taycan 4S", brand: "Porsche", price: 1080000, range: 415, cat: "Luxo",
     img: "/car-images/porsche-taycan.jpeg",
     power: 598, torque: 65.3, traction: 'AWD', battery: 105,
     features: [
@@ -1532,10 +1532,10 @@ export const CAR_DB: Car[] = [
   {
     model: "Cayenne EV", brand: "Porsche", price: 900000, range: 493, cat: "Luxo",
     img: "/car-images/cayenne-ev.jpg",
-    power: 435, torque: 85, traction: 'AWD', battery: 113.2,
+    power: 442, torque: 85, traction: 'AWD', battery: 113,
     features: [
-      "Bateria NMC 113,2 kWh – Plataforma 800V Porsche",
-      "Carregamento AC 11 kW / DC 320 kW (10-80% em menos de 16 min)",
+      "Bateria NMC 113 kWh (bruta) - Plataforma 800V Porsche",
+      "Carregamento AC 11 kW / DC até 390 kW (até 400 kW em condições específicas)",
       "Porsche Communication Management: tela 12,3\" + painel 12,6\" + tela do passageiro 10,9\"",
       "8 airbags",
       "Porsche InnoDrive avançado: ACC + LCC + AEB + BSM + Night Vision",
@@ -1544,7 +1544,7 @@ export const CAR_DB: Car[] = [
       "0-100 km/h em 4,5 s + atualização OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.63,
-    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 320,
+    warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 390,
   },
 
   // 4. COMERCIAIS & VANS

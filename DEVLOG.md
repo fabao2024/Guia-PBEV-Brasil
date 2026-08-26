@@ -2,6 +2,17 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 26/08/2026 · Lote GWM, Porsche, Zeekr e Neta no Bloco 5
+
+| Área | Mudança pública |
+|---|---|
+| Especificações Porsche | Cayenne Electric alinhado ao oficial: 442 cv Overboost, bateria bruta de 113 kWh e recarga DC de até 390 kW; Macan identificado como o Macan 4 da tabela PBEV (443 km / 0,60 MJ/km), encerrando a pendência de variantes. |
+| Preços | GWM Ora 5 R$ 163.990 (preço atual); Macan R$ 690.000 (Macan 4; o anterior era preço de lançamento da versão RWD descontinuada) e Taycan 4S R$ 1.080.000 (MY27), com snapshots no histórico. |
+| Nomenclatura | Correspondências registradas sem renomear entradas para preservar URLs: "Macan EV" = Macan 4 AWD; "Taycan 4S" vendido hoje como Cross Turismo. |
+| Especificações Neta | Neta X 500 passa a exibir a bateria correta de 64,1 kWh LFP CATL (os 52,5 kWh pertencem à versão X 400). |
+| Proveniência | Cobertura verificada subiu de 400/763 para **435/763** campos com fonte oficial direta por campo (+35), incluindo potências, baterias e autonomias Zeekr/GWM confirmadas nos domínios oficiais das marcas. |
+| Verificação | TDD RED→GREEN, 289/289 testes, TypeScript limpo, build Vite, rotas estáticas, scanner de segredos e verificador de proveniência aprovados. |
+
 ## 25/08/2026 · Lotes MG Motor e Mini no Bloco 5
 
 | Área | Mudança pública |
