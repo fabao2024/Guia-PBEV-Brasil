@@ -29,7 +29,6 @@ async function request(url, method) {
       headers: {
         'User-Agent': 'Mozilla/5.0 (compatible; GuiaPBEV-LinkCheck/2.0; +https://guiapbev.cloud)',
         Accept: 'text/html,application/xhtml+xml',
-        ...(method === 'GET' ? { Range: 'bytes=0-1023' } : {}),
       },
       redirect: 'follow',
       signal: controller.signal,
@@ -43,7 +42,12 @@ async function checkLink({ brand, url }) {
   try {
     const parsed = new URL(url);
     if (!['https:', 'http:'].includes(parsed.protocol)) throw new Error('protocolo inválido');
-    let response = await request(url, 'HEAD');
+    let response;
+    try {
+      response = await request(url, 'HEAD');
+    } catch {
+      response = await request(url, 'GET');
+    }
     let classification = classifyLinkResponse(response.status);
     if (classification.status === 'blocked') {
       response = await request(url, 'GET');
@@ -78,7 +82,10 @@ async function collect() {
   const counts = results.reduce((acc, item) => ({ ...acc, [item.status]: (acc[item.status] ?? 0) + 1 }), {});
   const incomplete = (counts.blocked ?? 0) + (counts.timeout ?? 0) + (counts.unavailable ?? 0);
   const broken = counts.broken ?? 0;
-  const status = incomplete > 0 ? 'partial' : broken > 0 ? 'changed' : 'unchanged';
+  const status = broken > 0 ? 'changed' : 'unchanged';
+  const warnings = incomplete > 0
+    ? [`${incomplete} links oficiais continuam sem verificação de conteúdo por bloqueio ou timeout; nenhum foi classificado como quebrado.`]
+    : [];
 
   return createMaintenanceResult({
     source: SOURCE,
@@ -86,10 +93,15 @@ async function collect() {
     checkedAt,
     sourceUpdatedAt: checkedAt.slice(0, 10),
     repositoryReference: `${links.length} marcas`,
-    coverage: { checked: links.length - incomplete, expected: links.length },
+    coverage: {
+      checked: links.length,
+      expected: links.length,
+      verifiable: links.length - incomplete,
+    },
     changes: broken,
-    error: incomplete > 0 ? `${incomplete} links não puderam ser verificados` : null,
-    details: { counts, links: results },
+    warnings,
+    error: null,
+    details: { counts, links: results, unverifiable: results.filter(item => !item.verifiable).map(item => item.brand) },
   });
 }
 

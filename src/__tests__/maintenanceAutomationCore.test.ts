@@ -14,6 +14,7 @@ import {
   parseCollectorPayload,
   resolveAnpColumns,
 } from '../../.github/scripts/maintenance-core.mjs';
+import { AGENTS_BY_STATE, computeStateTariffs } from '../../.github/scripts/update-aneel-tariffs.mjs';
 import { writeCollectorResult } from '../../.github/scripts/maintenance-io.mjs';
 import { buildMaintenanceReport } from '../../.github/scripts/maintenance-report.mjs';
 import { updateDatasetProvenance } from '../../.github/scripts/provenance-registry.mjs';
@@ -73,6 +74,38 @@ describe('maintenance automation core', () => {
 
     expect(overall.code).toBe('blocked');
     expect(overall.blockingSources).toEqual(['aneel']);
+  });
+
+  it('uses the last published ANEEL tariff for an expired agent without hiding the stale warning', () => {
+    const rows = Object.values(AGENTS_BY_STATE).flatMap(agents => agents.map(agent => ({
+      SigAgente: agent,
+      DatInicioVigencia: '2026-01-01',
+      DatFimVigencia: agent === 'EPB' ? '2026-08-27' : '9999-12-31',
+      DatGeracaoConjuntoDados: '2026-09-01',
+      DscUnidadeTerciaria: 'MWh',
+      DscDetalhe: 'Não se aplica',
+      NomPostoTarifario: 'Não se aplica',
+      VlrTUSD: '400,00',
+      VlrTE: '200,00',
+    })));
+
+    const result = computeStateTariffs(rows, '2026-09-01');
+
+    expect(result.tariffs.PB).toBe(0.6);
+    expect(result.missingAgents).toEqual({});
+    expect(result.staleAgents).toEqual({ PB: [{ agent: 'EPB', through: '2026-08-27' }] });
+    expect(result.fallbackRows).toBe(1);
+  });
+
+  it('turns collector warnings into attention without treating them as a source failure', () => {
+    const overall = deriveOverallStatus([
+      { source: 'anp', status: 'unchanged', warnings: [] },
+      { source: 'aneel', status: 'unchanged', warnings: ['PB sem nova vigência'] },
+      { source: 'pbev', status: 'unchanged', warnings: [] },
+    ], ['anp', 'aneel', 'pbev']);
+
+    expect(overall.code).toBe('attention');
+    expect(overall.warningSources).toEqual(['aneel']);
   });
 
   it('discovers the visible 2026 PBEV edition even when the URL keeps a legacy mascara name', () => {
@@ -218,9 +251,10 @@ describe('maintenance automation core', () => {
       'official_press_release',
     ]);
     expect(registry.datasets.pbev).toMatchObject({
-      reference: 'Tabela PBEV 2026_14_AGOd.pdf',
-      reviewStatus: 'manual_diff_applied',
+      reference: 'Tabela PBEV 2026_25_AGO.pdf',
+      reviewStatus: 'manual_diff_applied_with_documented_exceptions',
     });
+    expect(Object.keys(registry.legacyExceptions).length).toBeGreaterThan(0);
     expect(Object.keys(registry.vehicles).sort()).toEqual(cars.map((car: { slug: string }) => car.slug).sort());
     for (const entry of Object.values(registry.vehicles) as Array<{ fields: Record<string, unknown> }>) {
       expect(Object.keys(entry.fields)).toEqual([

@@ -33,7 +33,9 @@ function safeUrl(value) {
 }
 
 function coverage(result) {
-  return result.coverage ? `${result.coverage.checked}/${result.coverage.expected}` : '—';
+  if (!result.coverage) return '—';
+  const verifiable = result.coverage.verifiable == null ? '' : ` (verificáveis ${result.coverage.verifiable})`;
+  return `${result.coverage.checked}/${result.coverage.expected}${verifiable}`;
 }
 
 function link(label, value) {
@@ -68,6 +70,9 @@ function resultActions(result) {
   const sourceLabel = SOURCE_LABELS[result.source] ?? result.source;
   if (result.status === 'failed') actions.push(`- [ ] Corrigir **${md(sourceLabel)}**: ${md(result.error)}`);
   if (result.status === 'partial') actions.push(`- [ ] Resolver cobertura parcial de **${md(sourceLabel)}**: ${md(result.error)}`);
+  for (const warning of (result.warnings ?? []).slice(0, 10)) {
+    actions.push(`- [ ] Revisar alerta de **${md(sourceLabel)}**: ${md(warning)}`);
+  }
   if (result.status === 'changed' && result.prUrl) actions.push(`- [ ] Revisar e mesclar ${link(`PR de ${sourceLabel}`, result.prUrl)}`);
   if (result.source === 'pbev' && result.status === 'changed') {
     actions.push(`- [ ] Comparar integralmente **${md(result.details?.reference)}** com o catálogo antes de atualizar a referência PBEV.`);
@@ -120,7 +125,8 @@ export function buildMaintenanceReport({ period, monthLabel, results, workflowUr
   const overall = deriveOverallStatus(results, ['anp', 'aneel', 'pbev']);
   const actions = results.flatMap(resultActions);
   const hasChanges = results.some(result => result.status === 'changed' || (result.changes ?? 0) > 0);
-  const hasAttention = results.some(result => ['failed', 'partial'].includes(result.status));
+  const hasAttention = results.some(result => ['failed', 'partial'].includes(result.status)
+    || (result.warnings ?? []).length > 0);
   const shouldClose = overall.code === 'verified' && !hasChanges && !hasAttention;
   const actionBlock = actions.length ? actions.join('\n') : '- [x] Nenhuma ação necessária a partir dos coletores.';
   const runLink = workflowUrl ? link('execução do GitHub Actions', workflowUrl) : 'execução não informada';

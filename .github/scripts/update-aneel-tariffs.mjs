@@ -3,6 +3,7 @@
  * Fonte oficial: ANEEL Dados Abertos, dataset de tarifas de aplicação.
  */
 import { readFileSync, writeFileSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import { createMaintenanceResult, fetchWithRetry } from './maintenance-core.mjs';
 import { collectorResultPath, writeCollectorResult } from './maintenance-io.mjs';
 import { PROVENANCE_FILE, updateDatasetProvenance } from './provenance-registry.mjs';
@@ -14,7 +15,7 @@ const PACKAGE_ID = 'tarifas-distribuidoras-energia-eletrica';
 const TARGET_FILE = 'src/constants/electricityPricesByState.ts';
 const PAGE_SIZE = 1000;
 const dryRun = process.env.MAINTENANCE_DRY_RUN === '1';
-const AGENTS_BY_STATE = {
+export const AGENTS_BY_STATE = {
   AC: ['EAC'], AL: ['EQUATORIAL AL'], AM: ['Âmbar Amazonas'], AP: ['CEA'],
   BA: ['COELBA'], CE: ['ENEL CE'], DF: ['Neoenergia Brasília'], ES: ['EDP ES'],
   GO: ['EQUATORIAL GO', 'CHESP'], MA: ['EQUATORIAL MA'], MG: ['CEMIG-D'], MS: ['EMS'],
@@ -74,19 +75,41 @@ async function fetchResidentialRows(resourceId) {
   return rows;
 }
 
-function computeStateTariffs(rows, asOfDate) {
-  const byAgent = new Map();
+function isEligibleResidentialRow(row) {
+  return row.DscUnidadeTerciaria === 'MWh'
+    && row.DscDetalhe === 'Não se aplica'
+    && row.NomPostoTarifario === 'Não se aplica';
+}
+
+function rowTariff(row) {
+  const tusd = parseBrNumber(row.VlrTUSD);
+  const te = parseBrNumber(row.VlrTE);
+  if (!Number.isFinite(tusd) || !Number.isFinite(te) || tusd <= 0 || te <= 0) return null;
+  return Math.round(((tusd + te) / 1000) * 100) / 100;
+}
+
+function isLaterRow(candidate, current) {
+  if (!current) return true;
+  return `${candidate.DatFimVigencia}|${candidate.DatInicioVigencia}`
+    > `${current.DatFimVigencia}|${current.DatInicioVigencia}`;
+}
+
+export function computeStateTariffs(rows, asOfDate) {
+  const currentByAgent = new Map();
+  const latestByAgent = new Map();
   let sourceUpdatedAt = null;
   let currentRows = 0;
 
   for (const row of rows) {
-    if (!(row.DatInicioVigencia <= asOfDate && row.DatFimVigencia >= asOfDate)) continue;
-    if (row.DscUnidadeTerciaria !== 'MWh' || row.DscDetalhe !== 'Não se aplica' || row.NomPostoTarifario !== 'Não se aplica') continue;
-    const tusd = parseBrNumber(row.VlrTUSD);
-    const te = parseBrNumber(row.VlrTE);
-    if (!Number.isFinite(tusd) || !Number.isFinite(te) || tusd <= 0 || te <= 0) continue;
-    byAgent.set(row.SigAgente, Math.round(((tusd + te) / 1000) * 100) / 100);
-    currentRows += 1;
+    if (!isEligibleResidentialRow(row) || row.DatInicioVigencia > asOfDate) continue;
+    const tariff = rowTariff(row);
+    if (!tariff) continue;
+    const record = { ...row, tariff };
+    if (isLaterRow(record, latestByAgent.get(row.SigAgente))) latestByAgent.set(row.SigAgente, record);
+    if (row.DatFimVigencia >= asOfDate) {
+      if (isLaterRow(record, currentByAgent.get(row.SigAgente))) currentByAgent.set(row.SigAgente, record);
+      currentRows += 1;
+    }
     if (row.DatGeracaoConjuntoDados && (!sourceUpdatedAt || row.DatGeracaoConjuntoDados > sourceUpdatedAt)) {
       sourceUpdatedAt = row.DatGeracaoConjuntoDados;
     }
@@ -94,15 +117,26 @@ function computeStateTariffs(rows, asOfDate) {
 
   const tariffs = {};
   const missingAgents = {};
+  const staleAgents = {};
+  let fallbackRows = 0;
   for (const [uf, agents] of Object.entries(AGENTS_BY_STATE)) {
-    const values = agents.map(agent => byAgent.get(agent)).filter(Number.isFinite);
-    if (values.length !== agents.length) {
-      missingAgents[uf] = agents.filter(agent => !byAgent.has(agent));
+    const selected = agents.map(agent => ({ agent, row: currentByAgent.get(agent) ?? latestByAgent.get(agent) }));
+    const unresolved = selected.filter(item => !item.row);
+    if (unresolved.length > 0) {
+      missingAgents[uf] = unresolved.map(item => item.agent);
       continue;
     }
-    tariffs[uf] = Math.round((values.reduce((sum, value) => sum + value, 0) / values.length) * 100) / 100;
+    const stale = selected.filter(item => !currentByAgent.has(item.agent));
+    if (stale.length > 0) {
+      staleAgents[uf] = stale.map(({ agent, row }) => ({
+        agent,
+        through: row.DatFimVigencia,
+      }));
+      fallbackRows += stale.length;
+    }
+    tariffs[uf] = Math.round((selected.reduce((sum, item) => sum + item.row.tariff, 0) / selected.length) * 100) / 100;
   }
-  return { tariffs, sourceUpdatedAt, currentRows, missingAgents };
+  return { tariffs, sourceUpdatedAt, currentRows, fallbackRows, missingAgents, staleAgents };
 }
 
 function readCurrentTariffs() {
@@ -116,13 +150,21 @@ function readCurrentTariffs() {
   };
 }
 
-function buildTarget(currentSource, tariffs, resource, sourceUpdatedAt) {
+function buildTarget(currentSource, tariffs, resource, sourceUpdatedAt, staleAgents = {}) {
   const sourceDate = new Date(`${sourceUpdatedAt}T12:00:00Z`);
   const monthLabel = sourceDate.toLocaleDateString('pt-BR', { month: 'short', year: 'numeric', timeZone: 'America/Sao_Paulo' }).replace('.', '');
+  const staleNote = Object.entries(staleAgents).map(([uf, agents]) => {
+    const expiries = agents.map(item => `${item.agent} até ${item.through}`).join(', ');
+    return `${uf} (${expiries})`;
+  }).join('; ');
   let updated = currentSource
+    .replace(/\/\/ Vigências sem registro atual na ANEEL:[^\n]*\n/g, '')
     .replace(/\/\/ Fonte: .+/, `// Fonte: dadosabertos.aneel.gov.br — ${resource.name} · recurso ${resource.id}`)
     .replace(/\/\/ Atualizado em: .+/, `// Atualizado em: ${sourceUpdatedAt}`)
     .replace(/export const ELECTRICITY_PRICES_UPDATED = '.+?'/, `export const ELECTRICITY_PRICES_UPDATED = '${monthLabel}'`);
+  if (staleNote) {
+    updated = updated.replace(/(\/\/ Atualizado em: .*\n)/, `$1// Vigências sem registro atual na ANEEL: ${staleNote}. Valores mantidos como último registro publicado; confirmar no próximo ciclo.\n`);
+  }
   for (const [uf, value] of Object.entries(tariffs)) {
     updated = updated.replace(new RegExp(`(  ${uf}: )[\\d.]+`), `$1${value.toFixed(2)}`);
   }
@@ -167,7 +209,7 @@ async function collect() {
   const changedStates = STATES.filter(uf => Math.abs(computed.tariffs[uf] - (current.tariffs[uf] ?? 0)) >= 0.01);
   let prUrl = null;
   if (changedStates.length > 0 && !dryRun) {
-    writeFileSync(TARGET_FILE, buildTarget(current.source, computed.tariffs, resource, computed.sourceUpdatedAt), 'utf8');
+    writeFileSync(TARGET_FILE, buildTarget(current.source, computed.tariffs, resource, computed.sourceUpdatedAt, computed.staleAgents), 'utf8');
     updateDatasetProvenance(SOURCE, {
       sourceType: 'official_regulator',
       sourceUrl: resource.url,
@@ -200,12 +242,18 @@ async function collect() {
     coverage: { checked: checkedStates, expected: STATES.length },
     changes: changedStates.length,
     prUrl,
+    warnings: Object.entries(computed.staleAgents).map(([uf, agents]) => {
+      const expiries = agents.map(item => `${item.agent} até ${item.through}`).join(', ');
+      return `${uf}: última vigência publicada usada como fallback (${expiries}); confirmar nova vigência ANEEL no próximo ciclo.`;
+    }),
     details: {
       resourceId: resource.id,
       resourceUrl: resource.url,
       resourceHash: resource.hash,
       recordsScanned: rows.length,
       currentRows: computed.currentRows,
+      fallbackRows: computed.fallbackRows,
+      staleAgents: computed.staleAgents,
       changedStates,
       dryRun,
     },
@@ -213,17 +261,20 @@ async function collect() {
 }
 
 const resultPath = collectorResultPath(SOURCE);
-try {
-  const result = await collect();
-  writeCollectorResult(resultPath, result);
-  console.log(`ANEEL: ${result.status}; cobertura ${result.coverage.checked}/${result.coverage.expected}; alterações ${result.changes}`);
-} catch (error) {
-  writeCollectorResult(resultPath, createMaintenanceResult({
-    source: SOURCE,
-    status: 'failed',
-    repositoryReference: readCurrentTariffs().reference,
-    error: error.message,
-  }));
-  console.error(`Falha no coletor ANEEL: ${error.message}`);
-  process.exitCode = 1;
+const isMainModule = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+if (isMainModule) {
+  try {
+    const result = await collect();
+    writeCollectorResult(resultPath, result);
+    console.log(`ANEEL: ${result.status}; cobertura ${result.coverage.checked}/${result.coverage.expected}; alterações ${result.changes}`);
+  } catch (error) {
+    writeCollectorResult(resultPath, createMaintenanceResult({
+      source: SOURCE,
+      status: 'failed',
+      repositoryReference: readCurrentTariffs().reference,
+      error: error.message,
+    }));
+    console.error(`Falha no coletor ANEEL: ${error.message}`);
+    process.exitCode = 1;
+  }
 }

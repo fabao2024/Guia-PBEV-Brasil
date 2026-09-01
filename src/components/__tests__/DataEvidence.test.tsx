@@ -7,7 +7,7 @@ describe('DataEvidence', () => {
     render(<DataEvidence />);
 
     expect(screen.getByText(/PBEV\/Inmetro/i)).toBeInTheDocument();
-    expect(screen.getByText(/2026_14_AGOd/i)).toBeInTheDocument();
+    expect(screen.getByText(/2026_25_AGO\.pdf/i)).toBeInTheDocument();
     expect(screen.getByText(/julho\/2026/i)).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /fonte oficial do inmetro/i })).toHaveAttribute(
       'href',
