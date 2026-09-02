@@ -2,7 +2,7 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Car } from '../types';
-import { X, Check, Minus, Map, Battery, Car as CarIcon, DollarSign, Zap, Gauge, Activity, Sparkles, RefreshCw, Plus } from 'lucide-react';
+import { X, Check, Minus, Map, Battery, Car as CarIcon, DollarSign, Zap, Gauge, Activity, Sparkles, RefreshCw, Plus, Ruler } from 'lucide-react';
 import { resolveCarImageUrl } from '../utils/imageUrl';
 
 interface ComparisonModalProps {
@@ -42,6 +42,21 @@ export default function ComparisonModal({ cars, allCars, onClose, onRemove, onAd
    const [suggestionIdx, setSuggestionIdx] = useState(0);
 
    const recommendations = useMemo(() => getRecommendations(cars, allCars), [cars, allCars]);
+
+   // Linhas de dimensão: só entram na comparação se algum veículo comparado
+   // tiver o dado cadastrado, para manter as colunas alinhadas.
+   const dimRows = useMemo(() => {
+      const defs: Array<{ key: string; has: boolean; get: (c: Car) => string | null; unit: string }> = [
+         { key: 'trunk', has: cars.some(c => c.trunkLiters !== undefined), get: c => c.trunkLiters !== undefined ? c.trunkLiters.toLocaleString('pt-BR') : null, unit: 'L' },
+         { key: 'length', has: cars.some(c => c.lengthMm !== undefined), get: c => c.lengthMm !== undefined ? c.lengthMm.toLocaleString('pt-BR') : null, unit: 'mm' },
+         { key: 'width', has: cars.some(c => c.widthMm !== undefined), get: c => c.widthMm !== undefined ? c.widthMm.toLocaleString('pt-BR') : null, unit: 'mm' },
+         { key: 'height', has: cars.some(c => c.heightMm !== undefined), get: c => c.heightMm !== undefined ? c.heightMm.toLocaleString('pt-BR') : null, unit: 'mm' },
+         { key: 'wheelbase', has: cars.some(c => c.wheelbaseMm !== undefined), get: c => c.wheelbaseMm !== undefined ? c.wheelbaseMm.toLocaleString('pt-BR') : null, unit: 'mm' },
+         { key: 'groundClearance', has: cars.some(c => c.groundClearanceMm !== undefined), get: c => c.groundClearanceMm !== undefined ? c.groundClearanceMm.toLocaleString('pt-BR') : null, unit: 'mm' },
+         { key: 'weight', has: cars.some(c => c.weightKg !== undefined), get: c => c.weightKg !== undefined ? c.weightKg.toLocaleString('pt-BR') : null, unit: 'kg' },
+      ];
+      return defs.filter(d => d.has);
+   }, [cars]);
 
    // Reset index when the compared cars (and therefore recommendations) change
    useEffect(() => { setSuggestionIdx(0); }, [recommendations]);
@@ -102,6 +117,12 @@ export default function ComparisonModal({ cars, allCars, onClose, onRemove, onAd
                      <div className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.power')}</div>
                      <div className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.torque')}</div>
                      <div className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.battery', 'Bateria')}</div>
+                     {dimRows.map(row => (
+                        <div key={row.key} className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">
+                           <Ruler className="w-3 h-3 mr-1 opacity-50" aria-hidden="true" />
+                           {t(`comparison.${row.key}`)}
+                        </div>
+                     ))}
                      <div className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.category')}</div>
                      <div className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.features')}</div>
                   </div>
@@ -170,6 +191,17 @@ export default function ComparisonModal({ cars, allCars, onClose, onRemove, onAd
                               {car.battery ? `${car.battery} kWh` : <span className="text-[#666666] font-bold uppercase tracking-widest text-xs">{t('details.notAvailable')}</span>}
                            </span>
                         </div>
+
+                        {dimRows.map(row => (
+                           <div key={row.key} className="h-10 flex items-center">
+                              <span className="font-bold text-white flex items-center gap-1.5">
+                                 <Ruler className="w-4 h-4 text-[#00b4ff]" aria-hidden="true" />
+                                 {row.get(car)
+                                    ? <>{row.get(car)} <span className="text-[#a0a0a0] text-sm">{row.unit}</span></>
+                                    : <span className="text-[#666666] font-bold uppercase tracking-widest text-xs">{t('details.notAvailable')}</span>}
+                              </span>
+                           </div>
+                        ))}
 
                         <div className="h-10 flex items-center">
                            <span className="px-2.5 py-1 bg-black/50 border border-white/10 rounded-lg text-xs font-black text-[#a0a0a0] uppercase tracking-widest">
@@ -265,6 +297,17 @@ export default function ComparisonModal({ cars, allCars, onClose, onRemove, onAd
                                     {rec.battery ? `${rec.battery} kWh` : <span className="text-[#666666] font-bold uppercase tracking-widest text-xs">{t('details.notAvailable')}</span>}
                                  </span>
                               </div>
+
+                              {dimRows.map(row => (
+                                 <div key={row.key} className="h-10 flex items-center">
+                                    <span className="font-bold text-white flex items-center gap-1.5">
+                                       <Ruler className="w-4 h-4 text-[#00b4ff]" aria-hidden="true" />
+                                       {row.get(rec)
+                                          ? <>{row.get(rec)} <span className="text-[#a0a0a0] text-sm">{row.unit}</span></>
+                                          : <span className="text-[#666666] font-bold uppercase tracking-widest text-xs">{t('details.notAvailable')}</span>}
+                                    </span>
+                                 </div>
+                              ))}
 
                               <div className="h-10 flex items-center">
                                  <span className="px-2.5 py-1 bg-black/50 border border-white/10 rounded-lg text-xs font-black text-[#a0a0a0] uppercase tracking-widest">

@@ -22,15 +22,16 @@ interface RowProps {
   b: string | number | undefined | null;
   higherIsBetter?: boolean;
   suffix?: string;
+  neutral?: boolean;
 }
 
-function CompareRow({ label, a, b, higherIsBetter = true, suffix = '' }: RowProps) {
+function CompareRow({ label, a, b, higherIsBetter = true, suffix = '', neutral = false }: RowProps) {
   const aNum = typeof a === 'number' ? a : null;
   const bNum = typeof b === 'number' ? b : null;
 
   let aWin = false;
   let bWin = false;
-  if (aNum != null && bNum != null && aNum !== bNum) {
+  if (!neutral && aNum != null && bNum != null && aNum !== bNum) {
     aWin = higherIsBetter ? aNum > bNum : aNum < bNum;
     bWin = !aWin;
   }
@@ -165,6 +166,27 @@ export default function CompareDetailPage() {
                 <CompareRow label="Bateria" a={carA.battery} b={carB.battery} suffix=" kWh" />
                 <CompareRow label="Recarga AC" a={carA.chargeAC} b={carB.chargeAC} suffix=" kW" />
                 <CompareRow label="Recarga DC" a={carA.chargeDC ?? undefined} b={carB.chargeDC ?? undefined} suffix=" kW" />
+                {(carA.trunkLiters !== undefined || carB.trunkLiters !== undefined) && (
+                  <CompareRow label="Porta-malas (VDA)" a={carA.trunkLiters} b={carB.trunkLiters} suffix=" L" />
+                )}
+                {(carA.lengthMm !== undefined || carB.lengthMm !== undefined) && (
+                  <CompareRow label="Comprimento" a={carA.lengthMm} b={carB.lengthMm} suffix=" mm" neutral />
+                )}
+                {(carA.widthMm !== undefined || carB.widthMm !== undefined) && (
+                  <CompareRow label="Largura (sem espelhos)" a={carA.widthMm} b={carB.widthMm} suffix=" mm" neutral />
+                )}
+                {(carA.heightMm !== undefined || carB.heightMm !== undefined) && (
+                  <CompareRow label="Altura" a={carA.heightMm} b={carB.heightMm} suffix=" mm" neutral />
+                )}
+                {(carA.wheelbaseMm !== undefined || carB.wheelbaseMm !== undefined) && (
+                  <CompareRow label="Entre-eixos" a={carA.wheelbaseMm} b={carB.wheelbaseMm} suffix=" mm" neutral />
+                )}
+                {(carA.groundClearanceMm !== undefined || carB.groundClearanceMm !== undefined) && (
+                  <CompareRow label="Altura do solo" a={carA.groundClearanceMm} b={carB.groundClearanceMm} suffix=" mm" neutral />
+                )}
+                {(carA.weightKg !== undefined || carB.weightKg !== undefined) && (
+                  <CompareRow label="Peso (ordem de marcha)" a={carA.weightKg} b={carB.weightKg} suffix=" kg" neutral />
+                )}
                 <CompareRow label="Garantia veículo" a={carA.warrantyYears} b={carB.warrantyYears} suffix=" anos" />
                 <CompareRow label="Garantia bateria" a={carA.warrantyBatteryYears} b={carB.warrantyBatteryYears} suffix=" anos" />
                 <tr className="border-b border-white/5">

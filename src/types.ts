@@ -20,6 +20,13 @@ export interface Car {
   warrantyBatteryYears?: number; // anos — garantia da bateria/motor elétrico
   chargeAC?: number;             // kW — carregador AC onboard
   chargeDC?: number | null;      // kW — carga rápida DC máxima (null = não suporta)
+  lengthMm?: number;             // mm — comprimento
+  widthMm?: number;              // mm — largura (sem espelhos)
+  heightMm?: number;             // mm — altura
+  wheelbaseMm?: number;          // mm — entre-eixos
+  groundClearanceMm?: number;    // mm — altura do solo (desalicerado)
+  weightKg?: number;             // kg — peso em ordem de marcha
+  trunkLiters?: number;          // L — porta-malas (VDA)
 }
 
 export interface FilterState {

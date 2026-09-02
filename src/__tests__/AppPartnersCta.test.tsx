@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { act, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { HelmetProvider } from 'react-helmet-async';
 import { MemoryRouter } from 'react-router-dom';
@@ -53,9 +53,13 @@ describe('App partner CTA', () => {
       </HelmetProvider>,
     );
 
+    // Estabiliza os chunks lazy (Suspense) antes de interagir — sem isso o
+    // waitFor do RTL pode competir com a resolução pendente do Suspense.
+    await act(async () => { await new Promise(r => setTimeout(r, 100)); });
+
     await user.click(screen.getByRole('button', { name: /quero limpeza de placas/i }));
     const serviceSelect = await screen.findByLabelText(/serviço desejado/i, {}, { timeout: 10_000 });
-    await waitFor(() => expect(serviceSelect).toHaveDisplayValue(/limpeza de placas solares/i));
+    await waitFor(() => expect(serviceSelect).toHaveDisplayValue(/limpeza de placas solares/i), { timeout: 10_000 });
   }, 30_000);
 
   it('accepts a direct solar-cleaning interest URL', async () => {
@@ -67,7 +71,10 @@ describe('App partner CTA', () => {
       </HelmetProvider>,
     );
 
+    // Estabiliza os chunks lazy (Suspense) antes de interagir.
+    await act(async () => { await new Promise(r => setTimeout(r, 100)); });
+
     const serviceSelect = await screen.findByLabelText(/serviço desejado/i, {}, { timeout: 10_000 });
-    await waitFor(() => expect(serviceSelect).toHaveDisplayValue(/limpeza de placas solares/i));
+    await waitFor(() => expect(serviceSelect).toHaveDisplayValue(/limpeza de placas solares/i), { timeout: 10_000 });
   }, 30_000);
 });

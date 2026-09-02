@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
-import { ArrowLeft, BookOpen, ExternalLink, Landmark, Fuel, Zap, Scale, Route as RouteIcon, AlertTriangle } from 'lucide-react';
+import { ArrowLeft, BookOpen, ExternalLink, Landmark, Fuel, Zap, Scale, Route as RouteIcon, AlertTriangle, Ruler } from 'lucide-react';
 import { CATALOG_EVIDENCE } from '../constants/catalogEvidence';
 import { ELECTRICITY_PRICES_UPDATED } from '../constants/electricityPricesByState';
 import { FUEL_PRICES_UPDATED } from '../constants/fuelPricesByState';
@@ -222,6 +222,20 @@ export default function MethodologyPage() {
             <p className="text-sm text-[#a0a0a0] leading-relaxed mb-3">{t('methodology.routeIntro', '')}</p>
             <p className="text-sm font-mono text-[#72d7ff] bg-white/5 rounded-xl px-4 py-3 mb-3">{t('methodology.routeFormula', '')}</p>
             <p className="text-sm text-[#a0a0a0] leading-relaxed">{t('methodology.routeNote', '')}</p>
+          </section>
+
+          <section aria-labelledby="meth-specs" className="mb-10 rounded-3xl border border-white/10 bg-[#111111] p-5 md:p-6">
+            <h2 id="meth-specs" className="text-xl font-bold mb-3 flex items-center gap-2">
+              <Ruler className="w-5 h-5 text-[#00b4ff]" aria-hidden="true" />
+              {t('methodology.specsTitle', 'Ficha técnica — dimensões e peso')}
+            </h2>
+            <p className="text-sm text-[#a0a0a0] leading-relaxed mb-3">{t('methodology.specsIntro', '')}</p>
+            <ul className="space-y-2 text-sm text-white/80 leading-relaxed">
+              <li>{t('methodology.specsDimensions', '')}</li>
+              <li>{t('methodology.specsWeight', '')}</li>
+              <li>{t('methodology.specsTrunk', '')}</li>
+              <li>{t('methodology.specsClearance', '')}</li>
+            </ul>
           </section>
 
           <section aria-labelledby="meth-limits" className="rounded-3xl border border-white/10 bg-[#111111] p-5 md:p-6">

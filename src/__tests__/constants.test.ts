@@ -1,4 +1,5 @@
 import { CAR_DB } from '../constants';
+import type { Car } from '../types';
 
 describe('CAR_DB data integrity', () => {
   it('should have at least one car', () => {
@@ -68,5 +69,51 @@ describe('CAR_DB data integrity', () => {
         expect(Number.isFinite(car.torque)).toBe(true);
       }
     }
+  });
+
+  describe('dimension specs', () => {
+    // Faixas físicas plausíveis para BEV à venda no Brasil (limites folgados
+    // para não rejeitar edge cases reais; objetivos: detectar unidade errada,
+    // dígito trocado ou campo em metros em vez de mm).
+    const RANGES: Array<[keyof Car, number, number]> = [
+      ['lengthMm', 2500, 6000],
+      ['widthMm', 1450, 2100],
+      ['heightMm', 1150, 2300],
+      ['wheelbaseMm', 1900, 3400],
+      ['groundClearanceMm', 90, 300],
+      ['weightKg', 700, 3500],
+      ['trunkLiters', 40, 2500],
+    ];
+
+    it('optional dimension fields should be integers within plausible ranges', () => {
+      for (const car of CAR_DB) {
+        for (const [field, min, max] of RANGES) {
+          const value = car[field];
+          if (value !== undefined) {
+            expect(typeof value).toBe('number');
+            expect(Number.isFinite(value), `${car.model}.${String(field)} deve ser finito`).toBe(true);
+            expect(Number.isInteger(value), `${car.model}.${String(field)} deve ser inteiro`).toBe(true);
+            expect(value, `${car.model}.${String(field)}=${value} fora da faixa ${min}-${max}`).toBeGreaterThanOrEqual(min);
+            expect(value).toBeLessThanOrEqual(max);
+          }
+        }
+      }
+    });
+
+    it('wheelbase should be smaller than length when both are present', () => {
+      for (const car of CAR_DB) {
+        if (car.wheelbaseMm !== undefined && car.lengthMm !== undefined) {
+          expect(car.wheelbaseMm, `${car.model}: entre-eixos >= comprimento`).toBeLessThan(car.lengthMm);
+        }
+      }
+    });
+
+    it('ground clearance should be smaller than height when both are present', () => {
+      for (const car of CAR_DB) {
+        if (car.groundClearanceMm !== undefined && car.heightMm !== undefined) {
+          expect(car.groundClearanceMm, `${car.model}: altura do solo >= altura`).toBeLessThan(car.heightMm);
+        }
+      }
+    });
   });
 });

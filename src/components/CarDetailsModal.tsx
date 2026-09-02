@@ -9,6 +9,8 @@ import { IPVA_BY_STATE, calcIpva, IPVA_DATA_UPDATED } from '../constants/ipvaByS
 import { getPriceDelta, getLastSnapshot } from '../constants/priceHistory';
 import { track } from '../utils/analytics';
 import { resolveCarImageUrl } from '../utils/imageUrl';
+import { hasDimensions, dimensionProperties } from '../utils/dimensions';
+import DimensionsSpec from './DimensionsSpec';
 import DataEvidence from './DataEvidence';
 
 interface CarDetailsModalProps {
@@ -101,6 +103,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
         { '@type': 'PropertyValue', name: 'Autonomia PBEV', value: `${car.range} km`, unitCode: 'KMT' },
         ...(car.battery ? [{ '@type': 'PropertyValue', name: 'Bateria', value: `${car.battery} kWh` }] : []),
         ...(car.traction ? [{ '@type': 'PropertyValue', name: 'Tração', value: car.traction }] : []),
+        ...(hasDimensions(car) ? dimensionProperties(car) : []),
       ]}),
     }), [car, gallery]);
     useJsonLd(productSchema);
@@ -482,6 +485,9 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                             </div>
                         );
                     })()}
+
+                    {/* Dimensões e peso */}
+                    <DimensionsSpec car={car} accent={accent.color} className="mb-5" />
 
                     {/* Divider */}
                     <div className="h-px w-full mb-5" style={{ background: 'rgba(255,255,255,0.06)' }} />

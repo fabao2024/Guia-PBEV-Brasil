@@ -13,6 +13,11 @@ Add a new electric vehicle to the PBEV 2025 catalog. The user will provide the v
    - `img` (string) — local path like `/car-images/model-y.jpg`
    - `power` (number, optional) — in cv
    - `torque` (number, optional) — in kgfm
+   - Dimensions (optional, all integers): `lengthMm`, `widthMm` (without mirrors),
+     `heightMm`, `wheelbaseMm`, `groundClearanceMm` (unladen, mm), `weightKg` (curb weight),
+     `trunkLiters` (VDA). Only add from official sources (manufacturer site or press
+     release) and record provenance in `.github/data/catalog-provenance.json`
+     (fields `dimensions`, `trunk`, `weight`).
 
    If any required field is missing, ask the user before proceeding.
 

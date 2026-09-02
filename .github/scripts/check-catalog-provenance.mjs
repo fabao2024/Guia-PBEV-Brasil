@@ -9,7 +9,7 @@ import { collectorResultPath, writeCollectorResult } from './maintenance-io.mjs'
 const SOURCE = 'provenance';
 const REGISTRY_FILE = '.github/data/catalog-provenance.json';
 const CARS_FILE = 'public/data/cars.json';
-const FIELDS = ['price', 'range_km', 'consumption', 'power', 'battery', 'charging', 'availability'];
+const FIELDS = ['price', 'range_km', 'consumption', 'power', 'battery', 'charging', 'availability', 'dimensions', 'trunk', 'weight'];
 const bootstrap = process.argv.includes('--bootstrap');
 
 function legacyField() {

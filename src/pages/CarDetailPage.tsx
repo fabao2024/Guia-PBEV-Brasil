@@ -13,6 +13,8 @@ import { IPVA_BY_STATE, calcIpva, IPVA_DATA_UPDATED } from '../constants/ipvaByS
 import { getPriceDelta, getLastSnapshot } from '../constants/priceHistory';
 import { track } from '../utils/analytics';
 import { resolveCarImageUrl } from '../utils/imageUrl';
+import { hasDimensions, dimensionProperties } from '../utils/dimensions';
+import DimensionsSpec from '../components/DimensionsSpec';
 import DataEvidence from '../components/DataEvidence';
 
 const MAX_RANGE_KM = 700;
@@ -123,6 +125,7 @@ export default function CarDetailPage() {
           { '@type': 'PropertyValue', name: 'Autonomia PBEV', value: `${car.range} km`, unitCode: 'KMT' },
           ...(car.battery ? [{ '@type': 'PropertyValue', name: 'Bateria', value: `${car.battery} kWh` }] : []),
           ...(car.traction ? [{ '@type': 'PropertyValue', name: 'Tração', value: car.traction }] : []),
+          ...(hasDimensions(car) ? dimensionProperties(car) : []),
         ],
       }),
     };
@@ -482,6 +485,9 @@ export default function CarDetailPage() {
               </section>
             );
           })()}
+
+          {/* Dimensões e peso */}
+          <DimensionsSpec car={car} accent={accent.color} headingLevel={2} className="mb-8" />
 
           {/* Divider */}
           <div className="h-px w-full mb-8" style={{ background: 'rgba(255,255,255,0.06)' }} />
