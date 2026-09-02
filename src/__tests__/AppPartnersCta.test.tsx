@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { HelmetProvider } from 'react-helmet-async';
 import { MemoryRouter } from 'react-router-dom';
@@ -54,10 +54,11 @@ describe('App partner CTA', () => {
     );
 
     await user.click(screen.getByRole('button', { name: /quero limpeza de placas/i }));
-    expect(screen.getByLabelText(/serviço desejado/i)).toHaveDisplayValue(/limpeza de placas solares/i);
+    const serviceSelect = await screen.findByLabelText(/serviço desejado/i, {}, { timeout: 10_000 });
+    await waitFor(() => expect(serviceSelect).toHaveDisplayValue(/limpeza de placas solares/i));
   }, 30_000);
 
-  it('accepts a direct solar-cleaning interest URL', () => {
+  it('accepts a direct solar-cleaning interest URL', async () => {
     render(
       <HelmetProvider>
         <MemoryRouter initialEntries={['/interesse?servico=limpeza_sistema_solar&origem=chat']}>
@@ -66,6 +67,7 @@ describe('App partner CTA', () => {
       </HelmetProvider>,
     );
 
-    expect(screen.getByLabelText(/serviço desejado/i)).toHaveDisplayValue(/limpeza de placas solares/i);
+    const serviceSelect = await screen.findByLabelText(/serviço desejado/i, {}, { timeout: 10_000 });
+    await waitFor(() => expect(serviceSelect).toHaveDisplayValue(/limpeza de placas solares/i));
   }, 30_000);
 });

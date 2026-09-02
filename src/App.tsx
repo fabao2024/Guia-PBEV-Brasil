@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect, useRef } from 'react';
+import React, { useMemo, useState, useEffect, useRef, lazy, Suspense } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import CarDetailPage from './pages/CarDetailPage';
 import CompareDetailPage from './pages/CompareDetailPage';
@@ -9,16 +9,19 @@ import { useTranslation } from 'react-i18next';
 import { CAR_DB, isCarNew, BRAND_URLS } from './constants';
 import Sidebar from './components/Sidebar';
 import CarCard from './components/CarCard';
-import ChatWidget from './components/ChatWidget';
 import WhatsAppCta from './components/WhatsAppCta';
-import LeadCaptureModal from './components/LeadCaptureModal';
-import CarDetailsModal from './components/CarDetailsModal';
-import ComparisonModal from './components/ComparisonModal';
 import LanguageToggle from './components/LanguageToggle';
+
+// Componentes interaction-gated carregados sob demanda para reduzir o bundle
+// crítico (chat IA, mapa/rota com leaflet, simulador e modais de detalhe).
+const ChatWidget = lazy(() => import('./components/ChatWidget'));
+const LeadCaptureModal = lazy(() => import('./components/LeadCaptureModal'));
+const CarDetailsModal = lazy(() => import('./components/CarDetailsModal'));
+const ComparisonModal = lazy(() => import('./components/ComparisonModal'));
+const SavingsSimulatorModal = lazy(() => import('./components/SavingsSimulatorModal'));
+const ChargingMapModal = lazy(() => import('./components/ChargingMapModal').then(m => ({ default: m.ChargingMapModal })));
+const RoutePlannerModal = lazy(() => import('./components/RoutePlannerModal').then(m => ({ default: m.RoutePlannerModal })));
 import { isLeadCapturePath, LEAD_CAPTURE_ENABLED } from './config/leadCapture';
-import SavingsSimulatorModal from './components/SavingsSimulatorModal';
-import { ChargingMapModal } from './components/ChargingMapModal';
-import { RoutePlannerModal } from './components/RoutePlannerModal';
 import { Zap, Printer, Search, SlidersHorizontal, Scale, X, ArrowRight, Heart, BarChart2, Lightbulb, XCircle, MapPin, Route as RouteIcon, ArrowDownUp } from 'lucide-react';
 import { useCarFilter } from './hooks/useCarFilter';
 import { useFavorites } from './hooks/useFavorites';
@@ -779,79 +782,80 @@ export default function App() {
           </div>
         )}
 
-        {/* Details Modal */}
-        {selectedCar && (
-          <CarDetailsModal
-            car={selectedCar}
-            onClose={() => setSelectedCar(null)}
-            isSelectedForCompare={!!compareList.find(c => c.model === selectedCar.model)}
-            onToggleCompare={() => handleToggleCompare(selectedCar)}
-            isFavorite={favorites.includes(selectedCar.model)}
-            onToggleFavorite={() => handleToggleFavorite(selectedCar)}
-            onLeadRequest={LEAD_CAPTURE_ENABLED ? () => openLeadModal('vehicle_detail', selectedCar, 'wallbox') : undefined}
+        {/* Modais e chat sob demanda */}
+        <Suspense fallback={null}>
+          {/* Details Modal */}
+          {selectedCar && (
+            <CarDetailsModal
+              car={selectedCar}
+              onClose={() => setSelectedCar(null)}
+              isSelectedForCompare={!!compareList.find(c => c.model === selectedCar.model)}
+              onToggleCompare={() => handleToggleCompare(selectedCar)}
+              isFavorite={favorites.includes(selectedCar.model)}
+              onToggleFavorite={() => handleToggleFavorite(selectedCar)}
+              onLeadRequest={LEAD_CAPTURE_ENABLED ? () => openLeadModal('vehicle_detail', selectedCar, 'wallbox') : undefined}
+            />
+          )}
+
+          {/* Comparison Modal */}
+          {isCompareModalOpen && (
+            <ComparisonModal
+              cars={compareList}
+              allCars={CAR_DB}
+              onClose={() => setIsCompareModalOpen(false)}
+              onRemove={(car) => {
+                removeFromCompare(car);
+                if (compareList.length <= 1) setIsCompareModalOpen(false);
+              }}
+              onAdd={(car) => toggleCompare(car)}
+            />
+          )}
+
+          {/* Simulator Modal */}
+          {isSimulatorModalOpen && (
+            <SavingsSimulatorModal
+              onClose={() => setIsSimulatorModalOpen(false)}
+              onLeadRequest={(interest) => {
+                setIsSimulatorModalOpen(false);
+                openLeadModal('tco_result', null, interest);
+              }}
+              initialCars={
+                compareList.length > 0
+                  ? compareList
+                  : lastViewedCar
+                    ? [lastViewedCar]
+                    : []
+              }
+            />
+          )}
+
+          {/* Charging Map Modal */}
+          {isChargingMapOpen && (
+            <ChargingMapModal onClose={() => setIsChargingMapOpen(false)} />
+          )}
+
+          {/* Route Planner Modal */}
+          {isRoutePlannerOpen && (
+            <RoutePlannerModal onClose={() => setIsRoutePlannerOpen(false)} />
+          )}
+
+          {/* AI CHAT */}
+          <ChatWidget
+            compareBarVisible={compareList.length > 0}
+            triggerSuggest={triggerSuggestChat}
+            onTriggerSuggestHandled={() => setTriggerSuggestChat(false)}
           />
-        )}
 
-        {/* Comparison Modal */}
-        {isCompareModalOpen && (
-          <ComparisonModal
-            cars={compareList}
-            allCars={CAR_DB}
-            onClose={() => setIsCompareModalOpen(false)}
-            onRemove={(car) => {
-              removeFromCompare(car);
-              if (compareList.length <= 1) setIsCompareModalOpen(false);
-            }}
-            onAdd={(car) => toggleCompare(car)}
-          />
-        )}
-
-
-
-        {/* Simulator Modal */}
-        {isSimulatorModalOpen && (
-          <SavingsSimulatorModal
-            onClose={() => setIsSimulatorModalOpen(false)}
-            onLeadRequest={(interest) => {
-              setIsSimulatorModalOpen(false);
-              openLeadModal('tco_result', null, interest);
-            }}
-            initialCars={
-              compareList.length > 0
-                ? compareList
-                : lastViewedCar
-                  ? [lastViewedCar]
-                  : []
-            }
-          />
-        )}
-
-        {/* Charging Map Modal */}
-        {isChargingMapOpen && (
-          <ChargingMapModal onClose={() => setIsChargingMapOpen(false)} />
-        )}
-
-        {/* Route Planner Modal */}
-        {isRoutePlannerOpen && (
-          <RoutePlannerModal onClose={() => setIsRoutePlannerOpen(false)} />
-        )}
-
-        {/* AI CHAT */}
-        <ChatWidget
-          compareBarVisible={compareList.length > 0}
-          triggerSuggest={triggerSuggestChat}
-          onTriggerSuggestHandled={() => setTriggerSuggestChat(false)}
-        />
-
-        {LEAD_CAPTURE_ENABLED && (
-          <LeadCaptureModal
-            isOpen={leadModalOpen}
-            selectedCar={leadCar}
-            source={leadSource}
-            initialInterest={leadInitialInterest}
-            onClose={closeLeadModal}
-          />
-        )}
+          {LEAD_CAPTURE_ENABLED && (
+            <LeadCaptureModal
+              isOpen={leadModalOpen}
+              selectedCar={leadCar}
+              source={leadSource}
+              initialInterest={leadInitialInterest}
+              onClose={closeLeadModal}
+            />
+          )}
+        </Suspense>
 
         {/* Favorite toast */}
         {toast && (
