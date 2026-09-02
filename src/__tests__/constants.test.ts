@@ -82,7 +82,8 @@ describe('CAR_DB data integrity', () => {
       ['wheelbaseMm', 1900, 3400],
       ['groundClearanceMm', 90, 300],
       ['weightKg', 700, 3500],
-      ['trunkLiters', 40, 2500],
+      // 8000 L: furgões (Kangoo E-Tech 4.300 L etc.) declaram volume de carga
+      ['trunkLiters', 40, 8000],
     ];
 
     it('optional dimension fields should be integers within plausible ranges', () => {

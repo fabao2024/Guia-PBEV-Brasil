@@ -145,6 +145,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.44,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 30,
+    lengthMm: 3701, heightMm: 1534, wheelbaseMm: 2423, groundClearanceMm: 172, weightKg: 969, trunkLiters: 290,
   },
   {
     model: "iCar EQ", brand: "CAOA Chery", price: 119990, range: 197, cat: "Urbano",
@@ -841,6 +842,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.51,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 22, chargeDC: 130,
+    lengthMm: 4200, widthMm: 1768, heightMm: 1505, wheelbaseMm: 2685, weightKg: 1680, trunkLiters: 440,
   },
   {
     model: "Countryman SE", brand: "Mini", price: 409990, range: 320, cat: "SUV",
@@ -1614,6 +1616,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.6,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 80,
+    lengthMm: 4910, heightMm: 1830, wheelbaseMm: 3100, trunkLiters: 4300,
   },
   {
     model: "ID.Buzz", brand: "Volkswagen", price: 340000, range: 337, cat: "Comercial",

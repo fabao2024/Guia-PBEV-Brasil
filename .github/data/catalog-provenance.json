@@ -7311,18 +7311,18 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.user-manual.renault.com/pt-br/content/renault-kangoo-electric/caracteristicas-tecnicas/informacoes-sobre-o-veiculo/dimensoes-em",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-02"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.renault.com.br/veiculos/kangoo-e-tech",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-02"
         },
         "weight": {
           "verificationStatus": "legacy_unverified",
@@ -7387,25 +7387,25 @@
           "verifiedAt": "2026-08-25"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://imprensa.renault.com.br/release/item/kwid-etech-o-veiculo-eletrico-mais-acessivel-do-brasil-chega-com-novo-design-mais-tecnologia-e-mais-seguranca",
+          "sourceUpdatedAt": "2025-10-08",
+          "verifiedAt": "2026-09-02"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://imprensa.renault.com.br/release/item/kwid-etech-o-veiculo-eletrico-mais-acessivel-do-brasil-chega-com-novo-design-mais-tecnologia-e-mais-seguranca",
+          "sourceUpdatedAt": "2025-10-08",
+          "verifiedAt": "2026-09-02"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://imprensa.renault.com.br/release/item/kwid-etech-o-veiculo-eletrico-mais-acessivel-do-brasil-chega-com-novo-design-mais-tecnologia-e-mais-seguranca",
+          "sourceUpdatedAt": "2025-10-08",
+          "verifiedAt": "2026-09-02"
         }
       }
     },
@@ -7463,25 +7463,25 @@
           "verifiedAt": "2026-08-25"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://cdn.group.renault.com/ren/br/renault-new-cars/editorial/2024/manual/megane/agosto/Manual_BCB_Megane.pdf",
+          "sourceUpdatedAt": "2024-08-01",
+          "verifiedAt": "2026-09-02"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.renault.com.br/veiculos/megane-e-tech",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-02"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.renault.com.br/veiculos/megane-e-tech",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-02"
         }
       }
     },
