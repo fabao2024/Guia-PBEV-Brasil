@@ -2,6 +2,19 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 02/09/2026 · Dimensões e peso: lotes Chevrolet, GWM, Renault e Hyundai
+
+| Área | Mudança pública |
+|---|---|
+| Chevrolet | Spark EUV (4.003/1.760/1.726/2.560 mm, 355 L), Captiva EV (entre-eixos 2.800 mm, 1.800 kg OM, 403 L), Equinox EV (4.840/1.954 mm, 441 L) e Blazer EV RS (4.884/1.982/1.650/3.094 mm, 2.421 kg OM, 436 L), via newsroom GM Brasil e ficha completa do site. GM não publica altura do solo de nenhum elétrico; Captiva não publica L/C/A; pesos de Spark ("peso total") e Equinox (sem rótulo) ficaram nulos por ambiguidade de métrica. Blazer: altura com rack de teto conforme release oficial. |
+| GWM | Ora 03 Skin BEV48 (1.540 kg), Skin BEV58 (1.670 kg), GT BEV63 (4.254/1.848 mm, 1.580 kg) e Ora 5 (4.471/1.833/1.641/2.720 mm, solo 175 mm, 1.685 kg, 362 L), das fichas técnicas oficiais em PDF no domínio GWM. |
+| Renault | Kwid E-Tech (3.701/1.534/2.423 mm, solo 172 mm, 969 kg, 290 L — release oficial da linha 2026); Megane E-Tech (4.200/1.768/1.505/2.685 mm, 1.680 kg, 440 L — manual do proprietário e catálogo BR); Kangoo E-Tech (chassi longo 4.910/3.100 mm, altura vazia 1.830 mm, volume de carga 4.300 L). Largura sem espelhos do Kwid e do Kangoo não é publicada — nula. Peso do Kangoo aguarda ficha oficial com URL citável. |
+| Hyundai | Kona EV (4.180/1.800/1.570/2.600 mm, 1.535 kg, 332 L — documento técnico oficial da sala de imprensa Hyundai para a mesma geração/motorização vendida no BR; site BR não publica mais o modelo) e Ioniq 5 (4.655/1.890/1.605/3.000 mm, 520 L — catálogo digital oficial; divergência de altura 1.605 catálogo vs. 1.625 manual documentada; peso OM não publicado — nulo). |
+| Invariantes | Faixa de porta-malas ampliada para até 8.000 L para acomodar volume de carga de furgões (Kangoo 4.300 L). |
+| Proveniência | Cobertura verificada subiu de 519/1090 para **540/1090** (fonte oficial direta por grupo de campo). |
+| Interface | Botão flutuante do Consultor IA recebeu `aria-label` (era só-ícone sem nome acessível). |
+| Verificação | 303/303 testes, TypeScript limpo, build Vite, rotas estáticas, scanner de segredos e verificador de proveniência aprovados. |
+
 ## 02/09/2026 · Dimensões e peso: schema, ficha técnica e lote BYD
 
 | Área | Mudança pública |
