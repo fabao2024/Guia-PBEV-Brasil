@@ -14,12 +14,12 @@ export interface TCOParams {
 }
 
 // Depreciação linear ao longo de 4 anos
-const EV_DEPR_ANNUAL   = 0.38 / 4; // 9,5% ao ano
-const COMB_DEPR_ANNUAL = 0.28 / 4; // 7,0% ao ano
+export const EV_DEPR_ANNUAL   = 0.38 / 4; // 9,5% ao ano
+export const COMB_DEPR_ANNUAL = 0.28 / 4; // 7,0% ao ano
 
 // Alíquota de seguro sobre valor depreciado do veículo
-const EV_INS_RATE   = 0.033; // 3,3% do valor EV/ano
-const COMB_INS_RATE = 0.025; // 2,5% do valor combustão/ano
+export const EV_INS_RATE   = 0.033; // 3,3% do valor EV/ano
+export const COMB_INS_RATE = 0.025; // 2,5% do valor combustão/ano
 
 // Intervalo de revisão em km
 export const EV_MAINT_KM   = 20_000; // revisão a cada 20.000 km (EV)

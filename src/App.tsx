@@ -3,6 +3,7 @@ import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import CarDetailPage from './pages/CarDetailPage';
 import CompareDetailPage from './pages/CompareDetailPage';
 import PartnerApplicationsPage from './pages/PartnerApplicationsPage';
+import MethodologyPage from './pages/MethodologyPage';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { CAR_DB, isCarNew, BRAND_URLS } from './constants';
@@ -712,6 +713,14 @@ export default function App() {
               >
                 Parceiros
               </a>
+              <span className="text-[#222222]">·</span>
+              <a
+                href="/metodologia"
+                className="text-[#333333] hover:text-[#00b4ff] transition-colors"
+                title="Metodologia de cálculo do Guia PBEV"
+              >
+                {t('footer.methodology', 'Metodologia')}
+              </a>
             </p>
           </footer>
         </main>
@@ -862,6 +871,7 @@ export default function App() {
       <Route path="/carro/:slug" element={<CarDetailPage />} />
       <Route path="/comparar/:slugA/:slugB" element={<CompareDetailPage />} />
       <Route path="/parceiros/*" element={<PartnerApplicationsPage />} />
+      <Route path="/metodologia" element={<MethodologyPage />} />
       <Route path="/interesse" element={catalogContent} />
       <Route path="*" element={catalogContent} />
     </Routes>

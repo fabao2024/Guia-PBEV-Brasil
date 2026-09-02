@@ -32,6 +32,13 @@ export default function DataEvidence({ compact = false }: DataEvidenceProps) {
           Fonte oficial do Inmetro
           <ExternalLink className="h-3 w-3" aria-hidden="true" />
         </a>
+        <span aria-hidden="true" className="text-white/20">·</span>
+        <a
+          href="/metodologia"
+          className="inline-flex items-center gap-1 font-semibold text-[#72d7ff] hover:text-white"
+        >
+          Metodologia
+        </a>
       </div>
       {!compact && (
         <p className="mt-1 text-[11px] text-white/35">{CATALOG_EVIDENCE.priceDisclaimer}</p>

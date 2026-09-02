@@ -13,6 +13,12 @@ const routes = [
     description: 'Receba oportunidades qualificadas por serviço, região e momento de decisão no piloto Guia PBEV de wallbox, energia solar e limpeza de placas em São Paulo.',
     canonicalUrl: 'https://guiapbev.cloud/parceiros/',
   },
+  {
+    path: 'metodologia',
+    title: 'Metodologia de Cálculo | Guia PBEV Brasil',
+    description: 'Fontes de dados e fórmulas do Guia PBEV: PBEV/INMETRO, tarifas ANEEL, preços ANP, IPVA estadual, TCO de 4 anos e estimativas do planejador de rota.',
+    canonicalUrl: 'https://guiapbev.cloud/metodologia/',
+  },
   ...(leadCaptureEnabled ? [{ path: 'interesse' }] : []),
 ];
 
