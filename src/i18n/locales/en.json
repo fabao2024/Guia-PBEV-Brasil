@@ -18,6 +18,7 @@
   "sidebar": {
     "filters": "Filters",
     "clear": "Clear",
+    "closeFilters": "Close filters",
     "maxPrice": "Max Price",
     "range": "PBEV Range — minimum",
     "category": "Category",

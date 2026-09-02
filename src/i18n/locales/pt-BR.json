@@ -18,6 +18,7 @@
   "sidebar": {
     "filters": "Filtros",
     "clear": "Limpar",
+    "closeFilters": "Fechar filtros",
     "maxPrice": "Preço Máximo",
     "range": "Autonomia PBEV — mínimo",
     "category": "Categoria",

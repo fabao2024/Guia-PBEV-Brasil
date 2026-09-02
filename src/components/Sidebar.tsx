@@ -74,19 +74,20 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
           <button onClick={clearFilters} className="text-xs font-black text-[#00b4ff] hover:bg-[#00b4ff] hover:text-black uppercase bg-[#00b4ff]/10 px-3 py-1.5 rounded-full transition-all border border-[#00b4ff]/30 tracking-wider">
             {t('sidebar.clear')}
           </button>
-          <button onClick={onClose} className="md:hidden text-[#666666] hover:text-[#00b4ff] transition-colors bg-white/5 p-1.5 rounded-lg border border-white/10">
-            <X className="w-5 h-5" />
+          <button onClick={onClose} aria-label={t('sidebar.closeFilters', 'Fechar filtros')} className="md:hidden text-[#666666] hover:text-[#00b4ff] transition-colors bg-white/5 p-1.5 rounded-lg border border-white/10">
+            <X className="w-5 h-5" aria-hidden="true" />
           </button>
         </div>
       </div>
 
       {/* Price Filter */}
       <div className="mb-10">
-        <label className="block text-xs font-black text-[#a0a0a0] uppercase mb-4 tracking-widest">{t('sidebar.maxPrice')}</label>
+        <label htmlFor="filter-max-price" className="block text-xs font-black text-[#a0a0a0] uppercase mb-4 tracking-widest">{t('sidebar.maxPrice')}</label>
         <div className="flex items-baseline gap-1 mb-4">
           <span className="font-display text-3xl font-bold text-white tracking-tight drop-shadow-md">{formatPrice(filters.maxPrice)}</span>
         </div>
         <input
+          id="filter-max-price"
           type="range"
           min="100000"
           max="1500000"
@@ -105,11 +106,12 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
 
       {/* Range Filter */}
       <div className="mb-10">
-        <label className="block text-xs font-black text-[#a0a0a0] uppercase mb-4 tracking-widest">{t('sidebar.range')}</label>
+        <label htmlFor="filter-min-range" className="block text-xs font-black text-[#a0a0a0] uppercase mb-4 tracking-widest">{t('sidebar.range')}</label>
         <div className="flex items-baseline gap-1 mb-4">
           <span className="font-display text-3xl font-bold text-white tracking-tight drop-shadow-md">{filters.minRange} <span className="text-lg text-[#00b4ff]">km</span></span>
         </div>
         <input
+          id="filter-min-range"
           type="range"
           min="100"
           max="600"
