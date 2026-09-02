@@ -231,6 +231,9 @@ describe('maintenance automation core', () => {
         'battery',
         'charging',
         'availability',
+        'dimensions',
+        'trunk',
+        'weight',
       ]);
     }
   });

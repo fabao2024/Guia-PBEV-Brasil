@@ -2,6 +2,18 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 02/09/2026 · Dimensões e peso: schema, ficha técnica e lote BYD
+
+| Área | Mudança pública |
+|---|---|
+| Schema | Novos campos opcionais por veículo: comprimento, largura (sem espelhos), altura, entre-eixos, altura do solo (desalicerada) em mm, peso em ordem de marcha em kg e porta-malas VDA em litros. |
+| Interface | Seção "Dimensões" na ficha técnica (modal e página `/carro/<slug>`), linhas condicionais na comparação (modal e `/comparar/`), JSON-LD `additionalProperty` e campos em `cars.json`. Convenções documentadas em `/metodologia`. |
+| Validação | Invariants no `constants.test.ts`: faixas físicas plausíveis, entre-eixos < comprimento, altura do solo < altura. |
+| Lote BYD | 12 de 13 modelos BYD com dimensões oficiais das fichas técnicas BR (`byd.com/material`, pasta de 13/07/2026): Dolphin Mini GS/GL, Dolphin GS/Plus/Special Edition, Yuan Pro, Yuan Plus, Yuan Plus AWD, Sealion 7, Seal AWD, Tan EV e Han EV. eT3 sem ficha oficial pública com dimensões — permanece sem dados. |
+| Pendências documentadas | Yuan Plus (RWD): ficha oficial sem data declarada — proveniência marcada como não verificada até ficha datada. Seal AWD: ficha declara "Edição Fevereiro/2026" (dia não especificado). Tan EV: ficha BR traz apenas "distância do solo carregado", que viola a convenção desalicerada — campo ficou nulo. Larguras de fichas V2 em metros (±10 mm) prevalecem sobre fichas anteriores em mm quando conflito. |
+| Proveniência | Verificador passa a rastrear os grupos `dimensions`, `trunk` e `weight` por veículo (1090 células); cobertura verificada **519/1090** com fonte oficial direta (+33 do lote BYD). |
+| Verificação | 303/303 testes, TypeScript limpo, build Vite, rotas estáticas, scanner de segredos e verificador de proveniência aprovados. |
+
 ## 26/08/2026 · Lote B de comerciais leves e Leapmotor no Bloco 5
 
 | Área | Mudança pública |

@@ -196,6 +196,8 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.41,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 40,
+    lengthMm: 3780, widthMm: 1720, heightMm: 1580, wheelbaseMm: 2500,
+    groundClearanceMm: 155, weightKg: 1239, trunkLiters: 230,
   },
   {
     model: "Dolphin Mini GL", brand: "BYD", price: 109990, range: 224, cat: "Urbano",
@@ -211,6 +213,8 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.39,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 30,
+    lengthMm: 3780, widthMm: 1720, heightMm: 1580, wheelbaseMm: 2500,
+    groundClearanceMm: 155, weightKg: 1165, trunkLiters: 230,
   },
   {
     model: "Aion UT Premium", brand: "GAC", price: 139990, range: 253, cat: "Compacto",
@@ -365,7 +369,7 @@ export const CAR_DB: Car[] = [
       "Design SUV com acabamento premium"
     ],
     pbeRating: 'A', energyMJkm: 0.49,
-    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 120,
+    warrantyYears: 6, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 80,
   },
   {
     model: "Spark EUV", brand: "Chevrolet", price: 144990, range: 258, cat: "Urbano",
@@ -400,6 +404,8 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.42,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 60,
+    lengthMm: 4130, widthMm: 1770, heightMm: 1570, wheelbaseMm: 2700,
+    groundClearanceMm: 150, weightKg: 1405, trunkLiters: 250,
   },
   {
     model: "500e Icon", brand: "Fiat", price: 214990, range: 227, cat: "Compacto",
@@ -503,6 +509,8 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.51,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 80,
+    lengthMm: 4290, widthMm: 1770, heightMm: 1570, wheelbaseMm: 2700,
+    groundClearanceMm: 150, weightKg: 1672, trunkLiters: 345,
   },
   {
     model: "Dolphin Special Edition", brand: "BYD", price: 159990, range: 272, cat: "Compacto",
@@ -522,6 +530,8 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.49,
     warrantyYears: 6, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 80,
+    lengthMm: 4280, widthMm: 1770, heightMm: 1570, wheelbaseMm: 2700,
+    groundClearanceMm: 150, weightKg: 1485, trunkLiters: 250,
   },
 
   // 2. SUVS & SEDANS MÉDIOS
@@ -558,6 +568,8 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.51,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 65,
+    lengthMm: 4310, widthMm: 1830, heightMm: 1680, wheelbaseMm: 2620,
+    groundClearanceMm: 170, weightKg: 1550, trunkLiters: 265,
   },
   {
     model: "Aion Y Elite", brand: "GAC", price: 187990, range: 318, cat: "SUV",
@@ -731,6 +743,8 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.56,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 88,
+    lengthMm: 4455, widthMm: 1875, heightMm: 1615, wheelbaseMm: 2720,
+    groundClearanceMm: 150, weightKg: 1700, trunkLiters: 312,
   },
   {
     model: "Yuan Plus AWD", brand: "BYD", price: 269990, range: 378, cat: "SUV",
@@ -748,6 +762,8 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.58,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 205,
+    lengthMm: 4455, widthMm: 1875, heightMm: 1615, wheelbaseMm: 2720,
+    groundClearanceMm: 170, weightKg: 1990, trunkLiters: 490,
     // range Inmetro: 350 km
   },
   {
@@ -888,6 +904,8 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.66,
     warrantyYears: 6, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
+    lengthMm: 4830, widthMm: 1920, heightMm: 1620, wheelbaseMm: 2930,
+    groundClearanceMm: 169, weightKg: 2340, trunkLiters: 500,
   },
   {
     model: "EX40 (XC40)", brand: "Volvo", price: 329950, range: 364, cat: "SUV",
@@ -1193,6 +1211,8 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.62,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 150,
+    lengthMm: 4800, widthMm: 1875, heightMm: 1460, wheelbaseMm: 2920,
+    groundClearanceMm: 120, weightKg: 2185, trunkLiters: 400,
   },
   {
     model: "001 Premium", brand: "Zeekr", price: 428000, range: 426, cat: "Luxo",
@@ -1276,6 +1296,8 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.73,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 170,
+    lengthMm: 4970, widthMm: 1960, heightMm: 1750, wheelbaseMm: 2820,
+    weightKg: 2621, trunkLiters: 235,
   },
   {
     model: "Han EV", brand: "BYD", price: 559800, range: 349, cat: "Luxo",
@@ -1293,6 +1315,8 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.69,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 120,
+    lengthMm: 4990, widthMm: 1910, heightMm: 1500, wheelbaseMm: 2920,
+    groundClearanceMm: 141, weightKg: 2250, trunkLiters: 410,
   },
   {
     model: "Macan EV", brand: "Porsche", price: 690000, range: 443, cat: "Luxo",

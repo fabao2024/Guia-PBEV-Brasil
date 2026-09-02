@@ -89,6 +89,27 @@
           "sourceUrl": null,
           "sourceUpdatedAt": null,
           "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -139,6 +160,27 @@
           "verifiedAt": null
         },
         "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
           "verificationStatus": "legacy_unverified",
           "sourceType": null,
           "sourceUrl": null,
@@ -199,6 +241,27 @@
           "sourceUrl": null,
           "sourceUpdatedAt": null,
           "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -249,6 +312,27 @@
           "verifiedAt": null
         },
         "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
           "verificationStatus": "legacy_unverified",
           "sourceType": null,
           "sourceUrl": null,
@@ -309,6 +393,27 @@
           "sourceUrl": null,
           "sourceUpdatedAt": null,
           "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -359,6 +464,27 @@
           "verifiedAt": null
         },
         "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
           "verificationStatus": "legacy_unverified",
           "sourceType": null,
           "sourceUrl": null,
@@ -419,6 +545,27 @@
           "sourceUrl": null,
           "sourceUpdatedAt": null,
           "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -469,6 +616,27 @@
           "verifiedAt": null
         },
         "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
           "verificationStatus": "legacy_unverified",
           "sourceType": null,
           "sourceUrl": null,
@@ -529,6 +697,27 @@
           "sourceUrl": "https://www.bmw.com.br/pt/all-models/bmw-i/i7/bmw-i7.html",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -579,6 +768,27 @@
           "verifiedAt": null
         },
         "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
           "verificationStatus": "legacy_unverified",
           "sourceType": null,
           "sourceUrl": null,
@@ -639,6 +849,27 @@
           "sourceUrl": null,
           "sourceUpdatedAt": null,
           "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -694,6 +925,27 @@
           "sourceUrl": "https://www.bmw.com.br/pt/all-models/bmw-i/ix2/bmw-ix2-overview.html",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -744,6 +996,27 @@
           "verifiedAt": null
         },
         "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
           "verificationStatus": "legacy_unverified",
           "sourceType": null,
           "sourceUrl": null,
@@ -804,6 +1077,27 @@
           "sourceUrl": "https://www.byd.com/br",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_DolphinGS_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_DolphinGS_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_DolphinGS_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
         }
       }
     },
@@ -859,6 +1153,27 @@
           "sourceUrl": "https://www.byd.com/br",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_DolphinMini_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_DolphinMini_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_DolphinMini_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
         }
       }
     },
@@ -914,6 +1229,27 @@
           "sourceUrl": "https://www.byd.com/br",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_DolphinMini_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_DolphinMini_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_DolphinMini_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
         }
       }
     },
@@ -969,6 +1305,27 @@
           "sourceUrl": "https://www.byd.com/br/car/dolphin-plus",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_DolphinPlus_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_DolphinPlus_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_DolphinPlus_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
         }
       }
     },
@@ -1024,6 +1381,27 @@
           "sourceUrl": "https://www.byd.com/br",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_DolphinSE_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_DolphinSE_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_DolphinSE_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
         }
       }
     },
@@ -1074,6 +1452,27 @@
           "verifiedAt": null
         },
         "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
           "verificationStatus": "legacy_unverified",
           "sourceType": null,
           "sourceUrl": null,
@@ -1134,6 +1533,27 @@
           "sourceUrl": "https://www.byd.com/br",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_Han_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_Han_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_Han_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
         }
       }
     },
@@ -1189,6 +1609,27 @@
           "sourceUrl": "https://www.byd.com/br",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/byd-site/br/fichas-tecnicas-2026/356.1575.7802.6%20-%20FICHA%20TECNICA%20-%20SEAL_V2.pdf",
+          "sourceUpdatedAt": "2026-02-01",
+          "verifiedAt": "2026-09-02"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/byd-site/br/fichas-tecnicas-2026/356.1575.7802.6%20-%20FICHA%20TECNICA%20-%20SEAL_V2.pdf",
+          "sourceUpdatedAt": "2026-02-01",
+          "verifiedAt": "2026-09-02"
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/byd-site/br/fichas-tecnicas-2026/356.1575.7802.6%20-%20FICHA%20TECNICA%20-%20SEAL_V2.pdf",
+          "sourceUpdatedAt": "2026-02-01",
+          "verifiedAt": "2026-09-02"
         }
       }
     },
@@ -1244,6 +1685,27 @@
           "sourceUrl": "https://www.byd.com/br",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_Sealion7_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_Sealion7_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_Sealion7_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
         }
       }
     },
@@ -1299,6 +1761,27 @@
           "sourceUrl": "https://www.byd.com/br",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_Tan_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_Tan_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_Tan_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
         }
       }
     },
@@ -1354,6 +1837,27 @@
           "sourceUrl": "https://www.byd.com/br",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/byd-site/br/fichas-tecnicas-2026/356.1575.7802.8%20-%20FICHA%20TECNICA%20YUAN%20PLUS.pdf",
+          "sourceUpdatedAt": null,
+          "verifiedAt": "2026-09-02"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/byd-site/br/fichas-tecnicas-2026/356.1575.7802.8%20-%20FICHA%20TECNICA%20YUAN%20PLUS.pdf",
+          "sourceUpdatedAt": null,
+          "verifiedAt": "2026-09-02"
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/byd-site/br/fichas-tecnicas-2026/356.1575.7802.8%20-%20FICHA%20TECNICA%20YUAN%20PLUS.pdf",
+          "sourceUpdatedAt": null,
+          "verifiedAt": "2026-09-02"
         }
       }
     },
@@ -1409,6 +1913,27 @@
           "sourceUrl": "https://www.byd.com/br/car/yuan-plus",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_YuanPlusAWD_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_YuanPlusAWD_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_YuanPlusAWD_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
         }
       }
     },
@@ -1464,6 +1989,27 @@
           "sourceUrl": "https://www.byd.com/br",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_YuanPro_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_YuanPro_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_YuanPro_V2.pdf",
+          "sourceUpdatedAt": "2026-07-13",
+          "verifiedAt": "2026-09-02"
         }
       }
     },
@@ -1519,6 +2065,27 @@
           "sourceUrl": "https://avatr.caoachangan.com.br/novos/avatr-11",
           "sourceUpdatedAt": "2026-08-26",
           "verifiedAt": "2026-08-26"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -1569,6 +2136,27 @@
           "verifiedAt": null
         },
         "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
           "verificationStatus": "legacy_unverified",
           "sourceType": null,
           "sourceUrl": null,
@@ -1629,6 +2217,27 @@
           "sourceUrl": "https://www.chevrolet.com.br/",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -1684,6 +2293,27 @@
           "sourceUrl": "https://www.chevrolet.com.br/eletrico/captiva-ev",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -1734,6 +2364,27 @@
           "verifiedAt": null
         },
         "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
           "verificationStatus": "legacy_unverified",
           "sourceType": null,
           "sourceUrl": null,
@@ -1794,6 +2445,27 @@
           "sourceUrl": "https://www.chevrolet.com.br/eletrico/spark-euv",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -1844,6 +2516,27 @@
           "verifiedAt": "2026-08-26"
         },
         "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
           "verificationStatus": "legacy_unverified",
           "sourceType": null,
           "sourceUrl": null,
@@ -1904,6 +2597,27 @@
           "sourceUrl": null,
           "sourceUpdatedAt": null,
           "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -1954,6 +2668,27 @@
           "verifiedAt": "2026-08-26"
         },
         "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
           "verificationStatus": "legacy_unverified",
           "sourceType": null,
           "sourceUrl": null,
@@ -2014,6 +2749,27 @@
           "sourceUrl": "https://500e.fiat.com.br/",
           "sourceUpdatedAt": "2026-08-26",
           "verifiedAt": "2026-08-26"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -2069,6 +2825,27 @@
           "sourceUrl": "https://scudo.fiat.com.br/",
           "sourceUpdatedAt": "2026-08-26",
           "verifiedAt": "2026-08-26"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -2124,6 +2901,27 @@
           "sourceUrl": "https://www.ford.com.br/veiculos-comerciais/e-transit-furgao/",
           "sourceUpdatedAt": "2026-08-26",
           "verifiedAt": "2026-08-26"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -2174,6 +2972,27 @@
           "verifiedAt": "2026-08-26"
         },
         "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
           "verificationStatus": "legacy_unverified",
           "sourceType": null,
           "sourceUrl": null,
@@ -2234,6 +3053,27 @@
           "sourceUrl": null,
           "sourceUpdatedAt": null,
           "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -2284,6 +3124,27 @@
           "verifiedAt": "2026-08-26"
         },
         "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
           "verificationStatus": "legacy_unverified",
           "sourceType": null,
           "sourceUrl": null,
@@ -2344,6 +3205,27 @@
           "sourceUrl": "https://www.gacgroup.com/pt-br/configuration/aion-es/2024",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -2399,6 +3281,27 @@
           "sourceUrl": "https://www.gacgroup.com/pt-br/configuration/aion-ut/2024",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -2454,6 +3357,27 @@
           "sourceUrl": "https://www.gacgroup.com/pt-br/configuration/aion-ut/2024",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -2509,6 +3433,27 @@
           "sourceUrl": "https://www.gacgroup.com/pt-br/suv/aion-v",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -2564,6 +3509,27 @@
           "sourceUrl": "https://www.gacgroup.com/pt-br/suv/aion-y",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -2619,6 +3585,27 @@
           "sourceUrl": "https://www.gacgroup.com/pt-br/suv/hyptec-ht",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -2674,6 +3661,27 @@
           "sourceUrl": "https://www.geelybrasil.com.br/ex2",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -2729,6 +3737,27 @@
           "sourceUrl": "https://www.geelybrasil.com.br/ex2",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -2784,6 +3813,27 @@
           "sourceUrl": "https://www.geelybrasil.com.br/ex5",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -2839,6 +3889,27 @@
           "sourceUrl": "https://www.geelybrasil.com.br/ex5",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -2889,6 +3960,27 @@
           "verifiedAt": null
         },
         "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
           "verificationStatus": "legacy_unverified",
           "sourceType": null,
           "sourceUrl": null,
@@ -2949,6 +4041,27 @@
           "sourceUrl": null,
           "sourceUpdatedAt": null,
           "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -3004,6 +4117,27 @@
           "sourceUrl": "https://www.gwmmotors.com.br/pt/modelos/ora-03-bev58",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-26"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -3059,6 +4193,27 @@
           "sourceUrl": "https://www.gwmmotors.com.br/pt/modelos/ora5",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-26"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -3114,6 +4269,27 @@
           "sourceUrl": "https://www.hyundai.com.br/veiculos/ioniq-5.html",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -3164,6 +4340,27 @@
           "verifiedAt": null
         },
         "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
           "verificationStatus": "legacy_unverified",
           "sourceType": null,
           "sourceUrl": null,
@@ -3224,6 +4421,27 @@
           "sourceUrl": "https://www.jacmotors.com.br/carros/",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -3279,6 +4497,27 @@
           "sourceUrl": "https://www.jacmotors.com.br/carros/",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -3334,6 +4573,27 @@
           "sourceUrl": "https://www.jacmotors.com.br/carros/",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -3389,6 +4649,27 @@
           "sourceUrl": "https://www.jacmotors.com.br/carros/",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -3444,6 +4725,27 @@
           "sourceUrl": "https://www.jacmotors.com.br/carros/",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -3499,6 +4801,27 @@
           "sourceUrl": "https://www.kia.com.br/ev5",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -3554,6 +4877,27 @@
           "sourceUrl": "https://www.kia.com.br/ev9",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -3604,6 +4948,27 @@
           "verifiedAt": null
         },
         "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
           "verificationStatus": "legacy_unverified",
           "sourceType": null,
           "sourceUrl": null,
@@ -3664,6 +5029,27 @@
           "sourceUrl": null,
           "sourceUpdatedAt": null,
           "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -3714,6 +5100,27 @@
           "verifiedAt": null
         },
         "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
           "verificationStatus": "legacy_unverified",
           "sourceType": null,
           "sourceUrl": null,
@@ -3774,6 +5181,27 @@
           "sourceUrl": null,
           "sourceUpdatedAt": null,
           "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -3829,6 +5257,27 @@
           "sourceUrl": "https://www2.mercedes-benz.com.br/passengercars/models/suv/eqb/overview.html",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -3879,6 +5328,27 @@
           "verifiedAt": null
         },
         "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
           "verificationStatus": "legacy_unverified",
           "sourceType": null,
           "sourceUrl": null,
@@ -3939,6 +5409,27 @@
           "sourceUrl": null,
           "sourceUpdatedAt": null,
           "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -3989,6 +5480,27 @@
           "verifiedAt": null
         },
         "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
           "verificationStatus": "legacy_unverified",
           "sourceType": null,
           "sourceUrl": null,
@@ -4049,6 +5561,27 @@
           "sourceUrl": "https://mgmotoroficial.com.br/model/MG-CYBERSTER",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -4104,6 +5637,27 @@
           "sourceUrl": "https://mgmotoroficial.com.br/model/mg4",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -4159,6 +5713,27 @@
           "sourceUrl": "https://mgmotoroficial.com.br/model/mg4",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -4214,6 +5789,27 @@
           "sourceUrl": "https://mgmotoroficial.com.br/model/mg4urban/",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -4269,6 +5865,27 @@
           "sourceUrl": "https://mgmotoroficial.com.br/model/mg4urban/",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -4324,6 +5941,27 @@
           "sourceUrl": "https://mgmotoroficial.com.br/model/mg4urban/",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -4379,6 +6017,27 @@
           "sourceUrl": "https://mgmotoroficial.com.br/model/mg4",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -4434,6 +6093,27 @@
           "sourceUrl": "https://mgmotoroficial.com.br/model/mgs5",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -4489,6 +6169,27 @@
           "sourceUrl": "https://mgmotoroficial.com.br/model/mgs5",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -4544,6 +6245,27 @@
           "sourceUrl": "https://www.mini.com.br/pt_BR/home/range/all-electric-mini-aceman.html",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -4599,6 +6321,27 @@
           "sourceUrl": "https://www.mini.com.br/pt_BR/home/range/all-electric-mini-cooper.html",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -4654,6 +6397,27 @@
           "sourceUrl": "https://www.mini.com.br/pt_BR/home/range/all-electric-mini-countryman.html",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -4709,6 +6473,27 @@
           "sourceUrl": "https://www.press.bmwgroup.com/brazil/article/detail/T0451111PT/linha-completa:-eletrizantes-e-in%C3%A9ditos-mini-jcw-e-e-mini-jcw-aceman-e-chegam-ao-brasil-para-refor%C3%A7ar-o-dna-go-kart-feeling-da-marca-no-pa%C3%ADs?language=pt",
           "sourceUpdatedAt": "2025-07-02",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -4759,6 +6544,27 @@
           "verifiedAt": null
         },
         "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
           "verificationStatus": "legacy_unverified",
           "sourceType": null,
           "sourceUrl": null,
@@ -4819,6 +6625,27 @@
           "sourceUrl": null,
           "sourceUpdatedAt": null,
           "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -4869,6 +6696,27 @@
           "verifiedAt": null
         },
         "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
           "verificationStatus": "legacy_unverified",
           "sourceType": null,
           "sourceUrl": null,
@@ -4929,6 +6777,27 @@
           "sourceUrl": "https://www.omodajaecoo.com.br/omoda-e5",
           "sourceUpdatedAt": "2026-08-26",
           "verifiedAt": "2026-08-26"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -4979,6 +6848,27 @@
           "verifiedAt": null
         },
         "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
           "verificationStatus": "legacy_unverified",
           "sourceType": null,
           "sourceUrl": null,
@@ -5039,6 +6929,27 @@
           "sourceUrl": null,
           "sourceUpdatedAt": null,
           "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -5089,6 +7000,27 @@
           "verifiedAt": null
         },
         "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
           "verificationStatus": "legacy_unverified",
           "sourceType": null,
           "sourceUrl": null,
@@ -5149,6 +7081,27 @@
           "sourceUrl": "https://www.porsche.com/brazil/pt/models/cayenne/cayenne-electric-models/cayenne-electric/",
           "sourceUpdatedAt": "2026-08-26",
           "verifiedAt": "2026-08-26"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -5204,6 +7157,27 @@
           "sourceUrl": "https://www.porsche.com/brazil/pt/models/macan/macan-electric-models/macan-4-electric/",
           "sourceUpdatedAt": "2026-08-26",
           "verifiedAt": "2026-08-26"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -5259,6 +7233,27 @@
           "sourceUrl": "https://www.porsche.com/brazil/pt/models/taycan/taycan-cross-turismo-models/taycan-4s-cross-turismo/",
           "sourceUpdatedAt": "2026-08-26",
           "verifiedAt": "2026-08-26"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -5309,6 +7304,27 @@
           "verifiedAt": null
         },
         "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
           "verificationStatus": "legacy_unverified",
           "sourceType": null,
           "sourceUrl": null,
@@ -5369,6 +7385,27 @@
           "sourceUrl": "https://www.renault.com.br/veiculos-eletricos/kwid-e-tech/versoes-e-precos.html",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -5424,6 +7461,27 @@
           "sourceUrl": "https://www.renault.com.br/electric-vehicles/megane-e-tech/prices-offers.html",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -5479,6 +7537,27 @@
           "sourceUrl": "https://www.suzukiveiculos.com.br/veiculos/evitara/",
           "sourceUpdatedAt": "2026-08-26",
           "verifiedAt": "2026-08-26"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -5529,6 +7608,27 @@
           "verifiedAt": null
         },
         "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
           "verificationStatus": "legacy_unverified",
           "sourceType": null,
           "sourceUrl": null,
@@ -5589,6 +7689,27 @@
           "sourceUrl": "https://www.vw.com.br/pt/carros/id-buzz.html",
           "sourceUpdatedAt": "2026-08-26",
           "verifiedAt": "2026-08-26"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -5644,6 +7765,27 @@
           "sourceUrl": "https://www.volvocars.com/br/cars/ec40-electric/specifications/",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -5699,6 +7841,27 @@
           "sourceUrl": "https://www.volvocars.com/br/cars/ex30-electric/specifications/",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -5754,6 +7917,27 @@
           "sourceUrl": "https://www.volvocars.com/br/cars/ex30-electric/specifications/",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -5809,6 +7993,27 @@
           "sourceUrl": "https://www.volvocars.com/br/cars/ex40-electric/specifications/",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -5864,6 +8069,27 @@
           "sourceUrl": "https://www.volvocars.com/br/cars/ex90-electric/specifications/",
           "sourceUpdatedAt": "2026-08-25",
           "verifiedAt": "2026-08-25"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -5919,6 +8145,27 @@
           "sourceUrl": "https://www.zeekrlife.com/pt-br/models/001",
           "sourceUpdatedAt": "2026-08-26",
           "verifiedAt": "2026-08-26"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -5974,6 +8221,27 @@
           "sourceUrl": "https://www.zeekrlife.com/pt-br/posts/suv-zeekr-7x-chega-ao-mercado-de-eletricos-premium",
           "sourceUpdatedAt": "2025-08-21",
           "verifiedAt": "2026-08-26"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -6029,6 +8297,27 @@
           "sourceUrl": "https://www.zeekrlife.com/pt-br/models/x",
           "sourceUpdatedAt": "2026-08-26",
           "verifiedAt": "2026-08-26"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     }
