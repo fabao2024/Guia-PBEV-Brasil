@@ -4271,18 +4271,18 @@
           "verifiedAt": "2026-08-25"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.hyundai.com.br/content/dam/hmb/cars/ioniq/catalog/Catalogo_Digital_IONIQ%205_2025.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-02"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.hyundai.com.br/content/dam/hmb/cars/ioniq/catalog/Catalogo_Digital_IONIQ%205_2025.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-02"
         },
         "weight": {
           "verificationStatus": "legacy_unverified",
@@ -4347,25 +4347,25 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.hyundai.news/newsroom/dam/eu/uk/20200403_kona_electric/hyundai_kona_electric_technical_data_0420.pdf",
+          "sourceUpdatedAt": "2020-04-03",
+          "verifiedAt": "2026-09-02"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.hyundai.news/newsroom/dam/eu/uk/20200403_kona_electric/hyundai_kona_electric_technical_data_0420.pdf",
+          "sourceUpdatedAt": "2020-04-03",
+          "verifiedAt": "2026-09-02"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.hyundai.news/newsroom/dam/eu/uk/20200403_kona_electric/hyundai_kona_electric_technical_data_0420.pdf",
+          "sourceUpdatedAt": "2020-04-03",
+          "verifiedAt": "2026-09-02"
         }
       }
     },

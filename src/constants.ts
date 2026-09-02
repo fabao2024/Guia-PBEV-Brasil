@@ -733,6 +733,7 @@ export const CAR_DB: Car[] = [
       "Faróis LED parametrizáveis"
     ],
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 100,
+    lengthMm: 4180, widthMm: 1800, heightMm: 1570, wheelbaseMm: 2600, weightKg: 1535, trunkLiters: 332,
   },
   {
     model: "Yuan Plus", brand: "BYD", price: 229800, range: 294, cat: "SUV",
@@ -1034,6 +1035,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.66,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 220,
+    lengthMm: 4655, widthMm: 1890, heightMm: 1605, wheelbaseMm: 3000, trunkLiters: 520,
   },
   {
     model: "EQA 250", brand: "Mercedes-Benz", price: 369900, range: 321, cat: "Luxo",

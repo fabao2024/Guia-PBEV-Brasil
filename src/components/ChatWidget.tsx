@@ -1161,10 +1161,11 @@ SUGGEST_EV_READY:{"brand":"MARCA","model":"MODELO","price":"PRECO","range":"AUTO
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
+          aria-label={t('chat.toggleLabel', 'Consultor IA')}
           className="group flex items-center gap-3 bg-[#00b4ff] hover:bg-[#0082ff] text-white px-6 py-4 rounded-full shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-blue-500/30"
         >
           <span className="font-bold hidden group-hover:inline-block transition-all text-sm">{t('chat.toggleLabel')}</span>
-          <MessageSquare className="w-6 h-6" />
+          <MessageSquare className="w-6 h-6" aria-hidden="true" />
         </button>
       )}
     </div>

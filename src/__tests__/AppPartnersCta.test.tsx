@@ -1,4 +1,4 @@
-import { act, render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { HelmetProvider } from 'react-helmet-async';
 import { MemoryRouter } from 'react-router-dom';
@@ -53,14 +53,16 @@ describe('App partner CTA', () => {
       </HelmetProvider>,
     );
 
-    // Estabiliza os chunks lazy (Suspense) antes de interagir — sem isso o
-    // waitFor do RTL pode competir com a resolução pendente do Suspense.
-    await act(async () => { await new Promise(r => setTimeout(r, 100)); });
+    // Aguarda o boundary lazy resolver por completo: quando o botão do chat
+    // (renderizado dentro do mesmo Suspense) existe, todos os chunks — inclusive
+    // o do LeadCaptureModal — já montaram, e o click não corre risco de perder
+    // a atualização de estado.
+    await screen.findByRole('button', { name: /consultor ia/i }, { timeout: 20_000 });
 
     await user.click(screen.getByRole('button', { name: /quero limpeza de placas/i }));
     const serviceSelect = await screen.findByLabelText(/serviço desejado/i, {}, { timeout: 10_000 });
     await waitFor(() => expect(serviceSelect).toHaveDisplayValue(/limpeza de placas solares/i), { timeout: 10_000 });
-  }, 30_000);
+  }, 45_000);
 
   it('accepts a direct solar-cleaning interest URL', async () => {
     render(
@@ -71,10 +73,10 @@ describe('App partner CTA', () => {
       </HelmetProvider>,
     );
 
-    // Estabiliza os chunks lazy (Suspense) antes de interagir.
-    await act(async () => { await new Promise(r => setTimeout(r, 100)); });
+    // Aguarda o boundary lazy resolver por completo (mesma estratégia acima).
+    await screen.findByRole('button', { name: /consultor ia/i }, { timeout: 20_000 });
 
     const serviceSelect = await screen.findByLabelText(/serviço desejado/i, {}, { timeout: 10_000 });
     await waitFor(() => expect(serviceSelect).toHaveDisplayValue(/limpeza de placas solares/i), { timeout: 10_000 });
-  }, 30_000);
+  }, 45_000);
 });
