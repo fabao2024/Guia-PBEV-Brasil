@@ -319,6 +319,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.52,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 64,
+    lengthMm: 4235, widthMm: 1825, heightMm: 1603, wheelbaseMm: 2650, groundClearanceMm: 135, weightKg: 1540, trunkLiters: 228,
   },
   {
     model: "Ora 03 Skin BEV58", brand: "GWM", price: 169000, range: 315, cat: "Compacto",
@@ -336,6 +337,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.51,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 64,
+    lengthMm: 4235, widthMm: 1825, heightMm: 1603, wheelbaseMm: 2650, groundClearanceMm: 135, weightKg: 1670, trunkLiters: 228,
   },
   {
     model: "Ora 03 GT BEV63", brand: "GWM", price: 189000, range: 295, cat: "Compacto",
@@ -353,6 +355,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.54,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 67,
+    lengthMm: 4254, widthMm: 1848, heightMm: 1603, wheelbaseMm: 2650, groundClearanceMm: 135, weightKg: 1580, trunkLiters: 228,
   },
   {
     model: "Ora 5", brand: "GWM", price: 163990, range: 349, cat: "SUV",
@@ -370,6 +373,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.49,
     warrantyYears: 6, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 80,
+    lengthMm: 4471, widthMm: 1833, heightMm: 1641, wheelbaseMm: 2720, groundClearanceMm: 175, weightKg: 1685, trunkLiters: 362,
   },
   {
     model: "Spark EUV", brand: "Chevrolet", price: 144990, range: 258, cat: "Urbano",

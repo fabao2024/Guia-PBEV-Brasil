@@ -3967,25 +3967,25 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/content/dam/gwm/pages/br/pt/models/ora-03-gt-bev63/FichaTecnica_Ora_03_GT_2025_2026.pdf",
+          "sourceUpdatedAt": "2025-04-16",
+          "verifiedAt": "2026-09-02"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/content/dam/gwm/pages/br/pt/models/ora-03-gt-bev63/FichaTecnica_Ora_03_GT_2025_2026.pdf",
+          "sourceUpdatedAt": "2025-04-16",
+          "verifiedAt": "2026-09-02"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/content/dam/gwm/pages/br/pt/models/ora-03-gt-bev63/FichaTecnica_Ora_03_GT_2025_2026.pdf",
+          "sourceUpdatedAt": "2025-04-16",
+          "verifiedAt": "2026-09-02"
         }
       }
     },
@@ -4043,25 +4043,25 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/content/dam/gwm/pages/br/pt/media-center/modelos/ora-03-skin-bev48/ficha-tecnica-ora-o3-bev48-25-26.pdf",
+          "sourceUpdatedAt": "2024-12-09",
+          "verifiedAt": "2026-09-02"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/content/dam/gwm/pages/br/pt/media-center/modelos/ora-03-skin-bev48/ficha-tecnica-ora-o3-bev48-25-26.pdf",
+          "sourceUpdatedAt": "2024-12-09",
+          "verifiedAt": "2026-09-02"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/content/dam/gwm/pages/br/pt/media-center/modelos/ora-03-skin-bev48/ficha-tecnica-ora-o3-bev48-25-26.pdf",
+          "sourceUpdatedAt": "2024-12-09",
+          "verifiedAt": "2026-09-02"
         }
       }
     },
@@ -4119,25 +4119,25 @@
           "verifiedAt": "2026-08-26"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/modelos/ora-03-bev58/specification",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-02"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/modelos/ora-03-bev58/specification",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-02"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/modelos/ora-03-bev58/specification",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-02"
         }
       }
     },
@@ -4195,25 +4195,25 @@
           "verifiedAt": "2026-08-26"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/content/dam/gwm/pages/br/pt/models/ora-5/ficha-tecnica-ora-5-gwm.pdf",
+          "sourceUpdatedAt": "2026-06-23",
+          "verifiedAt": "2026-09-02"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/content/dam/gwm/pages/br/pt/models/ora-5/ficha-tecnica-ora-5-gwm.pdf",
+          "sourceUpdatedAt": "2026-06-23",
+          "verifiedAt": "2026-09-02"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/content/dam/gwm/pages/br/pt/models/ora-5/ficha-tecnica-ora-5-gwm.pdf",
+          "sourceUpdatedAt": "2026-06-23",
+          "verifiedAt": "2026-09-02"
         }
       }
     },
