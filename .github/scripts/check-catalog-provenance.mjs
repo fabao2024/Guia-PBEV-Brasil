@@ -59,6 +59,9 @@ function synchronize(registry, cars) {
 function evaluate(registry, cars) {
   const expectedSlugs = new Set(cars.map(car => car.slug));
   const registeredSlugs = new Set(Object.keys(registry.vehicles));
+  const legacyExceptions = registry.legacyExceptions && typeof registry.legacyExceptions === 'object'
+    ? registry.legacyExceptions
+    : {};
   const missingVehicles = [...expectedSlugs].filter(slug => !registeredSlugs.has(slug));
   const orphanVehicles = [...registeredSlugs].filter(slug => !expectedSlugs.has(slug));
   const invalidEntries = [];
@@ -75,7 +78,14 @@ function evaluate(registry, cars) {
   }
 
   const expectedFields = cars.length * FIELDS.length;
-  const complete = missingVehicles.length === 0 && orphanVehicles.length === 0 && invalidEntries.length === 0;
+  const undocumentedLegacyExceptions = invalidEntries.filter(key => {
+    const reason = legacyExceptions[key];
+    return typeof reason !== 'string' || reason.trim().length < 20;
+  });
+  const documentedLegacyExceptions = invalidEntries.length - undocumentedLegacyExceptions.length;
+  const complete = missingVehicles.length === 0
+    && orphanVehicles.length === 0
+    && undocumentedLegacyExceptions.length === 0;
   return createMaintenanceResult({
     source: SOURCE,
     status: complete ? 'unchanged' : 'partial',
@@ -83,8 +93,8 @@ function evaluate(registry, cars) {
     sourceUpdatedAt: null,
     repositoryReference: `${cars.length} veículos`,
     coverage: { checked: verifiedFields, expected: expectedFields },
-    changes: missingVehicles.length + orphanVehicles.length,
-    error: complete ? null : `Cobertura de proveniência incompleta: ${verifiedFields}/${expectedFields} campos verificados`,
+    changes: missingVehicles.length + orphanVehicles.length + undocumentedLegacyExceptions.length,
+    error: complete ? null : `Cobertura de proveniência incompleta: ${verifiedFields}/${expectedFields} campos verificados; ${undocumentedLegacyExceptions.length} exceções sem documentação`,
     details: {
       trackedVehicles: registeredSlugs.size,
       expectedVehicles: cars.length,
@@ -93,6 +103,9 @@ function evaluate(registry, cars) {
       orphanVehicles,
       unverifiedFields: invalidEntries.length,
       unverifiedSample: invalidEntries.slice(0, 30),
+      documentedLegacyExceptions,
+      undocumentedLegacyExceptions: undocumentedLegacyExceptions.length,
+      undocumentedLegacySample: undocumentedLegacyExceptions.slice(0, 30),
     },
   });
 }

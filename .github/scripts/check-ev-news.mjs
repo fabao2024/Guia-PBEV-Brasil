@@ -11,8 +11,8 @@ const SOURCE = 'news';
 const FEEDS = [
   { name: 'Canaltech Carros', url: 'https://canaltech.com.br/rss/carros/' },
   { name: 'InsideEVs Brasil', url: 'https://insideevs.uol.com.br/rss/news/all/' },
-  { name: 'Electrosphere', url: 'https://electrosphere.com.br/feed/' },
-  { name: 'Mobility Channel', url: 'https://mobilitychannel.com.br/feed/' },
+  { name: 'Notícias Automotivas', url: 'https://www.noticiasautomotivas.com.br/feed/' },
+  { name: 'Motor1 Brasil', url: 'https://motor1.uol.com.br/rss/news/all/' },
   { name: 'AutoEsporte', url: 'https://autoesporte.globo.com/rss/autoesporte/' },
   { name: 'Quatro Rodas', url: 'https://quatrorodas.abril.com.br/feed/' },
 ];

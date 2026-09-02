@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-26T14:38:10.099Z",
+  "generated_at": "2026-09-01T19:40:46.900Z",
   "total": 109,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "evidence": {
     "official_source": "PBEV/Inmetro",
-    "official_reference": "Tabela PBEV 2026_14_AGOd",
+    "official_reference": "Tabela PBEV 2026_25_AGO.pdf",
     "official_source_url": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
     "market_source": "Pesquisa de mercado do Guia PBEV",
     "market_history_through": "julho/2026",

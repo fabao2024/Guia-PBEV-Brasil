@@ -67,6 +67,7 @@ export function createMaintenanceResult({
   changes = 0,
   prUrl = null,
   error = null,
+  warnings = [],
   details = {},
 } = {}) {
   if (!source || typeof source !== 'string') throw new Error('Fonte do coletor é obrigatória');
@@ -84,6 +85,7 @@ export function createMaintenanceResult({
     changes,
     prUrl,
     error: error ? String(error).slice(0, 500) : null,
+    warnings: Array.isArray(warnings) ? warnings.map(item => String(item).slice(0, 500)) : [],
     details,
   };
 }
@@ -213,8 +215,17 @@ export function deriveOverallStatus(results = [], criticalSources = []) {
   const advisoryFailures = results
     .filter(result => ['partial', 'failed'].includes(result?.status) && !criticalSources.includes(result?.source))
     .map(result => result.source);
-  if (advisoryFailures.length > 0) {
-    return { code: 'attention', label: '🟡 ATENÇÃO', blockingSources: [], advisoryFailures };
+  const warningSources = results
+    .filter(result => Array.isArray(result?.warnings) && result.warnings.length > 0)
+    .map(result => result.source);
+  if (advisoryFailures.length > 0 || warningSources.length > 0) {
+    return {
+      code: 'attention',
+      label: '🟡 ATENÇÃO',
+      blockingSources: [],
+      advisoryFailures,
+      warningSources,
+    };
   }
 
   if (results.some(result => result?.status === 'changed')) {
