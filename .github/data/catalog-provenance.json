@@ -2219,25 +2219,25 @@
           "verifiedAt": "2026-08-25"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://news.chevrolet.com.br/newsroom.detail.html/Pages/news/br/pt/2024/jul/0801-blazerev.html",
+          "sourceUpdatedAt": "2024-08-01",
+          "verifiedAt": "2026-09-02"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.chevrolet.com.br/eletrico/blazer-ev",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-02"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.chevrolet.com.br/eletrico/blazer-ev",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-02"
         }
       }
     },
@@ -2295,25 +2295,25 @@
           "verifiedAt": "2026-08-25"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.chevrolet.com.br/eletrico/captiva-ev",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-02"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.chevrolet.com.br/eletrico/captiva-ev",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-02"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.chevrolet.com.br/eletrico/captiva-ev",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-02"
         }
       }
     },
@@ -2371,18 +2371,18 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://news.chevrolet.com.br/newsroom.detail.html/Pages/news/br/pt/2024/oct/1009-equinox-ev.html",
+          "sourceUpdatedAt": "2024-10-09",
+          "verifiedAt": "2026-09-02"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://news.chevrolet.com.br/newsroom.detail.html/Pages/news/br/pt/2024/oct/1009-equinox-ev.html",
+          "sourceUpdatedAt": "2024-10-09",
+          "verifiedAt": "2026-09-02"
         },
         "weight": {
           "verificationStatus": "legacy_unverified",
@@ -2447,18 +2447,18 @@
           "verifiedAt": "2026-08-25"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://news.chevrolet.com.br/newsroom.detail.html/Pages/news/br/pt/2025/sep/0908-Chevrolet-Spark-EUV-estreia-como-primeiro-SUV-eletrico-acessivel-inteligente-Brasil.html",
+          "sourceUpdatedAt": "2025-09-08",
+          "verifiedAt": "2026-09-02"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://news.chevrolet.com.br/newsroom.detail.html/Pages/news/br/pt/2025/sep/0908-Chevrolet-Spark-EUV-estreia-como-primeiro-SUV-eletrico-acessivel-inteligente-Brasil.html",
+          "sourceUpdatedAt": "2025-09-08",
+          "verifiedAt": "2026-09-02"
         },
         "weight": {
           "verificationStatus": "legacy_unverified",

@@ -387,6 +387,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.5,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 50,
+    lengthMm: 4003, widthMm: 1760, heightMm: 1726, wheelbaseMm: 2560, trunkLiters: 355,
   },
   {
     model: "Dolphin GS", brand: "BYD", price: 149990, range: 291, cat: "Urbano",
@@ -655,6 +656,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.62,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 80,
+    wheelbaseMm: 2800, weightKg: 1800, trunkLiters: 403,
   },
   {
     model: "Omoda E5", brand: "Omoda", price: 209990, range: 345, cat: "SUV",
@@ -869,6 +871,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.56,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11.5, chargeDC: 150,
+    lengthMm: 4840, widthMm: 1954, trunkLiters: 441,
   },
   {
     model: "ID.4", brand: "Volkswagen", price: 320000, range: 370, cat: "SUV",
@@ -1279,6 +1282,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.63,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11.5, chargeDC: 150,
+    lengthMm: 4884, widthMm: 1982, heightMm: 1650, wheelbaseMm: 3094, weightKg: 2421, trunkLiters: 436,
   },
   {
     model: "Tan EV", brand: "BYD", price: 536800, range: 430, cat: "Luxo",
