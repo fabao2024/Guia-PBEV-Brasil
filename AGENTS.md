@@ -9,7 +9,7 @@ Public frontend of `guiapbev.cloud` (React 19 + TypeScript, Vite 6, Tailwind 4, 
 
 ## Commands
 
-- `npm run test:run` — full suite (~293 tests / 38 files, ~20s). `npm run test` for watch mode.
+- `npm run test:run` — full suite (~300 tests / 40 files, ~20s). `npm run test` for watch mode.
 - `npx tsc --noEmit` — typecheck. There is no `typecheck` script and no lint/formatter config; don't guess `npm run lint` or `npm run typecheck`.
 - `npm run build` — chained: `tsx generate-sitemap.ts && vite build && node tools/create-static-route-pages.mjs && node tools/check-dist-secrets.mjs`. Run tests + build before committing.
 - Dev server runs on port 3000.
