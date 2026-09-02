@@ -1,5 +1,7 @@
 # Guia PBEV Brasil · Public Roadmap
 
+> English translation of [ROADMAP.md](ROADMAP.md). The PT-BR version is canonical — update it first, then mirror changes here.
+
 This roadmap covers only the public product available at [guiapbev.cloud](https://guiapbev.cloud) and the frontend code in this repository.
 
 Administrative operations, personal data, matching rules, credentials, private infrastructure and partner information are not part of this repository.

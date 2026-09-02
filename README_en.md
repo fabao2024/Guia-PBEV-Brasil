@@ -2,94 +2,25 @@
 <img width="1200" alt="Guia PBEV Banner" src="public/repo-banner.png" />
 </div>
 
-# Guia PBEV Brasil - Catalog & AI Assistant
+# Guia PBEV Brasil
 
-Progressive Web App (PWA compliant) developed for the Brazilian automotive market, focused on Battery Electric Vehicles (BEV) from the 2025 Brazilian Vehicle Labeling Program (PBEV). The project combines a high-performance interactive catalog with an LLM-based virtual assistant.
+Progressive Web App for the Brazilian electric vehicle (BEV) market: interactive catalog with official PBEV/INMETRO data, savings simulator, TCO calculator, route planning and a partner program.
 
-## 🚀 Architecture & Design System
+> The canonical English documentation lives in [README.md](README.md) (section 🇺🇸 English). This file is a brief overview and is intentionally kept free of metrics and details that would drift from the main README.
 
-The project adopts a **Client-Side Rendering (CSR)** architecture optimized for speed and SEO-friendliness (via structured metadata).
+## Overview
 
-- **Local First Asset Strategy**: To ensure reliability and performance (LCP), all vehicle images are served locally via the `public/car-images` directory. This eliminates unstable external CDN dependencies and prevents Hotlink Block (403) issues.
-- **Hybrid Image Loading**: Intelligent components (`CarCard.tsx`) detect image origin:
-  - **Local**: Direct loading (Zero-Latency) via Vite static server.
-  - **External**: Fallback with optimization proxy (`weserv.nl`) for on-the-fly resizing and WebP conversion.
-- **State Management**: Lightweight state management via custom React Hooks (`useFilters`, `useFavorites`) persisting data in `localStorage`.
+- **Catalog**: searchable, filterable BEV catalog sourced from the official PBEV/INMETRO labeling program, with per-vehicle detail pages and shareable comparisons.
+- **Tools**: savings simulator and total cost of ownership (TCO) with reproducible assumptions, IPVA calculator for all 27 Brazilian states, route planner with charging stops, offline recommendation quiz.
+- **AI assistant**: optional EV-specialized chat (user provides their own Gemini key, stored locally in the browser only).
 
-## 🛠️ Tech Stack
+## Documentation
 
-### Core
-- **Runtime**: Node.js (v18+)
-- **Framework**: React 19 (Functional Components + Hooks)
-- **Language**: TypeScript 5.0 (Strict Typing)
-- **Build Tool**: Vite 5 (ESBuild)
+- [README.md](README.md) — full documentation, PT-BR with an English section (canonical)
+- [ROADMAP.md](ROADMAP.md) — public product roadmap (canonical, PT-BR); [ROADMAP.en.md](ROADMAP.en.md) is the English translation
+- [DEVLOG.md](DEVLOG.md) — public development log
+- [DEPLOY.md](DEPLOY.md) — deployment process
 
-### UI/UX
-- **Styling**: Tailwind CSS 3.4 (Utility-first)
-- **Icons**: Lucide React
-- **Animations**: CSS Transitions & Transform (Hardware Accelerated)
+## License
 
-### Artificial Intelligence
-- **Engine**: Google Gemini 3.5 Flash-Lite
-- **Integration**: Google Generative AI SDK (`@google/genai`)
-- **Features**: Context-aware Chatbot with catalog knowledge (`CAR_DB`).
-
-## 📂 Project Structure
-
-```
-/
-├── public/
-├── scripts/           # Diagnostic tools (list_models.js)
-│   └── car-images/    # Immutable asset repository (JPEG/WebP/AVIF)
-├── src/
-│   ├── components/    # Autonomous UI Components (CarCard, Modal, ChatWidget)
-│   ├── hooks/         # Business Logic (useComparison, useChat)
-│   ├── types/         # Interface Definitions (Car, FilterState)
-│   ├── constants.ts   # Single Source of Truth (Database JSON Mock)
-│   ├── App.tsx        # Entry Point & Layout Composition
-│   └── main.tsx       # React DOM Hydration
-├── download_final.ps1 # Automation Script (PowerShell) for asset download
-└── vite.config.ts     # Bundler Configuration
-```
-
-## ⚡ Installation and Execution
-
-### Prerequisites
-- Node.js & npm/yarn/pnpm
-- PowerShell (for maintenance scripts)
-
-### Initial Setup
-
-1. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-2. **Configure Environment Variables:**
-   Create a `.env` file in the project root:
-   ```env
-   VITE_GEMINI_API_KEY=your_api_key_here
-   ```
-
-3. **Populate Image Bank (Optional):**
-   If local images are missing, execute the automation script:
-   ```powershell
-   ./download_final.ps1
-   ```
-
-4. **Start Development Server:**
-   ```bash
-   npm run dev
-   ```
-   Access via: `http://localhost:5173`
-
-## 🔧 Catalog Maintenance
-
-To add new cars:
-1. Add JSON entry in `src/constants.ts`.
-2. Save vehicle image in `public/car-images/` (prefer WebP/JPG < 100KB).
-3. Reference local path in `img` property (e.g., `/car-images/new-car.jpg`).
-
----
-**Status**: Production (v1.2.0)
-**License**: MIT
+[Creative Commons BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) — non-commercial use allowed with attribution. Commercial use requires prior authorization.

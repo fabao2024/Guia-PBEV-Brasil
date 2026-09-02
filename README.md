@@ -40,7 +40,7 @@ Progressive Web App (PWA) para o mercado de veículos elétricos (BEV) no Brasil
 - **Estilos**: Tailwind CSS 4
 - **IA**: Google Generative AI SDK (`gemini-3.5-flash-lite`)
 - **i18n**: i18next + react-i18next (PT-BR padrão, EN)
-- **Testes**: Vitest 4 + Testing Library + happy-dom (70 testes)
+- **Testes**: Vitest 4 + Testing Library + happy-dom (293 testes)
 - **Segurança**: Sanitização XSS, rate limiting, detecção de prompt injection (12 padrões)
 
 ### Instalação e Execução Local
@@ -70,7 +70,7 @@ npm run dev
 ```bash
 npm run dev           # Servidor local (porta 3000)
 npm run build         # Build de produção
-npm run test:run      # Rodar todos os 70 testes
+npm run test:run      # Rodar todos os 293 testes
 npm run test          # Modo watch
 npm run test:coverage # Relatório de cobertura
 npm run preview       # Preview do build de produção
@@ -89,10 +89,17 @@ No [guiapbev.cloud](https://guiapbev.cloud), usuários inserem sua própria chav
 ### Métricas Atuais
 
 - **109 veículos** BEV cadastrados (32 marcas)
-- **54 modelos** com certificação PBE/INMETRO oficial
+- **93 modelos** com certificação PBE/INMETRO oficial
 - **27 estados** com dados de IPVA 2026 e tarifas ANP/ANEEL
-- **70 testes** automatizados em 7 suítes
+- **293 testes** automatizados em 38 arquivos
 - **Build**: ~5s (Vite/ESBuild)
+
+### Documentação
+
+- [ROADMAP.md](ROADMAP.md) — roadmap público do produto (canônico, PT-BR)
+- [ROADMAP.en.md](ROADMAP.en.md) — tradução em inglês do roadmap
+- [DEVLOG.md](DEVLOG.md) — registro público de desenvolvimento
+- [DEPLOY.md](DEPLOY.md) — processo de deploy
 
 ### Deploy
 
@@ -114,7 +121,7 @@ Progressive Web App (PWA) for the Brazilian Electric Vehicle (BEV) market. Inter
 
 | Feature | Description |
 |---|---|
-| 📋 Catalog | 101 BEV models with filters by price, range, category, brand and drivetrain |
+| 📋 Catalog | 109 BEV models with filters by price, range, category, brand and drivetrain |
 | 🔍 Full-text Search | Instant search by model, brand or category (Fuse.js, typo-tolerant) |
 | ⚖️ Comparison | Side-by-side comparison of up to 3 vehicles |
 | 💰 Savings Simulator | Monthly savings vs. combustion with real state IPVA tax |
@@ -134,7 +141,7 @@ Progressive Web App (PWA) for the Brazilian Electric Vehicle (BEV) market. Inter
 - **Styling**: Tailwind CSS 4
 - **AI**: Google Generative AI SDK (`gemini-3.5-flash-lite`)
 - **i18n**: i18next + react-i18next (PT-BR default, EN)
-- **Testing**: Vitest 4 + Testing Library + happy-dom (70 tests)
+- **Testing**: Vitest 4 + Testing Library + happy-dom (293 tests)
 - **Security**: XSS sanitization, rate limiting, prompt injection detection (12 patterns)
 
 ### Local Setup
@@ -164,7 +171,7 @@ npm run dev
 ```bash
 npm run dev           # Local server (port 3000)
 npm run build         # Production build
-npm run test:run      # Run all 70 tests
+npm run test:run      # Run all 293 tests
 npm run test          # Watch mode
 npm run test:coverage # Coverage report
 npm run preview       # Preview production build
@@ -173,10 +180,17 @@ npm run preview       # Preview production build
 ### Current Metrics
 
 - **109 BEV vehicles** registered (32 brands)
-- **54 models** with official PBE/INMETRO certification
+- **93 models** with official PBE/INMETRO certification
 - **27 states** with 2026 IPVA data and ANP/ANEEL tariffs
-- **70 automated tests** across 7 suites
+- **293 automated tests** across 38 files
 - **Build time**: ~5s (Vite/ESBuild)
+
+### Documentation
+
+- [ROADMAP.md](ROADMAP.md) — public product roadmap (canonical, PT-BR)
+- [ROADMAP.en.md](ROADMAP.en.md) — English translation of the roadmap
+- [DEVLOG.md](DEVLOG.md) — public development log
+- [DEPLOY.md](DEPLOY.md) — deployment process
 
 ### Deployment
 
