@@ -790,6 +790,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.55,
     warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 153,
+    lengthMm: 4233, widthMm: 1838, heightMm: 1550, wheelbaseMm: 2650, groundClearanceMm: 171, weightKg: 1840, trunkLiters: 318,
   },
   {
     model: "EX30 Ultra", brand: "Volvo", price: 319950, range: 316, cat: "SUV",
@@ -808,6 +809,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.62,
     warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 153,
+    lengthMm: 4233, widthMm: 1838, heightMm: 1550, wheelbaseMm: 2650, groundClearanceMm: 171, weightKg: 1960, trunkLiters: 318,
   },
   {
     model: "e-2008", brand: "Peugeot", price: 269990, range: 261, cat: "SUV",
@@ -895,6 +897,7 @@ export const CAR_DB: Car[] = [
       "Atualização OTA"
     ],
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 135,
+    lengthMm: 4584, widthMm: 1852, heightMm: 1618, wheelbaseMm: 2765, groundClearanceMm: 171, weightKg: 2142, trunkLiters: 543,
   },
   {
     model: "Sealion 7", brand: "BYD", price: 339990, range: 360, cat: "SUV",
@@ -933,6 +936,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.55,
     warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
+    lengthMm: 4440, widthMm: 1873, heightMm: 1647, wheelbaseMm: 2702, groundClearanceMm: 175, weightKg: 2040, trunkLiters: 410,
   },
   {
     model: "EC40 (C40)", brand: "Volvo", price: 334950, range: 385, cat: "SUV",
@@ -950,6 +954,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.51,
     warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
+    lengthMm: 4440, widthMm: 1873, heightMm: 1591, wheelbaseMm: 2702, groundClearanceMm: 171, weightKg: 2065, trunkLiters: 404,
   },
   {
     model: "EX90 Twin", brand: "Volvo", price: 849950, range: 459, cat: "SUV",
@@ -967,6 +972,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.68,
     warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 250,
+    lengthMm: 5037, widthMm: 1964, heightMm: 1744, wheelbaseMm: 2985, groundClearanceMm: 213, weightKg: 2757, trunkLiters: 324,
   },
   {
     model: "iX2 xDrive30", brand: "BMW", price: 495950, range: 327, cat: "SUV",
@@ -1635,6 +1641,7 @@ export const CAR_DB: Car[] = [
       "Teto solar panorâmico + bancos aquecidos + atualização OTA"
     ],
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 135,
+    lengthMm: 4712, widthMm: 1985, heightMm: 1937, wheelbaseMm: 2989, weightKg: 2471, trunkLiters: 1121,
   },
   {
     model: "eT3", brand: "BYD", price: 229990, range: 170, cat: "Comercial", discontinued: true,
