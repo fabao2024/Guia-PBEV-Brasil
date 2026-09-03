@@ -2,6 +2,17 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 03/09/2026 · Dimensões e peso: lote 3 — GAC, Zeekr, BMW e MINI
+
+| Área | Mudança pública |
+|---|---|
+| GAC | Linha Aion e Hyptec HT pelo configurador oficial GAC Brasil (gacgroup.com/pt-br): Aion UT Premium/Elite (4.270/1.850/1.575/2.750 mm, 340 L), Aion ES (4.810/1.880/1.545 mm, 453 L), Aion Y Elite (4.535/1.870/1.650 mm, 361 L), Aion V Elite (4.605/1.854/1.686/2.775 mm, 427 L) e Hyptec HT (4.935/1.920/1.700/2.935 mm, 2.200 kg, 670 L). Altura do solo não é publicada em nenhuma página oficial GAC Brasil → nula. Rótulo oficial é apenas "Peso (kg)" — presumido ordem de marcha (não é bruto), ressalva anotada. |
+| Zeekr | Fichas técnicas oficiais do importador CICAL (cabeçalho zeekr.com.br): Zeekr X (4.432/1.836/1.572/2.750 mm, solo 191 mm, 1.855 kg, 362 L), 7X (4.787/1.930/1.650/2.900 mm, solo 172 mm, 2.460 kg, 616 L) e 001 (4.955/1.999/1.560/2.999 mm, solo 174 mm, 2.353 kg, 539 L). Pesos "vazio" por versão; a nova versão Premium RWD do 7X (2026) ainda sem ficha oficial — mantido o valor da ficha vigente (Flagship AWD). |
+| BMW | Linha i completa via fichas técnicas oficiais do newsroom BMW Group (press.bmwgroup.com): iX2 xDrive30 (4.554/1.845/1.560/2.692 mm, solo 167 mm, 2.095 kg, 525 L), iX1 eDrive20 (4.500 mm, 1.940 kg, 490 L), iX3 Neue Classe (4.782/1.895/1.635/2.897 mm, solo 176 mm, 2.360 kg, 520 L), i4 eDrive35 (4.783 mm, solo 125 mm, 2.075 kg, 470 L), iX xDrive40 (4.953/1.967/1.695/3.000 mm, 2.440 kg, 500 L), i5 M60 (5.060 mm, altura 1.505 da versão M60, solo 136 mm, 2.380 kg) e i7 xDrive60 (5.391/1.950/1.544/3.215 mm, solo 136 mm, 2.715 kg, 500 L). iX1 e iX não têm altura do solo publicada pela BMW → nula. Peso é o kerb weight EU oficial (inclui motorista 75 kg), especificação idêntica à versão BR. |
+| MINI | Cooper E e JCW E (3.858/1.756/1.460/2.526 mm, solo 124 mm, 1.615/1.730 kg, 210 L), Aceman SE (4.079 mm, solo 143 mm, 1.785 kg, 300 L) e Countryman SE ALL4 (4.445/1.843/1.635/2.692 mm, solo 171 mm, 2.075 kg, 460 L) — fichas oficiais do newsroom BMW Group; Countryman SE confirmado 100% elétrico no Brasil (não é o PHEV da geração anterior). |
+| Proveniência | Cobertura verificada sobe para **587/1090**. |
+| Verificação | 303/303 testes, TypeScript limpo, build Vite, rotas estáticas, scanner de segredos e verificador de proveniência aprovados. |
+
 ## 03/09/2026 · Dimensões e peso: lote 2 — MG Motor, Volvo e Volkswagen
 
 | Área | Mudança pública |
