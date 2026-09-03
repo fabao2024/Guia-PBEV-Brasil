@@ -2,6 +2,18 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 03/09/2026 · Dimensões e peso: lote 2 — MG Motor, Volvo e Volkswagen
+
+| Área | Mudança pública |
+|---|---|
+| MG Motor | Linha completa com fichas oficiais do domínio MG (mapeamento de versões validado célula a célula nos PDFs): MG4 Urban Comfort/Luxury 43 kWh (4.395/1.842/1.549/2.750 mm, solo 117 mm, 1.422 kg, 577 L volume total), MG4 Urban Luxury 54 kWh (1.504 kg, 568 L), MG4 Comfort/Luxury/XPower 64 kWh (4.287/1.836/1.516/2.705 mm, 1.755/1.765/1.810 kg, 350 L), MGS5 Comfort/Luxury (4.476/1.849/1.633/2.734 mm, solo 145 mm, 1.705/1.755 kg, 453 L) e Cyberster (4.535/1.913/1.329/2.690 mm, solo 115,5 mm, 1.985 kg, 249 L). MG4 64 kWh publica apenas altura do solo com carga → nula. |
+| Volvo | EX30 Plus/Ultra, EX40, EC40 e EX90 Twin com dimensões das páginas oficiais de especificações Volvo BR; pesos por conjunto propulsor (Single/Twin conforme a versão vendida no Brasil); portas-malas da 2ª/3ª fileira em pé (318/410/404/324 L); alturas do solo dos artigos oficiais do Volvo Support (medidas "com peso de meio-fio + 1 pessoa", ressalva anotada). |
+| Volkswagen | ID.4 pelo Suplemento de dados técnicos oficial BR (4.584/1.852/1.618/2.765 mm, solo 171 mm, 2.142 kg OM); porta-malas 543 L confirmado em fichas oficiais VW de outros mercados e assessoria BR — proveniência do campo fica como não verificada até URL citável do newsroom. ID.Buzz Pro pelo newsroom oficial VW AG (4.712/1.985/1.937/2.989 mm, 2.471 kg, 1.121 L passageiros); altura do solo não divulgada → nula. |
+| Invariantes | Valores de dimensões agora aceitam até 1 casa decimal (fichas oficiais trazem 115,5 mm — Cyberster). |
+| Nomenclatura | Entrada Suzuki e-Vitara normalizada para o formato padrão do catálogo (aspas/uma linha) — sem mudança de dados. |
+| Proveniência | Cobertura verificada sobe para **572/1090**; páginas de especificações sem data de edição (Volvo) e campos com fonte oficial sem data (MG4 64 kWh usa Last-Modified HTTP) contam como não verificadas pelo critério rigoroso, com sourceUrl registrado. |
+| Verificação | 303/303 testes, TypeScript limpo, build Vite, rotas estáticas, scanner de segredos e verificador de proveniência aprovados. |
+
 ## 02/09/2026 · Dimensões e peso: lotes Chevrolet, GWM, Renault e Hyundai
 
 | Área | Mudança pública |
