@@ -8147,25 +8147,25 @@
           "verifiedAt": "2026-08-26"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://zeekr.cical.com.br/wp-content/uploads/2025/07/FICHA-TECNICA-001.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://zeekr.cical.com.br/wp-content/uploads/2025/07/FICHA-TECNICA-001.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://zeekr.cical.com.br/wp-content/uploads/2025/07/FICHA-TECNICA-001.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -8223,25 +8223,25 @@
           "verifiedAt": "2026-08-26"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://zeekr.cical.com.br/wp-content/uploads/2025/07/FICHA-TECNICA-7X.pdf",
+          "sourceUpdatedAt": "2025-08-14",
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://zeekr.cical.com.br/wp-content/uploads/2025/07/FICHA-TECNICA-7X.pdf",
+          "sourceUpdatedAt": "2025-08-14",
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://zeekr.cical.com.br/wp-content/uploads/2025/07/FICHA-TECNICA-7X.pdf",
+          "sourceUpdatedAt": "2025-08-14",
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -8299,25 +8299,25 @@
           "verifiedAt": "2026-08-26"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://zeekr.cical.com.br/wp-content/uploads/2025/07/FICHA-TECNICA-X.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://zeekr.cical.com.br/wp-content/uploads/2025/07/FICHA-TECNICA-X.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://zeekr.cical.com.br/wp-content/uploads/2025/07/FICHA-TECNICA-X.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     }

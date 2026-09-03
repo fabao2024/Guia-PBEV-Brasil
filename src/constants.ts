@@ -1181,6 +1181,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.55,
     warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
+    lengthMm: 4432, widthMm: 1836, heightMm: 1572, wheelbaseMm: 2750, groundClearanceMm: 191, weightKg: 1855, trunkLiters: 362,
   },
   {
     model: "7X", brand: "Zeekr", price: 448000, range: 423, cat: "SUV",
@@ -1198,6 +1199,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.64,
     warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 200,
+    lengthMm: 4787, widthMm: 1930, heightMm: 1650, wheelbaseMm: 2900, groundClearanceMm: 172, weightKg: 2460, trunkLiters: 616,
   },
   {
     model: "iX3", brand: "BMW", price: 582950, range: 570, cat: "Luxo",
@@ -1252,6 +1254,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.63,
     warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 200,
+    lengthMm: 4955, widthMm: 1999, heightMm: 1560, wheelbaseMm: 2999, groundClearanceMm: 174, weightKg: 2353, trunkLiters: 539,
   },
   {
     model: "i4 eDrive35", brand: "BMW", price: 449950, range: 422, cat: "Luxo", discontinued: true,
