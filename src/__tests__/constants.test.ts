@@ -89,11 +89,12 @@ describe('CAR_DB data integrity', () => {
     it('optional dimension fields should be integers within plausible ranges', () => {
       for (const car of CAR_DB) {
         for (const [field, min, max] of RANGES) {
-          const value = car[field];
+          const value = car[field] as number | undefined;
           if (value !== undefined) {
             expect(typeof value).toBe('number');
-            expect(Number.isFinite(value), `${car.model}.${String(field)} deve ser finito`).toBe(true);
-            expect(Number.isInteger(value), `${car.model}.${String(field)} deve ser inteiro`).toBe(true);
+          expect(Number.isFinite(value), `${car.model}.${String(field)} deve ser finito`).toBe(true);
+          // até 1 casa decimal (fichas oficiais trazem valores como 115,5 mm)
+          expect(Number.isInteger(Math.round(value * 10)), `${car.model}.${String(field)} deve ter no máximo 1 decimal`).toBe(true);
             expect(value, `${car.model}.${String(field)}=${value} fora da faixa ${min}-${max}`).toBeGreaterThanOrEqual(min);
             expect(value).toBeLessThanOrEqual(max);
           }

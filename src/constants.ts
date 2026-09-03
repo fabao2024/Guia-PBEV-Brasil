@@ -1722,6 +1722,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.40,
     warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 11, chargeDC: 82,
+    lengthMm: 4395, widthMm: 1842, heightMm: 1549, wheelbaseMm: 2750, groundClearanceMm: 117, weightKg: 1422, trunkLiters: 577,
   },
   {
     model: "MG4 Urban Luxury", brand: "MG Motor", price: 139990, range: 299, cat: "Compacto",
@@ -1738,6 +1739,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.40,
     warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 11, chargeDC: 82,
+    lengthMm: 4395, widthMm: 1842, heightMm: 1549, wheelbaseMm: 2750, groundClearanceMm: 117, weightKg: 1422, trunkLiters: 577,
   },
   {
     model: "MG4 Urban Luxury 54kWh", brand: "MG Motor", price: 149990, range: 358, cat: "Compacto",
@@ -1754,6 +1756,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.42,
     warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 11, chargeDC: 87,
+    lengthMm: 4395, widthMm: 1842, heightMm: 1549, wheelbaseMm: 2750, groundClearanceMm: 117, weightKg: 1504, trunkLiters: 568,
   },
   {
     model: "MG4 Comfort", brand: "MG Motor", price: 184600, range: 364, cat: "Compacto",
@@ -1771,6 +1774,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.5,
     warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 11, chargeDC: 140,
+    lengthMm: 4287, widthMm: 1836, heightMm: 1516, wheelbaseMm: 2705, weightKg: 1755, trunkLiters: 350,
   },
   {
     model: "MG4 Luxury", brand: "MG Motor", price: 199800, range: 364, cat: "Compacto",
@@ -1788,6 +1792,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.5,
     warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 11, chargeDC: 140,
+    lengthMm: 4287, widthMm: 1836, heightMm: 1516, wheelbaseMm: 2705, weightKg: 1765, trunkLiters: 350,
   },
   {
     model: "MG4 XPower", brand: "MG Motor", price: 229800, range: 279, cat: "Compacto",
@@ -1805,6 +1810,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.59,
     warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 11, chargeDC: 140,
+    lengthMm: 4287, widthMm: 1836, heightMm: 1516, wheelbaseMm: 2705, weightKg: 1810, trunkLiters: 350,
   },
   {
     model: "MGS5 Comfort", brand: "MG Motor", price: 218800, range: 351, cat: "SUV",
@@ -1822,6 +1828,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.51,
     warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 7, chargeDC: 150,
+    lengthMm: 4476, widthMm: 1849, heightMm: 1633, wheelbaseMm: 2734, groundClearanceMm: 145, weightKg: 1705, trunkLiters: 453,
   },
   {
     model: "MGS5 Luxury", brand: "MG Motor", price: 238800, range: 351, cat: "SUV",
@@ -1839,6 +1846,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.51,
     warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 7, chargeDC: 150,
+    lengthMm: 4476, widthMm: 1849, heightMm: 1633, wheelbaseMm: 2734, groundClearanceMm: 145, weightKg: 1755, trunkLiters: 453,
   },
   {
     model: "Cyberster", brand: "MG Motor", price: 499800, range: 342, cat: "Luxo",
@@ -1856,17 +1864,12 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.56,
     warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 11, chargeDC: 150,
+    lengthMm: 4535, widthMm: 1913, heightMm: 1329, wheelbaseMm: 2690, groundClearanceMm: 115.5, weightKg: 1985, trunkLiters: 249,
   },
   {
-    model: 'e-Vitara',
-    brand: 'Suzuki',
-    price: 269990,
-    range: 293,
-    cat: 'SUV',
-    img: '/car-images/e-vitara.jpg',
-    power: 184,
-    torque: 31.2,
-    traction: 'AWD',
+    model: "e-Vitara", brand: "Suzuki", price: 269990, range: 293, cat: "SUV",
+    img: "/car-images/e-vitara.jpg",
+    power: 184, torque: 31.2, traction: 'AWD',
     features: [
       'Central multimídia 10,1" com Apple CarPlay/Android Auto',
       'Painel digital 10,25"',
