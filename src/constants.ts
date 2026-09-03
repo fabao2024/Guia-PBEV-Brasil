@@ -466,6 +466,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.46,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 75,
+    lengthMm: 3858, widthMm: 1756, heightMm: 1460, wheelbaseMm: 2526, groundClearanceMm: 124, weightKg: 1615, trunkLiters: 210,
   },
   {
     model: "JCW-E", brand: "Mini", price: 349990, range: 306, cat: "Compacto",
@@ -483,6 +484,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.48,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 95,
+    lengthMm: 3858, widthMm: 1756, heightMm: 1460, wheelbaseMm: 2526, groundClearanceMm: 124, weightKg: 1730, trunkLiters: 210,
   },
   {
     model: "Aceman SE", brand: "Mini", price: 325990, range: 270, cat: "Compacto",
@@ -500,6 +502,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.52,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 95,
+    lengthMm: 4079, widthMm: 1754, heightMm: 1514, wheelbaseMm: 2606, groundClearanceMm: 143, weightKg: 1785, trunkLiters: 300,
   },
   {
     model: "Dolphin Plus", brand: "BYD", price: 184800, range: 330, cat: "Compacto",
@@ -868,6 +871,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.61,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 130,
+    lengthMm: 4445, widthMm: 1843, heightMm: 1635, wheelbaseMm: 2692, groundClearanceMm: 171, weightKg: 2075, trunkLiters: 460,
   },
   {
     model: "Equinox EV", brand: "Chevrolet", price: 349990, range: 443, cat: "SUV",
