@@ -2,6 +2,20 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 03/09/2026 · Dimensões e peso: lote 4 final — catálogo coberto
+
+| Área | Mudança pública |
+|---|---|
+| Cobertura | **106 dos 109 veículos** com dimensões oficiais. Sem dados por ausência de fonte oficial: JAC iEV330P (picape só por vendas diretas, sem ficha), Nissan Ariya (página oficial declara que não é comercializado no Brasil) e Avatr 11 (CAOA Changan não publica ficha técnica). |
+| Chinesas independentes | JAC (E-JS1/JS4/J7 com fichas 25/26; E-JV5.5 furgão 5.500 L), Geely EX2/EX5 (fichas oficiais linkadas do site do importador), Kia EV5/EV9 (2.704 kg no EV9), Omoda E5, Neta Aya/X 500 (manuais oficiais; porta-malas do Aya não publicado) e Leapmotor B10/C10 (site oficial; entre-eixos e peso não publicados). |
+| Premium | Audi via audi-imprensa (A6 Sportback e-tron 4.928/1.923/1.487 mm; Q6/SQ6 2026; Q8 e-tron descontinuado) e data sheet oficial Audi AG (e-tron GT); Porsche via porsche.com/brazil (Macan 4, Taycan 4S Cross Turismo — única 4S à venda, sedã saiu do line-up, e Cayenne Electric com 781 L); Lexus RZ 500e (solo 200 mm; só publica PBT — peso OM nulo). Larguras Audi Q8/Q6 divulgadas apenas com espelhos → nulas. Pesos "Peso (kg)" da Audi ficaram nulos onde o release chama "peso total" (Q8 — ambiguidade OM/PBT). |
+| Mercedes-Benz | EQA/EQB pelas páginas oficiais BR (massa em ordem de marcha 2.045/2.105 kg); EQE 350+ sedã e EQE SUV pelos releases oficiais (a "EQE 300 SUV" citada no catálogo tem dimensões idênticas à EQE 350+ SUV atual); eSprinter Furgão Street 320 Longo (5.932/2.020/2.718 mm, entre-eixos 3.665, 2.725 kg, 10.500 L). Pesos dos EQE são kerb weight oficial de eBrochures Mercedes de outros mercados (incluem motorista 75 kg) — ressalva anotada. |
+| Ford, Suzuki e iCar | Mustang Mach-E GT (4.743 mm, 2.307 kg, 402 L — largura só com espelhos), e-Transit furgão L2H2 (5.531 mm, 2.649 kg, 9.500 L), Suzuki e-Vitara 4Style 4x4 (4.275 mm, solo 180 mm, 1.899 kg) e CAOA Chery iCar (3.200 mm, 995 kg, 100 L). |
+| Stellantis e comerciais | e-208 GT, e-2008 (ficha MY24/25; largura 1.815 diverge da internacional 1.770 — mantido o oficial mais recente com flag), e-Expert/e-Scudo/e-Jumpy (irmãs de plataforma: 5.309 mm, 2.053 kg, 6.100 L), 500e Icon (185 L), Foton eWonder (mini truck chassi; sem volume) e eView Grand (van 6.800 L), Farizon V6E (6.000 L) e SuperVan SV L1H2 (7.920 L) pelo importador oficial Grupo Timber. Todos os Stellantis citados saíram da linha MY26 — dados das últimas fichas oficiais publicadas. |
+| Invariantes | Faixas ampliadas para furgões: altura até 3.000 mm (eSprinter 2.718), entre-eixos até 4.000 mm (eSprinter 3.665) e porta-malas/volume até 12.000 L (eSprinter 10.500). |
+| Proveniência | Cobertura verificada sobe para **618/1090** (contagem rigorosa; boa parte das fontes oficiais de lote 3/4 são páginas sem data de edição e contam com URL registrada). |
+| Verificação | 303/303 testes, TypeScript limpo, build Vite, rotas estáticas, scanner de segredos e verificador de proveniência aprovados. |
+
 ## 03/09/2026 · Dimensões e peso: lote 3 — GAC, Zeekr, BMW e MINI
 
 | Área | Mudança pública |
