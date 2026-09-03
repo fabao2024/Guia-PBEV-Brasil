@@ -233,6 +233,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.51,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 64,
+    lengthMm: 4270, widthMm: 1850, heightMm: 1575, wheelbaseMm: 2750, weightKg: 1540, trunkLiters: 340,
   },
   {
     model: "Aion UT Elite", brand: "GAC", price: 159990, range: 310, cat: "Compacto",
@@ -252,6 +253,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.57,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 87,
+    lengthMm: 4270, widthMm: 1850, heightMm: 1575, wheelbaseMm: 2750, weightKg: 1700, trunkLiters: 340,
   },
   {
     model: "EX2 Max", brand: "Geely", price: 136800, range: 289, cat: "Compacto",
@@ -557,6 +559,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.45,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 68,
+    lengthMm: 4810, widthMm: 1880, heightMm: 1545, wheelbaseMm: 2750, weightKg: 1658, trunkLiters: 453,
   },
   {
     model: "Yuan Pro", brand: "BYD", price: 182990, range: 250, cat: "SUV",
@@ -593,6 +596,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.57,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 75,
+    lengthMm: 4535, widthMm: 1870, heightMm: 1650, wheelbaseMm: 2750, weightKg: 1738, trunkLiters: 361,
   },
   {
     model: "Aion V Elite", brand: "GAC", price: 219990, range: 389, cat: "SUV",
@@ -610,6 +614,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.54,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 180,
+    lengthMm: 4605, widthMm: 1854, heightMm: 1686, wheelbaseMm: 2775, weightKg: 1920, trunkLiters: 427,
   },
   {
     model: "B10 BEV", brand: "Leapmotor", price: 182990, range: 288, cat: "SUV",
@@ -1521,6 +1526,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.53,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 280,
+    lengthMm: 4935, widthMm: 1920, heightMm: 1700, wheelbaseMm: 2935, weightKg: 2200, trunkLiters: 670,
   },
   {
     model: "e-tron GT", brand: "Audi", price: 769990, range: 318, cat: "Luxo",
