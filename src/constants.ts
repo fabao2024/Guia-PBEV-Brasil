@@ -995,6 +995,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.59,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 130,
+    lengthMm: 4554, widthMm: 1845, heightMm: 1560, wheelbaseMm: 2692, groundClearanceMm: 167, weightKg: 2095, trunkLiters: 525,
   },
   {
     model: "iX1 eDrive20", brand: "BMW", price: 359950, range: 345, cat: "SUV",
@@ -1012,6 +1013,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.55,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 130,
+    lengthMm: 4500, widthMm: 1845, heightMm: 1616, wheelbaseMm: 2692, weightKg: 1940, trunkLiters: 490,
   },
   {
     model: "EV5 Land", brand: "Kia", price: 389990, range: 402, cat: "SUV",
@@ -1216,6 +1218,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.54,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 320,
+    lengthMm: 4782, widthMm: 1895, heightMm: 1635, wheelbaseMm: 2897, groundClearanceMm: 176, weightKg: 2360, trunkLiters: 520,
   },
 
   // 3. LUXO & PERFORMANCE
@@ -1271,6 +1274,7 @@ export const CAR_DB: Car[] = [
       "Som Harman Kardon + design Gran Coupé aerodinâmico"
     ],
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 200,
+    lengthMm: 4783, widthMm: 1852, heightMm: 1448, wheelbaseMm: 2856, groundClearanceMm: 125, weightKg: 2075, trunkLiters: 470,
   },
   {
     model: "Mustang Mach-E", brand: "Ford", price: 486000, range: 379, cat: "Luxo",
@@ -1462,6 +1466,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.59,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 200,
+    lengthMm: 4953, widthMm: 1967, heightMm: 1695, wheelbaseMm: 3000, weightKg: 2440, trunkLiters: 500,
   },
   {
     model: "i5 M60", brand: "BMW", price: 794950, range: 393, cat: "Luxo",
@@ -1479,6 +1484,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.61,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 205,
+    lengthMm: 5060, widthMm: 1900, heightMm: 1505, wheelbaseMm: 2995, groundClearanceMm: 136, weightKg: 2380, trunkLiters: 490,
   },
   {
     model: "Taycan 4S", brand: "Porsche", price: 1080000, range: 415, cat: "Luxo",
@@ -1563,6 +1569,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.65,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 195,
+    lengthMm: 5391, widthMm: 1950, heightMm: 1544, wheelbaseMm: 3215, groundClearanceMm: 136, weightKg: 2715, trunkLiters: 500,
   },
   {
     model: "EQE 300 SUV", brand: "Mercedes-Benz", price: 698900, range: 367, cat: "Luxo",

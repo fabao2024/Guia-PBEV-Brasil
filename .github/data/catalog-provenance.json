@@ -547,25 +547,25 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.press.bmwgroup.com/asia/article/attachment/T0442758EN/617078",
+          "sourceUpdatedAt": "2024-06-01",
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.press.bmwgroup.com/asia/article/attachment/T0442758EN/617078",
+          "sourceUpdatedAt": "2024-06-01",
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.press.bmwgroup.com/asia/article/attachment/T0442758EN/617078",
+          "sourceUpdatedAt": "2024-06-01",
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -623,25 +623,25 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.press.bmwgroup.com/global/article/attachment/T0416261EN/587401",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.press.bmwgroup.com/global/article/attachment/T0416261EN/587401",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.press.bmwgroup.com/global/article/attachment/T0416261EN/587401",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -699,25 +699,25 @@
           "verifiedAt": "2026-08-25"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.press.bmwgroup.com/global/article/attachment/T0380173EN/568614",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.press.bmwgroup.com/global/article/attachment/T0380173EN/568614",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.press.bmwgroup.com/global/article/attachment/T0380173EN/568614",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -775,25 +775,25 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.press.bmwgroup.com/asia/article/attachment/T0334029EN/481303",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.press.bmwgroup.com/asia/article/attachment/T0334029EN/481303",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.press.bmwgroup.com/asia/article/attachment/T0334029EN/481303",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -851,25 +851,25 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.bmw.co.uk/en/all-models/bmw-i/ix1/bmw-ix1-technical-data.html",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.bmw.co.uk/en/all-models/bmw-i/ix1/bmw-ix1-technical-data.html",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.bmw.co.uk/en/all-models/bmw-i/ix1/bmw-ix1-technical-data.html",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -927,25 +927,25 @@
           "verifiedAt": "2026-08-25"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.press.bmwgroup.com/united-kingdom/article/attachment/T0437617EN_GB/612888",
+          "sourceUpdatedAt": "2023-10-05",
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.press.bmwgroup.com/united-kingdom/article/attachment/T0437617EN_GB/612888",
+          "sourceUpdatedAt": "2023-10-05",
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.press.bmwgroup.com/united-kingdom/article/attachment/T0437617EN_GB/612888",
+          "sourceUpdatedAt": "2023-10-05",
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -1003,25 +1003,25 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.press.bmwgroup.com/global/article/attachment/T0451998EN/636975",
+          "sourceUpdatedAt": "2025-09-05",
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.press.bmwgroup.com/global/article/attachment/T0451998EN/636975",
+          "sourceUpdatedAt": "2025-09-05",
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.press.bmwgroup.com/global/article/attachment/T0451998EN/636975",
+          "sourceUpdatedAt": "2025-09-05",
+          "verifiedAt": "2026-09-03"
         }
       }
     },
