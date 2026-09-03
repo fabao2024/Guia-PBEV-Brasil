@@ -180,6 +180,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'E', energyMJkm: 0.5,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 40,
+    lengthMm: 3650, widthMm: 1670, heightMm: 1540, wheelbaseMm: 2390, groundClearanceMm: 160, weightKg: 1180, trunkLiters: 121,
   },
   {
     model: "Dolphin Mini GS", brand: "BYD", price: 119990, range: 280, cat: "Urbano",
@@ -271,6 +272,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.39,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 70,
+    lengthMm: 4135, widthMm: 1805, heightMm: 1580, wheelbaseMm: 2650, groundClearanceMm: 160, weightKg: 1300, trunkLiters: 375,
   },
   {
     model: "EX2 Pro", brand: "Geely", price: 123800, range: 289, cat: "Compacto",
@@ -289,6 +291,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.39,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 70,
+    lengthMm: 4135, widthMm: 1805, heightMm: 1580, wheelbaseMm: 2650, groundClearanceMm: 160, weightKg: 1300, trunkLiters: 375,
   },
   {
     model: "Aya Luxury", brand: "Neta", price: 149900, range: 263, cat: "Compacto",
@@ -305,6 +308,7 @@ export const CAR_DB: Car[] = [
       "Sensores de estacionamento"
     ],
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 80,
+    lengthMm: 4070, widthMm: 1690, heightMm: 1540, wheelbaseMm: 2420, weightKg: 1185,
   },
   {
     model: "Ora 03 Skin BEV48", brand: "GWM", price: 154000, range: 232, cat: "Compacto",
@@ -635,6 +639,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.55,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 80,
+    lengthMm: 4510, widthMm: 1880, heightMm: 1670, trunkLiters: 405,
   },
   {
     model: "C10 BEV", brand: "Leapmotor", price: 204990, range: 338, cat: "SUV",
@@ -652,6 +657,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.61,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 84,
+    lengthMm: 4730, widthMm: 1900, heightMm: 1680, trunkLiters: 465,
   },
   {
     model: "Captiva EV", brand: "Chevrolet", price: 199990, range: 304, cat: "SUV",
@@ -691,6 +697,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.51,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 80,
+    lengthMm: 4424, widthMm: 1830, heightMm: 1588, wheelbaseMm: 2630, weightKg: 1710, trunkLiters: 340,
   },
   {
     model: "EX5 Max", brand: "Geely", price: 225800, range: 349, cat: "SUV",
@@ -708,6 +715,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.51,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 100,
+    lengthMm: 4615, widthMm: 1901, heightMm: 1670, wheelbaseMm: 2750, groundClearanceMm: 173, weightKg: 1765, trunkLiters: 461,
   },
   {
     model: "EX5 Pro", brand: "Geely", price: 205800, range: 413, cat: "SUV",
@@ -725,6 +733,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.42,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 100,
+    lengthMm: 4615, widthMm: 1901, heightMm: 1670, wheelbaseMm: 2750, groundClearanceMm: 173, weightKg: 1715, trunkLiters: 461,
   },
   {
     model: "Kona EV", brand: "Hyundai", price: 219990, range: 252, cat: "SUV", discontinued: true,
@@ -1035,6 +1044,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.6,
     warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 11, chargeDC: 135,
+    lengthMm: 4615, widthMm: 1875, heightMm: 1715, wheelbaseMm: 2750, weightKg: 2141, trunkLiters: 513,
   },
   {
     model: "Ioniq 5", brand: "Hyundai", price: 409990, range: 374, cat: "SUV",
@@ -1119,6 +1129,7 @@ export const CAR_DB: Car[] = [
       "Porta-malas elétrico + atualização OTA"
     ],
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 80,
+    lengthMm: 4619, widthMm: 1860, heightMm: 1628, wheelbaseMm: 2770, weightKg: 1740, trunkLiters: 508,
   },
   {
     model: "E-JS4", brand: "JAC", price: 254900, range: 307, cat: "SUV",
@@ -1136,6 +1147,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.47,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 80,
+    lengthMm: 4410, widthMm: 1800, heightMm: 1660, wheelbaseMm: 2620, groundClearanceMm: 180, weightKg: 1690, trunkLiters: 650,
   },
   {
     model: "E-J7", brand: "JAC", price: 259900, range: 263, cat: "Sedan",
@@ -1153,6 +1165,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.5,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 40,
+    lengthMm: 4770, widthMm: 1820, heightMm: 1510, wheelbaseMm: 2760, groundClearanceMm: 165, weightKg: 1650, trunkLiters: 590,
   },
   {
     model: "Ariya", brand: "Nissan", price: 350000, range: 400, cat: "SUV",
@@ -1368,6 +1381,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.6,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 270,
+    lengthMm: 4784, widthMm: 1938, wheelbaseMm: 2893, groundClearanceMm: 185, weightKg: 2405, trunkLiters: 540,
   },
   {
     model: "Q8 e-tron", brand: "Audi", price: 699000, range: 424, cat: "Luxo", discontinued: true,
@@ -1385,6 +1399,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.61,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 22, chargeDC: 170,
+    lengthMm: 4915, heightMm: 1633, wheelbaseMm: 2928, trunkLiters: 569,
   },
   {
     model: "A6 Sportback e-tron", brand: "Audi", price: 649990, range: 445, cat: "Luxo",
@@ -1402,6 +1417,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.59,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 270,
+    lengthMm: 4928, widthMm: 1923, heightMm: 1487, wheelbaseMm: 2946, weightKg: 2470, trunkLiters: 502,
   },
   {
     model: "Q6 e-tron", brand: "Audi", price: 695990, range: 411, cat: "Luxo",
@@ -1419,6 +1435,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.64,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 270,
+    lengthMm: 4771, heightMm: 1685, wheelbaseMm: 2889, weightKg: 2470, trunkLiters: 526,
   },
   {
     model: "Q6 Sportback e-tron", brand: "Audi", price: 710990, range: 427, cat: "Luxo",
@@ -1436,6 +1453,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.61,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 270,
+    lengthMm: 4771, heightMm: 1648, wheelbaseMm: 2889, trunkLiters: 511,
   },
   {
     model: "SQ6 Sportback e-tron", brand: "Audi", price: 790990, range: 428, cat: "Luxo",
@@ -1453,6 +1471,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.6,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 270,
+    lengthMm: 4771, heightMm: 1628, wheelbaseMm: 2893, trunkLiters: 499,
   },
   {
     model: "iX xDrive40", brand: "BMW", price: 699950, range: 327, cat: "Luxo",
@@ -1506,6 +1525,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.69,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 320,
+    lengthMm: 4974, widthMm: 1967, wheelbaseMm: 2904, groundClearanceMm: 146, weightKg: 2355, trunkLiters: 446,
   },
   {
     model: "EV9 GT-Line", brand: "Kia", price: 749990, range: 434, cat: "Luxo",
@@ -1522,6 +1542,7 @@ export const CAR_DB: Car[] = [
       "Som Meridian premium + atualização OTA"
     ],
     warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 11, chargeDC: 240,
+    lengthMm: 5015, widthMm: 1980, heightMm: 1780, wheelbaseMm: 3100, weightKg: 2704, trunkLiters: 333,
   },
   {
     model: "Hyptec HT", brand: "GAC", price: 314990, range: 431, cat: "Luxo",
@@ -1556,6 +1577,7 @@ export const CAR_DB: Car[] = [
       "Suspensão pneumática ativa + atualização OTA"
     ],
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 270,
+    lengthMm: 4997, widthMm: 1964, wheelbaseMm: 2900, weightKg: 2355, trunkLiters: 405,
   },
   {
     model: "i7 xDrive60", brand: "BMW", price: 1373950, range: 467, cat: "Luxo",
@@ -1608,6 +1630,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.63,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 390,
+    lengthMm: 4985, widthMm: 1980, wheelbaseMm: 3023, groundClearanceMm: 190, weightKg: 2600, trunkLiters: 781,
   },
 
   // 4. COMERCIAIS & VANS
@@ -1999,6 +2022,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.63,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 7, chargeDC: 60,
+    lengthMm: 5115, widthMm: 1765, heightMm: 1900, wheelbaseMm: 3080, trunkLiters: 5500,
   },
 
   // JAC iEV330P (primeira picape 100% elétrica do Brasil)
@@ -2052,6 +2076,7 @@ export const CAR_DB: Car[] = [
       "Financiamento Lexus Privilege com recompra garantida"
     ],
     warrantyYears: 3, warrantyBatteryYears: 10, chargeAC: 22, chargeDC: 150,
+    lengthMm: 4805, widthMm: 1895, heightMm: 1635, wheelbaseMm: 2850, groundClearanceMm: 200, trunkLiters: 522,
   },
 
   // CAOA CHANGAN — Avatr 11 (linha de luxo elétrico, estreia da marca no catálogo)

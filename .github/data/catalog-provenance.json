@@ -91,25 +91,25 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.audi-imprensa.com.br/carro/a6-sportback-e-tron",
+          "sourceUpdatedAt": "2025-05-08",
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.audi-imprensa.com.br/carro/a6-sportback-e-tron",
+          "sourceUpdatedAt": "2025-05-08",
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.audi-imprensa.com.br/carro/a6-sportback-e-tron",
+          "sourceUpdatedAt": "2025-05-08",
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -167,25 +167,25 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://uploads.audi-mediacenter.com/system/production/car_motorizations/1544/file_de/99b3ba2115bf1328f670ae087320f1022152ddcc/TD-Audi-e-tron-GT-quattro-370kW_260202.pdf",
+          "sourceUpdatedAt": "2025-05-13",
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://uploads.audi-mediacenter.com/system/production/car_motorizations/1544/file_de/99b3ba2115bf1328f670ae087320f1022152ddcc/TD-Audi-e-tron-GT-quattro-370kW_260202.pdf",
+          "sourceUpdatedAt": "2025-05-13",
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://uploads.audi-mediacenter.com/system/production/car_motorizations/1544/file_de/99b3ba2115bf1328f670ae087320f1022152ddcc/TD-Audi-e-tron-GT-quattro-370kW_260202.pdf",
+          "sourceUpdatedAt": "2025-05-13",
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -243,25 +243,25 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.audi-imprensa.com.br/carro/q6-e-tron",
+          "sourceUpdatedAt": "2026-04-24",
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.audi-imprensa.com.br/carro/q6-e-tron",
+          "sourceUpdatedAt": "2026-04-24",
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.audi-imprensa.com.br/carro/q6-e-tron",
+          "sourceUpdatedAt": "2026-04-24",
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -319,18 +319,18 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.audi-imprensa.com.br/pressreleases/audi-do-brasil-anuncia-q6-e-tron-e-q6-sportback-e-tron-2026-1",
+          "sourceUpdatedAt": "2026-04-24",
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.audi-imprensa.com.br/pressreleases/audi-do-brasil-anuncia-q6-e-tron-e-q6-sportback-e-tron-2026-1",
+          "sourceUpdatedAt": "2026-04-24",
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
           "verificationStatus": "legacy_unverified",
@@ -395,18 +395,18 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.audi-imprensa.com.br/carro/q8-e-tron",
+          "sourceUpdatedAt": "2023-08-10",
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.audi-imprensa.com.br/carro/q8-e-tron",
+          "sourceUpdatedAt": "2023-08-10",
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
           "verificationStatus": "legacy_unverified",
@@ -471,18 +471,18 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.audi-imprensa.com.br/pressreleases/audi-do-brasil-lanca-a-linha-2026-do-esportivo-sq-6-sportback-e-tron",
+          "sourceUpdatedAt": "2026-04-24",
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.audi-imprensa.com.br/pressreleases/audi-do-brasil-lanca-a-linha-2026-do-esportivo-sq-6-sportback-e-tron",
+          "sourceUpdatedAt": "2026-04-24",
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
           "verificationStatus": "legacy_unverified",
@@ -3663,25 +3663,25 @@
           "verifiedAt": "2026-08-25"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://static.autoforce.com/plugins/files/clientes/geely-brasil/produtos/ws/Ficha_Tecnica_GEELY_EX2.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://static.autoforce.com/plugins/files/clientes/geely-brasil/produtos/ws/Ficha_Tecnica_GEELY_EX2.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://static.autoforce.com/plugins/files/clientes/geely-brasil/produtos/ws/Ficha_Tecnica_GEELY_EX2.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -3739,25 +3739,25 @@
           "verifiedAt": "2026-08-25"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://static.autoforce.com/plugins/files/clientes/geely-brasil/produtos/ws/Ficha_Tecnica_GEELY_EX2.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://static.autoforce.com/plugins/files/clientes/geely-brasil/produtos/ws/Ficha_Tecnica_GEELY_EX2.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://static.autoforce.com/plugins/files/clientes/geely-brasil/produtos/ws/Ficha_Tecnica_GEELY_EX2.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -3815,25 +3815,25 @@
           "verifiedAt": "2026-08-25"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://static.autoforce.com/plugins/files/clientes/geely-brasil/produtos/ws/ficha-tecnica-geely-ex5-v2.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://static.autoforce.com/plugins/files/clientes/geely-brasil/produtos/ws/ficha-tecnica-geely-ex5-v2.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://static.autoforce.com/plugins/files/clientes/geely-brasil/produtos/ws/ficha-tecnica-geely-ex5-v2.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -3891,25 +3891,25 @@
           "verifiedAt": "2026-08-25"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://static.autoforce.com/plugins/files/clientes/geely-brasil/produtos/ws/ficha-tecnica-geely-ex5-v2.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://static.autoforce.com/plugins/files/clientes/geely-brasil/produtos/ws/ficha-tecnica-geely-ex5-v2.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://static.autoforce.com/plugins/files/clientes/geely-brasil/produtos/ws/ficha-tecnica-geely-ex5-v2.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -4423,25 +4423,25 @@
           "verifiedAt": "2026-08-25"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.jacmotors.com.br/wp-content/uploads/2026/07/E-J7-FICHA-1.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.jacmotors.com.br/wp-content/uploads/2026/07/E-J7-FICHA-1.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.jacmotors.com.br/wp-content/uploads/2026/07/E-J7-FICHA-1.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -4499,25 +4499,25 @@
           "verifiedAt": "2026-08-25"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.jacmotors.com.br/wp-content/uploads/2025/12/E-JS1-FICHA-1.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.jacmotors.com.br/wp-content/uploads/2025/12/E-JS1-FICHA-1.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.jacmotors.com.br/wp-content/uploads/2025/12/E-JS1-FICHA-1.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -4575,25 +4575,25 @@
           "verifiedAt": "2026-08-25"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.jacmotors.com.br/wp-content/uploads/2025/12/E-JS4-FICHA-1.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.jacmotors.com.br/wp-content/uploads/2025/12/E-JS4-FICHA-1.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.jacmotors.com.br/wp-content/uploads/2025/12/E-JS4-FICHA-1.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -4651,18 +4651,18 @@
           "verifiedAt": "2026-08-25"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.jacmotors.com.br/vans/e-jv55/",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.jacmotors.com.br/vans/e-jv55/",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
           "verificationStatus": "legacy_unverified",
@@ -4803,25 +4803,25 @@
           "verifiedAt": "2026-08-25"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.kia.com.br/ev5/especificacoes",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.kia.com.br/ev5/especificacoes",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.kia.com.br/ev5/especificacoes",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -4879,25 +4879,25 @@
           "verifiedAt": "2026-08-25"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://kiasiteblob.kia.com.br/site/Fichas%20T%C3%A9cnicas/ficha-tecnica-ev9.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://kiasiteblob.kia.com.br/site/Fichas%20T%C3%A9cnicas/ficha-tecnica-ev9.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://kiasiteblob.kia.com.br/site/Fichas%20T%C3%A9cnicas/ficha-tecnica-ev9.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -4955,18 +4955,18 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.leapmotor.com.br/b10.html",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.leapmotor.com.br/b10.html",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
           "verificationStatus": "legacy_unverified",
@@ -5031,18 +5031,18 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.leapmotor.com.br/c10.html",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.leapmotor.com.br/c10.html",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
           "verificationStatus": "legacy_unverified",
@@ -5107,18 +5107,18 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.lexus.com.br/pt/models/rz/rz-500e.html",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.lexus.com.br/pt/models/rz/rz-500e.html",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
           "verificationStatus": "legacy_unverified",
@@ -6551,11 +6551,11 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://netaauto.com.br/wp-content/uploads/2025/02/AYA-Manual-do-proprietario-2025-02.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
           "verificationStatus": "legacy_unverified",
@@ -6565,11 +6565,11 @@
           "verifiedAt": null
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://netaauto.com.br/wp-content/uploads/2025/02/AYA-Manual-do-proprietario-2025-02.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -6627,25 +6627,25 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://netaauto.com.br/wp-content/uploads/2025/02/X-Manual-do-usuario-2025-02.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://netaauto.com.br/wp-content/uploads/2025/02/X-Manual-do-usuario-2025-02.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://netaauto.com.br/wp-content/uploads/2025/02/X-Manual-do-usuario-2025-02.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -6779,25 +6779,25 @@
           "verifiedAt": "2026-08-26"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://cms.omodajaecoo.com.br/manual/pdf/Website-Spec-Sheet-Omoda-E5.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://cms.omodajaecoo.com.br/manual/pdf/Website-Spec-Sheet-Omoda-E5.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://cms.omodajaecoo.com.br/manual/pdf/Website-Spec-Sheet-Omoda-E5.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -7083,25 +7083,25 @@
           "verifiedAt": "2026-08-26"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.porsche.com/brazil/pt/models/cayenne/cayenne-electric-models/cayenne-electric/",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.porsche.com/brazil/pt/models/cayenne/cayenne-electric-models/cayenne-electric/",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.porsche.com/brazil/pt/models/cayenne/cayenne-electric-models/cayenne-electric/",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -7159,25 +7159,25 @@
           "verifiedAt": "2026-08-26"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.porsche.com/brazil/pt/models/macan/macan-electric-models/macan-4-electric/",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.porsche.com/brazil/pt/models/macan/macan-electric-models/macan-4-electric/",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.porsche.com/brazil/pt/models/macan/macan-electric-models/macan-4-electric/",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -7235,25 +7235,25 @@
           "verifiedAt": "2026-08-26"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.porsche.com/brazil/pt/models/taycan/taycan-cross-turismo-models/taycan-4s-cross-turismo/",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.porsche.com/brazil/pt/models/taycan/taycan-cross-turismo-models/taycan-4s-cross-turismo/",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.porsche.com/brazil/pt/models/taycan/taycan-cross-turismo-models/taycan-4s-cross-turismo/",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },

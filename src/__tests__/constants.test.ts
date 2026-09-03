@@ -78,12 +78,13 @@ describe('CAR_DB data integrity', () => {
     const RANGES: Array<[keyof Car, number, number]> = [
       ['lengthMm', 2500, 6000],
       ['widthMm', 1450, 2100],
-      ['heightMm', 1150, 2300],
+      // 3000 mm: furgões altos (eSprinter 2.718 mm etc.)
+      ['heightMm', 1150, 3000],
       ['wheelbaseMm', 1900, 3400],
       ['groundClearanceMm', 90, 300],
       ['weightKg', 700, 3500],
-      // 8000 L: furgões (Kangoo E-Tech 4.300 L etc.) declaram volume de carga
-      ['trunkLiters', 40, 8000],
+      // 12000 L: furgões de carga (eSprinter 10.500 L etc.)
+      ['trunkLiters', 40, 12000],
     ];
 
     it('optional dimension fields should be integers within plausible ranges', () => {
