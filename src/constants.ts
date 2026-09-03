@@ -163,6 +163,7 @@ export const CAR_DB: Car[] = [
       "Sensores de estacionamento dianteiros e traseiros"
     ],
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 50,
+    lengthMm: 3200, widthMm: 1670, heightMm: 1590, wheelbaseMm: 2150, weightKg: 995, trunkLiters: 100,
   },
   {
     model: "E-JS1", brand: "JAC", price: 119900, range: 181, cat: "Urbano",
@@ -435,6 +436,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'C', energyMJkm: 0.46,
     warrantyYears: 2, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 85,
+    lengthMm: 3632, widthMm: 1683, heightMm: 1527, wheelbaseMm: 2322, trunkLiters: 185,
   },
   {
     model: "e-208 GT", brand: "Peugeot", price: 225990, range: 220, cat: "Compacto",
@@ -453,6 +455,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.59,
     warrantyYears: 2, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 100,
+    lengthMm: 4055, widthMm: 1745, heightMm: 1430, wheelbaseMm: 2538, trunkLiters: 311,
   },
   {
     model: "Cooper E", brand: "Mini", price: 264990, range: 239, cat: "Compacto",
@@ -845,6 +848,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.55,
     warrantyYears: 2, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 100,
+    lengthMm: 4304, widthMm: 1815, heightMm: 1550, wheelbaseMm: 2605, groundClearanceMm: 174, weightKg: 1623, trunkLiters: 434,
   },
   {
     model: "Megane E-Tech", brand: "Renault", price: 279990, range: 337, cat: "SUV",
@@ -1079,6 +1083,7 @@ export const CAR_DB: Car[] = [
       "Hey Mercedes (assistente de voz premium)"
     ],
     warrantyYears: 3, warrantyBatteryYears: 10, chargeAC: 11, chargeDC: 100,
+    lengthMm: 4463, heightMm: 1612, wheelbaseMm: 2729, weightKg: 2045, trunkLiters: 340,
   },
   {
     model: "EQB 250+", brand: "Mercedes-Benz", price: 399900, range: 376, cat: "Luxo",
@@ -1096,6 +1101,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.53,
     warrantyYears: 3, warrantyBatteryYears: 10, chargeAC: 11, chargeDC: 100,
+    lengthMm: 4684, heightMm: 1654, wheelbaseMm: 2829, weightKg: 2105, trunkLiters: 495,
   },
   {
     model: "EQE 350", brand: "Mercedes-Benz", price: 649900, range: 421, cat: "Sedan",
@@ -1113,6 +1119,7 @@ export const CAR_DB: Car[] = [
       "0–100 km/h em 6,4 s"
     ],
     warrantyYears: 3, warrantyBatteryYears: 10, chargeAC: 22, chargeDC: 170,
+    lengthMm: 4946, heightMm: 1510, wheelbaseMm: 3120, weightKg: 2355, trunkLiters: 430,
   },
   {
     model: "Neta X 500", brand: "Neta", price: 214900, range: 317, cat: "SUV",
@@ -1308,6 +1315,7 @@ export const CAR_DB: Car[] = [
       "AWD dual motor 487 cv (0-100 km/h em ~3,7 s) + atualização OTA"
     ],
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
+    lengthMm: 4743, heightMm: 1613, wheelbaseMm: 2985, weightKg: 2307, trunkLiters: 402,
   },
   {
     model: "Blazer EV RS", brand: "Chevrolet", price: 503190, range: 481, cat: "Luxo",
@@ -1612,6 +1620,7 @@ export const CAR_DB: Car[] = [
       "Teto panorâmico + Hey Mercedes + atualização OTA"
     ],
     warrantyYears: 3, warrantyBatteryYears: 10, chargeAC: 11, chargeDC: 170, discontinued: true,
+    lengthMm: 4863, heightMm: 1685, wheelbaseMm: 3030, weightKg: 2490, trunkLiters: 520,
   },
 
   {
@@ -1650,6 +1659,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 1.02,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11.5, chargeDC: 115,
+    lengthMm: 5531, widthMm: 2059, heightMm: 2534, wheelbaseMm: 3300, weightKg: 2649, trunkLiters: 9500,
   },
   {
     model: "Kangoo E-Tech", brand: "Renault", price: 259000, range: 210, cat: "Comercial",
@@ -1720,6 +1730,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.75,
     warrantyYears: 2, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 100,
+    lengthMm: 5309, widthMm: 1920, heightMm: 1935, wheelbaseMm: 3275, weightKg: 2053, trunkLiters: 6100,
   },
   {
     model: "e-Scudo", brand: "Fiat", price: 329990, range: 289, cat: "Comercial", discontinued: true,
@@ -1736,6 +1747,7 @@ export const CAR_DB: Car[] = [
       "Plataforma compartilhada Stellantis (e-Expert / e-Jumpy / e-Scudo)"
     ],
     warrantyYears: 2, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 100,
+    lengthMm: 5309, widthMm: 1920, heightMm: 1935, wheelbaseMm: 3275, weightKg: 2053, trunkLiters: 6100,
   },
   {
     model: "e-Jumpy", brand: "Citroen", price: 329990, range: 258, cat: "Comercial",
@@ -1753,6 +1765,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.75,
     warrantyYears: 2, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 100,
+    lengthMm: 5309, widthMm: 1920, heightMm: 1935, wheelbaseMm: 3275, weightKg: 2053, trunkLiters: 6100,
   },
 
   // 5. MG MOTOR
@@ -1933,6 +1946,7 @@ export const CAR_DB: Car[] = [
     ],
     warrantyYears: 3, warrantyBatteryYears: 8, pbeRating: 'A', energyMJkm: 0.58,
     chargeAC: 11, chargeDC: 100,
+    lengthMm: 4275, widthMm: 1800, heightMm: 1635, wheelbaseMm: 2700, groundClearanceMm: 180, weightKg: 1899, trunkLiters: 310,
   },
 
   // FARIZON (Grupo Geely — comerciais elétricos)
@@ -1952,6 +1966,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.72,
     warrantyYears: 3, warrantyBatteryYears: 5, chargeAC: 6.6, chargeDC: 41,
+    lengthMm: 4845, widthMm: 1730, heightMm: 1985, wheelbaseMm: 3100, trunkLiters: 6000,
   },
   {
     model: "SuperVan SV", brand: "Farizon", price: 425000, range: 239, cat: "Comercial",
@@ -1969,6 +1984,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.92,
     warrantyYears: 3, warrantyBatteryYears: 5, chargeAC: 11, chargeDC: 80,
+    lengthMm: 4990, widthMm: 1980, heightMm: 2180, trunkLiters: 7920,
   },
 
   // FOTON (comerciais elétricos)
@@ -1987,6 +2003,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 0.58,
     warrantyYears: 3, warrantyBatteryYears: 5, chargeAC: 6.6, chargeDC: 41.8,
+    lengthMm: 4620, widthMm: 1710, heightMm: 1900, wheelbaseMm: 3080, weightKg: 1225,
   },
   {
     model: "eView Grand", brand: "Foton", price: 329900, range: 187, cat: "Comercial",
@@ -2003,6 +2020,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 1.00,
     warrantyYears: 3, warrantyBatteryYears: 5, chargeAC: 6.6, chargeDC: 77,
+    lengthMm: 5490, widthMm: 1980, heightMm: 1990, wheelbaseMm: 3510, groundClearanceMm: 185, weightKg: 2290, trunkLiters: 6800,
   },
 
   // JAC E-JV5.5 (furgão de entrega)
@@ -2060,6 +2078,7 @@ export const CAR_DB: Car[] = [
     ],
     pbeRating: 'A', energyMJkm: 1.09,
     warrantyYears: 3, warrantyBatteryYears: 10, chargeAC: 22, chargeDC: 115,
+    lengthMm: 5932, widthMm: 2020, heightMm: 2718, wheelbaseMm: 3665, weightKg: 2725, trunkLiters: 10500,
   },
 
   // LEXUS RZ 500e (1º elétrico da marca no Brasil)

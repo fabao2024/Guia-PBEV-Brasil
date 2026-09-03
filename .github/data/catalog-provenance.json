@@ -2143,25 +2143,25 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.amazoncaoachery.com.br/novos/caoa-chery-icar",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.amazoncaoachery.com.br/novos/caoa-chery-icar",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.amazoncaoachery.com.br/novos/caoa-chery-icar",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -2523,25 +2523,25 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.media.stellantis.com/uploads/br/attachment/3737/fichatecnicaejumpy-63dd90c7286ac.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.media.stellantis.com/uploads/br/attachment/3737/fichatecnicaejumpy-63dd90c7286ac.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.media.stellantis.com/uploads/br/attachment/3737/fichatecnicaejumpy-63dd90c7286ac.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -2599,18 +2599,18 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.farizontimber.com.br/farizon-sv/",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.farizontimber.com.br/farizon-sv/",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
           "verificationStatus": "legacy_unverified",
@@ -2675,18 +2675,18 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.farizontimber.com.br/v6e/",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.farizontimber.com.br/v6e/",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
           "verificationStatus": "legacy_unverified",
@@ -2751,18 +2751,18 @@
           "verifiedAt": "2026-08-26"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.media.stellantis.com/em-en/fiat/500",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.media.stellantis.com/em-en/fiat/500",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
           "verificationStatus": "legacy_unverified",
@@ -2827,25 +2827,25 @@
           "verifiedAt": "2026-08-26"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.media.stellantis.com/br-pt/download-model-document/222",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.media.stellantis.com/br-pt/download-model-document/222",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.media.stellantis.com/br-pt/download-model-document/222",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -2903,25 +2903,25 @@
           "verifiedAt": "2026-08-26"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.ford.com.br/veiculos-comerciais/e-transit-furgao/compare-as-versoes/furgao-9-5-m3/",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.ford.com.br/veiculos-comerciais/e-transit-furgao/compare-as-versoes/furgao-9-5-m3/",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.ford.com.br/veiculos-comerciais/e-transit-furgao/compare-as-versoes/furgao-9-5-m3/",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -2979,25 +2979,25 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.ford.com.br/performance/mustang-mach-e/gt-performance/",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.ford.com.br/performance/mustang-mach-e/gt-performance/",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.ford.com.br/performance/mustang-mach-e/gt-performance/",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -3055,25 +3055,25 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.fotondobrasil.com.br/uploads/manuais/0000035_Ficha_tecnica_eView%20Grand.pdf",
+          "sourceUpdatedAt": "2026-07-01",
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.fotondobrasil.com.br/uploads/manuais/0000035_Ficha_tecnica_eView%20Grand.pdf",
+          "sourceUpdatedAt": "2026-07-01",
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.fotondobrasil.com.br/uploads/manuais/0000035_Ficha_tecnica_eView%20Grand.pdf",
+          "sourceUpdatedAt": "2026-07-01",
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -3131,11 +3131,11 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.fotondobrasil.com.br/uploads/manuais/0000036_Ficha_tecnica_eWonder.pdf",
+          "sourceUpdatedAt": "2026-03-01",
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
           "verificationStatus": "legacy_unverified",
@@ -3145,11 +3145,11 @@
           "verifiedAt": null
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.fotondobrasil.com.br/uploads/manuais/0000036_Ficha_tecnica_eWonder.pdf",
+          "sourceUpdatedAt": "2026-03-01",
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -5183,31 +5183,31 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www2.mercedes-benz.com.br/passengercars/models/suv/eqa/overview.html",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www2.mercedes-benz.com.br/passengercars/models/suv/eqa/overview.html",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www2.mercedes-benz.com.br/passengercars/models/suv/eqa/overview.html",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
     "mercedes-benz-eqb-250": {
       "brand": "Mercedes-Benz",
-      "model": "EQB 250",
+      "model": "EQB 250+",
       "fields": {
         "price": {
           "verificationStatus": "verified",
@@ -5259,25 +5259,25 @@
           "verifiedAt": "2026-08-25"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www2.mercedes-benz.com.br/passengercars/models/suv/eqb/overview.html",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www2.mercedes-benz.com.br/passengercars/models/suv/eqb/overview.html",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www2.mercedes-benz.com.br/passengercars/models/suv/eqb/overview.html",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -5335,25 +5335,25 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://imprensa.mercedes-benz.com.br/releases/mercedes-benz-eqe-suv-chega-ao-brasil-unindo-mobilidade-eletrica-e-versatilidade",
+          "sourceUpdatedAt": "2024-07-31",
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://imprensa.mercedes-benz.com.br/releases/mercedes-benz-eqe-suv-chega-ao-brasil-unindo-mobilidade-eletrica-e-versatilidade",
+          "sourceUpdatedAt": "2024-07-31",
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://imprensa.mercedes-benz.com.br/releases/mercedes-benz-eqe-suv-chega-ao-brasil-unindo-mobilidade-eletrica-e-versatilidade",
+          "sourceUpdatedAt": "2024-07-31",
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -5411,25 +5411,25 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://imprensa.mercedes-benz.com.br/releases/mercedes-benz-apresenta-novas-versoes-com-mobilidade-100-eletrica",
+          "sourceUpdatedAt": "2024-07-31",
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://imprensa.mercedes-benz.com.br/releases/mercedes-benz-apresenta-novas-versoes-com-mobilidade-100-eletrica",
+          "sourceUpdatedAt": "2024-07-31",
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://imprensa.mercedes-benz.com.br/releases/mercedes-benz-apresenta-novas-versoes-com-mobilidade-100-eletrica",
+          "sourceUpdatedAt": "2024-07-31",
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -5487,25 +5487,25 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://imprensa.mercedes-benz.com.br/releases/mercedes-benz-lanca-sprinter-eletrica-no-mercado-brasileiro-com-maior-autonomia-do-segmento",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://imprensa.mercedes-benz.com.br/releases/mercedes-benz-lanca-sprinter-eletrica-no-mercado-brasileiro-com-maior-autonomia-do-segmento",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://imprensa.mercedes-benz.com.br/releases/mercedes-benz-lanca-sprinter-eletrica-no-mercado-brasileiro-com-maior-autonomia-do-segmento",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -6855,25 +6855,25 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://admin.media.stellantis.com/br-pt/download-model-document/428",
+          "sourceUpdatedAt": "2026-01-05",
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://admin.media.stellantis.com/br-pt/download-model-document/428",
+          "sourceUpdatedAt": "2026-01-05",
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://admin.media.stellantis.com/br-pt/download-model-document/428",
+          "sourceUpdatedAt": "2026-01-05",
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -6931,18 +6931,18 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.media.stellantis.com/br-pt/peugeot/peugeot-e-208gt-2022",
+          "sourceUpdatedAt": "2023-07-06",
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.media.stellantis.com/br-pt/peugeot/peugeot-e-208gt-2022",
+          "sourceUpdatedAt": "2023-07-06",
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
           "verificationStatus": "legacy_unverified",
@@ -7007,25 +7007,25 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.media.stellantis.com/uploads/br/attachment/3738/fichatecnicapeugeoteexpert-61a8ba63d63f9.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.media.stellantis.com/uploads/br/attachment/3738/fichatecnicapeugeoteexpert-61a8ba63d63f9.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.media.stellantis.com/uploads/br/attachment/3738/fichatecnicapeugeoteexpert-61a8ba63d63f9.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -7539,25 +7539,25 @@
           "verifiedAt": "2026-08-26"
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.suzukiveiculos.com.br/veiculos/evitara/",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.suzukiveiculos.com.br/veiculos/evitara/",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.suzukiveiculos.com.br/veiculos/evitara/",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     },

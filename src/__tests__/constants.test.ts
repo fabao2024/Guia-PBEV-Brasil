@@ -80,7 +80,8 @@ describe('CAR_DB data integrity', () => {
       ['widthMm', 1450, 2100],
       // 3000 mm: furgões altos (eSprinter 2.718 mm etc.)
       ['heightMm', 1150, 3000],
-      ['wheelbaseMm', 1900, 3400],
+      // 4000 mm: furgões grandes (eSprinter 3.665 mm, eView Grand 3.510 mm)
+      ['wheelbaseMm', 1900, 4000],
       ['groundClearanceMm', 90, 300],
       ['weightKg', 700, 3500],
       // 12000 L: furgões de carga (eSprinter 10.500 L etc.)
