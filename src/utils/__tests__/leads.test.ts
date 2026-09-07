@@ -40,12 +40,15 @@ describe('submitLead()', () => {
     });
     vi.stubGlobal('fetch', fetchMock);
 
-    const result = await submitLead(lead, 'vehicle_details');
+    const result = await submitLead(lead, 'vehicle_details', 'lead-submit-test-001');
 
     expect(result).toEqual({ status: 'needs_review', lead_id: 42 });
     expect(fetchMock).toHaveBeenCalledWith('https://bot.guiapbev.cloud/api/leads', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Idempotency-Key': 'lead-submit-test-001',
+      },
       body: JSON.stringify({
         ...lead,
         source: 'vehicle_details',

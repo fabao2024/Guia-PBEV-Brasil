@@ -81,4 +81,18 @@ describe('submitPartnerApplication()', () => {
 
     await expect(submitPartnerApplication(application)).rejects.toThrow('Falha ao enviar candidatura: 422 validation error');
   });
+
+  it.each([
+    [{ status: 'queued', application_id: 7 }, 'status'],
+    [{ status: 'submitted' }, 'application_id'],
+  ])('rejects a malformed success response: %s', async (payload, expectedField) => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => payload,
+    }));
+
+    await expect(submitPartnerApplication(application)).rejects.toThrow(
+      `Resposta inválida da API de parceiros: ${expectedField}`,
+    );
+  });
 });

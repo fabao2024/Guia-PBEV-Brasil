@@ -1,7 +1,7 @@
 /**
  * generate-sitemap.ts
  * Runs at build time (before vite build) to produce:
- *  - public/sitemap.xml  — all vehicle + comparison routes
+ *  - public/sitemap.xml  — all public static + vehicle routes
  *  - public/data/cars.json — full catalog as structured JSON (consumed by external systems)
  *
  * Usage: npx tsx generate-sitemap.ts
@@ -49,29 +49,17 @@ const carRoutes = CAR_DB.map(car =>
   url(`${BASE_URL}/carro/${toSlug(car.brand, car.model)}`, '0.8', 'monthly')
 );
 
-// Comparison pages: same-category pairs only
-const compareRoutes: string[] = [];
-const categories = [...new Set(CAR_DB.map(c => c.cat))];
-for (const cat of categories) {
-  const group = CAR_DB.filter(c => c.cat === cat);
-  for (let i = 0; i < group.length; i++) {
-    for (let j = i + 1; j < group.length; j++) {
-      const slugA = toSlug(group[i].brand, group[i].model);
-      const slugB = toSlug(group[j].brand, group[j].model);
-      compareRoutes.push(url(`${BASE_URL}/comparar/${slugA}/${slugB}`, '0.6', 'monthly'));
-    }
-  }
-}
-
+// Comparison routes remain client-side only until they have a matching static-page
+// generation loop and a verified direct HTTP fallback. Do not advertise them here.
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${[...staticRoutes, ...carRoutes, ...compareRoutes].join('\n')}
+${[...staticRoutes, ...carRoutes].join('\n')}
 </urlset>
 `;
 
 const outPath = resolve(__dirname, 'public/sitemap.xml');
 writeFileSync(outPath, sitemap, 'utf-8');
-console.log(`✅ sitemap.xml gerado — ${carRoutes.length} veículos + ${compareRoutes.length} comparativos + ${staticRoutes.length} estáticas → ${outPath}`);
+console.log(`✅ sitemap.xml gerado — ${carRoutes.length} veículos + ${staticRoutes.length} estáticas → ${outPath}`);
 
 // ── Gera public/data/cars.json ────────────────────────────────────────────────
 

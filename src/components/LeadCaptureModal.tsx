@@ -58,6 +58,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
   const [validationError, setValidationError] = useState(false);
   const formStartedRef = useRef(false);
   const validationReportedRef = useRef(false);
+  const idempotencyKeyRef = useRef<string | null>(null);
 
   const vehicleLabel = selectedCar ? `${selectedCar.brand} ${selectedCar.model}` : '';
 
@@ -79,6 +80,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
     setValidationError(false);
     formStartedRef.current = false;
     validationReportedRef.current = false;
+    idempotencyKeyRef.current = crypto.randomUUID();
     setForm({
       ...INITIAL_FORM,
       interest: initialInterest,
@@ -139,7 +141,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
     });
 
     try {
-      const result = await submitLead(hydratedForm, source);
+      const result = await submitLead(hydratedForm, source, idempotencyKeyRef.current ?? undefined);
       setLeadId(result.lead_id);
       setSubmitted(true);
       track('lead_success', {

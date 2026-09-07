@@ -8,10 +8,18 @@ export interface SubmitLeadResponse {
 
 export const LEADS_API_URL = import.meta.env.VITE_LEADS_API_URL || 'https://bot.guiapbev.cloud/api/leads';
 
-export async function submitLead(lead: LeadFormData, source: string): Promise<SubmitLeadResponse> {
+export async function submitLead(
+  lead: LeadFormData,
+  source: string,
+  idempotencyKey?: string,
+): Promise<SubmitLeadResponse> {
+  const requestKey = idempotencyKey || crypto.randomUUID();
   const response = await fetch(LEADS_API_URL, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'Idempotency-Key': requestKey,
+    },
     body: JSON.stringify({
       ...lead,
       source,
