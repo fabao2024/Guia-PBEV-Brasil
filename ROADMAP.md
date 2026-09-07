@@ -48,6 +48,10 @@ O frontend envia a candidatura a uma API externa por contrato versionado, inclui
 
 ## Próximos incrementos públicos
 
+### Propostas em validação
+
+- **Experiências reais de uso** — receber, com consentimento explícito, foto do painel e contexto de consumo informado por proprietários; diferenciar visualmente relato real, dado homologado, simulação e medição independente; manter revisão humana antes de qualquer publicação.
+
 ### Curto prazo
 
 - ampliar testes de acessibilidade das rotas de catálogo, comparação e parceiros;
@@ -60,6 +64,7 @@ O frontend envia a candidatura a uma API externa por contrato versionado, inclui
 - histórico comparável de preços públicos;
 - novos cenários de recarga residencial e pública;
 - exportação compartilhável de comparações e simulações;
+- biblioteca pública de experiências reais de uso, condicionada a uma base robusta de relatos revisados e a uma metodologia pública de agregação;
 - expansão geográfica do programa de parceiros somente após validação do piloto.
 
 ### Fora do escopo público

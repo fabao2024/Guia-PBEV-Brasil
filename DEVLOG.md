@@ -280,6 +280,17 @@ Notas técnicas selecionadas do produto público. Este documento não registra i
 - Eventos analíticos sem dados pessoais.
 - Feature flag de build para rollout controlado.
 
+## Agosto de 2026 · Proposta de experiências reais de uso
+
+- Definida a feature pública para receber relatos de proprietários com foto do painel e contexto da medição.
+- A especificação separa dado homologado, resultado do simulador, consumo observado no painel e medição independente.
+- O escopo prevê aviso claro, consentimento explícito para eventual uso editorial, opção de publicação anônima, análise prévia independente, limites de upload e remoção de metadados quando suportado pela infraestrutura.
+- O envio não garante publicação ou seleção: a plataforma decide de forma independente quais casos podem ser usados.
+- A feature não publica automaticamente, não transforma um caso individual em média ou promessa e não inclui dados pessoais no frontend ou no build.
+- Evolução futura mapeada: com base robusta de relatos revisados, criar uma biblioteca pública agregada, com seção própria e possíveis resumos contextuais nas fichas dos veículos.
+- Especificação: `docs/REAL_USE_EXPERIENCES.md`.
+- Implementação do formulário, fluxo técnico de recebimento e superfície pública ainda não iniciada.
+
 ## 2026 · Segurança do frontend e supply chain
 
 - Content Security Policy no documento estático.
