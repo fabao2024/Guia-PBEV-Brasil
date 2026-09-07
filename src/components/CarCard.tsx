@@ -5,7 +5,7 @@ import { Car } from '../types';
 import { BRAND_URLS, isCarNew, CAR_DB } from '../constants';
 import { getPriceDelta } from '../constants/priceHistory';
 import { toSlug } from '../utils/slug';
-import { resolveCarImageUrl } from '../utils/imageUrl';
+import { getCarImageDimensions, resolveCarImageSrcSet, resolveCarImageUrl } from '../utils/imageUrl';
 import { Check, ImageOff, Heart, BatteryCharging, Scale, ArrowUpRight } from 'lucide-react';
 
 interface CarCardProps {
@@ -67,6 +67,8 @@ const CarCard: React.FC<CarCardProps> = ({
   const estimatedPower = car.power ?? Math.round(car.price / 3000);
 
   const imgSrc = resolveCarImageUrl(car.img, 800);
+  const imgSrcSet = resolveCarImageSrcSet(car.img);
+  const imageDimensions = getCarImageDimensions(car.img);
 
   return (
     <div
@@ -129,6 +131,11 @@ const CarCard: React.FC<CarCardProps> = ({
         {!hasError && (
           <img
             src={imgSrc}
+            srcSet={imgSrcSet}
+            sizes={imgSrcSet ? '(min-width: 1536px) calc((min(100vw, 1600px) - 456px) / 4), (min-width: 1280px) calc((100vw - 432px) / 3), (min-width: 768px) calc((100vw - 408px) / 2), (min-width: 640px) calc((100vw - 56px) / 2), calc((100vw - 44px) / 2)' : undefined}
+            width={imageDimensions?.width}
+            height={imageDimensions?.height}
+            decoding="async"
             alt={car.model}
             loading="lazy"
             onLoad={() => setIsLoading(false)}
@@ -141,12 +148,14 @@ const CarCard: React.FC<CarCardProps> = ({
         <div className="absolute top-2.5 left-2.5 z-30 flex gap-1.5">
           <button
             onClick={onToggleCompare}
-            className="p-2 rounded-lg border backdrop-blur-sm transition-all min-w-[36px] min-h-[36px] flex items-center justify-center"
+            className="p-2 rounded-lg border backdrop-blur-sm transition-all min-w-[44px] min-h-[44px] flex items-center justify-center"
             style={isSelectedForCompare
               ? { background: '#00b4ff', borderColor: '#00b4ff', color: '#000' }
               : { background: 'rgba(5,5,12,0.55)', borderColor: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.45)' }
             }
             title={isSelectedForCompare ? t('card.removeCompare') : t('card.compare')}
+            aria-label={isSelectedForCompare ? t('card.removeCompare') : t('card.compare')}
+            aria-pressed={isSelectedForCompare}
           >
             {isSelectedForCompare ? <Check className="w-4 h-4" /> : <Scale className="w-4 h-4" />}
           </button>
@@ -155,43 +164,24 @@ const CarCard: React.FC<CarCardProps> = ({
         {/* Favorite — top right */}
         <button
           onClick={onToggleFavorite}
-          className="absolute top-2.5 right-2.5 z-30 p-2 rounded-lg border backdrop-blur-sm transition-all min-w-[36px] min-h-[36px] flex items-center justify-center"
+          className="absolute top-2.5 right-2.5 z-30 p-2 rounded-lg border backdrop-blur-sm transition-all min-w-[44px] min-h-[44px] flex items-center justify-center"
           style={isFavorite
             ? { background: 'rgba(5,5,12,0.6)', borderColor: 'rgba(239,68,68,0.5)', color: '#ef4444' }
             : { background: 'rgba(5,5,12,0.55)', borderColor: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.45)' }
           }
           title={isFavorite ? t('card.removeFavorite') : t('card.addFavorite')}
+          aria-label={isFavorite ? t('card.removeFavorite') : t('card.addFavorite')}
+          aria-pressed={isFavorite}
         >
           <Heart className={`w-4 h-4 ${isFavorite ? 'fill-current' : ''}`} />
         </button>
 
-        {/* DISCONTINUED badge */}
-        {car.discontinued && (
-          <span
-            className="absolute top-3 left-3 z-30 text-[9px] px-2 py-0.5 rounded font-bold uppercase tracking-widest"
-            style={{
-              background: 'rgba(239,68,68,0.15)',
-              color: '#ef4444',
-              border: '1px solid rgba(239,68,68,0.35)',
-            }}
-          >
-            {t('card.discontinued')}
-          </span>
-        )}
-
-        {/* NEW badge — positioned left of the favorite button */}
-        {isNew && (
-          <span
-            className="absolute top-3 z-30 text-[9px] px-2 py-0.5 rounded font-bold uppercase tracking-widest"
-            style={{
-              right: '2.85rem',
-              background: 'rgba(0,180,255,0.14)',
-              color: '#00b4ff',
-              border: '1px solid rgba(0,180,255,0.28)',
-            }}
-          >
-            {t('card.newBadge', 'Novo')}
-          </span>
+        {/* Lifecycle badges use normal flow, never covering touch actions. */}
+        {(car.discontinued || isNew) && (
+          <div className="relative z-20 flex flex-wrap gap-1 px-3 pb-2 pointer-events-none">
+            {car.discontinued && <span className="rounded border border-red-400/35 bg-red-400/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-red-400">{t('card.discontinued')}</span>}
+            {isNew && <span className="rounded border border-[#00b4ff]/30 bg-[#00b4ff]/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#00b4ff]">{t('card.newBadge', 'Novo')}</span>}
+          </div>
         )}
 
         {/* Soft fade at the image-to-content transition */}
@@ -221,8 +211,12 @@ const CarCard: React.FC<CarCardProps> = ({
         </div>
 
         {/* Model name */}
-        <h2 className="font-display text-[0.95rem] sm:text-[1.08rem] font-bold text-white leading-tight tracking-tight -mt-1">
-          {car.model}
+        <h2 aria-label={car.model} className="font-display text-[0.95rem] sm:text-[1.08rem] font-bold text-white leading-tight tracking-tight -mt-1">
+          <button type="button" aria-label={t('card.viewDetails', { brand: car.brand, model: car.model })}
+            className="min-h-11 w-full rounded text-left focus-visible:outline-2 focus-visible:outline-[#00b4ff]"
+            onClick={event => { event.stopPropagation(); onClick(); }}>
+            {car.model}
+          </button>
         </h2>
 
         {/* Thin separator */}
@@ -314,10 +308,11 @@ const CarCard: React.FC<CarCardProps> = ({
           </div>
           <a
             href={brandUrl}
+            aria-label={t('card.manufacturerLink', { brand: car.brand, model: car.model })}
             target="_blank"
             rel="noopener noreferrer"
             onClick={e => e.stopPropagation()}
-            className="flex-shrink-0 flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2.5 rounded-xl font-bold text-xs text-white transition-all hover:brightness-110 active:scale-95 min-w-[36px] min-h-[36px] justify-center"
+            className="flex-shrink-0 flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2.5 rounded-xl font-bold text-xs text-white transition-all hover:brightness-110 active:scale-95 min-w-[44px] min-h-[44px] justify-center"
             style={{
               background: 'linear-gradient(135deg, #006ce5, #00b4ff)',
               boxShadow: '0 4px 16px rgba(0,180,255,0.28)',

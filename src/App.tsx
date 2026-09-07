@@ -11,6 +11,8 @@ import Sidebar from './components/Sidebar';
 import CarCard from './components/CarCard';
 import WhatsAppCta from './components/WhatsAppCta';
 import LanguageToggle from './components/LanguageToggle';
+import MobileHeaderMenu from './components/MobileHeaderMenu';
+import CompareBar from './components/CompareBar';
 
 // Componentes interaction-gated carregados sob demanda para reduzir o bundle
 // crítico (chat IA, mapa/rota com leaflet, simulador e modais de detalhe).
@@ -22,7 +24,7 @@ const SavingsSimulatorModal = lazy(() => import('./components/SavingsSimulatorMo
 const ChargingMapModal = lazy(() => import('./components/ChargingMapModal').then(m => ({ default: m.ChargingMapModal })));
 const RoutePlannerModal = lazy(() => import('./components/RoutePlannerModal').then(m => ({ default: m.RoutePlannerModal })));
 import { isLeadCapturePath, LEAD_CAPTURE_ENABLED } from './config/leadCapture';
-import { Zap, Printer, Search, SlidersHorizontal, Scale, X, ArrowRight, Heart, BarChart2, Lightbulb, XCircle, MapPin, Route as RouteIcon, ArrowDownUp } from 'lucide-react';
+import { Zap, Printer, Search, SlidersHorizontal, X, Heart, BarChart2, Lightbulb, XCircle, MapPin, Route as RouteIcon, ArrowDownUp } from 'lucide-react';
 import { useCarFilter } from './hooks/useCarFilter';
 import { useFavorites } from './hooks/useFavorites';
 import { useCompare } from './hooks/useCompare';
@@ -30,7 +32,6 @@ import { useSearch } from './hooks/useSearch';
 import { useJsonLd } from './hooks/useJsonLd';
 import { Car, LeadInterest } from './types';
 import { track } from './utils/analytics';
-import { resolveCarImageUrl } from './utils/imageUrl';
 import { sortCars, type RankMode } from './utils/ranking';
 import DataEvidence from './components/DataEvidence';
 
@@ -242,9 +243,9 @@ export default function App() {
       {/* Blueprint grid texture */}
       <div className="absolute inset-0 bg-blueprint pointer-events-none" aria-hidden="true"></div>
 
-      {/* HEADER — single row on all sizes */}
+      {/* HEADER — compact mobile navigation; secondary actions remain available */}
       <header className="bg-[#0a0b12]/80 backdrop-blur-xl border-b border-white/10 px-4 md:px-6 py-3 md:py-4 flex-shrink-0 z-[35] shadow-lg relative">
-        <div className="max-w-[1600px] mx-auto w-full flex flex-row items-center justify-between gap-3">
+        <div className="max-w-[1600px] mx-auto w-full flex flex-wrap items-center justify-between gap-3">
 
           {/* Logo */}
           <div className="flex items-center gap-2 md:gap-4 min-w-0">
@@ -252,7 +253,7 @@ export default function App() {
               <Zap className="w-5 h-5 md:w-6 md:h-6 fill-current animate-pulse opacity-90" />
             </div>
             <div>
-              <h1 className="font-display text-lg md:text-2xl font-bold text-white tracking-tight leading-none">Guia PBEV <span className="text-[#00b4ff]">{t('header.titleSuffix')}</span></h1>
+              <h1 className="font-display text-base md:text-2xl font-bold text-white tracking-tight leading-tight whitespace-nowrap">Guia PBEV <span className="block sm:inline text-[#00b4ff]">{t('header.titleSuffix')}</span></h1>
               <p className="hidden md:block text-[11px] text-[#a0a0a0] font-semibold uppercase tracking-[0.2em] mt-1">{t('header.subtitle')}</p>
             </div>
           </div>
@@ -312,20 +313,13 @@ export default function App() {
               </button>
             </div>
 
-            {/* Partners — mobile only (desktop has it in the icon rail) */}
-            <a
-              href="/parceiros/"
-              className="md:hidden flex items-center justify-center px-3 py-2 rounded-xl border border-[#37f29b]/40 bg-[#37f29b]/10 text-[#37f29b] hover:bg-[#37f29b]/20 transition-all"
-              title="Programa de parceiros do Guia PBEV"
-            >
-              <span aria-hidden="true">🤝</span>
-            </a>
-
             {/* Favorites */}
             <button
               onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
-              className={`flex items-center gap-1.5 px-3 md:px-4 py-2 md:py-2.5 rounded-xl transition-all border ${showFavoritesOnly ? 'bg-[#00b4ff]/10 border-[#00b4ff]/50 text-[#00b4ff]' : 'bg-white/5 border-white/10 text-[#a0a0a0] hover:text-white hover:bg-white/10'}`}
+              className={`flex min-h-11 min-w-11 items-center justify-center gap-1.5 px-3 md:px-4 py-2 md:py-2.5 rounded-xl transition-all border ${showFavoritesOnly ? 'bg-[#00b4ff]/10 border-[#00b4ff]/50 text-[#00b4ff]' : 'bg-white/5 border-white/10 text-[#a0a0a0] hover:text-white hover:bg-white/10'}`}
               title={t('header.viewFavorites')}
+              aria-label={t('header.viewFavorites')}
+              aria-pressed={showFavoritesOnly}
             >
               <Heart className={`w-4 h-4 md:w-5 md:h-5 ${showFavoritesOnly ? 'fill-current' : ''}`} />
               <span className="text-sm font-bold hidden lg:inline">{t('header.favorites')}</span>
@@ -335,7 +329,7 @@ export default function App() {
             </button>
 
             {/* Language toggle */}
-            <div className="bg-white/5 border border-white/10 rounded-xl p-0.5">
+            <div className="hidden md:block bg-white/5 border border-white/10 rounded-xl p-0.5">
               <LanguageToggle />
             </div>
 
@@ -348,8 +342,9 @@ export default function App() {
               {t('simulator.headerBtn', 'Simulador')}
             </button>
 
-            {/* Suggest EV */}
-            <div className="relative">
+            {/* Suggest EV — secondary mobile actions live in the compact menu */}
+            <MobileHeaderMenu onSuggestChat={() => setTriggerSuggestChat(true)} />
+            <div className="relative hidden md:block">
               <button
                 onClick={() => setShowSuggestMenu(prev => !prev)}
                 className="flex items-center gap-1.5 bg-[#00b4ff]/10 hover:bg-[#00b4ff]/20 text-[#00b4ff] border border-[#00b4ff]/30 px-3 md:px-4 py-2 md:py-2.5 rounded-xl font-black transition-all"
@@ -401,27 +396,27 @@ export default function App() {
         />
 
         {/* MAIN CONTENT */}
-        <main className="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth relative w-full pb-32">
+        <main className="flex-1 min-w-0 overflow-y-auto p-4 md:p-8 scroll-smooth relative w-full pb-36">
 
           {/* Mobile Action Row: Filter + Simulator + Mapa */}
-          <div className="md:hidden sticky top-0 z-30 flex gap-2 -mx-4 px-4 py-2 mb-2 bg-[#0a0a0a] border-b border-white/5">
+          <div className="md:hidden sticky top-0 z-30 grid grid-cols-2 sm:grid-cols-4 gap-2 -mx-4 px-4 py-2 mb-2 bg-[#0a0a0a] border-b border-white/5">
             <button
               onClick={() => setIsSidebarOpen(true)}
-              className="flex-1 bg-[#0e0f1a]/95 backdrop-blur-xl border border-white/10 text-white font-bold py-3 rounded-xl shadow-lg flex items-center justify-center gap-2 hover:bg-[#1a1a1a] active:scale-95 transition-all"
+              className="min-w-0 min-h-11 bg-[#0e0f1a]/95 backdrop-blur-xl border border-white/10 text-white font-bold py-3 rounded-xl shadow-lg flex items-center justify-center gap-2 hover:bg-[#1a1a1a] active:scale-95 transition-all"
             >
               <SlidersHorizontal className="w-4 h-4 text-[#00b4ff]" />
               <span className="text-sm">{t('filterMobile.filterVehicles')}</span>
             </button>
             <button
               onClick={() => setIsSimulatorModalOpen(true)}
-              className="bg-[#00b4ff]/10 border border-[#00b4ff]/30 text-[#00b4ff] font-black py-3 px-3 rounded-xl shadow-lg flex items-center justify-center gap-1.5 hover:bg-[#00b4ff]/20 active:scale-95 transition-all whitespace-nowrap"
+              className="min-w-0 min-h-11 bg-[#00b4ff]/10 border border-[#00b4ff]/30 text-[#00b4ff] font-black py-3 px-3 rounded-xl shadow-lg flex items-center justify-center gap-1.5 hover:bg-[#00b4ff]/20 active:scale-95 transition-all whitespace-nowrap"
             >
               <BarChart2 className="w-4 h-4" />
               <span className="text-[11px] uppercase tracking-wide font-black">{t('simulator.headerBtn', 'Simulador')}</span>
             </button>
             <button
               onClick={() => setIsRoutePlannerOpen(true)}
-              className="bg-white/5 border border-white/10 text-white/70 font-black py-3 px-3 rounded-xl shadow-lg flex items-center justify-center gap-1.5 hover:bg-[#00b4ff]/10 hover:border-[#00b4ff]/30 hover:text-[#00b4ff] active:scale-95 transition-all whitespace-nowrap"
+              className="min-w-0 min-h-11 bg-white/5 border border-white/10 text-white/70 font-black py-3 px-3 rounded-xl shadow-lg flex items-center justify-center gap-1.5 hover:bg-[#00b4ff]/10 hover:border-[#00b4ff]/30 hover:text-[#00b4ff] active:scale-95 transition-all whitespace-nowrap"
               title="Planejar rota EV"
             >
               <RouteIcon className="w-4 h-4" />
@@ -429,7 +424,7 @@ export default function App() {
             </button>
             <button
               onClick={() => setIsChargingMapOpen(true)}
-              className="bg-white/5 border border-white/10 text-white/70 font-black py-3 px-3 rounded-xl shadow-lg flex items-center justify-center gap-1.5 hover:bg-[#00b4ff]/10 hover:border-[#00b4ff]/30 hover:text-[#00b4ff] active:scale-95 transition-all whitespace-nowrap"
+              className="min-w-0 min-h-11 bg-white/5 border border-white/10 text-white/70 font-black py-3 px-3 rounded-xl shadow-lg flex items-center justify-center gap-1.5 hover:bg-[#00b4ff]/10 hover:border-[#00b4ff]/30 hover:text-[#00b4ff] active:scale-95 transition-all whitespace-nowrap"
               title={t('chargingMap.title')}
             >
               <MapPin className="w-4 h-4" />
@@ -523,7 +518,7 @@ export default function App() {
             </select>
           </div>
 
-          <section className="mb-4 rounded-2xl border border-[#37f29b]/20 bg-gradient-to-r from-[#071f18] via-[#0a0b12] to-[#003a2b] p-4 md:p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+          <section className="mb-4 rounded-2xl border border-[#37f29b]/20 bg-gradient-to-r from-[#071f18] via-[#0a0b12] to-[#003a2b] p-4 md:p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-3 flex-wrap">
             <div>
               <p className="text-xs font-black uppercase tracking-[0.24em] text-[#37f29b] mb-1">Atendimento humano</p>
               <p className="text-sm text-white/70">Prefere conversar antes de preencher? Fale com a Guia PBEV pelo WhatsApp.</p>
@@ -535,13 +530,13 @@ export default function App() {
           </section>
 
           {LEAD_CAPTURE_ENABLED && (
-            <section className="mb-4 rounded-2xl border border-[#00b4ff]/20 bg-gradient-to-r from-[#07111f] via-[#0a0b12] to-[#002b44] p-5 md:p-6 shadow-[0_0_35px_rgba(0,180,255,0.10)] flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <section className="mb-4 rounded-2xl border border-[#00b4ff]/20 bg-gradient-to-r from-[#07111f] via-[#0a0b12] to-[#002b44] p-5 md:p-6 shadow-[0_0_35px_rgba(0,180,255,0.10)] flex flex-col md:flex-row md:items-center md:justify-between gap-4 flex-wrap">
               <div>
                 <p className="text-xs font-black uppercase tracking-[0.24em] text-[#00b4ff] mb-2">Ecossistema para seu EV</p>
                 <h2 className="font-display text-xl md:text-2xl font-bold leading-tight text-white">Energia solar, wallbox e limpeza de placas com atendimento qualificado</h2>
                 <p className="text-sm text-white/60 mt-1">Piloto regional com revisão humana antes do encaminhamento ao parceiro.</p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-2">
+              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2">
                 <button
                   onClick={() => openLeadModal('catalog_banner_solar', null, 'energia_solar_recarga')}
                   className="bg-[#00b4ff] hover:bg-[#33c9ff] text-black font-black px-5 py-3 rounded-xl transition active:scale-[0.98] whitespace-nowrap shadow-[0_0_24px_rgba(0,180,255,0.25)]"
@@ -730,56 +725,11 @@ export default function App() {
 
         {/* COMPARISON BAR (Bottom Fixed) */}
         {compareList.length > 0 && (
-          <div className="fixed bottom-0 left-0 right-0 z-40 bg-[#0a0b12]/90 backdrop-blur-xl border-t border-white/10 shadow-[0_-10px_30px_rgba(0,0,0,0.5)] p-4 animate-in slide-in-from-bottom-full duration-300">
-            <div className="max-w-[1600px] mx-auto w-full flex items-center justify-between gap-4">
-              <div className="flex items-center gap-4 overflow-x-auto pb-1 md:pb-0">
-                <div className="flex items-center gap-3 mr-2">
-                  <div className="bg-[#00b4ff]/10 border border-[#00b4ff]/30 p-2.5 rounded-xl">
-                    <Scale className="w-5 h-5 text-[#00b4ff]" />
-                  </div>
-                  <div className="hidden sm:block">
-                    <p className="text-[10px] font-black text-[#00b4ff] uppercase tracking-widest">{t('compareBar.compare')}</p>
-                    <p className="text-sm font-bold text-white">{t('compareBar.selectedOf3', { count: compareList.length })}</p>
-                  </div>
-                </div>
-
-                {/* Thumbnails */}
-                {compareList.map((c, i) => (
-                  <div key={i} className="relative group shrink-0">
-                    <div className="w-14 h-14 rounded-xl overflow-hidden border-2 border-white/10 group-hover:border-[#00b4ff]/50 transition-colors">
-                      <img
-                        src={resolveCarImageUrl(c.img, 200)}
-                        alt={c.model}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl"></div>
-                    <button
-                      onClick={() => removeFromCompare(c)}
-                      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#ef4444] text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity scale-75 group-hover:scale-100 shadow-lg"
-                    >
-                      <X className="w-4 h-4" />
-                    </button>
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex items-center gap-4 shrink-0">
-                <button
-                  onClick={clearCompare}
-                  className="text-xs font-bold text-[#666666] hover:text-[#ef4444] uppercase tracking-wider px-2 transition-colors hidden sm:block"
-                >
-                  {t('compareBar.clear')}
-                </button>
-                <button
-                  onClick={() => { setIsCompareModalOpen(true); track('Comparison Start', { models: compareList.map(c => c.model).join(','), count: compareList.length }); }}
-                  className="bg-transparent border border-[#00b4ff] text-[#00b4ff] hover:bg-[#00b4ff] hover:text-black pl-5 pr-4 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2 transition-all active:scale-95 uppercase tracking-wide"
-                >
-                  {t('compareBar.compareNow')} <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-          </div>
+          <CompareBar cars={compareList} onRemove={removeFromCompare} onClear={clearCompare}
+            onCompare={() => {
+              setIsCompareModalOpen(true);
+              track('Comparison Start', { models: compareList.map(c => c.model).join(','), count: compareList.length });
+            }} />
         )}
 
         {/* Modais e chat sob demanda */}

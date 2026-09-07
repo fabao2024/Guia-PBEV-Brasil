@@ -8,6 +8,10 @@
     "Comercial": "Comercial"
   },
   "header": {
+    "moreOptions": "Mais opções",
+    "partners": "Programa de parceiros",
+    "suggestGithub": "Sugerir EV pelo GitHub",
+    "suggestChat": "Sugerir EV pelo Consultor IA",
     "titleSuffix": "Brasil",
     "subtitle": "Catálogo Oficial & IA",
     "favorites": "Favoritos",
@@ -35,6 +39,8 @@
     "fastChargeOnlyTooltip": "Apenas veículos com suporte a carga rápida DC (CCS, CHAdeMO ou similar)"
   },
   "card": {
+    "manufacturerLink": "Ver no fabricante: {{brand}} {{model}}",
+    "viewDetails": "Ver ficha: {{brand}} {{model}}",
     "compare": "Comparar",
     "removeCompare": "Remover da comparação",
     "officialSite": "Site Oficial {{brand}}",
@@ -60,6 +66,7 @@
     "toastRemoved": "Removido dos favoritos"
   },
   "details": {
+    "close": "Fechar ficha técnica",
     "imageUnavailable": "Imagem+Indisponível",
     "exteriorMain": "Exterior Principal",
     "favorite": "Favorito",
@@ -141,6 +148,7 @@
     }
   },
   "comparison": {
+    "close": "Fechar comparação",
     "title": "Comparativo de Veículos",
     "subtitle": "Lado a Lado",
     "remove": "Remover",
@@ -252,6 +260,8 @@
     "methodology": "Metodologia"
   },
   "compareBar": {
+    "selection": "Veículos para comparar",
+    "removeVehicle": "Remover {{brand}} {{model}} da comparação",
     "compare": "Comparar",
     "selectedOf3": "{{count}} de 3 selecionados",
     "clear": "Limpar",

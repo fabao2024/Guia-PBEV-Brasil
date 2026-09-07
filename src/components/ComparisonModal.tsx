@@ -81,19 +81,20 @@ export default function ComparisonModal({ cars, allCars, onClose, onRemove, onAd
          <div className="bg-black w-full max-w-6xl h-full sm:h-auto sm:max-h-[90vh] overflow-hidden rounded-none sm:rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.8)] relative z-10 flex flex-col animate-in fade-in zoom-in-95 duration-200 border-0 sm:border border-white/10">
 
             {/* Header */}
-            <div className="flex justify-between items-center p-6 border-b border-white/10 bg-[#0a0a0a]/80 backdrop-blur-xl">
-               <div className="flex items-center gap-4">
-                  <div className="bg-[#00b4ff]/10 p-2.5 rounded-xl border border-[#00b4ff]/30 shadow-[0_0_15px_rgba(0,180,255,0.2)]">
+            <div className="flex justify-between items-center gap-3 p-4 sm:p-6 border-b border-white/10 bg-[#0a0a0a]/80 backdrop-blur-xl">
+               <div className="flex min-w-0 items-center gap-2 sm:gap-4">
+                  <div className="hidden sm:block shrink-0 bg-[#00b4ff]/10 p-2.5 rounded-xl border border-[#00b4ff]/30 shadow-[0_0_15px_rgba(0,180,255,0.2)]">
                      <Zap className="w-6 h-6 text-[#00b4ff] drop-shadow-[0_0_5px_rgba(0,180,255,0.5)]" />
                   </div>
-                  <div>
-                     <h2 className="text-2xl font-black text-white tracking-widest uppercase">{t('comparison.title')}</h2>
+                  <div className="min-w-0">
+                     <h2 className="text-lg sm:text-2xl font-black text-white tracking-widest uppercase">{t('comparison.title')}</h2>
                      <p className="text-xs text-[#a0a0a0] font-bold uppercase tracking-widest mt-1">{t('comparison.subtitle')}</p>
                   </div>
                </div>
                <button
                   onClick={onClose}
-                  className="text-[#666666] hover:text-[#ef4444] hover:bg-white/5 p-2 rounded-full transition-colors border border-transparent hover:border-[#ef4444]/30"
+                  aria-label={t('comparison.close')}
+                  className="min-h-[44px] min-w-[44px] shrink-0 flex items-center justify-center text-white/70 hover:text-[#ef4444] hover:bg-white/5 p-2 rounded-full transition-colors border border-transparent hover:border-[#ef4444]/30"
                >
                   <X className="w-6 h-6" />
                </button>
@@ -101,7 +102,7 @@ export default function ComparisonModal({ cars, allCars, onClose, onRemove, onAd
 
             {/* Mobile horizontal scroll hint */}
             <div className="sm:hidden flex items-center justify-center gap-2 py-2 bg-[#050505] border-b border-white/5">
-               <span className="text-xs text-white/25 font-medium tracking-wider">{t('comparison.mobileScrollHint')}</span>
+               <span className="text-xs text-white/70 font-medium tracking-wider">{t('comparison.mobileScrollHint')}</span>
             </div>
 
             {/* Comparison Table Container */}
@@ -134,8 +135,9 @@ export default function ComparisonModal({ cars, allCars, onClose, onRemove, onAd
                         {/* Remove Button */}
                         <button
                            onClick={() => onRemove(car)}
-                           className="absolute top-3 right-3 text-[#666666] hover:text-[#ef4444] bg-black/80 backdrop-blur-md rounded-full p-1.5 border border-white/10 shadow-[0_0_10px_rgba(0,0,0,0.5)] opacity-0 group-hover:opacity-100 transition-all z-10 hover:border-[#ef4444]/30"
+                           className="absolute top-3 right-3 min-h-[44px] min-w-[44px] flex items-center justify-center text-white/80 hover:text-[#ef4444] bg-black/80 backdrop-blur-md rounded-full p-1.5 border border-white/10 shadow-[0_0_10px_rgba(0,0,0,0.5)] transition-all z-10 hover:border-[#ef4444]/30"
                            title={t('comparison.remove')}
+                           aria-label={t('compareBar.removeVehicle', { brand: car.brand, model: car.model })}
                         >
                            <X className="w-4 h-4" />
                         </button>
@@ -145,7 +147,7 @@ export default function ComparisonModal({ cars, allCars, onClose, onRemove, onAd
                            <img
                               src={imgSrc(car)}
                               alt={car.model}
-                              className="w-full h-full object-cover animate-in fade-in duration-500 filter brightness-90 group-hover:brightness-100 transition-all"
+                              className="w-full h-full object-contain animate-in fade-in duration-500 filter brightness-90 group-hover:brightness-100 transition-all"
                            />
                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
                               <span className="text-[#a0a0a0] text-xs font-black uppercase tracking-widest">{car.brand}</span>
@@ -250,7 +252,7 @@ export default function ComparisonModal({ cars, allCars, onClose, onRemove, onAd
                               <img
                                  src={imgSrc(rec)}
                                  alt={rec.model}
-                                 className="w-full h-full object-cover opacity-70 group-hover:opacity-90 transition-opacity duration-500"
+                                 className="w-full h-full object-contain opacity-70 group-hover:opacity-90 transition-opacity duration-500"
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-4">
                                  <span className="text-[#a0a0a0] text-xs font-black uppercase tracking-widest">{rec.brand}</span>

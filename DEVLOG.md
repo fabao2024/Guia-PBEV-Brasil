@@ -2,6 +2,17 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 07/09/2026 · Mobile: lote 1 de correções de interação e imagens responsivas
+
+| Área | Mudança pública |
+|---|---|
+| Cabeçalho | Em telas < 768px, parceiros/sugestões/idioma passam a um menu colapsável próprio, sem sobreposição do nome do Guia; controles da faixa de ferramentas reorganizados em grade no mobile. |
+| Card do catálogo | Selo "Fora de linha"/"Novidade" sai do fluxo de toque dos botões; botões Comparar/Favoritar com alvo ≥ 44px e nome acessível; link do fabricante com nome acessível no mobile (axe link-name zerado na home em 390px). |
+| Comparação | Remoção de veículo visível sem hover (toque), alvo ≥ 44px e aria-label descritivo na barra e no modal; barra de ações cabe em 320px; contador vira texto acessível no mobile em vez de disputar espaço com "Limpar"/"Comparar Agora". |
+| Ficha do veículo | Compartilhar usa a URL canônica `https://guiapbev.cloud/carro/<slug>/` via `navigator.share` com fallback de cópia; CTA de wallbox ganha linha própria no mobile; fechar/compartilhar/favoritar com alvo ≥ 44px e nome acessível. |
+| Imagens | 30 imagens locais acima de 200 kB geram 105 variantes WebP responsivas (320/640/960/1280) servidas por `srcset` com dimensões fixas; originais preservados. 18,2 MB → 5,6 MB nos arquivos cobertos (-69%); gerador reproduzível em `tools/generate-car-images.py` com manifest versionado e teste de integridade. |
+| Testes | Suíte atual: 356 testes em 47 arquivos. Regressões novas cobrem card, cabeçalho, barra de comparação, ficha e comparador em cenários mobile; verificação em navegador (Playwright) aprovada em 320/360/390/430/768/1024/1440px sem cortes, sobreposição ou erros de página. |
+
 ## 03/09/2026 · Dimensões e peso: lote 4 final — catálogo coberto
 
 | Área | Mudança pública |

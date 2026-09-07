@@ -8,6 +8,10 @@
     "Comercial": "Commercial"
   },
   "header": {
+    "moreOptions": "More options",
+    "partners": "Partner program",
+    "suggestGithub": "Suggest an EV on GitHub",
+    "suggestChat": "Suggest an EV with the AI Consultant",
     "titleSuffix": "Brazil",
     "subtitle": "Official Catalog & AI",
     "favorites": "Favorites",
@@ -35,6 +39,8 @@
     "fastChargeOnlyTooltip": "Only vehicles with DC fast charging support (CCS, CHAdeMO or similar)"
   },
   "card": {
+    "manufacturerLink": "View on manufacturer site: {{brand}} {{model}}",
+    "viewDetails": "View details: {{brand}} {{model}}",
     "compare": "Compare",
     "removeCompare": "Remove from comparison",
     "officialSite": "Official Site {{brand}}",
@@ -60,6 +66,7 @@
     "toastRemoved": "Removed from favorites"
   },
   "details": {
+    "close": "Close vehicle details",
     "imageUnavailable": "Image+Unavailable",
     "exteriorMain": "Main Exterior",
     "favorite": "Favorite",
@@ -141,6 +148,7 @@
     }
   },
   "comparison": {
+    "close": "Close comparison",
     "title": "Vehicle Comparison",
     "subtitle": "Side by Side",
     "remove": "Remove",
@@ -252,6 +260,8 @@
     "methodology": "Methodology"
   },
   "compareBar": {
+    "selection": "Vehicles to compare",
+    "removeVehicle": "Remove {{brand}} {{model}} from comparison",
     "compare": "Compare",
     "selectedOf3": "{{count}} of 3 selected",
     "clear": "Clear",

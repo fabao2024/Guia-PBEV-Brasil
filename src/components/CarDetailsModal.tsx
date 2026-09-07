@@ -9,6 +9,7 @@ import { IPVA_BY_STATE, calcIpva, IPVA_DATA_UPDATED } from '../constants/ipvaByS
 import { getPriceDelta, getLastSnapshot } from '../constants/priceHistory';
 import { track } from '../utils/analytics';
 import { resolveCarImageUrl } from '../utils/imageUrl';
+import { getCarUrl } from '../utils/slug';
 import { hasDimensions, dimensionProperties } from '../utils/dimensions';
 import DimensionsSpec from './DimensionsSpec';
 import DataEvidence from './DataEvidence';
@@ -78,6 +79,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
     const { t } = useTranslation();
 
     const gallery = [resolveCarImageUrl(car.img, 800)];
+    const canonicalUrl = `https://guiapbev.cloud${getCarUrl(car)}/`;
 
     const [currentIdx, setCurrentIdx] = useState(0);
     const [isImgLoading, setIsImgLoading] = useState(true);
@@ -112,7 +114,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
       title: `${car.brand} ${car.model} — R$ ${car.price.toLocaleString('pt-BR')} | Guia PBEV Brasil`,
       description: `${car.brand} ${car.model}: autonomia PBEV ${car.range} km, categoria ${car.cat}${car.power ? `, ${car.power} cv` : ''}${car.battery ? `, bateria ${car.battery} kWh` : ''}. Preço estimado R$ ${car.price.toLocaleString('pt-BR')}.`,
       image: gallery[0],
-      url: window.location.href,
+      url: canonicalUrl,
     });
 
     const handleShare = async () => {
@@ -120,12 +122,12 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
         const payload = {
             title: car.model,
             text: `${car.model} – R$ ${price} – ${car.range}km | Guia PBEV`,
-            url: window.location.href,
+            url: canonicalUrl,
         };
         if (navigator.share) {
             try { await navigator.share(payload); } catch { /* user cancelled */ }
         } else {
-            await navigator.clipboard.writeText(window.location.href);
+            await navigator.clipboard.writeText(canonicalUrl);
             setCopied(true);
             setTimeout(() => setCopied(false), 3500);
         }
@@ -198,7 +200,8 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                 {/* Close */}
                 <button
                     onClick={onClose}
-                    className="absolute top-4 right-4 z-30 p-2 rounded-full transition-all backdrop-blur-sm hover:brightness-125"
+                    aria-label={t('details.close')}
+                    className="absolute top-4 right-4 z-30 min-h-[44px] min-w-[44px] flex items-center justify-center p-2 rounded-full transition-all backdrop-blur-sm hover:brightness-125"
                     style={{ background: 'rgba(0,0,0,0.5)', border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.6)' }}
                 >
                     <X className="w-5 h-5" />
@@ -306,7 +309,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                 </div>
 
                 {/* ── RIGHT: DETAILS PANEL ── */}
-                <div className="w-full md:w-1/2 flex flex-col p-6 md:p-8 overflow-y-auto custom-scrollbar-dark">
+                <div className="w-full md:w-1/2 min-w-0 flex flex-col p-6 md:p-8 overflow-y-auto custom-scrollbar-dark">
 
                     {/* Category + brand + favorite badge */}
                     <div className="flex items-center gap-2 mb-2 flex-wrap">
@@ -330,7 +333,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                     </div>
 
                     {/* Model name */}
-                    <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight leading-none mb-5">
+                    <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight leading-none mb-5 break-words">
                         {car.model}
                     </h2>
 
@@ -645,10 +648,10 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                         <DataEvidence compact />
 
                         {/* Action buttons */}
-                        <div className="flex gap-2.5">
+                        <div className="flex flex-wrap min-w-0 gap-2.5">
                             <button
                                 onClick={onToggleCompare}
-                                className="flex-[1.5] py-3.5 rounded-2xl transition-all font-bold uppercase tracking-wider text-xs flex items-center justify-center gap-2"
+                                className="flex-1 min-h-[44px] min-w-[44px] px-2 py-3.5 rounded-2xl transition-all font-bold uppercase tracking-wider text-xs flex items-center justify-center gap-2"
                                 style={isSelectedForCompare
                                     ? { background: `${accent.color}15`, border: `1px solid ${accent.color}50`, color: accent.color }
                                     : { background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.6)' }
@@ -660,7 +663,8 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
 
                             <button
                                 onClick={onToggleFavorite}
-                                className="py-3.5 px-4 rounded-2xl transition-all font-bold flex items-center justify-center"
+                                className="min-h-[44px] min-w-[44px] shrink-0 py-3.5 px-3 rounded-2xl transition-all font-bold flex items-center justify-center"
+                                aria-label={isFavorite ? t('details.removeFavorite') : t('details.addFavorite')}
                                 style={isFavorite
                                     ? { background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.4)', color: '#ef4444' }
                                     : { background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.5)' }
@@ -672,7 +676,8 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
 
                             <button
                                 onClick={handleShare}
-                                className="py-3.5 px-4 rounded-2xl transition-all font-bold flex items-center justify-center gap-1.5 text-xs uppercase tracking-wider"
+                                className="min-h-[44px] min-w-[44px] shrink-0 py-3.5 px-3 rounded-2xl transition-all font-bold flex items-center justify-center gap-1.5 text-xs uppercase tracking-wider"
+                                aria-label={copied ? t('card.shareCopied') : t('card.share')}
                                 style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.5)' }}
                                 title={t('card.share')}
                             >
@@ -683,14 +688,14 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                             {onLeadRequest && (
                                 <button
                                     onClick={onLeadRequest}
-                                    className="flex-[2] text-white font-black tracking-normal text-xs py-3.5 rounded-2xl transition-all hover:brightness-110 active:scale-[0.98] flex items-center justify-center gap-1.5 whitespace-nowrap"
+                                    className="w-full basis-full min-w-0 min-h-[44px] px-3 text-white font-black tracking-normal text-xs py-3.5 rounded-2xl transition-all hover:brightness-110 active:scale-[0.98] flex items-center justify-center gap-1.5"
                                     style={{
                                         background: 'linear-gradient(135deg, #006ce5, #00b4ff)',
                                         boxShadow: '0 4px 16px rgba(0,180,255,0.3)',
                                     }}
                                 >
                                     <span>Solicitar wallbox para este EV</span>
-                                    <ArrowUpRight className="w-4 h-4" />
+                                    <ArrowUpRight className="w-4 h-4 shrink-0" />
                                 </button>
                             )}
                         </div>

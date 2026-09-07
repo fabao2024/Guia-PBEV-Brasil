@@ -1,0 +1,1053 @@
+{
+  "generator": {
+    "thresholdBytes": 200000,
+    "widths": [
+      320,
+      640,
+      960,
+      1280
+    ],
+    "quality": 82,
+    "method": 6,
+    "alphaQuality": 100,
+    "pillow": "12.3.0",
+    "webp": "1.6.0"
+  },
+  "images": [
+    {
+      "src": "/car-images/Dolphin-mini.png",
+      "width": 3235,
+      "height": 1910,
+      "alpha": false,
+      "bytes": 6756692,
+      "sha256": "a8ee4d05927e7921b89d90234eb2ec52a05cbe2803df8d8a8e49250a8f47456d",
+      "variants": [
+        {
+          "src": "/car-images/optimized/Dolphin-mini.png-320.webp",
+          "width": 320,
+          "height": 189,
+          "bytes": 4040,
+          "sha256": "06ac3b589ec2a8161b57cd504f21b140eba7bc9ed930243bd9904565b1a3b32b"
+        },
+        {
+          "src": "/car-images/optimized/Dolphin-mini.png-640.webp",
+          "width": 640,
+          "height": 378,
+          "bytes": 10918,
+          "sha256": "3f54ce6b9c2a36fa24cd0b82ed6e46e485d5308ec5d6e6813a318a036e0a3e8f"
+        },
+        {
+          "src": "/car-images/optimized/Dolphin-mini.png-960.webp",
+          "width": 960,
+          "height": 567,
+          "bytes": 20714,
+          "sha256": "f2f581b5284f87423ca57b7be03b95d908814d5f9bab9596e293e1f40f26ed27"
+        },
+        {
+          "src": "/car-images/optimized/Dolphin-mini.png-1280.webp",
+          "width": 1280,
+          "height": 756,
+          "bytes": 35030,
+          "sha256": "5c23552e7afcbf8ac39c5006461feff99b6833541b7e9608fba7712baf78dbc2"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/ariya.jpg",
+      "width": 960,
+      "height": 566,
+      "alpha": false,
+      "bytes": 214944,
+      "sha256": "ab603affdf2385ac358e175283b17b502b7e1516fa29999a07b8e7f62f028368",
+      "variants": [
+        {
+          "src": "/car-images/optimized/ariya.jpg-320.webp",
+          "width": 320,
+          "height": 189,
+          "bytes": 18346,
+          "sha256": "be01e24e452be50f78deb83d6acc7768feac7f9eac02273fd1d3dbc8b70a2524"
+        },
+        {
+          "src": "/car-images/optimized/ariya.jpg-640.webp",
+          "width": 640,
+          "height": 377,
+          "bytes": 71396,
+          "sha256": "1e128b12ce261532931fbc53ff60604c80cb93e0b8cef95b5f085214e7537bb7"
+        },
+        {
+          "src": "/car-images/optimized/ariya.jpg-960.webp",
+          "width": 960,
+          "height": 566,
+          "bytes": 157458,
+          "sha256": "38ca3907af868c26611fd1525f5755995e19cba38a29174fd86f8bdbbd5bf00e"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/audi-a6-etron.png",
+      "width": 1440,
+      "height": 720,
+      "alpha": true,
+      "bytes": 435814,
+      "sha256": "c5ab6b72f2e2d0b73cb183cf0d5557e7edc4e2bbc078ccfe8a400be744e5024c",
+      "variants": [
+        {
+          "src": "/car-images/optimized/audi-a6-etron.png-320.webp",
+          "width": 320,
+          "height": 160,
+          "bytes": 7538,
+          "sha256": "6094e0a81978e58349d0cbd6d37989e449617eb2fd691d9a0ae7f683be5f2a18"
+        },
+        {
+          "src": "/car-images/optimized/audi-a6-etron.png-640.webp",
+          "width": 640,
+          "height": 320,
+          "bytes": 18734,
+          "sha256": "add2d48752955fe72a3169dea17f8ae9f258d913540cdb7b126ec2c774817df8"
+        },
+        {
+          "src": "/car-images/optimized/audi-a6-etron.png-960.webp",
+          "width": 960,
+          "height": 480,
+          "bytes": 31654,
+          "sha256": "348d34a7b8420afc8bc29edd0c6b6ce0be828be2febaa77d4355cd29581f24c1"
+        },
+        {
+          "src": "/car-images/optimized/audi-a6-etron.png-1280.webp",
+          "width": 1280,
+          "height": 640,
+          "bytes": 45726,
+          "sha256": "693ebbb10c6de1f4cc2f26d3d676e77cafe1e165e409b116bcb1725917e3f4b1"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/audi-q6-sportback.jpg",
+      "width": 1920,
+      "height": 1080,
+      "alpha": false,
+      "bytes": 217870,
+      "sha256": "de0c500872005259821bbcb217221c99ed65da3d71dcf96d59dad9d64ccd438d",
+      "variants": [
+        {
+          "src": "/car-images/optimized/audi-q6-sportback.jpg-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 6786,
+          "sha256": "e5780a8cbfc2d989e0c4a84794edb60c4b3e42937dc1fd7b6aa406ece1141352"
+        },
+        {
+          "src": "/car-images/optimized/audi-q6-sportback.jpg-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 20734,
+          "sha256": "ec77f09b6de7e564fba3413a1a13e59a7b42b77ee863589d9f992d48acf1df7a"
+        },
+        {
+          "src": "/car-images/optimized/audi-q6-sportback.jpg-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 40390,
+          "sha256": "71084e57e57d243c39785551fb8bd64e7d817ddc633f85ed0ca3904e027695cc"
+        },
+        {
+          "src": "/car-images/optimized/audi-q6-sportback.jpg-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 64008,
+          "sha256": "4f0f1ab8fb7d58f72c543bad134e498fda274b32fd8fc4008c0624f1703e1e6f"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/audi-sq6-sportback.png",
+      "width": 1440,
+      "height": 720,
+      "alpha": true,
+      "bytes": 490753,
+      "sha256": "ea8a292a9095644b512b3c47bbacb1d26f212d6ad0705d0f0058a653c7510774",
+      "variants": [
+        {
+          "src": "/car-images/optimized/audi-sq6-sportback.png-320.webp",
+          "width": 320,
+          "height": 160,
+          "bytes": 7538,
+          "sha256": "3060849d7209f33298bc4660dce4c0ab1401453d422c87b26c3f7ebb4f761c2d"
+        },
+        {
+          "src": "/car-images/optimized/audi-sq6-sportback.png-640.webp",
+          "width": 640,
+          "height": 320,
+          "bytes": 18282,
+          "sha256": "ad884a2b14c872c74682b114631ba97bcbb910dee42fa185f3b217e6aa568899"
+        },
+        {
+          "src": "/car-images/optimized/audi-sq6-sportback.png-960.webp",
+          "width": 960,
+          "height": 480,
+          "bytes": 30494,
+          "sha256": "9ae9ae7087879e1878d303e1c3fe7db4b462ddf1c93e66aa2f3543e9511d9d8a"
+        },
+        {
+          "src": "/car-images/optimized/audi-sq6-sportback.png-1280.webp",
+          "width": 1280,
+          "height": 640,
+          "bytes": 44092,
+          "sha256": "327f2cd3d519140eb160b142d5322817038c93a62031fb2f2bf180238459c8d5"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/blazer-ev.jpg",
+      "width": 960,
+      "height": 576,
+      "alpha": false,
+      "bytes": 480887,
+      "sha256": "f4b3035ed775638d8ef7f36e3a2f7488f221b465d5da31e71f461fc8de23c716",
+      "variants": [
+        {
+          "src": "/car-images/optimized/blazer-ev.jpg-320.webp",
+          "width": 320,
+          "height": 192,
+          "bytes": 8614,
+          "sha256": "d95757a41e5181ac2ea869006086493d6afc9ec70d9d3fad39d9d88abadeba4e"
+        },
+        {
+          "src": "/car-images/optimized/blazer-ev.jpg-640.webp",
+          "width": 640,
+          "height": 384,
+          "bytes": 23988,
+          "sha256": "8de18c4228d6cad57e6742c34140ab54231d88563b7bf9c4298d52dd1e23e682"
+        },
+        {
+          "src": "/car-images/optimized/blazer-ev.jpg-960.webp",
+          "width": 960,
+          "height": 576,
+          "bytes": 42404,
+          "sha256": "5ee5104837d6f514074832da397280ca0be8dec82a90e8dc0d355576e6d0a5dd"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/byd-sealion-7.jpg",
+      "width": 1500,
+      "height": 844,
+      "alpha": false,
+      "bytes": 226857,
+      "sha256": "84e24c86b16b180482c3e74c254244f6315a45a144cf5bf4909d2ba0599fca78",
+      "variants": [
+        {
+          "src": "/car-images/optimized/byd-sealion-7.jpg-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 11974,
+          "sha256": "cbde0f383cd9142638082339df79d339b7bd87ff2e9af45f46b3410709284a51"
+        },
+        {
+          "src": "/car-images/optimized/byd-sealion-7.jpg-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 36716,
+          "sha256": "cac546a271ce0e7ccfa0d83868ff1446ecb345a4454ba397132fbe71d3cc7504"
+        },
+        {
+          "src": "/car-images/optimized/byd-sealion-7.jpg-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 69972,
+          "sha256": "c053288b4f42ae130fc19837b4316273ce4d73138f90dbc3cc920de7341e9a48"
+        },
+        {
+          "src": "/car-images/optimized/byd-sealion-7.jpg-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 107168,
+          "sha256": "8408440d0d9fa381777344d26f74e8c2b7a9dc9deaf21b48c4dfaa2f5ca35e52"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/byd-yuan-plus-awd.jpg",
+      "width": 1920,
+      "height": 1080,
+      "alpha": false,
+      "bytes": 267729,
+      "sha256": "9053d2664c7f0911d9ae8df5cc751f34ced60003ed2ae3092743608ab9b742e6",
+      "variants": [
+        {
+          "src": "/car-images/optimized/byd-yuan-plus-awd.jpg-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 10446,
+          "sha256": "36110298b87e773c4ad17133b228f827f68a5a7b45547c4cc1b2f37f77abe30c"
+        },
+        {
+          "src": "/car-images/optimized/byd-yuan-plus-awd.jpg-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 31890,
+          "sha256": "fe8f85bec94ba644a87c0961266330cadeb32732373d869aec92f0dfed93413d"
+        },
+        {
+          "src": "/car-images/optimized/byd-yuan-plus-awd.jpg-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 64738,
+          "sha256": "d9f9ebd678efc17e22dc14a4affb511263287badebad1896d37cb32ed7a5860d"
+        },
+        {
+          "src": "/car-images/optimized/byd-yuan-plus-awd.jpg-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 98180,
+          "sha256": "0efff11d136f5f1c006a3e579f6dacf64a85d41cfe77e061265c276e7989185b"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/cyberster.jpg",
+      "width": 960,
+      "height": 755,
+      "alpha": false,
+      "bytes": 240080,
+      "sha256": "5ede215433b73b9ffe24b43bcbfa089b2d78ed7c18569bb36bb1ee1762c2d016",
+      "variants": [
+        {
+          "src": "/car-images/optimized/cyberster.jpg-320.webp",
+          "width": 320,
+          "height": 252,
+          "bytes": 22656,
+          "sha256": "a64b5c4633631be555a23e1eb4d11cd5b4c2d0b514be7b036e48ac9c53762a01"
+        },
+        {
+          "src": "/car-images/optimized/cyberster.jpg-640.webp",
+          "width": 640,
+          "height": 503,
+          "bytes": 78032,
+          "sha256": "efa8f27af9598aa5f708e97652660868b77eb07349f74cf51bc7964ae5ff4aa4"
+        },
+        {
+          "src": "/car-images/optimized/cyberster.jpg-960.webp",
+          "width": 960,
+          "height": 755,
+          "bytes": 160834,
+          "sha256": "c4ab93048019454ba7d90572284a3c021b1877398930534a04bec76766e89466"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/dolphin-gs.jpg",
+      "width": 2880,
+      "height": 1620,
+      "alpha": false,
+      "bytes": 2231824,
+      "sha256": "1608845e3c1d91a5bc706f4072302e1f9a145506671038ce528e80d12faf532b",
+      "variants": [
+        {
+          "src": "/car-images/optimized/dolphin-gs.jpg-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 6704,
+          "sha256": "4c3d98797ade645f2421fae5788fb953a2a4799fe72c04ea2d65389f72443e4c"
+        },
+        {
+          "src": "/car-images/optimized/dolphin-gs.jpg-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 19534,
+          "sha256": "bd854ff8ab7b39bc0ce9180a75e890479ea5d74b4618f43583d3feb4b23850cf"
+        },
+        {
+          "src": "/car-images/optimized/dolphin-gs.jpg-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 37312,
+          "sha256": "fac3db7c17db9dceb7f298a35ee97a2a64bee5be366ac0a12034fa378fae577e"
+        },
+        {
+          "src": "/car-images/optimized/dolphin-gs.jpg-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 58488,
+          "sha256": "fab120f67d4a8231467cf581fd96ca8f998e0d12d7c266384ad95b30e1c85d87"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/dolphin-plus.jpg",
+      "width": 2880,
+      "height": 1620,
+      "alpha": false,
+      "bytes": 356562,
+      "sha256": "3ba4769f542a5e5e0d8b9a1c23d967735d50b8b84cf23c2f3de4a8574d973ae0",
+      "variants": [
+        {
+          "src": "/car-images/optimized/dolphin-plus.jpg-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 4626,
+          "sha256": "89e8ba1ca85af8099d2bf6a5033bbf8c3871d4b53e28bab00855c48ab19e904d"
+        },
+        {
+          "src": "/car-images/optimized/dolphin-plus.jpg-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 11964,
+          "sha256": "3849851d95acf640b1e3d96e13e9734a71403175d4b4af8cf61ff639279b8033"
+        },
+        {
+          "src": "/car-images/optimized/dolphin-plus.jpg-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 20912,
+          "sha256": "0c0c6f51d94568f043656ed9b32e314a8219f77ea3f7300b824b4961a8e53990"
+        },
+        {
+          "src": "/car-images/optimized/dolphin-plus.jpg-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 31184,
+          "sha256": "1439ecee2ed72aa68826aa820b6fe1a614fe39723f0cdd8271fbdd2451e0245c"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/e-2008.jpg",
+      "width": 960,
+      "height": 597,
+      "alpha": false,
+      "bytes": 208471,
+      "sha256": "7bdedf584cf0dc8ce02c2871c6a92f86778324a039da2b4af2b97340f97a22eb",
+      "variants": [
+        {
+          "src": "/car-images/optimized/e-2008.jpg-320.webp",
+          "width": 320,
+          "height": 199,
+          "bytes": 17362,
+          "sha256": "203f980db85f762b769674af8a99d4bbe99c85abc02bcaec11619d244e55a3ad"
+        },
+        {
+          "src": "/car-images/optimized/e-2008.jpg-640.webp",
+          "width": 640,
+          "height": 398,
+          "bytes": 67570,
+          "sha256": "79cf2976401e4e3ce476a76aa6f4919fe3a007b9784584d54c212f1b3c1d890f"
+        },
+        {
+          "src": "/car-images/optimized/e-2008.jpg-960.webp",
+          "width": 960,
+          "height": 597,
+          "bytes": 149308,
+          "sha256": "1b7de066a03e4652b9281bb5ad92e3c07622d7ba68ea3bfb3b35aaefe7f30388"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/e-js1.png",
+      "width": 1000,
+      "height": 750,
+      "alpha": true,
+      "bytes": 877042,
+      "sha256": "c7191c030fc5df3e9631c59775666e605197132b0570f5ea5743dbc47076b397",
+      "variants": [
+        {
+          "src": "/car-images/optimized/e-js1.png-320.webp",
+          "width": 320,
+          "height": 240,
+          "bytes": 18184,
+          "sha256": "20cacb463dd6f76b831513038acd190c2dda152190f9ee5ad2fcac50b1ba6032"
+        },
+        {
+          "src": "/car-images/optimized/e-js1.png-640.webp",
+          "width": 640,
+          "height": 480,
+          "bytes": 56422,
+          "sha256": "2258276c6fa331f3b9fa58b63aacfffde540a6705757b924e8f380814864e5a5"
+        },
+        {
+          "src": "/car-images/optimized/e-js1.png-960.webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 118578,
+          "sha256": "2006bb4a3e63bd4d4caa015835db0bd6679ee7e70d9d9102a1368f52f80782ef"
+        },
+        {
+          "src": "/car-images/optimized/e-js1.png-1000.webp",
+          "width": 1000,
+          "height": 750,
+          "bytes": 109506,
+          "sha256": "98d41f337ebb6565dcb4e68eba97534077fa13e907743051ff5480903f8849f8"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/e-js4.png",
+      "width": 1000,
+      "height": 670,
+      "alpha": true,
+      "bytes": 517350,
+      "sha256": "6934bf0b441bff9689da206b37492b0af2443b634ac195ba9b1eb074d5a867a4",
+      "variants": [
+        {
+          "src": "/car-images/optimized/e-js4.png-320.webp",
+          "width": 320,
+          "height": 214,
+          "bytes": 14892,
+          "sha256": "bdad99680d82b5dd067e322fc6ea0f731bf493cebd8d3d13322b3bf3febd3227"
+        },
+        {
+          "src": "/car-images/optimized/e-js4.png-640.webp",
+          "width": 640,
+          "height": 429,
+          "bytes": 32146,
+          "sha256": "3f5dc8abdb11419131fd5d6a1f478591f423c7c857125d380119d7470dba4b89"
+        },
+        {
+          "src": "/car-images/optimized/e-js4.png-960.webp",
+          "width": 960,
+          "height": 643,
+          "bytes": 48912,
+          "sha256": "7597198b8ef7cad1afdf16ab069e5b26846127935244a4f4c0c05c0b5b66120e"
+        },
+        {
+          "src": "/car-images/optimized/e-js4.png-1000.webp",
+          "width": 1000,
+          "height": 670,
+          "bytes": 45900,
+          "sha256": "5f1318e27ba098575ba11ef1a234a9ad66f0c06b2d185889fbf023196c23484a"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/e-vitara.jpg",
+      "width": 1270,
+      "height": 682,
+      "alpha": false,
+      "bytes": 200384,
+      "sha256": "b37c0a6e7fa9b64ae8c0158288eee199d803c2003a130efa64d9491d9cb0fe10",
+      "variants": [
+        {
+          "src": "/car-images/optimized/e-vitara.jpg-320.webp",
+          "width": 320,
+          "height": 172,
+          "bytes": 8854,
+          "sha256": "43bf76f7378313318a5c8342f8374a6cc856612b0f8620afe1c1cb98bbe165a5"
+        },
+        {
+          "src": "/car-images/optimized/e-vitara.jpg-640.webp",
+          "width": 640,
+          "height": 344,
+          "bytes": 24318,
+          "sha256": "06be42abc74d2f026991dfd3129003c4f3aa0a1b322408f58a43ee07152ed5d9"
+        },
+        {
+          "src": "/car-images/optimized/e-vitara.jpg-960.webp",
+          "width": 960,
+          "height": 516,
+          "bytes": 42360,
+          "sha256": "f3301423536f79d48918a45f28f5c48c77adb4b46edb6c78744b36ace2c40f7e"
+        },
+        {
+          "src": "/car-images/optimized/e-vitara.jpg-1270.webp",
+          "width": 1270,
+          "height": 682,
+          "bytes": 61554,
+          "sha256": "216fca8716d2b60057397322002fa0a3598b69b399bdc4f6d547f0cb4ad68145"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/equinox-ev.jpg",
+      "width": 960,
+      "height": 540,
+      "alpha": false,
+      "bytes": 413025,
+      "sha256": "d43f716033796bbefa74246078bc52a82d34bb823062fe1d0a0210c08d525d55",
+      "variants": [
+        {
+          "src": "/car-images/optimized/equinox-ev.jpg-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 8140,
+          "sha256": "57ed797821539eec171fc06629b7e3ba81230a14d0b29d9fb6f398e8cc2cb717"
+        },
+        {
+          "src": "/car-images/optimized/equinox-ev.jpg-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 22628,
+          "sha256": "437bf9bb97477f8d7056d8f3f2993c95a0b3f3e0bd769790ebe0cbe7d798844f"
+        },
+        {
+          "src": "/car-images/optimized/equinox-ev.jpg-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 40042,
+          "sha256": "44036c875174c71524e8a00015f347b5dd8b4c53a69f61273ad9cb57d0912244"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/ex5-max.jpg",
+      "width": 960,
+      "height": 720,
+      "alpha": false,
+      "bytes": 276565,
+      "sha256": "14738d869a1c4e55b6984d5afa4e787230be92fa6160a8c9a4a8952288f1be9b",
+      "variants": [
+        {
+          "src": "/car-images/optimized/ex5-max.jpg-320.webp",
+          "width": 320,
+          "height": 240,
+          "bytes": 23104,
+          "sha256": "50fad5a1cd541ac4e40bd1cddb07b978aefa4c725b9e6d20bcf547c258e3e50a"
+        },
+        {
+          "src": "/car-images/optimized/ex5-max.jpg-640.webp",
+          "width": 640,
+          "height": 480,
+          "bytes": 96614,
+          "sha256": "0a833b66b06759997e9d8e6b67c5f5c78dce0391602e354d22832d9aabcb5ab8"
+        },
+        {
+          "src": "/car-images/optimized/ex5-max.jpg-960.webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 219356,
+          "sha256": "33d51790ea8adc58eaf3b3af215ae86b31c28bf04e38f40125dc8ac541f6d2f0"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/id4.jpg",
+      "width": 960,
+      "height": 554,
+      "alpha": false,
+      "bytes": 214750,
+      "sha256": "fa4678acb53804579b34490df9a0a17aaeda99afbec50ebdadc5214c12ff30ea",
+      "variants": [
+        {
+          "src": "/car-images/optimized/id4.jpg-320.webp",
+          "width": 320,
+          "height": 185,
+          "bytes": 17416,
+          "sha256": "b4133898293c055a79aaa0014276199a32ecaf4692d6f1a8a712f8fd20af0c37"
+        },
+        {
+          "src": "/car-images/optimized/id4.jpg-640.webp",
+          "width": 640,
+          "height": 369,
+          "bytes": 69924,
+          "sha256": "a87b32ddebbea4020caaf7ce2f81deb7484cad03ef9a5823e6c255f4d95e15cf"
+        },
+        {
+          "src": "/car-images/optimized/id4.jpg-960.webp",
+          "width": 960,
+          "height": 554,
+          "bytes": 157580,
+          "sha256": "68782dc637df752516c3ccbb63eb1d84ab6338b86f03418a09edbeb233d49405"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/idbuzz.jpg",
+      "width": 960,
+      "height": 641,
+      "alpha": false,
+      "bytes": 212496,
+      "sha256": "69581f92801a52b9f53549e1a6400d6f60393e81468c3e8097726d68ca338011",
+      "variants": [
+        {
+          "src": "/car-images/optimized/idbuzz.jpg-320.webp",
+          "width": 320,
+          "height": 214,
+          "bytes": 18886,
+          "sha256": "d20a14533330f35eee9cf3af595ae7f7da108f6661f25cb7132a3e2e13cd1965"
+        },
+        {
+          "src": "/car-images/optimized/idbuzz.jpg-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 70700,
+          "sha256": "2fc83a6c80d4576d2c97d7ec73fa44a623f3259195fe40c5f057ba30aae612cf"
+        },
+        {
+          "src": "/car-images/optimized/idbuzz.jpg-960.webp",
+          "width": 960,
+          "height": 641,
+          "bytes": 148286,
+          "sha256": "17a2c1c9b3a8dc4a6b2c886294c3ac5699da7a0faa5ffcc6df1b339c9f1f26f7"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/ix3.jpg",
+      "width": 960,
+      "height": 540,
+      "alpha": false,
+      "bytes": 200583,
+      "sha256": "c2b6c53c93846f62a81d1f31467f2bd611e92322b70da1bb9eb07664069cdd6a",
+      "variants": [
+        {
+          "src": "/car-images/optimized/ix3.jpg-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 12390,
+          "sha256": "dddc00ae18efbb5c513106101fccb6f22e6e3413015680386222c18db4309660"
+        },
+        {
+          "src": "/car-images/optimized/ix3.jpg-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 61240,
+          "sha256": "08c2386d5a345939940871b4381faab005910f95c96474d20cccd577f2aebfaa"
+        },
+        {
+          "src": "/car-images/optimized/ix3.jpg-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 158512,
+          "sha256": "69730ffb82350035a6d4e3adede910f5dd5406f79bf576edf4537f48bc3c2257"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/jac-ejv55.png",
+      "width": 609,
+      "height": 365,
+      "alpha": true,
+      "bytes": 301851,
+      "sha256": "826efd8d49aa6fe651f916dc657ea5ef4a0f6c6a8c16a8868217161941a7722e",
+      "variants": [
+        {
+          "src": "/car-images/optimized/jac-ejv55.png-320.webp",
+          "width": 320,
+          "height": 192,
+          "bytes": 14274,
+          "sha256": "570cab88fdf1a7fa27c1a1e208e2842c8eac388f130cfeb432cecc3d35f61e10"
+        },
+        {
+          "src": "/car-images/optimized/jac-ejv55.png-609.webp",
+          "width": 609,
+          "height": 365,
+          "bytes": 28674,
+          "sha256": "e5ec7b9e2516ca9a5f9a2fb9bb436ec504cdd3fa883b56200e6c6b94c4dfcf3c"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/jac-iev330p.jpg",
+      "width": 1000,
+      "height": 750,
+      "alpha": false,
+      "bytes": 260669,
+      "sha256": "1f3f8812ef7a4b8279c4e8e648fb4eeb31cefbe671982e004e12fbd81dcee66d",
+      "variants": [
+        {
+          "src": "/car-images/optimized/jac-iev330p.jpg-320.webp",
+          "width": 320,
+          "height": 240,
+          "bytes": 15624,
+          "sha256": "af3b90c032639096cea419767c72bfb60a4388023c97600adb9753099c31478d"
+        },
+        {
+          "src": "/car-images/optimized/jac-iev330p.jpg-640.webp",
+          "width": 640,
+          "height": 480,
+          "bytes": 61834,
+          "sha256": "fdb751a5096ff985ab1a8122be66419637344ecad0e7bf4b42e5dc92bfc99530"
+        },
+        {
+          "src": "/car-images/optimized/jac-iev330p.jpg-960.webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 153870,
+          "sha256": "5b6a68f7c087acc593dbe66f7f4862ba8b3363659ff3932e1d65c243a28bae62"
+        },
+        {
+          "src": "/car-images/optimized/jac-iev330p.jpg-1000.webp",
+          "width": 1000,
+          "height": 750,
+          "bytes": 186034,
+          "sha256": "9d70d0020d32430998f6170f926ebe22d64fc74d669e08f2cbf281ffa44c7b58"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/kangoo-etech.jpg",
+      "width": 960,
+      "height": 566,
+      "alpha": false,
+      "bytes": 200323,
+      "sha256": "b848a9958c2798d0160f23ae76265311395c65722ad105b3f8d07a52953ff5ba",
+      "variants": [
+        {
+          "src": "/car-images/optimized/kangoo-etech.jpg-320.webp",
+          "width": 320,
+          "height": 189,
+          "bytes": 16660,
+          "sha256": "572f2ec7d326e6c301ce086f34c8f68e4f7c10bc90fe4d0121c03a50c4c60a98"
+        },
+        {
+          "src": "/car-images/optimized/kangoo-etech.jpg-640.webp",
+          "width": 640,
+          "height": 377,
+          "bytes": 64560,
+          "sha256": "bc79dda29ed50b1b17baf80825ae21ac963530536e9c272815a323c5c278064c"
+        },
+        {
+          "src": "/car-images/optimized/kangoo-etech.jpg-960.webp",
+          "width": 960,
+          "height": 566,
+          "bytes": 143440,
+          "sha256": "56cc04d0c5f359207dae3bbddd322812304cb4a20a9b73de86e30e2d3df400de"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/leapmotor-b10.jpg",
+      "width": 960,
+      "height": 710,
+      "alpha": false,
+      "bytes": 211904,
+      "sha256": "a37eed55ce4d3d47ac923af3a56cc0b603aa3d882b14669686ca1354db086735",
+      "variants": [
+        {
+          "src": "/car-images/optimized/leapmotor-b10.jpg-320.webp",
+          "width": 320,
+          "height": 237,
+          "bytes": 19336,
+          "sha256": "4cf15d0fd740c0f2a451ebc289a90bebabb12e44fcdcf5b04e1ab5374252de38"
+        },
+        {
+          "src": "/car-images/optimized/leapmotor-b10.jpg-640.webp",
+          "width": 640,
+          "height": 473,
+          "bytes": 68442,
+          "sha256": "7add26e5e5503cb0671173ff72563eb224e6473ce70ee4385725480d6f9f6213"
+        },
+        {
+          "src": "/car-images/optimized/leapmotor-b10.jpg-960.webp",
+          "width": 960,
+          "height": 710,
+          "bytes": 144652,
+          "sha256": "bb3ad45e268ef531b0fa311442f99199d846e9aa5d7d9652b58089290ad2f5ae"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/lexus-rz-500e.jpg",
+      "width": 2560,
+      "height": 1598,
+      "alpha": false,
+      "bytes": 224010,
+      "sha256": "8c111af873c07da9a29415a3f0e22802cf6b4678e40a7d84a54c0c3350263905",
+      "variants": [
+        {
+          "src": "/car-images/optimized/lexus-rz-500e.jpg-320.webp",
+          "width": 320,
+          "height": 200,
+          "bytes": 8972,
+          "sha256": "fb8d4a7a5519b7fc13f77b1db8dfba55c5f249aa9a2e630e6c253db78dc8a895"
+        },
+        {
+          "src": "/car-images/optimized/lexus-rz-500e.jpg-640.webp",
+          "width": 640,
+          "height": 400,
+          "bytes": 24114,
+          "sha256": "46cdfa3343097e271380d33ab27f6ff8091c7b5526e6c28a0860954f0f970bff"
+        },
+        {
+          "src": "/car-images/optimized/lexus-rz-500e.jpg-960.webp",
+          "width": 960,
+          "height": 599,
+          "bytes": 42368,
+          "sha256": "61b65cea378cbe4f69a4398c9f774aa4569eb660c3b7014e318048d5a28c20e2"
+        },
+        {
+          "src": "/car-images/optimized/lexus-rz-500e.jpg-1280.webp",
+          "width": 1280,
+          "height": 799,
+          "bytes": 65180,
+          "sha256": "6de06bc49d47b42e85caa022d74aa30441f2903611da0e1a8fcea3cbf9f4115e"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/mg4-xpower.jpg",
+      "width": 960,
+      "height": 543,
+      "alpha": false,
+      "bytes": 207594,
+      "sha256": "afdad79e574d5d8589bdb987c3a47e837c0f7918f1b88eed200e8cc802ee7c07",
+      "variants": [
+        {
+          "src": "/car-images/optimized/mg4-xpower.jpg-320.webp",
+          "width": 320,
+          "height": 181,
+          "bytes": 18622,
+          "sha256": "9995664a8e4ddb3bc4d4ce766ce429f32b94308bd5368652ddc84419515fe8e1"
+        },
+        {
+          "src": "/car-images/optimized/mg4-xpower.jpg-640.webp",
+          "width": 640,
+          "height": 362,
+          "bytes": 69634,
+          "sha256": "353baf69dc3fc74833f899c73d5e859938ff91af12c5449f259c20b12b4229c7"
+        },
+        {
+          "src": "/car-images/optimized/mg4-xpower.jpg-960.webp",
+          "width": 960,
+          "height": 543,
+          "bytes": 150898,
+          "sha256": "7b02bab5da2f87a1fbe2d420912082920c2a5713d9bf5143d9434b65af0ecf7c"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/mgs5-comfort.jpg",
+      "width": 960,
+      "height": 720,
+      "alpha": false,
+      "bytes": 210356,
+      "sha256": "f4dfa78cf00df2d6f006549edc7849fdbba2441a4e7f7ebd722af8dc4de92180",
+      "variants": [
+        {
+          "src": "/car-images/optimized/mgs5-comfort.jpg-320.webp",
+          "width": 320,
+          "height": 240,
+          "bytes": 19872,
+          "sha256": "b806d98f8f5b3bd5d8e010ce4fb126eab63475b06a856035a597a7cb787e0f0d"
+        },
+        {
+          "src": "/car-images/optimized/mgs5-comfort.jpg-640.webp",
+          "width": 640,
+          "height": 480,
+          "bytes": 67060,
+          "sha256": "37997daf7c250a4c3d80aba34affb136c3deb6ce960162f129822b45e1fa5321"
+        },
+        {
+          "src": "/car-images/optimized/mgs5-comfort.jpg-960.webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 139626,
+          "sha256": "af027d3f735be0a896e3dc320d940cc813115543935439b5462bcb91bb920cf7"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/omoda-5.jpg",
+      "width": 1920,
+      "height": 1080,
+      "alpha": false,
+      "bytes": 260724,
+      "sha256": "28e7785589d197f301974a3de3332c2e30c9d0cefb758503de225b2a62d0b05f",
+      "variants": [
+        {
+          "src": "/car-images/optimized/omoda-5.jpg-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 4036,
+          "sha256": "7c91cf08e76f7d934cc7ef6f6f220e838bfc687478fd0d23bbc735cd0f9d1243"
+        },
+        {
+          "src": "/car-images/optimized/omoda-5.jpg-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 10010,
+          "sha256": "19fe5d101408785639d8b7ab8caefb20349e7b5aba537af21fd3c4481c336fba"
+        },
+        {
+          "src": "/car-images/optimized/omoda-5.jpg-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 17380,
+          "sha256": "9eaefd7d4e893d5955cd2eca54ead337bf203e587ddbfefc9c046ea5a2e8cb15"
+        },
+        {
+          "src": "/car-images/optimized/omoda-5.jpg-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 26024,
+          "sha256": "0d5f6f4e4dbb0a8699b90888e2e79517f9259574eac7a982289effb80c77490f"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/yuan-pro.jpg",
+      "width": 2880,
+      "height": 1620,
+      "alpha": false,
+      "bytes": 375301,
+      "sha256": "79319ab24859738735398f0278916ef7b951998314bdeaf643f48c06514877d7",
+      "variants": [
+        {
+          "src": "/car-images/optimized/yuan-pro.jpg-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 8560,
+          "sha256": "5fd620d25777e90542d528a6c626a9f5a7b19de89ce4a90bf2345a491b7d3dfd"
+        },
+        {
+          "src": "/car-images/optimized/yuan-pro.jpg-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 26492,
+          "sha256": "3cc1be55b3d686c2dd37a69f24666275168227092b3628b45031573e5d958133"
+        },
+        {
+          "src": "/car-images/optimized/yuan-pro.jpg-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 53744,
+          "sha256": "b74a531cedfb6c447940398b1e65973e5a6dd095251581cbf9de3deb4749067f"
+        },
+        {
+          "src": "/car-images/optimized/yuan-pro.jpg-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 90002,
+          "sha256": "b9ad970723c2eda43ea8a3109f4054d00ab0b2204197d044df0aace882dddbd8"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/zeekr-7x.png",
+      "width": 1703,
+      "height": 851,
+      "alpha": true,
+      "bytes": 871377,
+      "sha256": "283dda5f2c729c6945e358743e973447fe0da0286f08ee51bf633a3266ac9e34",
+      "variants": [
+        {
+          "src": "/car-images/optimized/zeekr-7x.png-320.webp",
+          "width": 320,
+          "height": 160,
+          "bytes": 10688,
+          "sha256": "a0e9beedcc15f7253f34b9236092b7c75eec07b2f526431500629c54b09cf671"
+        },
+        {
+          "src": "/car-images/optimized/zeekr-7x.png-640.webp",
+          "width": 640,
+          "height": 320,
+          "bytes": 35380,
+          "sha256": "4baa3f36ddd377641545c12b05d766b1cbdccf1c9c9859fcce509f476c85d66e"
+        },
+        {
+          "src": "/car-images/optimized/zeekr-7x.png-960.webp",
+          "width": 960,
+          "height": 480,
+          "bytes": 75486,
+          "sha256": "2f1cb993eea55d5dabd6e6f227c11d579a26c58ec3111199d34dc9b86b623212"
+        },
+        {
+          "src": "/car-images/optimized/zeekr-7x.png-1280.webp",
+          "width": 1280,
+          "height": 640,
+          "bytes": 123574,
+          "sha256": "058ad5b27b000cd1069f1f36fc008a2ccc2566229c3fd351ab5c9e7092a56168"
+        }
+      ]
+    }
+  ]
+}
