@@ -41,6 +41,16 @@ function replaceOrThrow(html, pattern, replacement, label) {
   return html.replace(pattern, replacement);
 }
 
+function replaceOrInsert(html, pattern, replacement, label) {
+  if (pattern.test(html)) {
+    return html.replace(pattern, replacement);
+  }
+  if (!/<\/head>/i.test(html)) {
+    throw new Error(`Static route generation: head not found for ${label}`);
+  }
+  return html.replace(/<\/head>/i, `  ${replacement}\n</head>`);
+}
+
 const baseHtml = readFileSync(indexPath, 'utf8');
 
 for (const route of routes) {
@@ -94,6 +104,13 @@ for (const car of carsData.cars) {
 
   html = replaceOrThrow(
     html,
+    /<meta name="twitter:card" content="[^"]*">/,
+    '<meta name="twitter:card" content="summary_large_image">',
+    `twitter:card of ${slug}`,
+  );
+
+  html = replaceOrThrow(
+    html,
     /<meta name="description" content="[^"]*">/,
     `<meta name="description" content="${escapeHtml(description)}">`,
     `description of ${slug}`,
@@ -128,7 +145,7 @@ for (const car of carsData.cars) {
     `<meta property="og:url" content="${canonicalUrl}">`,
     `og:url of ${slug}`,
   );
-  html = replaceOrThrow(
+  html = replaceOrInsert(
     html,
     /<meta property="og:image" content="[^"]*">/,
     `<meta property="og:image" content="${escapeHtml(imageUrl)}">`,
@@ -146,7 +163,7 @@ for (const car of carsData.cars) {
     `<meta name="twitter:description" content="${escapeHtml(description)}">`,
     `twitter:description of ${slug}`,
   );
-  html = replaceOrThrow(
+  html = replaceOrInsert(
     html,
     /<meta name="twitter:image" content="[^"]*">/,
     `<meta name="twitter:image" content="${escapeHtml(imageUrl)}">`,

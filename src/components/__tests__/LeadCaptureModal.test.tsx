@@ -116,7 +116,8 @@ describe('LeadCaptureModal', () => {
         consentAccepted: true,
         consentTextVersion: 'pilot-v3-2026-07-15',
       }),
-      'vehicle_detail'
+      'vehicle_detail',
+      expect.any(String),
     );
     expect(screen.queryByText(/E\.R SOLAR/i)).not.toBeInTheDocument();
     expect(track).toHaveBeenCalledWith('lead_submit_attempt', {
@@ -173,6 +174,7 @@ describe('LeadCaptureModal', () => {
         consentAccepted: true,
       }),
       'catalog_banner_cleaning',
+      expect.any(String),
     );
   });
 });
