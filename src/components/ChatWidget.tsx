@@ -811,7 +811,7 @@ SUGGEST_EV_READY:{"brand":"MARCA","model":"MODELO","price":"PRECO","range":"AUTO
 
   // Setup screen when no API key is available
   const renderSetupScreen = () => (
-    <div className="flex-1 p-4 bg-[#0a0b12] flex flex-col justify-between">
+    <div className="flex-1 min-h-0 p-4 bg-[#0a0b12] flex flex-col justify-between overflow-y-auto">
       {/* Top: header + steps + CTA */}
       <div>
         {/* Title row */}
@@ -878,7 +878,7 @@ SUGGEST_EV_READY:{"brand":"MARCA","model":"MODELO","price":"PRECO","range":"AUTO
           onClick={() => startQuiz(t('chat.chipFindEVMsg'))}
           className="w-full text-xs text-[#00b4ff] hover:text-white bg-[#00b4ff]/5 hover:bg-[#00b4ff]/15 border border-[#00b4ff]/20 hover:border-[#00b4ff]/50 rounded-lg py-2 transition-all font-medium"
         >
-          🔍 {t('chat.chipFindEV')}
+          {t('chat.chipFindEV')}
         </button>
       </div>
     </div>
