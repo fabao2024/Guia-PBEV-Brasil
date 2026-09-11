@@ -1,4 +1,4 @@
-import { submitPartnerApplication } from '../partnerApplications';
+import { submitPartnerApplication, validatePartnerApplication } from '../partnerApplications';
 import { PartnerApplicationFormData } from '../../types';
 
 const application: PartnerApplicationFormData = {
@@ -45,6 +45,32 @@ describe('submitPartnerApplication()', () => {
 
   afterEach(() => {
     vi.unstubAllGlobals();
+  });
+
+  it('rejects an incomplete partner application before making the API request', async () => {
+    const fetchMock = vi.fn();
+    vi.stubGlobal('fetch', fetchMock);
+
+    const invalidApplication = { ...application, city: '  ' };
+
+    expect(validatePartnerApplication(invalidApplication)).toEqual({ field: 'city', message: 'Informe a cidade sede.' });
+    await expect(submitPartnerApplication(invalidApplication)).rejects.toThrow('Informe a cidade sede.');
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('rejects a partner application without modality or audience before making the API request', async () => {
+    const fetchMock = vi.fn();
+    vi.stubGlobal('fetch', fetchMock);
+
+    const noModality = { ...application, serviceCategories: [] };
+    expect(validatePartnerApplication(noModality)).toEqual({ field: 'serviceCategories', message: 'Selecione pelo menos uma modalidade.' });
+    await expect(submitPartnerApplication(noModality)).rejects.toThrow('Selecione pelo menos uma modalidade.');
+
+    const noAudience = { ...application, servesPf: false, servesPj: false };
+    expect(validatePartnerApplication(noAudience)).toEqual({ field: 'audience', message: 'Informe se atende pessoa física, PJ/frota ou ambos.' });
+    await expect(submitPartnerApplication(noAudience)).rejects.toThrow('Informe se atende pessoa física, PJ/frota ou ambos.');
+
+    expect(fetchMock).not.toHaveBeenCalled();
   });
 
   it('posts the partner application to the bot API and returns the application id', async () => {
