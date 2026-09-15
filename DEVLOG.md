@@ -2,6 +2,16 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 15/09/2026 · Híbridos BYD-2: fichas oficiais, +3 modelos e divergências resolvidas
+
+| Área | Mudança pública |
+|---|---|
+| Fontes | Fichas técnicas oficiais BYD (pasta 13/07/2026: Shark/King/SongPlus/SongPremium V2; SongPro Flex Rev3 de 05/08/2026): bateria, carga AC/DC, potência, torque, dimensões, peso e consumo MJ/km por versão. |
+| Catálogo | Song Plus (R$ 249.990, 99 km, 240 cv, 26,6 kWh, AC/DC 6,6/18 kW), Song Plus Premium (R$ 299.800, 87 km, 324 cv AWD, 0,67 MJ/km) e King GL (R$ 147.990, 35 km, 209 cv, 8,3 kWh); Song Pro e Shark completados com ficha (bateria/carga/potência/dimensões). Catálogo vai a 115 veículos. |
+| Divergências | Shark: página cita 57 km elétricos, ficha declara 68 km — prevalece a ficha. Song Plus: imprensa citava 18,3 kWh/63 km da linha anterior; ficha V2 vigente traz 26,6 kWh/99 km — prevalece a ficha. |
+| Pendências | King GS sem preço oficial publicado (ficha completa mapeada); Atto 2 DM-i e Atto 8 aguardando elétrica PBEV por versão; fotos seguem genéricas até o pipeline de imagens. |
+| Verificação | 374/374 testes, TypeScript limpo, build Vite (115 páginas), scanner de segredos e verificador de proveniência (653/1150) aprovados. |
+
 ## 15/09/2026 · Híbridos: visíveis por padrão, fotos e `image_url`
 
 | Área | Mudança pública |

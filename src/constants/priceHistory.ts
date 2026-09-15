@@ -122,6 +122,9 @@ export const PRICE_HISTORY: Record<string, PriceSnapshot[]> = {
   "Song Pro GL": [{ date: '2026-09', price: 179990 }],
   "Song Pro GS": [{ date: '2026-09', price: 199990 }],
   "Shark": [{ date: '2026-09', price: 344990 }],
+  "Song Plus": [{ date: '2026-09', price: 249990 }],
+  "Song Plus Premium": [{ date: '2026-09', price: 299800 }],
+  "King GL": [{ date: '2026-09', price: 147990 }],
 };
 
 /** Returns the most recent snapshot for a given model, or null if no history. */

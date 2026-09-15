@@ -88,13 +88,44 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(gs.range).toBe(72);
     expect(gs.electricRangeKm).toBe(72);
     // byd.com/br/car/shark (checked 2026-09-15): 437 cv, 0–100 em 5,7 s,
-    // autonomia elétrica de 57 km, tração nas 4 rodas, reboque 2.500 kg.
+    // tração nas 4 rodas, reboque 2.500 kg.
+    // Ficha técnica oficial BYD_Shark_V2 (rev. 09/07/2026): bateria 29,6 kWh,
+    // elétrica PBEV 68 km (a página cita 57 km — prevalece a ficha),
+    // AC 6,6 / DC 55 kW, 650 N.m, 0,91 MJ/km, 5.460/1.970/1.930 mm, 2.710 kg.
     const shark = byModel('Shark');
     expect(shark.powertrain).toBe('PHEV');
     expect(shark.price).toBe(344990);
-    expect(shark.range).toBe(57);
+    expect(shark.range).toBe(68);
+    expect(shark.electricRangeKm).toBe(68);
+    expect(shark.battery).toBe(29.6);
     expect(shark.power).toBe(437);
     expect(shark.traction).toBe('AWD');
+  });
+
+  it('BYD Song Plus, Premium and King GL should match official V2 fichas (jul/2026)', () => {
+    // Fichas oficiais BYD_SongPlus1.5T_V2, BYD_SongPremium_V2 e BYD_King_V2
+    // (rev. 09/07/2026) + byd.com/br/condicoes (11/09/2026) para preços.
+    const plus = byModel('Song Plus');
+    expect(plus.powertrain).toBe('PHEV');
+    expect(plus.price).toBe(249990);
+    expect(plus.range).toBe(99);
+    expect(plus.battery).toBe(26.6);
+    expect(plus.power).toBe(240);
+    expect(plus.chargeDC).toBe(18);
+    const premium = byModel('Song Plus Premium');
+    expect(premium.powertrain).toBe('PHEV');
+    expect(premium.price).toBe(299800);
+    expect(premium.range).toBe(87);
+    expect(premium.power).toBe(324);
+    expect(premium.traction).toBe('AWD');
+    expect(premium.energyMJkm).toBe(0.67);
+    const king = byModel('King GL');
+    expect(king.powertrain).toBe('PHEV');
+    expect(king.price).toBe(147990);
+    expect(king.range).toBe(35);
+    expect(king.battery).toBe(8.3);
+    expect(king.power).toBe(209);
+    expect(king.energyMJkm).toBe(0.53);
   });
 
   it('should flag versions removed from official lineups as discontinued', () => {

@@ -14,7 +14,7 @@ describe('useCarFilter', () => {
     const { result } = renderHook(() => useCarFilter(mockCars));
 
     expect(result.current.filters.maxPrice).toBe(1500000);
-    expect(result.current.filters.minRange).toBe(50);
+    expect(result.current.filters.minRange).toBe(30);
     expect(result.current.filters.categories).toEqual([]);
     expect(result.current.filters.brands).toEqual([]);
     expect(result.current.filters.powertrains).toEqual(['BEV', 'PHEV', 'HEV', 'REEV']);
@@ -86,7 +86,7 @@ describe('useCarFilter', () => {
     });
 
     expect(result.current.filters.maxPrice).toBe(1500000);
-    expect(result.current.filters.minRange).toBe(50);
+    expect(result.current.filters.minRange).toBe(30);
     expect(result.current.filters.categories).toEqual([]);
     expect(result.current.filters.brands).toEqual([]);
     expect(result.current.filters.powertrains).toEqual(['BEV', 'PHEV', 'HEV', 'REEV']);

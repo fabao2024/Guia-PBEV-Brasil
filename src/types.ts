@@ -7,8 +7,8 @@ export const ALL_POWERTRAINS: PowertrainType[] = ['BEV', 'PHEV', 'HEV', 'REEV'];
 /** Piso do slider de autonomia (km) — abaixo da menor elétrica PHEV do catálogo. */
 export const MIN_RANGE_FLOOR = 30;
 
-/** Autonomia mínima padrão (km) — abaixo do menor BEV (185 km), inclui PHEV 57+ km. */
-export const DEFAULT_MIN_RANGE = 50;
+/** Autonomia mínima padrão (km) — abaixo do menor BEV (185 km), inclui PHEV 35+ km. */
+export const DEFAULT_MIN_RANGE = 30;
 
 export interface Car {
   model: string;

@@ -20,7 +20,7 @@ Progressive Web App (PWA) para o mercado de veículos elétricos (BEV) no Brasil
 
 | Funcionalidade | Descrição |
 |---|---|
-| 📋 Catálogo | 112 modelos (BEV + híbridos) com filtros por preço, autonomia, categoria, marca, tração e propulsão |
+| 📋 Catálogo | 115 modelos (BEV + híbridos) com filtros por preço, autonomia, categoria, marca, tração e propulsão |
 | 🔍 Busca full-text | Busca instantânea por modelo, marca ou categoria (Fuse.js, tolerante a erros) |
 | ⚖️ Comparação | Comparativo lado a lado de até 3 veículos |
 | 💰 Simulador de Economia | Calcula economia mensal vs. combustão com IPVA real por estado |
@@ -40,7 +40,7 @@ Progressive Web App (PWA) para o mercado de veículos elétricos (BEV) no Brasil
 - **Estilos**: Tailwind CSS 4
 - **IA**: Google Generative AI SDK (`gemini-3.5-flash-lite`)
 - **i18n**: i18next + react-i18next (PT-BR padrão, EN)
-- **Testes**: Vitest 4 + Testing Library + happy-dom (356 testes)
+- **Testes**: Vitest 4 + Testing Library + happy-dom (374 testes)
 - **Segurança**: Sanitização XSS, rate limiting, detecção de prompt injection (12 padrões)
 
 ### Instalação e Execução Local
@@ -70,7 +70,7 @@ npm run dev
 ```bash
 npm run dev           # Servidor local (porta 3000)
 npm run build         # Build de produção
-npm run test:run      # Rodar todos os 356 testes
+npm run test:run      # Rodar todos os 374 testes
 npm run test          # Modo watch
 npm run test:coverage # Relatório de cobertura
 npm run preview       # Preview do build de produção
@@ -88,10 +88,10 @@ No [guiapbev.cloud](https://guiapbev.cloud), usuários inserem sua própria chav
 
 ### Métricas Atuais
 
-- **112 veículos** (BEV + híbridos) cadastrados (32 marcas)
+- **115 veículos** (BEV + híbridos) cadastrados (32 marcas)
 - **93 modelos** com certificação PBE/INMETRO oficial
 - **27 estados** com dados de IPVA 2026 e tarifas ANP/ANEEL
-- **373 testes** automatizados em 48 arquivos
+- **374 testes** automatizados em 48 arquivos
 - **Build**: ~5s (Vite/ESBuild)
 
 ### Documentação
@@ -182,7 +182,7 @@ npm run preview       # Preview production build
 - **112 vehicles** (BEV + hybrids) registered (32 marcas)
 - **93 models** with official PBE/INMETRO certification
 - **27 states** with 2026 IPVA data and ANP/ANEEL tariffs
-- **373 automated tests** across 48 files
+- **374 automated tests** across 48 files
 - **Build time**: ~5s (Vite/ESBuild)
 
 ### Documentation
