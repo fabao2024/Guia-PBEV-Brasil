@@ -101,6 +101,7 @@ export default function CarDetailPage() {
   }, [car, slug]);
 
   const imgSrc = car ? resolveCarImageUrl(car.img, 800) : '';
+  const isHevEarly = (car?.powertrain ?? 'BEV') === 'HEV';
 
   const productSchema = useMemo(() => {
     if (!car) return null;
@@ -108,7 +109,9 @@ export default function CarDetailPage() {
       '@context': 'https://schema.org',
       '@type': 'Product',
       name: `${car.brand} ${car.model}`,
-      description: `Carro elétrico ${car.brand} ${car.model} — Autonomia PBEV: ${car.range} km | Categoria: ${car.cat} | Preço estimado: R$ ${car.price.toLocaleString('pt-BR')}`,
+      description: isHevEarly
+        ? `Híbrido ${car.brand} ${car.model} — Consumo Inmetro: ${car.fuelConsumptionKml ?? '—'} km/l | Categoria: ${car.cat} | Preço estimado: R$ ${car.price.toLocaleString('pt-BR')}`
+        : `Carro elétrico ${car.brand} ${car.model} — Autonomia PBEV: ${car.range} km | Categoria: ${car.cat} | Preço estimado: R$ ${car.price.toLocaleString('pt-BR')}`,
       brand: { '@type': 'Brand', name: car.brand },
       image: imgSrc,
       url: canonicalUrl,
@@ -122,7 +125,7 @@ export default function CarDetailPage() {
       ...(car.power && {
         additionalProperty: [
           { '@type': 'PropertyValue', name: 'Potência', value: `${car.power} cv`, unitCode: 'HWP' },
-          { '@type': 'PropertyValue', name: 'Autonomia PBEV', value: `${car.range} km`, unitCode: 'KMT' },
+          { '@type': 'PropertyValue', name: isHevEarly ? 'Consumo Inmetro' : 'Autonomia PBEV', value: isHevEarly ? `${car.fuelConsumptionKml ?? '—'} km/l` : `${car.range} km` },
           ...(car.battery ? [{ '@type': 'PropertyValue', name: 'Bateria', value: `${car.battery} kWh` }] : []),
           ...(car.traction ? [{ '@type': 'PropertyValue', name: 'Tração', value: car.traction }] : []),
           ...(hasDimensions(car) ? dimensionProperties(car) : []),
@@ -157,7 +160,10 @@ export default function CarDetailPage() {
   const accent = CAT_ACCENT[car.cat] ?? CAT_ACCENT['Compacto'];
   const tractionStyle = car.traction ? TRACTION_STYLE[car.traction] : null;
   const estimatedPower = car.power ?? Math.round(car.price / 3000);
-  const rangePercent = Math.min(Math.round((car.range / MAX_RANGE_KM) * 100), 100);
+  const isHev = isHevEarly;
+  const rangePercent = isHev && car?.fuelConsumptionKml
+    ? Math.min(Math.round((car.fuelConsumptionKml / 20) * 100), 100)
+    : Math.min(Math.round(((car?.range ?? 0) / MAX_RANGE_KM) * 100), 100);
   const ipvaInfo = IPVA_BY_STATE.find(s => s.abbr === selectedState) ?? IPVA_BY_STATE.find(s => s.abbr === 'SP')!;
   const priceDelta = getPriceDelta(car.model, car.price);
   const lastSnapshot = getLastSnapshot(car.model);
@@ -179,7 +185,9 @@ export default function CarDetailPage() {
     const price = car.price.toLocaleString('pt-BR');
     const payload = {
       title: `${car.brand} ${car.model}`,
-      text: `${car.brand} ${car.model} – R$ ${price} – ${car.range}km PBEV | Guia PBEV Brasil`,
+      text: isHev
+        ? `${car.brand} ${car.model} – R$ ${price} – ${car.fuelConsumptionKml ?? '—'} km/l Inmetro | Guia PBEV Brasil`
+        : `${car.brand} ${car.model} – R$ ${price} – ${car.range}km PBEV | Guia PBEV Brasil`,
       url: canonicalUrl,
     };
     if (navigator.share) {
@@ -191,8 +199,12 @@ export default function CarDetailPage() {
     }
   };
 
-  const helmetTitle = `${car.brand} ${car.model} — R$ ${car.price.toLocaleString('pt-BR')} | ${car.range} km PBEV | Guia PBEV Brasil`;
-  const helmetDesc = `${car.brand} ${car.model}: autonomia PBEV ${car.range} km, ${car.cat.toLowerCase()} elétrico${car.power ? `, ${car.power} cv` : ''}${car.battery ? `, bateria ${car.battery} kWh` : ''}. Preço estimado R$ ${car.price.toLocaleString('pt-BR')}. Compare com outros elétricos no Guia PBEV Brasil.`;
+  const helmetTitle = isHev
+    ? `${car.brand} ${car.model} — R$ ${car.price.toLocaleString('pt-BR')} | ${car.fuelConsumptionKml ?? '—'} km/l Inmetro | Guia PBEV Brasil`
+    : `${car.brand} ${car.model} — R$ ${car.price.toLocaleString('pt-BR')} | ${car.range} km PBEV | Guia PBEV Brasil`;
+  const helmetDesc = isHev
+    ? `${car.brand} ${car.model}: híbrido, ${car.fuelConsumptionKml ?? '—'} km/l cidade (Inmetro)${car.power ? `, ${car.power} cv` : ''}. Preço estimado R$ ${car.price.toLocaleString('pt-BR')}. Compare com outros híbridos e elétricos no Guia PBEV Brasil.`
+    : `${car.brand} ${car.model}: autonomia PBEV ${car.range} km, ${car.cat.toLowerCase()} elétrico${car.power ? `, ${car.power} cv` : ''}${car.battery ? `, bateria ${car.battery} kWh` : ''}. Preço estimado R$ ${car.price.toLocaleString('pt-BR')}. Compare com outros elétricos no Guia PBEV Brasil.`;
   const helmetImage = car.img.startsWith('/car-images/')
     ? `https://guiapbev.cloud${car.img}`
     : imgSrc;
@@ -295,16 +307,16 @@ export default function CarDetailPage() {
                 {car.model}
               </h1>
 
-              {/* Range bar */}
+              {/* Range bar (HEV shows fuel consumption — no electric mode) */}
               <div className="mb-5">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[10px] uppercase tracking-widest font-medium flex items-center gap-1.5" style={{ color: 'rgba(255,255,255,0.3)' }}>
                     <BatteryCharging className="w-3.5 h-3.5" />
-                    {t('card.rangeLabel', 'Autonomia')} PBEV
+                    {isHev ? t('card.fuelLabel', 'Consumo') : `${t('card.rangeLabel', 'Autonomia')} PBEV`}
                   </span>
                   <span className="text-lg font-black text-white leading-none">
-                    {car.range}
-                    <span className="text-xs font-normal ml-1" style={{ color: 'rgba(255,255,255,0.35)' }}>km</span>
+                    {isHev ? (car.fuelConsumptionKml ?? '—') : car.range}
+                    <span className="text-xs font-normal ml-1" style={{ color: 'rgba(255,255,255,0.35)' }}>{isHev ? 'km/l' : 'km'}</span>
                   </span>
                 </div>
                 <div className="w-full h-1 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>

@@ -695,6 +695,44 @@
       ]
     },
     {
+      "src": "/car-images/gwm-haval-h6-gt.webp",
+      "width": 2280,
+      "height": 1440,
+      "alpha": false,
+      "bytes": 251142,
+      "sha256": "2165fd651daca3d01694aaa1bb98d063d46879630b3270ca820cf023ad3c35a1",
+      "variants": [
+        {
+          "src": "/car-images/optimized/gwm-haval-h6-gt.webp-320.webp",
+          "width": 320,
+          "height": 202,
+          "bytes": 9804,
+          "sha256": "775455f5286313dd1245b7b09a3e99ebc86787572d52377bf6ffeee1a8d2375e"
+        },
+        {
+          "src": "/car-images/optimized/gwm-haval-h6-gt.webp-640.webp",
+          "width": 640,
+          "height": 404,
+          "bytes": 31264,
+          "sha256": "b4d67a88e908c0bcc69226e9defa617598dcb9bc17897c5801cd2779bc78b20d"
+        },
+        {
+          "src": "/car-images/optimized/gwm-haval-h6-gt.webp-960.webp",
+          "width": 960,
+          "height": 606,
+          "bytes": 61166,
+          "sha256": "51e44b2e53d124e2d8ab7940c0f2b73c3fb730ebbc545d731e2c69be3884051a"
+        },
+        {
+          "src": "/car-images/optimized/gwm-haval-h6-gt.webp-1280.webp",
+          "width": 1280,
+          "height": 808,
+          "bytes": 96762,
+          "sha256": "7a369da4e3c8965169c3cc45ab16401c4af8aad96360c2c53a57e8a6f0a68172"
+        }
+      ]
+    },
+    {
       "src": "/car-images/id4.jpg",
       "width": 960,
       "height": 554,

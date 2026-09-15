@@ -20,7 +20,7 @@ Progressive Web App (PWA) para o mercado de veículos elétricos (BEV) no Brasil
 
 | Funcionalidade | Descrição |
 |---|---|
-| 📋 Catálogo | 115 modelos (BEV + híbridos) com filtros por preço, autonomia, categoria, marca, tração e propulsão |
+| 📋 Catálogo | 125 modelos (BEV + híbridos) com filtros por preço, autonomia, categoria, marca, tração e propulsão |
 | 🔍 Busca full-text | Busca instantânea por modelo, marca ou categoria (Fuse.js, tolerante a erros) |
 | ⚖️ Comparação | Comparativo lado a lado de até 3 veículos |
 | 💰 Simulador de Economia | Calcula economia mensal vs. combustão com IPVA real por estado |
@@ -88,10 +88,10 @@ No [guiapbev.cloud](https://guiapbev.cloud), usuários inserem sua própria chav
 
 ### Métricas Atuais
 
-- **115 veículos** (BEV + híbridos) cadastrados (32 marcas)
+- **125 veículos** (BEV + híbridos) cadastrados (32 marcas)
 - **93 modelos** com certificação PBE/INMETRO oficial
 - **27 estados** com dados de IPVA 2026 e tarifas ANP/ANEEL
-- **374 testes** automatizados em 48 arquivos
+- **377 testes** automatizados em 48 arquivos
 - **Build**: ~5s (Vite/ESBuild)
 
 ### Documentação
@@ -121,7 +121,7 @@ Progressive Web App (PWA) for the Brazilian Electric Vehicle (BEV) market. Inter
 
 | Feature | Description |
 |---|---|
-| 📋 Catalog | 112 models (BEV + hybrids) with filters by price, range, category, brand, drivetrain and powertrain |
+| 📋 Catalog | 125 models (BEV + hybrids) with filters by price, range, category, brand, drivetrain and powertrain |
 | 🔍 Full-text Search | Instant search by model, brand or category (Fuse.js, typo-tolerant) |
 | ⚖️ Comparison | Side-by-side comparison of up to 3 vehicles |
 | 💰 Savings Simulator | Monthly savings vs. combustion with real state IPVA tax |
@@ -182,7 +182,7 @@ npm run preview       # Preview production build
 - **112 vehicles** (BEV + hybrids) registered (32 marcas)
 - **93 models** with official PBE/INMETRO certification
 - **27 states** with 2026 IPVA data and ANP/ANEEL tariffs
-- **374 automated tests** across 48 files
+- **377 automated tests** across 48 files
 - **Build time**: ~5s (Vite/ESBuild)
 
 ### Documentation

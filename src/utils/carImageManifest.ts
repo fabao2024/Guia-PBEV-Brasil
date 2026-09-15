@@ -466,6 +466,32 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
+  "/car-images/gwm-haval-h6-gt.webp": {
+    "width": 2280,
+    "height": 1440,
+    "variants": [
+      {
+        "src": "/car-images/optimized/gwm-haval-h6-gt.webp-320.webp",
+        "width": 320,
+        "height": 202
+      },
+      {
+        "src": "/car-images/optimized/gwm-haval-h6-gt.webp-640.webp",
+        "width": 640,
+        "height": 404
+      },
+      {
+        "src": "/car-images/optimized/gwm-haval-h6-gt.webp-960.webp",
+        "width": 960,
+        "height": 606
+      },
+      {
+        "src": "/car-images/optimized/gwm-haval-h6-gt.webp-1280.webp",
+        "width": 1280,
+        "height": 808
+      }
+    ]
+  },
   "/car-images/id4.jpg": {
     "width": 960,
     "height": 554,

@@ -61,6 +61,8 @@
     "discontinuedNote": "Modelo descontinuado no Brasil. Informações disponíveis apenas para referência.",
     "estimatedPrice": "Preço Estimado",
     "rangeLabel": "Autonomia",
+    "electricRangeLabel": "Autonomia elétrica",
+    "fuelLabel": "Consumo",
     "categoryLabel": "Categoria",
     "buyBtn": "Ver no Fabricante",
     "batteryInfo": "Bateria (kWh)",

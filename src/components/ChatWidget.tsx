@@ -57,9 +57,9 @@ const KNOWN_BRANDS = ['BMW', 'Mercedes-Benz', 'Volvo', 'Hyundai', 'Kia', 'Nissan
 function buildQuizReason(car: Car, dailyKm: number, budget: number, preferredCats: string[], priority: string, isEn: boolean, charging?: string): string {
   const pt = powertrainOf(car);
   const noHomeCharging = charging !== undefined && /público|public|eletroposto|fast charger/i.test(charging);
-  if (pt === 'HEV' && noHomeCharging) return isEn ? `Hybrid with no plug needed — ideal without home charging (${car.fuelConsumptionKml ?? ''} km/L)`.replace(' ()', '') : `Híbrido sem tomada — ideal para quem não carrega em casa${car.fuelConsumptionKml ? ` (${car.fuelConsumptionKml} km/L)` : ''}`;
+  if (pt === 'HEV') return isEn ? `Self-charging hybrid, no plug needed${car.fuelConsumptionKml ? ` (${car.fuelConsumptionKml} km/L city)` : ''}` : `Híbrido sem tomada, sem dependência de recarga${car.fuelConsumptionKml ? ` (${car.fuelConsumptionKml} km/l cidade)` : ''}`;
+  if (noHomeCharging && (pt === 'PHEV' || pt === 'REEV') && (car.electricRangeKm ?? 0) < dailyKm) return isEn ? `Runs on fuel when you can't charge, electric when you can` : `Roda no combustível quando não dá para carregar e no elétrico quando dá`;
   if ((pt === 'PHEV' || pt === 'REEV') && car.electricRangeKm !== undefined && car.electricRangeKm >= dailyKm) return isEn ? `Electric range covers your daily drive (${car.electricRangeKm}km)` : `Autonomia elétrica cobre seu trajeto diário (${car.electricRangeKm}km)`;
-  if ((pt === 'PHEV' || pt === 'REEV') && noHomeCharging) return isEn ? `Runs on fuel when you can't charge, electric when you can` : `Roda no combustível quando não dá para carregar e no elétrico quando dá`;
   if (car.range >= dailyKm * 3) return isEn ? `Exceptional range for your daily use (${car.range}km)` : `Autonomia excepcional para seu uso diário (${car.range}km)`;
   if (car.range >= dailyKm * 2) return isEn ? `Comfortable range for your daily km (${car.range}km)` : `Autonomia confortável para seu uso diário (${car.range}km)`;
   if (priority.includes('preço') || priority.includes('price')) return isEn ? 'Best value for money in this selection' : 'Melhor custo-benefício desta seleção';

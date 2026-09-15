@@ -160,7 +160,10 @@ export default function CompareDetailPage() {
               </thead>
               <tbody>
                 <CompareRow label="Preço estimado" a={carA.price} b={carB.price} higherIsBetter={false} suffix=" R$" />
-                <CompareRow label="Autonomia PBEV" a={carA.range} b={carB.range} suffix=" km" />
+                {((carA.powertrain ?? 'BEV') === 'HEV' || (carB.powertrain ?? 'BEV') === 'HEV') && (
+                  <CompareRow label="Consumo cidade (Inmetro)" a={carA.fuelConsumptionKml} b={carB.fuelConsumptionKml} higherIsBetter suffix=" km/l" />
+                )}
+                <CompareRow label="Autonomia elétrica PBEV" a={(carA.powertrain ?? 'BEV') === 'HEV' ? undefined : carA.range} b={(carB.powertrain ?? 'BEV') === 'HEV' ? undefined : carB.range} suffix=" km" />
                 <CompareRow label="Potência" a={carA.power} b={carB.power} suffix=" cv" />
                 <CompareRow label="Torque" a={carA.torque} b={carB.torque} suffix=" kgfm" />
                 <CompareRow label="Bateria" a={carA.battery} b={carB.battery} suffix=" kWh" />

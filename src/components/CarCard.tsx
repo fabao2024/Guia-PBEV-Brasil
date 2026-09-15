@@ -6,7 +6,7 @@ import { BRAND_URLS, isCarNew, CAR_DB } from '../constants';
 import { getPriceDelta } from '../constants/priceHistory';
 import { toSlug } from '../utils/slug';
 import { getCarImageDimensions, resolveCarImageSrcSet, resolveCarImageUrl } from '../utils/imageUrl';
-import { Check, ImageOff, Heart, BatteryCharging, Scale, ArrowUpRight } from 'lucide-react';
+import { Check, ImageOff, Heart, BatteryCharging, Fuel, Scale, ArrowUpRight } from 'lucide-react';
 
 interface CarCardProps {
   car: Car;
@@ -61,7 +61,11 @@ const CarCard: React.FC<CarCardProps> = ({
   }, [car.cat, car.price, carSlug]);
 
   const brandUrl = car.url ?? BRAND_URLS[car.brand] ?? `https://www.google.com/search?q=${encodeURIComponent(car.brand + ' Brasil')}`;
-  const rangePercent = Math.min(Math.round((car.range / MAX_RANGE_KM) * 100), 100);
+  const isHev = (car.powertrain ?? 'BEV') === 'HEV';
+  const isPhev = car.powertrain === 'PHEV' || car.powertrain === 'REEV';
+  const rangePercent = isHev && car.fuelConsumptionKml
+    ? Math.min(Math.round((car.fuelConsumptionKml / 20) * 100), 100)
+    : Math.min(Math.round((car.range / MAX_RANGE_KM) * 100), 100);
   const accent = CAT_ACCENT[car.cat] ?? CAT_ACCENT['Compacto'];
   const tractionStyle = car.traction ? TRACTION_STYLE[car.traction] : null;
   const estimatedPower = car.power ?? Math.round(car.price / 3000);
@@ -208,6 +212,14 @@ const CarCard: React.FC<CarCardProps> = ({
           >
             {t(`categories.${car.cat}`)}
           </span>
+          {(car.powertrain ?? 'BEV') !== 'BEV' && (
+            <span
+              className="text-[10px] px-2 py-0.5 rounded-full font-semibold uppercase tracking-[0.08em]"
+              style={{ background: 'rgba(0,229,160,0.07)', color: '#00e5a0', border: '1px solid rgba(0,229,160,0.2)' }}
+            >
+              {t(`powertrain.${(car.powertrain ?? 'BEV').toLowerCase()}`, car.powertrain)}
+            </span>
+          )}
         </div>
 
         {/* Model name */}
@@ -222,19 +234,23 @@ const CarCard: React.FC<CarCardProps> = ({
         {/* Thin separator */}
         <div className="h-px w-full" style={{ background: 'rgba(255,255,255,0.05)' }} />
 
-        {/* Range bar — central visual data element */}
+        {/* Range bar — central visual data element (HEV shows fuel consumption) */}
         <div>
           <div className="flex items-center justify-between mb-1.5">
             <span
               className="text-[10px] uppercase tracking-widest font-medium flex items-center gap-1"
               style={{ color: 'rgba(255,255,255,0.3)' }}
             >
-              <BatteryCharging className="w-3 h-3" />
-              {t('card.rangeLabel', 'Autonomia')}
+              {isHev ? <Fuel className="w-3 h-3" /> : <BatteryCharging className="w-3 h-3" />}
+              {isHev
+                ? t('card.fuelLabel', 'Consumo')
+                : isPhev
+                  ? t('card.electricRangeLabel', 'Autonomia elétrica')
+                  : t('card.rangeLabel', 'Autonomia')}
             </span>
             <span className="font-display text-sm font-bold text-white leading-none">
-              {car.range}
-              <span className="text-[10px] font-normal ml-0.5" style={{ color: 'rgba(255,255,255,0.35)' }}>km</span>
+              {isHev ? (car.fuelConsumptionKml ?? '—') : car.range}
+              <span className="text-[10px] font-normal ml-0.5" style={{ color: 'rgba(255,255,255,0.35)' }}>{isHev ? 'km/l' : 'km'}</span>
             </span>
           </div>
           {/* Filled progress bar */}

@@ -61,6 +61,8 @@
     "discontinuedNote": "Model discontinued in Brazil. Information available for reference only.",
     "estimatedPrice": "Estimated Price",
     "rangeLabel": "Range",
+    "electricRangeLabel": "Electric range",
+    "fuelLabel": "Fuel economy",
     "categoryLabel": "Category",
     "buyBtn": "Visit Manufacturer",
     "batteryInfo": "Battery (kWh)",

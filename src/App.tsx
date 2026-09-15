@@ -181,7 +181,8 @@ export default function App() {
 
     return cars.filter(car => {
       if (car.price > filters.maxPrice) return false;
-      if (car.range < filters.minRange) return false;
+      // minRange é autonomia elétrica PBEV — HEV não tem modo elétrico e sempre passa
+      if ((car.powertrain ?? 'BEV') !== 'HEV' && car.range < filters.minRange) return false;
       if (filters.brands.length > 0 && !filters.brands.includes(car.brand)) return false;
       if (filters.categories.length > 0 && !filters.categories.includes(car.cat)) return false;
       if (filters.showNew && !isCarNew(car)) return false;

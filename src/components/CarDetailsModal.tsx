@@ -85,11 +85,14 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
     const [isImgLoading, setIsImgLoading] = useState(true);
     const [copied, setCopied] = useState(false);
 
+    const isHevModal = (car.powertrain ?? 'BEV') === 'HEV';
     const productSchema = useMemo(() => ({
       '@context': 'https://schema.org',
       '@type': 'Product',
       name: `${car.brand} ${car.model}`,
-      description: `Carro elétrico ${car.brand} ${car.model} — Autonomia PBEV: ${car.range} km | Categoria: ${car.cat} | Preço estimado: R$ ${car.price.toLocaleString('pt-BR')}`,
+      description: isHevModal
+        ? `Híbrido ${car.brand} ${car.model} — Consumo Inmetro: ${car.fuelConsumptionKml ?? '—'} km/l | Categoria: ${car.cat} | Preço estimado: R$ ${car.price.toLocaleString('pt-BR')}`
+        : `Carro elétrico ${car.brand} ${car.model} — Autonomia PBEV: ${car.range} km | Categoria: ${car.cat} | Preço estimado: R$ ${car.price.toLocaleString('pt-BR')}`,
       brand: { '@type': 'Brand', name: car.brand },
       image: gallery[0],
       url: BRAND_URLS[car.brand] ?? window.location.href,
@@ -102,7 +105,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
       },
       ...(car.power && { additionalProperty: [
         { '@type': 'PropertyValue', name: 'Potência', value: `${car.power} cv`, unitCode: 'HWP' },
-        { '@type': 'PropertyValue', name: 'Autonomia PBEV', value: `${car.range} km`, unitCode: 'KMT' },
+        { '@type': 'PropertyValue', name: isHevModal ? 'Consumo Inmetro' : 'Autonomia PBEV', value: isHevModal ? `${car.fuelConsumptionKml ?? '—'} km/l` : `${car.range} km`, unitCode: 'KMT' },
         ...(car.battery ? [{ '@type': 'PropertyValue', name: 'Bateria', value: `${car.battery} kWh` }] : []),
         ...(car.traction ? [{ '@type': 'PropertyValue', name: 'Tração', value: car.traction }] : []),
         ...(hasDimensions(car) ? dimensionProperties(car) : []),
@@ -112,7 +115,9 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
 
     useMeta({
       title: `${car.brand} ${car.model} — R$ ${car.price.toLocaleString('pt-BR')} | Guia PBEV Brasil`,
-      description: `${car.brand} ${car.model}: autonomia PBEV ${car.range} km, categoria ${car.cat}${car.power ? `, ${car.power} cv` : ''}${car.battery ? `, bateria ${car.battery} kWh` : ''}. Preço estimado R$ ${car.price.toLocaleString('pt-BR')}.`,
+      description: isHevModal
+        ? `${car.brand} ${car.model}: híbrido, ${car.fuelConsumptionKml ?? '—'} km/l cidade (Inmetro)${car.power ? `, ${car.power} cv` : ''}. Preço estimado R$ ${car.price.toLocaleString('pt-BR')}.`
+        : `${car.brand} ${car.model}: autonomia PBEV ${car.range} km, categoria ${car.cat}${car.power ? `, ${car.power} cv` : ''}${car.battery ? `, bateria ${car.battery} kWh` : ''}. Preço estimado R$ ${car.price.toLocaleString('pt-BR')}.`,
       image: gallery[0],
       url: canonicalUrl,
     });
@@ -121,7 +126,9 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
         const price = car.price.toLocaleString('pt-BR');
         const payload = {
             title: car.model,
-            text: `${car.model} – R$ ${price} – ${car.range}km | Guia PBEV`,
+            text: isHevModal
+              ? `${car.model} – R$ ${price} – ${car.fuelConsumptionKml ?? '—'} km/l | Guia PBEV`
+              : `${car.model} – R$ ${price} – ${car.range}km | Guia PBEV`,
             url: canonicalUrl,
         };
         if (navigator.share) {
@@ -340,7 +347,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                     {/* Divider */}
                     <div className="h-px w-full mb-5" style={{ background: 'rgba(255,255,255,0.06)' }} />
 
-                    {/* Range bar */}
+                    {/* Range bar (HEV shows fuel consumption — no electric mode) */}
                     <div className="mb-5">
                         <div className="flex items-center justify-between mb-2">
                             <span
@@ -348,11 +355,13 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                                 style={{ color: 'rgba(255,255,255,0.3)' }}
                             >
                                 <BatteryCharging className="w-3.5 h-3.5" />
-                                {t('card.rangeLabel', 'Autonomia')} PBEV
+                                {(car.powertrain ?? 'BEV') === 'HEV'
+                                    ? t('card.fuelLabel', 'Consumo')
+                                    : `${t('card.rangeLabel', 'Autonomia')} PBEV`}
                             </span>
                             <span className="text-lg font-black text-white leading-none">
-                                {car.range}
-                                <span className="text-xs font-normal ml-1" style={{ color: 'rgba(255,255,255,0.35)' }}>km</span>
+                                {(car.powertrain ?? 'BEV') === 'HEV' ? (car.fuelConsumptionKml ?? '—') : car.range}
+                                <span className="text-xs font-normal ml-1" style={{ color: 'rgba(255,255,255,0.35)' }}>{(car.powertrain ?? 'BEV') === 'HEV' ? 'km/l' : 'km'}</span>
                             </span>
                         </div>
                         <div className="w-full h-1 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
@@ -416,6 +425,20 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                                 <div className="text-xl font-black text-white leading-none">
                                     {car.battery}
                                     <span className="text-sm font-normal ml-1" title="Quilowatt-hora — unidade de energia da bateria" style={{ color: 'rgba(255,255,255,0.35)' }}>kWh</span>
+                                </div>
+                            </div>
+                        )}
+                        {car.fuelConsumptionKml && (
+                            <div
+                                className="rounded-xl px-4 py-3"
+                                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
+                            >
+                                <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: 'rgba(255,255,255,0.28)' }}>
+                                    {t('card.fuelLabel', 'Consumo')} (Inmetro cidade)
+                                </div>
+                                <div className="text-xl font-black text-white leading-none">
+                                    {car.fuelConsumptionKml}
+                                    <span className="text-sm font-normal ml-1" style={{ color: 'rgba(255,255,255,0.35)' }}>km/l</span>
                                 </div>
                             </div>
                         )}

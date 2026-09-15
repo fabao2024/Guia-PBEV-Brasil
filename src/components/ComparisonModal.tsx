@@ -169,7 +169,9 @@ export default function ComparisonModal({ cars, allCars, onClose, onRemove, onAd
                         <div className="h-10 flex items-center">
                            <span className="font-bold text-white flex items-center gap-1.5">
                               <Map className="w-4 h-4 text-[#00b4ff]" />
-                              {car.range} <span className="text-[#a0a0a0] text-sm">km</span>
+                              {(car.powertrain ?? 'BEV') === 'HEV'
+                                ? <>{car.fuelConsumptionKml ?? '—'} <span className="text-[#a0a0a0] text-sm">km/l</span></>
+                                : <>{car.range} <span className="text-[#a0a0a0] text-sm">km</span></>}
                            </span>
                         </div>
 

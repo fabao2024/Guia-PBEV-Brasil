@@ -2,6 +2,26 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 15/09/2026 · Híbridos GWM: 7 entradas Flex com fotos, HEV sem autonomia e UI híbrida
+
+| Área | Mudança pública |
+|---|---|
+| Catálogo | Haval H6 HEV ONE (R$ 199.900), HEV2 (R$ 225.000), PHEV19 (R$ 250.000, 77 km), PHEV35 (R$ 290.000, 126 km), GT (R$ 326.000, 126 km), Tank 300 (R$ 342.000, 74 km AWD) e Wey 07 (R$ 429.000, 128 km) — release oficial 09/06/2026 + linhas Flex da tabela PBEV. Catálogo vai a 125 veículos (16 híbridos). |
+| HEV | Sem `range` (0 = sem modo elétrico, travado em invariante): passa o filtro de autonomia por definição; cards, ficha, página, comparação e SEO exibem km/l cidade Inmetro em vez de "0 km". |
+| UI | Badge de propulsão nos cards; linha de consumo Inmetro na ficha; `og:image` e `cars.json` com fotos locais e WebP. |
+| Fotos | Oficinas GWM (H6/GT/Tank/Wey) com pipeline completo e bytes antigos intactos. |
+| Verificação | 377/377 testes, TypeScript limpo, build Vite (125 páginas), scanner de segredos e verificador de proveniência (701/1250) aprovados. |
+
+## 15/09/2026 · Híbridos BYD-3: King GS, Atto 2 GS e Atto 8 + tabela PBEV extraída
+
+| Área | Mudança pública |
+|---|---|
+| Fonte nova | Tabela PBEV 14/08/2026 extraída linha a linha (9 páginas): confirma elétrica e MJ/km de todos os PHEV (Song Pro GL 57/GS 72, King GL 35/GS 78, Shark 68, Atto 2 GL 33/GS 75, Song Plus 63 linha anterior, Premium 87, Atto 8 111) e km/l de HEV/PHEV. **A tabela não publica autonomia combinada** — falecido o campo de combinada: catálogo exibe só a elétrica. |
+| Catálogo | King GS (R$ 175.990 varejo, 78 km, 235 cv), Atto 2 GS (R$ 169.990, 75 km PBEV — página citava 110 NEDC, prevalece o regulador) e Atto 8 (R$ 399.990, 111 km, 488 cv AWD, DC 72 kW), com fotos oficiais e pipeline. Catálogo vai a 118 veículos (9 PHEV BYD). |
+| Preços | Regra trancada: só varejo "de" em fonte oficial; PcD/taxista/venda direta jamais (Atto 2 GL fica `pending` — R$ 149.990 era só venda direta). |
+| Divergências | Song Plus base: tabela traz a linha anterior (63 km); ficha V2 vigente (99 km) prevalece com fonte de fabricante até homologação nova. |
+| Verificação | 375/375 testes, TypeScript limpo, build Vite (118 páginas), scanner de segredos e verificador de proveniência (671/1180) aprovados. |
+
 ## 15/09/2026 · Híbridos BYD: fotos oficiais com pipeline completo
 
 | Área | Mudança pública |

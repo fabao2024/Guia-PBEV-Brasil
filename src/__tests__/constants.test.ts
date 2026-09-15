@@ -34,10 +34,14 @@ describe('CAR_DB data integrity', () => {
     }
   });
 
-  it('every car should have valid range (positive number)', () => {
+  it('every car should have valid range (positive number, zero only for HEV without electric mode)', () => {
     for (const car of CAR_DB) {
-      expect(car.range).toBeGreaterThan(0);
-      expect(Number.isFinite(car.range)).toBe(true);
+      if ((car.powertrain ?? 'BEV') === 'HEV') {
+        expect(car.range, `${car.model}: HEV deve ter range 0 (sem modo elétrico)`).toBe(0);
+      } else {
+        expect(car.range).toBeGreaterThan(0);
+        expect(Number.isFinite(car.range)).toBe(true);
+      }
     }
   });
 
@@ -165,7 +169,10 @@ describe('CAR_DB data integrity', () => {
 
     it('every car should pass the default catalog filters (visible on first load)', () => {
       for (const car of CAR_DB) {
-        expect(car.range, `${car.model}: range abaixo do default`).toBeGreaterThanOrEqual(DEFAULT_MIN_RANGE);
+        // HEV não tem autonomia elétrica: passa o filtro minRange por definição
+        if ((car.powertrain ?? 'BEV') !== 'HEV') {
+          expect(car.range, `${car.model}: range abaixo do default`).toBeGreaterThanOrEqual(DEFAULT_MIN_RANGE);
+        }
         expect(ALL_POWERTRAINS, `${car.model}: powertrain fora do default`).toContain(car.powertrain ?? 'BEV');
       }
     });

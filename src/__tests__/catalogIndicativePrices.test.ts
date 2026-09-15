@@ -128,6 +128,76 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(king.energyMJkm).toBe(0.53);
   });
 
+  it('BYD King GS, Atto 2 GS and Atto 8 should match official fichas and PBEV table', () => {
+    // Fichas oficiais BYD_King_V2, BYD_Atto2_v1 e BYD_Atto8_V2 (rev. 09/07/2026)
+    // + tabela PBEV 14/08/2026 (King GS 78 km/0,49; Atto 2 GS Flex 75 km/0,51;
+    // Atto 8 GS 111 km/0,71). Preços: King GS R$ 175.990 (varejo "de" no site
+    // oficial; PcD/venda direta jamais usados), Atto 2 GS R$ 169.990 (release
+    // 10/06/2026) e Atto 8 R$ 399.990 (condições 11/09/2026).
+    // Divergência: página Atto 2 cita 110 km (NEDC da ficha) — prevalece o PBEV (75 km).
+    const gs = byModel('King GS');
+    expect(gs.powertrain).toBe('PHEV');
+    expect(gs.price).toBe(175990);
+    expect(gs.range).toBe(78);
+    expect(gs.battery).toBe(18.3);
+    expect(gs.power).toBe(235);
+    const atto2 = byModel('Atto 2 GS');
+    expect(atto2.powertrain).toBe('PHEV');
+    expect(atto2.price).toBe(169990);
+    expect(atto2.range).toBe(75);
+    expect(atto2.battery).toBe(18.03);
+    expect(atto2.power).toBe(197);
+    expect(atto2.fuelConsumptionKml).toBe(15.5);
+    const atto8 = byModel('Atto 8');
+    expect(atto8.powertrain).toBe('PHEV');
+    expect(atto8.price).toBe(399990);
+    expect(atto8.range).toBe(111);
+    expect(atto8.battery).toBe(35.6);
+    expect(atto8.power).toBe(488);
+    expect(atto8.chargeDC).toBe(72);
+  });
+
+  it('GWM Haval H6 Flex line, Tank 300 and Wey 07 should match official release and PBEV table', () => {
+    // GWM release 09/06/2026 (linha 2027 Flex Iracemápolis): ONE R$ 199.900,
+    // HEV2 R$ 225.000, PHEV19 R$ 250.000, PHEV35 R$ 290.000, GT R$ 326.000;
+    // HEV 248 cv, PHEV19 326 cv, PHEV35/GT 393 cv; baterias 1,53/19/35 kWh.
+    // Tabela PBEV 14/08/2026 (linhas FF): PHEV19 77 km/0,60; PHEV35 e GT 126 km/0,70;
+    // Tank Flex 74 km/1,07; HEV Flex 15,8 km/l cidade (gasolina); Wey 07 128 km/0,83.
+    // Tank 300 R$ 342.000 (release Salão de Pequim); Wey 07 R$ 429.000 (lançamento).
+    const one = byModel('Haval H6 HEV ONE');
+    expect(one.powertrain).toBe('HEV');
+    expect(one.price).toBe(199900);
+    expect(one.range).toBe(0);
+    expect(one.fuelConsumptionKml).toBe(15.8);
+    const hev2 = byModel('Haval H6 HEV2');
+    expect(hev2.powertrain).toBe('HEV');
+    expect(hev2.price).toBe(225000);
+    expect(hev2.fuelConsumptionKml).toBe(15.8);
+    const p19 = byModel('Haval H6 PHEV19');
+    expect(p19.powertrain).toBe('PHEV');
+    expect(p19.price).toBe(250000);
+    expect(p19.range).toBe(77);
+    expect(p19.battery).toBe(19);
+    expect(p19.power).toBe(326);
+    const p35 = byModel('Haval H6 PHEV35');
+    expect(p35.range).toBe(126);
+    expect(p35.power).toBe(393);
+    const gt = byModel('Haval H6 GT');
+    expect(gt.price).toBe(326000);
+    expect(gt.range).toBe(126);
+    const tank = byModel('Tank 300');
+    expect(tank.powertrain).toBe('PHEV');
+    expect(tank.price).toBe(342000);
+    expect(tank.range).toBe(74);
+    expect(tank.traction).toBe('AWD');
+    expect(tank.fuelConsumptionKml).toBe(7.5);
+    const wey = byModel('Wey 07');
+    expect(wey.powertrain).toBe('PHEV');
+    expect(wey.price).toBe(429000);
+    expect(wey.range).toBe(128);
+    expect(wey.energyMJkm).toBe(0.83);
+  });
+
   it('should flag versions removed from official lineups as discontinued', () => {
     // BMW press release (Apr/2025): renewed i4 line offers only eDrive40 M Sport and M50;
     // Mercedes-Benz launch (Jul/2024): EQE 300 SUV replaced by EQE 350+ SUV.

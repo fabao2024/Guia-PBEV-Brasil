@@ -1025,6 +1025,158 @@
         }
       }
     },
+    "byd-atto-2-gs": {
+      "brand": "BYD",
+      "model": "Atto 2 GS",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/br/byd-atto2-o-primeiro-suv-compacto-hibrido-plug-in-flex-da-byd-no-mundo-2026",
+          "sourceUpdatedAt": "2026-06-10",
+          "verifiedAt": "2026-09-15"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-15"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/byd-site/br/product/atto-2-dmi/Ficha%20Tecnica%20-%20BYD%20Atto%202%20DM-i%20Flex%20-%20v1.pdf",
+          "sourceUpdatedAt": "2026-06-10",
+          "verifiedAt": "2026-09-15"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/byd-site/br/product/atto-2-dmi/Ficha%20Tecnica%20-%20BYD%20Atto%202%20DM-i%20Flex%20-%20v1.pdf",
+          "sourceUpdatedAt": "2026-06-10",
+          "verifiedAt": "2026-09-15"
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/byd-site/br/product/atto-2-dmi/Ficha%20Tecnica%20-%20BYD%20Atto%202%20DM-i%20Flex%20-%20v1.pdf",
+          "sourceUpdatedAt": "2026-06-10",
+          "verifiedAt": "2026-09-15"
+        },
+        "charging": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/byd-site/br/product/atto-2-dmi/Ficha%20Tecnica%20-%20BYD%20Atto%202%20DM-i%20Flex%20-%20v1.pdf",
+          "sourceUpdatedAt": "2026-06-10",
+          "verifiedAt": "2026-09-15"
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
+    "byd-atto-8": {
+      "brand": "BYD",
+      "model": "Atto 8",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/br/condicoes",
+          "sourceUpdatedAt": "2026-09-11",
+          "verifiedAt": "2026-09-15"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-15"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_Atto8_V2.pdf",
+          "sourceUpdatedAt": "2026-07-09",
+          "verifiedAt": "2026-09-15"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_Atto8_V2.pdf",
+          "sourceUpdatedAt": "2026-07-09",
+          "verifiedAt": "2026-09-15"
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_Atto8_V2.pdf",
+          "sourceUpdatedAt": "2026-07-09",
+          "verifiedAt": "2026-09-15"
+        },
+        "charging": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_Atto8_V2.pdf",
+          "sourceUpdatedAt": "2026-07-09",
+          "verifiedAt": "2026-09-15"
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
     "byd-dolphin-gs": {
       "brand": "BYD",
       "model": "Dolphin GS",
@@ -1573,6 +1725,82 @@
           "sourceType": "official_manufacturer",
           "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_King_V2.pdf",
           "sourceUpdatedAt": "2026-07-09",
+          "verifiedAt": "2026-09-15"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_King_V2.pdf",
+          "sourceUpdatedAt": "2026-07-09",
+          "verifiedAt": "2026-09-15"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_King_V2.pdf",
+          "sourceUpdatedAt": "2026-07-09",
+          "verifiedAt": "2026-09-15"
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_King_V2.pdf",
+          "sourceUpdatedAt": "2026-07-09",
+          "verifiedAt": "2026-09-15"
+        },
+        "charging": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_King_V2.pdf",
+          "sourceUpdatedAt": "2026-07-09",
+          "verifiedAt": "2026-09-15"
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
+    "byd-king-gs": {
+      "brand": "BYD",
+      "model": "King GS",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.byd.com/br/car/king",
+          "sourceUpdatedAt": "2026-09-15",
+          "verifiedAt": "2026-09-15"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-08-14",
           "verifiedAt": "2026-09-15"
         },
         "consumption": {
@@ -4369,6 +4597,386 @@
         }
       }
     },
+    "gwm-haval-h6-gt": {
+      "brand": "GWM",
+      "model": "Haval H6 GT",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/media-center/news/2026/gwm-haval-h6-se-torna-o-primeiro-hibrido-plug-in-flex-fabricado-no-brasil-e-fortalece-o-pioneirismo-da-marca-em-eletrificacao",
+          "sourceUpdatedAt": "2026-06-09",
+          "verifiedAt": "2026-09-15"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-15"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-15"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/media-center/news/2026/gwm-haval-h6-se-torna-o-primeiro-hibrido-plug-in-flex-fabricado-no-brasil-e-fortalece-o-pioneirismo-da-marca-em-eletrificacao",
+          "sourceUpdatedAt": "2026-06-09",
+          "verifiedAt": "2026-09-15"
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/media-center/news/2026/gwm-haval-h6-se-torna-o-primeiro-hibrido-plug-in-flex-fabricado-no-brasil-e-fortalece-o-pioneirismo-da-marca-em-eletrificacao",
+          "sourceUpdatedAt": "2026-06-09",
+          "verifiedAt": "2026-09-15"
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
+    "gwm-haval-h6-hev-one": {
+      "brand": "GWM",
+      "model": "Haval H6 HEV ONE",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/media-center/news/2026/gwm-haval-h6-se-torna-o-primeiro-hibrido-plug-in-flex-fabricado-no-brasil-e-fortalece-o-pioneirismo-da-marca-em-eletrificacao",
+          "sourceUpdatedAt": "2026-06-09",
+          "verifiedAt": "2026-09-15"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/media-center/news/2026/gwm-haval-h6-se-torna-o-primeiro-hibrido-plug-in-flex-fabricado-no-brasil-e-fortalece-o-pioneirismo-da-marca-em-eletrificacao",
+          "sourceUpdatedAt": "2026-06-09",
+          "verifiedAt": "2026-09-15"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-15"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/media-center/news/2026/gwm-haval-h6-se-torna-o-primeiro-hibrido-plug-in-flex-fabricado-no-brasil-e-fortalece-o-pioneirismo-da-marca-em-eletrificacao",
+          "sourceUpdatedAt": "2026-06-09",
+          "verifiedAt": "2026-09-15"
+        },
+        "battery": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
+    "gwm-haval-h6-hev2": {
+      "brand": "GWM",
+      "model": "Haval H6 HEV2",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/media-center/news/2026/gwm-haval-h6-se-torna-o-primeiro-hibrido-plug-in-flex-fabricado-no-brasil-e-fortalece-o-pioneirismo-da-marca-em-eletrificacao",
+          "sourceUpdatedAt": "2026-06-09",
+          "verifiedAt": "2026-09-15"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/media-center/news/2026/gwm-haval-h6-se-torna-o-primeiro-hibrido-plug-in-flex-fabricado-no-brasil-e-fortalece-o-pioneirismo-da-marca-em-eletrificacao",
+          "sourceUpdatedAt": "2026-06-09",
+          "verifiedAt": "2026-09-15"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-15"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/media-center/news/2026/gwm-haval-h6-se-torna-o-primeiro-hibrido-plug-in-flex-fabricado-no-brasil-e-fortalece-o-pioneirismo-da-marca-em-eletrificacao",
+          "sourceUpdatedAt": "2026-06-09",
+          "verifiedAt": "2026-09-15"
+        },
+        "battery": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
+    "gwm-haval-h6-phev19": {
+      "brand": "GWM",
+      "model": "Haval H6 PHEV19",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/media-center/news/2026/gwm-haval-h6-se-torna-o-primeiro-hibrido-plug-in-flex-fabricado-no-brasil-e-fortalece-o-pioneirismo-da-marca-em-eletrificacao",
+          "sourceUpdatedAt": "2026-06-09",
+          "verifiedAt": "2026-09-15"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-15"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-15"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/media-center/news/2026/gwm-haval-h6-se-torna-o-primeiro-hibrido-plug-in-flex-fabricado-no-brasil-e-fortalece-o-pioneirismo-da-marca-em-eletrificacao",
+          "sourceUpdatedAt": "2026-06-09",
+          "verifiedAt": "2026-09-15"
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/media-center/news/2026/gwm-haval-h6-se-torna-o-primeiro-hibrido-plug-in-flex-fabricado-no-brasil-e-fortalece-o-pioneirismo-da-marca-em-eletrificacao",
+          "sourceUpdatedAt": "2026-06-09",
+          "verifiedAt": "2026-09-15"
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
+    "gwm-haval-h6-phev35": {
+      "brand": "GWM",
+      "model": "Haval H6 PHEV35",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/media-center/news/2026/gwm-haval-h6-se-torna-o-primeiro-hibrido-plug-in-flex-fabricado-no-brasil-e-fortalece-o-pioneirismo-da-marca-em-eletrificacao",
+          "sourceUpdatedAt": "2026-06-09",
+          "verifiedAt": "2026-09-15"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-15"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-15"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/media-center/news/2026/gwm-haval-h6-se-torna-o-primeiro-hibrido-plug-in-flex-fabricado-no-brasil-e-fortalece-o-pioneirismo-da-marca-em-eletrificacao",
+          "sourceUpdatedAt": "2026-06-09",
+          "verifiedAt": "2026-09-15"
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/media-center/news/2026/gwm-haval-h6-se-torna-o-primeiro-hibrido-plug-in-flex-fabricado-no-brasil-e-fortalece-o-pioneirismo-da-marca-em-eletrificacao",
+          "sourceUpdatedAt": "2026-06-09",
+          "verifiedAt": "2026-09-15"
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
     "gwm-ora-03-gt-bev63": {
       "brand": "GWM",
       "model": "Ora 03 GT BEV63",
@@ -4670,6 +5278,158 @@
           "sourceUrl": "https://www.gwmmotors.com.br/content/dam/gwm/pages/br/pt/models/ora-5/ficha-tecnica-ora-5-gwm.pdf",
           "sourceUpdatedAt": "2026-06-23",
           "verifiedAt": "2026-09-02"
+        }
+      }
+    },
+    "gwm-tank-300": {
+      "brand": "GWM",
+      "model": "Tank 300",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/modelos/tank-300",
+          "sourceUpdatedAt": "2026-09-15",
+          "verifiedAt": "2026-09-15"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-15"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-15"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/modelos/tank-300",
+          "sourceUpdatedAt": "2026-09-15",
+          "verifiedAt": "2026-09-15"
+        },
+        "battery": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
+    "gwm-wey-07": {
+      "brand": "GWM",
+      "model": "Wey 07",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/modelos/wey-07",
+          "sourceUpdatedAt": "2026-09-15",
+          "verifiedAt": "2026-09-15"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-15"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-15"
+        },
+        "power": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "battery": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },

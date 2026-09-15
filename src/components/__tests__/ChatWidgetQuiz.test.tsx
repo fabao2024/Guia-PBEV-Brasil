@@ -19,8 +19,16 @@ describe('computeQuizResults (offline quiz)', () => {
     expect(out).toMatch(/Song Pro G[SL]/);
   });
 
-  it('keeps BEV on top with home charging', () => {
+  it('surfaces an HEV with km/L reasoning for public-only charging', () => {
     const out = computeQuizResults(
+      ['Mais de 120km', 'Até R$250k', 'Só eletroposto público', 'SUV', 'Menor preço'],
+      'pt-BR',
+    );
+    expect(out).toContain('[HEV]');
+    expect(out).toMatch(/km\/l cidade/i);
+  });
+
+  it('keeps BEV on top with home charging', () => {    const out = computeQuizResults(
       ['Até 60km', 'Até R$250k', 'Em casa à noite', 'SUV', 'Maior autonomia'],
       'pt-BR',
     );
