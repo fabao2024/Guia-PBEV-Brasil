@@ -5383,18 +5383,18 @@
           "verifiedAt": "2026-09-15"
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/content/dam/gwm/pages/br/pt/models/wey/catalogo-wey07-gwm.pdf",
+          "sourceUpdatedAt": "2026-09-15",
+          "verifiedAt": "2026-09-15"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/content/dam/gwm/pages/br/pt/models/wey/catalogo-wey07-gwm.pdf",
+          "sourceUpdatedAt": "2026-09-15",
+          "verifiedAt": "2026-09-15"
         },
         "charging": {
           "verificationStatus": "legacy_unverified",
@@ -5411,25 +5411,25 @@
           "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/content/dam/gwm/pages/br/pt/models/wey/catalogo-wey07-gwm.pdf",
+          "sourceUpdatedAt": "2026-09-15",
+          "verifiedAt": "2026-09-15"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/content/dam/gwm/pages/br/pt/models/wey/catalogo-wey07-gwm.pdf",
+          "sourceUpdatedAt": "2026-09-15",
+          "verifiedAt": "2026-09-15"
         },
         "weight": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/content/dam/gwm/pages/br/pt/models/wey/catalogo-wey07-gwm.pdf",
+          "sourceUpdatedAt": "2026-09-15",
+          "verifiedAt": "2026-09-15"
         }
       }
     },

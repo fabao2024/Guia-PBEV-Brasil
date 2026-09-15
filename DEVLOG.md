@@ -2,6 +2,14 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 15/09/2026 · Wey 07 ganha ficha completa: 517 cv do catálogo oficial
+
+| Área | Mudança pública |
+|---|---|
+| Ficha | Wey 07 recebe `power` 517, `torque` 83,6, `battery` 42,5, `traction` AWD e dimensões/peso/porta-malas (5156/1980/1805 mm, 3050 mm, 2545 kg, 239 L) do catálogo oficial GWM — antes a entrada não tinha potência. Prevalece sobre terceiros (95,1 kgfm/4,5 s); catálogo e página oficial: 820 Nm, 0–100 em 4,9 s. Carga em kW segue sem fonte oficial e fica fora. |
+| Proveniência | `power`, `battery`, `dimensions`, `trunk` e `weight` do `gwm-wey-07` passam a `verified` (catálogo oficial); cobertura vai a 706/1250. |
+| Verificação | 377/377 testes (bloco Wey 07 estendido), TypeScript limpo, build Vite (125 páginas), scanner de segredos e verificador de proveniência aprovados. |
+
 ## 15/09/2026 · Novidade só no Atto 2 GS; fotos próprias para cada Haval H6
 
 | Área | Mudança pública |

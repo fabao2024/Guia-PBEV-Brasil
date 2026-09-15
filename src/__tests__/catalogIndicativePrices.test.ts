@@ -196,6 +196,16 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(wey.price).toBe(429000);
     expect(wey.range).toBe(128);
     expect(wey.energyMJkm).toBe(0.83);
+    // Catálogo oficial GWM (catalogo-wey07-gwm.pdf): 517 cv, 820 Nm (83,6 kgfm),
+    // bateria 42,5 kWh, tração 4WD, 0–100 em 4,9 s, 5156/1980/1805 mm, 3050 mm,
+    // 2545 kg, porta-malas 239 L. Prevalece sobre os 95,1 kgfm/4,5 s de terceiros.
+    expect(wey.power).toBe(517);
+    expect(wey.torque).toBe(83.6);
+    expect(wey.battery).toBe(42.5);
+    expect(wey.traction).toBe('AWD');
+    expect(wey.lengthMm).toBe(5156);
+    expect(wey.weightKg).toBe(2545);
+    expect(wey.trunkLiters).toBe(239);
   });
 
   it('should flag versions removed from official lineups as discontinued', () => {

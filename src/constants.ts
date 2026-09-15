@@ -488,14 +488,18 @@ export const CAR_DB: Car[] = [
     powertrain: 'PHEV', electricRangeKm: 128,
     url: "https://www.gwmmotors.com.br/pt/modelos/wey-07",
     img: "/car-images/gwm-wey-07.webp",
+    power: 517, torque: 83.6, traction: 'AWD', battery: 42.5,
     features: [
-      "SUV híbrido plug-in de 6 lugares e tração integral",
-      "Autonomia elétrica PBEV de 128 km",
+      "SUV híbrido plug-in de 6 lugares e tração integral Hi4 — 1.5 turbo + dois elétricos, 517 cv / 83,6 kgfm, 0–100 km/h em 4,9 s",
+      "Bateria 42,5 kWh; autonomia elétrica PBEV de 128 km (185 km WLTP)",
       "10,8 km/l cidade (gasolina, Inmetro) no modo sustentação",
-      "Câmbio híbrido dedicado DHT de 4 marchas"
+      "Câmbio híbrido dedicado DHT; 9 modos de condução",
+      "Porta-malas de 239 L (1.040 L com a 3ª fileira rebatida)"
     ],
     energyMJkm: 0.83,
     fuelConsumptionKml: 10.8,
+    lengthMm: 5156, widthMm: 1980, heightMm: 1805, wheelbaseMm: 3050,
+    groundClearanceMm: 180, weightKg: 2545, trunkLiters: 239,
   },
   {
     model: "Spark EUV", brand: "Chevrolet", price: 144990, range: 258, cat: "Urbano",
