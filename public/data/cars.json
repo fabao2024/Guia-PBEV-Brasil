@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T12:24:05.429Z",
+  "generated_at": "2026-09-15T12:42:39.030Z",
   "total": 112,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "evidence": {
@@ -1576,7 +1576,7 @@
       "fuel_consumption_kml": null,
       "fuel_type_2": "flex",
       "category": "SUV",
-      "image_url": "https://guiapbev.cloudhttps://images.unsplash.com/photo-1678122393858-450b2964b73e?auto=format&fit=crop&w=800&q=80",
+      "image_url": "https://images.unsplash.com/photo-1615829386703-e2bb66a7cb7d?auto=format&fit=crop&w=800&q=80",
       "traction": null,
       "power_cv": null,
       "torque_kgfm": null,
@@ -1619,7 +1619,7 @@
       "fuel_consumption_kml": null,
       "fuel_type_2": "flex",
       "category": "SUV",
-      "image_url": "https://guiapbev.cloudhttps://images.unsplash.com/photo-1678122393858-450b2964b73e?auto=format&fit=crop&w=800&q=80",
+      "image_url": "https://images.unsplash.com/photo-1615829386703-e2bb66a7cb7d?auto=format&fit=crop&w=800&q=80",
       "traction": null,
       "power_cv": null,
       "torque_kgfm": null,
@@ -1663,7 +1663,7 @@
       "fuel_consumption_kml": null,
       "fuel_type_2": "gasolina",
       "category": "Comercial",
-      "image_url": "https://guiapbev.cloudhttps://images.unsplash.com/photo-1678122393858-450b2964b73e?auto=format&fit=crop&w=800&q=80",
+      "image_url": "https://images.unsplash.com/photo-1615829386703-e2bb66a7cb7d?auto=format&fit=crop&w=800&q=80",
       "traction": "AWD",
       "power_cv": 437,
       "torque_kgfm": null,

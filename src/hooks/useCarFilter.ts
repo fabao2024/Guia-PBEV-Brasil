@@ -1,15 +1,15 @@
 import { useState, useMemo } from 'react';
-import { FilterState, Car } from '../types';
+import { FilterState, Car, ALL_POWERTRAINS, DEFAULT_MIN_RANGE } from '../types';
 
 export function useCarFilter(initialCars: Car[]) {
     const [filters, setFilters] = useState<FilterState>({
         maxPrice: 1500000,
-        minRange: 100,
+        minRange: DEFAULT_MIN_RANGE,
         categories: [],
         brands: [],
         showNew: false,
         fastChargeOnly: false,
-        powertrains: ['BEV'],
+        powertrains: [...ALL_POWERTRAINS],
     });
 
     const allBrands = useMemo(() => {
@@ -19,12 +19,12 @@ export function useCarFilter(initialCars: Car[]) {
     const resetFilters = () => {
         setFilters({
             maxPrice: 1500000,
-            minRange: 100,
+            minRange: DEFAULT_MIN_RANGE,
             categories: [],
             brands: [],
             showNew: false,
             fastChargeOnly: false,
-            powertrains: ['BEV'],
+            powertrains: [...ALL_POWERTRAINS],
         });
     };
 

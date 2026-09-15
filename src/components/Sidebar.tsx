@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { SlidersHorizontal, X } from 'lucide-react';
-import { FilterState } from '../types';
+import { FilterState, ALL_POWERTRAINS, DEFAULT_MIN_RANGE, MIN_RANGE_FLOOR } from '../types';
 import { track } from '../utils/analytics';
 
 interface SidebarProps {
@@ -44,12 +44,12 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
   const clearFilters = () => {
     setFilters({
       maxPrice: 1500000,
-      minRange: 100,
+      minRange: DEFAULT_MIN_RANGE,
       categories: [],
       brands: [],
       showNew: false,
       fastChargeOnly: false,
-      powertrains: ['BEV'],
+      powertrains: [...ALL_POWERTRAINS],
     });
   };
 
@@ -123,7 +123,7 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
         <input
           id="filter-min-range"
           type="range"
-          min="100"
+          min={MIN_RANGE_FLOOR}
           max="600"
           step="10"
           value={filters.minRange}
@@ -133,7 +133,7 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
           className="ev-slider"
         />
         <div className="flex justify-between text-[10px] text-[#666666] mt-3 font-black tracking-wider uppercase">
-          <span>100 km</span>
+          <span>{MIN_RANGE_FLOOR} km</span>
           <span>600 km+</span>
         </div>
       </div>

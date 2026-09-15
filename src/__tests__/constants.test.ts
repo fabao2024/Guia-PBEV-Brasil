@@ -1,5 +1,6 @@
 import { CAR_DB } from '../constants';
 import type { Car } from '../types';
+import { ALL_POWERTRAINS, DEFAULT_MIN_RANGE } from '../types';
 
 describe('CAR_DB data integrity', () => {
   it('should have at least one car', () => {
@@ -153,13 +154,26 @@ describe('CAR_DB data integrity', () => {
         }
       }
     });
-
     it('fuel consumption should be plausible when present', () => {
       for (const car of CAR_DB) {
         if (car.fuelConsumptionKml !== undefined) {
           expect(car.fuelConsumptionKml, `${car.model}: km/L implausível`).toBeGreaterThanOrEqual(5);
           expect(car.fuelConsumptionKml, `${car.model}: km/L implausível`).toBeLessThanOrEqual(35);
         }
+      }
+    });
+
+    it('every car should pass the default catalog filters (visible on first load)', () => {
+      for (const car of CAR_DB) {
+        expect(car.range, `${car.model}: range abaixo do default`).toBeGreaterThanOrEqual(DEFAULT_MIN_RANGE);
+        expect(ALL_POWERTRAINS, `${car.model}: powertrain fora do default`).toContain(car.powertrain ?? 'BEV');
+      }
+    });
+
+    it('every car image should be a local path or a live https URL', () => {
+      for (const car of CAR_DB) {
+        expect(car.img.startsWith('/car-images/') || car.img.startsWith('https://'), `${car.model}: img inválida`).toBe(true);
+        expect(car.img, `${car.model}: img com URL morta conhecida`).not.toContain('1678122393858');
       }
     });
   });

@@ -2,6 +2,14 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 15/09/2026 · Híbridos: visíveis por padrão, fotos e `image_url`
+
+| Área | Mudança pública |
+|---|---|
+| Visibilidade | As 4 propulsões vêm marcadas por padrão e a autonomia mínima padrão cai para 50 km (piso do slider 30 km): os PHEV (57–72 km elétricos) aparecem na lista sem ação do usuário; BEVs inalterados. |
+| Fotos | Híbridos passam a usar imagem genérica verificada (a anterior retornava 404); `image_url` do `cars.json` preserva URLs absolutas (corrige `og:image` das páginas `/carro/`). |
+| Verificação | 373/373 testes, TypeScript limpo, build Vite, scanner de segredos e proveniência aprovados. |
+
 ## 15/09/2026 · Híbridos fase 1A: schema, filtro, consultor e 3 PHEV BYD
 
 | Área | Mudança pública |

@@ -79,7 +79,7 @@ const SPECIFIC_IMAGES: Record<string, string> = {
   "Volvo": "https://images.unsplash.com/photo-1628186414902-690a6e340b04?auto=format&fit=crop&w=800&q=80", // Volvo specific
   "BMW": "https://images.unsplash.com/photo-1555215695-3004980adade?auto=format&fit=crop&w=800&q=80", // BMW i3/i8 style
   "Porsche": "https://images.unsplash.com/photo-1503376763036-066120622c74?auto=format&fit=crop&w=800&q=80", // Porsche Taycan style
-  "BYD": "https://images.unsplash.com/photo-1678122393858-450b2964b73e?auto=format&fit=crop&w=800&q=80", // Modern EV (BYD style)
+  "BYD": "https://images.unsplash.com/photo-1615829386703-e2bb66a7cb7d?auto=format&fit=crop&w=800&q=80", // Modern EV (BYD style)
   "Tesla": "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=800&q=80" // Tesla (extra if needed)
 };
 
@@ -116,7 +116,7 @@ const BRAND_IMG_MAP: Record<string, string | number> = {
   "Hyundai": 10,
   "Kia": 11,
   "Zeekr": 4,
-  "BYD": "https://images.unsplash.com/photo-1678122393858-450b2964b73e?auto=format&fit=crop&w=800&q=80", // Specific BYD style
+  "BYD": "https://images.unsplash.com/photo-1615829386703-e2bb66a7cb7d?auto=format&fit=crop&w=800&q=80", // Specific BYD style
   // Specifics override generic indices
   ...SPECIFIC_IMAGES
 };
@@ -800,7 +800,7 @@ export const CAR_DB: Car[] = [
     model: "Song Pro GL", brand: "BYD", price: 179990, range: 57, cat: "SUV",
     powertrain: 'PHEV', electricRangeKm: 57, fuelType2: 'flex',
     url: "https://www.byd.com/br/car/song-pro-flex",
-    img: "https://images.unsplash.com/photo-1678122393858-450b2964b73e?auto=format&fit=crop&w=800&q=80",
+    img: "https://images.unsplash.com/photo-1615829386703-e2bb66a7cb7d?auto=format&fit=crop&w=800&q=80",
     features: [
       "Híbrido plug-in flex (DM-i 5ª geração) — roda com eletricidade, etanol ou gasolina",
       "Autonomia elétrica PBEV de 57 km; combinada NEDC de até 1.075 km (gasolina)",
@@ -818,7 +818,7 @@ export const CAR_DB: Car[] = [
     model: "Song Pro GS", brand: "BYD", price: 199990, range: 72, cat: "SUV",
     powertrain: 'PHEV', electricRangeKm: 72, fuelType2: 'flex',
     url: "https://www.byd.com/br/car/song-pro-flex",
-    img: "https://images.unsplash.com/photo-1678122393858-450b2964b73e?auto=format&fit=crop&w=800&q=80",
+    img: "https://images.unsplash.com/photo-1615829386703-e2bb66a7cb7d?auto=format&fit=crop&w=800&q=80",
     features: [
       "Híbrido plug-in flex (DM-i 5ª geração) — roda com eletricidade, etanol ou gasolina",
       "Autonomia elétrica PBEV de 72 km; combinada NEDC de até 1.105 km (gasolina)",
@@ -837,7 +837,7 @@ export const CAR_DB: Car[] = [
     model: "Shark", brand: "BYD", price: 344990, range: 57, cat: "Comercial",
     powertrain: 'PHEV', electricRangeKm: 57, fuelType2: 'gasolina',
     url: "https://www.byd.com/br/car/shark",
-    img: "https://images.unsplash.com/photo-1678122393858-450b2964b73e?auto=format&fit=crop&w=800&q=80",
+    img: "https://images.unsplash.com/photo-1615829386703-e2bb66a7cb7d?auto=format&fit=crop&w=800&q=80",
     power: 437, traction: 'AWD',
     features: [
       "Picape híbrida plug-in (DMO off-road) — 437 cv, 0–100 km/h em 5,7 s",

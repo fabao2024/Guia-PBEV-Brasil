@@ -88,7 +88,7 @@ const carsJson = {
     fuel_consumption_kml:   car.fuelConsumptionKml ?? null,
     fuel_type_2:            car.fuelType2 ?? null,
     category:               car.cat,
-    image_url:              `https://guiapbev.cloud${car.img}`,
+    image_url:              car.img.startsWith('http') ? car.img : `https://guiapbev.cloud${car.img}`,
     traction:               car.traction      ?? null,
     power_cv:               car.power         ?? null,
     torque_kgfm:            car.torque        ?? null,

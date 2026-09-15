@@ -1,6 +1,15 @@
 
 export type PowertrainType = 'BEV' | 'PHEV' | 'HEV' | 'REEV';
 
+/** Todas as propulsões — seleção padrão do filtro (descoberta total, ranking segue por preço/autonomia). */
+export const ALL_POWERTRAINS: PowertrainType[] = ['BEV', 'PHEV', 'HEV', 'REEV'];
+
+/** Piso do slider de autonomia (km) — abaixo da menor elétrica PHEV do catálogo. */
+export const MIN_RANGE_FLOOR = 30;
+
+/** Autonomia mínima padrão (km) — abaixo do menor BEV (185 km), inclui PHEV 57+ km. */
+export const DEFAULT_MIN_RANGE = 50;
+
 export interface Car {
   model: string;
   brand: string;

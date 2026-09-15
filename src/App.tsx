@@ -30,7 +30,7 @@ import { useFavorites } from './hooks/useFavorites';
 import { useCompare } from './hooks/useCompare';
 import { useSearch } from './hooks/useSearch';
 import { useJsonLd } from './hooks/useJsonLd';
-import { Car, LeadInterest } from './types';
+import { Car, LeadInterest, ALL_POWERTRAINS, DEFAULT_MIN_RANGE } from './types';
 import { track } from './utils/analytics';
 import { sortCars, type RankMode } from './utils/ranking';
 import DataEvidence from './components/DataEvidence';
@@ -205,10 +205,10 @@ export default function App() {
     filters.brands.length > 0 ||
     filters.categories.length > 0 ||
     filters.maxPrice < 1500000 ||
-    filters.minRange > 100 ||
+    filters.minRange > DEFAULT_MIN_RANGE ||
     filters.showNew ||
     filters.fastChargeOnly ||
-    !(filters.powertrains.length === 1 && filters.powertrains[0] === 'BEV') ||
+    filters.powertrains.length !== ALL_POWERTRAINS.length ||
     isSearching;
 
   const helmetTitle = selectedCar
@@ -576,7 +576,7 @@ export default function App() {
                     {t('filterMobile.upToPrice', { value: Math.round(filters.maxPrice / 1000) })}
                   </span>
                 )}
-                {filters.minRange > 100 && (
+                {filters.minRange > DEFAULT_MIN_RANGE && (
                   <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-white/8 border border-white/15 text-white/70 whitespace-nowrap">
                     {t('filterMobile.minRange', { value: filters.minRange })}
                   </span>
