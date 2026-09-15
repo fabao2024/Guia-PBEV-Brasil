@@ -120,4 +120,47 @@ describe('CAR_DB data integrity', () => {
       }
     });
   });
+
+  describe('powertrain specs', () => {
+    const VALID_POWERTRAINS = ['BEV', 'PHEV', 'HEV', 'REEV'];
+
+    it('powertrain should be a known value when present (absent = BEV)', () => {
+      for (const car of CAR_DB) {
+        if (car.powertrain !== undefined) {
+          expect(VALID_POWERTRAINS, `${car.model}: powertrain inválido`).toContain(car.powertrain);
+        }
+      }
+    });
+
+    it('PHEV/REEV should have electric range and battery', () => {
+      for (const car of CAR_DB) {
+        if (car.powertrain === 'PHEV' || car.powertrain === 'REEV') {
+          expect(car.electricRangeKm, `${car.model}: PHEV/REEV sem electricRangeKm`).toBeGreaterThan(0);
+          // Bateria em kWh exige ficha técnica oficial; enquanto pendente, o campo fica ausente (fail-closed)
+          if (car.battery !== undefined) {
+            expect(car.battery, `${car.model}: battery inválida`).toBeGreaterThan(0);
+          }
+          expect(car.range, `${car.model}: range deve ser a autonomia elétrica PBEV`).toBe(car.electricRangeKm);
+        }
+      }
+    });
+
+    it('HEV should not have DC fast charging or electric-only range', () => {
+      for (const car of CAR_DB) {
+        if (car.powertrain === 'HEV') {
+          expect(car.chargeDC, `${car.model}: HEV não tem recarga DC`).toBeFalsy();
+          expect(car.electricRangeKm, `${car.model}: HEV não tem autonomia elétrica`).toBeUndefined();
+        }
+      }
+    });
+
+    it('fuel consumption should be plausible when present', () => {
+      for (const car of CAR_DB) {
+        if (car.fuelConsumptionKml !== undefined) {
+          expect(car.fuelConsumptionKml, `${car.model}: km/L implausível`).toBeGreaterThanOrEqual(5);
+          expect(car.fuelConsumptionKml, `${car.model}: km/L implausível`).toBeLessThanOrEqual(35);
+        }
+      }
+    });
+  });
 });

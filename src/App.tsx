@@ -186,6 +186,7 @@ export default function App() {
       if (filters.categories.length > 0 && !filters.categories.includes(car.cat)) return false;
       if (filters.showNew && !isCarNew(car)) return false;
       if (filters.fastChargeOnly && !car.chargeDC) return false;
+      if (filters.powertrains.length > 0 && !filters.powertrains.includes(car.powertrain ?? 'BEV')) return false;
       return true;
     });
   }, [filters, showFavoritesOnly, favorites, searchResults]);
@@ -207,6 +208,7 @@ export default function App() {
     filters.minRange > 100 ||
     filters.showNew ||
     filters.fastChargeOnly ||
+    !(filters.powertrains.length === 1 && filters.powertrains[0] === 'BEV') ||
     isSearching;
 
   const helmetTitle = selectedCar

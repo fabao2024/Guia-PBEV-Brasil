@@ -7,6 +7,12 @@
     "Luxo": "Luxo",
     "Comercial": "Comercial"
   },
+  "powertrain": {
+    "bev": "Elétrico (BEV)",
+    "phev": "Híbrido plug-in (PHEV)",
+    "hev": "Híbrido (HEV)",
+    "reev": "Elétrico c/ extensor (REEV)"
+  },
   "header": {
     "moreOptions": "Mais opções",
     "partners": "Programa de parceiros",
@@ -25,6 +31,7 @@
     "closeFilters": "Fechar filtros",
     "maxPrice": "Preço Máximo",
     "range": "Autonomia PBEV — mínimo",
+    "powertrain": "Propulsão",
     "category": "Categoria",
     "brands": "Marcas",
     "catUrban": "Urbano / Cidade",

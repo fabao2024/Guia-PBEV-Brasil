@@ -7,6 +7,12 @@
     "Luxo": "Luxury",
     "Comercial": "Commercial"
   },
+  "powertrain": {
+    "bev": "Electric (BEV)",
+    "phev": "Plug-in hybrid (PHEV)",
+    "hev": "Hybrid (HEV)",
+    "reev": "Range-extended EV (REEV)"
+  },
   "header": {
     "moreOptions": "More options",
     "partners": "Partner program",
@@ -25,6 +31,7 @@
     "closeFilters": "Close filters",
     "maxPrice": "Max Price",
     "range": "PBEV Range — minimum",
+    "powertrain": "Powertrain",
     "category": "Category",
     "brands": "Brands",
     "catUrban": "Urban / City",

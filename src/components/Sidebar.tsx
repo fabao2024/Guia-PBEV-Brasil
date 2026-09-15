@@ -49,6 +49,16 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
       brands: [],
       showNew: false,
       fastChargeOnly: false,
+      powertrains: ['BEV'],
+    });
+  };
+
+  const handlePowertrainChange = (pt: 'BEV' | 'PHEV' | 'HEV' | 'REEV') => {
+    setFilters(prev => {
+      const adding = !prev.powertrains.includes(pt);
+      const next = adding ? [...prev.powertrains, pt] : prev.powertrains.filter(p => p !== pt);
+      if (adding) track('Filter Applied', { filter_type: 'powertrain', value: pt });
+      return { ...prev, powertrains: next };
     });
   };
 
@@ -156,6 +166,26 @@ export default function Sidebar({ filters, setFilters, allBrands, isOpen, onClos
         >
           ⚡ {t('sidebar.fastChargeOnly')}
         </button>
+      </div>
+
+      {/* Powertrain Filter */}
+      <div className="mb-10">
+        <label className="block text-xs font-black text-[#a0a0a0] uppercase mb-4 tracking-widest">{t('sidebar.powertrain', 'Propulsão')}</label>
+        <div className="space-y-3">
+          {(['BEV', 'PHEV', 'HEV', 'REEV'] as const).map(pt => (
+            <label key={pt} className={`flex items-center gap-3 cursor-pointer group hover:bg-white/5 p-3 -ml-3 rounded-xl transition-all border border-transparent hover:border-white/10 ${filters.powertrains.includes(pt) ? 'bg-[#00b4ff]/5 border-[#00b4ff]/20' : ''}`}>
+              <input
+                type="checkbox"
+                checked={filters.powertrains.includes(pt)}
+                onChange={() => handlePowertrainChange(pt)}
+                className="w-5 h-5 rounded text-[#00b4ff] focus:ring-[#00b4ff] bg-black/50 border-white/20 transition cursor-pointer checked:bg-[#00b4ff] checked:border-[#00b4ff]"
+              />
+              <span className={`text-sm font-bold tracking-wide transition-colors ${filters.powertrains.includes(pt) ? 'text-[#00b4ff]' : 'text-white/70 group-hover:text-white'}`}>
+                {t(`powertrain.${pt.toLowerCase()}`, pt)}
+              </span>
+            </label>
+          ))}
+        </div>
       </div>
 
       {/* Category Filter */}

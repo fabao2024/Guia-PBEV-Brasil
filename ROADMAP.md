@@ -18,10 +18,11 @@ Operações administrativas, dados pessoais, regras de matching, credenciais, in
 | Área pública | Estado | Resumo |
 |---|---:|---|
 | Catálogo BEV | ✅ | Busca, filtros, imagens, ficha técnica e dados PBE/INMETRO |
+| Catálogo híbrido | 🚧 | Filtro por propulsão (BEV/PHEV/HEV/REEV) e 3 PHEV BYD com fonte oficial; HEV, REEV e demais marcas em lotes seguintes |
 | Comparação | ✅ | Comparação lado a lado com URLs compartilháveis |
 | Simulador de economia | ✅ | Energia, combustível, IPVA e premissas editáveis |
 | TCO | ✅ | Custo total de propriedade com cenários reproduzíveis |
-| Quiz de recomendação | ✅ | Recomendação local baseada no perfil informado |
+| Quiz de recomendação | ✅ | Recomendação local baseada no perfil informado (km/dia, orçamento, recarga, carroceria, prioridade), com BEV e híbridos |
 | Planejamento de rota | ✅ | Estimativa de consumo e eletropostos ao longo do trajeto |
 | PWA | ✅ | Manifesto, instalação e experiência responsiva |
 | Internacionalização | ✅ | PT-BR e inglês |

@@ -83,6 +83,10 @@ const carsJson = {
     brand:                  car.brand,
     price:                  car.price,
     range_km:               car.range,
+    powertrain:             car.powertrain ?? 'BEV',
+    electric_range_km:      car.electricRangeKm ?? null,
+    fuel_consumption_kml:   car.fuelConsumptionKml ?? null,
+    fuel_type_2:            car.fuelType2 ?? null,
     category:               car.cat,
     image_url:              `https://guiapbev.cloud${car.img}`,
     traction:               car.traction      ?? null,
@@ -117,16 +121,22 @@ console.log(`✅ cars.json gerado — ${carsJson.total} veículos → ${jsonPath
 // ── Atualiza contagem no README.md automaticamente ────────────────────────────
 
 const brands = new Set(CAR_DB.map(c => c.brand)).size;
+const hybridCount = CAR_DB.filter(c => (c.powertrain ?? 'BEV') !== 'BEV').length;
+const catalogLabel = hybridCount > 0 ? `${brands} marcas` : `${brands} marcas`;
 const readmePath = resolve(__dirname, 'README.md');
 const readme = readFileSync(readmePath, 'utf-8');
 const updatedReadme = readme
   .replace(
-    /\*\*\d+ veículos\*\* BEV cadastrados \(\d+ marcas\)/,
-    `**${CAR_DB.length} veículos** BEV cadastrados (${brands} marcas)`
+    /\*\*\d+ veículos\*\*(?: BEV cadastrados| \(BEV \+ híbridos\) cadastrados) \(\d+ marcas\)/,
+    hybridCount > 0
+      ? `**${CAR_DB.length} veículos** (BEV + híbridos) cadastrados (${catalogLabel})`
+      : `**${CAR_DB.length} veículos** BEV cadastrados (${brands} marcas)`
   )
   .replace(
-    /\*\*\d+ BEV vehicles\*\* registered \(\d+ brands\)/,
-    `**${CAR_DB.length} BEV vehicles** registered (${brands} brands)`
+    /\*\*\d+(?: BEV vehicles\*\* registered| vehicles\*\* \(BEV \+ hybrids\) registered) \(\d+ brands\)/,
+    hybridCount > 0
+      ? `**${CAR_DB.length} vehicles** (BEV + hybrids) registered (${catalogLabel})`
+      : `**${CAR_DB.length} BEV vehicles** registered (${brands} brands)`
   );
 if (updatedReadme !== readme) {
   writeFileSync(readmePath, updatedReadme, 'utf-8');

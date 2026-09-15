@@ -119,6 +119,9 @@ export const PRICE_HISTORY: Record<string, PriceSnapshot[]> = {
   "MG4 Urban Comfort": [{ date: '2026-07', price: 129990 }],
   "MG4 Urban Luxury": [{ date: '2026-07', price: 139990 }],
   "MG4 Urban Luxury 54kWh": [{ date: '2026-07', price: 149990 }],
+  "Song Pro GL": [{ date: '2026-09', price: 179990 }],
+  "Song Pro GS": [{ date: '2026-09', price: 199990 }],
+  "Shark": [{ date: '2026-09', price: 344990 }],
 };
 
 /** Returns the most recent snapshot for a given model, or null if no history. */

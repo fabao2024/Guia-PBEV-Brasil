@@ -17,6 +17,7 @@ describe('useCarFilter', () => {
     expect(result.current.filters.minRange).toBe(100);
     expect(result.current.filters.categories).toEqual([]);
     expect(result.current.filters.brands).toEqual([]);
+    expect(result.current.filters.powertrains).toEqual(['BEV']);
   });
 
   it('should extract and sort unique brands', () => {
@@ -76,6 +77,7 @@ describe('useCarFilter', () => {
         brands: ['BrandX'],
         showNew: false,
         fastChargeOnly: false,
+        powertrains: ['PHEV'],
       });
     });
 
@@ -87,6 +89,7 @@ describe('useCarFilter', () => {
     expect(result.current.filters.minRange).toBe(100);
     expect(result.current.filters.categories).toEqual([]);
     expect(result.current.filters.brands).toEqual([]);
+    expect(result.current.filters.powertrains).toEqual(['BEV']);
   });
 
   it('should handle empty car list', () => {

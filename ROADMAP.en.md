@@ -20,10 +20,11 @@ Administrative operations, personal data, matching rules, credentials, private i
 | Public area | Status | Summary |
 |---|---:|---|
 | BEV catalog | ✅ | Search, filters, images, spec sheet and PBE/INMETRO data |
+| Hybrid catalog | 🚧 | Powertrain filter (BEV/PHEV/HEV/REEV) and 3 BYD PHEV from official sources; HEV, REEV and other brands in follow-up batches |
 | Comparison | ✅ | Side-by-side comparison with shareable URLs |
 | Savings simulator | ✅ | Energy, fuel, IPVA and editable assumptions |
 | TCO | ✅ | Total cost of ownership with reproducible scenarios |
-| Recommendation quiz | ✅ | Local recommendation based on the informed profile |
+| Recommendation quiz | ✅ | Local recommendation on the informed profile (daily km, budget, charging, body, priority), with BEV and hybrids |
 | Route planning | ✅ | Consumption estimate and charging stations along the route |
 | PWA | ✅ | Manifest, installation and responsive experience |
 | Internationalization | ✅ | PT-BR and English |

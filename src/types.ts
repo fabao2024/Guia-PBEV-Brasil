@@ -1,4 +1,6 @@
 
+export type PowertrainType = 'BEV' | 'PHEV' | 'HEV' | 'REEV';
+
 export interface Car {
   model: string;
   brand: string;
@@ -6,6 +8,14 @@ export interface Car {
   range: number;
   cat: string;
   img: string;
+  /** Tipo de propulsão. Ausente = 'BEV' (catálogo legado 100% elétrico). */
+  powertrain?: PowertrainType;
+  /** km — autonomia só-elétrica PBEV (PHEV/REEV). Para BEV, equivale a `range`. */
+  electricRangeKm?: number;
+  /** km/L — consumo em modo sustentação de carga, gasolina (HEV; PHEV/REEV). */
+  fuelConsumptionKml?: number;
+  /** Combustível do motor a combustão (híbridos). */
+  fuelType2?: 'gasolina' | 'etanol' | 'flex' | 'diesel';
   power?: number; // cv
   torque?: number; // kgfm
   traction?: 'FWD' | 'RWD' | 'AWD';
@@ -36,7 +46,12 @@ export interface FilterState {
   brands: string[];
   showNew: boolean;
   fastChargeOnly: boolean;
+  /** Powertrains visíveis. [] = todos; default ['BEV'] (BEV-first). */
+  powertrains: PowertrainType[];
 }
+
+/** Resolve o powertrain efetivo (legado sem campo = BEV). */
+export const powertrainOf = (car: Car): PowertrainType => car.powertrain ?? 'BEV';
 
 export interface ChatMessage {
   role: 'user' | 'model';

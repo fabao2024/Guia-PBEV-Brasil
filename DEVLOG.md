@@ -2,6 +2,17 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 15/09/2026 · Híbridos fase 1A: schema, filtro, consultor e 3 PHEV BYD
+
+| Área | Mudança pública |
+|---|---|
+| Schema | Novo campo `powertrain` (`BEV`/`PHEV`/`HEV`/`REEV`) com `electricRangeKm`, `fuelConsumptionKml` e `fuelType2` opcionais; catálogo legado assume `BEV`. Para PHEV/REEV, `range` é sempre a autonomia elétrica (nunca a combinada tanque+cheio). |
+| Filtro | Filtro de propulsão na Sidebar (default `BEV`, sem mudar ranking/URLs de quem já usa); `cars.json` passa a expor `powertrain`, `electric_range_km`, `fuel_consumption_kml` e `fuel_type_2`. |
+| Consultor IA | Quiz offline combina as 5 respostas (km/dia, orçamento, onde carrega, carroceria, prioridade): sem recarga em casa, BEV perde pontos e HEV/PHEV ganham; prompts PT/EN e RAG entendem "híbrido", "plug-in", "sem tomada" e "extensor". |
+| Catálogo | Song Pro GL (R$ 179.990, 57 km elétricos PBEV), Song Pro GS (R$ 199.990, 72 km) e Shark (R$ 344.990, 57 km, 437 cv AWD) via páginas oficiais BYD e condições comerciais de 11/09/2026. Bateria kWh e pareamento fino PBEV ficam pendentes de ficha oficial (fail-closed, sem inferência). |
+| Pendências | Song Plus, Song Plus Premium, King GL/GS, Atto 2 DM-i e Atto 8 com preços oficiais mapeados, aguardando elétrica PBEV por versão; linha GWM Flex e C10 REEV nos próximos sub-lotes. |
+| Verificação | 371/371 testes, TypeScript limpo, build Vite (112 páginas), scanner de segredos e verificador de proveniência (624/1120) aprovados. |
+
 ## 07/09/2026 · Mobile: lote 1 de correções de interação e imagens responsivas
 
 | Área | Mudança pública |

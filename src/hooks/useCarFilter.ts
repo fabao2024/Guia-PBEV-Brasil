@@ -9,6 +9,7 @@ export function useCarFilter(initialCars: Car[]) {
         brands: [],
         showNew: false,
         fastChargeOnly: false,
+        powertrains: ['BEV'],
     });
 
     const allBrands = useMemo(() => {
@@ -23,6 +24,7 @@ export function useCarFilter(initialCars: Car[]) {
             brands: [],
             showNew: false,
             fastChargeOnly: false,
+            powertrains: ['BEV'],
         });
     };
 

@@ -71,6 +71,32 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(byModel('Dolphin Mini GS').price).toBe(119990);
   });
 
+  it('BYD Song Pro Flex and Shark PHEV should match official pages and Sept/2026 conditions', () => {
+    // byd.com/br/car/song-pro-flex (checked 2026-09-15): FAQ oficial — modo 100%
+    // elétrico PBEV até 57 km na GL e 72 km na GS; combinada NEDC até 1.075/1.105 km.
+    // byd.com/br/condicoes (atualizado 11/09/2026): SONG PRO GL R$ 179.990;
+    // SHARK GS R$ 344.990; SONG PLUS R$ 249.990; SONG PLUS PREMIUM R$ 299.800.
+    // Song Pro GS R$ 199.990 no release oficial de Camaçari (04/08/2026).
+    const gl = byModel('Song Pro GL');
+    expect(gl.powertrain).toBe('PHEV');
+    expect(gl.price).toBe(179990);
+    expect(gl.range).toBe(57);
+    expect(gl.electricRangeKm).toBe(57);
+    const gs = byModel('Song Pro GS');
+    expect(gs.powertrain).toBe('PHEV');
+    expect(gs.price).toBe(199990);
+    expect(gs.range).toBe(72);
+    expect(gs.electricRangeKm).toBe(72);
+    // byd.com/br/car/shark (checked 2026-09-15): 437 cv, 0–100 em 5,7 s,
+    // autonomia elétrica de 57 km, tração nas 4 rodas, reboque 2.500 kg.
+    const shark = byModel('Shark');
+    expect(shark.powertrain).toBe('PHEV');
+    expect(shark.price).toBe(344990);
+    expect(shark.range).toBe(57);
+    expect(shark.power).toBe(437);
+    expect(shark.traction).toBe('AWD');
+  });
+
   it('should flag versions removed from official lineups as discontinued', () => {
     // BMW press release (Apr/2025): renewed i4 line offers only eDrive40 M Sport and M50;
     // Mercedes-Benz launch (Jul/2024): EQE 300 SUV replaced by EQE 350+ SUV.
