@@ -2,6 +2,13 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 15/09/2026 · Híbridos BYD: fotos oficiais com pipeline completo
+
+| Área | Mudança pública |
+|---|---|
+| Fotos | 6 PHEV BYD com fotos oficiais da montadora (`byd-song-pro-flex.webp` GL/GS, `byd-shark.jpg`, `byd-song-plus.webp`, `byd-song-plus-premium.webp`, `byd-king-gl.webp`), variantes WebP responsivas via `tools/generate-car-images.py` (Pillow 12.3.0 pinado; bytes das variantes antigas intactos) e `og:image` local nas páginas `/carro/`. |
+| Verificação | 374/374 testes (inclui integridade do manifest), TypeScript limpo, build Vite (115 páginas), scanner de segredos e proveniência (653/1150) aprovados; smoke serviu WebP 200 e `og:image` local. |
+
 ## 15/09/2026 · Híbridos BYD-2: fichas oficiais, +3 modelos e divergências resolvidas
 
 | Área | Mudança pública |

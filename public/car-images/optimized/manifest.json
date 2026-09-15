@@ -15,44 +15,6 @@
   },
   "images": [
     {
-      "src": "/car-images/Dolphin-mini.png",
-      "width": 3235,
-      "height": 1910,
-      "alpha": false,
-      "bytes": 6756692,
-      "sha256": "a8ee4d05927e7921b89d90234eb2ec52a05cbe2803df8d8a8e49250a8f47456d",
-      "variants": [
-        {
-          "src": "/car-images/optimized/Dolphin-mini.png-320.webp",
-          "width": 320,
-          "height": 189,
-          "bytes": 4040,
-          "sha256": "06ac3b589ec2a8161b57cd504f21b140eba7bc9ed930243bd9904565b1a3b32b"
-        },
-        {
-          "src": "/car-images/optimized/Dolphin-mini.png-640.webp",
-          "width": 640,
-          "height": 378,
-          "bytes": 10918,
-          "sha256": "3f54ce6b9c2a36fa24cd0b82ed6e46e485d5308ec5d6e6813a318a036e0a3e8f"
-        },
-        {
-          "src": "/car-images/optimized/Dolphin-mini.png-960.webp",
-          "width": 960,
-          "height": 567,
-          "bytes": 20714,
-          "sha256": "f2f581b5284f87423ca57b7be03b95d908814d5f9bab9596e293e1f40f26ed27"
-        },
-        {
-          "src": "/car-images/optimized/Dolphin-mini.png-1280.webp",
-          "width": 1280,
-          "height": 756,
-          "bytes": 35030,
-          "sha256": "5c23552e7afcbf8ac39c5006461feff99b6833541b7e9608fba7712baf78dbc2"
-        }
-      ]
-    },
-    {
       "src": "/car-images/ariya.jpg",
       "width": 960,
       "height": 566,
@@ -267,6 +229,82 @@
       ]
     },
     {
+      "src": "/car-images/byd-shark.jpg",
+      "width": 5000,
+      "height": 2813,
+      "alpha": false,
+      "bytes": 2266862,
+      "sha256": "c926d3cd785a93799643d17995e6314052462de225306732051b551528a0e91a",
+      "variants": [
+        {
+          "src": "/car-images/optimized/byd-shark.jpg-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 8962,
+          "sha256": "8f7b1a1826a612640a297554f1449f9f6ec9992b59f720b31415783b83ff15f4"
+        },
+        {
+          "src": "/car-images/optimized/byd-shark.jpg-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 32816,
+          "sha256": "8a9dfe2086881c8b2714168f8662dc14acb60fc6f56285e6ca9b1a8441fb5184"
+        },
+        {
+          "src": "/car-images/optimized/byd-shark.jpg-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 71368,
+          "sha256": "98114f7dadcbee157e37d65abbbbed1cfb62eeacb42b7d414c902e0eeea2976d"
+        },
+        {
+          "src": "/car-images/optimized/byd-shark.jpg-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 126264,
+          "sha256": "2b9a3535547f97a3423410fe44ffe06a25e53d1d2d6211656700529dd67623bd"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/byd-song-pro-flex.webp",
+      "width": 2880,
+      "height": 1660,
+      "alpha": false,
+      "bytes": 318354,
+      "sha256": "93581f0567cf749f097fe8e050e59959db3515c6ed867cd680be34acdde14fca",
+      "variants": [
+        {
+          "src": "/car-images/optimized/byd-song-pro-flex.webp-320.webp",
+          "width": 320,
+          "height": 184,
+          "bytes": 8182,
+          "sha256": "ee1453eb55d25403ad0b7a1058daf4e293ed70bf42588371145eec52f8ffb4a5"
+        },
+        {
+          "src": "/car-images/optimized/byd-song-pro-flex.webp-640.webp",
+          "width": 640,
+          "height": 369,
+          "bytes": 28718,
+          "sha256": "7f1845340420e3a896183cc6f9c31294b5a2605452ff93dd217c62274d4de26d"
+        },
+        {
+          "src": "/car-images/optimized/byd-song-pro-flex.webp-960.webp",
+          "width": 960,
+          "height": 553,
+          "bytes": 63416,
+          "sha256": "5b7c649b56c7313503b884fbb1f5d323f88fbb1ca2938ac5a7085e53ffaa9123"
+        },
+        {
+          "src": "/car-images/optimized/byd-song-pro-flex.webp-1280.webp",
+          "width": 1280,
+          "height": 738,
+          "bytes": 105912,
+          "sha256": "906a222dbc0055b70a46e1e453ef6c16f1370e07d72c4e4474bf43da67480d2b"
+        }
+      ]
+    },
+    {
       "src": "/car-images/byd-yuan-plus-awd.jpg",
       "width": 1920,
       "height": 1080,
@@ -370,6 +408,44 @@
           "height": 720,
           "bytes": 58488,
           "sha256": "fab120f67d4a8231467cf581fd96ca8f998e0d12d7c266384ad95b30e1c85d87"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/Dolphin-mini.png",
+      "width": 3235,
+      "height": 1910,
+      "alpha": false,
+      "bytes": 6756692,
+      "sha256": "a8ee4d05927e7921b89d90234eb2ec52a05cbe2803df8d8a8e49250a8f47456d",
+      "variants": [
+        {
+          "src": "/car-images/optimized/Dolphin-mini.png-320.webp",
+          "width": 320,
+          "height": 189,
+          "bytes": 4040,
+          "sha256": "06ac3b589ec2a8161b57cd504f21b140eba7bc9ed930243bd9904565b1a3b32b"
+        },
+        {
+          "src": "/car-images/optimized/Dolphin-mini.png-640.webp",
+          "width": 640,
+          "height": 378,
+          "bytes": 10918,
+          "sha256": "3f54ce6b9c2a36fa24cd0b82ed6e46e485d5308ec5d6e6813a318a036e0a3e8f"
+        },
+        {
+          "src": "/car-images/optimized/Dolphin-mini.png-960.webp",
+          "width": 960,
+          "height": 567,
+          "bytes": 20714,
+          "sha256": "f2f581b5284f87423ca57b7be03b95d908814d5f9bab9596e293e1f40f26ed27"
+        },
+        {
+          "src": "/car-images/optimized/Dolphin-mini.png-1280.webp",
+          "width": 1280,
+          "height": 756,
+          "bytes": 35030,
+          "sha256": "5c23552e7afcbf8ac39c5006461feff99b6833541b7e9608fba7712baf78dbc2"
         }
       ]
     },

@@ -803,7 +803,7 @@ export const CAR_DB: Car[] = [
     model: "Song Pro GL", brand: "BYD", price: 179990, range: 57, cat: "SUV",
     powertrain: 'PHEV', electricRangeKm: 57, fuelType2: 'flex',
     url: "https://www.byd.com/br/car/song-pro-flex",
-    img: "https://images.unsplash.com/photo-1615829386703-e2bb66a7cb7d?auto=format&fit=crop&w=800&q=80",
+    img: "/car-images/byd-song-pro-flex.webp",
     power: 218, torque: 30.6, traction: 'FWD', battery: 13.1,
     features: [
       "Híbrido plug-in flex (DM-i 5ª geração) — roda com eletricidade, etanol ou gasolina",
@@ -826,7 +826,7 @@ export const CAR_DB: Car[] = [
     model: "Song Pro GS", brand: "BYD", price: 199990, range: 72, cat: "SUV",
     powertrain: 'PHEV', electricRangeKm: 72, fuelType2: 'flex',
     url: "https://www.byd.com/br/car/song-pro-flex",
-    img: "https://images.unsplash.com/photo-1615829386703-e2bb66a7cb7d?auto=format&fit=crop&w=800&q=80",
+    img: "/car-images/byd-song-pro-flex.webp",
     power: 219, torque: 30.6, traction: 'FWD', battery: 18.3,
     features: [
       "Híbrido plug-in flex (DM-i 5ª geração) — roda com eletricidade, etanol ou gasolina",
@@ -850,7 +850,7 @@ export const CAR_DB: Car[] = [
     model: "Shark", brand: "BYD", price: 344990, range: 68, cat: "Comercial",
     powertrain: 'PHEV', electricRangeKm: 68, fuelType2: 'gasolina',
     url: "https://www.byd.com/br/car/shark",
-    img: "https://images.unsplash.com/photo-1615829386703-e2bb66a7cb7d?auto=format&fit=crop&w=800&q=80",
+    img: "/car-images/byd-shark.jpg",
     power: 437, torque: 66.3, traction: 'AWD', battery: 29.6,
     features: [
       "Picape híbrida plug-in (DMO off-road) — 437 cv / 66,3 kgfm, 0–100 km/h em 5,7 s",
@@ -872,7 +872,7 @@ export const CAR_DB: Car[] = [
     model: "Song Plus", brand: "BYD", price: 249990, range: 99, cat: "SUV",
     powertrain: 'PHEV', electricRangeKm: 99, fuelType2: 'gasolina',
     url: "https://www.byd.com/br/car/song-plus-dmi",
-    img: "https://images.unsplash.com/photo-1615829386703-e2bb66a7cb7d?auto=format&fit=crop&w=800&q=80",
+    img: "/car-images/byd-song-plus.webp",
     power: 240, torque: 30.6, traction: 'FWD', battery: 26.6,
     features: [
       "Híbrido plug-in (DM-i 1.5 turbo) — roda com eletricidade ou gasolina",
@@ -894,7 +894,7 @@ export const CAR_DB: Car[] = [
     model: "Song Plus Premium", brand: "BYD", price: 299800, range: 87, cat: "SUV",
     powertrain: 'PHEV', electricRangeKm: 87, fuelType2: 'gasolina',
     url: "https://www.byd.com/br/car/song-plus-premium",
-    img: "https://images.unsplash.com/photo-1615829386703-e2bb66a7cb7d?auto=format&fit=crop&w=800&q=80",
+    img: "/car-images/byd-song-plus-premium.webp",
     power: 324, torque: 56.1, traction: 'AWD', battery: 26.6,
     features: [
       "Híbrido plug-in (DM-i 1.5 turbo, tração integral) — 324 cv / 56,1 kgfm, 0–100 km/h em 5,2 s",
@@ -917,7 +917,7 @@ export const CAR_DB: Car[] = [
     model: "King GL", brand: "BYD", price: 147990, range: 35, cat: "Sedan",
     powertrain: 'PHEV', electricRangeKm: 35, fuelType2: 'gasolina',
     url: "https://www.byd.com/br/car/king",
-    img: "https://images.unsplash.com/photo-1615829386703-e2bb66a7cb7d?auto=format&fit=crop&w=800&q=80",
+    img: "/car-images/byd-king-gl.webp",
     power: 209, torque: 32.2, traction: 'FWD', battery: 8.3,
     features: [
       "Sedã híbrido plug-in (DM-i) — roda com eletricidade ou gasolina",

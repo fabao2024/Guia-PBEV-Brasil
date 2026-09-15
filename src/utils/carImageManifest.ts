@@ -2,32 +2,6 @@
 export interface CarImageVariant { src: string; width: number; height: number }
 export interface CarImageMetadata { width: number; height: number; variants: CarImageVariant[] }
 export const optimizedCarImages: Record<string, CarImageMetadata> = {
-  "/car-images/Dolphin-mini.png": {
-    "width": 3235,
-    "height": 1910,
-    "variants": [
-      {
-        "src": "/car-images/optimized/Dolphin-mini.png-320.webp",
-        "width": 320,
-        "height": 189
-      },
-      {
-        "src": "/car-images/optimized/Dolphin-mini.png-640.webp",
-        "width": 640,
-        "height": 378
-      },
-      {
-        "src": "/car-images/optimized/Dolphin-mini.png-960.webp",
-        "width": 960,
-        "height": 567
-      },
-      {
-        "src": "/car-images/optimized/Dolphin-mini.png-1280.webp",
-        "width": 1280,
-        "height": 756
-      }
-    ]
-  },
   "/car-images/ariya.jpg": {
     "width": 960,
     "height": 566,
@@ -174,6 +148,58 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
+  "/car-images/byd-shark.jpg": {
+    "width": 5000,
+    "height": 2813,
+    "variants": [
+      {
+        "src": "/car-images/optimized/byd-shark.jpg-320.webp",
+        "width": 320,
+        "height": 180
+      },
+      {
+        "src": "/car-images/optimized/byd-shark.jpg-640.webp",
+        "width": 640,
+        "height": 360
+      },
+      {
+        "src": "/car-images/optimized/byd-shark.jpg-960.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "/car-images/optimized/byd-shark.jpg-1280.webp",
+        "width": 1280,
+        "height": 720
+      }
+    ]
+  },
+  "/car-images/byd-song-pro-flex.webp": {
+    "width": 2880,
+    "height": 1660,
+    "variants": [
+      {
+        "src": "/car-images/optimized/byd-song-pro-flex.webp-320.webp",
+        "width": 320,
+        "height": 184
+      },
+      {
+        "src": "/car-images/optimized/byd-song-pro-flex.webp-640.webp",
+        "width": 640,
+        "height": 369
+      },
+      {
+        "src": "/car-images/optimized/byd-song-pro-flex.webp-960.webp",
+        "width": 960,
+        "height": 553
+      },
+      {
+        "src": "/car-images/optimized/byd-song-pro-flex.webp-1280.webp",
+        "width": 1280,
+        "height": 738
+      }
+    ]
+  },
   "/car-images/byd-yuan-plus-awd.jpg": {
     "width": 1920,
     "height": 1080,
@@ -244,6 +270,32 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
         "src": "/car-images/optimized/dolphin-gs.jpg-1280.webp",
         "width": 1280,
         "height": 720
+      }
+    ]
+  },
+  "/car-images/Dolphin-mini.png": {
+    "width": 3235,
+    "height": 1910,
+    "variants": [
+      {
+        "src": "/car-images/optimized/Dolphin-mini.png-320.webp",
+        "width": 320,
+        "height": 189
+      },
+      {
+        "src": "/car-images/optimized/Dolphin-mini.png-640.webp",
+        "width": 640,
+        "height": 378
+      },
+      {
+        "src": "/car-images/optimized/Dolphin-mini.png-960.webp",
+        "width": 960,
+        "height": 567
+      },
+      {
+        "src": "/car-images/optimized/Dolphin-mini.png-1280.webp",
+        "width": 1280,
+        "height": 756
       }
     ]
   },
