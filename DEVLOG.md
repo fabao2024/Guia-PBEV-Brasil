@@ -2,6 +2,14 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 15/09/2026 · Novidade só no Atto 2 GS; fotos próprias para cada Haval H6
+
+| Área | Mudança pública |
+|---|---|
+| Novidade | Selo "Novo" mantido só no Atto 2 GS; King GS, Atto 8 e os 7 GWM saem do `NEW_MODELS` (filtro "Novidades" e badge refletem isso, sem mudar preços ou dados). |
+| Fotos | Cada Haval H6 não-GT agora tem foto oficial própria da GWM: HEV ONE (branca, placa HEV ONE), HEV2 (mantida — frontal escura com placa HEV2), PHEV19 (branca, placa PHEV19) e PHEV35 (branca, perfil lateral). GT segue com a foto exclusiva. Arquivos abaixo de 200 kB, sem variantes no pipeline. |
+| Verificação | 377/377 testes, TypeScript limpo, build Vite (125 páginas), scanner de segredos e verificador de proveniência (701/1250) aprovados. |
+
 ## 15/09/2026 · Híbridos GWM: 7 entradas Flex com fotos, HEV sem autonomia e UI híbrida
 
 | Área | Mudança pública |

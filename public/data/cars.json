@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T16:59:00.157Z",
+  "generated_at": "2026-09-15T17:59:41.799Z",
   "total": 125,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "evidence": {
@@ -624,7 +624,7 @@
       "fuel_consumption_kml": 15.8,
       "fuel_type_2": "flex",
       "category": "SUV",
-      "image_url": "https://guiapbev.cloud/car-images/gwm-haval-h6.webp",
+      "image_url": "https://guiapbev.cloud/car-images/gwm-haval-h6-hev-one.webp",
       "traction": null,
       "power_cv": 248,
       "torque_kgfm": 54.5,
@@ -649,7 +649,7 @@
         "Condução semiautônoma nível 2+ e câmera 540°",
         "Produção nacional (Iracemápolis - SP)"
       ],
-      "is_new": true,
+      "is_new": false,
       "discontinued": false,
       "slug": "gwm-haval-h6-hev-one",
       "detail_url": "https://guiapbev.cloud/carro/gwm-haval-h6-hev-one"
@@ -690,7 +690,7 @@
         "Condução semiautônoma nível 2+ e câmera 540°",
         "Produção nacional (Iracemápolis - SP)"
       ],
-      "is_new": true,
+      "is_new": false,
       "discontinued": false,
       "slug": "gwm-haval-h6-hev2",
       "detail_url": "https://guiapbev.cloud/carro/gwm-haval-h6-hev2"
@@ -705,7 +705,7 @@
       "fuel_consumption_kml": 14.7,
       "fuel_type_2": "flex",
       "category": "SUV",
-      "image_url": "https://guiapbev.cloud/car-images/gwm-haval-h6.webp",
+      "image_url": "https://guiapbev.cloud/car-images/gwm-haval-h6-phev19.webp",
       "traction": null,
       "power_cv": 326,
       "torque_kgfm": 54.5,
@@ -730,7 +730,7 @@
         "Câmbio híbrido dedicado DHT de 2 marchas",
         "Produção nacional (Iracemápolis - SP)"
       ],
-      "is_new": true,
+      "is_new": false,
       "discontinued": false,
       "slug": "gwm-haval-h6-phev19",
       "detail_url": "https://guiapbev.cloud/carro/gwm-haval-h6-phev19"
@@ -745,7 +745,7 @@
       "fuel_consumption_kml": 12.5,
       "fuel_type_2": "flex",
       "category": "SUV",
-      "image_url": "https://guiapbev.cloud/car-images/gwm-haval-h6.webp",
+      "image_url": "https://guiapbev.cloud/car-images/gwm-haval-h6-phev35.webp",
       "traction": null,
       "power_cv": 393,
       "torque_kgfm": 65.5,
@@ -770,7 +770,7 @@
         "Câmbio híbrido dedicado DHT de 4 marchas",
         "Produção nacional (Iracemápolis - SP)"
       ],
-      "is_new": true,
+      "is_new": false,
       "discontinued": false,
       "slug": "gwm-haval-h6-phev35",
       "detail_url": "https://guiapbev.cloud/carro/gwm-haval-h6-phev35"
@@ -810,7 +810,7 @@
         "Câmbio híbrido dedicado DHT de 4 marchas",
         "Produção nacional (Iracemápolis - SP)"
       ],
-      "is_new": true,
+      "is_new": false,
       "discontinued": false,
       "slug": "gwm-haval-h6-gt",
       "detail_url": "https://guiapbev.cloud/carro/gwm-haval-h6-gt"
@@ -849,7 +849,7 @@
         "7,5 km/l cidade (gasolina, Inmetro) no modo sustentação",
         "9 marchas (9HAT) e modos de terreno"
       ],
-      "is_new": true,
+      "is_new": false,
       "discontinued": false,
       "slug": "gwm-tank-300",
       "detail_url": "https://guiapbev.cloud/carro/gwm-tank-300"
@@ -888,7 +888,7 @@
         "10,8 km/l cidade (gasolina, Inmetro) no modo sustentação",
         "Câmbio híbrido dedicado DHT de 4 marchas"
       ],
-      "is_new": true,
+      "is_new": false,
       "discontinued": false,
       "slug": "gwm-wey-07",
       "detail_url": "https://guiapbev.cloud/carro/gwm-wey-07"
@@ -2154,7 +2154,7 @@
         "Porta-malas de 450 L",
         "Produção nacional (Camaçari - BA)"
       ],
-      "is_new": true,
+      "is_new": false,
       "discontinued": false,
       "slug": "byd-king-gs",
       "detail_url": "https://guiapbev.cloud/carro/byd-king-gs"
@@ -2244,7 +2244,7 @@
         "Capacidade de carga de até 1.960 L com bancos rebatidos",
         "Função VTOL (Vehicle-to-Load)"
       ],
-      "is_new": true,
+      "is_new": false,
       "discontinued": false,
       "slug": "byd-atto-8",
       "detail_url": "https://guiapbev.cloud/carro/byd-atto-8"
