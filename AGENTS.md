@@ -24,7 +24,7 @@ Public frontend of `guiapbev.cloud` (React 19 + TypeScript, Vite 6, Tailwind 4, 
 - Source of truth is `CAR_DB` in `src/constants.ts` (~2000 lines, ~109 vehicles) plus `src/constants/` (state IPVA, fuel/electricity prices, price history, `catalogEvidence.ts`).
 - `src/__tests__/constants.test.ts` validates CAR_DB invariants; a sloppy catalog edit breaks tests before it breaks the build.
 - Per-field provenance lives in `.github/data/catalog-provenance.json` and is validated against `public/data/cars.json` by `node .github/scripts/check-catalog-provenance.mjs` (run it after `npm run build`). Catalog updates recorded in `DEVLOG.md` always include this check.
-- `.claude/commands/add-vehicle.md` documents the add-vehicle workflow (CAR_DB entry, `BRAND_URLS`, image in `public/car-images/`, i18n category keys, README metrics, tests, build).
+- `.claude/commands/add-vehicle.md` documents the add-vehicle workflow (CAR_DB entry, `BRAND_URLS`, image in `public/car-images/` following the mandatory photo standard, i18n category keys, README metrics, tests, build).
 - README.md metric counts are maintained manually and drift; the "70 testes" claims are stale (293 as of 09/2026). Update counts when your change affects them.
 
 ## Repo layout gotchas

@@ -2,6 +2,22 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 16/09/2026 · Fotos GWM refeitas: Haval (4) e Wey 07 em alta do site oficial
+
+| Área | Mudança pública |
+|---|---|
+| Fotos | HEV ONE (3/4 nítida 1448px), HEV2 (3/4 estúdio 1080px — frames 360 descartados por parecer render), PHEV19 (frontal nítida 2400px), PHEV35 (3/4 fotográfica 2880px com placa PHEV35 — frame 360 descartado) e Wey 07 (frontal nítida 2880px, antes 33 kB) — todos do DAM oficial da GWM, carro inteiro, sem pessoas. GT e Tank mantidos. Mesmos nomes de arquivo, sem mudança no catálogo. |
+| Verificação | 378/378 testes, TypeScript limpo, build Vite (130 páginas), scanner de segredos e verificador de proveniência (728/1300) aprovados. |
+
+## 15/09/2026 · Omoda 7 e Jaecoo 7 PHEV: 5 entradas, marca Jaecoo nova
+
+| Área | Mudança pública |
+|---|---|
+| Catálogo | Omoda 7 Luxury (R$ 254.990) e Prestige (R$ 279.990) — 279 cv, 60 km PBEV; Jaecoo 7 Elite (R$ 189.990), Luxury (R$ 234.990) e Prestige (R$ 256.990) — 339 cv / 52 kgfm divulgados pela rede, 79 km PBEV. Marca Jaecoo criada. Catálogo vai a 130 veículos (33 marcas). |
+| Divergências | Jaecoo 7: rede oficial e G1 divulgam 339 cv/52 kgfm combinados (soma dos componentes); agregadores repetem 279/37,2 do sistema SHS — prevalece o divulgado pela rede, registrado em teste. Omoda 7 bateria 18,4 kWh só em fontes terceiras: fica sem proveniência verificada. Preço Jaecoo Prestige só na rede de concessionárias: sem proveniência verificada. Carga kW sem fonte oficial: fora das entradas. |
+| Fotos | Recortes oficiais do CMS da marca, um por modelo (Omoda 7 e Jaecoo 7): carro inteiro em estúdio, sem paisagem/pessoas — reutilizado nas versões. Arquivos abaixo de 200 kB, sem variantes no pipeline. |
+| Verificação | 378/378 testes, TypeScript limpo, build Vite (130 páginas), scanner de segredos e verificador de proveniência (728/1300) aprovados. |
+
 ## 15/09/2026 · Wey 07 ganha ficha completa: 517 cv do catálogo oficial
 
 | Área | Mudança pública |

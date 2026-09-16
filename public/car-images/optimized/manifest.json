@@ -733,6 +733,158 @@
       ]
     },
     {
+      "src": "/car-images/gwm-haval-h6-hev-one.webp",
+      "width": 1448,
+      "height": 1086,
+      "alpha": false,
+      "bytes": 394108,
+      "sha256": "c44afb86ca2943e5c87472cac09accc9c7a43743979606f5a81f2b8fc39b0151",
+      "variants": [
+        {
+          "src": "/car-images/optimized/gwm-haval-h6-hev-one.webp-320.webp",
+          "width": 320,
+          "height": 240,
+          "bytes": 14974,
+          "sha256": "9ec2fdbb1b4e8e3d31c02af286ec4173875292576206bb7abd8e53f22e351b62"
+        },
+        {
+          "src": "/car-images/optimized/gwm-haval-h6-hev-one.webp-640.webp",
+          "width": 640,
+          "height": 480,
+          "bytes": 58734,
+          "sha256": "652fd7ae20ab5d7191be48f2e21a3e5c73474442a0b0b79f6d37488890214fbc"
+        },
+        {
+          "src": "/car-images/optimized/gwm-haval-h6-hev-one.webp-960.webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 131102,
+          "sha256": "9b0443d8c530505c9fa76a40f5735c116ca790286d6f85a70848c94f3e1ad992"
+        },
+        {
+          "src": "/car-images/optimized/gwm-haval-h6-hev-one.webp-1280.webp",
+          "width": 1280,
+          "height": 960,
+          "bytes": 203104,
+          "sha256": "567557ed08aa245a6ba477cbac788a4a016e32499e362d260753003cd88ae486"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/gwm-haval-h6-phev19.webp",
+      "width": 2400,
+      "height": 1600,
+      "alpha": false,
+      "bytes": 690208,
+      "sha256": "6fff54567ac011295e1cd0637ab01654c90a9e6911f116895cc6f1e4a4940608",
+      "variants": [
+        {
+          "src": "/car-images/optimized/gwm-haval-h6-phev19.webp-320.webp",
+          "width": 320,
+          "height": 213,
+          "bytes": 10976,
+          "sha256": "76bf598319d72a2b57014382466b7be84236a8a83b853b0fd18a8ece664c81b6"
+        },
+        {
+          "src": "/car-images/optimized/gwm-haval-h6-phev19.webp-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 30020,
+          "sha256": "da23c37dd2572de769acc3c3119ea8442d5a42e8247f878eddf2c99bd4ac0304"
+        },
+        {
+          "src": "/car-images/optimized/gwm-haval-h6-phev19.webp-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 55206,
+          "sha256": "d8d786bc184f12ecbe79595bdd999c90570c47bc6e1421d356101c9c1a053fd2"
+        },
+        {
+          "src": "/car-images/optimized/gwm-haval-h6-phev19.webp-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 85054,
+          "sha256": "b87430a8382b719cd60bdd4ad2eb903f19b71df981952d04c427614cad090b3e"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/gwm-haval-h6-phev35.webp",
+      "width": 2880,
+      "height": 1920,
+      "alpha": false,
+      "bytes": 439038,
+      "sha256": "fd4388bdd32e179f9cd85811a1aecf6522b46fe222a71b14e4fde4e28a52a376",
+      "variants": [
+        {
+          "src": "/car-images/optimized/gwm-haval-h6-phev35.webp-320.webp",
+          "width": 320,
+          "height": 213,
+          "bytes": 9480,
+          "sha256": "eb6cd083a0a9de097ed6b18cc5dd9324af56de1111e737d78086fc47cc80f4b4"
+        },
+        {
+          "src": "/car-images/optimized/gwm-haval-h6-phev35.webp-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 26274,
+          "sha256": "7838499b23dca247470c1de826123e0db849b0b4b43325f8fc46bb2f1a8b4d35"
+        },
+        {
+          "src": "/car-images/optimized/gwm-haval-h6-phev35.webp-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 46856,
+          "sha256": "855c343c25fc1bbfb5b899aa126708a6c2c7967ab4a6104465366c30da156a02"
+        },
+        {
+          "src": "/car-images/optimized/gwm-haval-h6-phev35.webp-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 72804,
+          "sha256": "79522f5ad44a1bf14ec1f18b67d45dcd842e660cf1c3f3125f81b27024707b4f"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/gwm-wey-07.webp",
+      "width": 2880,
+      "height": 1758,
+      "alpha": false,
+      "bytes": 329012,
+      "sha256": "9fee115b802d71984c4c9e8f223c24eeea112a2e9b5636d2fc8e266a1fc8abd1",
+      "variants": [
+        {
+          "src": "/car-images/optimized/gwm-wey-07.webp-320.webp",
+          "width": 320,
+          "height": 195,
+          "bytes": 11972,
+          "sha256": "d2ac4d573e2823b3454547b5b0f550c82627227f3b6b71ac75399b83f8e0d33f"
+        },
+        {
+          "src": "/car-images/optimized/gwm-wey-07.webp-640.webp",
+          "width": 640,
+          "height": 391,
+          "bytes": 34012,
+          "sha256": "b38abcd02e909de90178418da5b16d38606af81a54b724786b857aab9a74a0c2"
+        },
+        {
+          "src": "/car-images/optimized/gwm-wey-07.webp-960.webp",
+          "width": 960,
+          "height": 586,
+          "bytes": 60866,
+          "sha256": "5f745d5ef18ab876423fc875ffc65fb0f034a3ad2901bd983f413a8c74d4a189"
+        },
+        {
+          "src": "/car-images/optimized/gwm-wey-07.webp-1280.webp",
+          "width": 1280,
+          "height": 781,
+          "bytes": 90390,
+          "sha256": "4bc6ac6ec4043ea5e6fc2490ac2abf1f6785c4d5d637936141faf7048ffbe52f"
+        }
+      ]
+    },
+    {
       "src": "/car-images/id4.jpg",
       "width": 960,
       "height": 554,

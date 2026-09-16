@@ -492,6 +492,110 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
+  "/car-images/gwm-haval-h6-hev-one.webp": {
+    "width": 1448,
+    "height": 1086,
+    "variants": [
+      {
+        "src": "/car-images/optimized/gwm-haval-h6-hev-one.webp-320.webp",
+        "width": 320,
+        "height": 240
+      },
+      {
+        "src": "/car-images/optimized/gwm-haval-h6-hev-one.webp-640.webp",
+        "width": 640,
+        "height": 480
+      },
+      {
+        "src": "/car-images/optimized/gwm-haval-h6-hev-one.webp-960.webp",
+        "width": 960,
+        "height": 720
+      },
+      {
+        "src": "/car-images/optimized/gwm-haval-h6-hev-one.webp-1280.webp",
+        "width": 1280,
+        "height": 960
+      }
+    ]
+  },
+  "/car-images/gwm-haval-h6-phev19.webp": {
+    "width": 2400,
+    "height": 1600,
+    "variants": [
+      {
+        "src": "/car-images/optimized/gwm-haval-h6-phev19.webp-320.webp",
+        "width": 320,
+        "height": 213
+      },
+      {
+        "src": "/car-images/optimized/gwm-haval-h6-phev19.webp-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      {
+        "src": "/car-images/optimized/gwm-haval-h6-phev19.webp-960.webp",
+        "width": 960,
+        "height": 640
+      },
+      {
+        "src": "/car-images/optimized/gwm-haval-h6-phev19.webp-1280.webp",
+        "width": 1280,
+        "height": 853
+      }
+    ]
+  },
+  "/car-images/gwm-haval-h6-phev35.webp": {
+    "width": 2880,
+    "height": 1920,
+    "variants": [
+      {
+        "src": "/car-images/optimized/gwm-haval-h6-phev35.webp-320.webp",
+        "width": 320,
+        "height": 213
+      },
+      {
+        "src": "/car-images/optimized/gwm-haval-h6-phev35.webp-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      {
+        "src": "/car-images/optimized/gwm-haval-h6-phev35.webp-960.webp",
+        "width": 960,
+        "height": 640
+      },
+      {
+        "src": "/car-images/optimized/gwm-haval-h6-phev35.webp-1280.webp",
+        "width": 1280,
+        "height": 853
+      }
+    ]
+  },
+  "/car-images/gwm-wey-07.webp": {
+    "width": 2880,
+    "height": 1758,
+    "variants": [
+      {
+        "src": "/car-images/optimized/gwm-wey-07.webp-320.webp",
+        "width": 320,
+        "height": 195
+      },
+      {
+        "src": "/car-images/optimized/gwm-wey-07.webp-640.webp",
+        "width": 640,
+        "height": 391
+      },
+      {
+        "src": "/car-images/optimized/gwm-wey-07.webp-960.webp",
+        "width": 960,
+        "height": 586
+      },
+      {
+        "src": "/car-images/optimized/gwm-wey-07.webp-1280.webp",
+        "width": 1280,
+        "height": 781
+      }
+    ]
+  },
   "/car-images/id4.jpg": {
     "width": 960,
     "height": 554,

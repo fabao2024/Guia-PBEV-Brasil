@@ -18,6 +18,11 @@ const NEW_MODELS = new Set([
   'Song Plus Premium',
   'King GL',
   'Atto 2 GS',
+  'Omoda 7 Luxury',
+  'Omoda 7 Prestige',
+  'Jaecoo 7 Elite',
+  'Jaecoo 7 Luxury',
+  'Jaecoo 7 Prestige',
   'Aion UT Premium',
   'Aion UT Elite',
   'Sealion 7',
@@ -68,7 +73,8 @@ export const BRAND_URLS: Record<string, string> = {
   "Farizon": "https://www.farizontimber.com.br",
   "Foton": "https://fotondobrasil.com.br",
   "Lexus": "https://www.lexus.com.br",
-  "CAOA Changan": "https://caoachangan.com.br"
+  "CAOA Changan": "https://caoachangan.com.br",
+  "Jaecoo": "https://www.omodajaecoo.com.br"
 };
 
 // Image Strategy:
@@ -819,6 +825,101 @@ export const CAR_DB: Car[] = [
     pbeRating: 'A', energyMJkm: 0.51,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 80,
     lengthMm: 4424, widthMm: 1830, heightMm: 1588, wheelbaseMm: 2630, weightKg: 1710, trunkLiters: 340,
+  },
+  {
+    model: "Omoda 7 Luxury", brand: "Omoda", price: 254990, range: 60, cat: "SUV",
+    powertrain: 'PHEV', electricRangeKm: 60, fuelType2: 'gasolina',
+    url: "https://www.omodajaecoo.com.br/omoda-7-shs-p",
+    img: "/car-images/omoda-7-luxury.png",
+    power: 279, torque: 37.2, traction: 'FWD', battery: 18.4,
+    features: [
+      "SUV híbrido plug-in (SHS) — 1.5 TGDI 99 kW + elétrico 150 kW/310 Nm, 205 kW (279 cv) no total, 0–100 km/h em 8,4 s",
+      "Bateria 18,4 kWh; autonomia elétrica PBEV de 60 km; combinada de 1.200 km",
+      "14,0 km/l cidade (gasolina, Inmetro) no modo sustentação",
+      "Câmbio híbrido dedicado 1DHT; tração dianteira",
+      "Tela central deslizante de 15,6\" 2.5K com Snapdragon 8155",
+      "Pacote ADAS (ACC, AEB, ELK, BSD, RCTA, câmera 540°)"
+    ],
+    energyMJkm: 0.66,
+    fuelConsumptionKml: 14.0,
+  },
+  {
+    model: "Omoda 7 Prestige", brand: "Omoda", price: 279990, range: 60, cat: "SUV",
+    powertrain: 'PHEV', electricRangeKm: 60, fuelType2: 'gasolina',
+    url: "https://www.omodajaecoo.com.br/omoda-7-shs-p",
+    img: "/car-images/omoda-7-prestige.png",
+    power: 279, torque: 37.2, traction: 'FWD', battery: 18.4,
+    features: [
+      "SUV híbrido plug-in (SHS) — 1.5 TGDI 99 kW + elétrico 150 kW/310 Nm, 205 kW (279 cv) no total, 0–100 km/h em 8,4 s",
+      "Bateria 18,4 kWh; autonomia elétrica PBEV de 60 km; combinada de 1.200 km",
+      "14,0 km/l cidade (gasolina, Inmetro) no modo sustentação",
+      "Câmbio híbrido dedicado 1DHT; tração dianteira",
+      "8 airbags com airbag central dianteiro",
+      "Banco do passageiro com massagem, aquecimento e ventilação",
+      "Tela central deslizante de 15,6\" 2.5K com Snapdragon 8155",
+      "Pacote ADAS (ACC, AEB, ELK, BSD, RCTA, câmera 540°)"
+    ],
+    energyMJkm: 0.66,
+    fuelConsumptionKml: 14.0,
+  },
+  {
+    model: "Jaecoo 7 Elite", brand: "Jaecoo", price: 189990, range: 79, cat: "SUV",
+    powertrain: 'PHEV', electricRangeKm: 79, fuelType2: 'gasolina',
+    url: "https://www.omodajaecoo.com.br/jaecoo-7",
+    img: "/car-images/jaecoo-7-elite.png",
+    power: 339, torque: 52.0, traction: 'FWD', battery: 18.3,
+    features: [
+      "SUV híbrido plug-in (SHS) — 1.5 TGDI 135 cv + elétrico 204 cv/310 Nm, 339 cv / 52 kgfm combinados",
+      "Bateria LFP de 18,3 kWh; autonomia elétrica PBEV de 79 km; combinada de 1.200 km",
+      "15,1 km/l cidade (gasolina, Inmetro) no modo sustentação",
+      "Câmbio híbrido dedicado DHT de 3ª geração; tração dianteira",
+      "Central multimídia de 13,2\" com CarPlay e Android Auto sem fio",
+      "Pacote ADAS (ACC, AEB, LDW, BSD, câmera 540°)"
+    ],
+    energyMJkm: 0.60,
+    fuelConsumptionKml: 15.1,
+    lengthMm: 4500, widthMm: 1865, heightMm: 1670, wheelbaseMm: 2672,
+    weightKg: 1795, trunkLiters: 500,
+  },
+  {
+    model: "Jaecoo 7 Luxury", brand: "Jaecoo", price: 234990, range: 79, cat: "SUV",
+    powertrain: 'PHEV', electricRangeKm: 79, fuelType2: 'gasolina',
+    url: "https://www.omodajaecoo.com.br/jaecoo-7",
+    img: "/car-images/jaecoo-7-luxury.png",
+    power: 339, torque: 52.0, traction: 'FWD', battery: 18.3,
+    features: [
+      "SUV híbrido plug-in (SHS) — 1.5 TGDI 135 cv + elétrico 204 cv/310 Nm, 339 cv / 52 kgfm combinados",
+      "Bateria LFP de 18,3 kWh; autonomia elétrica PBEV de 79 km; combinada de 1.200 km",
+      "15,1 km/l cidade (gasolina, Inmetro) no modo sustentação",
+      "Câmbio híbrido dedicado DHT de 3ª geração; tração dianteira",
+      "Teto solar wide-panorama de 1,1 m² e porta-malas elétrico",
+      "Central multimídia de 14,8\" com CarPlay e Android Auto sem fio",
+      "7 airbags e pacote ADAS (ACC, AEB, LDW, BSD, câmera 540°)"
+    ],
+    energyMJkm: 0.60,
+    fuelConsumptionKml: 15.1,
+    lengthMm: 4500, widthMm: 1865, heightMm: 1670, wheelbaseMm: 2672,
+    weightKg: 1795, trunkLiters: 500,
+  },
+  {
+    model: "Jaecoo 7 Prestige", brand: "Jaecoo", price: 256990, range: 79, cat: "SUV",
+    powertrain: 'PHEV', electricRangeKm: 79, fuelType2: 'gasolina',
+    url: "https://www.omodajaecoo.com.br/jaecoo-7",
+    img: "/car-images/jaecoo-7-prestige.png",
+    power: 339, torque: 52.0, traction: 'FWD', battery: 18.3,
+    features: [
+      "SUV híbrido plug-in (SHS) — 1.5 TGDI 135 cv + elétrico 204 cv/310 Nm, 339 cv / 52 kgfm combinados",
+      "Bateria LFP de 18,3 kWh; autonomia elétrica PBEV de 79 km; combinada de 1.200 km",
+      "15,1 km/l cidade (gasolina, Inmetro) no modo sustentação",
+      "Câmbio híbrido dedicado DHT de 3ª geração; tração dianteira",
+      "Teto solar wide-panorama de 1,1 m² e porta-malas elétrico",
+      "Bancos com ventilação e memória; HUD e carregador por indução refrigerado",
+      "7 airbags e pacote ADAS completo (ACC, AEB, LDW, BSD, câmera 540°)"
+    ],
+    energyMJkm: 0.60,
+    fuelConsumptionKml: 15.1,
+    lengthMm: 4500, widthMm: 1865, heightMm: 1670, wheelbaseMm: 2672,
+    weightKg: 1795, trunkLiters: 500,
   },
   {
     model: "EX5 Max", brand: "Geely", price: 225800, range: 349, cat: "SUV",

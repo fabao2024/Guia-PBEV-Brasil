@@ -5965,6 +5965,234 @@
         }
       }
     },
+    "jaecoo-jaecoo-7-elite": {
+      "brand": "Jaecoo",
+      "model": "Jaecoo 7 Elite",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.omodajaecoo.com.br/jaecoo-7",
+          "sourceUpdatedAt": "2026-09-15",
+          "verifiedAt": "2026-09-15"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-06-03",
+          "verifiedAt": "2026-09-15"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-06-03",
+          "verifiedAt": "2026-09-15"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.omodajaecoo.com.br/jaecoo-7",
+          "sourceUpdatedAt": "2026-09-15",
+          "verifiedAt": "2026-09-15"
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.omodajaecoo.com.br/jaecoo-7",
+          "sourceUpdatedAt": "2026-09-15",
+          "verifiedAt": "2026-09-15"
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
+    "jaecoo-jaecoo-7-luxury": {
+      "brand": "Jaecoo",
+      "model": "Jaecoo 7 Luxury",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.omodajaecoo.com.br/ofertas",
+          "sourceUpdatedAt": "2026-09-15",
+          "verifiedAt": "2026-09-15"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-06-03",
+          "verifiedAt": "2026-09-15"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-06-03",
+          "verifiedAt": "2026-09-15"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.omodajaecoo.com.br/jaecoo-7",
+          "sourceUpdatedAt": "2026-09-15",
+          "verifiedAt": "2026-09-15"
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.omodajaecoo.com.br/jaecoo-7",
+          "sourceUpdatedAt": "2026-09-15",
+          "verifiedAt": "2026-09-15"
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
+    "jaecoo-jaecoo-7-prestige": {
+      "brand": "Jaecoo",
+      "model": "Jaecoo 7 Prestige",
+      "fields": {
+        "price": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-06-03",
+          "verifiedAt": "2026-09-15"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-06-03",
+          "verifiedAt": "2026-09-15"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.omodajaecoo.com.br/jaecoo-7",
+          "sourceUpdatedAt": "2026-09-15",
+          "verifiedAt": "2026-09-15"
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.omodajaecoo.com.br/jaecoo-7",
+          "sourceUpdatedAt": "2026-09-15",
+          "verifiedAt": "2026-09-15"
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
     "kia-ev5-land": {
       "brand": "Kia",
       "model": "EV5 Land",
@@ -7896,6 +8124,158 @@
           "sourceUrl": null,
           "sourceUpdatedAt": null,
           "verifiedAt": null
+        },
+        "battery": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
+    "omoda-omoda-7-luxury": {
+      "brand": "Omoda",
+      "model": "Omoda 7 Luxury",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.omodajaecoo.com.br/ofertas",
+          "sourceUpdatedAt": "2026-09-15",
+          "verifiedAt": "2026-09-15"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-06-03",
+          "verifiedAt": "2026-09-15"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-06-03",
+          "verifiedAt": "2026-09-15"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.omodajaecoo.com.br/omoda-7-shs-p",
+          "sourceUpdatedAt": "2026-09-15",
+          "verifiedAt": "2026-09-15"
+        },
+        "battery": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
+    "omoda-omoda-7-prestige": {
+      "brand": "Omoda",
+      "model": "Omoda 7 Prestige",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://omodajaecoo.com.br/noticias/omoda-jaecoo-brasil-lanca-modelos-omoda-5-shs-h-e-omoda-7-shs-p-no-mercado-brasileiro",
+          "sourceUpdatedAt": "2025-10-01",
+          "verifiedAt": "2026-09-15"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-06-03",
+          "verifiedAt": "2026-09-15"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-06-03",
+          "verifiedAt": "2026-09-15"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.omodajaecoo.com.br/omoda-7-shs-p",
+          "sourceUpdatedAt": "2026-09-15",
+          "verifiedAt": "2026-09-15"
         },
         "battery": {
           "verificationStatus": "legacy_unverified",

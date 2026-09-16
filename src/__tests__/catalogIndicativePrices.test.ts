@@ -208,6 +208,53 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(wey.trunkLiters).toBe(239);
   });
 
+  it('Omoda 7 and Jaecoo 7 PHEV should match official Omoda & Jaecoo release and PBEV table', () => {
+    // Release oficial Omoda & Jaecoo Brasil (out/2025): Omoda 7 SHS-P Luxury
+    // R$ 254.990, Prestige R$ 279.990 — 1.5 TGDI 99 kW + elétrico 150 kW/310 Nm,
+    // 205 kW (279 cv) no total, 0–100 em 8,4 s, 60 km Inmetro, 1DHT, FWD.
+    // Torque combinado 365 Nm (37,2 kgfm, Omoda Espanha); bateria 18,4 kWh;
+    // 14,0 km/l cidade; tabela PBEV: 60 km/0,66.
+    // Jaecoo 7 (página oficial + rede): Elite R$ 189.990, Luxury R$ 234.990,
+    // Prestige R$ 256.990 — 1.5 TGDI 135 cv + elétrico 204 cv, bateria LFP
+    // 18,3 kWh, 79 km Inmetro, 15,1 km/l cidade; combinados 339 cv / 52 kgfm
+    // divulgados pela rede oficial e G1; tabela PBEV: 79 km/0,60.
+    const o7l = byModel('Omoda 7 Luxury');
+    expect(o7l.powertrain).toBe('PHEV');
+    expect(o7l.price).toBe(254990);
+    expect(o7l.range).toBe(60);
+    expect(o7l.power).toBe(279);
+    expect(o7l.torque).toBe(37.2);
+    expect(o7l.battery).toBe(18.4);
+    expect(o7l.traction).toBe('FWD');
+    expect(o7l.energyMJkm).toBe(0.66);
+    expect(o7l.fuelConsumptionKml).toBe(14.0);
+    const o7p = byModel('Omoda 7 Prestige');
+    expect(o7p.price).toBe(279990);
+    expect(o7p.range).toBe(60);
+    expect(o7p.power).toBe(279);
+    const j7e = byModel('Jaecoo 7 Elite');
+    expect(j7e.powertrain).toBe('PHEV');
+    expect(j7e.price).toBe(189990);
+    expect(j7e.range).toBe(79);
+    expect(j7e.power).toBe(339);
+    expect(j7e.torque).toBe(52.0);
+    expect(j7e.battery).toBe(18.3);
+    expect(j7e.traction).toBe('FWD');
+    expect(j7e.energyMJkm).toBe(0.60);
+    expect(j7e.fuelConsumptionKml).toBe(15.1);
+    expect(j7e.lengthMm).toBe(4500);
+    expect(j7e.weightKg).toBe(1795);
+    expect(j7e.trunkLiters).toBe(500);
+    const j7l = byModel('Jaecoo 7 Luxury');
+    expect(j7l.price).toBe(234990);
+    expect(j7l.range).toBe(79);
+    expect(j7l.power).toBe(339);
+    const j7p = byModel('Jaecoo 7 Prestige');
+    expect(j7p.price).toBe(256990);
+    expect(j7p.range).toBe(79);
+    expect(j7p.power).toBe(339);
+  });
+
   it('should flag versions removed from official lineups as discontinued', () => {
     // BMW press release (Apr/2025): renewed i4 line offers only eDrive40 M Sport and M50;
     // Mercedes-Benz launch (Jul/2024): EQE 300 SUV replaced by EQE 350+ SUV.

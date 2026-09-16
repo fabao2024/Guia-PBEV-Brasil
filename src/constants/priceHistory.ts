@@ -135,6 +135,11 @@ export const PRICE_HISTORY: Record<string, PriceSnapshot[]> = {
   "Haval H6 GT": [{ date: '2026-09', price: 326000 }],
   "Tank 300": [{ date: '2026-09', price: 342000 }],
   "Wey 07": [{ date: '2026-09', price: 429000 }],
+  "Omoda 7 Luxury": [{ date: '2026-09', price: 254990 }],
+  "Omoda 7 Prestige": [{ date: '2026-09', price: 279990 }],
+  "Jaecoo 7 Elite": [{ date: '2026-09', price: 189990 }],
+  "Jaecoo 7 Luxury": [{ date: '2026-09', price: 234990 }],
+  "Jaecoo 7 Prestige": [{ date: '2026-09', price: 256990 }],
 };
 
 /** Returns the most recent snapshot for a given model, or null if no history. */
