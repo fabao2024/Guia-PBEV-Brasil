@@ -226,6 +226,58 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
+  "/car-images/caoachery-tiggo7-phev.webp": {
+    "width": 1090,
+    "height": 394,
+    "variants": [
+      {
+        "src": "/car-images/optimized/caoachery-tiggo7-phev.webp-320.webp",
+        "width": 320,
+        "height": 116
+      },
+      {
+        "src": "/car-images/optimized/caoachery-tiggo7-phev.webp-640.webp",
+        "width": 640,
+        "height": 231
+      },
+      {
+        "src": "/car-images/optimized/caoachery-tiggo7-phev.webp-960.webp",
+        "width": 960,
+        "height": 347
+      },
+      {
+        "src": "/car-images/optimized/caoachery-tiggo7-phev.webp-1090.webp",
+        "width": 1090,
+        "height": 394
+      }
+    ]
+  },
+  "/car-images/caoachery-tiggo8-phev.webp": {
+    "width": 1090,
+    "height": 394,
+    "variants": [
+      {
+        "src": "/car-images/optimized/caoachery-tiggo8-phev.webp-320.webp",
+        "width": 320,
+        "height": 116
+      },
+      {
+        "src": "/car-images/optimized/caoachery-tiggo8-phev.webp-640.webp",
+        "width": 640,
+        "height": 231
+      },
+      {
+        "src": "/car-images/optimized/caoachery-tiggo8-phev.webp-960.webp",
+        "width": 960,
+        "height": 347
+      },
+      {
+        "src": "/car-images/optimized/caoachery-tiggo8-phev.webp-1090.webp",
+        "width": 1090,
+        "height": 394
+      }
+    ]
+  },
   "/car-images/cyberster.jpg": {
     "width": 960,
     "height": 755,
@@ -743,6 +795,27 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
+  "/car-images/leapmotor-c10-reev.webp": {
+    "width": 720,
+    "height": 515,
+    "variants": [
+      {
+        "src": "/car-images/optimized/leapmotor-c10-reev.webp-320.webp",
+        "width": 320,
+        "height": 229
+      },
+      {
+        "src": "/car-images/optimized/leapmotor-c10-reev.webp-640.webp",
+        "width": 640,
+        "height": 458
+      },
+      {
+        "src": "/car-images/optimized/leapmotor-c10-reev.webp-720.webp",
+        "width": 720,
+        "height": 515
+      }
+    ]
+  },
   "/car-images/lexus-rz-500e.jpg": {
     "width": 2560,
     "height": 1598,
@@ -811,6 +884,32 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
+  "/car-images/mitsubishi-outlander-phev.webp": {
+    "width": 1080,
+    "height": 521,
+    "variants": [
+      {
+        "src": "/car-images/optimized/mitsubishi-outlander-phev.webp-320.webp",
+        "width": 320,
+        "height": 154
+      },
+      {
+        "src": "/car-images/optimized/mitsubishi-outlander-phev.webp-640.webp",
+        "width": 640,
+        "height": 309
+      },
+      {
+        "src": "/car-images/optimized/mitsubishi-outlander-phev.webp-960.webp",
+        "width": 960,
+        "height": 463
+      },
+      {
+        "src": "/car-images/optimized/mitsubishi-outlander-phev.webp-1080.webp",
+        "width": 1080,
+        "height": 521
+      }
+    ]
+  },
   "/car-images/omoda-5.jpg": {
     "width": 1920,
     "height": 1080,
@@ -832,6 +931,53 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       },
       {
         "src": "/car-images/optimized/omoda-5.jpg-1280.webp",
+        "width": 1280,
+        "height": 720
+      }
+    ]
+  },
+  "/car-images/toyota-corolla-cross-hybrid.png": {
+    "width": 862,
+    "height": 575,
+    "variants": [
+      {
+        "src": "/car-images/optimized/toyota-corolla-cross-hybrid.png-320.webp",
+        "width": 320,
+        "height": 213
+      },
+      {
+        "src": "/car-images/optimized/toyota-corolla-cross-hybrid.png-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      {
+        "src": "/car-images/optimized/toyota-corolla-cross-hybrid.png-862.webp",
+        "width": 862,
+        "height": 575
+      }
+    ]
+  },
+  "/car-images/toyota-corolla-sedan-hybrid.jpg": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/car-images/optimized/toyota-corolla-sedan-hybrid.jpg-320.webp",
+        "width": 320,
+        "height": 180
+      },
+      {
+        "src": "/car-images/optimized/toyota-corolla-sedan-hybrid.jpg-640.webp",
+        "width": 640,
+        "height": 360
+      },
+      {
+        "src": "/car-images/optimized/toyota-corolla-sedan-hybrid.jpg-960.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "/car-images/optimized/toyota-corolla-sedan-hybrid.jpg-1280.webp",
         "width": 1280,
         "height": 720
       }

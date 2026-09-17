@@ -41,7 +41,7 @@
     "catLuxury": "Luxury / Performance",
     "catCommercial": "Commercial / Van",
     "newOnly": "New Models",
-    "newOnlyTooltip": "Models launched or updated in the last 12 months",
+    "newOnlyTooltip": "Models launched in the last 3 months",
     "fastChargeOnly": "DC Fast Charge",
     "fastChargeOnlyTooltip": "Only vehicles with DC fast charging support (CCS, CHAdeMO or similar)"
   },

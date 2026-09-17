@@ -140,6 +140,16 @@ export const PRICE_HISTORY: Record<string, PriceSnapshot[]> = {
   "Jaecoo 7 Elite": [{ date: '2026-09', price: 189990 }],
   "Jaecoo 7 Luxury": [{ date: '2026-09', price: 234990 }],
   "Jaecoo 7 Prestige": [{ date: '2026-09', price: 256990 }],
+  "Corolla Cross Hybrid": [{ date: '2026-09', price: 226120 }],
+  "Corolla GLi Hybrid": [{ date: '2026-09', price: 194790 }],
+  "Corolla Altis Hybrid": [{ date: '2026-09', price: 210090 }],
+  "Civic Advanced Hybrid": [{ date: '2026-09', price: 266500 }],
+  "CR-V Advanced Hybrid": [{ date: '2026-09', price: 353500 }],
+  "Kona Hybrid": [{ date: '2026-09', price: 219990 }],
+  "Tiggo 7 Pro PHEV": [{ date: '2026-09', price: 209990 }],
+  "Tiggo 8 Pro PHEV": [{ date: '2026-09', price: 249990 }],
+  "Outlander HPE-S PHEV": [{ date: '2026-09', price: 324990 }],
+  "C10 REEV": [{ date: '2026-09', price: 219990 }],
 };
 
 /** Returns the most recent snapshot for a given model, or null if no history. */

@@ -157,4 +157,16 @@ describe('calcMonthlyCost — PHEV combinado (α = R/C, premissa do carro)', () 
     expect(r.total).toBe(600);
     expect(r.kmLUsed).toBe(10.0);
   });
+  it('REEV segue a mesma regra α (C10: 111/950)', () => {
+    const reev = base({
+      powertrain: 'REEV', range: 111, electricRangeKm: 111, combinedRangeKm: 950,
+      fuelConsumptionKml: 12.0, fuelType2: 'gasolina',
+      battery: 28.4, energyMJkm: 0.65,
+    });
+    const r = calcMonthlyCost(reev, input({ kms: 1500 }));
+    // α = 111/950 = 11,68%: 175,3 km elétricos + 1324,7 a combustão
+    expect(r.electricKm).toBeCloseTo(175.26, 1);
+    expect(r.fuelKm).toBeCloseTo(1324.74, 1);
+    expect(r.costFuel).toBe(Math.round((1324.7368 / 12.0) * 6.0));
+  });
 });

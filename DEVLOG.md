@@ -2,6 +2,22 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 17/09/2026 · Novidades: só lançados há no máximo 3 meses (8 modelos)
+
+| Área | Mudança pública |
+|---|---|
+| Regra | `NEW_MODELS` reduzido de 47 para 8 (Song Pro GL/GS, Atto 2 GS, MG4 Urban ×3, Ora 5, Sealion 7); tooltip passa a "lançados nos últimos 3 meses" (PT/EN). Saem Atto 8, Song Plus, King, Omoda/Jaecoo, Wey, Haval Flex, Tiggo 7/8, Aion UT, RZ, Dolphin SE, Yuan AWD, EX5, EX30 Ultra, 001/X, EV5, Spark, Captiva, EX5 EM-i, iEV330P, Corolla, Civic, CR-V, Kona, Outlander, C10 e demais linhas correntes. Revisão mensal recoloca/remove por data de lançamento. |
+| Verificação | 396/396 testes, TypeScript limpo, build Vite (140 páginas), scanner de segredos e verificador de proveniência (755/1400) aprovados. |
+
+## 17/09/2026 · Lote A híbridos: 10 entradas, 3 marcas novas, 1º REEV
+
+| Área | Mudança pública |
+|---|---|
+| Catálogo | Corolla Cross Hybrid, Corolla GLi/Altis Hybrid, Civic e CR-V Advanced Hybrid, Kona Hybrid, Tiggo 7/8 Pro PHEV, Outlander HPE-S PHEV e C10 REEV. Catálogo vai a 140 veículos (36 marcas: Toyota, Honda, Mitsubishi novas). Maverick Hybrid fica pendente (foto oficial indisponível). |
+| Divergências | Civic (R$ 266.500) e CR-V (R$ 353.500): só tabela de rede, sem proveniência verificada. Tiggo 8 a R$ 249.990 (tabela atual; lançamento era 229.990). Outlander a R$ 324.990 (condição set/2026; tabela 379.990). Outlander 11,6 km/l e Tiggo 7/8 sustain (15,4/14,4) via imprensa — ficha oficial não publica; Tiggo 7 sem DC em kW publicado e Tiggo 8 com 50 kW via lançamento. C10: 111 km e 12,0 km/l PBEV, 950 km WLTP. Kona 593px e C10 720px: oficiais, abaixo do ideal. |
+| Simulador | C10 estreia o path REEV (α = 111/950); quiz passa a recomendar HEVs para recarga só pública (teste ajustado). |
+| Verificação | 396/396 testes, TypeScript limpo, build Vite (140 páginas), scanner de segredos e verificador de proveniência (755/1400, +27 campos) aprovados. |
+
 ## 16/09/2026 · Flex com etanol oficial: ficha dupla e simulador fiel
 
 | Área | Mudança pública |

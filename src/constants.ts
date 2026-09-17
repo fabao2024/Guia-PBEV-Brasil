@@ -2,38 +2,15 @@
 import { Car } from './types';
 
 const NEW_MODELS = new Set([
-  'Spark EUV',
-  'Captiva EV',
-  'EV5 Land',
-  'EV9 GT-Line',
-  '7X',
-  '001 Premium',
-  'Ora 03 Skin BEV58',
-  'EX30 Ultra',
-  'Yuan Plus AWD',
-  'Dolphin Special Edition',
+  // Regra: só modelos lançados no mercado há no máximo 3 meses (revisão mensal).
   'Song Pro GL',
   'Song Pro GS',
-  'Song Plus',
-  'Song Plus Premium',
-  'King GL',
   'Atto 2 GS',
-  'Omoda 7 Luxury',
-  'Omoda 7 Prestige',
-  'Jaecoo 7 Elite',
-  'Jaecoo 7 Luxury',
-  'Jaecoo 7 Prestige',
-  'Aion UT Premium',
-  'Aion UT Elite',
-  'Sealion 7',
-  'Ora 5',
-  'EX5 Pro',
-  'iEV330P',
-  'RZ 500e',
-  'Avatr 11',
   'MG4 Urban Comfort',
   'MG4 Urban Luxury',
   'MG4 Urban Luxury 54kWh',
+  'Ora 5',
+  'Sealion 7',
 ]);
 
 export const isCarNew = (car: Car): boolean => NEW_MODELS.has(car.model);
@@ -74,7 +51,10 @@ export const BRAND_URLS: Record<string, string> = {
   "Foton": "https://fotondobrasil.com.br",
   "Lexus": "https://www.lexus.com.br",
   "CAOA Changan": "https://caoachangan.com.br",
-  "Jaecoo": "https://www.omodajaecoo.com.br"
+  "Jaecoo": "https://www.omodajaecoo.com.br",
+  "Toyota": "https://www.toyota.com.br",
+  "Honda": "https://www.honda.com.br",
+  "Mitsubishi": "https://www.mitsubishimotors.com.br"
 };
 
 // Image Strategy:
@@ -1188,6 +1168,59 @@ export const CAR_DB: Car[] = [
     fuelConsumptionKml: 16.4,
   },
   {
+    model: "Corolla GLi Hybrid", brand: "Toyota", price: 194790, range: 0, cat: "Sedan",
+    powertrain: 'HEV', fuelType2: 'flex',
+    url: "https://www.toyota.com.br/modelos/corolla-hybrid",
+    img: "/car-images/toyota-corolla-sedan-hybrid.jpg",
+    power: 122, traction: 'FWD',
+    features: [
+      "Sedã híbrido flex (1.8 VVT-i + elétricos) — 122 cv combinados",
+      "17,5 km/l cidade (gasolina, Inmetro) e 12,5 km/l (etanol)",
+      "Câmbio Transaxle CVT",
+      "Toyota Safety Sense e 7 airbags",
+      "Garantia híbrida de 8 anos / 200.000 km"
+    ],
+    fuelConsumptionKml: 17.5,
+    fuelConsumptionKmlEthanol: 12.5,
+    warrantyYears: 5, warrantyBatteryYears: 8,
+    lengthMm: 4630, widthMm: 1780, heightMm: 1455, wheelbaseMm: 2700, trunkLiters: 470,
+  },
+  {
+    model: "Corolla Altis Hybrid", brand: "Toyota", price: 210090, range: 0, cat: "Sedan",
+    powertrain: 'HEV', fuelType2: 'flex',
+    url: "https://www.toyota.com.br/modelos/corolla-hybrid",
+    img: "/car-images/toyota-corolla-sedan-hybrid.jpg",
+    power: 122, traction: 'FWD',
+    features: [
+      "Sedã híbrido flex (1.8 VVT-i + elétricos) — 122 cv combinados",
+      "17,5 km/l cidade (gasolina, Inmetro) e 12,5 km/l (etanol)",
+      "Câmbio Transaxle CVT",
+      "Toyota Safety Sense, 7 airbags e teto solar",
+      "Garantia híbrida de 8 anos / 200.000 km"
+    ],
+    fuelConsumptionKml: 17.5,
+    fuelConsumptionKmlEthanol: 12.5,
+    warrantyYears: 5, warrantyBatteryYears: 8,
+    lengthMm: 4630, widthMm: 1780, heightMm: 1455, wheelbaseMm: 2700, weightKg: 1450, trunkLiters: 470,
+  },
+  {
+    model: "Civic Advanced Hybrid", brand: "Honda", price: 266500, range: 0, cat: "Sedan",
+    powertrain: 'HEV', fuelType2: 'gasolina',
+    url: "https://www.honda.com.br/automoveis/civic",
+    img: "/car-images/honda-civic-hybrid.jpg",
+    traction: 'FWD',
+    features: [
+      "Sedã híbrido e:HEV (2.0 DI + elétricos) — 184 cv elétricos",
+      "18,4 km/l cidade (gasolina, Inmetro)",
+      "Câmbio e-CVT de relação direta",
+      "Honda Sensing e 8 airbags",
+      "Bateria do sistema híbrido com 8 anos de cobertura"
+    ],
+    fuelConsumptionKml: 18.4,
+    warrantyYears: 3, warrantyBatteryYears: 8,
+    widthMm: 1802, heightMm: 1432, wheelbaseMm: 2735, weightKg: 1449, trunkLiters: 495,
+  },
+  {
     model: "Atto 2 GS", brand: "BYD", price: 169990, range: 75, cat: "SUV",
     powertrain: 'PHEV', electricRangeKm: 75, combinedRangeKm: 1045, fuelType2: 'flex',
     url: "https://www.byd.com/br/car/atto2",
@@ -1685,6 +1718,128 @@ export const CAR_DB: Car[] = [
     pbeRating: 'A', energyMJkm: 0.54,
     warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 320,
     lengthMm: 4782, widthMm: 1895, heightMm: 1635, wheelbaseMm: 2897, groundClearanceMm: 176, weightKg: 2360, trunkLiters: 520,
+  },
+  {
+    model: "Corolla Cross Hybrid", brand: "Toyota", price: 226120, range: 0, cat: "SUV",
+    powertrain: 'HEV', fuelType2: 'flex',
+    url: "https://www.toyota.com.br/modelos/corolla-cross-hybrid",
+    img: "/car-images/toyota-corolla-cross-hybrid.png",
+    power: 122, traction: 'FWD',
+    features: [
+      "SUV híbrido flex (1.8 VVT-i + elétricos) — 122 cv combinados",
+      "17,8 km/l cidade (gasolina, Inmetro) e 11,8 km/l (etanol)",
+      "Câmbio Transaxle CVT",
+      "Toyota Safety Sense e 7 airbags",
+      "Garantia híbrida de 8 anos / 200.000 km"
+    ],
+    fuelConsumptionKml: 17.8,
+    fuelConsumptionKmlEthanol: 11.8,
+    warrantyYears: 5, warrantyBatteryYears: 8,
+    lengthMm: 4460, widthMm: 1825, heightMm: 1620, wheelbaseMm: 2640, trunkLiters: 440,
+  },
+  {
+    model: "CR-V Advanced Hybrid", brand: "Honda", price: 353500, range: 0, cat: "SUV",
+    powertrain: 'HEV', fuelType2: 'gasolina',
+    url: "https://www.honda.com.br/automoveis/crv",
+    img: "/car-images/honda-crv-hybrid.jpg",
+    traction: 'AWD',
+    features: [
+      "SUV híbrido e:HEV (2.0 DI + elétricos) com tração integral",
+      "14,2 km/l cidade (gasolina, Inmetro)",
+      "Câmbio e-CVT e modos de condução",
+      "Honda Sensing e 8 airbags",
+      "Bateria do sistema híbrido com 8 anos de cobertura"
+    ],
+    fuelConsumptionKml: 14.2,
+    warrantyYears: 3, warrantyBatteryYears: 8,
+    lengthMm: 4706, widthMm: 1866, heightMm: 1691, wheelbaseMm: 2700, weightKg: 1819, trunkLiters: 581,
+  },
+  {
+    model: "Kona Hybrid", brand: "Hyundai", price: 219990, range: 0, cat: "SUV",
+    powertrain: 'HEV', fuelType2: 'gasolina',
+    url: "https://www.hyundai.com.br/veiculos/kona-hibrido.html",
+    img: "/car-images/hyundai-kona-hybrid.webp",
+    power: 141, torque: 27.0, traction: 'FWD', battery: 1.32,
+    features: [
+      "SUV híbrido pleno (1.6 GDI + elétrico) — 141 cv combinados",
+      "18,4 km/l cidade (gasolina, Inmetro)",
+      "Câmbio de dupla embreagem 6 marchas",
+      "Painel curvo duplo de 12,3\" e pacote ADAS completo",
+      "Bateria do sistema híbrido com 8 anos / 160.000 km"
+    ],
+    fuelConsumptionKml: 18.4,
+    warrantyYears: 5, warrantyBatteryYears: 8,
+    lengthMm: 4350, widthMm: 1825, heightMm: 1580, wheelbaseMm: 2660, trunkLiters: 407,
+  },
+  {
+    model: "Tiggo 7 Pro PHEV", brand: "CAOA Chery", price: 209990, range: 68, cat: "SUV",
+    powertrain: 'PHEV', electricRangeKm: 68, combinedRangeKm: 1200, fuelType2: 'gasolina',
+    url: "https://caoachery.com.br/novos/tiggo-7-pro-plug-in-hybrid",
+    img: "/car-images/caoachery-tiggo7-phev.webp",
+    power: 279, torque: 37.2, traction: 'FWD', battery: 18.4,
+    features: [
+      "SUV híbrido plug-in (Super Hybrid) — 279 cv / 37,2 kgfm",
+      "Bateria 18,4 kWh; autonomia elétrica PBEV de 68 km; combinada acima de 1.200 km",
+      "15,4 km/l cidade (gasolina, Inmetro) no modo sustentação",
+      "Recarga rápida DC (30–80% em ~20 min) e função V2L",
+      "Câmbio híbrido dedicado DHT"
+    ],
+    fuelConsumptionKml: 15.4,
+    warrantyYears: 7, warrantyBatteryYears: 8,
+    lengthMm: 4553, widthMm: 1862, heightMm: 1696, wheelbaseMm: 2670, weightKg: 1831, trunkLiters: 484,
+  },
+  {
+    model: "Tiggo 8 Pro PHEV", brand: "CAOA Chery", price: 249990, range: 70, cat: "SUV",
+    powertrain: 'PHEV', electricRangeKm: 70, combinedRangeKm: 1200, fuelType2: 'gasolina',
+    url: "https://caoachery.com.br/novos/tiggo-8-pro-plug-in-hybrid",
+    img: "/car-images/caoachery-tiggo8-phev.webp",
+    power: 279, torque: 37.2, traction: 'FWD', battery: 18.4,
+    features: [
+      "SUV híbrido plug-in de 7 lugares (Super Hybrid) — 279 cv / 37,2 kgfm",
+      "Bateria 18,4 kWh; autonomia elétrica PBEV de 70 km; combinada acima de 1.200 km",
+      "14,4 km/l cidade (gasolina, Inmetro) no modo sustentação",
+      "Recarga AC 7 kW / DC 50 kW e função V2L",
+      "Câmbio híbrido dedicado DHT e 9 airbags"
+    ],
+    fuelConsumptionKml: 14.4,
+    chargeAC: 7, chargeDC: 50,
+  },
+  {
+    model: "Outlander HPE-S PHEV", brand: "Mitsubishi", price: 324990, range: 58, cat: "SUV",
+    powertrain: 'PHEV', electricRangeKm: 58, combinedRangeKm: 680, fuelType2: 'gasolina',
+    url: "https://www.mitsubishimotors.com.br/suv-e-crossovers/outlander",
+    img: "/car-images/mitsubishi-outlander-phev.webp",
+    power: 252, torque: 45.9, traction: 'AWD', battery: 20,
+    features: [
+      "SUV híbrido plug-in (2.4 + dois elétricos) — 252 cv / 45,9 kgfm",
+      "Bateria 20 kWh; autonomia elétrica PBEV de 58 km; combinada de 680 km",
+      "11,6 km/l cidade (gasolina) no modo sustentação",
+      "Recarga AC 3,5 kW; tração integral S-AWC",
+      "7 lugares e pacote ADAS"
+    ],
+    fuelConsumptionKml: 11.6,
+    chargeAC: 3.5, chargeDC: null,
+    warrantyYears: 5, warrantyBatteryYears: 8,
+    lengthMm: 4710, widthMm: 1862, heightMm: 1745, wheelbaseMm: 2706, weightKg: 2145,
+  },
+  {
+    model: "C10 REEV", brand: "Leapmotor", price: 219990, range: 111, cat: "SUV",
+    powertrain: 'REEV', electricRangeKm: 111, combinedRangeKm: 950, fuelType2: 'gasolina',
+    url: "https://www.leapmotor.com.br/c10.html",
+    img: "/car-images/leapmotor-c10-reev.webp",
+    power: 215, torque: 32.6, traction: 'RWD', battery: 28.4,
+    features: [
+      "Elétrico com extensor de autonomia (1.5 a gasolina só gera energia) — 215 cv",
+      "Bateria LFP 28,4 kWh; autonomia elétrica Inmetro de 111 km; combinada WLTP de 950 km",
+      "12,0 km/l cidade (gasolina, Inmetro) em geração",
+      "Recarga rápida DC 65 kW",
+      "Tração traseira e modos EV/Combustível/Power+"
+    ],
+    energyMJkm: 0.65,
+    fuelConsumptionKml: 12.0,
+    chargeDC: 65,
+    warrantyYears: 4, warrantyBatteryYears: 8,
+    lengthMm: 4739, widthMm: 1900, heightMm: 1680, wheelbaseMm: 2825, trunkLiters: 435,
   },
 
   // 3. LUXO & PERFORMANCE

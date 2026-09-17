@@ -343,6 +343,82 @@
       ]
     },
     {
+      "src": "/car-images/caoachery-tiggo7-phev.webp",
+      "width": 1090,
+      "height": 394,
+      "alpha": true,
+      "bytes": 212364,
+      "sha256": "69e5db2a33d0e47a05e7b12422dd2da01fc6805d159c41d6f0be23dca56d8867",
+      "variants": [
+        {
+          "src": "/car-images/optimized/caoachery-tiggo7-phev.webp-320.webp",
+          "width": 320,
+          "height": 116,
+          "bytes": 7740,
+          "sha256": "fd42090dd3321865bd0304f837d5dba5532cb65c846ff86de5f127e89799d286"
+        },
+        {
+          "src": "/car-images/optimized/caoachery-tiggo7-phev.webp-640.webp",
+          "width": 640,
+          "height": 231,
+          "bytes": 22130,
+          "sha256": "d9bb606b52bb246a924bc783cb82d8bf222f6d7ff69808e165d127097bdd4745"
+        },
+        {
+          "src": "/car-images/optimized/caoachery-tiggo7-phev.webp-960.webp",
+          "width": 960,
+          "height": 347,
+          "bytes": 42802,
+          "sha256": "43e80baeaac1b9aad5c1ab84d419d88d46064545f89d138991453e9ee8359e7f"
+        },
+        {
+          "src": "/car-images/optimized/caoachery-tiggo7-phev.webp-1090.webp",
+          "width": 1090,
+          "height": 394,
+          "bytes": 48078,
+          "sha256": "943bda90ec3a410ea6ef21b36516d7173bcf846450a6bfee66004f396579a7f5"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/caoachery-tiggo8-phev.webp",
+      "width": 1090,
+      "height": 394,
+      "alpha": true,
+      "bytes": 230210,
+      "sha256": "89e55477f93542fafabba726cb0391b594bbc1589bb7a5c7238b98ec0cd4f0de",
+      "variants": [
+        {
+          "src": "/car-images/optimized/caoachery-tiggo8-phev.webp-320.webp",
+          "width": 320,
+          "height": 116,
+          "bytes": 10394,
+          "sha256": "80c1cf14cd6517d05f9b253cfd4364bc2ef1e583359bbf1ede1a814b31e73935"
+        },
+        {
+          "src": "/car-images/optimized/caoachery-tiggo8-phev.webp-640.webp",
+          "width": 640,
+          "height": 231,
+          "bytes": 27892,
+          "sha256": "4f921cc77663fffe550d50b3424f940c6d2f62e085ffdfef2e226314dc43cf3b"
+        },
+        {
+          "src": "/car-images/optimized/caoachery-tiggo8-phev.webp-960.webp",
+          "width": 960,
+          "height": 347,
+          "bytes": 49208,
+          "sha256": "74ca55fda7134a04c4c14fda19af652771000ff0537baee0fd263370b2cc4e34"
+        },
+        {
+          "src": "/car-images/optimized/caoachery-tiggo8-phev.webp-1090.webp",
+          "width": 1090,
+          "height": 394,
+          "bytes": 50274,
+          "sha256": "61aeb604c741b541c4e2e9535e523a36e1feae9186e56393e3d2567ccaa53d59"
+        }
+      ]
+    },
+    {
       "src": "/car-images/cyberster.jpg",
       "width": 960,
       "height": 755,
@@ -1102,6 +1178,37 @@
       ]
     },
     {
+      "src": "/car-images/leapmotor-c10-reev.webp",
+      "width": 720,
+      "height": 515,
+      "alpha": false,
+      "bytes": 201100,
+      "sha256": "6a897e0e842e8b4ab59bb376e77734c51ceff9564c93698b1f01d93b08f369be",
+      "variants": [
+        {
+          "src": "/car-images/optimized/leapmotor-c10-reev.webp-320.webp",
+          "width": 320,
+          "height": 229,
+          "bytes": 13290,
+          "sha256": "2b552d9f22c5bad5e855f9344b013ea4de97886eae9cba28e95dc8c42463eb2d"
+        },
+        {
+          "src": "/car-images/optimized/leapmotor-c10-reev.webp-640.webp",
+          "width": 640,
+          "height": 458,
+          "bytes": 37888,
+          "sha256": "6bd640585b720482626055a7c3076b9744721aa75078605dfa32627b021d3264"
+        },
+        {
+          "src": "/car-images/optimized/leapmotor-c10-reev.webp-720.webp",
+          "width": 720,
+          "height": 515,
+          "bytes": 45480,
+          "sha256": "386231ffa6dc93d011903d02426cff93d79f372f5053799cbaf27814dbf5f036"
+        }
+      ]
+    },
+    {
       "src": "/car-images/lexus-rz-500e.jpg",
       "width": 2560,
       "height": 1598,
@@ -1202,6 +1309,44 @@
       ]
     },
     {
+      "src": "/car-images/mitsubishi-outlander-phev.webp",
+      "width": 1080,
+      "height": 521,
+      "alpha": true,
+      "bytes": 231184,
+      "sha256": "08d3f5e900e353a0799a77433bfb1e951d6db06bddb77a6f653302a3fab7fd73",
+      "variants": [
+        {
+          "src": "/car-images/optimized/mitsubishi-outlander-phev.webp-320.webp",
+          "width": 320,
+          "height": 154,
+          "bytes": 12430,
+          "sha256": "dc55a563d2830036476f53486cff6178c18633f29bff56d6730805e98d9f66a6"
+        },
+        {
+          "src": "/car-images/optimized/mitsubishi-outlander-phev.webp-640.webp",
+          "width": 640,
+          "height": 309,
+          "bytes": 32372,
+          "sha256": "da41709225dfa297f097adc35cd0d97b5a7c72339e68409a5fca7e2bbe045ddf"
+        },
+        {
+          "src": "/car-images/optimized/mitsubishi-outlander-phev.webp-960.webp",
+          "width": 960,
+          "height": 463,
+          "bytes": 54672,
+          "sha256": "56b7e3b5174fa028c4c31967fd782da0f051a24c22ebb6f5ace0397a2ab0d80a"
+        },
+        {
+          "src": "/car-images/optimized/mitsubishi-outlander-phev.webp-1080.webp",
+          "width": 1080,
+          "height": 521,
+          "bytes": 59122,
+          "sha256": "622071797456bc44d095b944b730a4bdb9e7f0f195f545cc388c954b61d942a2"
+        }
+      ]
+    },
+    {
       "src": "/car-images/omoda-5.jpg",
       "width": 1920,
       "height": 1080,
@@ -1236,6 +1381,75 @@
           "height": 720,
           "bytes": 26024,
           "sha256": "0d5f6f4e4dbb0a8699b90888e2e79517f9259574eac7a982289effb80c77490f"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/toyota-corolla-cross-hybrid.png",
+      "width": 862,
+      "height": 575,
+      "alpha": false,
+      "bytes": 949875,
+      "sha256": "3b93d1da80b7e87acd7c641f6e00792a9f174de91f77b8b6852f8b1dea46528f",
+      "variants": [
+        {
+          "src": "/car-images/optimized/toyota-corolla-cross-hybrid.png-320.webp",
+          "width": 320,
+          "height": 213,
+          "bytes": 9782,
+          "sha256": "648e5a11ad2839f9e13d380a68619089cacd6e0029505f4dfad08e4e1c1f8344"
+        },
+        {
+          "src": "/car-images/optimized/toyota-corolla-cross-hybrid.png-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 31238,
+          "sha256": "f9c2c816968ca361ca945dece47e24ae7ec158f873611716f7298d1cd6dab0c3"
+        },
+        {
+          "src": "/car-images/optimized/toyota-corolla-cross-hybrid.png-862.webp",
+          "width": 862,
+          "height": 575,
+          "bytes": 49270,
+          "sha256": "eb2ce02ab28eb06f3a543d1d3c59274d71520db596730193e86a54392733327c"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/toyota-corolla-sedan-hybrid.jpg",
+      "width": 1920,
+      "height": 1080,
+      "alpha": false,
+      "bytes": 907539,
+      "sha256": "f8b5d9c922084d82509e1400fd3cbfae15ff20371bb3e187b86b17c5da1330f7",
+      "variants": [
+        {
+          "src": "/car-images/optimized/toyota-corolla-sedan-hybrid.jpg-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 5710,
+          "sha256": "9c6051d16dd1327a770b4dc31155adddb4330e35514736430cc29936995c2525"
+        },
+        {
+          "src": "/car-images/optimized/toyota-corolla-sedan-hybrid.jpg-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 15954,
+          "sha256": "31a45e1560018a43e04f97f207cced0c298a694105253e6b641e7e52fffe3723"
+        },
+        {
+          "src": "/car-images/optimized/toyota-corolla-sedan-hybrid.jpg-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 29518,
+          "sha256": "107f98cdf7383b4022e413cd6806513fbf9ce666820a8a685c93404280503542"
+        },
+        {
+          "src": "/car-images/optimized/toyota-corolla-sedan-hybrid.jpg-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 44882,
+          "sha256": "7d8e5ec78c197ad713b995f125024b0b5b9afc7992fbfdc9624702d8ce548058"
         }
       ]
     },
