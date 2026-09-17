@@ -179,18 +179,26 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(p19.range).toBe(77);
     expect(p19.battery).toBe(19);
     expect(p19.power).toBe(326);
+    expect(p19.chargeAC).toBe(6.6);
+    expect(p19.chargeDC).toBe(33);
     const p35 = byModel('Haval H6 PHEV35');
     expect(p35.range).toBe(126);
     expect(p35.power).toBe(393);
+    expect(p35.chargeAC).toBe(6.6);
+    expect(p35.chargeDC).toBe(48);
     const gt = byModel('Haval H6 GT');
     expect(gt.price).toBe(326000);
     expect(gt.range).toBe(126);
+    expect(gt.chargeAC).toBe(6.6);
+    expect(gt.chargeDC).toBe(48);
     const tank = byModel('Tank 300');
     expect(tank.powertrain).toBe('PHEV');
     expect(tank.price).toBe(342000);
     expect(tank.range).toBe(74);
     expect(tank.traction).toBe('AWD');
     expect(tank.fuelConsumptionKml).toBe(7.5);
+    expect(tank.chargeAC).toBe(6.6);
+    expect(tank.chargeDC).toBe(50);
     const wey = byModel('Wey 07');
     expect(wey.powertrain).toBe('PHEV');
     expect(wey.price).toBe(429000);
@@ -206,6 +214,8 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(wey.lengthMm).toBe(5156);
     expect(wey.weightKg).toBe(2545);
     expect(wey.trunkLiters).toBe(239);
+    expect(wey.chargeAC).toBe(6.6);
+    expect(wey.chargeDC).toBe(60);
   });
 
   it('Omoda 7 and Jaecoo 7 PHEV should match official Omoda & Jaecoo release and PBEV table', () => {
@@ -228,6 +238,8 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(o7l.traction).toBe('FWD');
     expect(o7l.energyMJkm).toBe(0.66);
     expect(o7l.fuelConsumptionKml).toBe(14.0);
+    expect(o7l.chargeAC).toBe(6.6);
+    expect(o7l.chargeDC).toBe(40);
     const o7p = byModel('Omoda 7 Prestige');
     expect(o7p.price).toBe(279990);
     expect(o7p.range).toBe(60);
@@ -245,6 +257,7 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(j7e.lengthMm).toBe(4500);
     expect(j7e.weightKg).toBe(1795);
     expect(j7e.trunkLiters).toBe(500);
+    expect(j7e.chargeDC).toBe(40);
     const j7l = byModel('Jaecoo 7 Luxury');
     expect(j7l.price).toBe(234990);
     expect(j7l.range).toBe(79);

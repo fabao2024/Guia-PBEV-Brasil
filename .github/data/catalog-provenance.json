@@ -5017,11 +5017,11 @@
           "verifiedAt": "2026-09-15"
         },
         "charging": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/content/dam/gwm/pages/br/pt/models/haval-h6-phev19-my25/haval-h6_phev19-25-25.pdf",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
         },
         "availability": {
           "verificationStatus": "legacy_unverified",
@@ -5093,11 +5093,11 @@
           "verifiedAt": "2026-09-15"
         },
         "charging": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/content/dam/gwm/pages/br/pt/models/phev-35/ficha-tecnica-h6-phev35-flex.pdf",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
         },
         "availability": {
           "verificationStatus": "legacy_unverified",
@@ -5473,11 +5473,11 @@
           "verifiedAt": null
         },
         "charging": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/content/dam/gwm/pages/br/pt/models/tank-300/ficha-tecnica-gwm-tank300-phev-flex.pdf",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
         },
         "availability": {
           "verificationStatus": "legacy_unverified",
@@ -8741,11 +8741,11 @@
           "verifiedAt": null
         },
         "charging": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.omodajaecoo.es/modelos/omoda-7/hibrido-ficha-tecnica",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
         },
         "availability": {
           "verificationStatus": "legacy_unverified",
@@ -8817,11 +8817,11 @@
           "verifiedAt": null
         },
         "charging": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.omodajaecoo.es/modelos/omoda-7/hibrido-ficha-tecnica",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
         },
         "availability": {
           "verificationStatus": "legacy_unverified",

@@ -2,6 +2,15 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 17/09/2026 · DC nos PHEV (filtro recarga rápida) + badge só-sigla
+
+| Área | Mudança pública |
+|---|---|
+| Carga DC | 10 PHEV ganham AC/DC oficiais e voltam ao filtro: PHEV19 (6,6/33), PHEV35 e GT (6,6/48), Tank (6,6/50), Wey (6,6/60), Omoda 7 L/P (6,6/40), Jaecoo 7 E/L/P (40). Filtro DC passa de 6 para 16 PHEV/REEV. Corretamente sem DC: Song Pro/King/Atto 2 (só AC nas fichas), Tiggo 7 (DC sem kW publicado), Outlander (sem DC externa). |
+| Fontes | Fichas GWM/Omoda Espanha; GT via espelho dealer, Wey/Jaecoo via imprensa — sem proveniência verificada. |
+| Cards | Badge de propulsão agora só a sigla (PHEV/HEV/REEV); descrições completas só no filtro. BEV segue sem badge. |
+| Verificação | 396/396 testes, TypeScript limpo, build Vite (140 páginas), scanner de segredos e verificador de proveniência (760/1400, +5) aprovados. |
+
 ## 17/09/2026 · Novidades: só lançados há no máximo 3 meses (8 modelos)
 
 | Área | Mudança pública |

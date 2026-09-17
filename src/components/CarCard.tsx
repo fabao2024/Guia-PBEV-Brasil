@@ -217,7 +217,7 @@ const CarCard: React.FC<CarCardProps> = ({
               className="text-[10px] px-2 py-0.5 rounded-full font-semibold uppercase tracking-[0.08em]"
               style={{ background: 'rgba(0,229,160,0.07)', color: '#00e5a0', border: '1px solid rgba(0,229,160,0.2)' }}
             >
-              {t(`powertrain.${(car.powertrain ?? 'BEV').toLowerCase()}`, car.powertrain)}
+              {car.powertrain}
             </span>
           )}
         </div>

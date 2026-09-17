@@ -414,6 +414,7 @@ export const CAR_DB: Car[] = [
     url: "https://www.gwmmotors.com.br/pt/experience/haval-h6",
     img: "/car-images/gwm-haval-h6-phev19.webp",
     power: 326, torque: 54.5, battery: 19,
+    chargeAC: 6.6, chargeDC: 33,
     features: [
       "Híbrido plug-in flex — 326 cv / 54,5 kgfm com etanol ou gasolina",
       "Bateria 19 kWh; autonomia elétrica PBEV de 77 km",
@@ -441,6 +442,7 @@ export const CAR_DB: Car[] = [
     energyMJkm: 0.70,
     fuelConsumptionKml: 12.5,
     fuelConsumptionKmlEthanol: 9.2,
+    chargeAC: 6.6, chargeDC: 48,
   },
   {
     model: "Haval H6 GT", brand: "GWM", price: 326000, range: 126, cat: "SUV",
@@ -458,6 +460,7 @@ export const CAR_DB: Car[] = [
     energyMJkm: 0.70,
     fuelConsumptionKml: 12.5,
     fuelConsumptionKmlEthanol: 9.2,
+    chargeAC: 6.6, chargeDC: 48,
   },
   {
     model: "Tank 300", brand: "GWM", price: 342000, range: 74, cat: "SUV",
@@ -465,6 +468,7 @@ export const CAR_DB: Car[] = [
     url: "https://www.gwmmotors.com.br/pt/modelos/tank-300",
     img: "/car-images/gwm-tank-300.webp",
     power: 394, torque: 76.5, traction: 'AWD',
+    chargeAC: 6.6, chargeDC: 50,
     features: [
       "Primeiro híbrido plug-in flex do mundo — 2.0 turbo + elétrico, 394 cv",
       "Autonomia elétrica PBEV de 74 km; tração 4x4 com reduzida",
@@ -481,6 +485,7 @@ export const CAR_DB: Car[] = [
     url: "https://www.gwmmotors.com.br/pt/modelos/wey-07",
     img: "/car-images/gwm-wey-07.webp",
     power: 517, torque: 83.6, traction: 'AWD', battery: 42.5,
+    chargeAC: 6.6, chargeDC: 60,
     features: [
       "SUV híbrido plug-in de 6 lugares e tração integral Hi4 — 1.5 turbo + dois elétricos, 517 cv / 83,6 kgfm, 0–100 km/h em 4,9 s",
       "Bateria 42,5 kWh; autonomia elétrica PBEV de 128 km (185 km WLTP)",
@@ -818,6 +823,7 @@ export const CAR_DB: Car[] = [
     url: "https://www.omodajaecoo.com.br/omoda-7-shs-p",
     img: "/car-images/omoda-7-luxury.png",
     power: 279, torque: 37.2, traction: 'FWD', battery: 18.4,
+    chargeAC: 6.6, chargeDC: 40,
     features: [
       "SUV híbrido plug-in (SHS) — 1.5 TGDI 99 kW + elétrico 150 kW/310 Nm, 205 kW (279 cv) no total, 0–100 km/h em 8,4 s",
       "Bateria 18,4 kWh; autonomia elétrica PBEV de 60 km; combinada de 1.200 km",
@@ -835,6 +841,7 @@ export const CAR_DB: Car[] = [
     url: "https://www.omodajaecoo.com.br/omoda-7-shs-p",
     img: "/car-images/omoda-7-prestige.png",
     power: 279, torque: 37.2, traction: 'FWD', battery: 18.4,
+    chargeAC: 6.6, chargeDC: 40,
     features: [
       "SUV híbrido plug-in (SHS) — 1.5 TGDI 99 kW + elétrico 150 kW/310 Nm, 205 kW (279 cv) no total, 0–100 km/h em 8,4 s",
       "Bateria 18,4 kWh; autonomia elétrica PBEV de 60 km; combinada de 1.200 km",
@@ -854,6 +861,7 @@ export const CAR_DB: Car[] = [
     url: "https://www.omodajaecoo.com.br/jaecoo-7",
     img: "/car-images/jaecoo-7-elite.png",
     power: 339, torque: 52.0, traction: 'FWD', battery: 18.3,
+    chargeDC: 40,
     features: [
       "SUV híbrido plug-in (SHS) — 1.5 TGDI 135 cv + elétrico 204 cv/310 Nm, 339 cv / 52 kgfm combinados",
       "Bateria LFP de 18,3 kWh; autonomia elétrica PBEV de 79 km; combinada de 1.200 km",
@@ -873,6 +881,7 @@ export const CAR_DB: Car[] = [
     url: "https://www.omodajaecoo.com.br/jaecoo-7",
     img: "/car-images/jaecoo-7-luxury.png",
     power: 339, torque: 52.0, traction: 'FWD', battery: 18.3,
+    chargeDC: 40,
     features: [
       "SUV híbrido plug-in (SHS) — 1.5 TGDI 135 cv + elétrico 204 cv/310 Nm, 339 cv / 52 kgfm combinados",
       "Bateria LFP de 18,3 kWh; autonomia elétrica PBEV de 79 km; combinada de 1.200 km",
@@ -893,6 +902,7 @@ export const CAR_DB: Car[] = [
     url: "https://www.omodajaecoo.com.br/jaecoo-7",
     img: "/car-images/jaecoo-7-prestige.png",
     power: 339, torque: 52.0, traction: 'FWD', battery: 18.3,
+    chargeDC: 40,
     features: [
       "SUV híbrido plug-in (SHS) — 1.5 TGDI 135 cv + elétrico 204 cv/310 Nm, 339 cv / 52 kgfm combinados",
       "Bateria LFP de 18,3 kWh; autonomia elétrica PBEV de 79 km; combinada de 1.200 km",
