@@ -2,6 +2,32 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 16/09/2026 · Flex com etanol oficial: ficha dupla e simulador fiel
+
+| Área | Mudança pública |
+|---|---|
+| Dados | Novo campo `fuelConsumptionKmlEthanol` (cidade, oficial) nos 9 flex: HEV ONE/HEV2 10,2, PHEV19 10,0, PHEV35/GT 9,2, Tank 5,4 (fichas GWM), Song Pro GL/GS 12,1/11,7 e Atto 2 GS 11,8 (PBEV). Etanol oficial bem abaixo da estimativa ÷1,30 (ex. HEV 10,2 vs 12,15). |
+| Ficha | Modal, página `/carro/` (tile novo), `ComparisonModal` e `CompareDetailPage` (linha etanol) exibem gasolina + etanol; `cars.json` passa a exportar `fuel_consumption_kml_ethanol` e `combined_range_km`. |
+| Simulador | Etanol escolhido usa o oficial do carro; ÷1,30 só no comparador genérico (declarado na metodologia). |
+| Verificação | 395/395 testes (invariante flex + motor), TypeScript limpo, build Vite (130 páginas), scanner de segredos e verificador de proveniência (728/1300) aprovados. |
+
+## 16/09/2026 · Combinado PHEV pela premissa do carro (α = elétrica ÷ combinada)
+
+| Área | Mudança pública |
+|---|---|
+| Regra | Combinado = fração elétrica α × km no kWh/100km oficial + (1−α) no km/L oficial, com α = autonomia elétrica PBEV ÷ combinada do carro. Novo campo `combinedRangeKm` nos 19 PHEV: 14 declarados pela montadora (ex. NEDC) + 5 GWM derivados de tanque oficial + km/L Inmetro (PHEV19 886, PHEV35/GT 814, Tank 599, Wey 981). Sem C, fallback utilização plena. Resolve a igualdade combinado/elétrico em km típica. |
+| Método visível | Card exibe `% elétrico · premissa do carro (R de C km)`; metodologia (PT/EN) e bloco do modal com a fórmula e as fontes por camada. |
+| Verificação | 393/393 testes (invariante `combinedRangeKm > electricRangeKm` + regra α), TypeScript limpo, build Vite (130 páginas), scanner de segredos e verificador de proveniência (728/1300) aprovados. |
+
+## 16/09/2026 · Simulador refeito para híbridos: split elétrico + combustível (Inmetro)
+
+| Área | Mudança pública |
+|---|---|
+| Motor | Novo `hybridCost.ts`: PHEV com seletor Combinado/Só-elétrico/Só-combustão; combinado = mín(km/mês, autonomia elétrica × 30) na tarifa mista + restante no km/L oficial; HEV só a combustão; BEV passa a usar MJ/km oficial antes da média da categoria. Comparador combustão inalterado. |
+| TCO | Energia anual via split; manutenção PHEV a cada 15.000 km (custo revisão combustão), HEV na tabela combustão; seguro/depreciação/IPVA inalterados. |
+| Metodologia | Nova seção Híbridos (PT/EN) com premissa de utilização plena declarada; bloco do modal atualizado. |
+| Verificação | 392/392 testes (14 novos do motor + ajuste na MethodologyPage), TypeScript limpo, build Vite (130 páginas), scanner de segredos e verificador de proveniência (728/1300) aprovados. |
+
 ## 16/09/2026 · Fotos GWM refeitas: Haval (4) e Wey 07 em alta do site oficial
 
 | Área | Mudança pública |

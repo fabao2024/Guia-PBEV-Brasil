@@ -435,6 +435,22 @@ export default function CarDetailPage() {
                   </div>
                 </div>
               )}
+              {car.fuelConsumptionKml && (
+                <div className="rounded-xl px-4 py-3" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
+                  <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: 'rgba(255,255,255,0.28)' }}>
+                    {t('card.fuelLabel', 'Consumo')} (Inmetro cidade)
+                  </div>
+                  <div className="text-xl font-black text-white leading-none">
+                    {car.fuelConsumptionKml}
+                    <span className="text-sm font-normal ml-1" style={{ color: 'rgba(255,255,255,0.35)' }}>km/l</span>
+                    {car.fuelType2 === 'flex' && car.fuelConsumptionKmlEthanol != null && (
+                      <span className="block text-xs mt-1 font-normal" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                        {t('simulator.gasoline')}: {car.fuelConsumptionKml} · {t('simulator.ethanol')}: {car.fuelConsumptionKmlEthanol} km/l
+                      </span>
+                    )}
+                  </div>
+                </div>
+              )}
             </div>
           </section>
 

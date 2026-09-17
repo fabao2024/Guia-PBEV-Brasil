@@ -7,7 +7,7 @@ import { ELECTRICITY_PRICES_UPDATED } from '../constants/electricityPricesByStat
 import { FUEL_PRICES_UPDATED } from '../constants/fuelPricesByState';
 import { IPVA_BY_STATE, IPVA_DATA_UPDATED } from '../constants/ipvaByState';
 import {
-  TCO_BY_CATEGORY, ETHANOL_FACTOR, EV_MAINT_KM, COMB_MAINT_KM,
+  TCO_BY_CATEGORY, ETHANOL_FACTOR, EV_MAINT_KM, COMB_MAINT_KM, HYBRID_MAINT_KM,
   EV_DEPR_ANNUAL, COMB_DEPR_ANNUAL, EV_INS_RATE, COMB_INS_RATE,
 } from '../utils/tco';
 
@@ -151,7 +151,20 @@ export default function MethodologyPage() {
             <p className="text-sm text-[#a0a0a0] leading-relaxed mb-3">
               {t('methodology.fuelEthanol', { factor: fmt(ETHANOL_FACTOR), defaultValue: 'Etanol: consumo {{factor}}× maior.' })}
             </p>
+            <p className="text-sm text-[#a0a0a0] leading-relaxed mb-3">{t('methodology.fuelEthanolOfficial', '')}</p>
             <p className="text-sm font-mono text-[#72d7ff] bg-white/5 rounded-xl px-4 py-3">{t('methodology.fuelFormula', '')}</p>
+          </section>
+
+          <section aria-labelledby="meth-hybrid" className="mb-10 rounded-3xl border border-white/10 bg-[#111111] p-5 md:p-6">
+            <h2 id="meth-hybrid" className="text-xl font-bold mb-3 flex items-center gap-2">
+              <Zap className="w-5 h-5 text-[#00b4ff]" aria-hidden="true" />
+              {t('methodology.hybridTitle', 'Híbridos plug-in (PHEV) e HEV')}
+            </h2>
+            <p className="text-sm text-[#a0a0a0] leading-relaxed mb-3">{t('methodology.hybridIntro', '')}</p>
+            <p className="text-sm font-mono text-[#72d7ff] bg-white/5 rounded-xl px-4 py-3 mb-3">{t('methodology.hybridCombined', '')}</p>
+            <p className="text-sm text-[#a0a0a0] leading-relaxed mb-3">{t('methodology.hybridUtilization', '')}</p>
+            <p className="text-sm text-[#a0a0a0] leading-relaxed mb-3">{t('methodology.hybridHev', '')}</p>
+            <p className="text-sm text-[#a0a0a0] leading-relaxed">{t('methodology.hybridMaint', { km: fmt(HYBRID_MAINT_KM), defaultValue: '' })}</p>
           </section>
 
           <section aria-labelledby="meth-ipva" className="mb-10 rounded-3xl border border-white/10 bg-[#111111] p-5 md:p-6">

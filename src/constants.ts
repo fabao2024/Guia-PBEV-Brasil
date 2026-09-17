@@ -409,6 +409,7 @@ export const CAR_DB: Car[] = [
       "Produção nacional (Iracemápolis - SP)"
     ],
     fuelConsumptionKml: 15.8,
+    fuelConsumptionKmlEthanol: 10.2,
   },
   {
     model: "Haval H6 HEV2", brand: "GWM", price: 225000, range: 0, cat: "SUV",
@@ -425,10 +426,11 @@ export const CAR_DB: Car[] = [
       "Produção nacional (Iracemápolis - SP)"
     ],
     fuelConsumptionKml: 15.8,
+    fuelConsumptionKmlEthanol: 10.2,
   },
   {
     model: "Haval H6 PHEV19", brand: "GWM", price: 250000, range: 77, cat: "SUV",
-    powertrain: 'PHEV', electricRangeKm: 77, fuelType2: 'flex',
+    powertrain: 'PHEV', electricRangeKm: 77, combinedRangeKm: 886, fuelType2: 'flex', // C derivado: tanque 55 L (ficha GWM) + 14,7 km/L Inmetro
     url: "https://www.gwmmotors.com.br/pt/experience/haval-h6",
     img: "/car-images/gwm-haval-h6-phev19.webp",
     power: 326, torque: 54.5, battery: 19,
@@ -441,10 +443,11 @@ export const CAR_DB: Car[] = [
     ],
     energyMJkm: 0.60,
     fuelConsumptionKml: 14.7,
+    fuelConsumptionKmlEthanol: 10.0,
   },
   {
     model: "Haval H6 PHEV35", brand: "GWM", price: 290000, range: 126, cat: "SUV",
-    powertrain: 'PHEV', electricRangeKm: 126, fuelType2: 'flex',
+    powertrain: 'PHEV', electricRangeKm: 126, combinedRangeKm: 814, fuelType2: 'flex', // C derivado: tanque 55 L (ficha GWM) + 12,5 km/L Inmetro
     url: "https://www.gwmmotors.com.br/pt/experience/haval-h6",
     img: "/car-images/gwm-haval-h6-phev35.webp",
     power: 393, torque: 65.5, battery: 35,
@@ -457,10 +460,11 @@ export const CAR_DB: Car[] = [
     ],
     energyMJkm: 0.70,
     fuelConsumptionKml: 12.5,
+    fuelConsumptionKmlEthanol: 9.2,
   },
   {
     model: "Haval H6 GT", brand: "GWM", price: 326000, range: 126, cat: "SUV",
-    powertrain: 'PHEV', electricRangeKm: 126, fuelType2: 'flex',
+    powertrain: 'PHEV', electricRangeKm: 126, combinedRangeKm: 814, fuelType2: 'flex', // C derivado: tanque 55 L (ficha GWM) + 12,5 km/L Inmetro
     url: "https://www.gwmmotors.com.br/pt/modelos/haval-h6-gt",
     img: "/car-images/gwm-haval-h6-gt.webp",
     power: 393, torque: 65.5, battery: 35,
@@ -473,10 +477,11 @@ export const CAR_DB: Car[] = [
     ],
     energyMJkm: 0.70,
     fuelConsumptionKml: 12.5,
+    fuelConsumptionKmlEthanol: 9.2,
   },
   {
     model: "Tank 300", brand: "GWM", price: 342000, range: 74, cat: "SUV",
-    powertrain: 'PHEV', electricRangeKm: 74, fuelType2: 'flex',
+    powertrain: 'PHEV', electricRangeKm: 74, combinedRangeKm: 599, fuelType2: 'flex', // C derivado: tanque 70 L (ficha GWM) + 7,5 km/L Inmetro
     url: "https://www.gwmmotors.com.br/pt/modelos/tank-300",
     img: "/car-images/gwm-tank-300.webp",
     power: 394, torque: 76.5, traction: 'AWD',
@@ -488,10 +493,11 @@ export const CAR_DB: Car[] = [
     ],
     energyMJkm: 1.07,
     fuelConsumptionKml: 7.5,
+    fuelConsumptionKmlEthanol: 5.4,
   },
   {
     model: "Wey 07", brand: "GWM", price: 429000, range: 128, cat: "Luxo",
-    powertrain: 'PHEV', electricRangeKm: 128,
+    powertrain: 'PHEV', electricRangeKm: 128, combinedRangeKm: 981, // C derivado: tanque 79 L (ficha GWM) + 10,8 km/L Inmetro
     url: "https://www.gwmmotors.com.br/pt/modelos/wey-07",
     img: "/car-images/gwm-wey-07.webp",
     power: 517, torque: 83.6, traction: 'AWD', battery: 42.5,
@@ -828,7 +834,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Omoda 7 Luxury", brand: "Omoda", price: 254990, range: 60, cat: "SUV",
-    powertrain: 'PHEV', electricRangeKm: 60, fuelType2: 'gasolina',
+    powertrain: 'PHEV', electricRangeKm: 60, combinedRangeKm: 1200, fuelType2: 'gasolina',
     url: "https://www.omodajaecoo.com.br/omoda-7-shs-p",
     img: "/car-images/omoda-7-luxury.png",
     power: 279, torque: 37.2, traction: 'FWD', battery: 18.4,
@@ -845,7 +851,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Omoda 7 Prestige", brand: "Omoda", price: 279990, range: 60, cat: "SUV",
-    powertrain: 'PHEV', electricRangeKm: 60, fuelType2: 'gasolina',
+    powertrain: 'PHEV', electricRangeKm: 60, combinedRangeKm: 1200, fuelType2: 'gasolina',
     url: "https://www.omodajaecoo.com.br/omoda-7-shs-p",
     img: "/car-images/omoda-7-prestige.png",
     power: 279, torque: 37.2, traction: 'FWD', battery: 18.4,
@@ -864,7 +870,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Jaecoo 7 Elite", brand: "Jaecoo", price: 189990, range: 79, cat: "SUV",
-    powertrain: 'PHEV', electricRangeKm: 79, fuelType2: 'gasolina',
+    powertrain: 'PHEV', electricRangeKm: 79, combinedRangeKm: 1200, fuelType2: 'gasolina',
     url: "https://www.omodajaecoo.com.br/jaecoo-7",
     img: "/car-images/jaecoo-7-elite.png",
     power: 339, torque: 52.0, traction: 'FWD', battery: 18.3,
@@ -883,7 +889,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Jaecoo 7 Luxury", brand: "Jaecoo", price: 234990, range: 79, cat: "SUV",
-    powertrain: 'PHEV', electricRangeKm: 79, fuelType2: 'gasolina',
+    powertrain: 'PHEV', electricRangeKm: 79, combinedRangeKm: 1200, fuelType2: 'gasolina',
     url: "https://www.omodajaecoo.com.br/jaecoo-7",
     img: "/car-images/jaecoo-7-luxury.png",
     power: 339, torque: 52.0, traction: 'FWD', battery: 18.3,
@@ -903,7 +909,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Jaecoo 7 Prestige", brand: "Jaecoo", price: 256990, range: 79, cat: "SUV",
-    powertrain: 'PHEV', electricRangeKm: 79, fuelType2: 'gasolina',
+    powertrain: 'PHEV', electricRangeKm: 79, combinedRangeKm: 1200, fuelType2: 'gasolina',
     url: "https://www.omodajaecoo.com.br/jaecoo-7",
     img: "/car-images/jaecoo-7-prestige.png",
     power: 339, torque: 52.0, traction: 'FWD', battery: 18.3,
@@ -1015,7 +1021,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Song Pro GL", brand: "BYD", price: 179990, range: 57, cat: "SUV",
-    powertrain: 'PHEV', electricRangeKm: 57, fuelType2: 'flex',
+    powertrain: 'PHEV', electricRangeKm: 57, combinedRangeKm: 1075, fuelType2: 'flex',
     url: "https://www.byd.com/br/car/song-pro-flex",
     img: "/car-images/byd-song-pro-flex.webp",
     power: 218, torque: 30.6, traction: 'FWD', battery: 13.1,
@@ -1036,10 +1042,11 @@ export const CAR_DB: Car[] = [
     lengthMm: 4740, widthMm: 1860, heightMm: 1710, wheelbaseMm: 2710,
     groundClearanceMm: 160, weightKg: 1700, trunkLiters: 530,
     fuelConsumptionKml: 16.0,
+    fuelConsumptionKmlEthanol: 12.1,
   },
   {
     model: "Song Pro GS", brand: "BYD", price: 199990, range: 72, cat: "SUV",
-    powertrain: 'PHEV', electricRangeKm: 72, fuelType2: 'flex',
+    powertrain: 'PHEV', electricRangeKm: 72, combinedRangeKm: 1105, fuelType2: 'flex',
     url: "https://www.byd.com/br/car/song-pro-flex",
     img: "/car-images/byd-song-pro-flex.webp",
     power: 219, torque: 30.6, traction: 'FWD', battery: 18.3,
@@ -1061,10 +1068,11 @@ export const CAR_DB: Car[] = [
     lengthMm: 4740, widthMm: 1860, heightMm: 1710, wheelbaseMm: 2710,
     groundClearanceMm: 160, weightKg: 1760, trunkLiters: 530,
     fuelConsumptionKml: 15.9,
+    fuelConsumptionKmlEthanol: 11.7,
   },
   {
     model: "Shark", brand: "BYD", price: 344990, range: 68, cat: "Comercial",
-    powertrain: 'PHEV', electricRangeKm: 68, fuelType2: 'gasolina',
+    powertrain: 'PHEV', electricRangeKm: 68, combinedRangeKm: 730, fuelType2: 'gasolina',
     url: "https://www.byd.com/br/car/shark",
     img: "/car-images/byd-shark.jpg",
     power: 437, torque: 66.3, traction: 'AWD', battery: 29.6,
@@ -1087,7 +1095,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Song Plus", brand: "BYD", price: 249990, range: 99, cat: "SUV",
-    powertrain: 'PHEV', electricRangeKm: 99, fuelType2: 'gasolina',
+    powertrain: 'PHEV', electricRangeKm: 99, combinedRangeKm: 1150, fuelType2: 'gasolina',
     url: "https://www.byd.com/br/car/song-plus-dmi",
     img: "/car-images/byd-song-plus.webp",
     power: 240, torque: 30.6, traction: 'FWD', battery: 26.6,
@@ -1110,7 +1118,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Song Plus Premium", brand: "BYD", price: 299800, range: 87, cat: "SUV",
-    powertrain: 'PHEV', electricRangeKm: 87, fuelType2: 'gasolina',
+    powertrain: 'PHEV', electricRangeKm: 87, combinedRangeKm: 1015, fuelType2: 'gasolina',
     url: "https://www.byd.com/br/car/song-plus-premium",
     img: "/car-images/byd-song-plus-premium.webp",
     power: 324, torque: 56.1, traction: 'AWD', battery: 26.6,
@@ -1134,7 +1142,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "King GL", brand: "BYD", price: 147990, range: 35, cat: "Sedan",
-    powertrain: 'PHEV', electricRangeKm: 35, fuelType2: 'gasolina',
+    powertrain: 'PHEV', electricRangeKm: 35, combinedRangeKm: 1175, fuelType2: 'gasolina',
     url: "https://www.byd.com/br/car/king",
     img: "/car-images/byd-king-gl.webp",
     power: 209, torque: 32.2, traction: 'FWD', battery: 8.3,
@@ -1157,7 +1165,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "King GS", brand: "BYD", price: 175990, range: 78, cat: "Sedan",
-    powertrain: 'PHEV', electricRangeKm: 78, fuelType2: 'gasolina',
+    powertrain: 'PHEV', electricRangeKm: 78, combinedRangeKm: 1200, fuelType2: 'gasolina',
     url: "https://www.byd.com/br/car/king",
     img: "/car-images/byd-king-gl.webp",
     power: 235, torque: 33.1, traction: 'FWD', battery: 18.3,
@@ -1181,7 +1189,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Atto 2 GS", brand: "BYD", price: 169990, range: 75, cat: "SUV",
-    powertrain: 'PHEV', electricRangeKm: 75, fuelType2: 'flex',
+    powertrain: 'PHEV', electricRangeKm: 75, combinedRangeKm: 1045, fuelType2: 'flex',
     url: "https://www.byd.com/br/car/atto2",
     img: "/car-images/byd-atto-2.jpg",
     power: 197, torque: 30.6, traction: 'FWD', battery: 18.03,
@@ -1203,10 +1211,11 @@ export const CAR_DB: Car[] = [
     lengthMm: 4330, widthMm: 1830, heightMm: 1670, wheelbaseMm: 2620,
     groundClearanceMm: 160, weightKg: 1620, trunkLiters: 455,
     fuelConsumptionKml: 15.5,
+    fuelConsumptionKmlEthanol: 11.8,
   },
   {
     model: "Atto 8", brand: "BYD", price: 399990, range: 111, cat: "SUV",
-    powertrain: 'PHEV', electricRangeKm: 111, fuelType2: 'gasolina',
+    powertrain: 'PHEV', electricRangeKm: 111, combinedRangeKm: 900, fuelType2: 'gasolina',
     url: "https://www.byd.com/br/car/atto-8",
     img: "/car-images/byd-atto-8.webp",
     power: 488, torque: 68.9, traction: 'AWD', battery: 35.6,

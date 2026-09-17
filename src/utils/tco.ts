@@ -1,11 +1,20 @@
 import { Car } from '../types';
 import { IPVA_BY_STATE, calcIpva } from '../constants/ipvaByState';
+import {
+  ETHANOL_FACTOR,
+  calcMonthlyCost,
+  hasPlugInRange,
+} from './hybridCost';
 
-export type FuelType = 'gasoline' | 'ethanol';
+export type { FuelType } from './hybridCost';
+export { ETHANOL_FACTOR };
+
+import type { FuelType } from './hybridCost';
 
 export interface TCOParams {
   kms: number;             // km/month
-  gasPrice: number;        // R$/L
+  gasPrice: number;        // R$/L (preço do combustível escolhido)
+  gasolinePrice: number;   // R$/L gasolina (usado por carros não-flex com etanol escolhido)
   blendedKwhPrice: number; // R$/kWh (blended AC+DC)
   fuelType: FuelType;      // tipo de combustível
   selectedState: string;
@@ -24,9 +33,9 @@ export const COMB_INS_RATE = 0.025; // 2,5% do valor combustão/ano
 // Intervalo de revisão em km
 export const EV_MAINT_KM   = 20_000; // revisão a cada 20.000 km (EV)
 export const COMB_MAINT_KM = 10_000; // revisão a cada 10.000 km (combustão)
+export const HYBRID_MAINT_KM = 15_000; // PHEV: meio-termo declarado (motor + elétrico)
 
-// Etanol consome 30% mais volume que gasolina para a mesma distância
-export const ETHANOL_FACTOR = 1.30;
+// (movido para ./hybridCost — reexportado acima para compatibilidade)
 
 interface TCOCategory {
   maintEVPerService: number;   // R$ por revisão (EV)
@@ -88,19 +97,31 @@ export function calcTCO(car: Car, params: TCOParams): TCOResult {
 
   const annualKms = params.kms * 12;
 
-  // Consumo efetivo: usa valor personalizado se fornecido, caso contrário padrão por categoria
-  const efficiencyKwh = params.customEvKwh ?? cat.efficiencyKwh;
-  const effectiveCombKmL = params.customCombKmL ??
-    (params.fuelType === 'ethanol' ? cat.combKmL / ETHANOL_FACTOR : cat.combKmL);
+  // Energia anual via motor híbrido (BEV/HEV/PHEV): split elétrico + combustível.
+  // PHEV usa o modo combinado; overrides manuais respeitados como no simulador.
+  const monthly = calcMonthlyCost(car, {
+    kms: params.kms,
+    blendedKwhPrice: params.blendedKwhPrice,
+    fuelPrice: params.gasPrice,
+    gasolinePrice: params.gasolinePrice,
+    fuelType: params.fuelType,
+    categoryKwh100: cat.efficiencyKwh,
+    categoryCombKmL: cat.combKmL,
+    customKwh100: params.customEvKwh,
+    customKmL: params.customCombKmL,
+    mode: 'combined',
+  });
+  const annualEnergyEV = monthly.total * 12;
+  const annualEnergyComb = params.kms > 0 ? monthly.comparatorCost * 12 : 0;
 
-  // Energia anual — constante ao longo dos anos
-  const annualEnergyEV   = Math.round((annualKms / 100) * efficiencyKwh * params.blendedKwhPrice);
-  const annualEnergyComb = annualKms > 0
-    ? Math.round((annualKms / effectiveCombKmL) * params.gasPrice)
-    : 0;
-
-  // Manutenção proporcional ao km e intervalo de revisão
-  const annualMaintEV   = Math.round(cat.maintEVPerService   * annualKms / EV_MAINT_KM);
+  // Manutenção proporcional ao km e intervalo de revisão.
+  // HEV segue a tabela combustão; PHEV usa custo de revisão combustão no
+  // intervalo híbrido declarado (15.000 km).
+  const isHybrid = (car.powertrain ?? 'BEV') !== 'BEV';
+  const isPlugIn = hasPlugInRange(car);
+  const maintIntervalEV = isPlugIn ? HYBRID_MAINT_KM : isHybrid ? COMB_MAINT_KM : EV_MAINT_KM;
+  const maintCostEV = isHybrid ? cat.maintCombPerService : cat.maintEVPerService;
+  const annualMaintEV   = Math.round(maintCostEV * annualKms / maintIntervalEV);
   const annualMaintComb = Math.round(cat.maintCombPerService * annualKms / COMB_MAINT_KM);
 
   const years: TCOYearBreakdown[] = [];

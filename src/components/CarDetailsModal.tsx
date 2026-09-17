@@ -439,6 +439,11 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                                 <div className="text-xl font-black text-white leading-none">
                                     {car.fuelConsumptionKml}
                                     <span className="text-sm font-normal ml-1" style={{ color: 'rgba(255,255,255,0.35)' }}>km/l</span>
+                                    {car.fuelType2 === 'flex' && car.fuelConsumptionKmlEthanol != null && (
+                                        <span className="block text-xs mt-1 font-normal" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                                            {t('simulator.gasoline')}: {car.fuelConsumptionKml} · {t('simulator.ethanol')}: {car.fuelConsumptionKmlEthanol} km/l
+                                        </span>
+                                    )}
                                 </div>
                             </div>
                         )}

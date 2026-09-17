@@ -21,8 +21,13 @@ export interface Car {
   powertrain?: PowertrainType;
   /** km — autonomia só-elétrica PBEV (PHEV/REEV). Para BEV, equivale a `range`. */
   electricRangeKm?: number;
+  /** km — autonomia combinada (PHEV/REEV): declarada pela montadora ou
+   * derivada de tanque oficial + km/L Inmetro. Base da fração elétrica α = R/C. */
+  combinedRangeKm?: number;
   /** km/L — consumo em modo sustentação de carga, gasolina (HEV; PHEV/REEV). */
   fuelConsumptionKml?: number;
+  /** km/L cidade no etanol, oficial (flex apenas). Quando ausente, estima-se ÷1,30. */
+  fuelConsumptionKmlEthanol?: number;
   /** Combustível do motor a combustão (híbridos). */
   fuelType2?: 'gasolina' | 'etanol' | 'flex' | 'diesel';
   power?: number; // cv

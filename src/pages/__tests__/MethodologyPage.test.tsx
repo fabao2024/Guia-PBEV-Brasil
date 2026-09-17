@@ -52,8 +52,10 @@ describe('MethodologyPage', () => {
     expect(screen.getByText(/bateria × 0,93/i)).toBeInTheDocument();
     expect(screen.getByText(/acima de R\$ 300\.000/i)).toBeInTheDocument();
     expect(screen.getByText(/acima de R\$ 150\.000/i)).toBeInTheDocument();
-    expect(screen.getByText(/20\.000 km/i)).toBeInTheDocument();
-    expect(screen.getByText(/10\.000 km/i)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /híbridos/i })).toBeInTheDocument();
+    expect(screen.getByText(/a cada 20\.000 km no EV/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/10\.000 km/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getByText(/15\.000/i)).toBeInTheDocument();
   });
 
   it('renders methodology sections in english when language is en', async () => {

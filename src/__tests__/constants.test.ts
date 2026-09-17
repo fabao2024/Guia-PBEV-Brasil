@@ -146,6 +146,9 @@ describe('CAR_DB data integrity', () => {
             expect(car.battery, `${car.model}: battery inválida`).toBeGreaterThan(0);
           }
           expect(car.range, `${car.model}: range deve ser a autonomia elétrica PBEV`).toBe(car.electricRangeKm);
+          // Combinada obrigatória (declarada pela montadora ou derivada de tanque oficial + km/L
+          // Inmetro): base da fração elétrica α do simulador; sem ela o carro cai no fallback R×30
+          expect(car.combinedRangeKm, `${car.model}: PHEV/REEV sem combinedRangeKm`).toBeGreaterThan(car.electricRangeKm!);
         }
       }
     });
@@ -163,6 +166,12 @@ describe('CAR_DB data integrity', () => {
         if (car.fuelConsumptionKml !== undefined) {
           expect(car.fuelConsumptionKml, `${car.model}: km/L implausível`).toBeGreaterThanOrEqual(5);
           expect(car.fuelConsumptionKml, `${car.model}: km/L implausível`).toBeLessThanOrEqual(35);
+        }
+        // Flex exige etanol oficial (cidade); etanol sempre pior que gasolina
+        if (car.fuelType2 === 'flex') {
+          expect(car.fuelConsumptionKml, `${car.model}: flex sem km/L base`).toBeGreaterThan(0);
+          expect(car.fuelConsumptionKmlEthanol, `${car.model}: flex sem etanol oficial`).toBeGreaterThan(0);
+          expect(car.fuelConsumptionKmlEthanol!, `${car.model}: etanol deve ser pior que gasolina`).toBeLessThan(car.fuelConsumptionKml!);
         }
       }
     });
