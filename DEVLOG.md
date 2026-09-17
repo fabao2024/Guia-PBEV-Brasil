@@ -2,6 +2,14 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 17/09/2026 · Lote B híbridos: Omoda 5, Maverick, XC60/XC90 (145 veículos)
+
+| Área | Mudança pública |
+|---|---|
+| Catálogo | Omoda 5 SHS-H Luxury (R$ 159.990) e Prestige (R$ 184.990) — 224 cv, 15,1 km/l; Maverick Hybrid Lariat (R$ 239.900) — 194 cv AWD, 15,4 km/l, sem foto oficial (TODO); XC60 T8 Plus (R$ 459.950, 48 km) e XC90 T8 Plus (R$ 679.950, 47 km) — 462 cv, fotos Volvo Cision. Nenhum entra em Novidades (lançamentos anteriores a 3 meses). |
+| Divergências | Omoda 5 15,1 km/l via etiqueta PBEV citada na imprensa; XC60/XC90 sustain (9,5/9,4) e combinadas (665/658) via fichas de mercado; Maverick via rede Ford (site bloqueia robôs). XC60/XC90 sem DC externa (correto, fora do filtro DC). |
+| Verificação | Testes (bloco Lote B + invariantes), TypeScript limpo, build Vite (145 páginas), scanner de segredos e verificador de proveniência aprovados. |
+
 ## 17/09/2026 · DC nos PHEV (filtro recarga rápida) + badge só-sigla
 
 | Área | Mudança pública |

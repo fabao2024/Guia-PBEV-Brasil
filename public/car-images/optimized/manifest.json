@@ -1454,6 +1454,82 @@
       ]
     },
     {
+      "src": "/car-images/volvo-xc60-t8.jpg",
+      "width": 4533,
+      "height": 3400,
+      "alpha": false,
+      "bytes": 1623548,
+      "sha256": "05d9afef83d5596cffb7f0755a74a489ddf1d4d8093af06bcedd60ad19df5d6e",
+      "variants": [
+        {
+          "src": "/car-images/optimized/volvo-xc60-t8.jpg-320.webp",
+          "width": 320,
+          "height": 240,
+          "bytes": 3234,
+          "sha256": "0df9e504f283b59b969767aaab823fecee1673c04e92c6942ddf3c2a8a854345"
+        },
+        {
+          "src": "/car-images/optimized/volvo-xc60-t8.jpg-640.webp",
+          "width": 640,
+          "height": 480,
+          "bytes": 8870,
+          "sha256": "238468631e0e33c9781863362544ae9142de6c821d8f111ec2e853e18e7761ba"
+        },
+        {
+          "src": "/car-images/optimized/volvo-xc60-t8.jpg-960.webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 16812,
+          "sha256": "09a6fbae313629f5d2f87cdf68b0cdf69a98e3369bda93f027b52ad5b2fc6e8e"
+        },
+        {
+          "src": "/car-images/optimized/volvo-xc60-t8.jpg-1280.webp",
+          "width": 1280,
+          "height": 960,
+          "bytes": 28226,
+          "sha256": "755a2104e82150d2e4a91aa2add58874e997b6b9322e0e8c6fb29fb367ee480f"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/volvo-xc90-t8.jpg",
+      "width": 4533,
+      "height": 3400,
+      "alpha": false,
+      "bytes": 1849735,
+      "sha256": "0eeedd3d8b4dce00ffc0333b9c717ed66141709df8b7952b45b2bb4078fd6846",
+      "variants": [
+        {
+          "src": "/car-images/optimized/volvo-xc90-t8.jpg-320.webp",
+          "width": 320,
+          "height": 240,
+          "bytes": 3158,
+          "sha256": "5391c92afd77004dfb22121d8d90c9366b8b9481e8fbcf407c31d5a05cc942a7"
+        },
+        {
+          "src": "/car-images/optimized/volvo-xc90-t8.jpg-640.webp",
+          "width": 640,
+          "height": 480,
+          "bytes": 9334,
+          "sha256": "ad6d31b3fbe6f33512853531633d53639d2b78f02c59f2d24fe46968fc99abd3"
+        },
+        {
+          "src": "/car-images/optimized/volvo-xc90-t8.jpg-960.webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 19292,
+          "sha256": "eacb1955539d76b2c945fa9feb7f5ad7ce1312fa3d240420ee75b6b3c6b4c9ee"
+        },
+        {
+          "src": "/car-images/optimized/volvo-xc90-t8.jpg-1280.webp",
+          "width": 1280,
+          "height": 960,
+          "bytes": 33664,
+          "sha256": "900529d71a02659fe5966e78b9d9982a3dcb21ec379cf471b025c1ebe649d3b8"
+        }
+      ]
+    },
+    {
       "src": "/car-images/yuan-pro.jpg",
       "width": 2880,
       "height": 1620,

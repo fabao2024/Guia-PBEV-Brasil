@@ -863,6 +863,43 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(ewonder.range).toBe(189);
   });
 
+  it('Lote B hybrids should match official Brazilian sources (set/2026)', () => {
+    // omodajaecoo.com.br official news: Omoda 5 SHS-H Luxury from R$ 159.990,
+    // Prestige R$ 184.990; HEV 224 cv / 30,1 kgfm, battery 1,83 kWh.
+    // Inmetro city 15,1 km/l (PBEV label cited by press).
+    const o5l = byModel('Omoda 5 SHS-H Luxury');
+    expect(o5l.powertrain).toBe('HEV');
+    expect(o5l.price).toBe(159990);
+    expect(o5l.power).toBe(224);
+    expect(o5l.fuelConsumptionKml).toBe(15.1);
+    const o5p = byModel('Omoda 5 SHS-H Prestige');
+    expect(o5p.price).toBe(184990);
+    expect(o5p.power).toBe(224);
+    // Ford dealer network (ford.com.br blocks bots): Maverick Lariat Hybrid
+    // AWD R$ 239.900, 194 cv, 15,4 km/l cidade (PBEV via press).
+    const mav = byModel('Maverick Hybrid Lariat');
+    expect(mav.powertrain).toBe('HEV');
+    expect(mav.price).toBe(239900);
+    expect(mav.power).toBe(194);
+    expect(mav.fuelConsumptionKml).toBe(15.4);
+    expect(mav.traction).toBe('AWD');
+    // volvocars.com/br official pages: XC60 T8 Plus R$ 459.950 (48 km,
+    // 18,8 kWh, 462 cv); XC90 T8 Plus R$ 679.950 (47 km). Sustain km/L
+    // and combined totals via market fichas (flagged in DEVLOG).
+    const xc60 = byModel('XC60 T8 Plus');
+    expect(xc60.powertrain).toBe('PHEV');
+    expect(xc60.price).toBe(459950);
+    expect(xc60.range).toBe(48);
+    expect(xc60.power).toBe(462);
+    expect(xc60.battery).toBe(18.8);
+    const xc90 = byModel('XC90 T8 Plus');
+    expect(xc90.powertrain).toBe('PHEV');
+    expect(xc90.price).toBe(679950);
+    expect(xc90.range).toBe(47);
+    expect(xc90.power).toBe(462);
+    expect(xc90.battery).toBe(18.8);
+  });
+
   it('traction should match the official drivetrain of the sold versions', () => {
     // hyundai.com.br official catalog (checked 2026-08-25): Ioniq 5 Signature
     // AWD HTRAC, dual motor, 325 cv combined.

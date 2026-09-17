@@ -856,6 +856,38 @@ export const CAR_DB: Car[] = [
     fuelConsumptionKml: 14.0,
   },
   {
+    model: "Omoda 5 SHS-H Luxury", brand: "Omoda", price: 159990, range: 0, cat: "SUV",
+    powertrain: 'HEV', fuelType2: 'gasolina',
+    url: "https://omoda.com.br/omoda-5-shs-h",
+    img: "/car-images/omoda-5-shs-h.png",
+    power: 224, torque: 30.1, traction: 'FWD', battery: 1.83,
+    features: [
+      "SUV híbrido pleno (SHS) — 1.5 TGDI + elétrico, 224 cv / 30,1 kgfm",
+      "15,1 km/l cidade (gasolina, Inmetro)",
+      "Câmbio híbrido dedicado DHT; tração dianteira",
+      "Central multimídia 12,3\" com CarPlay e Android Auto sem fio",
+      "Tanque de 51 L e porta-malas de 372 L"
+    ],
+    fuelConsumptionKml: 15.1,
+    lengthMm: 4447, widthMm: 1824, heightMm: 1588, wheelbaseMm: 2610, weightKg: 1546, trunkLiters: 372,
+  },
+  {
+    model: "Omoda 5 SHS-H Prestige", brand: "Omoda", price: 184990, range: 0, cat: "SUV",
+    powertrain: 'HEV', fuelType2: 'gasolina',
+    url: "https://omoda.com.br/omoda-5-shs-h",
+    img: "/car-images/omoda-5-shs-h.png",
+    power: 224, torque: 30.1, traction: 'FWD', battery: 1.83,
+    features: [
+      "SUV híbrido pleno (SHS) — 1.5 TGDI + elétrico, 224 cv / 30,1 kgfm",
+      "15,1 km/l cidade (gasolina, Inmetro)",
+      "Câmbio híbrido dedicado DHT; tração dianteira",
+      "Teto solar, câmera 540° e pacote ADAS",
+      "Tanque de 51 L e porta-malas de 372 L"
+    ],
+    fuelConsumptionKml: 15.1,
+    lengthMm: 4447, widthMm: 1824, heightMm: 1588, wheelbaseMm: 2610, weightKg: 1546, trunkLiters: 372,
+  },
+  {
     model: "Jaecoo 7 Elite", brand: "Jaecoo", price: 189990, range: 79, cat: "SUV",
     powertrain: 'PHEV', electricRangeKm: 79, combinedRangeKm: 1200, fuelType2: 'gasolina',
     url: "https://www.omodajaecoo.com.br/jaecoo-7",
@@ -1082,6 +1114,22 @@ export const CAR_DB: Car[] = [
     lengthMm: 5460, widthMm: 1970, heightMm: 1930, wheelbaseMm: 3260,
     groundClearanceMm: 230, weightKg: 2710,
     fuelConsumptionKml: 8.7,
+  },
+  {
+    model: "Maverick Hybrid Lariat", brand: "Ford", price: 239900, range: 0, cat: "Comercial",
+    powertrain: 'HEV', fuelType2: 'gasolina',
+    img: "/car-images/ford-maverick-hybrid.jpg", // TODO: foto oficial indisponível (ford.com.br bloqueia, ford.com expira)
+    power: 194, torque: 21.4, traction: 'AWD',
+    features: [
+      "Picape híbrida plena (2.5 Atkinson + elétrico) — 194 cv / 21,4 kgfm",
+      "15,4 km/l cidade (gasolina, Inmetro)",
+      "Câmbio eCVT e tração integral inteligente",
+      "Caçamba de 943 L e capacidade de carga de 584 kg",
+      "Pacote ADAS, teto solar e câmeras 360°"
+    ],
+    fuelConsumptionKml: 15.4,
+    warrantyYears: 3, warrantyBatteryYears: 8,
+    lengthMm: 5096, widthMm: 1979, heightMm: 1733, wheelbaseMm: 3077, weightKg: 1829,
   },
   {
     model: "Song Plus", brand: "BYD", price: 249990, range: 99, cat: "SUV",
@@ -1850,6 +1898,40 @@ export const CAR_DB: Car[] = [
     chargeDC: 65,
     warrantyYears: 4, warrantyBatteryYears: 8,
     lengthMm: 4739, widthMm: 1900, heightMm: 1680, wheelbaseMm: 2825, trunkLiters: 435,
+  },
+  {
+    model: "XC60 T8 Plus", brand: "Volvo", price: 459950, range: 48, cat: "SUV",
+    powertrain: 'PHEV', electricRangeKm: 48, combinedRangeKm: 665, fuelType2: 'gasolina',
+    url: "https://www.volvocars.com/br/cars/xc60-hybrid/",
+    img: "/car-images/volvo-xc60-t8.jpg",
+    power: 462, torque: 72.3, traction: 'AWD', battery: 18.8,
+    features: [
+      "SUV híbrido plug-in (2.0 + elétrico) — 462 cv / 72,3 kgfm",
+      "Bateria 18,8 kWh; autonomia elétrica Inmetro de 48 km; combinada de 665 km",
+      "9,5 km/l cidade (gasolina) no modo sustentação",
+      "Recarga AC; tração integral AWD",
+      "Pacote Google Automotive e Pilot Assist"
+    ],
+    fuelConsumptionKml: 9.5,
+    chargeAC: 6.4,
+    warrantyYears: 2,
+    lengthMm: 4708, widthMm: 1902, heightMm: 1651, trunkLiters: 468,
+  },
+  {
+    model: "XC90 T8 Plus", brand: "Volvo", price: 679950, range: 47, cat: "SUV",
+    powertrain: 'PHEV', electricRangeKm: 47, combinedRangeKm: 658, fuelType2: 'gasolina',
+    img: "/car-images/volvo-xc90-t8.jpg",
+    power: 462, torque: 72.3, traction: 'AWD', battery: 18.8,
+    features: [
+      "SUV híbrido plug-in de 7 lugares (2.0 + elétrico) — 462 cv / 72,3 kgfm",
+      "Bateria 18,8 kWh; autonomia elétrica de 47 km; combinada de 658 km",
+      "9,4 km/l cidade (gasolina) no modo sustentação",
+      "Recarga AC; tração integral AWD",
+      "7 lugares e som Bowers & Wilkins (Ultra)"
+    ],
+    fuelConsumptionKml: 9.4,
+    warrantyYears: 2,
+    lengthMm: 4953, widthMm: 1923,
   },
 
   // 3. LUXO & PERFORMANCE
