@@ -88,10 +88,10 @@ No [guiapbev.cloud](https://guiapbev.cloud), usuários inserem sua própria chav
 
 ### Métricas Atuais
 
-- **145 veículos** (BEV + híbridos) cadastrados (36 marcas)
+- **154 veículos** (BEV + híbridos) cadastrados (37 marcas)
 - **93 modelos** com certificação PBE/INMETRO oficial
 - **27 estados** com dados de IPVA 2026 e tarifas ANP/ANEEL
-- **397 testes** automatizados em 49 arquivos
+- **398 testes** automatizados em 49 arquivos
 - **Build**: ~5s (Vite/ESBuild)
 
 ### Documentação
@@ -179,10 +179,10 @@ npm run preview       # Preview production build
 
 ### Current Metrics
 
-- **145 vehicles** (BEV + hybrids) registered (36 marcas)
+- **154 vehicles** (BEV + hybrids) registered (39 marcas)
 - **93 models** with official PBE/INMETRO certification
 - **27 states** with 2026 IPVA data and ANP/ANEEL tariffs
-- **397 automated tests** across 49 files
+- **398 automated tests** across 49 files
 - **Build time**: ~5s (Vite/ESBuild)
 
 ### Documentation

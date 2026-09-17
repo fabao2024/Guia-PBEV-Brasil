@@ -900,6 +900,38 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(xc90.battery).toBe(18.8);
   });
 
+  it('Lote C hybrids should match official Brazilian sources (set/2026)', () => {
+    // PBEV table (parsed jan/2026 rev01 PDF): 330e 20,6 km/l / 0,92 MJ/km /
+    // 61 km; NX450h+ 14,5 / 0,61 / 56 km; RX500h 10,8; UX 17,3; NX350h 15,7;
+    // Outlander 11,6 / 0,77 / 58 km; Cayenne PHEV 3.0 7,7 / 1,04 / 52 km;
+    // RR Sport PHEV 7,5 / 1,12 / 71 km. Prices from official brand pages.
+    const bmw330e = byModel('330e M Sport');
+    expect(bmw330e.powertrain).toBe('PHEV');
+    expect(bmw330e.price).toBe(465950);
+    expect(bmw330e.range).toBe(61);
+    expect(bmw330e.energyMJkm).toBeCloseTo(0.92, 5);
+    expect(bmw330e.fuelConsumptionKml).toBe(20.6);
+    expect(byModel('UX 300h').fuelConsumptionKml).toBe(17.3);
+    expect(byModel('NX 350h Dynamic').fuelConsumptionKml).toBe(15.7);
+    expect(byModel('RX 500h F-Sport').fuelConsumptionKml).toBe(10.8);
+    const nx450 = byModel('NX 450h+');
+    expect(nx450.range).toBe(56);
+    expect(nx450.energyMJkm).toBeCloseTo(0.61, 5);
+    const rx450 = byModel('RX 450h+');
+    expect(rx450.range).toBe(56);
+    expect(rx450.fuelConsumptionKml).toBe(14.8);
+    const cayenne = byModel('Cayenne E-Hybrid');
+    expect(cayenne.range).toBe(52);
+    expect(cayenne.energyMJkm).toBeCloseTo(1.04, 5);
+    expect(cayenne.fuelConsumptionKml).toBe(7.7);
+    const rr = byModel('Range Rover Sport P550e');
+    expect(rr.range).toBe(71);
+    expect(rr.energyMJkm).toBeCloseTo(1.12, 5);
+    expect(rr.fuelConsumptionKml).toBe(7.5);
+    const outlander = byModel('Outlander HPE-S PHEV');
+    expect(outlander.energyMJkm).toBeCloseTo(0.77, 5);
+  });
+
   it('traction should match the official drivetrain of the sold versions', () => {
     // hyundai.com.br official catalog (checked 2026-08-25): Ioniq 5 Signature
     // AWD HTRAC, dual motor, 325 cv combined.

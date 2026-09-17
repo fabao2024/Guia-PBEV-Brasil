@@ -816,6 +816,32 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
+  "/car-images/lexus-nx-450h-plus.png": {
+    "width": 1200,
+    "height": 455,
+    "variants": [
+      {
+        "src": "/car-images/optimized/lexus-nx-450h-plus.png-320.webp",
+        "width": 320,
+        "height": 121
+      },
+      {
+        "src": "/car-images/optimized/lexus-nx-450h-plus.png-640.webp",
+        "width": 640,
+        "height": 243
+      },
+      {
+        "src": "/car-images/optimized/lexus-nx-450h-plus.png-960.webp",
+        "width": 960,
+        "height": 364
+      },
+      {
+        "src": "/car-images/optimized/lexus-nx-450h-plus.png-1200.webp",
+        "width": 1200,
+        "height": 455
+      }
+    ]
+  },
   "/car-images/lexus-rz-500e.jpg": {
     "width": 2560,
     "height": 1598,

@@ -493,6 +493,82 @@
         }
       }
     },
+    "bmw-330e-m-sport": {
+      "brand": "BMW",
+      "model": "330e M Sport",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.bmw.com.br/pt/all-models/3-series/bmw-3-series-sedan/bmw-serie-3-seda-plug-in-hibrido.html",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-17"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-17"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.bmw.com.br/pt/all-models/3-series/bmw-3-series-sedan/bmw-serie-3-seda-plug-in-hibrido.html",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
+        },
+        "battery": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
     "bmw-i4-edrive35": {
       "brand": "BMW",
       "model": "i4 eDrive35",
@@ -6801,6 +6877,82 @@
         }
       }
     },
+    "land-rover-range-rover-sport-p550e": {
+      "brand": "Land Rover",
+      "model": "Range Rover Sport P550e",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.rangerover.com/pt-br/range-rover-sport/index.html",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.rangerover.com/pt-br/range-rover-sport/index.html",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
+        },
+        "consumption": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "power": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "battery": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
     "leapmotor-b10-bev": {
       "brand": "Leapmotor",
       "model": "B10 BEV",
@@ -7029,6 +7181,386 @@
         }
       }
     },
+    "lexus-es-300h": {
+      "brand": "Lexus",
+      "model": "ES 300h",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.lexus.com.br/",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
+        },
+        "range_km": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://lacddam.lexusasia.com/lexus-v3-brazil/model-brochures/25my/es-300h/ES300H-2025.pdf",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://lacddam.lexusasia.com/lexus-v3-brazil/model-brochures/25my/es-300h/ES300H-2025.pdf",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
+        },
+        "battery": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
+    "lexus-nx-350h-dynamic": {
+      "brand": "Lexus",
+      "model": "NX 350h Dynamic",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.lexus.com.br/pt/models/nx/nx-350h-dynamic.html",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
+        },
+        "range_km": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.lexus.com.br/pt/models/nx/nx-350h-dynamic.html",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.lexus.com.br/pt/models/nx/nx-350h-dynamic.html",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
+        },
+        "battery": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
+    "lexus-nx-450h": {
+      "brand": "Lexus",
+      "model": "NX 450h+",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.lexus.com.br/pt/models/nx/nx-450h-plus.html",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-17"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.lexus.com.br/pt/models/nx/nx-450h-plus.html",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.lexus.com.br/pt/models/nx/nx-450h-plus.html",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
+        },
+        "battery": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
+    "lexus-rx-450h": {
+      "brand": "Lexus",
+      "model": "RX 450h+",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.lexus.com.br/pt/models/rx/rx-450h-plus.html",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.lexus.com.br/pt/models/rx/rx-450h-plus.html",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.lexus.com.br/pt/models/rx/rx-450h-plus.html",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.lexus.com.br/pt/models/rx/rx-450h-plus.html",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
+        },
+        "battery": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
+    "lexus-rx-500h-f-sport": {
+      "brand": "Lexus",
+      "model": "RX 500h F-Sport",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.lexus.com.br/pt/models/rx/rx-500h-fsport-performance.html",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
+        },
+        "range_km": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.lexus.com.br/pt/models/rx/rx-500h-fsport-performance.html",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.lexus.com.br/pt/models/rx/rx-500h-fsport-performance.html",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
+        },
+        "battery": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
     "lexus-rz-500e": {
       "brand": "Lexus",
       "model": "RZ 500e",
@@ -7095,6 +7627,82 @@
           "sourceUrl": "https://www.lexus.com.br/pt/models/rz/rz-500e.html",
           "sourceUpdatedAt": null,
           "verifiedAt": "2026-09-03"
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
+    "lexus-ux-300h": {
+      "brand": "Lexus",
+      "model": "UX 300h",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.lexus.com.br/pt/models/ux/ux-300h.html",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
+        },
+        "range_km": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.lexus.com.br/pt/models/ux/ux-300h.html",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.lexus.com.br/pt/models/ux/ux-300h.html",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
+        },
+        "battery": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         },
         "weight": {
           "verificationStatus": "legacy_unverified",
@@ -9382,6 +9990,82 @@
           "sourceUrl": "https://www.media.stellantis.com/uploads/br/attachment/3738/fichatecnicapeugeoteexpert-61a8ba63d63f9.pdf",
           "sourceUpdatedAt": null,
           "verifiedAt": "2026-09-03"
+        }
+      }
+    },
+    "porsche-cayenne-e-hybrid": {
+      "brand": "Porsche",
+      "model": "Cayenne E-Hybrid",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://configurator.porsche.com/pt-BR/mode/model/9YAAV1",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-17"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-17"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.porsche.com/brazil/pt/models/cayenne/cayenne-models/cayenne-e-hybrid",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.porsche.com/brazil/pt/models/cayenne/cayenne-models/cayenne-e-hybrid",
+          "sourceUpdatedAt": "2026-09-17",
+          "verifiedAt": "2026-09-17"
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },

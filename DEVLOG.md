@@ -2,6 +2,22 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 17/09/2026 · Equipamentos Haval H6 revistos por versão (lote 1)
+
+| Área | Mudança pública |
+|---|---|
+| Ficha | ONE ganha multimídia 12,3"/8 alto-falantes; HEV2 ganha 14,6"/Coffee OS 3 (teto e hands-free confirmados); PHEV19 ganha teto + hands-free; PHEV35 ganha facial/fadiga/memória e som 9+sub; GT ganha bancos suede/ventilados, indução 50 W e HUD 9". Estacionamento semi-auto já era série (não é diferencial PHEV19); V2L sem fonte BR, fora. |
+| Divergências | Potência ONE (243 vs 248 cv), rodas 18 vs 19 e 0–100 (4,7/4,8 s) sem fonte única — mantidos os valores atuais. |
+| Verificação | 398/398 testes, TypeScript limpo, build Vite (154 páginas), scanner de segredos e verificador de proveniência (802/1540) aprovados. |
+
+## 17/09/2026 · Lote C híbridos: 330e, Lexus ×6, Cayenne, RR Sport (154 veículos)
+
+| Área | Mudança pública |
+|---|---|
+| Catálogo | 330e M Sport (R$ 465.950, 61 km), UX 300h, NX 350h Dynamic, NX 450h+, RX 500h F-Sport, RX 450h+, ES 300h, Cayenne E-Hybrid (R$ 900.000, 52 km) e Range Rover Sport P550e (R$ 1.063.950, 71 km). Marcas novas: BMW, Porsche, Land Rover. Nenhum no selo Novidades. |
+| Divergências | Tabela PBEV jan/2026 parseada localmente corrige Cross (17,8→16,6) e confirma Haval/Tiggo/Outlander/Jaecoo/Omoda/BYD; MJ adicionado a Tiggo 7/8 (0,59/0,62) e Outlander (0,77). NX450h+ tanque 55 L (brochura AR), Cayenne 75 L (fichas de mercado), RR 71,5 L (PDF global). Fotos fracas: Lexus 450px, Cayenne 600px, RR 640px; 330e e UX sem foto (TODO). Velar segurado (preço ambíguo). |
+| Verificação | Testes (bloco Lote C + invariantes), TypeScript limpo, build Vite (154 páginas), scanner de segredos e verificador de proveniência aprovados. |
+
 ## 17/09/2026 · Lote B híbridos: Omoda 5, Maverick, XC60/XC90 (145 veículos)
 
 | Área | Mudança pública |

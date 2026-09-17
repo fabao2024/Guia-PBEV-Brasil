@@ -54,7 +54,8 @@ export const BRAND_URLS: Record<string, string> = {
   "Jaecoo": "https://www.omodajaecoo.com.br",
   "Toyota": "https://www.toyota.com.br",
   "Honda": "https://www.honda.com.br",
-  "Mitsubishi": "https://www.mitsubishimotors.com.br"
+  "Mitsubishi": "https://www.mitsubishimotors.com.br",
+  "Land Rover": "https://www.landrover.com.br"
 };
 
 // Image Strategy:
@@ -385,6 +386,7 @@ export const CAR_DB: Car[] = [
       "Híbrido pleno flex (sem tomada) — motor 1.5 turbo + elétrico, 248 cv / 54,5 kgfm",
       "15,8 km/l cidade (gasolina, Inmetro) com etanol ou gasolina",
       "Câmbio híbrido dedicado DHT de 2 marchas",
+      "Multimídia 12,3\" e 8 alto-falantes",
       "Condução semiautônoma nível 2+ e câmera 540°",
       "Produção nacional (Iracemápolis - SP)"
     ],
@@ -401,6 +403,7 @@ export const CAR_DB: Car[] = [
       "Híbrido pleno flex (sem tomada) — motor 1.5 turbo + elétrico, 248 cv / 54,5 kgfm",
       "15,8 km/l cidade (gasolina, Inmetro) com etanol ou gasolina",
       "Câmbio híbrido dedicado DHT de 2 marchas",
+      "Multimídia 14,6\" com Coffee OS 3",
       "Teto solar panorâmico e porta-malas com abertura hands-free",
       "Condução semiautônoma nível 2+ e câmera 540°",
       "Produção nacional (Iracemápolis - SP)"
@@ -419,6 +422,7 @@ export const CAR_DB: Car[] = [
       "Híbrido plug-in flex — 326 cv / 54,5 kgfm com etanol ou gasolina",
       "Bateria 19 kWh; autonomia elétrica PBEV de 77 km",
       "14,7 km/l cidade (gasolina, Inmetro) no modo sustentação",
+      "Teto solar panorâmico e porta-malas com abertura hands-free",
       "Câmbio híbrido dedicado DHT de 2 marchas",
       "Produção nacional (Iracemápolis - SP)"
     ],
@@ -437,6 +441,8 @@ export const CAR_DB: Car[] = [
       "Bateria 35 kWh; autonomia elétrica PBEV de 126 km; 0–100 km/h em 4,8 s",
       "12,5 km/l cidade (gasolina, Inmetro) no modo sustentação",
       "Câmbio híbrido dedicado DHT de 4 marchas",
+      "Câmera com reconhecimento facial, alerta de fadiga e memória do motorista",
+      "Som com 9 alto-falantes, subwoofer e amplificador",
       "Produção nacional (Iracemápolis - SP)"
     ],
     energyMJkm: 0.70,
@@ -454,6 +460,8 @@ export const CAR_DB: Car[] = [
       "Híbrido plug-in flex — 393 cv / 65,5 kgfm com etanol ou gasolina",
       "Bateria 35 kWh; autonomia elétrica PBEV de 126 km; 0–100 km/h em 4,7 s",
       "12,5 km/l cidade (gasolina, Inmetro) no modo sustentação",
+      "Bancos esportivos com ventilação, memória e revestimento em suede",
+      "Carregador por indução 50 W e head-up display de 9\"",
       "Câmbio híbrido dedicado DHT de 4 marchas",
       "Produção nacional (Iracemápolis - SP)"
     ],
@@ -1279,6 +1287,41 @@ export const CAR_DB: Car[] = [
     widthMm: 1802, heightMm: 1432, wheelbaseMm: 2735, weightKg: 1449, trunkLiters: 495,
   },
   {
+    model: "330e M Sport", brand: "BMW", price: 465950, range: 61, cat: "Sedan",
+    powertrain: 'PHEV', electricRangeKm: 61, combinedRangeKm: 885, fuelType2: 'gasolina',
+    url: "https://www.bmw.com.br/pt/all-models/3-series/bmw-3-series-sedan/bmw-serie-3-seda-plug-in-hibrido.html",
+    img: "/car-images/bmw-330e.jpg", // TODO: foto oficial indisponível (bmw.com.br bloqueia)
+    power: 292, torque: 42.8, traction: 'RWD', battery: 19.5,
+    features: [
+      "Sedã híbrido plug-in (2.0 + elétrico) — 292 cv / 42,8 kgfm",
+      "Bateria 19,5 kWh; autonomia elétrica Inmetro de 61 km",
+      "20,6 km/l cidade (gasolina, Inmetro) no modo sustentação",
+      "Recarga AC 11 kW; tração traseira"
+    ],
+    energyMJkm: 0.92,
+    fuelConsumptionKml: 20.6,
+    chargeAC: 11,
+    pbeRating: 'A',
+    warrantyYears: 2,
+    lengthMm: 4713, widthMm: 1827, heightMm: 1446, wheelbaseMm: 2851, weightKg: 1835, trunkLiters: 375,
+  },
+  {
+    model: "ES 300h", brand: "Lexus", price: 360990, range: 0, cat: "Sedan",
+    powertrain: 'HEV', fuelType2: 'gasolina',
+    img: "/car-images/lexus-es-300h.jpg",
+    power: 211,
+    features: [
+      "Sedã híbrido (2.5 + elétrico) — 211 cv combinados",
+      "15,8 km/l cidade (gasolina, Inmetro)",
+      "Câmbio e-CVT e modos de condução",
+      "Lexus Safety System+",
+      "Porta-malas de 454 L"
+    ],
+    fuelConsumptionKml: 15.8,
+    warrantyYears: 5, warrantyBatteryYears: 8,
+    lengthMm: 4975, widthMm: 1865, heightMm: 1445, wheelbaseMm: 2870, trunkLiters: 454,
+  },
+  {
     model: "Atto 2 GS", brand: "BYD", price: 169990, range: 75, cat: "SUV",
     powertrain: 'PHEV', electricRangeKm: 75, combinedRangeKm: 1045, fuelType2: 'flex',
     url: "https://www.byd.com/br/car/atto2",
@@ -1785,13 +1828,14 @@ export const CAR_DB: Car[] = [
     power: 122, traction: 'FWD',
     features: [
       "SUV híbrido flex (1.8 VVT-i + elétricos) — 122 cv combinados",
-      "17,8 km/l cidade (gasolina, Inmetro) e 11,8 km/l (etanol)",
+      "16,6 km/l cidade (gasolina, Inmetro) e 11,6 km/l (etanol)",
       "Câmbio Transaxle CVT",
       "Toyota Safety Sense e 7 airbags",
       "Garantia híbrida de 8 anos / 200.000 km"
     ],
-    fuelConsumptionKml: 17.8,
-    fuelConsumptionKmlEthanol: 11.8,
+    fuelConsumptionKml: 16.6,
+    fuelConsumptionKmlEthanol: 11.6,
+    pbeRating: 'B',
     warrantyYears: 5, warrantyBatteryYears: 8,
     lengthMm: 4460, widthMm: 1825, heightMm: 1620, wheelbaseMm: 2640, trunkLiters: 440,
   },
@@ -1842,6 +1886,7 @@ export const CAR_DB: Car[] = [
       "Recarga rápida DC (30–80% em ~20 min) e função V2L",
       "Câmbio híbrido dedicado DHT"
     ],
+    energyMJkm: 0.59,
     fuelConsumptionKml: 15.4,
     warrantyYears: 7, warrantyBatteryYears: 8,
     lengthMm: 4553, widthMm: 1862, heightMm: 1696, wheelbaseMm: 2670, weightKg: 1831, trunkLiters: 484,
@@ -1859,6 +1904,7 @@ export const CAR_DB: Car[] = [
       "Recarga AC 7 kW / DC 50 kW e função V2L",
       "Câmbio híbrido dedicado DHT e 9 airbags"
     ],
+    energyMJkm: 0.62,
     fuelConsumptionKml: 14.4,
     chargeAC: 7, chargeDC: 50,
   },
@@ -1875,7 +1921,9 @@ export const CAR_DB: Car[] = [
       "Recarga AC 3,5 kW; tração integral S-AWC",
       "7 lugares e pacote ADAS"
     ],
+    energyMJkm: 0.77,
     fuelConsumptionKml: 11.6,
+    pbeRating: 'A',
     chargeAC: 3.5, chargeDC: null,
     warrantyYears: 5, warrantyBatteryYears: 8,
     lengthMm: 4710, widthMm: 1862, heightMm: 1745, wheelbaseMm: 2706, weightKg: 2145,
@@ -1932,6 +1980,130 @@ export const CAR_DB: Car[] = [
     fuelConsumptionKml: 9.4,
     warrantyYears: 2,
     lengthMm: 4953, widthMm: 1923,
+  },
+  {
+    model: "UX 300h", brand: "Lexus", price: 314990, range: 0, cat: "SUV",
+    powertrain: 'HEV', fuelType2: 'gasolina',
+    url: "https://www.lexus.com.br/pt/models/ux/ux-300h.html",
+    img: "/car-images/lexus-ux-300h.jpg", // TODO: foto oficial indisponível (só thumb de navegação)
+    power: 198,
+    features: [
+      "SUV híbrido (2.0 + elétrico) — 198 cv combinados",
+      "17,3 km/l cidade (gasolina, Inmetro)",
+      "Câmbio e-CVT",
+      "Lexus Safety System+"
+    ],
+    fuelConsumptionKml: 17.3,
+    pbeRating: 'B',
+    warrantyYears: 5, warrantyBatteryYears: 8,
+    lengthMm: 4495, widthMm: 1840, heightMm: 1520, wheelbaseMm: 2640, trunkLiters: 268,
+  },
+  {
+    model: "NX 350h Dynamic", brand: "Lexus", price: 409990, range: 0, cat: "SUV",
+    powertrain: 'HEV', fuelType2: 'gasolina',
+    url: "https://www.lexus.com.br/pt/models/nx/nx-350h-dynamic.html",
+    img: "/car-images/lexus-nx-350h.jpg",
+    power: 246, traction: 'AWD',
+    features: [
+      "SUV híbrido (2.5 + elétrico) — 246 cv combinados",
+      "15,7 km/l cidade (gasolina, Inmetro)",
+      "Câmbio e-CVT e tração integral",
+      "Lexus Safety System+",
+      "Porta-malas de 520 L"
+    ],
+    fuelConsumptionKml: 15.7,
+    pbeRating: 'B',
+    warrantyYears: 5, warrantyBatteryYears: 8,
+    lengthMm: 4660, widthMm: 1865, heightMm: 1670, wheelbaseMm: 2690, trunkLiters: 520,
+  },
+  {
+    model: "NX 450h+", brand: "Lexus", price: 499990, range: 56, cat: "SUV",
+    powertrain: 'PHEV', electricRangeKm: 56, combinedRangeKm: 853, fuelType2: 'gasolina',
+    url: "https://www.lexus.com.br/pt/models/nx/nx-450h-plus.html",
+    img: "/car-images/lexus-nx-450h-plus.png",
+    power: 308, traction: 'AWD', battery: 18.1,
+    features: [
+      "SUV híbrido plug-in (2.5 + elétrico) — 308 cv combinados",
+      "Bateria 18,1 kWh; autonomia elétrica Inmetro de 56 km",
+      "14,5 km/l cidade (gasolina, Inmetro) no modo sustentação",
+      "Tração integral E-Four",
+      "Porta-malas de 520 L"
+    ],
+    energyMJkm: 0.61,
+    fuelConsumptionKml: 14.5,
+    pbeRating: 'A',
+    warrantyYears: 5, warrantyBatteryYears: 8,
+    lengthMm: 4660, widthMm: 1865, heightMm: 1670, wheelbaseMm: 2690, trunkLiters: 520,
+  },
+  {
+    model: "RX 500h F-Sport", brand: "Lexus", price: 619990, range: 0, cat: "SUV",
+    powertrain: 'HEV', fuelType2: 'gasolina',
+    url: "https://www.lexus.com.br/pt/models/rx/rx-500h-fsport-performance.html",
+    img: "/car-images/lexus-rx-500h.png",
+    power: 371, torque: 46.0, traction: 'AWD',
+    features: [
+      "SUV híbrido performance (2.4 turbo + elétricos) — 371 cv / 46,0 kgfm",
+      "10,8 km/l cidade (gasolina, Inmetro)",
+      "Câmbio automático 6 marchas e tração DIRECT4",
+      "Lexus Safety System+",
+      "Porta-malas de 612 L"
+    ],
+    fuelConsumptionKml: 10.8,
+    pbeRating: 'C',
+    warrantyYears: 5, warrantyBatteryYears: 8,
+    lengthMm: 4890, widthMm: 1920, heightMm: 1695, wheelbaseMm: 2850, trunkLiters: 612,
+  },
+  {
+    model: "RX 450h+", brand: "Lexus", price: 614990, range: 56, cat: "SUV",
+    powertrain: 'PHEV', electricRangeKm: 56, combinedRangeKm: 870, fuelType2: 'gasolina',
+    url: "https://www.lexus.com.br/pt/models/rx/rx-450h-plus.html",
+    img: "/car-images/lexus-rx-450h-plus.png",
+    power: 308, torque: 27.0, traction: 'AWD',
+    features: [
+      "SUV híbrido plug-in (2.5 + elétrico) — 308 cv / 27,0 kgfm",
+      "Autonomia elétrica Inmetro de 56 km",
+      "14,8 km/l cidade (gasolina, Inmetro) no modo sustentação",
+      "Tração integral AWD",
+      "Porta-malas de 612 L"
+    ],
+    energyMJkm: 0.61,
+    fuelConsumptionKml: 14.8,
+    warrantyYears: 5, warrantyBatteryYears: 8,
+    lengthMm: 4890, widthMm: 1920, heightMm: 1695, wheelbaseMm: 2850, trunkLiters: 612,
+  },
+  {
+    model: "Cayenne E-Hybrid", brand: "Porsche", price: 900000, range: 52, cat: "SUV",
+    powertrain: 'PHEV', electricRangeKm: 52, combinedRangeKm: 629, fuelType2: 'gasolina',
+    url: "https://www.porsche.com/brazil/pt/models/cayenne/cayenne-models/cayenne-e-hybrid",
+    img: "/car-images/porsche-cayenne-e-hybrid.png",
+    power: 470, traction: 'AWD', battery: 25.9,
+    features: [
+      "SUV híbrido plug-in (V6 3.0 + elétrico) — 470 cv combinados",
+      "Bateria 25,9 kWh; autonomia elétrica Inmetro de 52 km",
+      "7,7 km/l cidade (gasolina, Inmetro) no modo sustentação",
+      "Tração integral e suspensão a ar",
+      "Pacote Sport Chrono"
+    ],
+    energyMJkm: 1.04,
+    fuelConsumptionKml: 7.7,
+  },
+  {
+    model: "Range Rover Sport P550e", brand: "Land Rover", price: 1063950, range: 71, cat: "SUV",
+    powertrain: 'PHEV', electricRangeKm: 71, combinedRangeKm: 607, fuelType2: 'gasolina',
+    url: "https://www.rangerover.com/pt-br/range-rover-sport/index.html",
+    img: "/car-images/range-rover-sport-p550e.jpg",
+    power: 550, torque: 81.6, traction: 'AWD', battery: 38.2,
+    features: [
+      "SUV híbrido plug-in (6 cil. + elétrico) — 550 cv / 81,6 kgfm",
+      "Bateria 38,2 kWh; autonomia elétrica Inmetro de 71 km",
+      "7,5 km/l cidade (gasolina, Inmetro) no modo sustentação",
+      "Recarga AC 7 kW / DC 50 kW; tração integral",
+      "7 lugares e interior em couro Windsor"
+    ],
+    energyMJkm: 1.12,
+    fuelConsumptionKml: 7.5,
+    chargeAC: 7, chargeDC: 50,
+    warrantyYears: 3,
   },
 
   // 3. LUXO & PERFORMANCE

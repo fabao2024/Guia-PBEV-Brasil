@@ -155,6 +155,15 @@ export const PRICE_HISTORY: Record<string, PriceSnapshot[]> = {
   "Maverick Hybrid Lariat": [{ date: '2026-09', price: 239900 }],
   "XC60 T8 Plus": [{ date: '2026-09', price: 459950 }],
   "XC90 T8 Plus": [{ date: '2026-09', price: 679950 }],
+  "330e M Sport": [{ date: '2026-09', price: 465950 }],
+  "UX 300h": [{ date: '2026-09', price: 314990 }],
+  "NX 350h Dynamic": [{ date: '2026-09', price: 409990 }],
+  "NX 450h+": [{ date: '2026-09', price: 499990 }],
+  "RX 500h F-Sport": [{ date: '2026-09', price: 619990 }],
+  "RX 450h+": [{ date: '2026-09', price: 614990 }],
+  "ES 300h": [{ date: '2026-09', price: 360990 }],
+  "Cayenne E-Hybrid": [{ date: '2026-09', price: 900000 }],
+  "Range Rover Sport P550e": [{ date: '2026-09', price: 1063950 }],
 };
 
 /** Returns the most recent snapshot for a given model, or null if no history. */
