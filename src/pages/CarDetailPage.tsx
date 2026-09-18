@@ -14,10 +14,9 @@ import { getPriceDelta, getLastSnapshot } from '../constants/priceHistory';
 import { track } from '../utils/analytics';
 import { resolveCarImageUrl } from '../utils/imageUrl';
 import { hasDimensions, dimensionProperties } from '../utils/dimensions';
+import { carMetaDescription, combinedRangeOf, powertrainLabel, powertrainOf, primaryCarMetric } from '../utils/powertrain';
 import DimensionsSpec from '../components/DimensionsSpec';
 import DataEvidence from '../components/DataEvidence';
-
-const MAX_RANGE_KM = 700;
 
 const CAT_ACCENT: Record<string, { color: string; bg: string }> = {
   Luxo:      { color: '#f5c842', bg: 'rgba(245,200,66,0.07)'  },
@@ -101,7 +100,6 @@ export default function CarDetailPage() {
   }, [car, slug]);
 
   const imgSrc = car ? resolveCarImageUrl(car.img, 800) : '';
-  const isHevEarly = (car?.powertrain ?? 'BEV') === 'HEV';
 
   const productSchema = useMemo(() => {
     if (!car) return null;
@@ -109,9 +107,7 @@ export default function CarDetailPage() {
       '@context': 'https://schema.org',
       '@type': 'Product',
       name: `${car.brand} ${car.model}`,
-      description: isHevEarly
-        ? `Híbrido ${car.brand} ${car.model} — Consumo Inmetro: ${car.fuelConsumptionKml ?? '—'} km/l | Categoria: ${car.cat} | Preço estimado: R$ ${car.price.toLocaleString('pt-BR')}`
-        : `Carro elétrico ${car.brand} ${car.model} — Autonomia PBEV: ${car.range} km | Categoria: ${car.cat} | Preço estimado: R$ ${car.price.toLocaleString('pt-BR')}`,
+      description: carMetaDescription(car),
       brand: { '@type': 'Brand', name: car.brand },
       image: imgSrc,
       url: canonicalUrl,
@@ -122,15 +118,16 @@ export default function CarDetailPage() {
         availability: 'https://schema.org/InStock',
         priceValidUntil: new Date(new Date().getFullYear() + 1, 0, 1).toISOString().split('T')[0],
       },
-      ...(car.power && {
-        additionalProperty: [
-          { '@type': 'PropertyValue', name: 'Potência', value: `${car.power} cv`, unitCode: 'HWP' },
-          { '@type': 'PropertyValue', name: isHevEarly ? 'Consumo Inmetro' : 'Autonomia PBEV', value: isHevEarly ? `${car.fuelConsumptionKml ?? '—'} km/l` : `${car.range} km` },
-          ...(car.battery ? [{ '@type': 'PropertyValue', name: 'Bateria', value: `${car.battery} kWh` }] : []),
-          ...(car.traction ? [{ '@type': 'PropertyValue', name: 'Tração', value: car.traction }] : []),
-          ...(hasDimensions(car) ? dimensionProperties(car) : []),
-        ],
-      }),
+      additionalProperty: [
+        { '@type': 'PropertyValue', name: 'Propulsão', value: powertrainLabel(car) },
+        { '@type': 'PropertyValue', name: primaryCarMetric(car).label, value: `${primaryCarMetric(car).value} ${primaryCarMetric(car).unit}` },
+        ...(combinedRangeOf(car) ? [{ '@type': 'PropertyValue', name: 'Autonomia total combinada', value: `${combinedRangeOf(car)} km`, unitCode: 'KMT' }] : []),
+        ...(car.fuelConsumptionKml ? [{ '@type': 'PropertyValue', name: 'Consumo de combustível', value: `${car.fuelConsumptionKml} km/l` }] : []),
+        ...(car.power ? [{ '@type': 'PropertyValue', name: 'Potência', value: `${car.power} cv`, unitCode: 'HWP' }] : []),
+        ...(car.battery ? [{ '@type': 'PropertyValue', name: 'Bateria', value: `${car.battery} kWh` }] : []),
+        ...(car.traction ? [{ '@type': 'PropertyValue', name: 'Tração', value: car.traction }] : []),
+        ...(hasDimensions(car) ? dimensionProperties(car) : []),
+      ],
     };
   }, [car, imgSrc, canonicalUrl]);
   useJsonLd(productSchema);
@@ -160,10 +157,10 @@ export default function CarDetailPage() {
   const accent = CAT_ACCENT[car.cat] ?? CAT_ACCENT['Compacto'];
   const tractionStyle = car.traction ? TRACTION_STYLE[car.traction] : null;
   const estimatedPower = car.power ?? Math.round(car.price / 3000);
-  const isHev = isHevEarly;
-  const rangePercent = isHev && car?.fuelConsumptionKml
-    ? Math.min(Math.round((car.fuelConsumptionKml / 20) * 100), 100)
-    : Math.min(Math.round(((car?.range ?? 0) / MAX_RANGE_KM) * 100), 100);
+  const powertrain = powertrainOf(car);
+  const primaryMetric = primaryCarMetric(car);
+  const combinedRange = combinedRangeOf(car);
+  const rangePercent = primaryMetric.progressValue;
   const ipvaInfo = IPVA_BY_STATE.find(s => s.abbr === selectedState) ?? IPVA_BY_STATE.find(s => s.abbr === 'SP')!;
   const priceDelta = getPriceDelta(car.model, car.price);
   const lastSnapshot = getLastSnapshot(car.model);
@@ -185,9 +182,7 @@ export default function CarDetailPage() {
     const price = car.price.toLocaleString('pt-BR');
     const payload = {
       title: `${car.brand} ${car.model}`,
-      text: isHev
-        ? `${car.brand} ${car.model} – R$ ${price} – ${car.fuelConsumptionKml ?? '—'} km/l Inmetro | Guia PBEV Brasil`
-        : `${car.brand} ${car.model} – R$ ${price} – ${car.range}km PBEV | Guia PBEV Brasil`,
+      text: `${car.brand} ${car.model} – R$ ${price} – ${primaryMetric.value} ${primaryMetric.unit} | ${powertrainLabel(car)} | Guia PBEV Brasil`,
       url: canonicalUrl,
     };
     if (navigator.share) {
@@ -199,12 +194,8 @@ export default function CarDetailPage() {
     }
   };
 
-  const helmetTitle = isHev
-    ? `${car.brand} ${car.model} — R$ ${car.price.toLocaleString('pt-BR')} | ${car.fuelConsumptionKml ?? '—'} km/l Inmetro | Guia PBEV Brasil`
-    : `${car.brand} ${car.model} — R$ ${car.price.toLocaleString('pt-BR')} | ${car.range} km PBEV | Guia PBEV Brasil`;
-  const helmetDesc = isHev
-    ? `${car.brand} ${car.model}: híbrido, ${car.fuelConsumptionKml ?? '—'} km/l cidade (Inmetro)${car.power ? `, ${car.power} cv` : ''}. Preço estimado R$ ${car.price.toLocaleString('pt-BR')}. Compare com outros híbridos e elétricos no Guia PBEV Brasil.`
-    : `${car.brand} ${car.model}: autonomia PBEV ${car.range} km, ${car.cat.toLowerCase()} elétrico${car.power ? `, ${car.power} cv` : ''}${car.battery ? `, bateria ${car.battery} kWh` : ''}. Preço estimado R$ ${car.price.toLocaleString('pt-BR')}. Compare com outros elétricos no Guia PBEV Brasil.`;
+  const helmetTitle = `${car.brand} ${car.model} — R$ ${car.price.toLocaleString('pt-BR')} | ${primaryMetric.value} ${primaryMetric.unit} | Guia PBEV Brasil`;
+  const helmetDesc = `${carMetaDescription(car)}. Compare com outros veículos eletrificados no Guia PBEV Brasil.`;
   const helmetImage = car.img.startsWith('/car-images/')
     ? `https://guiapbev.cloud${car.img}`
     : imgSrc;
@@ -295,6 +286,9 @@ export default function CarDetailPage() {
                 <span className="text-xs font-bold uppercase tracking-widest" style={{ color: accent.color }}>
                   {car.brand}
                 </span>
+                <span className="text-[10px] px-2.5 py-1 rounded-full font-bold uppercase tracking-widest" style={{ background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.65)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                  {powertrain} · {powertrainLabel(car)}
+                </span>
                 {car.discontinued && (
                   <span className="text-[10px] px-2.5 py-1 rounded-full font-bold uppercase tracking-widest bg-red-500/10 text-red-400 border border-red-400/25">
                     Fora de linha
@@ -312,11 +306,11 @@ export default function CarDetailPage() {
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[10px] uppercase tracking-widest font-medium flex items-center gap-1.5" style={{ color: 'rgba(255,255,255,0.3)' }}>
                     <BatteryCharging className="w-3.5 h-3.5" />
-                    {isHev ? t('card.fuelLabel', 'Consumo') : `${t('card.rangeLabel', 'Autonomia')} PBEV`}
+                    {primaryMetric.label}
                   </span>
                   <span className="text-lg font-black text-white leading-none">
-                    {isHev ? (car.fuelConsumptionKml ?? '—') : car.range}
-                    <span className="text-xs font-normal ml-1" style={{ color: 'rgba(255,255,255,0.35)' }}>{isHev ? 'km/l' : 'km'}</span>
+                    {primaryMetric.value}
+                    <span className="text-xs font-normal ml-1" style={{ color: 'rgba(255,255,255,0.35)' }}>{primaryMetric.unit}</span>
                   </span>
                 </div>
                 <div className="w-full h-1 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
@@ -448,6 +442,16 @@ export default function CarDetailPage() {
                         {t('simulator.gasoline')}: {car.fuelConsumptionKml} · {t('simulator.ethanol')}: {car.fuelConsumptionKmlEthanol} km/l
                       </span>
                     )}
+                  </div>
+                </div>
+              )}
+              {combinedRange && (
+                <div className="rounded-xl px-4 py-3" style={{ background: 'rgba(0,180,255,0.05)', border: '1px solid rgba(0,180,255,0.16)' }}>
+                  <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: 'rgba(255,255,255,0.28)' }}>
+                    Autonomia total combinada
+                  </div>
+                  <div className="text-xl font-black text-white leading-none">
+                    {combinedRange}<span className="text-sm font-normal ml-1" style={{ color: 'rgba(255,255,255,0.35)' }}>km</span>
                   </div>
                 </div>
               )}
@@ -687,7 +691,7 @@ export default function CarDetailPage() {
                       <p className="text-white text-xs font-semibold truncate group-hover:text-[#00b4ff] transition-colors">
                         {similar.brand} {similar.model}
                       </p>
-                      <p className="text-white/40 text-[11px]">{similar.range} km · R$ {(similar.price / 1000).toFixed(0)}k</p>
+                      <p className="text-white/40 text-[11px]">{primaryCarMetric(similar).value} {primaryCarMetric(similar).unit} · R$ {(similar.price / 1000).toFixed(0)}k</p>
                     </div>
                   </Link>
                 ))}

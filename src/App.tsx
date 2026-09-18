@@ -33,6 +33,7 @@ import { useJsonLd } from './hooks/useJsonLd';
 import { Car, LeadInterest, ALL_POWERTRAINS, DEFAULT_MIN_RANGE } from './types';
 import { track } from './utils/analytics';
 import { sortCars, type RankMode } from './utils/ranking';
+import { carMetaDescription, electricRangeOf, powertrainOf } from './utils/powertrain';
 import DataEvidence from './components/DataEvidence';
 
 export default function App() {
@@ -112,6 +113,8 @@ export default function App() {
       category: car.cat,
       price: car.price,
       range: car.range,
+      electric_range_km: electricRangeOf(car),
+      powertrain: powertrainOf(car),
     });
   };
 
@@ -147,8 +150,8 @@ export default function App() {
   const catalogSchema = useMemo(() => ({
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Catálogo de Carros Elétricos PBEV Brasil',
-    description: `${CAR_DB.length} veículos elétricos certificados pelo PBEV/INMETRO disponíveis no Brasil`,
+    name: 'Catálogo de Veículos Eletrificados PBEV Brasil',
+    description: `${CAR_DB.length} veículos eletrificados homologados e disponíveis no Brasil`,
     numberOfItems: CAR_DB.length,
     url: 'https://guiapbev.cloud/',
     itemListElement: CAR_DB.map((car, i) => ({
@@ -158,7 +161,7 @@ export default function App() {
         '@type': 'Product',
         name: `${car.brand} ${car.model}`,
         brand: { '@type': 'Brand', name: car.brand },
-        description: `${car.cat} elétrico · ${car.range} km PBEV · R$ ${car.price.toLocaleString('pt-BR')}`,
+        description: carMetaDescription(car),
         offers: {
           '@type': 'Offer',
           priceCurrency: 'BRL',
@@ -181,8 +184,9 @@ export default function App() {
 
     return cars.filter(car => {
       if (car.price > filters.maxPrice) return false;
-      // minRange é autonomia elétrica PBEV — HEV não tem modo elétrico e sempre passa
-      if ((car.powertrain ?? 'BEV') !== 'HEV' && car.range < filters.minRange) return false;
+      // minRange é autonomia elétrica; HEV não tem autonomia de tomada e passa sem filtrar.
+      const electricRange = electricRangeOf(car);
+      if (filters.minRange > DEFAULT_MIN_RANGE && (powertrainOf(car) === 'HEV' || (electricRange ?? 0) < filters.minRange)) return false;
       if (filters.brands.length > 0 && !filters.brands.includes(car.brand)) return false;
       if (filters.categories.length > 0 && !filters.categories.includes(car.cat)) return false;
       if (filters.showNew && !isCarNew(car)) return false;
@@ -213,12 +217,12 @@ export default function App() {
     isSearching;
 
   const helmetTitle = selectedCar
-    ? `${selectedCar.brand} ${selectedCar.model} — ${selectedCar.range} km PBEV | Guia PBEV Brasil`
-    : 'Guia PBEV Brasil — Elétricos Homologados';
+    ? `${selectedCar.brand} ${selectedCar.model} — ${carMetaDescription(selectedCar)}`
+    : 'Guia PBEV Brasil — Veículos Eletrificados Homologados';
 
   const helmetDesc = selectedCar
-    ? `${selectedCar.brand} ${selectedCar.model}: autonomia ${selectedCar.range} km (PBEV/Inmetro), preço a partir de R$ ${selectedCar.price.toLocaleString('pt-BR')}. Compare com outros elétricos no Guia PBEV Brasil.`
-    : `Catálogo público com ${CAR_DB.length} veículos elétricos homologados no Brasil pelo PBEV/Inmetro. Compare autonomia, preço e especificações.`;
+    ? `${carMetaDescription(selectedCar)}. Compare com outros veículos eletrificados no Guia PBEV Brasil.`
+    : `Catálogo público com ${CAR_DB.length} veículos eletrificados homologados no Brasil pelo PBEV/Inmetro. Compare autonomia elétrica, autonomia combinada, consumo, preço e especificações.`;
 
   const helmetImage = selectedCar && selectedCar.img.startsWith('/car-images/')
     ? `https://guiapbev.cloud${selectedCar.img}`

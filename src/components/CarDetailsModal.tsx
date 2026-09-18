@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Car } from '../types';
 import { BRAND_URLS, INSURANCE_AFFILIATE_URL } from '../constants';
+import { carMetaDescription, combinedRangeOf, powertrainLabel, powertrainOf, primaryCarMetric } from '../utils/powertrain';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { useMeta } from '../hooks/useMeta';
 import { X, BatteryCharging, Zap, CheckCircle2, ChevronLeft, ChevronRight, Image as ImageIcon, Scale, Check, Heart, ArrowUpRight, Share2, ChevronDown, Award, Shield } from 'lucide-react';
@@ -23,8 +24,6 @@ interface CarDetailsModalProps {
     onToggleFavorite: () => void;
     onLeadRequest?: () => void;
 }
-
-const MAX_RANGE_KM = 700;
 
 const CAT_ACCENT: Record<string, { color: string; bg: string }> = {
     Luxo:      { color: '#f5c842', bg: 'rgba(245,200,66,0.07)'  },
@@ -85,14 +84,14 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
     const [isImgLoading, setIsImgLoading] = useState(true);
     const [copied, setCopied] = useState(false);
 
-    const isHevModal = (car.powertrain ?? 'BEV') === 'HEV';
+    const powertrain = powertrainOf(car);
+    const primaryMetric = primaryCarMetric(car);
+    const combinedRange = combinedRangeOf(car);
     const productSchema = useMemo(() => ({
       '@context': 'https://schema.org',
       '@type': 'Product',
       name: `${car.brand} ${car.model}`,
-      description: isHevModal
-        ? `Híbrido ${car.brand} ${car.model} — Consumo Inmetro: ${car.fuelConsumptionKml ?? '—'} km/l | Categoria: ${car.cat} | Preço estimado: R$ ${car.price.toLocaleString('pt-BR')}`
-        : `Carro elétrico ${car.brand} ${car.model} — Autonomia PBEV: ${car.range} km | Categoria: ${car.cat} | Preço estimado: R$ ${car.price.toLocaleString('pt-BR')}`,
+      description: carMetaDescription(car),
       brand: { '@type': 'Brand', name: car.brand },
       image: gallery[0],
       url: BRAND_URLS[car.brand] ?? window.location.href,
@@ -103,21 +102,22 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
         availability: 'https://schema.org/InStock',
         priceValidUntil: new Date(new Date().getFullYear() + 1, 0, 1).toISOString().split('T')[0],
       },
-      ...(car.power && { additionalProperty: [
-        { '@type': 'PropertyValue', name: 'Potência', value: `${car.power} cv`, unitCode: 'HWP' },
-        { '@type': 'PropertyValue', name: isHevModal ? 'Consumo Inmetro' : 'Autonomia PBEV', value: isHevModal ? `${car.fuelConsumptionKml ?? '—'} km/l` : `${car.range} km`, unitCode: 'KMT' },
+      additionalProperty: [
+        { '@type': 'PropertyValue', name: 'Propulsão', value: powertrainLabel(car) },
+        { '@type': 'PropertyValue', name: primaryMetric.label, value: `${primaryMetric.value} ${primaryMetric.unit}` },
+        ...(combinedRange ? [{ '@type': 'PropertyValue', name: 'Autonomia total combinada', value: `${combinedRange} km`, unitCode: 'KMT' }] : []),
+        ...(car.fuelConsumptionKml ? [{ '@type': 'PropertyValue', name: 'Consumo de combustível', value: `${car.fuelConsumptionKml} km/l` }] : []),
+        ...(car.power ? [{ '@type': 'PropertyValue', name: 'Potência', value: `${car.power} cv`, unitCode: 'HWP' }] : []),
         ...(car.battery ? [{ '@type': 'PropertyValue', name: 'Bateria', value: `${car.battery} kWh` }] : []),
         ...(car.traction ? [{ '@type': 'PropertyValue', name: 'Tração', value: car.traction }] : []),
         ...(hasDimensions(car) ? dimensionProperties(car) : []),
-      ]}),
+      ],
     }), [car, gallery]);
     useJsonLd(productSchema);
 
     useMeta({
       title: `${car.brand} ${car.model} — R$ ${car.price.toLocaleString('pt-BR')} | Guia PBEV Brasil`,
-      description: isHevModal
-        ? `${car.brand} ${car.model}: híbrido, ${car.fuelConsumptionKml ?? '—'} km/l cidade (Inmetro)${car.power ? `, ${car.power} cv` : ''}. Preço estimado R$ ${car.price.toLocaleString('pt-BR')}.`
-        : `${car.brand} ${car.model}: autonomia PBEV ${car.range} km, categoria ${car.cat}${car.power ? `, ${car.power} cv` : ''}${car.battery ? `, bateria ${car.battery} kWh` : ''}. Preço estimado R$ ${car.price.toLocaleString('pt-BR')}.`,
+      description: `${carMetaDescription(car)}. Compare no Guia PBEV Brasil.`,
       image: gallery[0],
       url: canonicalUrl,
     });
@@ -126,9 +126,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
         const price = car.price.toLocaleString('pt-BR');
         const payload = {
             title: car.model,
-            text: isHevModal
-              ? `${car.model} – R$ ${price} – ${car.fuelConsumptionKml ?? '—'} km/l | Guia PBEV`
-              : `${car.model} – R$ ${price} – ${car.range}km | Guia PBEV`,
+            text: `${car.model} – R$ ${price} – ${primaryMetric.value} ${primaryMetric.unit} | ${powertrainLabel(car)} | Guia PBEV`,
             url: canonicalUrl,
         };
         if (navigator.share) {
@@ -179,7 +177,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
     const accent = CAT_ACCENT[car.cat] ?? CAT_ACCENT['Compacto'];
     const tractionStyle = car.traction ? TRACTION_STYLE[car.traction] : null;
     const estimatedPower = car.power ?? Math.round(car.price / 3000);
-    const rangePercent = Math.min(Math.round((car.range / MAX_RANGE_KM) * 100), 100);
+    const rangePercent = primaryMetric.progressValue;
 
     const ipvaInfo = IPVA_BY_STATE.find(s => s.abbr === selectedState) ?? IPVA_BY_STATE.find(s => s.abbr === 'SP')!;
     const priceDelta = getPriceDelta(car.model, car.price);
@@ -329,6 +327,9 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                         <span className="text-xs font-bold uppercase tracking-widest" style={{ color: accent.color }}>
                             {car.brand}
                         </span>
+                        <span className="text-[10px] px-2.5 py-1 rounded-full font-bold uppercase tracking-widest" style={{ background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.65)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                            {powertrain} · {powertrainLabel(car)}
+                        </span>
                         {isFavorite && (
                             <span
                                 className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
@@ -355,13 +356,11 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                                 style={{ color: 'rgba(255,255,255,0.3)' }}
                             >
                                 <BatteryCharging className="w-3.5 h-3.5" />
-                                {(car.powertrain ?? 'BEV') === 'HEV'
-                                    ? t('card.fuelLabel', 'Consumo')
-                                    : `${t('card.rangeLabel', 'Autonomia')} PBEV`}
+                                {primaryMetric.label}
                             </span>
                             <span className="text-lg font-black text-white leading-none">
-                                {(car.powertrain ?? 'BEV') === 'HEV' ? (car.fuelConsumptionKml ?? '—') : car.range}
-                                <span className="text-xs font-normal ml-1" style={{ color: 'rgba(255,255,255,0.35)' }}>{(car.powertrain ?? 'BEV') === 'HEV' ? 'km/l' : 'km'}</span>
+                                {primaryMetric.value}
+                                <span className="text-xs font-normal ml-1" style={{ color: 'rgba(255,255,255,0.35)' }}>{primaryMetric.unit}</span>
                             </span>
                         </div>
                         <div className="w-full h-1 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
@@ -444,6 +443,20 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                                             {t('simulator.gasoline')}: {car.fuelConsumptionKml} · {t('simulator.ethanol')}: {car.fuelConsumptionKmlEthanol} km/l
                                         </span>
                                     )}
+                                </div>
+                            </div>
+                        )}
+                        {combinedRange && (
+                            <div
+                                className="rounded-xl px-4 py-3"
+                                style={{ background: 'rgba(0,180,255,0.05)', border: '1px solid rgba(0,180,255,0.16)' }}
+                            >
+                                <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: 'rgba(255,255,255,0.28)' }}>
+                                    Autonomia total combinada
+                                </div>
+                                <div className="text-xl font-black text-white leading-none">
+                                    {combinedRange}
+                                    <span className="text-sm font-normal ml-1" style={{ color: 'rgba(255,255,255,0.35)' }}>km</span>
                                 </div>
                             </div>
                         )}

@@ -6,6 +6,7 @@ import { MessageSquare, X, Send, Sparkles, User, Bot, Globe, Settings, ExternalL
 import ReactMarkdown from 'react-markdown';
 import { CAR_DB } from '../constants';
 import { Car, ChatMessage, powertrainOf } from '../types';
+import { combinedRangeOf, electricRangeOf } from '../utils/powertrain';
 import { sanitizeChatInput, validateChatInput } from '../utils/sanitize';
 import { traceLLMCall } from '../utils/tracing';
 import { track } from '../utils/analytics';
@@ -58,12 +59,14 @@ function buildQuizReason(car: Car, dailyKm: number, budget: number, preferredCat
   const pt = powertrainOf(car);
   const noHomeCharging = charging !== undefined && /público|public|eletroposto|fast charger/i.test(charging);
   if (pt === 'HEV') return isEn ? `Self-charging hybrid, no plug needed${car.fuelConsumptionKml ? ` (${car.fuelConsumptionKml} km/L city)` : ''}` : `Híbrido sem tomada, sem dependência de recarga${car.fuelConsumptionKml ? ` (${car.fuelConsumptionKml} km/l cidade)` : ''}`;
-  if (noHomeCharging && (pt === 'PHEV' || pt === 'REEV') && (car.electricRangeKm ?? 0) < dailyKm) return isEn ? `Runs on fuel when you can't charge, electric when you can` : `Roda no combustível quando não dá para carregar e no elétrico quando dá`;
-  if ((pt === 'PHEV' || pt === 'REEV') && car.electricRangeKm !== undefined && car.electricRangeKm >= dailyKm) return isEn ? `Electric range covers your daily drive (${car.electricRangeKm}km)` : `Autonomia elétrica cobre seu trajeto diário (${car.electricRangeKm}km)`;
-  if (car.range >= dailyKm * 3) return isEn ? `Exceptional range for your daily use (${car.range}km)` : `Autonomia excepcional para seu uso diário (${car.range}km)`;
-  if (car.range >= dailyKm * 2) return isEn ? `Comfortable range for your daily km (${car.range}km)` : `Autonomia confortável para seu uso diário (${car.range}km)`;
+  if (noHomeCharging && (pt === 'PHEV' || pt === 'REEV') && (electricRangeOf(car) ?? 0) < dailyKm) return isEn ? `Runs on fuel when you can't charge, electric when you can` : `Roda no combustível quando não dá para carregar e no elétrico quando dá`;
+  if ((pt === 'PHEV' || pt === 'REEV') && (electricRangeOf(car) ?? 0) >= dailyKm) return isEn ? `Electric range covers your daily drive (${electricRangeOf(car)}km)` : `Autonomia elétrica cobre seu trajeto diário (${electricRangeOf(car)}km)`;
+  if ((pt === 'PHEV' || pt === 'REEV') && (combinedRangeOf(car) ?? 0) >= dailyKm * 2) return isEn ? `Combined autonomy adds flexibility beyond the electric mode (${combinedRangeOf(car)}km)` : `A autonomia total combinada amplia o uso além do modo elétrico (${combinedRangeOf(car)} km)`;
+  const electricRange = electricRangeOf(car) ?? 0;
+  if (pt === 'BEV' && electricRange >= dailyKm * 3) return isEn ? `Exceptional PBEV range for your daily use (${electricRange}km)` : `Autonomia PBEV excepcional para seu uso diário (${electricRange} km)`;
+  if (pt === 'BEV' && electricRange >= dailyKm * 2) return isEn ? `Comfortable PBEV range for your daily km (${electricRange}km)` : `Autonomia PBEV confortável para seu uso diário (${electricRange} km)`;
   if (priority.includes('preço') || priority.includes('price')) return isEn ? 'Best value for money in this selection' : 'Melhor custo-benefício desta seleção';
-  if ((priority.includes('autonomia') || priority.includes('range')) && car.range >= 400) return isEn ? 'One of the longest ranges available' : 'Uma das maiores autonomias disponíveis';
+  if ((priority.includes('autonomia') || priority.includes('range')) && pt === 'BEV' && electricRange >= 400) return isEn ? 'One of the longest PBEV ranges available' : 'Uma das maiores autonomias PBEV disponíveis';
   if ((priority.includes('conhecida') || priority.includes('known')) && KNOWN_BRANDS.includes(car.brand)) return isEn ? `Well-known and trusted brand` : `Marca reconhecida e confiável`;
   if (preferredCats.includes(car.cat)) return isEn ? 'Matches your preferred body style' : 'Categoria exatamente como você prefere';
   return isEn ? `Well-balanced option within your budget` : `Opção equilibrada dentro do seu orçamento`;
@@ -102,12 +105,13 @@ export function computeQuizResults(answers: string[], lang: string): string {
       const neededRange = dailyKm * 2.5;
       if (pt === 'PHEV' || pt === 'REEV') {
         // Autonomia elétrica cobre o dia = pontuação máxima de alcance
-        const eRange = car.electricRangeKm ?? car.range;
+        const eRange = electricRangeOf(car) ?? 0;
+        const totalRange = combinedRangeOf(car) ?? 0;
         if (eRange >= dailyKm) score += 40;
         else if ((car.fuelConsumptionKml ?? 0) >= 14) score += 35;
         else if ((car.fuelConsumptionKml ?? 0) >= 11) score += 25;
-        else if (car.range >= neededRange) score += 40;
-        else if (car.range >= dailyKm * 1.5) score += 20;
+        else if (totalRange >= neededRange) score += 40;
+        else if (totalRange >= dailyKm * 1.5) score += 20;
         else score += 5;
       } else if (pt === 'HEV') {
         const kml = car.fuelConsumptionKml ?? 0;
@@ -116,8 +120,9 @@ export function computeQuizResults(answers: string[], lang: string): string {
         else if (kml > 0) score += 15;
         else score += 5;
       } else {
-        if (car.range >= neededRange) score += 40;
-        else if (car.range >= dailyKm * 1.5) score += 20;
+        const electricRange = electricRangeOf(car) ?? 0;
+        if (electricRange >= neededRange) score += 40;
+        else if (electricRange >= dailyKm * 1.5) score += 20;
         else score += 5;
       }
       // Onde carrega: sem recarga em casa penaliza BEV e premia HEV/PHEV-sustentação
@@ -135,7 +140,7 @@ export function computeQuizResults(answers: string[], lang: string): string {
       }
       if (preferredCats.length === 0 || preferredCats.includes(car.cat)) score += 20;
       if ((priority.includes('preço') || priority.includes('price'))) score += Math.max(0, 15 - Math.round(car.price / 30000));
-      else if (priority.includes('autonomia') || priority.includes('range')) score += Math.min(15, Math.round((pt === 'BEV' ? car.range : (car.electricRangeKm ?? car.range)) / 30));
+      else if (priority.includes('autonomia') || priority.includes('range')) score += Math.min(15, Math.round((electricRangeOf(car) ?? 0) / 30));
       else if ((priority.includes('conhecida') || priority.includes('known')) && KNOWN_BRANDS.includes(car.brand)) score += 15;
       else if ((priority.includes('Luxo') || priority.includes('Luxury') || priority.includes('Design')) && car.cat === 'Luxo') score += 15;
       return { car, score };
@@ -156,10 +161,10 @@ export function computeQuizResults(answers: string[], lang: string): string {
     const reason = buildQuizReason(car, dailyKm, budget, preferredCats, priority, isEn, chargingAns);
     const pt = powertrainOf(car);
     const metrics = pt === 'HEV'
-      ? `${car.fuelConsumptionKml ? `${car.fuelConsumptionKml} km/L` : `${car.range}km`}`
+      ? `${car.fuelConsumptionKml ? `${car.fuelConsumptionKml} km/L` : 'consumo não informado'}`
       : pt === 'BEV'
-        ? `${car.range}km`
-        : `${car.electricRangeKm ?? car.range}km elétricos${car.fuelConsumptionKml ? ` + ${car.fuelConsumptionKml} km/L` : ''}`;
+        ? `${electricRangeOf(car) ?? '—'} km PBEV`
+        : `${electricRangeOf(car) ?? '—'} km elétricos${combinedRangeOf(car) ? ` · ${combinedRangeOf(car)} km totais combinados` : ''}${car.fuelConsumptionKml ? ` · ${car.fuelConsumptionKml} km/L` : ''}`;
     return `${i + 1}. **${car.brand} ${car.model}** [${pt}] — ${price} · ${metrics}\n_${reason}_`;
   }).join('\n\n');
 
@@ -303,27 +308,30 @@ function buildCarSummary(lang: string): string {
     min: Math.min(...CAR_DB.map(c => c.price)),
     max: Math.max(...CAR_DB.map(c => c.price)),
   };
+  const electricRanges = CAR_DB.map(electricRangeOf).filter((range): range is number => range !== undefined);
   const rangeRange = {
-    min: Math.min(...CAR_DB.map(c => c.range)),
-    max: Math.max(...CAR_DB.map(c => c.range)),
+    min: Math.min(...electricRanges),
+    max: Math.max(...electricRanges),
   };
 
   const carList = CAR_DB.map(c => {
     const pt = powertrainOf(c);
-    const extra = pt === 'HEV'
-      ? (c.fuelConsumptionKml ? `, ${c.fuelConsumptionKml} km/L` : '')
-      : (c.electricRangeKm !== undefined && pt !== 'BEV'
-        ? `, ${c.electricRangeKm}km elétricos${c.fuelConsumptionKml ? ` + ${c.fuelConsumptionKml} km/L` : ''}`
-        : '');
-    return `${c.brand} ${c.model}: R$${c.price.toLocaleString('pt-BR')}, [${pt}] ${c.range}km${extra}, ${c.cat}${c.power ? `, ${c.power}cv` : ''}${c.torque ? `, ${c.torque}kgfm` : ''}`;
-  }).join('\n');
+    const electricRange = electricRangeOf(c);
+    const combinedRange = combinedRangeOf(c);
+    const metrics = pt === 'HEV'
+      ? `consumo ${c.fuelConsumptionKml ? `${c.fuelConsumptionKml} km/L` : 'não informado'}`
+      : pt === 'BEV'
+        ? `autonomia PBEV ${electricRange ?? '—'} km`
+        : `autonomia elétrica ${electricRange ?? '—'} km${combinedRange ? `, total combinada ${combinedRange} km` : ''}${c.fuelConsumptionKml ? `, consumo ${c.fuelConsumptionKml} km/L` : ''}`;
+    return `${c.brand} ${c.model}: R$${c.price.toLocaleString('pt-BR')}, [${pt}] ${metrics}, ${c.cat}${c.power ? `, ${c.power}cv` : ''}${c.torque ? `, ${c.torque}kgfm` : ''}`;
+  }).join('\\n');
 
   if (isEn) {
     return `Total: ${totalCars} vehicles
 Brands: ${brands.join(', ')}
 Categories: ${categories.join(', ')}
 Price range: R$${priceRange.min.toLocaleString('pt-BR')} - R$${priceRange.max.toLocaleString('pt-BR')}
-Range: ${rangeRange.min}km - ${rangeRange.max}km
+Range (electric where applicable): ${rangeRange.min}km - ${rangeRange.max}km
 
 Vehicle list:
 ${carList}`;
@@ -333,7 +341,7 @@ ${carList}`;
 Marcas: ${brands.join(', ')}
 Categorias: ${categories.join(', ')}
 Faixa de preço: R$${priceRange.min.toLocaleString('pt-BR')} - R$${priceRange.max.toLocaleString('pt-BR')}
-Faixa de autonomia: ${rangeRange.min}km - ${rangeRange.max}km
+Faixa de autonomia elétrica: ${rangeRange.min}km - ${rangeRange.max}km
 
 Lista de veículos:
 ${carList}`;
@@ -447,7 +455,7 @@ export function extractQueryFilters(query: string, lang: string): QueryFilters {
 function retrieveRelevantCars(filters: QueryFilters): Car[] {
   let results = CAR_DB.filter(c => !c.discontinued);
   if (filters.maxPrice  !== undefined) results = results.filter(c => c.price <= filters.maxPrice!);
-  if (filters.minRange  !== undefined) results = results.filter(c => c.range >= filters.minRange!);
+  if (filters.minRange !== undefined) results = results.filter(c => (electricRangeOf(c) ?? 0) >= filters.minRange!);
   if (filters.categories?.length)      results = results.filter(c => filters.categories!.includes(c.cat));
   if (filters.brands?.length)          results = results.filter(c => filters.brands!.some(b => b.toLowerCase() === c.brand.toLowerCase()));
   if (filters.traction?.length)        results = results.filter(c => !!c.traction && filters.traction!.includes(c.traction));
@@ -465,11 +473,15 @@ function buildRagContext(query: string, lang: string): string | null {
 
   const lines = relevant.map(c => {
     const pt = powertrainOf(c);
-    const extra = pt === 'HEV'
-      ? (c.fuelConsumptionKml ? `, ${c.fuelConsumptionKml} km/L` : '')
-      : (c.electricRangeKm !== undefined && pt !== 'BEV' ? `, ${c.electricRangeKm}km elétricos` : '');
-    return `- ${c.brand} ${c.model}: R$${c.price.toLocaleString('pt-BR')}, [${pt}] ${c.range}km${extra}, ${c.cat}${c.traction ? `, ${c.traction}` : ''}${c.power ? `, ${c.power}cv` : ''}`;
-  }).join('\n');
+    const electricRange = electricRangeOf(c);
+    const combinedRange = combinedRangeOf(c);
+    const metrics = pt === 'HEV'
+      ? `consumo ${c.fuelConsumptionKml ?? '—'} km/L`
+      : pt === 'BEV'
+        ? `autonomia PBEV ${electricRange ?? '—'} km`
+        : `autonomia elétrica ${electricRange ?? '—'} km${combinedRange ? `, total combinada ${combinedRange} km` : ''}`;
+    return `- ${c.brand} ${c.model}: R$${c.price.toLocaleString('pt-BR')}, [${pt}] ${metrics}, ${c.cat}${c.traction ? `, ${c.traction}` : ''}${c.power ? `, ${c.power}cv` : ''}`;
+  }).join('\\n');
 
   return isEn
     ? `[RAG — ${relevant.length} vehicle(s) matching query filters:]\n${lines}`

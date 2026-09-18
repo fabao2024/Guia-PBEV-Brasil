@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Car } from '../types';
 import { X, Check, Minus, Map, Battery, Car as CarIcon, DollarSign, Zap, Gauge, Activity, Sparkles, RefreshCw, Plus, Ruler } from 'lucide-react';
 import { resolveCarImageUrl } from '../utils/imageUrl';
+import { combinedRangeOf, electricRangeOf, powertrainLabel, primaryCarMetric } from '../utils/powertrain';
 
 interface ComparisonModalProps {
    cars: Car[];
@@ -21,14 +22,20 @@ function getRecommendations(cars: Car[], allCars: Car[]): Car[] {
    if (cars.length < 2) return [];
    const excluded = new Set(cars.map(c => c.model));
    const midPrice = cars.reduce((s, c) => s + c.price, 0) / cars.length;
-   const midRange = cars.reduce((s, c) => s + c.range, 0) / cars.length;
+   const comparedElectricRanges = cars.map(electricRangeOf).filter((range): range is number => range !== undefined);
+   const midElectricRange = comparedElectricRanges.length > 0
+      ? comparedElectricRanges.reduce((sum, range) => sum + range, 0) / comparedElectricRanges.length
+      : null;
    const cats = new Set(cars.map(c => c.cat));
 
    return allCars
       .filter(c => !excluded.has(c.model))
       .map(c => {
          const priceDiff = Math.abs(c.price - midPrice) / midPrice;
-         const rangeDiff = Math.abs(c.range - midRange) / midRange;
+         const candidateElectricRange = electricRangeOf(c);
+         const rangeDiff = midElectricRange !== null && candidateElectricRange !== undefined
+            ? Math.abs(candidateElectricRange - midElectricRange) / midElectricRange
+            : 0.5;
          const catBonus = cats.has(c.cat) ? 0.15 : 0;
          return { car: c, score: priceDiff * 0.5 + rangeDiff * 0.3 - catBonus };
       })
@@ -114,7 +121,7 @@ export default function ComparisonModal({ cars, allCars, onClose, onRemove, onAd
                      <div className="h-40"></div> {/* Spacer for Images */}
                      <div className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.model')}</div>
                      <div className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.price')}</div>
-                     <div className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.range')}</div>
+                     <div className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">Métrica principal</div>
                      <div className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.power')}</div>
                      <div className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.torque')}</div>
                      <div className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.battery', 'Bateria')}</div>
@@ -155,8 +162,9 @@ export default function ComparisonModal({ cars, allCars, onClose, onRemove, onAd
                         </div>
 
                         {/* Data Rows */}
-                        <div className="h-10 flex items-center">
+                        <div className="h-10 flex flex-col justify-center">
                            <span className="font-black text-white text-xl leading-tight drop-shadow-sm">{car.model}</span>
+                           <span className="text-[9px] uppercase tracking-widest text-[#00b4ff]/70">{powertrainLabel(car)}</span>
                         </div>
 
                         <div className="h-10 flex items-center">
@@ -166,18 +174,12 @@ export default function ComparisonModal({ cars, allCars, onClose, onRemove, onAd
                            </span>
                         </div>
 
-                        <div className="h-10 flex items-center">
+                        <div className="h-10 flex flex-col justify-center">
                            <span className="font-bold text-white flex items-center gap-1.5">
                               <Map className="w-4 h-4 text-[#00b4ff]" />
-                               {(car.powertrain ?? 'BEV') === 'HEV'
-                                 ? (car.fuelType2 === 'flex' && car.fuelConsumptionKmlEthanol != null
-                                   ? <span className="flex flex-col leading-tight">
-                                       <span>{car.fuelConsumptionKml} <span className="text-[#a0a0a0] text-xs">km/l {t('simulator.gasoline')}</span></span>
-                                       <span>{car.fuelConsumptionKmlEthanol} <span className="text-[#a0a0a0] text-xs">km/l {t('simulator.ethanol')}</span></span>
-                                     </span>
-                                   : <>{car.fuelConsumptionKml ?? '—'} <span className="text-[#a0a0a0] text-sm">km/l</span></>)
-                                 : <>{car.range} <span className="text-[#a0a0a0] text-sm">km</span></>}
+                              {primaryCarMetric(car).value} <span className="text-[#a0a0a0] text-sm">{primaryCarMetric(car).unit}</span>
                            </span>
+                           <span className="text-[9px] text-[#666] ml-5">{primaryCarMetric(car).label}{combinedRangeOf(car) ? ` · total combinada ${combinedRangeOf(car)} km` : ''}</span>
                         </div>
 
                         <div className="h-10 flex items-center">
@@ -268,8 +270,9 @@ export default function ComparisonModal({ cars, allCars, onClose, onRemove, onAd
 
                            {/* Data rows — aligned with car columns */}
                            <div className="flex flex-col gap-4 p-5 flex-1">
-                              <div className="h-10 flex items-center">
+                              <div className="h-10 flex flex-col justify-center">
                                  <span className="font-black text-white text-xl leading-tight drop-shadow-sm">{rec.model}</span>
+                                 <span className="text-[9px] uppercase tracking-widest text-[#00b4ff]/70">{powertrainLabel(rec)}</span>
                               </div>
 
                               <div className="h-10 flex items-center">
@@ -279,11 +282,12 @@ export default function ComparisonModal({ cars, allCars, onClose, onRemove, onAd
                                  </span>
                               </div>
 
-                              <div className="h-10 flex items-center">
+                              <div className="h-10 flex flex-col justify-center">
                                  <span className="font-bold text-white flex items-center gap-1.5">
                                     <Map className="w-4 h-4 text-[#00b4ff]" />
-                                    {rec.range} <span className="text-[#a0a0a0] text-sm">km</span>
+                                    {primaryCarMetric(rec).value} <span className="text-[#a0a0a0] text-sm">{primaryCarMetric(rec).unit}</span>
                                  </span>
+                                 <span className="text-[9px] text-[#666] ml-5">{primaryCarMetric(rec).label}{combinedRangeOf(rec) ? ` · total combinada ${combinedRangeOf(rec)} km` : ''}</span>
                               </div>
 
                               <div className="h-10 flex items-center">

@@ -3,6 +3,7 @@ import { useORSRoute } from './useORSRoute';
 import { buildChargingStops } from '../utils/routeGeometry';
 import { ELETROPOSTOS } from '../data/eletropostosData';
 import { CAR_DB } from '../constants';
+import { electricRangeOf } from '../utils/powertrain';
 import { resolveOcmKey, saveOcmKey, clearOcmKey, fetchDcChargers } from '../services/ocmService';
 import { fetchOsmChargers } from '../services/overpassService';
 import { polylineBbox, mergeChargerSources } from '../utils/mergeChargers';
@@ -143,9 +144,10 @@ export function useRoutePlanner(): RoutePlannerReturn {
   // Consumo base derivado do carro (kWh/100km) — null se battery não cadastrada
   const baseConsumptionKwh = useMemo(() => {
     const car = form.selectedCar;
-    if (!car?.battery) return null;
+    const electricRange = car ? electricRangeOf(car) : undefined;
+    if (!car?.battery || !electricRange) return null;
     // 0.93 = fator de capacidade utilizável (usable ~93% do bruto declarado pelo fabricante)
-    return parseFloat((car.battery * 0.93 / car.range * 100).toFixed(2));
+    return parseFloat((car.battery * 0.93 / electricRange * 100).toFixed(2));
   }, [form.selectedCar]);
 
   // Consumo efetivo: override manual ou derivado do carro
@@ -160,7 +162,7 @@ export function useRoutePlanner(): RoutePlannerReturn {
       return Math.round(car.battery / effectiveConsumptionKwh * 100 * (departPct - arrivePct) / 100);
     }
     // fallback para carros sem battery cadastrada
-    return Math.round(car.range * (departPct - arrivePct) / 100);
+    return Math.round((electricRangeOf(car) ?? 0) * (departPct - arrivePct) / 100);
   }, [form.selectedCar, effectiveConsumptionKwh, departPct, arrivePct]);
 
   // Override manual ou sugestão (sem fatores de condição)

@@ -2,6 +2,7 @@ import { act, fireEvent, render, screen } from '@testing-library/react';
 import type { ComponentProps } from 'react';
 import CarDetailsModal from '../components/CarDetailsModal';
 import { CAR_DB } from '../constants';
+import { powertrainLabel } from '../utils/powertrain';
 import '../i18n';
 
 const kwid = CAR_DB.find(car => car.model === 'Kwid E-Tech')!;
@@ -58,7 +59,7 @@ describe('CarDetailsModal — compartilhamento canônico', () => {
 
     expect(share).toHaveBeenCalledExactlyOnceWith({
       title: car.model,
-      text: `${car.model} – R$ ${car.price.toLocaleString('pt-BR')} – ${car.range}km | Guia PBEV`,
+      text: `${car.model} – R$ ${car.price.toLocaleString('pt-BR')} – ${car.range} km | ${powertrainLabel(car)} | Guia PBEV`,
       url,
     });
     expect(writeText).not.toHaveBeenCalled();
