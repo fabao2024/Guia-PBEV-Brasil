@@ -5,6 +5,7 @@ import { CAR_DB } from '../constants';
 import { findCarBySlug, toSlug } from '../utils/slug';
 import { ArrowLeft, Zap, BatteryCharging, CheckCircle2, XCircle } from 'lucide-react';
 import { resolveCarImageUrl } from '../utils/imageUrl';
+import { combinedRangeOf, electricRangeOf, powertrainLabel, powertrainOf } from '../utils/powertrain';
 import DataEvidence from '../components/DataEvidence';
 
 function imgSrc(car: (typeof CAR_DB)[0]): string {
@@ -78,7 +79,7 @@ export default function CompareDetailPage() {
   }
 
   const title = `${carA.brand} ${carA.model} vs ${carB.brand} ${carB.model} — Comparativo PBEV Brasil`;
-  const description = `Compare ${carA.brand} ${carA.model} e ${carB.brand} ${carB.model}: autonomia PBEV, potência, bateria, carregamento e preço. Dados oficiais INMETRO.`;
+  const description = `Compare ${carA.brand} ${carA.model} (${powertrainLabel(carA)}) e ${carB.brand} ${carB.model} (${powertrainLabel(carB)}): autonomia elétrica, autonomia total combinada quando aplicável, consumo, potência, bateria, carregamento e preço. Dados oficiais INMETRO.`;
   const canonicalUrl = `https://guiapbev.cloud/comparar/${slugA}/${slugB}`;
 
   const jsonLd = {
@@ -142,7 +143,7 @@ export default function CompareDetailPage() {
                 </div>
                 <div className="p-3">
                   <p className="text-white font-bold text-sm">{car.brand} {car.model}</p>
-                  <p className="text-white/40 text-xs">{car.cat}</p>
+                  <p className="text-white/40 text-xs">{car.cat} · {powertrainOf(car)} · {powertrainLabel(car)}</p>
                 </div>
               </Link>
             ))}
@@ -160,13 +161,15 @@ export default function CompareDetailPage() {
               </thead>
               <tbody>
                 <CompareRow label="Preço estimado" a={carA.price} b={carB.price} higherIsBetter={false} suffix=" R$" />
-                {((carA.powertrain ?? 'BEV') === 'HEV' || (carB.powertrain ?? 'BEV') === 'HEV') && (
-                  <CompareRow label={(carA.fuelType2 === 'flex' || carB.fuelType2 === 'flex') ? 'Consumo gasolina cidade (Inmetro)' : 'Consumo cidade (Inmetro)'} a={carA.fuelConsumptionKml} b={carB.fuelConsumptionKml} higherIsBetter suffix=" km/l" />
+                <CompareRow label="Propulsão" a={powertrainLabel(carA)} b={powertrainLabel(carB)} neutral />
+                {(carA.fuelConsumptionKml !== undefined || carB.fuelConsumptionKml !== undefined) && (
+                  <CompareRow label="Consumo de combustível (cidade)" a={carA.fuelConsumptionKml} b={carB.fuelConsumptionKml} higherIsBetter suffix=" km/l" />
                 )}
                 {(carA.fuelConsumptionKmlEthanol !== undefined || carB.fuelConsumptionKmlEthanol !== undefined) && (
                   <CompareRow label="Consumo etanol cidade (Inmetro)" a={carA.fuelConsumptionKmlEthanol} b={carB.fuelConsumptionKmlEthanol} higherIsBetter suffix=" km/l" />
                 )}
-                <CompareRow label="Autonomia elétrica PBEV" a={(carA.powertrain ?? 'BEV') === 'HEV' ? undefined : carA.range} b={(carB.powertrain ?? 'BEV') === 'HEV' ? undefined : carB.range} suffix=" km" />
+                <CompareRow label="Autonomia elétrica" a={electricRangeOf(carA)} b={electricRangeOf(carB)} suffix=" km" />
+                <CompareRow label="Autonomia total combinada (PHEV/REEV)" a={combinedRangeOf(carA)} b={combinedRangeOf(carB)} suffix=" km" />
                 <CompareRow label="Potência" a={carA.power} b={carB.power} suffix=" cv" />
                 <CompareRow label="Torque" a={carA.torque} b={carB.torque} suffix=" kgfm" />
                 <CompareRow label="Bateria" a={carA.battery} b={carB.battery} suffix=" kWh" />

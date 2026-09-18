@@ -12,6 +12,7 @@ import { useNominatimAutocomplete } from '../hooks/useNominatimAutocomplete';
 import { matchStatusFromOcmCache, type OcmError } from '../services/ocmService';
 import { gmapsUrl, plugshareUrl, OPERADOR_COLOR, DEFAULT_OPERADOR_COLOR } from '../data/eletropostosData';
 import type { Car } from '../types';
+import { electricRangeOf, powertrainLabel } from '../utils/powertrain';
 import type { GeoSuggestion, ChargingStop, NearbyCharger, ChargerStatus } from '../types/routePlanner';
 
 interface RoutePlannerModalProps {
@@ -393,7 +394,7 @@ function CarSelector({ selected, onSelect }: { selected: Car | null; onSelect: (
         >
           {dcCars.map((c) => (
             <option key={c.model} value={c.model}>
-              {c.brand} {c.model} — {c.range} km
+              {c.brand} {c.model} — {electricRangeOf(c) ?? '—'} km elétricos
             </option>
           ))}
         </select>
@@ -401,7 +402,7 @@ function CarSelector({ selected, onSelect }: { selected: Car | null; onSelect: (
       </div>
       {selected && (
         <p className="text-[#555] text-xs ml-1">
-          Autonomia PBEV: <span className="text-white/60">{selected.range} km</span>
+          {powertrainLabel(selected)}: <span className="text-white/60">{electricRangeOf(selected) ?? '—'} km</span>
           {selected.chargeDC && (
             <> · DC máx: <span className="text-[#00b4ff]">{selected.chargeDC} kW</span></>
           )}
@@ -1358,18 +1359,18 @@ export const RoutePlannerModal: React.FC<RoutePlannerModalProps> = ({ onClose })
                           <span className="text-[#555] text-xs ml-1">km</span>
                         </div>
                         <button
-                          onClick={() => setCustomRangeKm(Math.min(form.selectedCar!.range, effectiveRangeKm + 10))}
+                          onClick={() => setCustomRangeKm(Math.min(electricRangeOf(form.selectedCar!) ?? 0, effectiveRangeKm + 10))}
                           className="w-9 h-9 rounded-xl border border-white/10 bg-white/5 text-white font-black text-lg flex items-center justify-center active:scale-95 transition-all"
                         >+</button>
                       </div>
                       <div className="hidden md:flex items-center gap-2 flex-1">
                         <input
                           type="number"
-                          min={50} max={form.selectedCar.range} step={10}
+                          min={50} max={electricRangeOf(form.selectedCar!) ?? 0} step={10}
                           value={effectiveRangeKm}
                           onChange={(e) => {
                             const v = Number(e.target.value);
-                            if (v >= 50 && v <= form.selectedCar!.range) setCustomRangeKm(v);
+                            if (v >= 50 && v <= (electricRangeOf(form.selectedCar!) ?? 0)) setCustomRangeKm(v);
                           }}
                           className="w-24 bg-[#0a0b12] border border-white/15 rounded-lg px-3 py-1.5 text-[#00b4ff] font-black text-sm focus:outline-none focus:border-[#00b4ff]/50 text-center"
                         />

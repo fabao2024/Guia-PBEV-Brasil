@@ -6,6 +6,7 @@ import { BRAND_URLS, isCarNew, CAR_DB } from '../constants';
 import { getPriceDelta } from '../constants/priceHistory';
 import { toSlug } from '../utils/slug';
 import { getCarImageDimensions, resolveCarImageSrcSet, resolveCarImageUrl } from '../utils/imageUrl';
+import { powertrainLabel, powertrainOf, primaryCarMetric, combinedRangeOf } from '../utils/powertrain';
 import { Check, ImageOff, Heart, BatteryCharging, Fuel, Scale, ArrowUpRight } from 'lucide-react';
 
 interface CarCardProps {
@@ -16,9 +17,6 @@ interface CarCardProps {
   isFavorite: boolean;
   onToggleFavorite: (e: React.MouseEvent) => void;
 }
-
-// Reference max range for the progress bar (longest EV in BR market ~700km)
-const MAX_RANGE_KM = 700;
 
 // Category-specific accent system — each segment gets its own color identity
 const CAT_ACCENT: Record<string, { color: string; bg: string }> = {
@@ -52,6 +50,9 @@ const CarCard: React.FC<CarCardProps> = ({
 
   const isNew = isCarNew(car);
   const priceDelta = getPriceDelta(car.model, car.price);
+  const powertrain = powertrainOf(car);
+  const primaryMetric = primaryCarMetric(car);
+  const rangePercent = primaryMetric.progressValue;
 
   const carSlug = useMemo(() => toSlug(car.brand, car.model), [car.brand, car.model]);
   const topSimilar = useMemo(() => {
@@ -61,11 +62,6 @@ const CarCard: React.FC<CarCardProps> = ({
   }, [car.cat, car.price, carSlug]);
 
   const brandUrl = car.url ?? BRAND_URLS[car.brand] ?? `https://www.google.com/search?q=${encodeURIComponent(car.brand + ' Brasil')}`;
-  const isHev = (car.powertrain ?? 'BEV') === 'HEV';
-  const isPhev = car.powertrain === 'PHEV' || car.powertrain === 'REEV';
-  const rangePercent = isHev && car.fuelConsumptionKml
-    ? Math.min(Math.round((car.fuelConsumptionKml / 20) * 100), 100)
-    : Math.min(Math.round((car.range / MAX_RANGE_KM) * 100), 100);
   const accent = CAT_ACCENT[car.cat] ?? CAT_ACCENT['Compacto'];
   const tractionStyle = car.traction ? TRACTION_STYLE[car.traction] : null;
   const estimatedPower = car.power ?? Math.round(car.price / 3000);
@@ -212,12 +208,12 @@ const CarCard: React.FC<CarCardProps> = ({
           >
             {t(`categories.${car.cat}`)}
           </span>
-          {(car.powertrain ?? 'BEV') !== 'BEV' && (
+          {powertrain !== 'BEV' && (
             <span
               className="text-[10px] px-2 py-0.5 rounded-full font-semibold uppercase tracking-[0.08em]"
               style={{ background: 'rgba(0,229,160,0.07)', color: '#00e5a0', border: '1px solid rgba(0,229,160,0.2)' }}
             >
-              {car.powertrain}
+              {powertrain} · {powertrainLabel(car)}
             </span>
           )}
         </div>
@@ -241,16 +237,12 @@ const CarCard: React.FC<CarCardProps> = ({
               className="text-[10px] uppercase tracking-widest font-medium flex items-center gap-1"
               style={{ color: 'rgba(255,255,255,0.3)' }}
             >
-              {isHev ? <Fuel className="w-3 h-3" /> : <BatteryCharging className="w-3 h-3" />}
-              {isHev
-                ? t('card.fuelLabel', 'Consumo')
-                : isPhev
-                  ? t('card.electricRangeLabel', 'Autonomia elétrica')
-                  : t('card.rangeLabel', 'Autonomia')}
+              {powertrain === 'HEV' ? <Fuel className="w-3 h-3" /> : <BatteryCharging className="w-3 h-3" />}
+              {primaryMetric.label}
             </span>
             <span className="font-display text-sm font-bold text-white leading-none">
-              {isHev ? (car.fuelConsumptionKml ?? '—') : car.range}
-              <span className="text-[10px] font-normal ml-0.5" style={{ color: 'rgba(255,255,255,0.35)' }}>{isHev ? 'km/l' : 'km'}</span>
+              {primaryMetric.value}
+              <span className="text-[10px] font-normal ml-0.5" style={{ color: 'rgba(255,255,255,0.35)' }}>{primaryMetric.unit}</span>
             </span>
           </div>
           {/* Filled progress bar */}
@@ -264,6 +256,11 @@ const CarCard: React.FC<CarCardProps> = ({
             />
           </div>
         </div>
+        {combinedRangeOf(car) && (
+          <div className="text-[10px] text-white/40">
+            Autonomia total combinada: <strong className="text-white/65">{combinedRangeOf(car)} km</strong>
+          </div>
+        )}
 
         {/* Power + Traction chips */}
         <div className="flex gap-2">
