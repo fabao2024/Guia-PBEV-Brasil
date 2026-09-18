@@ -932,6 +932,39 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(outlander.energyMJkm).toBeCloseTo(0.77, 5);
   });
 
+  it('Jetour S06, T1 and T2 should match official jetourbr.com and PBEV table', () => {
+    // jetourbr.com model pages + PBEV table parsed locally: S06 70 km/0,62 MJ;
+    // T1 88 km/0,66 MJ; T2 75 km/0,80 MJ; T2 4x4 106 km/0,84 MJ;
+    // sustain 14,0/13,6/11,4/10,5 km/l cidade.
+    const s06a = byModel('S06 Advance');
+    expect(s06a.powertrain).toBe('PHEV');
+    expect(s06a.price).toBe(199990);
+    expect(s06a.range).toBe(70);
+    expect(s06a.energyMJkm).toBeCloseTo(0.62, 5);
+    expect(s06a.fuelConsumptionKml).toBe(14.0);
+    expect(byModel('S06 Premium').price).toBe(229900);
+    const t1a = byModel('T1 Advance');
+    expect(t1a.range).toBe(88);
+    expect(t1a.energyMJkm).toBeCloseTo(0.66, 5);
+    expect(t1a.fuelConsumptionKml).toBe(13.6);
+    expect(byModel('T1 Premium').price).toBe(264900);
+    const t2a = byModel('T2 Advance');
+    expect(t2a.range).toBe(75);
+    expect(t2a.energyMJkm).toBeCloseTo(0.80, 5);
+    expect(t2a.fuelConsumptionKml).toBe(11.4);
+    expect(t2a.power).toBe(320);
+    expect(t2a.chargeAC).toBe(7);
+    expect(t2a.chargeDC).toBe(40);
+    expect(byModel('T2 Premium').price).toBe(299900);
+    const t24 = byModel('T2 4x4');
+    expect(t24.powertrain).toBe('PHEV');
+    expect(t24.price).toBe(349900);
+    expect(t24.range).toBe(106);
+    expect(t24.energyMJkm).toBeCloseTo(0.84, 5);
+    expect(t24.fuelConsumptionKml).toBe(10.5);
+    expect(t24.traction).toBe('AWD');
+  });
+
   it('traction should match the official drivetrain of the sold versions', () => {
     // hyundai.com.br official catalog (checked 2026-08-25): Ioniq 5 Signature
     // AWD HTRAC, dual motor, 325 cv combined.

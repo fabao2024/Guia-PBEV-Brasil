@@ -2,6 +2,14 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 18/09/2026 · Jetour: S06, T1 e T2 em 7 versões (161 veículos)
+
+| Área | Mudança pública |
+|---|---|
+| Catálogo | S06 Advance/Premium (R$ 199.990/229.990, 70 km), T1 Advance/Premium (R$ 249.990/264.900, 88 km), T2 Advance/Premium (R$ 289.900/299.900, 75 km) e T2 4x4 XWD (R$ 349.900, 106 km) — todos PHEV a gasolina. Marca nova: Jetour. Sem selo Novidades (lançamento em março). |
+| Divergências | MJ/km, autonomia e sustain via tabela PBEV parseada localmente; potências S06/T1/T2 4x4 utilizáveis não publicadas (site declara soma simples, indisponível simultaneamente) — fora do catálogo. T2 4x4 sem kW de AC/DC e sem peso/porta-malas oficiais — fora do catálogo. Fotos: T1/T2/T2 4x4 frontais de estúdio; S06 3/4 traseira (única inteira na galeria). |
+| Verificação | Testes (bloco Jetour + invariantes), TypeScript limpo, build Vite (161 páginas), scanner de segredos e verificador de proveniência aprovados. |
+
 ## 18/09/2026 · Equipamentos Omoda/Jaecoo/Toyota/Lexus por versão (lote 3)
 
 | Área | Mudança pública |
@@ -29,7 +37,7 @@ Notas técnicas selecionadas do produto público. Este documento não registra i
 
 | Área | Mudança pública |
 |---|---|
-| Catálogo | 330e M Sport (R$ 465.950, 61 km), UX 300h, NX 350h Dynamic, NX 450h+, RX 500h F-Sport, RX 450h+, ES 300h, Cayenne E-Hybrid (R$ 900.000, 52 km) e Range Rover Sport P550e (R$ 1.063.950, 71 km). Marcas novas: BMW, Porsche, Land Rover. Nenhum no selo Novidades. |
+| Catálogo | 330e M Sport (R$ 465.950, 61 km), UX 300h, NX 350h Dynamic, NX 450h+, RX 500h F-Sport, RX 450h+, ES 300h, Cayenne E-Hybrid (R$ 900.000, 52 km) e Range Rover Sport P550e (R$ 1.063.950, 71 km). Marca nova: Land Rover (BMW, Porsche e Lexus já existiam). Nenhum no selo Novidades. |
 | Divergências | Tabela PBEV jan/2026 parseada localmente corrige Cross (17,8→16,6) e confirma Haval/Tiggo/Outlander/Jaecoo/Omoda/BYD; MJ adicionado a Tiggo 7/8 (0,59/0,62) e Outlander (0,77). NX450h+ tanque 55 L (brochura AR), Cayenne 75 L (fichas de mercado), RR 71,5 L (PDF global). Fotos fracas: Lexus 450px, Cayenne 600px, RR 640px; 330e e UX sem foto (TODO). Velar segurado (preço ambíguo). |
 | Verificação | Testes (bloco Lote C + invariantes), TypeScript limpo, build Vite (154 páginas), scanner de segredos e verificador de proveniência aprovados. |
 
