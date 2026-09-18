@@ -2,6 +2,14 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 18/09/2026 · Equipamentos Omoda/Jaecoo/Toyota/Lexus por versão (lote 3)
+
+| Área | Mudança pública |
+|---|---|
+| Ficha | Omoda 7 Luxury ganha teto/HUD/rodas 19"; Prestige ganha Sony 12, rodas 20" e fragrâncias. Omoda 5 corrige tela para 24,6" nas duas. Jaecoo Elite perde a 540° (só Luxury+) e ganha 6 airbags; Prestige ganha Sony 8 e bancos aquecidos. GLi ganha rodas 16"/TFT 7"; Altis ganha rodas 17", 12,3", couro e teto. NX 350h declara ausências (sem teto/HUD/ponto cego); 450h+ ganha 20", HUD, wallbox e couro ventilado. RX 500h ganha 21", AVS e Mark Levinson 20+1; 450h+ ganha ventilação dupla e tomada 127 V. |
+| Divergências | Teto/câmera/áudio do Omoda 5 por versão em conflito entre página oficial e imprensa — sem airbags por versão. HUD do Song Plus Premium fora da ficha (mantido, mesma linha). |
+| Verificação | 398/398 testes, TypeScript limpo, build Vite (154 páginas), scanner de segredos e verificador de proveniência (802/1540) aprovados. |
+
 ## 18/09/2026 · Equipamentos BYD revistos por versão (lote 2)
 
 | Área | Mudança pública |

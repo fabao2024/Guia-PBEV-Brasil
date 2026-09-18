@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T11:10:43.654Z",
+  "generated_at": "2026-09-18T11:50:43.005Z",
   "total": 154,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "evidence": {
@@ -1749,6 +1749,7 @@
         "Bateria 18,4 kWh; autonomia elétrica PBEV de 60 km; combinada de 1.200 km",
         "14,0 km/l cidade (gasolina, Inmetro) no modo sustentação",
         "Câmbio híbrido dedicado 1DHT; tração dianteira",
+        "Teto Wide Panorama, rodas 19\" e head-up display",
         "Tela central deslizante de 15,6\" 2.5K com Snapdragon 8155",
         "Pacote ADAS (ACC, AEB, ELK, BSD, RCTA, câmera 540°)"
       ],
@@ -1794,6 +1795,7 @@
         "Câmbio híbrido dedicado 1DHT; tração dianteira",
         "8 airbags com airbag central dianteiro",
         "Banco do passageiro com massagem, aquecimento e ventilação",
+        "Rodas 20\", som Sony 12 alto-falantes e fragrâncias L'Essence",
         "Tela central deslizante de 15,6\" 2.5K com Snapdragon 8155",
         "Pacote ADAS (ACC, AEB, ELK, BSD, RCTA, câmera 540°)"
       ],
@@ -1836,7 +1838,7 @@
         "SUV híbrido pleno (SHS) — 1.5 TGDI + elétrico, 224 cv / 30,1 kgfm",
         "15,1 km/l cidade (gasolina, Inmetro)",
         "Câmbio híbrido dedicado DHT; tração dianteira",
-        "Central multimídia 12,3\" com CarPlay e Android Auto sem fio",
+        "Painel flutuante 24,6\" (2x12,3\" curva)",
         "Tanque de 51 L e porta-malas de 372 L"
       ],
       "is_new": false,
@@ -1878,6 +1880,7 @@
         "SUV híbrido pleno (SHS) — 1.5 TGDI + elétrico, 224 cv / 30,1 kgfm",
         "15,1 km/l cidade (gasolina, Inmetro)",
         "Câmbio híbrido dedicado DHT; tração dianteira",
+        "Painel flutuante 24,6\" (2x12,3\" curva)",
         "Teto solar, câmera 540° e pacote ADAS",
         "Tanque de 51 L e porta-malas de 372 L"
       ],
@@ -1922,7 +1925,7 @@
         "15,1 km/l cidade (gasolina, Inmetro) no modo sustentação",
         "Câmbio híbrido dedicado DHT de 3ª geração; tração dianteira",
         "Central multimídia de 13,2\" com CarPlay e Android Auto sem fio",
-        "Pacote ADAS (ACC, AEB, LDW, BSD, câmera 540°)"
+        "6 airbags e pacote ADAS (ACC, AEB, LDW, BSD)"
       ],
       "is_new": false,
       "discontinued": false,
@@ -2010,6 +2013,7 @@
         "Câmbio híbrido dedicado DHT de 3ª geração; tração dianteira",
         "Teto solar wide-panorama de 1,1 m² e porta-malas elétrico",
         "Bancos com ventilação e memória; HUD e carregador por indução refrigerado",
+        "Som Sony com 8 alto-falantes; bancos aquecidos e iluminação ambiente",
         "7 airbags e pacote ADAS completo (ACC, AEB, LDW, BSD, câmera 540°)"
       ],
       "is_new": false,
@@ -2648,6 +2652,7 @@
         "17,5 km/l cidade (gasolina, Inmetro) e 12,5 km/l (etanol)",
         "Câmbio Transaxle CVT",
         "Toyota Safety Sense e 7 airbags",
+        "Rodas 16\" e painel TFT 7\"",
         "Garantia híbrida de 8 anos / 200.000 km"
       ],
       "is_new": false,
@@ -2689,7 +2694,9 @@
         "Sedã híbrido flex (1.8 VVT-i + elétricos) — 122 cv combinados",
         "17,5 km/l cidade (gasolina, Inmetro) e 12,5 km/l (etanol)",
         "Câmbio Transaxle CVT",
-        "Toyota Safety Sense, 7 airbags e teto solar",
+        "Toyota Safety Sense e 7 airbags",
+        "Rodas 17\", painel 12,3\" e bancos em couro",
+        "Teto solar elétrico com antiesmagamento",
         "Garantia híbrida de 8 anos / 200.000 km"
       ],
       "is_new": false,
@@ -4497,6 +4504,7 @@
         "SUV híbrido (2.5 + elétrico) — 246 cv combinados",
         "15,7 km/l cidade (gasolina, Inmetro)",
         "Câmbio e-CVT e tração integral",
+        "Rodas 18\" — sem teto solar, HUD ou ponto cego",
         "Lexus Safety System+",
         "Porta-malas de 520 L"
       ],
@@ -4540,6 +4548,9 @@
         "Bateria 18,1 kWh; autonomia elétrica Inmetro de 56 km",
         "14,5 km/l cidade (gasolina, Inmetro) no modo sustentação",
         "Tração integral E-Four",
+        "Rodas 20\", head-up display e ponto cego",
+        "Carregador portátil 2,3 kW + Wallbox 7,4 kW",
+        "Bancos em couro com ventilação e memória",
         "Porta-malas de 520 L"
       ],
       "is_new": false,
@@ -4581,6 +4592,8 @@
         "SUV híbrido performance (2.4 turbo + elétricos) — 371 cv / 46,0 kgfm",
         "10,8 km/l cidade (gasolina, Inmetro)",
         "Câmbio automático 6 marchas e tração DIRECT4",
+        "Rodas 21\" F-Sport, suspensão AVS e direção traseira",
+        "Mark Levinson 20+1 e bancos 10 posições",
         "Lexus Safety System+",
         "Porta-malas de 612 L"
       ],
@@ -4624,6 +4637,8 @@
         "Autonomia elétrica Inmetro de 56 km",
         "14,8 km/l cidade (gasolina, Inmetro) no modo sustentação",
         "Tração integral AWD",
+        "Bancos com ventilação nas duas fileiras e tomada 127 V",
+        "Áudio Mark Levinson",
         "Porta-malas de 612 L"
       ],
       "is_new": false,
