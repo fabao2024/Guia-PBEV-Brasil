@@ -76,7 +76,7 @@ describe('generated car image assets', () => {
   });
 
   it('keeps both expensive images below 100 kB at mobile-card resolution', () => {
-    for (const src of ['/car-images/Dolphin-mini.png', '/car-images/e-js1.png']) {
+    for (const src of ['/car-images/dolphin-mini.png', '/car-images/e-js1.png']) {
       const image = audit.images.find((entry) => entry.src === src)!;
       // Cards up to 430 CSS px screens stay below 640 image px even at DPR 3.
       // The 960px asset is a larger/detail fallback, not this mobile budget.

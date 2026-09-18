@@ -122,6 +122,58 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
+  "/car-images/bmw-330e.jpg": {
+    "width": 2250,
+    "height": 1500,
+    "variants": [
+      {
+        "src": "/car-images/optimized/bmw-330e.jpg-320.webp",
+        "width": 320,
+        "height": 213
+      },
+      {
+        "src": "/car-images/optimized/bmw-330e.jpg-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      {
+        "src": "/car-images/optimized/bmw-330e.jpg-960.webp",
+        "width": 960,
+        "height": 640
+      },
+      {
+        "src": "/car-images/optimized/bmw-330e.jpg-1280.webp",
+        "width": 1280,
+        "height": 853
+      }
+    ]
+  },
+  "/car-images/byd-atto-2.jpg": {
+    "width": 1600,
+    "height": 1067,
+    "variants": [
+      {
+        "src": "/car-images/optimized/byd-atto-2.jpg-320.webp",
+        "width": 320,
+        "height": 213
+      },
+      {
+        "src": "/car-images/optimized/byd-atto-2.jpg-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      {
+        "src": "/car-images/optimized/byd-atto-2.jpg-960.webp",
+        "width": 960,
+        "height": 640
+      },
+      {
+        "src": "/car-images/optimized/byd-atto-2.jpg-1280.webp",
+        "width": 1280,
+        "height": 854
+      }
+    ]
+  },
   "/car-images/byd-sealion-7.jpg": {
     "width": 1500,
     "height": 844,
@@ -169,6 +221,32 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       },
       {
         "src": "/car-images/optimized/byd-shark.jpg-1280.webp",
+        "width": 1280,
+        "height": 720
+      }
+    ]
+  },
+  "/car-images/byd-song-plus.webp": {
+    "width": 2880,
+    "height": 1620,
+    "variants": [
+      {
+        "src": "/car-images/optimized/byd-song-plus.webp-320.webp",
+        "width": 320,
+        "height": 180
+      },
+      {
+        "src": "/car-images/optimized/byd-song-plus.webp-640.webp",
+        "width": 640,
+        "height": 360
+      },
+      {
+        "src": "/car-images/optimized/byd-song-plus.webp-960.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "/car-images/optimized/byd-song-plus.webp-1280.webp",
         "width": 1280,
         "height": 720
       }
@@ -226,76 +304,107 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
-  "/car-images/caoachery-tiggo7-phev.webp": {
-    "width": 1090,
-    "height": 394,
+  "/car-images/caoachery-tiggo7-phev.jpg": {
+    "width": 2880,
+    "height": 1620,
     "variants": [
       {
-        "src": "/car-images/optimized/caoachery-tiggo7-phev.webp-320.webp",
+        "src": "/car-images/optimized/caoachery-tiggo7-phev.jpg-320.webp",
         "width": 320,
-        "height": 116
+        "height": 180
       },
       {
-        "src": "/car-images/optimized/caoachery-tiggo7-phev.webp-640.webp",
+        "src": "/car-images/optimized/caoachery-tiggo7-phev.jpg-640.webp",
         "width": 640,
-        "height": 231
+        "height": 360
       },
       {
-        "src": "/car-images/optimized/caoachery-tiggo7-phev.webp-960.webp",
+        "src": "/car-images/optimized/caoachery-tiggo7-phev.jpg-960.webp",
         "width": 960,
-        "height": 347
+        "height": 540
       },
       {
-        "src": "/car-images/optimized/caoachery-tiggo7-phev.webp-1090.webp",
-        "width": 1090,
-        "height": 394
+        "src": "/car-images/optimized/caoachery-tiggo7-phev.jpg-1280.webp",
+        "width": 1280,
+        "height": 720
       }
     ]
   },
-  "/car-images/caoachery-tiggo8-phev.webp": {
-    "width": 1090,
-    "height": 394,
+  "/car-images/caoachery-tiggo8-phev.jpg": {
+    "width": 2880,
+    "height": 1620,
     "variants": [
       {
-        "src": "/car-images/optimized/caoachery-tiggo8-phev.webp-320.webp",
+        "src": "/car-images/optimized/caoachery-tiggo8-phev.jpg-320.webp",
         "width": 320,
-        "height": 116
+        "height": 180
       },
       {
-        "src": "/car-images/optimized/caoachery-tiggo8-phev.webp-640.webp",
+        "src": "/car-images/optimized/caoachery-tiggo8-phev.jpg-640.webp",
         "width": 640,
-        "height": 231
+        "height": 360
       },
       {
-        "src": "/car-images/optimized/caoachery-tiggo8-phev.webp-960.webp",
+        "src": "/car-images/optimized/caoachery-tiggo8-phev.jpg-960.webp",
         "width": 960,
-        "height": 347
+        "height": 540
       },
       {
-        "src": "/car-images/optimized/caoachery-tiggo8-phev.webp-1090.webp",
-        "width": 1090,
-        "height": 394
+        "src": "/car-images/optimized/caoachery-tiggo8-phev.jpg-1280.webp",
+        "width": 1280,
+        "height": 720
       }
     ]
   },
-  "/car-images/cyberster.jpg": {
-    "width": 960,
-    "height": 755,
+  "/car-images/captiva-ev.jpg": {
+    "width": 1500,
+    "height": 1000,
     "variants": [
       {
-        "src": "/car-images/optimized/cyberster.jpg-320.webp",
+        "src": "/car-images/optimized/captiva-ev.jpg-320.webp",
         "width": 320,
-        "height": 252
+        "height": 213
       },
       {
-        "src": "/car-images/optimized/cyberster.jpg-640.webp",
+        "src": "/car-images/optimized/captiva-ev.jpg-640.webp",
         "width": 640,
-        "height": 503
+        "height": 427
       },
       {
-        "src": "/car-images/optimized/cyberster.jpg-960.webp",
+        "src": "/car-images/optimized/captiva-ev.jpg-960.webp",
         "width": 960,
-        "height": 755
+        "height": 640
+      },
+      {
+        "src": "/car-images/optimized/captiva-ev.jpg-1280.webp",
+        "width": 1280,
+        "height": 853
+      }
+    ]
+  },
+  "/car-images/cayenne-ev.jpg": {
+    "width": 2880,
+    "height": 1620,
+    "variants": [
+      {
+        "src": "/car-images/optimized/cayenne-ev.jpg-320.webp",
+        "width": 320,
+        "height": 180
+      },
+      {
+        "src": "/car-images/optimized/cayenne-ev.jpg-640.webp",
+        "width": 640,
+        "height": 360
+      },
+      {
+        "src": "/car-images/optimized/cayenne-ev.jpg-960.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "/car-images/optimized/cayenne-ev.jpg-1280.webp",
+        "width": 1280,
+        "height": 720
       }
     ]
   },
@@ -325,27 +434,27 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
-  "/car-images/Dolphin-mini.png": {
+  "/car-images/dolphin-mini.png": {
     "width": 3235,
     "height": 1910,
     "variants": [
       {
-        "src": "/car-images/optimized/Dolphin-mini.png-320.webp",
+        "src": "/car-images/optimized/dolphin-mini.png-320.webp",
         "width": 320,
         "height": 189
       },
       {
-        "src": "/car-images/optimized/Dolphin-mini.png-640.webp",
+        "src": "/car-images/optimized/dolphin-mini.png-640.webp",
         "width": 640,
         "height": 378
       },
       {
-        "src": "/car-images/optimized/Dolphin-mini.png-960.webp",
+        "src": "/car-images/optimized/dolphin-mini.png-960.webp",
         "width": 960,
         "height": 567
       },
       {
-        "src": "/car-images/optimized/Dolphin-mini.png-1280.webp",
+        "src": "/car-images/optimized/dolphin-mini.png-1280.webp",
         "width": 1280,
         "height": 756
       }
@@ -518,6 +627,84 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
+  "/car-images/farizon-sv.webp": {
+    "width": 2880,
+    "height": 1366,
+    "variants": [
+      {
+        "src": "/car-images/optimized/farizon-sv.webp-320.webp",
+        "width": 320,
+        "height": 152
+      },
+      {
+        "src": "/car-images/optimized/farizon-sv.webp-640.webp",
+        "width": 640,
+        "height": 304
+      },
+      {
+        "src": "/car-images/optimized/farizon-sv.webp-960.webp",
+        "width": 960,
+        "height": 455
+      },
+      {
+        "src": "/car-images/optimized/farizon-sv.webp-1280.webp",
+        "width": 1280,
+        "height": 607
+      }
+    ]
+  },
+  "/car-images/foton-ewonder.jpg": {
+    "width": 1722,
+    "height": 1292,
+    "variants": [
+      {
+        "src": "/car-images/optimized/foton-ewonder.jpg-320.webp",
+        "width": 320,
+        "height": 240
+      },
+      {
+        "src": "/car-images/optimized/foton-ewonder.jpg-640.webp",
+        "width": 640,
+        "height": 480
+      },
+      {
+        "src": "/car-images/optimized/foton-ewonder.jpg-960.webp",
+        "width": 960,
+        "height": 720
+      },
+      {
+        "src": "/car-images/optimized/foton-ewonder.jpg-1280.webp",
+        "width": 1280,
+        "height": 960
+      }
+    ]
+  },
+  "/car-images/gac-aion-ut-elite.jpg": {
+    "width": 2880,
+    "height": 1913,
+    "variants": [
+      {
+        "src": "/car-images/optimized/gac-aion-ut-elite.jpg-320.webp",
+        "width": 320,
+        "height": 213
+      },
+      {
+        "src": "/car-images/optimized/gac-aion-ut-elite.jpg-640.webp",
+        "width": 640,
+        "height": 425
+      },
+      {
+        "src": "/car-images/optimized/gac-aion-ut-elite.jpg-960.webp",
+        "width": 960,
+        "height": 638
+      },
+      {
+        "src": "/car-images/optimized/gac-aion-ut-elite.jpg-1280.webp",
+        "width": 1280,
+        "height": 850
+      }
+    ]
+  },
   "/car-images/gwm-haval-h6-gt.webp": {
     "width": 2280,
     "height": 1440,
@@ -622,6 +809,32 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
+  "/car-images/gwm-ora-skin-bev58.jpg": {
+    "width": 2880,
+    "height": 1921,
+    "variants": [
+      {
+        "src": "/car-images/optimized/gwm-ora-skin-bev58.jpg-320.webp",
+        "width": 320,
+        "height": 213
+      },
+      {
+        "src": "/car-images/optimized/gwm-ora-skin-bev58.jpg-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      {
+        "src": "/car-images/optimized/gwm-ora-skin-bev58.jpg-960.webp",
+        "width": 960,
+        "height": 640
+      },
+      {
+        "src": "/car-images/optimized/gwm-ora-skin-bev58.jpg-1280.webp",
+        "width": 1280,
+        "height": 854
+      }
+    ]
+  },
   "/car-images/gwm-wey-07.webp": {
     "width": 2880,
     "height": 1758,
@@ -711,19 +924,55 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
-  "/car-images/jac-ejv55.png": {
-    "width": 609,
-    "height": 365,
+  "/car-images/jac-ej7.jpg": {
+    "width": 2560,
+    "height": 1440,
     "variants": [
       {
-        "src": "/car-images/optimized/jac-ejv55.png-320.webp",
+        "src": "/car-images/optimized/jac-ej7.jpg-320.webp",
         "width": 320,
-        "height": 192
+        "height": 180
       },
       {
-        "src": "/car-images/optimized/jac-ejv55.png-609.webp",
-        "width": 609,
-        "height": 365
+        "src": "/car-images/optimized/jac-ej7.jpg-640.webp",
+        "width": 640,
+        "height": 360
+      },
+      {
+        "src": "/car-images/optimized/jac-ej7.jpg-960.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "/car-images/optimized/jac-ej7.jpg-1280.webp",
+        "width": 1280,
+        "height": 720
+      }
+    ]
+  },
+  "/car-images/jac-ejv55.webp": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/car-images/optimized/jac-ejv55.webp-320.webp",
+        "width": 320,
+        "height": 180
+      },
+      {
+        "src": "/car-images/optimized/jac-ejv55.webp-640.webp",
+        "width": 640,
+        "height": 360
+      },
+      {
+        "src": "/car-images/optimized/jac-ejv55.webp-960.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "/car-images/optimized/jac-ejv55.webp-1280.webp",
+        "width": 1280,
+        "height": 720
       }
     ]
   },
@@ -750,27 +999,6 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
         "src": "/car-images/optimized/jac-iev330p.jpg-1000.webp",
         "width": 1000,
         "height": 750
-      }
-    ]
-  },
-  "/car-images/kangoo-etech.jpg": {
-    "width": 960,
-    "height": 566,
-    "variants": [
-      {
-        "src": "/car-images/optimized/kangoo-etech.jpg-320.webp",
-        "width": 320,
-        "height": 189
-      },
-      {
-        "src": "/car-images/optimized/kangoo-etech.jpg-640.webp",
-        "width": 640,
-        "height": 377
-      },
-      {
-        "src": "/car-images/optimized/kangoo-etech.jpg-960.webp",
-        "width": 960,
-        "height": 566
       }
     ]
   },
@@ -816,29 +1044,107 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
-  "/car-images/lexus-nx-450h-plus.png": {
-    "width": 1200,
-    "height": 455,
+  "/car-images/lexus-nx-350h.jpg": {
+    "width": 2880,
+    "height": 1924,
     "variants": [
       {
-        "src": "/car-images/optimized/lexus-nx-450h-plus.png-320.webp",
+        "src": "/car-images/optimized/lexus-nx-350h.jpg-320.webp",
         "width": 320,
-        "height": 121
+        "height": 214
       },
       {
-        "src": "/car-images/optimized/lexus-nx-450h-plus.png-640.webp",
+        "src": "/car-images/optimized/lexus-nx-350h.jpg-640.webp",
         "width": 640,
-        "height": 243
+        "height": 428
       },
       {
-        "src": "/car-images/optimized/lexus-nx-450h-plus.png-960.webp",
+        "src": "/car-images/optimized/lexus-nx-350h.jpg-960.webp",
         "width": 960,
-        "height": 364
+        "height": 641
       },
       {
-        "src": "/car-images/optimized/lexus-nx-450h-plus.png-1200.webp",
-        "width": 1200,
-        "height": 455
+        "src": "/car-images/optimized/lexus-nx-350h.jpg-1280.webp",
+        "width": 1280,
+        "height": 855
+      }
+    ]
+  },
+  "/car-images/lexus-nx-450h-plus.jpg": {
+    "width": 2880,
+    "height": 1920,
+    "variants": [
+      {
+        "src": "/car-images/optimized/lexus-nx-450h-plus.jpg-320.webp",
+        "width": 320,
+        "height": 213
+      },
+      {
+        "src": "/car-images/optimized/lexus-nx-450h-plus.jpg-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      {
+        "src": "/car-images/optimized/lexus-nx-450h-plus.jpg-960.webp",
+        "width": 960,
+        "height": 640
+      },
+      {
+        "src": "/car-images/optimized/lexus-nx-450h-plus.jpg-1280.webp",
+        "width": 1280,
+        "height": 853
+      }
+    ]
+  },
+  "/car-images/lexus-rx-450h-plus.jpg": {
+    "width": 2880,
+    "height": 1921,
+    "variants": [
+      {
+        "src": "/car-images/optimized/lexus-rx-450h-plus.jpg-320.webp",
+        "width": 320,
+        "height": 213
+      },
+      {
+        "src": "/car-images/optimized/lexus-rx-450h-plus.jpg-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      {
+        "src": "/car-images/optimized/lexus-rx-450h-plus.jpg-960.webp",
+        "width": 960,
+        "height": 640
+      },
+      {
+        "src": "/car-images/optimized/lexus-rx-450h-plus.jpg-1280.webp",
+        "width": 1280,
+        "height": 854
+      }
+    ]
+  },
+  "/car-images/lexus-rx-500h.jpg": {
+    "width": 2560,
+    "height": 1707,
+    "variants": [
+      {
+        "src": "/car-images/optimized/lexus-rx-500h.jpg-320.webp",
+        "width": 320,
+        "height": 213
+      },
+      {
+        "src": "/car-images/optimized/lexus-rx-500h.jpg-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      {
+        "src": "/car-images/optimized/lexus-rx-500h.jpg-960.webp",
+        "width": 960,
+        "height": 640
+      },
+      {
+        "src": "/car-images/optimized/lexus-rx-500h.jpg-1280.webp",
+        "width": 1280,
+        "height": 854
       }
     ]
   },
@@ -868,71 +1174,107 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
-  "/car-images/mg4-xpower.jpg": {
-    "width": 960,
-    "height": 543,
+  "/car-images/mercedes-esprinter.jpg": {
+    "width": 1800,
+    "height": 1200,
     "variants": [
       {
-        "src": "/car-images/optimized/mg4-xpower.jpg-320.webp",
+        "src": "/car-images/optimized/mercedes-esprinter.jpg-320.webp",
         "width": 320,
-        "height": 181
+        "height": 213
       },
       {
-        "src": "/car-images/optimized/mg4-xpower.jpg-640.webp",
+        "src": "/car-images/optimized/mercedes-esprinter.jpg-640.webp",
         "width": 640,
-        "height": 362
+        "height": 427
       },
       {
-        "src": "/car-images/optimized/mg4-xpower.jpg-960.webp",
+        "src": "/car-images/optimized/mercedes-esprinter.jpg-960.webp",
         "width": 960,
-        "height": 543
+        "height": 640
+      },
+      {
+        "src": "/car-images/optimized/mercedes-esprinter.jpg-1280.webp",
+        "width": 1280,
+        "height": 853
       }
     ]
   },
-  "/car-images/mgs5-comfort.jpg": {
-    "width": 960,
-    "height": 720,
+  "/car-images/mini-jcw-e.jpg": {
+    "width": 2250,
+    "height": 1500,
     "variants": [
       {
-        "src": "/car-images/optimized/mgs5-comfort.jpg-320.webp",
+        "src": "/car-images/optimized/mini-jcw-e.jpg-320.webp",
         "width": 320,
-        "height": 240
+        "height": 213
       },
       {
-        "src": "/car-images/optimized/mgs5-comfort.jpg-640.webp",
+        "src": "/car-images/optimized/mini-jcw-e.jpg-640.webp",
         "width": 640,
-        "height": 480
+        "height": 427
       },
       {
-        "src": "/car-images/optimized/mgs5-comfort.jpg-960.webp",
+        "src": "/car-images/optimized/mini-jcw-e.jpg-960.webp",
         "width": 960,
-        "height": 720
+        "height": 640
+      },
+      {
+        "src": "/car-images/optimized/mini-jcw-e.jpg-1280.webp",
+        "width": 1280,
+        "height": 853
       }
     ]
   },
   "/car-images/mitsubishi-outlander-phev.webp": {
-    "width": 1080,
-    "height": 521,
+    "width": 2880,
+    "height": 1607,
     "variants": [
       {
         "src": "/car-images/optimized/mitsubishi-outlander-phev.webp-320.webp",
         "width": 320,
-        "height": 154
+        "height": 179
       },
       {
         "src": "/car-images/optimized/mitsubishi-outlander-phev.webp-640.webp",
         "width": 640,
-        "height": 309
+        "height": 357
       },
       {
         "src": "/car-images/optimized/mitsubishi-outlander-phev.webp-960.webp",
         "width": 960,
-        "height": 463
+        "height": 536
       },
       {
-        "src": "/car-images/optimized/mitsubishi-outlander-phev.webp-1080.webp",
-        "width": 1080,
-        "height": 521
+        "src": "/car-images/optimized/mitsubishi-outlander-phev.webp-1280.webp",
+        "width": 1280,
+        "height": 714
+      }
+    ]
+  },
+  "/car-images/neta-aya.avif": {
+    "width": 1600,
+    "height": 794,
+    "variants": [
+      {
+        "src": "/car-images/optimized/neta-aya.avif-320.webp",
+        "width": 320,
+        "height": 159
+      },
+      {
+        "src": "/car-images/optimized/neta-aya.avif-640.webp",
+        "width": 640,
+        "height": 318
+      },
+      {
+        "src": "/car-images/optimized/neta-aya.avif-960.webp",
+        "width": 960,
+        "height": 476
+      },
+      {
+        "src": "/car-images/optimized/neta-aya.avif-1280.webp",
+        "width": 1280,
+        "height": 635
       }
     ]
   },
@@ -962,24 +1304,133 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
-  "/car-images/toyota-corolla-cross-hybrid.png": {
-    "width": 862,
-    "height": 575,
+  "/car-images/ora-03-gt-bev63.jpg": {
+    "width": 2880,
+    "height": 1920,
     "variants": [
       {
-        "src": "/car-images/optimized/toyota-corolla-cross-hybrid.png-320.webp",
+        "src": "/car-images/optimized/ora-03-gt-bev63.jpg-320.webp",
         "width": 320,
         "height": 213
       },
       {
-        "src": "/car-images/optimized/toyota-corolla-cross-hybrid.png-640.webp",
+        "src": "/car-images/optimized/ora-03-gt-bev63.jpg-640.webp",
         "width": 640,
         "height": 427
       },
       {
-        "src": "/car-images/optimized/toyota-corolla-cross-hybrid.png-862.webp",
-        "width": 862,
-        "height": 575
+        "src": "/car-images/optimized/ora-03-gt-bev63.jpg-960.webp",
+        "width": 960,
+        "height": 640
+      },
+      {
+        "src": "/car-images/optimized/ora-03-gt-bev63.jpg-1280.webp",
+        "width": 1280,
+        "height": 853
+      }
+    ]
+  },
+  "/car-images/ora-03-skin-bev48.jpg": {
+    "width": 2880,
+    "height": 1921,
+    "variants": [
+      {
+        "src": "/car-images/optimized/ora-03-skin-bev48.jpg-320.webp",
+        "width": 320,
+        "height": 213
+      },
+      {
+        "src": "/car-images/optimized/ora-03-skin-bev48.jpg-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      {
+        "src": "/car-images/optimized/ora-03-skin-bev48.jpg-960.webp",
+        "width": 960,
+        "height": 640
+      },
+      {
+        "src": "/car-images/optimized/ora-03-skin-bev48.jpg-1280.webp",
+        "width": 1280,
+        "height": 854
+      }
+    ]
+  },
+  "/car-images/ora-05.jpg": {
+    "width": 2880,
+    "height": 2016,
+    "variants": [
+      {
+        "src": "/car-images/optimized/ora-05.jpg-320.webp",
+        "width": 320,
+        "height": 224
+      },
+      {
+        "src": "/car-images/optimized/ora-05.jpg-640.webp",
+        "width": 640,
+        "height": 448
+      },
+      {
+        "src": "/car-images/optimized/ora-05.jpg-960.webp",
+        "width": 960,
+        "height": 672
+      },
+      {
+        "src": "/car-images/optimized/ora-05.jpg-1280.webp",
+        "width": 1280,
+        "height": 896
+      }
+    ]
+  },
+  "/car-images/porsche-cayenne-e-hybrid.jpg": {
+    "width": 2880,
+    "height": 1620,
+    "variants": [
+      {
+        "src": "/car-images/optimized/porsche-cayenne-e-hybrid.jpg-320.webp",
+        "width": 320,
+        "height": 180
+      },
+      {
+        "src": "/car-images/optimized/porsche-cayenne-e-hybrid.jpg-640.webp",
+        "width": 640,
+        "height": 360
+      },
+      {
+        "src": "/car-images/optimized/porsche-cayenne-e-hybrid.jpg-960.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "/car-images/optimized/porsche-cayenne-e-hybrid.jpg-1280.webp",
+        "width": 1280,
+        "height": 720
+      }
+    ]
+  },
+  "/car-images/toyota-corolla-cross-hybrid.jpg": {
+    "width": 2356,
+    "height": 1111,
+    "variants": [
+      {
+        "src": "/car-images/optimized/toyota-corolla-cross-hybrid.jpg-320.webp",
+        "width": 320,
+        "height": 151
+      },
+      {
+        "src": "/car-images/optimized/toyota-corolla-cross-hybrid.jpg-640.webp",
+        "width": 640,
+        "height": 302
+      },
+      {
+        "src": "/car-images/optimized/toyota-corolla-cross-hybrid.jpg-960.webp",
+        "width": 960,
+        "height": 453
+      },
+      {
+        "src": "/car-images/optimized/toyota-corolla-cross-hybrid.jpg-1280.webp",
+        "width": 1280,
+        "height": 604
       }
     ]
   },
@@ -1004,6 +1455,32 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       },
       {
         "src": "/car-images/optimized/toyota-corolla-sedan-hybrid.jpg-1280.webp",
+        "width": 1280,
+        "height": 720
+      }
+    ]
+  },
+  "/car-images/volvo-ex90.jpg": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/car-images/optimized/volvo-ex90.jpg-320.webp",
+        "width": 320,
+        "height": 180
+      },
+      {
+        "src": "/car-images/optimized/volvo-ex90.jpg-640.webp",
+        "width": 640,
+        "height": 360
+      },
+      {
+        "src": "/car-images/optimized/volvo-ex90.jpg-960.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "/car-images/optimized/volvo-ex90.jpg-1280.webp",
         "width": 1280,
         "height": 720
       }

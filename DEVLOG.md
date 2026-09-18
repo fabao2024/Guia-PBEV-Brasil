@@ -2,6 +2,16 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 18/09/2026 · Fotos: 3 faltantes incluídas, 31 trocas e nomes padronizados
+
+| Área | Mudança pública |
+|---|---|
+| Faltantes | Maverick Hybrid Lariat (rede oficial CAOA Ford, 1024px estática — hero oficial descartado por lifestyle), 330e M Sport (BMW Group PressClub, 2250px) e UX 300h (Lexus Europa newsroom, 1600px). Todos os `// TODO` de foto removidos; nenhum `img` quebrado restante. |
+| Trocas (31) | Lexus RX 450h+/500h, NX 350h/450h+ e Corolla Cross (press rooms Lexus/Toyota BR+US); iX2, JCW-E (PressClub), EQE 350 (traseira 3/4), eSprinter (livery de lançamento) e Cayenne E-Hybrid (estúdio traseira 3/4, ZIP do press kit) + Cayenne EV estúdio; E-J7, E-JV5.5, Ora 5/03 GT/03 Skin 48/58, Tiggo 7/8 (rede CAOA), Song Plus, Atto 2, Neta Aya, Zeekr 001/X, Outlander, Captiva EV, EX90 (perfil), Farizon SV, Aion UT Elite, Foton eView/eWonder. Originais gigantes reduzidos a 2880px. |
+| Ressalvas | 330e pré-LCI (sem foto LCI 330e sedã oficial); NX 450h+ com cues F-Sport (versão BR única não-F-Sport); E-JV55 com motorista visível; Kona Hybrid N-Line, Kwid render, iCar rosa e renders Geely rejeitados (trim/cor/foto-real) — mantidas as atuais + TODO de trim correto para o Kona. |
+| Nomes | 7 arquivos com espaço/maiúscula padronizados (Ora, Dolphin-mini, Spark EUV, cooper-e); 14 órfãos excluídos; variantes `optimized` 167→242 (fontes >200 kB: 46→63). |
+| Verificação | Suítes de imagem/catálogo verdes (constants, imageUrl, carImageManifest, staticCarRoutes), TypeScript limpo, build Vite (161 páginas), scanner de segredos e verificador de proveniência (824/1610) aprovados. Suite total 402/403 — 1 falha pré-existente em `AppPartnersCta` (falha idêntica no upstream `8f9afa3`, sem relação com imagens). |
+
 ## 18/09/2026 · Jetour: S06, T1 e T2 em 7 versões (161 veículos)
 
 | Área | Mudança pública |

@@ -179,7 +179,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Dolphin Mini GS", brand: "BYD", price: 119990, range: 280, cat: "Urbano",
-    img: "/car-images/Dolphin-mini.png",
+    img: "/car-images/dolphin-mini.png",
     power: 75, torque: 13.8, traction: 'FWD', battery: 38.88,
     features: [
       "Bateria LFP Blade 38,88 kWh (segurança superior a NMC)",
@@ -307,7 +307,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Ora 03 Skin BEV48", brand: "GWM", price: 154000, range: 232, cat: "Compacto",
-    img: "/car-images/ora 03 skin bev48.webp", discontinued: true,
+    img: "/car-images/ora-03-skin-bev48.jpg", discontinued: true,
     power: 171, torque: 25.5, traction: 'FWD', battery: 48,
     features: [
       "Bateria LFP 48 kWh",
@@ -343,7 +343,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Ora 03 GT BEV63", brand: "GWM", price: 189000, range: 295, cat: "Compacto",
-    img: "/car-images/ora 03 GT BEV63.webp", discontinued: true,
+    img: "/car-images/ora-03-gt-bev63.jpg", discontinued: true,
     power: 171, torque: 25.5, traction: 'FWD', battery: 63,
     features: [
       "Bateria NMC 63 kWh",
@@ -361,7 +361,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Ora 5", brand: "GWM", price: 163990, range: 349, cat: "SUV",
-    img: "/car-images/Ora 05.jpg",
+    img: "/car-images/ora-05.jpg",
     power: 204, torque: 26.5, traction: 'FWD', battery: 58.3,
     features: [
       "Bateria LFP 58,3 kWh",
@@ -509,7 +509,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Spark EUV", brand: "Chevrolet", price: 144990, range: 258, cat: "Urbano",
-    img: "/car-images/Spark EUV.avif",
+    img: "/car-images/spark-euv.avif",
     power: 102, torque: 18.4, traction: 'FWD', battery: 42,
     features: [
       "Bateria de LFP de 42 kWh",
@@ -583,7 +583,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Cooper E", brand: "Mini", price: 264990, range: 239, cat: "Compacto",
-    img: "/car-images/cooper e.avif",
+    img: "/car-images/cooper-e.avif",
     power: 184, torque: 29.6, traction: 'FWD', battery: 40.7,
     features: [
       "Bateria NMC 40,7 kWh",
@@ -1132,7 +1132,7 @@ export const CAR_DB: Car[] = [
   {
     model: "Maverick Hybrid Lariat", brand: "Ford", price: 239900, range: 0, cat: "Comercial",
     powertrain: 'HEV', fuelType2: 'gasolina',
-    img: "/car-images/ford-maverick-hybrid.jpg", // TODO: foto oficial indisponível (ford.com.br bloqueia, ford.com expira)
+    img: "/car-images/ford-maverick-hybrid.jpg",
     power: 194, torque: 21.4, traction: 'AWD',
     features: [
       "Picape híbrida plena (2.5 Atkinson + elétrico) — 194 cv / 21,4 kgfm",
@@ -1299,7 +1299,7 @@ export const CAR_DB: Car[] = [
     model: "330e M Sport", brand: "BMW", price: 465950, range: 61, cat: "Sedan",
     powertrain: 'PHEV', electricRangeKm: 61, combinedRangeKm: 885, fuelType2: 'gasolina',
     url: "https://www.bmw.com.br/pt/all-models/3-series/bmw-3-series-sedan/bmw-serie-3-seda-plug-in-hibrido.html",
-    img: "/car-images/bmw-330e.jpg", // TODO: foto oficial indisponível (bmw.com.br bloqueia)
+    img: "/car-images/bmw-330e.jpg",
     power: 292, torque: 42.8, traction: 'RWD', battery: 19.5,
     features: [
       "Sedã híbrido plug-in (2.0 + elétrico) — 292 cv / 42,8 kgfm",
@@ -1833,7 +1833,7 @@ export const CAR_DB: Car[] = [
     model: "Corolla Cross Hybrid", brand: "Toyota", price: 226120, range: 0, cat: "SUV",
     powertrain: 'HEV', fuelType2: 'flex',
     url: "https://www.toyota.com.br/modelos/corolla-cross-hybrid",
-    img: "/car-images/toyota-corolla-cross-hybrid.png",
+    img: "/car-images/toyota-corolla-cross-hybrid.jpg",
     power: 122, traction: 'FWD',
     features: [
       "SUV híbrido flex (1.8 VVT-i + elétricos) — 122 cv combinados",
@@ -1886,7 +1886,7 @@ export const CAR_DB: Car[] = [
     model: "Tiggo 7 Pro PHEV", brand: "CAOA Chery", price: 209990, range: 68, cat: "SUV",
     powertrain: 'PHEV', electricRangeKm: 68, combinedRangeKm: 1200, fuelType2: 'gasolina',
     url: "https://caoachery.com.br/novos/tiggo-7-pro-plug-in-hybrid",
-    img: "/car-images/caoachery-tiggo7-phev.webp",
+    img: "/car-images/caoachery-tiggo7-phev.jpg",
     power: 279, torque: 37.2, traction: 'FWD', battery: 18.4,
     features: [
       "SUV híbrido plug-in (Super Hybrid) — 279 cv / 37,2 kgfm",
@@ -1904,7 +1904,7 @@ export const CAR_DB: Car[] = [
     model: "Tiggo 8 Pro PHEV", brand: "CAOA Chery", price: 249990, range: 70, cat: "SUV",
     powertrain: 'PHEV', electricRangeKm: 70, combinedRangeKm: 1200, fuelType2: 'gasolina',
     url: "https://caoachery.com.br/novos/tiggo-8-pro-plug-in-hybrid",
-    img: "/car-images/caoachery-tiggo8-phev.webp",
+    img: "/car-images/caoachery-tiggo8-phev.jpg",
     power: 279, torque: 37.2, traction: 'FWD', battery: 18.4,
     features: [
       "SUV híbrido plug-in de 7 lugares (Super Hybrid) — 279 cv / 37,2 kgfm",
@@ -1994,7 +1994,7 @@ export const CAR_DB: Car[] = [
     model: "UX 300h", brand: "Lexus", price: 314990, range: 0, cat: "SUV",
     powertrain: 'HEV', fuelType2: 'gasolina',
     url: "https://www.lexus.com.br/pt/models/ux/ux-300h.html",
-    img: "/car-images/lexus-ux-300h.jpg", // TODO: foto oficial indisponível (só thumb de navegação)
+    img: "/car-images/lexus-ux-300h.jpg",
     power: 198,
     features: [
       "SUV híbrido (2.0 + elétrico) — 198 cv combinados",
@@ -2030,7 +2030,7 @@ export const CAR_DB: Car[] = [
     model: "NX 450h+", brand: "Lexus", price: 499990, range: 56, cat: "SUV",
     powertrain: 'PHEV', electricRangeKm: 56, combinedRangeKm: 853, fuelType2: 'gasolina',
     url: "https://www.lexus.com.br/pt/models/nx/nx-450h-plus.html",
-    img: "/car-images/lexus-nx-450h-plus.png",
+    img: "/car-images/lexus-nx-450h-plus.jpg",
     power: 308, traction: 'AWD', battery: 18.1,
     features: [
       "SUV híbrido plug-in (2.5 + elétrico) — 308 cv combinados",
@@ -2052,7 +2052,7 @@ export const CAR_DB: Car[] = [
     model: "RX 500h F-Sport", brand: "Lexus", price: 619990, range: 0, cat: "SUV",
     powertrain: 'HEV', fuelType2: 'gasolina',
     url: "https://www.lexus.com.br/pt/models/rx/rx-500h-fsport-performance.html",
-    img: "/car-images/lexus-rx-500h.png",
+    img: "/car-images/lexus-rx-500h.jpg",
     power: 371, torque: 46.0, traction: 'AWD',
     features: [
       "SUV híbrido performance (2.4 turbo + elétricos) — 371 cv / 46,0 kgfm",
@@ -2072,7 +2072,7 @@ export const CAR_DB: Car[] = [
     model: "RX 450h+", brand: "Lexus", price: 614990, range: 56, cat: "SUV",
     powertrain: 'PHEV', electricRangeKm: 56, combinedRangeKm: 870, fuelType2: 'gasolina',
     url: "https://www.lexus.com.br/pt/models/rx/rx-450h-plus.html",
-    img: "/car-images/lexus-rx-450h-plus.png",
+    img: "/car-images/lexus-rx-450h-plus.jpg",
     power: 308, torque: 27.0, traction: 'AWD',
     features: [
       "SUV híbrido plug-in (2.5 + elétrico) — 308 cv / 27,0 kgfm",
@@ -2092,7 +2092,7 @@ export const CAR_DB: Car[] = [
     model: "Cayenne E-Hybrid", brand: "Porsche", price: 900000, range: 52, cat: "SUV",
     powertrain: 'PHEV', electricRangeKm: 52, combinedRangeKm: 629, fuelType2: 'gasolina',
     url: "https://www.porsche.com/brazil/pt/models/cayenne/cayenne-models/cayenne-e-hybrid",
-    img: "/car-images/porsche-cayenne-e-hybrid.png",
+    img: "/car-images/porsche-cayenne-e-hybrid.jpg",
     power: 470, traction: 'AWD', battery: 25.9,
     features: [
       "SUV híbrido plug-in (V6 3.0 + elétrico) — 470 cv combinados",
@@ -3053,7 +3053,7 @@ export const CAR_DB: Car[] = [
   // JAC E-JV5.5 (furgão de entrega)
   {
     model: "E-JV5.5", brand: "JAC", price: 314900, range: 260, cat: "Comercial",
-    img: "/car-images/jac-ejv55.png",
+    img: "/car-images/jac-ejv55.webp",
     power: 204, torque: 30, traction: 'FWD', battery: 50.2,
     features: [
       "Bateria 50,2 kWh",
@@ -3091,7 +3091,7 @@ export const CAR_DB: Car[] = [
   // MERCEDES-BENZ eSprinter (furgão premium)
   {
     model: "eSprinter 320", brand: "Mercedes-Benz", price: 482900, range: 206, cat: "Comercial",
-    img: "/car-images/mercedes-esprinter.png",
+    img: "/car-images/mercedes-esprinter.jpg",
     power: 204, torque: 41, traction: 'RWD', battery: 113,
     features: [
       "Bateria 113 kWh",

@@ -30,7 +30,7 @@ describe('car image URL security', () => {
 });
 
 describe('optimized local car images', () => {
-  const dolphin = '/car-images/Dolphin-mini.png';
+  const dolphin = '/car-images/dolphin-mini.png';
 
   it.each([
     [200, 320],
@@ -43,50 +43,50 @@ describe('optimized local car images', () => {
     [5000, 1280],
   ])('selects an existing variant for requested width %i', (width, expected) => {
     expect(resolveCarImageUrl(dolphin, width, '/'))
-      .toBe(`/car-images/optimized/Dolphin-mini.png-${expected}.webp`);
+      .toBe(`/car-images/optimized/dolphin-mini.png-${expected}.webp`);
   });
 
   it('never invents an upscaled variant for a smaller original', () => {
     expect(resolveCarImageUrl('/car-images/e-js1.png', 1280, '/'))
       .toBe('/car-images/optimized/e-js1.png-1000.webp');
-    expect(resolveCarImageUrl('/car-images/jac-ejv55.png', 800, '/'))
-      .toBe('/car-images/optimized/jac-ejv55.png-609.webp');
+    expect(resolveCarImageUrl('/car-images/jac-ejv55.webp', 800, '/'))
+      .toBe('/car-images/optimized/jac-ejv55.webp-960.webp');
   });
 
   it.each([NaN, Infinity, -Infinity, 0, -1])('uses a finite default for invalid width %s', (width) => {
     expect(resolveCarImageUrl(dolphin, width, '/'))
-      .toBe('/car-images/optimized/Dolphin-mini.png-960.webp');
+      .toBe('/car-images/optimized/dolphin-mini.png-960.webp');
     expect(resolveCarImageUrl('https://cdn.example.com/ev.jpg', width, '/'))
       .toContain('&w=800&');
   });
 
   it('honors the application base URL for src and every srcSet entry', () => {
     expect(resolveCarImageUrl(dolphin, 400, '/Guia-PBEV-Brasil/'))
-      .toBe('/Guia-PBEV-Brasil/car-images/optimized/Dolphin-mini.png-640.webp');
+      .toBe('/Guia-PBEV-Brasil/car-images/optimized/dolphin-mini.png-640.webp');
     expect(resolveCarImageSrcSet(dolphin, '/Guia-PBEV-Brasil/')).toBe(
       [320, 640, 960, 1280]
-        .map((width) => `/Guia-PBEV-Brasil/car-images/optimized/Dolphin-mini.png-${width}.webp ${width}w`)
+        .map((width) => `/Guia-PBEV-Brasil/car-images/optimized/dolphin-mini.png-${width}.webp ${width}w`)
         .join(', '),
     );
   });
 
   it('uses the Vite base URL by default', () => {
     expect(resolveCarImageUrl(dolphin, 320))
-      .toBe(`${import.meta.env.BASE_URL}car-images/optimized/Dolphin-mini.png-320.webp`);
+      .toBe(`${import.meta.env.BASE_URL}car-images/optimized/dolphin-mini.png-320.webp`);
     expect(resolveCarImageSrcSet(dolphin))
-      .toContain(`${import.meta.env.BASE_URL}car-images/optimized/Dolphin-mini.png-320.webp 320w`);
+      .toContain(`${import.meta.env.BASE_URL}car-images/optimized/dolphin-mini.png-320.webp 320w`);
   });
 
   it('returns the original aspect-ratio dimensions without inventing external metadata', () => {
     expect(getCarImageDimensions(dolphin)).toEqual({ width: 3235, height: 1910 });
     expect(getCarImageDimensions('/car-images/e-js1.png')).toEqual({ width: 1000, height: 750 });
-    expect(getCarImageDimensions('/car-images/jac-ejv55.png')).toEqual({ width: 609, height: 365 });
+    expect(getCarImageDimensions('/car-images/jac-ejv55.webp')).toEqual({ width: 1920, height: 1080 });
   });
 
   it.each([
     '/car-images/unmapped.jpg',
-    '/car-images/ora 03 skin bev48.webp',
-    '/car-images/Dolphin-mini.png?version=2',
+    '/car-images/cooper-e.avif',
+    '/car-images/dolphin-mini.png?version=2',
     '/car-images/../../private.txt',
     'https://cdn.example.com/ev.jpg',
     'https://upload.wikimedia.org/photo.jpg',
@@ -98,7 +98,7 @@ describe('optimized local car images', () => {
   });
 
   it('keeps unmapped local images and trusted external originals working', () => {
-    const local = '/car-images/ora 03 skin bev48.webp';
+    const local = '/car-images/cooper-e.avif';
     expect(resolveCarImageUrl(local, 320, '/app/')).toBe(`/app${local}`);
     const wikimedia = 'https://upload.wikimedia.org/photo.jpg';
     expect(resolveCarImageUrl(wikimedia, 320, '/')).toBe(wikimedia);
