@@ -2,6 +2,13 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 18/09/2026 · Equipamentos BYD revistos por versão (lote 2)
+
+| Área | Mudança pública |
+|---|---|
+| Ficha | Song Pro GS ganha indução 50 W e banco do passageiro elétrico; Song Plus base perde V2L (só Premium confirmado); King GL corrige ADAS (convencional, sem ACC/AEB); King GS perde teto solar e ganha dual-zone, som 8 e banco do passageiro elétrico. |
+| Verificação | 398/398 testes, TypeScript limpo, build Vite (154 páginas), scanner de segredos e verificador de proveniência (802/1540) aprovados. |
+
 ## 17/09/2026 · Equipamentos Haval H6 revistos por versão (lote 1)
 
 | Área | Mudança pública |

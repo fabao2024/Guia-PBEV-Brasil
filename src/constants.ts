@@ -1089,6 +1089,7 @@ export const CAR_DB: Car[] = [
       "Teto solar panorâmico com abertura elétrica",
       "6 airbags",
       "Pacote ADAS 2 ampliado (BSD, RCTA/RCTB, RCW, DOW)",
+      "Carregador por indução 50 W ventilado e banco do passageiro elétrico",
       "Porta-malas de 530 L (1.482 L com bancos rebatidos)",
       "Função V2L (Vehicle-to-Load)",
       "Produção nacional (Camaçari - BA)"
@@ -1154,8 +1155,7 @@ export const CAR_DB: Car[] = [
       "Teto solar panorâmico com abertura elétrica",
       "6 airbags",
       "DiPilot: ACC + LCC + AEB + LKA + alerta de ponto cego",
-      "Porta-malas de 552 L",
-      "Função V2L (Vehicle-to-Load)"
+      "Porta-malas de 552 L"
     ],
     warrantyYears: 6, warrantyBatteryYears: 8, chargeAC: 6.6, chargeDC: 18,
     lengthMm: 4780, widthMm: 1890, heightMm: 1670, wheelbaseMm: 2770,
@@ -1199,7 +1199,7 @@ export const CAR_DB: Car[] = [
       "Carregamento AC 3,3 kW",
       "Central multimídia giratória 12,8\" com CarPlay e Android Auto",
       "6 airbags",
-      "DiPilot: ACC + LKA + AEB + alerta de ponto cego",
+      "Piloto automático convencional (sem ACC/AEB)",
       "Porta-malas de 450 L",
       "Produção nacional (Camaçari - BA)"
     ],
@@ -1221,9 +1221,10 @@ export const CAR_DB: Car[] = [
       "235 cv / 33,1 kgfm — 0–100 km/h em 7,3 s",
       "Carregamento AC 6,6 kW",
       "Central multimídia giratória 12,8\" com CarPlay e Android Auto",
-      "Teto solar panorâmico",
       "6 airbags",
       "Pacote ADAS 2 ampliado (ACC, LKA, AEB, BSD)",
+      "Ar-condicionado dual-zone e som com 8 alto-falantes",
+      "Banco do passageiro com ajuste elétrico",
       "Porta-malas de 450 L",
       "Produção nacional (Camaçari - BA)"
     ],
