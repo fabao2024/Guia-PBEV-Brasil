@@ -328,7 +328,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                             {car.brand}
                         </span>
                         <span className="text-[10px] px-2.5 py-1 rounded-full font-bold uppercase tracking-widest" style={{ background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.65)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                            {powertrain} · {powertrainLabel(car)}
+                            {powertrain}
                         </span>
                         {isFavorite && (
                             <span

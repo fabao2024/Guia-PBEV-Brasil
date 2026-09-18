@@ -6,7 +6,7 @@ import { BRAND_URLS, isCarNew, CAR_DB } from '../constants';
 import { getPriceDelta } from '../constants/priceHistory';
 import { toSlug } from '../utils/slug';
 import { getCarImageDimensions, resolveCarImageSrcSet, resolveCarImageUrl } from '../utils/imageUrl';
-import { powertrainLabel, powertrainOf, primaryCarMetric, combinedRangeOf } from '../utils/powertrain';
+import { powertrainOf, primaryCarMetric, combinedRangeOf } from '../utils/powertrain';
 import { Check, ImageOff, Heart, BatteryCharging, Fuel, Scale, ArrowUpRight } from 'lucide-react';
 
 interface CarCardProps {
@@ -194,8 +194,8 @@ const CarCard: React.FC<CarCardProps> = ({
       {/* ── DATA SECTION ── */}
       <div className="flex-1 flex flex-col px-3 sm:px-4 pt-2 sm:pt-3 pb-3 sm:pb-4 gap-2 sm:gap-3">
 
-        {/* Brand name + category pill */}
-        <div className="flex items-center justify-between">
+        {/* Brand name + category pill + powertrain sigla badge */}
+        <div className="flex items-center justify-between flex-wrap gap-1">
           <span
             className="text-[10px] font-bold uppercase tracking-[0.15em]"
             style={{ color: accent.color }}
@@ -208,14 +208,14 @@ const CarCard: React.FC<CarCardProps> = ({
           >
             {t(`categories.${car.cat}`)}
           </span>
-          {powertrain !== 'BEV' && (
-            <span
-              className="text-[10px] px-2 py-0.5 rounded-full font-semibold uppercase tracking-[0.08em]"
-              style={{ background: 'rgba(0,229,160,0.07)', color: '#00e5a0', border: '1px solid rgba(0,229,160,0.2)' }}
-            >
-              {powertrain} · {powertrainLabel(car)}
-            </span>
-          )}
+          <span
+            className="text-[10px] px-2 py-0.5 rounded-full font-semibold uppercase tracking-[0.08em]"
+            style={powertrain === 'BEV'
+              ? { background: accent.bg, color: accent.color, border: `1px solid ${accent.color}28` }
+              : { background: 'rgba(0,229,160,0.07)', color: '#00e5a0', border: '1px solid rgba(0,229,160,0.2)' }}
+          >
+            {powertrain}
+          </span>
         </div>
 
         {/* Model name */}

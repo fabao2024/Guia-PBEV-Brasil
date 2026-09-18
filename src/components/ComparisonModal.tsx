@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Car } from '../types';
 import { X, Check, Minus, Map, Battery, Car as CarIcon, DollarSign, Zap, Gauge, Activity, Sparkles, RefreshCw, Plus, Ruler } from 'lucide-react';
 import { resolveCarImageUrl } from '../utils/imageUrl';
-import { combinedRangeOf, electricRangeOf, powertrainLabel, primaryCarMetric } from '../utils/powertrain';
+import { combinedRangeOf, electricRangeOf, powertrainOf, primaryCarMetric } from '../utils/powertrain';
 
 interface ComparisonModalProps {
    cars: Car[];
@@ -164,7 +164,7 @@ export default function ComparisonModal({ cars, allCars, onClose, onRemove, onAd
                         {/* Data Rows */}
                         <div className="h-10 flex flex-col justify-center">
                            <span className="font-black text-white text-xl leading-tight drop-shadow-sm">{car.model}</span>
-                           <span className="text-[9px] uppercase tracking-widest text-[#00b4ff]/70">{powertrainLabel(car)}</span>
+                            <span className="text-[9px] uppercase tracking-widest text-[#00b4ff]/70">{powertrainOf(car)}</span>
                         </div>
 
                         <div className="h-10 flex items-center">
@@ -272,7 +272,7 @@ export default function ComparisonModal({ cars, allCars, onClose, onRemove, onAd
                            <div className="flex flex-col gap-4 p-5 flex-1">
                               <div className="h-10 flex flex-col justify-center">
                                  <span className="font-black text-white text-xl leading-tight drop-shadow-sm">{rec.model}</span>
-                                 <span className="text-[9px] uppercase tracking-widest text-[#00b4ff]/70">{powertrainLabel(rec)}</span>
+                                  <span className="text-[9px] uppercase tracking-widest text-[#00b4ff]/70">{powertrainOf(rec)}</span>
                               </div>
 
                               <div className="h-10 flex items-center">

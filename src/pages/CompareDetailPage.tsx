@@ -143,7 +143,7 @@ export default function CompareDetailPage() {
                 </div>
                 <div className="p-3">
                   <p className="text-white font-bold text-sm">{car.brand} {car.model}</p>
-                  <p className="text-white/40 text-xs">{car.cat} · {powertrainOf(car)} · {powertrainLabel(car)}</p>
+                  <p className="text-white/40 text-xs">{car.cat} · {powertrainOf(car)}</p>
                 </div>
               </Link>
             ))}
@@ -161,7 +161,7 @@ export default function CompareDetailPage() {
               </thead>
               <tbody>
                 <CompareRow label="Preço estimado" a={carA.price} b={carB.price} higherIsBetter={false} suffix=" R$" />
-                <CompareRow label="Propulsão" a={powertrainLabel(carA)} b={powertrainLabel(carB)} neutral />
+                <CompareRow label="Propulsão" a={powertrainOf(carA)} b={powertrainOf(carB)} neutral />
                 {(carA.fuelConsumptionKml !== undefined || carB.fuelConsumptionKml !== undefined) && (
                   <CompareRow label="Consumo de combustível (cidade)" a={carA.fuelConsumptionKml} b={carB.fuelConsumptionKml} higherIsBetter suffix=" km/l" />
                 )}

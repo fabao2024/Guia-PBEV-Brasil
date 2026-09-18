@@ -2,6 +2,14 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 18/09/2026 · Badge de propulsão só-sigla (cards, modal e páginas)
+
+| Área | Mudança pública |
+|---|---|
+| Cards | Badge exibe só a sigla (BEV, PHEV, HEV, REEV) — BEV passa a ter badge na cor da categoria; híbridos seguem em verde. Linha com `flex-wrap` para não quebrar no mobile. |
+| Superfícies | Mesmo padrão no modal de detalhes, página do carro, comparador (tabela e modal) e planejador de rota. Filtro lateral, SEO/meta e textos de compartilhamento mantêm as descrições completas. |
+| Verificação | TypeScript limpo, suítes de imagem/catálogo verdes, build Vite (161 páginas) e scanner de segredos aprovados. Suite total 402/403 — 1 falha pré-existente em `AppPartnersCta` (falha idêntica no upstream `8f9afa3`, sem relação com este change). |
+
 ## 18/09/2026 · Fotos: 3 faltantes incluídas, 31 trocas e nomes padronizados
 
 | Área | Mudança pública |

@@ -12,7 +12,7 @@ import { useNominatimAutocomplete } from '../hooks/useNominatimAutocomplete';
 import { matchStatusFromOcmCache, type OcmError } from '../services/ocmService';
 import { gmapsUrl, plugshareUrl, OPERADOR_COLOR, DEFAULT_OPERADOR_COLOR } from '../data/eletropostosData';
 import type { Car } from '../types';
-import { electricRangeOf, powertrainLabel } from '../utils/powertrain';
+import { electricRangeOf, powertrainOf } from '../utils/powertrain';
 import type { GeoSuggestion, ChargingStop, NearbyCharger, ChargerStatus } from '../types/routePlanner';
 
 interface RoutePlannerModalProps {
@@ -402,7 +402,7 @@ function CarSelector({ selected, onSelect }: { selected: Car | null; onSelect: (
       </div>
       {selected && (
         <p className="text-[#555] text-xs ml-1">
-          {powertrainLabel(selected)}: <span className="text-white/60">{electricRangeOf(selected) ?? '—'} km</span>
+          {powertrainOf(selected)}: <span className="text-white/60">{electricRangeOf(selected) ?? '—'} km</span>
           {selected.chargeDC && (
             <> · DC máx: <span className="text-[#00b4ff]">{selected.chargeDC} kW</span></>
           )}

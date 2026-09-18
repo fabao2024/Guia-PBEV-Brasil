@@ -287,7 +287,7 @@ export default function CarDetailPage() {
                   {car.brand}
                 </span>
                 <span className="text-[10px] px-2.5 py-1 rounded-full font-bold uppercase tracking-widest" style={{ background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.65)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                  {powertrain} · {powertrainLabel(car)}
+                  {powertrain}
                 </span>
                 {car.discontinued && (
                   <span className="text-[10px] px-2.5 py-1 rounded-full font-bold uppercase tracking-widest bg-red-500/10 text-red-400 border border-red-400/25">
