@@ -999,7 +999,7 @@ export const CAR_DB: Car[] = [
     lengthMm: 4615, widthMm: 1901, heightMm: 1670, wheelbaseMm: 2750, groundClearanceMm: 173, weightKg: 1715, trunkLiters: 461,
   },
   {
-    model: "EX5 EM-i Pro", brand: "Geely", price: 199990, range: 65, cat: "SUV",
+    model: "EX5 EM-i Pro", brand: "Geely", price: 189990, range: 65, cat: "SUV",
     powertrain: 'PHEV', electricRangeKm: 65, combinedRangeKm: 1245, fuelType2: 'gasolina',
     url: "https://www.geelybrasil.com.br/ex5-em-i",
     img: "/car-images/geely-ex5-emi.jpg",
@@ -1020,7 +1020,7 @@ export const CAR_DB: Car[] = [
     lengthMm: 4740, widthMm: 1900, heightMm: 1680, wheelbaseMm: 2755, groundClearanceMm: 172, trunkLiters: 428,
   },
   {
-    model: "EX5 EM-i Max", brand: "Geely", price: 219990, range: 65, cat: "SUV",
+    model: "EX5 EM-i Max", brand: "Geely", price: 209990, range: 65, cat: "SUV",
     powertrain: 'PHEV', electricRangeKm: 65, combinedRangeKm: 1245, fuelType2: 'gasolina',
     url: "https://www.geelybrasil.com.br/ex5-em-i",
     img: "/car-images/geely-ex5-emi.jpg",
@@ -1041,7 +1041,7 @@ export const CAR_DB: Car[] = [
     lengthMm: 4740, widthMm: 1900, heightMm: 1680, wheelbaseMm: 2755, groundClearanceMm: 172, trunkLiters: 428,
   },
   {
-    model: "EX5 EM-i Ultra", brand: "Geely", price: 244990, range: 112, cat: "SUV",
+    model: "EX5 EM-i Ultra", brand: "Geely", price: 234990, range: 112, cat: "SUV",
     powertrain: 'PHEV', electricRangeKm: 112, combinedRangeKm: 1300, fuelType2: 'gasolina',
     url: "https://www.geelybrasil.com.br/ex5-em-i",
     img: "/car-images/geely-ex5-emi.jpg",

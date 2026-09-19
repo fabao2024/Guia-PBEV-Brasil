@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T14:55:25.553Z",
+  "generated_at": "2026-09-19T16:12:21.306Z",
   "total": 164,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "evidence": {
@@ -2114,7 +2114,7 @@
     {
       "model": "EX5 EM-i Pro",
       "brand": "Geely",
-      "price": 199990,
+      "price": 189990,
       "range_km": 65,
       "powertrain": "PHEV",
       "electric_range_km": 65,
@@ -2157,7 +2157,7 @@
     {
       "model": "EX5 EM-i Max",
       "brand": "Geely",
-      "price": 219990,
+      "price": 209990,
       "range_km": 65,
       "powertrain": "PHEV",
       "electric_range_km": 65,
@@ -2200,7 +2200,7 @@
     {
       "model": "EX5 EM-i Ultra",
       "brand": "Geely",
-      "price": 244990,
+      "price": 234990,
       "range_km": 112,
       "powertrain": "PHEV",
       "electric_range_km": 112,
