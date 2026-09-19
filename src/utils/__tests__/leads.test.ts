@@ -1,4 +1,4 @@
-import { submitLead } from '../leads';
+import { submitLead, validateLeadForm } from '../leads';
 import { LeadFormData } from '../../types';
 
 const lead: LeadFormData = {
@@ -31,6 +31,28 @@ describe('submitLead()', () => {
 
   afterEach(() => {
     vi.unstubAllGlobals();
+  });
+
+  it('rejects an incomplete lead before making the API request', async () => {
+    const fetchMock = vi.fn();
+    vi.stubGlobal('fetch', fetchMock);
+
+    const invalidLead = { ...lead, city: '  ' };
+
+    expect(validateLeadForm(invalidLead)).toEqual({ field: 'city', message: 'Selecione sua cidade.' });
+    await expect(submitLead(invalidLead, 'lead_banner')).rejects.toThrow('Selecione sua cidade.');
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('rejects a lead without the requested modality before making the API request', async () => {
+    const fetchMock = vi.fn();
+    vi.stubGlobal('fetch', fetchMock);
+
+    const invalidLead = { ...lead, interest: '' as LeadFormData['interest'] };
+
+    expect(validateLeadForm(invalidLead)).toEqual({ field: 'interest', message: 'Selecione a modalidade desejada.' });
+    await expect(submitLead(invalidLead, 'lead_banner')).rejects.toThrow('Selecione a modalidade desejada.');
+    expect(fetchMock).not.toHaveBeenCalled();
   });
 
   it('posts the qualified lead without exposing the matched partner', async () => {

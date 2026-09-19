@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Send, ShieldCheck, X, Zap } from 'lucide-react';
 import { Car, LeadFormData, LeadInterest } from '../types';
 import { track } from '../utils/analytics';
-import { submitLead } from '../utils/leads';
+import { submitLead, validateLeadForm } from '../utils/leads';
 import WhatsAppCta from './WhatsAppCta';
 
 interface LeadCaptureModalProps {
@@ -56,6 +56,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
   const [leadId, setLeadId] = useState<number | null>(null);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [validationError, setValidationError] = useState(false);
+  const [validationMessage, setValidationMessage] = useState<string | null>(null);
   const formStartedRef = useRef(false);
   const validationReportedRef = useRef(false);
   const idempotencyKeyRef = useRef<string | null>(null);
@@ -78,6 +79,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
     setLeadId(null);
     setSubmitError(null);
     setValidationError(false);
+    setValidationMessage(null);
     formStartedRef.current = false;
     validationReportedRef.current = false;
     idempotencyKeyRef.current = crypto.randomUUID();
@@ -131,9 +133,22 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    const validationIssue = validateLeadForm(hydratedForm);
+    if (validationIssue) {
+      setValidationError(true);
+      setValidationMessage(validationIssue.message);
+      track('lead_form_validation_error', {
+        source,
+        interest: hydratedForm.interest,
+        field: validationIssue.field,
+      });
+      return;
+    }
+
     setSubmitting(true);
     setSubmitError(null);
     setValidationError(false);
+    setValidationMessage(null);
     track('lead_submit_attempt', {
       source,
       interest: hydratedForm.interest,
@@ -163,6 +178,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
 
   const handleInvalid = (event: React.InvalidEvent<HTMLFormElement>) => {
     setValidationError(true);
+    setValidationMessage(null);
     if (validationReportedRef.current) return;
     validationReportedRef.current = true;
     const field = (event.target as HTMLInputElement | HTMLSelectElement).name || 'unknown';
@@ -207,7 +223,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
         <form onSubmit={handleSubmit} onInvalid={handleInvalid} className="relative p-6 grid grid-cols-1 md:grid-cols-2 gap-4 text-white">
           <label className="flex flex-col gap-1 text-sm font-bold text-white/80">
             Nome
-            <input required name="name" value={form.name} onChange={e => updateField('name', e.target.value)} className={inputClass} placeholder="Seu nome" autoComplete="name" />
+            <input required name="name" minLength={2} value={form.name} onChange={e => updateField('name', e.target.value)} className={inputClass} placeholder="Seu nome" autoComplete="name" />
           </label>
 
           <label className="flex flex-col gap-1 text-sm font-bold text-white/80">
@@ -329,7 +345,7 @@ export default function LeadCaptureModal({ isOpen, selectedCar, source, initialI
 
           {validationError && (
             <div role="alert" className="md:col-span-2 rounded-xl border border-amber-400/30 bg-amber-400/10 p-3 text-sm font-semibold text-amber-100">
-              Preencha todos os campos obrigatórios e marque a autorização antes de enviar.
+              {validationMessage || 'Preencha todos os campos obrigatórios e marque a autorização antes de enviar.'}
             </div>
           )}
 
