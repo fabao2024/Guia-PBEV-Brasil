@@ -705,6 +705,32 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
+  "/car-images/geely-ex5-emi.jpg": {
+    "width": 5000,
+    "height": 3335,
+    "variants": [
+      {
+        "src": "/car-images/optimized/geely-ex5-emi.jpg-320.webp",
+        "width": 320,
+        "height": 213
+      },
+      {
+        "src": "/car-images/optimized/geely-ex5-emi.jpg-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      {
+        "src": "/car-images/optimized/geely-ex5-emi.jpg-960.webp",
+        "width": 960,
+        "height": 640
+      },
+      {
+        "src": "/car-images/optimized/geely-ex5-emi.jpg-1280.webp",
+        "width": 1280,
+        "height": 854
+      }
+    ]
+  },
   "/car-images/gwm-haval-h6-gt.webp": {
     "width": 2280,
     "height": 1440,

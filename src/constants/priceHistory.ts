@@ -171,6 +171,9 @@ export const PRICE_HISTORY: Record<string, PriceSnapshot[]> = {
   "T2 Advance": [{ date: '2026-09', price: 289900 }],
   "T2 Premium": [{ date: '2026-09', price: 299900 }],
   "T2 4x4": [{ date: '2026-09', price: 349900 }],
+  "EX5 EM-i Pro": [{ date: '2026-09', price: 199990 }],
+  "EX5 EM-i Max": [{ date: '2026-09', price: 219990 }],
+  "EX5 EM-i Ultra": [{ date: '2026-09', price: 244990 }],
 };
 
 /** Returns the most recent snapshot for a given model, or null if no history. */

@@ -863,6 +863,29 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(ewonder.range).toBe(189);
   });
 
+  it('Geely EX5 EM-i should match geelybrasil.com.br and PBEV table (jan/2026)', () => {
+    // geelybrasil.com.br release/model page + PBEV jan/2026 rows:
+    // MAX/PRO 65 km/0,55 MJ/14,6 cidade; ULTRA 112 km/0,59 MJ/14,8 cidade.
+    // Tabela prices 199990/219990/244990 (promo 189990/209990/234990 até 30/09).
+    const pro = byModel('EX5 EM-i Pro');
+    expect(pro.powertrain).toBe('PHEV');
+    expect(pro.price).toBe(199990);
+    expect(pro.range).toBe(65);
+    expect(pro.energyMJkm).toBeCloseTo(0.55, 5);
+    expect(pro.fuelConsumptionKml).toBe(14.6);
+    expect(pro.chargeDC).toBe(30);
+    const max = byModel('EX5 EM-i Max');
+    expect(max.price).toBe(219990);
+    expect(max.range).toBe(65);
+    expect(max.energyMJkm).toBeCloseTo(0.55, 5);
+    const ultra = byModel('EX5 EM-i Ultra');
+    expect(ultra.price).toBe(244990);
+    expect(ultra.range).toBe(112);
+    expect(ultra.energyMJkm).toBeCloseTo(0.59, 5);
+    expect(ultra.fuelConsumptionKml).toBe(14.8);
+    expect(ultra.chargeDC).toBe(60);
+  });
+
   it('Lote B hybrids should match official Brazilian sources (set/2026)', () => {
     // omodajaecoo.com.br official news: Omoda 5 SHS-H Luxury from R$ 159.990,
     // Prestige R$ 184.990; HEV 224 cv / 30,1 kgfm, battery 1,83 kWh.

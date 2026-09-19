@@ -2,6 +2,15 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 19/09/2026 · Geely EX5 EM-i Pro/Max/Ultra (164 veículos); CS55 adiado
+
+| Área | Mudança pública |
+|---|---|
+| Catálogo | EX5 EM-i Pro (R$ 199.990, 65 km), Max (R$ 219.990, 65 km) e Ultra (R$ 244.990, 112 km) — PHEV a gasolina, 262 cv, DC 30/30/60 kW. Preços de tabela (promo vigente até 30/09 registrada no histórico). Sem selo Novidades (lançado em abril). |
+| Divergências | MJ (0,55/0,59), autonomia e sustain via tabela PBEV jan/2026 parseada localmente; combinada do Max inferida (1.245, mesmo pack do Pro); tração/peso/AC sem fonte oficial — fora. Foto única 3/4 Verde Jungle da galeria oficial. |
+| CS55 adiado | CS55 Ultra-Hybrid PHEV Flex (R$ 189.990 pré-venda) fora: flex exige sustain gasolina+etanol nos testes e o PBEV só tem o equivalente 42,2/33,5 km/Le (inutilizável, viola o teto de 35). Entra na próxima edição da tabela PBEV. |
+| Verificação | Testes (bloco EX5 EM-i + invariantes), TypeScript limpo, build Vite (164 páginas), scanner de segredos e verificador de proveniência aprovados. |
+
 ## 19/09/2026 · Foto do XC90 T8 Plus refeita (estúdio 3/4)
 
 | Área | Mudança pública |

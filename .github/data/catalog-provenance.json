@@ -4749,6 +4749,234 @@
         }
       }
     },
+    "geely-ex5-em-i-max": {
+      "brand": "Geely",
+      "model": "EX5 EM-i Max",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.geelybrasil.com.br/ex5-em-i",
+          "sourceUpdatedAt": "2026-09-18",
+          "verifiedAt": "2026-09-18"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-18"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-18"
+        },
+        "power": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "battery": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
+    "geely-ex5-em-i-pro": {
+      "brand": "Geely",
+      "model": "EX5 EM-i Pro",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.geelybrasil.com.br/ex5-em-i",
+          "sourceUpdatedAt": "2026-09-18",
+          "verifiedAt": "2026-09-18"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-18"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-18"
+        },
+        "power": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "battery": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
+    "geely-ex5-em-i-ultra": {
+      "brand": "Geely",
+      "model": "EX5 EM-i Ultra",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.geelybrasil.com.br/ex5-em-i",
+          "sourceUpdatedAt": "2026-09-18",
+          "verifiedAt": "2026-09-18"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-18"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-18"
+        },
+        "power": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "battery": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
     "geely-ex5-max": {
       "brand": "Geely",
       "model": "EX5 Max",
