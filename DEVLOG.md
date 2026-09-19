@@ -2,6 +2,14 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 19/09/2026 · Foto do XC90 T8 Plus refeita (estúdio 3/4)
+
+| Área | Mudança pública |
+|---|---|
+| Foto | XC90 T8 Plus troca o wide arquitetônico (carro ~15% do quadro) por estúdio 3/4 dianteira Bright Dusk (4898px, carro preenche o quadro, facelift 2025 + portinhola de recarga visíveis) — release oficial Volvo Car Japan do facelift. Sem churn em `constants.ts` (mesmo filename); variantes `optimized` regeneradas. |
+| Ressalvas | XC60 T8 Plus mantido: nenhum asset oficial do facelift MY26 com enquadramento no padrão (candidatos Cision: wide arquitetônico, motorista visível, multi-carro ou geração errada); TODO documentado — biblioteca de mídia UK (`volvocars.com/uk/media`) bloqueia robôs (Akamai 403). |
+| Verificação | Pipeline `--check`, TypeScript limpo, suítes de imagem/catálogo verdes, build Vite (161 páginas), scanner de segredos e proveniência (824/1610) aprovados. Suite total 402/403 — 1 falha pré-existente em `AppPartnersCta` (só local; no CI passa). |
+
 ## 18/09/2026 · Badge de propulsão só-sigla (cards, modal e páginas)
 
 | Área | Mudança pública |

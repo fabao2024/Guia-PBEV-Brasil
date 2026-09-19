@@ -1513,28 +1513,28 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
     ]
   },
   "/car-images/volvo-xc90-t8.jpg": {
-    "width": 4533,
-    "height": 3400,
+    "width": 4898,
+    "height": 2756,
     "variants": [
       {
         "src": "/car-images/optimized/volvo-xc90-t8.jpg-320.webp",
         "width": 320,
-        "height": 240
+        "height": 180
       },
       {
         "src": "/car-images/optimized/volvo-xc90-t8.jpg-640.webp",
         "width": 640,
-        "height": 480
+        "height": 360
       },
       {
         "src": "/car-images/optimized/volvo-xc90-t8.jpg-960.webp",
         "width": 960,
-        "height": 720
+        "height": 540
       },
       {
         "src": "/car-images/optimized/volvo-xc90-t8.jpg-1280.webp",
         "width": 1280,
-        "height": 960
+        "height": 720
       }
     ]
   },

@@ -2226,39 +2226,39 @@
     },
     {
       "src": "/car-images/volvo-xc90-t8.jpg",
-      "width": 4533,
-      "height": 3400,
+      "width": 4898,
+      "height": 2756,
       "alpha": false,
-      "bytes": 1849735,
-      "sha256": "0eeedd3d8b4dce00ffc0333b9c717ed66141709df8b7952b45b2bb4078fd6846",
+      "bytes": 1477842,
+      "sha256": "94e2aac5a5e5ed1d5507a860b454fb7a3bc49007635c7b9fafe79f87132bce2a",
       "variants": [
         {
           "src": "/car-images/optimized/volvo-xc90-t8.jpg-320.webp",
           "width": 320,
-          "height": 240,
-          "bytes": 3158,
-          "sha256": "5391c92afd77004dfb22121d8d90c9366b8b9481e8fbcf407c31d5a05cc942a7"
+          "height": 180,
+          "bytes": 5360,
+          "sha256": "5d5ffefa36186e5954191755a75c9ab49fa39a1ebe7357027eb06e628e046811"
         },
         {
           "src": "/car-images/optimized/volvo-xc90-t8.jpg-640.webp",
           "width": 640,
-          "height": 480,
-          "bytes": 9334,
-          "sha256": "ad6d31b3fbe6f33512853531633d53639d2b78f02c59f2d24fe46968fc99abd3"
+          "height": 360,
+          "bytes": 14906,
+          "sha256": "8424139bb3aaa303e2cdbf3de2fd23d9a813b06bf64b2960fd24f9630304176a"
         },
         {
           "src": "/car-images/optimized/volvo-xc90-t8.jpg-960.webp",
           "width": 960,
-          "height": 720,
-          "bytes": 19292,
-          "sha256": "eacb1955539d76b2c945fa9feb7f5ad7ce1312fa3d240420ee75b6b3c6b4c9ee"
+          "height": 540,
+          "bytes": 26732,
+          "sha256": "e1323a46d01ee7268c1f41d263265cbd1a0efbb7e22ad870c68bc2e55667b9a9"
         },
         {
           "src": "/car-images/optimized/volvo-xc90-t8.jpg-1280.webp",
           "width": 1280,
-          "height": 960,
-          "bytes": 33664,
-          "sha256": "900529d71a02659fe5966e78b9d9982a3dcb21ec379cf471b025c1ebe649d3b8"
+          "height": 720,
+          "bytes": 38950,
+          "sha256": "3d06a14bf3f4d4b1b9beb068029dde85ed7dda1a97029405a5dd2c774e42d3cb"
         }
       ]
     },
