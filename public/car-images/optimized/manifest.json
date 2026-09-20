@@ -229,6 +229,44 @@
       ]
     },
     {
+      "src": "/car-images/bmw-530e.jpg",
+      "width": 2250,
+      "height": 1500,
+      "alpha": false,
+      "bytes": 342832,
+      "sha256": "376b53788b4f17473a779e6ae3356e7b8973eef96474c443dde6a71e9d6eb09d",
+      "variants": [
+        {
+          "src": "/car-images/optimized/bmw-530e.jpg-320.webp",
+          "width": 320,
+          "height": 213,
+          "bytes": 13762,
+          "sha256": "e25ba1ad5eaaffae4aa74fa0e02a823609b5f463a09cfff8c96c47778d9a6749"
+        },
+        {
+          "src": "/car-images/optimized/bmw-530e.jpg-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 53400,
+          "sha256": "104717e34aa9ffc7d63adc355d457a4c6eac3dbe4ad0aef22889114a93c369a2"
+        },
+        {
+          "src": "/car-images/optimized/bmw-530e.jpg-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 108714,
+          "sha256": "6c3b347e7287343ea69b31392b308af20b77edc69f814723427e4573c31a4be1"
+        },
+        {
+          "src": "/car-images/optimized/bmw-530e.jpg-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 180368,
+          "sha256": "466607fdb8039ff582ca222f810aee3e96acfea0b97448899cc9ad8497e86817"
+        }
+      ]
+    },
+    {
       "src": "/car-images/byd-atto-2.jpg",
       "width": 1600,
       "height": 1067,
@@ -930,6 +968,44 @@
       ]
     },
     {
+      "src": "/car-images/farizon-f3e.jpg",
+      "width": 1360,
+      "height": 600,
+      "alpha": false,
+      "bytes": 245652,
+      "sha256": "30a2ef15b67202e092de0ce0c2373e315d6025b885d0e4714aeb3a509b06a93a",
+      "variants": [
+        {
+          "src": "/car-images/optimized/farizon-f3e.jpg-320.webp",
+          "width": 320,
+          "height": 141,
+          "bytes": 4680,
+          "sha256": "39935f1d23932f5e28107a21485631531fc2bc609ce40ff56f4e66f12ef93a9a"
+        },
+        {
+          "src": "/car-images/optimized/farizon-f3e.jpg-640.webp",
+          "width": 640,
+          "height": 282,
+          "bytes": 30734,
+          "sha256": "e8fd38ee89cc63eae7098ed8ed2e0ae304aa3f1c1737c466c6480884880f84ac"
+        },
+        {
+          "src": "/car-images/optimized/farizon-f3e.jpg-960.webp",
+          "width": 960,
+          "height": 424,
+          "bytes": 76758,
+          "sha256": "867d38322e589fc130947c6d6dcc272675e624924bdd9eb66bdc34449f9391e2"
+        },
+        {
+          "src": "/car-images/optimized/farizon-f3e.jpg-1280.webp",
+          "width": 1280,
+          "height": 565,
+          "bytes": 121946,
+          "sha256": "68c27624eb2c9b9d6b3af145d17440a1a388145b749a4fceacc01e6288b03710"
+        }
+      ]
+    },
+    {
       "src": "/car-images/farizon-sv.webp",
       "width": 2880,
       "height": 1366,
@@ -1310,6 +1386,44 @@
       ]
     },
     {
+      "src": "/car-images/honda-accord-hybrid.jpg",
+      "width": 5472,
+      "height": 3648,
+      "alpha": false,
+      "bytes": 1673408,
+      "sha256": "674b622339ef9ed2ea9a641e3ca368d1c106af76917707405024ae8b56f43c88",
+      "variants": [
+        {
+          "src": "/car-images/optimized/honda-accord-hybrid.jpg-320.webp",
+          "width": 320,
+          "height": 213,
+          "bytes": 8704,
+          "sha256": "b8ebe6878ad36851e8eaedcd8a68c75fa419a51e6988a153d13e89a49e2c4d80"
+        },
+        {
+          "src": "/car-images/optimized/honda-accord-hybrid.jpg-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 24808,
+          "sha256": "cd62785ae1b3f666c00dafc6b067864d27143f53092a7e8ec406909043c7f838"
+        },
+        {
+          "src": "/car-images/optimized/honda-accord-hybrid.jpg-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 44806,
+          "sha256": "3919dcce654fbca08479fa34c6252bbb77878a12858be6baa476925a2c1796e5"
+        },
+        {
+          "src": "/car-images/optimized/honda-accord-hybrid.jpg-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 67978,
+          "sha256": "9b22be5cd831302352a2376a8003b2e5496ee50a5b8a9f0cd5ed9a03cd42971e"
+        }
+      ]
+    },
+    {
       "src": "/car-images/id4.jpg",
       "width": 960,
       "height": 554,
@@ -1513,6 +1627,82 @@
           "height": 750,
           "bytes": 186034,
           "sha256": "9d70d0020d32430998f6170f926ebe22d64fc74d669e08f2cbf281ffa44c7b58"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/kia-carnival-hev.jpg",
+      "width": 1979,
+      "height": 1337,
+      "alpha": false,
+      "bytes": 632828,
+      "sha256": "44d3dad62c3c3dc39f8cddfacad4d7b98bd4da2ca518d7970fda20658dccc72e",
+      "variants": [
+        {
+          "src": "/car-images/optimized/kia-carnival-hev.jpg-320.webp",
+          "width": 320,
+          "height": 216,
+          "bytes": 19678,
+          "sha256": "ac3cdadec1b1e553d220cff3ccc47af0048b8e894c6795829d3dcb6cf95d8e14"
+        },
+        {
+          "src": "/car-images/optimized/kia-carnival-hev.jpg-640.webp",
+          "width": 640,
+          "height": 432,
+          "bytes": 76528,
+          "sha256": "2db6dd727cc31de2ea5a5c7ba0ddebab35fec5a7548f1c63f2734f7f38030168"
+        },
+        {
+          "src": "/car-images/optimized/kia-carnival-hev.jpg-960.webp",
+          "width": 960,
+          "height": 649,
+          "bytes": 169710,
+          "sha256": "470fa72b438067c88f7b0f3dfecd7fccf26c8dcb3280559c9dd8beb33bfed799"
+        },
+        {
+          "src": "/car-images/optimized/kia-carnival-hev.jpg-1280.webp",
+          "width": 1280,
+          "height": 865,
+          "bytes": 290154,
+          "sha256": "a8949ce749dee471b3b40502407500009f75e1af3e09f1b4fcbae155851b138a"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/kia-niro-hev.jpg",
+      "width": 1980,
+      "height": 1386,
+      "alpha": false,
+      "bytes": 325626,
+      "sha256": "be8b02f80bcbca02d8604f24fe1b4762aefc19e52da8003689bb29f1d1b600e6",
+      "variants": [
+        {
+          "src": "/car-images/optimized/kia-niro-hev.jpg-320.webp",
+          "width": 320,
+          "height": 224,
+          "bytes": 9640,
+          "sha256": "b1eb9bc16dfbf2e598f236bdb82e59d7ab43c910a49388a4f6f8e8ec51997853"
+        },
+        {
+          "src": "/car-images/optimized/kia-niro-hev.jpg-640.webp",
+          "width": 640,
+          "height": 448,
+          "bytes": 32526,
+          "sha256": "3c690e74d7d5f78ea36973cd54fcc364ab2e9851adf2855cf6de1d1829f525e3"
+        },
+        {
+          "src": "/car-images/optimized/kia-niro-hev.jpg-960.webp",
+          "width": 960,
+          "height": 672,
+          "bytes": 65258,
+          "sha256": "c4160b88b9fedf22e4f3c94e0531b7fa6790ebd95f5005fa48fd9d63662eb872"
+        },
+        {
+          "src": "/car-images/optimized/kia-niro-hev.jpg-1280.webp",
+          "width": 1280,
+          "height": 896,
+          "bytes": 106916,
+          "sha256": "d4a134b3c558221393c725250769d04bbf9e22120f4037166b4d1e1c83e9bbe9"
         }
       ]
     },
@@ -1803,6 +1993,44 @@
           "height": 853,
           "bytes": 114968,
           "sha256": "c17e766b684370e4122968758a12f9b9633b17b412001e79fe4fef85c38ce864"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/mini-cooper-se.jpg",
+      "width": 2250,
+      "height": 1500,
+      "alpha": false,
+      "bytes": 219088,
+      "sha256": "ba2ceea9bf448c51c3cf249a8f51b3942bcce965df891368ac5fff63ff9a95b2",
+      "variants": [
+        {
+          "src": "/car-images/optimized/mini-cooper-se.jpg-320.webp",
+          "width": 320,
+          "height": 213,
+          "bytes": 12408,
+          "sha256": "793ea217752dade32fb112e35759ef36e6287053fca466d1a5de67b77d0a70ac"
+        },
+        {
+          "src": "/car-images/optimized/mini-cooper-se.jpg-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 35140,
+          "sha256": "f0ca07bb40c7af5643a8104ebc60b7046ca5c42f28cccdac1980f945e63591a6"
+        },
+        {
+          "src": "/car-images/optimized/mini-cooper-se.jpg-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 63442,
+          "sha256": "790bb8dffc4507985911129bdab52c37f7cc886a81e9890b13e3f89fe36526cf"
+        },
+        {
+          "src": "/car-images/optimized/mini-cooper-se.jpg-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 96326,
+          "sha256": "795e2d36910c4c7c79e35fdf0bca74a47b5ab8592105e5b48af7fdf49d2fe9fa"
         }
       ]
     },
@@ -2107,6 +2335,82 @@
           "height": 720,
           "bytes": 35406,
           "sha256": "6489d08232928504cdb87b76d90771999aee5e0272ba64ee10c97cc3d87c8dbd"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/rr-p550e.jpg",
+      "width": 2880,
+      "height": 1040,
+      "alpha": false,
+      "bytes": 617012,
+      "sha256": "38614a2f52223b23f1ef920acd74c899304b2ab2fe516b8b9530e62cfcfb514b",
+      "variants": [
+        {
+          "src": "/car-images/optimized/rr-p550e.jpg-320.webp",
+          "width": 320,
+          "height": 116,
+          "bytes": 5990,
+          "sha256": "2e03025442a28f20fd53e2b11790fa79f8170d3eb64e717b9b68dd944f67b73d"
+        },
+        {
+          "src": "/car-images/optimized/rr-p550e.jpg-640.webp",
+          "width": 640,
+          "height": 231,
+          "bytes": 18742,
+          "sha256": "616a25df09cc6a4f4100a81ec61847bec58e92fc6756c8a0a6dd36d6c77d360b"
+        },
+        {
+          "src": "/car-images/optimized/rr-p550e.jpg-960.webp",
+          "width": 960,
+          "height": 347,
+          "bytes": 38200,
+          "sha256": "d641b704fa0fe044065eb687ab9855d2e13d07ac307e1062d8d9f2d4a60a32be"
+        },
+        {
+          "src": "/car-images/optimized/rr-p550e.jpg-1280.webp",
+          "width": 1280,
+          "height": 462,
+          "bytes": 65066,
+          "sha256": "74350b326ad78ddfa27704f72373b1f1fb0077ac7456cc509a9a9eca483d0851"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/rr-velar-p400e.jpg",
+      "width": 2400,
+      "height": 1350,
+      "alpha": false,
+      "bytes": 426414,
+      "sha256": "f3c4cfa927de2ebf9a0d9db7d7e51bfe6e9538a7ed448087e9bf35c1d46685d2",
+      "variants": [
+        {
+          "src": "/car-images/optimized/rr-velar-p400e.jpg-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 8350,
+          "sha256": "bfc3484965e966e009dd96efc8d2152983bb2d64ad28c97af93d89c68520ca48"
+        },
+        {
+          "src": "/car-images/optimized/rr-velar-p400e.jpg-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 23350,
+          "sha256": "03df1458bd25651f134183bade91ae01a0353e0662c05cc52eff464a58f7eea2"
+        },
+        {
+          "src": "/car-images/optimized/rr-velar-p400e.jpg-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 44122,
+          "sha256": "6cd6d5d0eefbb49825d73b919abbb4c493530f7eeae3089793f975995b873411"
+        },
+        {
+          "src": "/car-images/optimized/rr-velar-p400e.jpg-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 70508,
+          "sha256": "dae0ff65aa2968929c60e3b152855b300202c98fbf075966b9a307f5ec28a6b0"
         }
       ]
     },

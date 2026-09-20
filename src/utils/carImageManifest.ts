@@ -148,6 +148,32 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
+  "/car-images/bmw-530e.jpg": {
+    "width": 2250,
+    "height": 1500,
+    "variants": [
+      {
+        "src": "/car-images/optimized/bmw-530e.jpg-320.webp",
+        "width": 320,
+        "height": 213
+      },
+      {
+        "src": "/car-images/optimized/bmw-530e.jpg-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      {
+        "src": "/car-images/optimized/bmw-530e.jpg-960.webp",
+        "width": 960,
+        "height": 640
+      },
+      {
+        "src": "/car-images/optimized/bmw-530e.jpg-1280.webp",
+        "width": 1280,
+        "height": 853
+      }
+    ]
+  },
   "/car-images/byd-atto-2.jpg": {
     "width": 1600,
     "height": 1067,
@@ -627,6 +653,32 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
+  "/car-images/farizon-f3e.jpg": {
+    "width": 1360,
+    "height": 600,
+    "variants": [
+      {
+        "src": "/car-images/optimized/farizon-f3e.jpg-320.webp",
+        "width": 320,
+        "height": 141
+      },
+      {
+        "src": "/car-images/optimized/farizon-f3e.jpg-640.webp",
+        "width": 640,
+        "height": 282
+      },
+      {
+        "src": "/car-images/optimized/farizon-f3e.jpg-960.webp",
+        "width": 960,
+        "height": 424
+      },
+      {
+        "src": "/car-images/optimized/farizon-f3e.jpg-1280.webp",
+        "width": 1280,
+        "height": 565
+      }
+    ]
+  },
   "/car-images/farizon-sv.webp": {
     "width": 2880,
     "height": 1366,
@@ -887,6 +939,32 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
+  "/car-images/honda-accord-hybrid.jpg": {
+    "width": 5472,
+    "height": 3648,
+    "variants": [
+      {
+        "src": "/car-images/optimized/honda-accord-hybrid.jpg-320.webp",
+        "width": 320,
+        "height": 213
+      },
+      {
+        "src": "/car-images/optimized/honda-accord-hybrid.jpg-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      {
+        "src": "/car-images/optimized/honda-accord-hybrid.jpg-960.webp",
+        "width": 960,
+        "height": 640
+      },
+      {
+        "src": "/car-images/optimized/honda-accord-hybrid.jpg-1280.webp",
+        "width": 1280,
+        "height": 853
+      }
+    ]
+  },
   "/car-images/id4.jpg": {
     "width": 960,
     "height": 554,
@@ -1025,6 +1103,58 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
         "src": "/car-images/optimized/jac-iev330p.jpg-1000.webp",
         "width": 1000,
         "height": 750
+      }
+    ]
+  },
+  "/car-images/kia-carnival-hev.jpg": {
+    "width": 1979,
+    "height": 1337,
+    "variants": [
+      {
+        "src": "/car-images/optimized/kia-carnival-hev.jpg-320.webp",
+        "width": 320,
+        "height": 216
+      },
+      {
+        "src": "/car-images/optimized/kia-carnival-hev.jpg-640.webp",
+        "width": 640,
+        "height": 432
+      },
+      {
+        "src": "/car-images/optimized/kia-carnival-hev.jpg-960.webp",
+        "width": 960,
+        "height": 649
+      },
+      {
+        "src": "/car-images/optimized/kia-carnival-hev.jpg-1280.webp",
+        "width": 1280,
+        "height": 865
+      }
+    ]
+  },
+  "/car-images/kia-niro-hev.jpg": {
+    "width": 1980,
+    "height": 1386,
+    "variants": [
+      {
+        "src": "/car-images/optimized/kia-niro-hev.jpg-320.webp",
+        "width": 320,
+        "height": 224
+      },
+      {
+        "src": "/car-images/optimized/kia-niro-hev.jpg-640.webp",
+        "width": 640,
+        "height": 448
+      },
+      {
+        "src": "/car-images/optimized/kia-niro-hev.jpg-960.webp",
+        "width": 960,
+        "height": 672
+      },
+      {
+        "src": "/car-images/optimized/kia-niro-hev.jpg-1280.webp",
+        "width": 1280,
+        "height": 896
       }
     ]
   },
@@ -1221,6 +1351,32 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       },
       {
         "src": "/car-images/optimized/mercedes-esprinter.jpg-1280.webp",
+        "width": 1280,
+        "height": 853
+      }
+    ]
+  },
+  "/car-images/mini-cooper-se.jpg": {
+    "width": 2250,
+    "height": 1500,
+    "variants": [
+      {
+        "src": "/car-images/optimized/mini-cooper-se.jpg-320.webp",
+        "width": 320,
+        "height": 213
+      },
+      {
+        "src": "/car-images/optimized/mini-cooper-se.jpg-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      {
+        "src": "/car-images/optimized/mini-cooper-se.jpg-960.webp",
+        "width": 960,
+        "height": 640
+      },
+      {
+        "src": "/car-images/optimized/mini-cooper-se.jpg-1280.webp",
         "width": 1280,
         "height": 853
       }
@@ -1429,6 +1585,58 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       },
       {
         "src": "/car-images/optimized/porsche-cayenne-e-hybrid.jpg-1280.webp",
+        "width": 1280,
+        "height": 720
+      }
+    ]
+  },
+  "/car-images/rr-p550e.jpg": {
+    "width": 2880,
+    "height": 1040,
+    "variants": [
+      {
+        "src": "/car-images/optimized/rr-p550e.jpg-320.webp",
+        "width": 320,
+        "height": 116
+      },
+      {
+        "src": "/car-images/optimized/rr-p550e.jpg-640.webp",
+        "width": 640,
+        "height": 231
+      },
+      {
+        "src": "/car-images/optimized/rr-p550e.jpg-960.webp",
+        "width": 960,
+        "height": 347
+      },
+      {
+        "src": "/car-images/optimized/rr-p550e.jpg-1280.webp",
+        "width": 1280,
+        "height": 462
+      }
+    ]
+  },
+  "/car-images/rr-velar-p400e.jpg": {
+    "width": 2400,
+    "height": 1350,
+    "variants": [
+      {
+        "src": "/car-images/optimized/rr-velar-p400e.jpg-320.webp",
+        "width": 320,
+        "height": 180
+      },
+      {
+        "src": "/car-images/optimized/rr-velar-p400e.jpg-640.webp",
+        "width": 640,
+        "height": 360
+      },
+      {
+        "src": "/car-images/optimized/rr-velar-p400e.jpg-960.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "/car-images/optimized/rr-velar-p400e.jpg-1280.webp",
         "width": 1280,
         "height": 720
       }

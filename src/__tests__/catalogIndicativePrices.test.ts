@@ -886,6 +886,66 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(ultra.chargeDC).toBe(60);
   });
 
+  it('Lote D coverage gaps should match official BR sources and PBEV jan/2026', () => {
+    // GAC spec table + PBEV: GS4 14,1/1,64 MJ/A nos dois; preços dealer oficial.
+    const gs4p = byModel('GS4 Premium');
+    expect(gs4p.powertrain).toBe('HEV');
+    expect(gs4p.price).toBe(191990);
+    expect(gs4p.fuelConsumptionKml).toBe(14.1);
+    expect(gs4p.energyMJkm).toBeCloseTo(1.64, 5);
+    expect(byModel('GS4 Elite').price).toBe(209990);
+    // Honda press + PBEV: Accord 17,5/1,26/B.
+    const accord = byModel('Accord Advanced Hybrid');
+    expect(accord.price).toBe(333000);
+    expect(accord.fuelConsumptionKml).toBe(17.5);
+    expect(accord.energyMJkm).toBeCloseTo(1.26, 5);
+    // Toyota Comunica + PBEV flex: Yaris 17,9 gas/13,2 etanol/1,23/A.
+    const yxre = byModel('Yaris Cross XRE Hybrid');
+    expect(yxre.price).toBe(172390);
+    expect(yxre.fuelConsumptionKml).toBe(17.9);
+    expect(yxre.fuelConsumptionKmlEthanol).toBe(13.2);
+    expect(yxre.energyMJkm).toBeCloseTo(1.23, 5);
+    expect(byModel('Yaris Cross XRX Hybrid').price).toBe(189990);
+    // Kia oficial + PBEV: Niro 18,3/1,21/A; Carnival 11,9/1,95/D.
+    const nexo = byModel('Niro EX');
+    expect(nexo.price).toBe(194990);
+    expect(nexo.fuelConsumptionKml).toBe(18.3);
+    expect(nexo.energyMJkm).toBeCloseTo(1.21, 5);
+    expect(byModel('Niro SX Prestige').price).toBe(219990);
+    const carnaval = byModel('Carnival EX');
+    expect(carnaval.price).toBe(684990);
+    expect(carnaval.fuelConsumptionKml).toBe(11.9);
+    expect(carnaval.energyMJkm).toBeCloseTo(1.95, 5);
+    // BMW oficial + PBEV: 530e 70 km/0,76/10,9; X5 76 km/0,88/9,2.
+    const s530 = byModel('530e M Sport');
+    expect(s530.price).toBe(643950);
+    expect(s530.range).toBe(70);
+    expect(s530.energyMJkm).toBeCloseTo(0.76, 5);
+    expect(s530.fuelConsumptionKml).toBe(10.9);
+    const x5 = byModel('X5 xDrive50e');
+    expect(x5.price).toBe(864950);
+    expect(x5.range).toBe(76);
+    expect(x5.energyMJkm).toBeCloseTo(0.88, 5);
+    // JLR oficial + PBEV: Velar 40 km/0,92/8,3; RR 71 km/1,12/7,5.
+    const velar = byModel('Velar P400e');
+    expect(velar.price).toBe(773069);
+    expect(velar.range).toBe(40);
+    expect(velar.energyMJkm).toBeCloseTo(0.92, 5);
+    const rr = byModel('Range Rover P550e');
+    expect(rr.price).toBe(1773950);
+    expect(rr.range).toBe(71);
+    expect(rr.energyMJkm).toBeCloseTo(1.12, 5);
+    // BEVs: Cooper SE 312 km/0,48/A; F3E 314 km WLTP sem PBEV.
+    const cse = byModel('Cooper SE');
+    expect(cse.price).toBe(295000);
+    expect(cse.range).toBe(312);
+    expect(cse.energyMJkm).toBeCloseTo(0.48, 5);
+    const f3e = byModel('F3E');
+    expect(f3e.powertrain).toBe('BEV');
+    expect(f3e.price).toBe(240000);
+    expect(f3e.range).toBe(314);
+  });
+
   it('Lote B hybrids should match official Brazilian sources (set/2026)', () => {
     // omodajaecoo.com.br official news: Omoda 5 SHS-H Luxury from R$ 159.990,
     // Prestige R$ 184.990; HEV 224 cv / 30,1 kgfm, battery 1,83 kWh.

@@ -2,21 +2,15 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
-## 19/09/2026 · Geely EX5 EM-i Pro/Max/Ultra (164 veículos); CS55 adiado
+## 19/09/2026 · Lote D: GS4, Accord, Yaris, Niro, Carnival, 530e, X5, Velar, RR, F3E, Cooper SE (176 veículos)
 
 | Área | Mudança pública |
 |---|---|
-| Catálogo | EX5 EM-i Pro (R$ 199.990, 65 km), Max (R$ 219.990, 65 km) e Ultra (R$ 244.990, 112 km) — PHEV a gasolina, 262 cv, DC 30/30/60 kW. Preços de tabela (promo vigente até 30/09 registrada no histórico). Sem selo Novidades (lançado em abril). |
-| Divergências | MJ (0,55/0,59), autonomia e sustain via tabela PBEV jan/2026 parseada localmente; combinada do Max inferida (1.245, mesmo pack do Pro); tração/peso/AC sem fonte oficial — fora. Foto única 3/4 Verde Jungle da galeria oficial. |
-| CS55 adiado | CS55 Ultra-Hybrid PHEV Flex (R$ 189.990 pré-venda) fora: flex exige sustain gasolina+etanol nos testes e o PBEV só tem o equivalente 42,2/33,5 km/Le (inutilizável, viola o teto de 35). Entra na próxima edição da tabela PBEV. |
-| Verificação | Testes (bloco EX5 EM-i + invariantes), TypeScript limpo, build Vite (164 páginas), scanner de segredos e verificador de proveniência aprovados. |
+| Catálogo | GS4 Premium/Elite (191.990/209.990, 14,1), Accord (333.000, 17,5), Yaris XRE/XRX (172.390/189.990, 17,9/13,2 flex), Niro EX/SX (194.990/219.990, 18,3), Carnival EX (684.990, 11,9), 530e (643.950, 70 km), X5 50e (864.950, 76 km), Velar P400e (773.069, 40 km), RR P550e (1.773.950, 71 km), F3E (240.000, 314 km WLTP) e Cooper SE (295.000 dealer, 312 km). |
+| Divergências | MJ/rating/sustain via tabela PBEV jan/2026 parseada; combinadas PHEV derivadas (tanque oficial × sustain cidade); RR sem MJ (sem linha PBEV); F3E com range WLTP (sem PBEV); Cooper SE com preço de dealer oficial (MSRP não publicado); Velar em perfil (precedente EX90); fotos de releases oficiais. |
+| Adiados | Panamera 4/4S/Turbo/S, Cayenne Coupé/S, ES90, EX30 CC, EQB 350, Defender, AMGs PHEV (fotos ou preços pendentes de fonte oficial limpa); CS55 (sustain PBEV). MHEV fora do escopo. |
+| Verificação | Testes (bloco Lote D + invariantes), TypeScript limpo, build Vite (176 páginas), scanner de segredos e verificador de proveniência aprovados. |
 
-## 19/09/2026 · Foto do XC90 T8 Plus refeita (estúdio 3/4)
-
-| Área | Mudança pública |
-|---|---|
-| Foto | XC90 T8 Plus troca o wide arquitetônico (carro ~15% do quadro) por estúdio 3/4 dianteira Bright Dusk (4898px, carro preenche o quadro, facelift 2025 + portinhola de recarga visíveis) — release oficial Volvo Car Japan do facelift. Sem churn em `constants.ts` (mesmo filename); variantes `optimized` regeneradas. |
-| Ressalvas | XC60 T8 Plus mantido: nenhum asset oficial do facelift MY26 com enquadramento no padrão (candidatos Cision: wide arquitetônico, motorista visível, multi-carro ou geração errada); TODO documentado — biblioteca de mídia UK (`volvocars.com/uk/media`) bloqueia robôs (Akamai 403). |
 | Verificação | Pipeline `--check`, TypeScript limpo, suítes de imagem/catálogo verdes, build Vite (161 páginas), scanner de segredos e proveniência (824/1610) aprovados. Suite total 402/403 — 1 falha pré-existente em `AppPartnersCta` (só local; no CI passa). |
 
 ## 18/09/2026 · Badge de propulsão só-sigla (cards, modal e páginas)

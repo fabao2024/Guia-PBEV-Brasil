@@ -174,6 +174,20 @@ export const PRICE_HISTORY: Record<string, PriceSnapshot[]> = {
   "EX5 EM-i Pro": [{ date: '2026-09', price: 199990 }],
   "EX5 EM-i Max": [{ date: '2026-09', price: 219990 }],
   "EX5 EM-i Ultra": [{ date: '2026-09', price: 244990 }],
+  "GS4 Premium": [{ date: '2026-09', price: 191990 }],
+  "GS4 Elite": [{ date: '2026-09', price: 209990 }],
+  "Accord Advanced Hybrid": [{ date: '2026-09', price: 333000 }],
+  "Yaris Cross XRE Hybrid": [{ date: '2026-09', price: 172390 }],
+  "Yaris Cross XRX Hybrid": [{ date: '2026-09', price: 189990 }],
+  "Niro EX": [{ date: '2026-09', price: 194990 }],
+  "Niro SX Prestige": [{ date: '2026-09', price: 219990 }],
+  "Carnival EX": [{ date: '2026-09', price: 684990 }],
+  "530e M Sport": [{ date: '2026-09', price: 643950 }],
+  "X5 xDrive50e": [{ date: '2026-09', price: 864950 }],
+  "Velar P400e": [{ date: '2026-09', price: 773069 }],
+  "Range Rover P550e": [{ date: '2026-09', price: 1773950 }],
+  "F3E": [{ date: '2026-09', price: 240000 }],
+  "Cooper SE": [{ date: '2026-09', price: 295000 }],
 };
 
 /** Returns the most recent snapshot for a given model, or null if no history. */

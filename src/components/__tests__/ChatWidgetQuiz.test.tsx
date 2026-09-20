@@ -15,9 +15,9 @@ describe('computeQuizResults (offline quiz)', () => {
       ['Até 60km', 'Até R$250k', 'Só eletroposto público', 'SUV', 'Menor preço'],
       'pt-BR',
     );
-    // Sem recarga em casa, HEVs lideram (Cross/Kona/Haval) à frente dos PHEV
+    // Sem recarga em casa, HEVs lideram (Yaris/Cross/Kona/Haval) à frente dos PHEV
     expect(out).toContain('[HEV]');
-    expect(out).toMatch(/Corolla Cross Hybrid|Kona Hybrid|Haval H6 HEV/);
+    expect(out).toMatch(/Yaris Cross.*Hybrid|Corolla Cross Hybrid|Kona Hybrid|Haval H6 HEV/);
   });
 
   it('surfaces an HEV with km/L reasoning for public-only charging', () => {
