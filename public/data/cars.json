@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-20T22:23:01.505Z",
-  "total": 178,
+  "generated_at": "2026-09-26T15:34:50.746Z",
+  "total": 179,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "evidence": {
     "official_source": "PBEV/Inmetro",
@@ -7903,6 +7903,52 @@
       "discontinued": false,
       "slug": "caoa-changan-avatr-11",
       "detail_url": "https://guiapbev.cloud/carro/caoa-changan-avatr-11"
+    },
+    {
+      "model": "CS55 PHEV",
+      "brand": "CAOA Changan",
+      "price": 189990,
+      "range_km": 76,
+      "powertrain": "PHEV",
+      "electric_range_km": 76,
+      "combined_range_km": 1200,
+      "fuel_consumption_kml": 33.5,
+      "fuel_consumption_kml_ethanol": 25.8,
+      "fuel_type_2": "flex",
+      "category": "SUV",
+      "image_url": "https://guiapbev.cloud/car-images/caoa-changan-cs55-phev.webp",
+      "traction": "FWD",
+      "power_cv": 286,
+      "torque_kgfm": 47,
+      "battery_kwh": 18.4,
+      "charge_ac_kw": 6.6,
+      "charge_dc_kw": 43,
+      "warranty_years": 7,
+      "warranty_battery_years": 8,
+      "pbe_rating": null,
+      "energy_mj_km": null,
+      "length_mm": 4550,
+      "width_mm": 1868,
+      "height_mm": 1675,
+      "wheelbase_mm": 2656,
+      "ground_clearance_mm": null,
+      "weight_kg": 1676,
+      "trunk_liters": 525,
+      "features": [
+        "Híbrido plug-in flex Blue Core Ultra Hybrid (iDE-H) — 286 cv / 47 kgfm, 0–100 km/h em 7,2 s",
+        "Bateria LFP 18,4 kWh; autonomia elétrica PBEV de 76 km; combinada de até 1.200 km",
+        "Recarga AC 6,6 kW (0–100% em 3h–3h20) / DC 43 kW",
+        "33,5 km/l cidade e até 42,2 km/l estrada (equivalentes divulgados pela marca)",
+        "Etanol em sustentação ESTIMADO (÷1,30) — substituir pela tabela PBEV",
+        "Preço promocional de lançamento R$ 189.990 (preta sólida); demais cores +R$ 2.000",
+        "Versão importada, em reservas — chega às lojas em outubro/2026",
+        "Porta-malas de 525 L (1.415 L com bancos rebatidos); tanque de 51 L",
+        "CAOA Changan Vision System (ADAS 2+) e câmera 540°"
+      ],
+      "is_new": false,
+      "discontinued": false,
+      "slug": "caoa-changan-cs55-phev",
+      "detail_url": "https://guiapbev.cloud/carro/caoa-changan-cs55-phev"
     }
   ]
 }

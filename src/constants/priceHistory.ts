@@ -116,6 +116,7 @@ export const PRICE_HISTORY: Record<string, PriceSnapshot[]> = {
   "iEV330P": [{ date: '2026-07', price: 389900 }],
   "RZ 500e": [{ date: '2026-07', price: 499990 }],
   "Avatr 11": [{ date: '2026-07', price: 599990 }],
+  "CS55 PHEV": [{ date: '2026-09', price: 189990 }],
   "MG4 Urban Comfort": [{ date: '2026-07', price: 129990 }],
   "MG4 Urban Luxury": [{ date: '2026-07', price: 139990 }],
   "MG4 Urban Luxury 54kWh": [{ date: '2026-07', price: 149990 }],

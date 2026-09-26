@@ -3474,4 +3474,30 @@ export const CAR_DB: Car[] = [
     pbeRating: 'A', energyMJkm: 0.6,
     warrantyYears: 3, warrantyBatteryYears: 8,
   },
+
+  // CAOA CHANGAN — CS55 PHEV (híbrido plug-in flex, lançamento 15/09/2026)
+  {
+    model: "CS55 PHEV", brand: "CAOA Changan", price: 189990, range: 76, cat: "SUV",
+    powertrain: 'PHEV', electricRangeKm: 76, combinedRangeKm: 1200, fuelType2: 'flex', // C declarada 1.200 km (CAOA Changan)
+    url: "https://caoachangan.com.br/novos/cs55-phev",
+    img: "/car-images/caoa-changan-cs55-phev.webp",
+    power: 286, torque: 47, traction: 'FWD', battery: 18.4,
+    chargeAC: 6.6, chargeDC: 43,
+    features: [
+      "Híbrido plug-in flex Blue Core Ultra Hybrid (iDE-H) — 286 cv / 47 kgfm, 0–100 km/h em 7,2 s",
+      "Bateria LFP 18,4 kWh; autonomia elétrica PBEV de 76 km; combinada de até 1.200 km",
+      "Recarga AC 6,6 kW (0–100% em 3h–3h20) / DC 43 kW",
+      "33,5 km/l cidade e até 42,2 km/l estrada (equivalentes divulgados pela marca)",
+      "Etanol em sustentação ESTIMADO (÷1,30) — substituir pela tabela PBEV",
+      "Preço promocional de lançamento R$ 189.990 (preta sólida); demais cores +R$ 2.000",
+      "Versão importada, em reservas — chega às lojas em outubro/2026",
+      "Porta-malas de 525 L (1.415 L com bancos rebatidos); tanque de 51 L",
+      "CAOA Changan Vision System (ADAS 2+) e câmera 540°"
+    ],
+    warrantyYears: 7, warrantyBatteryYears: 8,
+    lengthMm: 4550, widthMm: 1868, heightMm: 1675, wheelbaseMm: 2656,
+    weightKg: 1676, trunkLiters: 525,
+    fuelConsumptionKml: 33.5,
+    fuelConsumptionKmlEthanol: 25.8, // ESTIMADO ÷1,30 — aguardando PBEV
+  },
 ];

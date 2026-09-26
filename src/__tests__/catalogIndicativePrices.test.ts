@@ -1048,6 +1048,31 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(t24.traction).toBe('AWD');
   });
 
+  it('CAOA Changan CS55 PHEV should match launch pricing and maker-briefed specs (set/2026)', () => {
+    // caoachangan.com.br/novos/cs55-phev (checked 2026-09-26): Ultra-Hybrid PHEV
+    // Flex from R$ 189.990 (launch promo, solid black; +R$ 2.000 other colors),
+    // 286 cv, 525 L trunk (1.415 L folded), reserves-only, stores from Oct/2026.
+    // Motor1 17/09/2026 maker briefing: LFP 18.4 kWh, 76 km PBEV electric range,
+    // 47 kgfm combined, AC 6.6 kW / DC 43 kW, 1,200 km combined.
+    // Revista Carro 16/09/2026: 1,676 kg curb weight.
+    // Ethanol sustain is ESTIMATED (gasolina ÷1.30) pending the PBEV table.
+    const cs55 = byModel('CS55 PHEV');
+    expect(cs55.powertrain).toBe('PHEV');
+    expect(cs55.price).toBe(189990);
+    expect(cs55.range).toBe(76);
+    expect(cs55.electricRangeKm).toBe(76);
+    expect(cs55.combinedRangeKm).toBe(1200);
+    expect(cs55.power).toBe(286);
+    expect(cs55.torque).toBe(47);
+    expect(cs55.battery).toBe(18.4);
+    expect(cs55.chargeAC).toBe(6.6);
+    expect(cs55.chargeDC).toBe(43);
+    expect(cs55.lengthMm).toBe(4550);
+    expect(cs55.trunkLiters).toBe(525);
+    expect(cs55.weightKg).toBe(1676);
+    expect(cs55.fuelConsumptionKmlEthanol).toBeCloseTo(25.8, 5);
+  });
+
   it('traction should match the official drivetrain of the sold versions', () => {
     // hyundai.com.br official catalog (checked 2026-08-25): Ioniq 5 Signature
     // AWD HTRAC, dual motor, 325 cv combined.

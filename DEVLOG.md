@@ -2,6 +2,14 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 26/09/2026 · CS55 PHEV: resgate do preço e cadastro (179 veículos)
+
+| Área | Mudança pública |
+|---|---|
+| Catálogo | CS55 PHEV Ultra-Hybrid Flex (R$ 189.990 promocional, 76 km PBEV, 286 cv / 47 kgfm, LFP 18,4 kWh, AC 6,6 / DC 43 kW, combinada 1.200 km, 4550 mm, 525 L, 1.676 kg). Resolve o adiado "CS55 (sustain PBEV)" de 19/09. |
+| Divergências | Elétrica/bateria/recarga via briefing da montadora ao Motor1 (17/09); peso via Revista Carro; 33,5 km/l cidade (equivalente) no sustain gasolina e etanol ESTIMADO ÷1,30 — ambos pendentes da tabela PBEV; 42,2 só em texto (estrada/equivalente); cidade/estrada divergem entre Motor1 15/09, 17/09 e Revista Carro. Foto de estúdio oficial (preta sólida, placa PHEV correta). |
+| Verificação | Pin em catalogIndicativePrices, priceHistory 2026-09, proveniência `caoa-changan-cs55-phev` (4/10: preço, potência, disponibilidade, porta-malas), pipeline `--check`, tsc limpo, build Vite (179 páginas) e scanner de segredos aprovados. Suíte 405/406 — 1 falha pré-existente em `AppPartnersCta` (só local; no CI passa). |
+
 ## 19/09/2026 · Lote D: GS4, Accord, Yaris, Niro, Carnival, 530e, X5, Velar, RR, F3E, Cooper SE (176 veículos)
 
 | Área | Mudança pública |

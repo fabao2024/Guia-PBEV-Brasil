@@ -3001,6 +3001,82 @@
         }
       }
     },
+    "caoa-changan-cs55-phev": {
+      "brand": "CAOA Changan",
+      "model": "CS55 PHEV",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://caoachangan.com.br/novos/cs55-phev",
+          "sourceUpdatedAt": "2026-09-16",
+          "verifiedAt": "2026-09-26"
+        },
+        "range_km": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "consumption": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://caoachangan.com.br/novos/cs55-phev",
+          "sourceUpdatedAt": "2026-09-16",
+          "verifiedAt": "2026-09-26"
+        },
+        "battery": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://caoachangan.com.br/novos/cs55-phev",
+          "sourceUpdatedAt": "2026-09-16",
+          "verifiedAt": "2026-09-26"
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://caoachangan.com.br/novos/cs55-phev",
+          "sourceUpdatedAt": "2026-09-16",
+          "verifiedAt": "2026-09-26"
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
     "caoa-chery-icar-eq": {
       "brand": "CAOA Chery",
       "model": "iCar EQ",
