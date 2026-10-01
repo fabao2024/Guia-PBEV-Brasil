@@ -2,6 +2,15 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 01/10/2026 · Manutenção mensal de outubro: ANEEL out/2026 e PBEV 25_AGO
+
+| Área | Mudança pública |
+|---|---|
+| ANEEL | PR #31 mesclado (10 UFs: AC, CE, ES, MA, PB, RO, SC, SE, SP e TO) — valores reproduzidos localmente via `update-aneel-tariffs.mjs` antes do merge; referência passa a `out de 2026`. |
+| PBEV | Tabela `2026_25_AGO.pdf` comparada integralmente com o catálogo (linhas FF de arbitragem BYD + 19 pinos VE + e-Vitara 4WD): nenhum número do catálogo precisou mudar. Referência promovida em `catalogEvidence.ts`, proveniência (`verifiedAt` 2026-10-01) e testes vivos. Linha nova `SONG PLUS PREM DM (MY27)` (12,0/0,72/83) sem entrada no catálogo — só watch, sem inferência. Sem homologações novas de Jaecoo 5, Box, Arcfox ou Denza na tabela. |
+| Watchlist | Denza Z9S e células CATL descartados (sem contexto comercial BR confirmado, fail-closed). |
+| Verificação | `tsc` limpo, build Vite (183 páginas), scanner de segredos e proveniência aprovados. |
+
 ## 01/10/2026 · Fotos oficiais Jaecoo 5, DFM Box E2 e BAIC Arcfox T1 (183 veículos)
 
 | Área | Mudança pública |

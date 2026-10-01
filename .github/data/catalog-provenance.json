@@ -16,9 +16,9 @@
     "pbev": {
       "sourceType": "official_regulator",
       "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular",
-      "reference": "Tabela PBEV 2026_14_AGOd.pdf",
-      "sourceUpdatedAt": "2026-08-14",
-      "verifiedAt": "2026-08-24",
+      "reference": "Tabela PBEV 2026_25_AGO.pdf",
+      "sourceUpdatedAt": "2026-08-31",
+      "verifiedAt": "2026-10-01",
       "reviewStatus": "manual_diff_applied"
     },
     "anp": {

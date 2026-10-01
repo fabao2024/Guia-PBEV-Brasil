@@ -218,7 +218,7 @@ describe('maintenance automation core', () => {
       'official_press_release',
     ]);
     expect(registry.datasets.pbev).toMatchObject({
-      reference: 'Tabela PBEV 2026_14_AGOd.pdf',
+      reference: 'Tabela PBEV 2026_25_AGO.pdf',
       reviewStatus: 'manual_diff_applied',
     });
     expect(Object.keys(registry.vehicles).sort()).toEqual(cars.map((car: { slug: string }) => car.slug).sort());
