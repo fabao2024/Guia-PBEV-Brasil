@@ -160,6 +160,44 @@
       ]
     },
     {
+      "src": "/car-images/baic-arcfox-t1.png",
+      "width": 1537,
+      "height": 1023,
+      "alpha": true,
+      "bytes": 819558,
+      "sha256": "b778c428066d2c46c9bff9bc5e5c475a200357b06e8dd22fd6c272ba7d0c0468",
+      "variants": [
+        {
+          "src": "/car-images/optimized/baic-arcfox-t1.png-320.webp",
+          "width": 320,
+          "height": 213,
+          "bytes": 8252,
+          "sha256": "925fa9520c427f2dc1434b33889df0ec7258018aac0c809758099f75dd72ef15"
+        },
+        {
+          "src": "/car-images/optimized/baic-arcfox-t1.png-640.webp",
+          "width": 640,
+          "height": 426,
+          "bytes": 20440,
+          "sha256": "1ea1cdcf0b548fd85fca2de5da62e6aa15af7b78f70d219b5575d9ad39051acd"
+        },
+        {
+          "src": "/car-images/optimized/baic-arcfox-t1.png-960.webp",
+          "width": 960,
+          "height": 639,
+          "bytes": 35610,
+          "sha256": "09414f7bea7f51122325c7648b14b6d670df6729e12687ec96ca56a5b917dac5"
+        },
+        {
+          "src": "/car-images/optimized/baic-arcfox-t1.png-1280.webp",
+          "width": 1280,
+          "height": 852,
+          "bytes": 51952,
+          "sha256": "94298fb88776218d74d5fce710550407f3472137932a72be54af27d187f92c45"
+        }
+      ]
+    },
+    {
       "src": "/car-images/blazer-ev.jpg",
       "width": 960,
       "height": 576,
@@ -1627,6 +1665,82 @@
           "height": 750,
           "bytes": 186034,
           "sha256": "9d70d0020d32430998f6170f926ebe22d64fc74d669e08f2cbf281ffa44c7b58"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/jaecoo-5-comfort.jpg",
+      "width": 1752,
+      "height": 985,
+      "alpha": false,
+      "bytes": 247897,
+      "sha256": "f599fce30e07f632d02190bc54337c4337d7b74711f0cf04ec09abe947c8a938",
+      "variants": [
+        {
+          "src": "/car-images/optimized/jaecoo-5-comfort.jpg-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 4796,
+          "sha256": "9b155d0c284156908a90455f111cb0111e94f618a6fe0b8013e1ba1e1dae9066"
+        },
+        {
+          "src": "/car-images/optimized/jaecoo-5-comfort.jpg-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 12818,
+          "sha256": "d7800d9dbfa02e0e038165ada3f3d41a05eec32682c2f24cfb5550b6a8a1d905"
+        },
+        {
+          "src": "/car-images/optimized/jaecoo-5-comfort.jpg-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 23172,
+          "sha256": "ca591a11e67206511e23e76a44bfead4de5cc10ce2467c93c11f4f784fe4099c"
+        },
+        {
+          "src": "/car-images/optimized/jaecoo-5-comfort.jpg-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 34190,
+          "sha256": "a90c63a953587e07dd167a1b0af552eff3ff91fa97620aa7ff320438aa07864c"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/jaecoo-5-prestige.jpg",
+      "width": 1752,
+      "height": 985,
+      "alpha": false,
+      "bytes": 247897,
+      "sha256": "f599fce30e07f632d02190bc54337c4337d7b74711f0cf04ec09abe947c8a938",
+      "variants": [
+        {
+          "src": "/car-images/optimized/jaecoo-5-prestige.jpg-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 4796,
+          "sha256": "9b155d0c284156908a90455f111cb0111e94f618a6fe0b8013e1ba1e1dae9066"
+        },
+        {
+          "src": "/car-images/optimized/jaecoo-5-prestige.jpg-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 12818,
+          "sha256": "d7800d9dbfa02e0e038165ada3f3d41a05eec32682c2f24cfb5550b6a8a1d905"
+        },
+        {
+          "src": "/car-images/optimized/jaecoo-5-prestige.jpg-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 23172,
+          "sha256": "ca591a11e67206511e23e76a44bfead4de5cc10ce2467c93c11f4f784fe4099c"
+        },
+        {
+          "src": "/car-images/optimized/jaecoo-5-prestige.jpg-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 34190,
+          "sha256": "a90c63a953587e07dd167a1b0af552eff3ff91fa97620aa7ff320438aa07864c"
         }
       ]
     },

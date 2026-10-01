@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T14:26:00.744Z",
+  "generated_at": "2026-10-01T18:59:20.643Z",
   "total": 183,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "evidence": {
@@ -7963,7 +7963,7 @@
       "fuel_consumption_kml_ethanol": null,
       "fuel_type_2": "gasolina",
       "category": "SUV",
-      "image_url": "https://guiapbev.cloud/car-images/jaecoo-5-comfort.png",
+      "image_url": "https://guiapbev.cloud/car-images/jaecoo-5-comfort.jpg",
       "traction": "FWD",
       "power_cv": 224,
       "torque_kgfm": 29.5,
@@ -7989,7 +7989,7 @@
         "6 airbags e pacote de assistentes de condução (ADAS)",
         "Ar-condicionado digital automático e faróis Full LED"
       ],
-      "is_new": false,
+      "is_new": true,
       "discontinued": false,
       "slug": "jaecoo-jaecoo-5-comfort",
       "detail_url": "https://guiapbev.cloud/carro/jaecoo-jaecoo-5-comfort"
@@ -8006,7 +8006,7 @@
       "fuel_consumption_kml_ethanol": null,
       "fuel_type_2": "gasolina",
       "category": "SUV",
-      "image_url": "https://guiapbev.cloud/car-images/jaecoo-5-prestige.png",
+      "image_url": "https://guiapbev.cloud/car-images/jaecoo-5-prestige.jpg",
       "traction": "FWD",
       "power_cv": 224,
       "torque_kgfm": 29.5,
@@ -8032,7 +8032,7 @@
         "Câmera 360° de alta definição com visão 3D",
         "Pacote de segurança ADAS nível 2+ (ACC Stop&Go, AEB, leitor de placas)"
       ],
-      "is_new": false,
+      "is_new": true,
       "discontinued": false,
       "slug": "jaecoo-jaecoo-5-prestige",
       "detail_url": "https://guiapbev.cloud/carro/jaecoo-jaecoo-5-prestige"
@@ -8049,7 +8049,7 @@
       "fuel_consumption_kml_ethanol": null,
       "fuel_type_2": null,
       "category": "Urbano",
-      "image_url": "https://guiapbev.cloud/car-images/dfm-box-e2.png",
+      "image_url": "https://guiapbev.cloud/car-images/dfm-box-e2.jpg",
       "traction": "FWD",
       "power_cv": 95,
       "torque_kgfm": 16.3,
@@ -8075,7 +8075,7 @@
         "Design moderno com maçanetas retráteis e iluminação Full LED",
         "Carregamento reverso V2L (Vehicle-to-Load) para alimentar aparelhos externos"
       ],
-      "is_new": false,
+      "is_new": true,
       "discontinued": false,
       "slug": "dfm-box-e2",
       "detail_url": "https://guiapbev.cloud/carro/dfm-box-e2"
@@ -8118,7 +8118,7 @@
         "Direção elétrica progressiva com 3 modos de condução",
         "6 airbags, freio de estacionamento eletrônico com Auto Hold"
       ],
-      "is_new": false,
+      "is_new": true,
       "discontinued": false,
       "slug": "baic-arcfox-t1",
       "detail_url": "https://guiapbev.cloud/carro/baic-arcfox-t1"

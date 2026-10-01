@@ -101,6 +101,32 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
+  "/car-images/baic-arcfox-t1.png": {
+    "width": 1537,
+    "height": 1023,
+    "variants": [
+      {
+        "src": "/car-images/optimized/baic-arcfox-t1.png-320.webp",
+        "width": 320,
+        "height": 213
+      },
+      {
+        "src": "/car-images/optimized/baic-arcfox-t1.png-640.webp",
+        "width": 640,
+        "height": 426
+      },
+      {
+        "src": "/car-images/optimized/baic-arcfox-t1.png-960.webp",
+        "width": 960,
+        "height": 639
+      },
+      {
+        "src": "/car-images/optimized/baic-arcfox-t1.png-1280.webp",
+        "width": 1280,
+        "height": 852
+      }
+    ]
+  },
   "/car-images/blazer-ev.jpg": {
     "width": 960,
     "height": 576,
@@ -1103,6 +1129,58 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
         "src": "/car-images/optimized/jac-iev330p.jpg-1000.webp",
         "width": 1000,
         "height": 750
+      }
+    ]
+  },
+  "/car-images/jaecoo-5-comfort.jpg": {
+    "width": 1752,
+    "height": 985,
+    "variants": [
+      {
+        "src": "/car-images/optimized/jaecoo-5-comfort.jpg-320.webp",
+        "width": 320,
+        "height": 180
+      },
+      {
+        "src": "/car-images/optimized/jaecoo-5-comfort.jpg-640.webp",
+        "width": 640,
+        "height": 360
+      },
+      {
+        "src": "/car-images/optimized/jaecoo-5-comfort.jpg-960.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "/car-images/optimized/jaecoo-5-comfort.jpg-1280.webp",
+        "width": 1280,
+        "height": 720
+      }
+    ]
+  },
+  "/car-images/jaecoo-5-prestige.jpg": {
+    "width": 1752,
+    "height": 985,
+    "variants": [
+      {
+        "src": "/car-images/optimized/jaecoo-5-prestige.jpg-320.webp",
+        "width": 320,
+        "height": 180
+      },
+      {
+        "src": "/car-images/optimized/jaecoo-5-prestige.jpg-640.webp",
+        "width": 640,
+        "height": 360
+      },
+      {
+        "src": "/car-images/optimized/jaecoo-5-prestige.jpg-960.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "/car-images/optimized/jaecoo-5-prestige.jpg-1280.webp",
+        "width": 1280,
+        "height": 720
       }
     ]
   },

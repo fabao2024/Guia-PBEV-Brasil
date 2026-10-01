@@ -179,7 +179,7 @@ npm run preview       # Preview production build
 
 ### Current Metrics
 
-- **179 vehicles** (BEV + hybrids) registered (38 marcas)
+- **183 vehicles** (BEV + hybrids) registered (40 brands)
 - **93 models** with official PBE/INMETRO certification
 - **27 states** with 2026 IPVA data and ANP/ANEEL tariffs
 - **406 automated tests** across 50 files

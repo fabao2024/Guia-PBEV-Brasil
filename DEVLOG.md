@@ -2,6 +2,15 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 01/10/2026 · Fotos oficiais Jaecoo 5, DFM Box E2 e BAIC Arcfox T1 (183 veículos)
+
+| Área | Mudança pública |
+|---|---|
+| Fotos | 4 referências quebradas do lote `f250fd4`/`45672e6` preenchidas com foto oficial: Jaecoo 5 Comfort/Prestige (1 foto por modelo, CMS oficial `cms.omodajaecoo.com.br`, 1752px, frente 3/4 estúdio), DFM Box E2 (distribuidor oficial Dongfeng Egito, 1920px, frente 3/4 estúdio) e Arcfox T1 (cutout oficial do distribuidor Arcfox NZ, 1537px, perfil lateral com fundo transparente — mesmo estilo dos cutouts Jaecoo 7). Arcfox: foto inicial de estúdio preto da brochura oficial AR (5501px) descartada por renderizar pequena no card (`object-contain` + moldura 1,48 vs 16:9 das irmãs); varredura completa da brochura (18 páginas) sem outra frente 3/4 apertada — candidatas lifestyle/interior/detalhe rejeitadas pelo padrão. Extensão ajustada ao formato original em `CAR_DB` e `cars.json`. |
+| Marcas | `BRAND_URLS` ganha DFM (`dongfeng-global.com`) e BAIC (`baicglobal.com`) — 40 marcas; métricas EN do README sincronizadas (183/40). |
+| Novidade | Jaecoo 5 Comfort/Prestige, Box E2 e Arcfox T1 entram no `NEW_MODELS` (lançamentos ≤3 meses: Festival Interlagos 08/2026, pré-venda 09/2026) — selo "Novo", filtro Novidades e `is_new` no `cars.json` (12 no total). |
+| Verificação | Pipeline `generate-car-images.py` + `--check` (75 fontes, 290 variantes; Box abaixo do limiar sem variantes), `tsc` limpo, build Vite (183 páginas), scanner de segredos e proveniência (919/1830) aprovados. Suíte 405/406 — 1 falha pré-existente em `AppPartnersCta` (só local; no CI passa). |
+
 ## 26/09/2026 · Auditoria BYD: consumos Song Plus/Pro, King e Shark vs PBEV 14/08
 
 | Área | Mudança pública |

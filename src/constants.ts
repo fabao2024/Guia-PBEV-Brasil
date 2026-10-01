@@ -11,6 +11,10 @@ const NEW_MODELS = new Set([
   'MG4 Urban Luxury 54kWh',
   'Ora 5',
   'Sealion 7',
+  'Jaecoo 5 Comfort',
+  'Jaecoo 5 Prestige',
+  'Box E2',
+  'Arcfox T1',
 ]);
 
 export const isCarNew = (car: Car): boolean => NEW_MODELS.has(car.model);
@@ -56,7 +60,9 @@ export const BRAND_URLS: Record<string, string> = {
   "Honda": "https://www.honda.com.br",
   "Mitsubishi": "https://www.mitsubishimotors.com.br",
   "Land Rover": "https://www.landrover.com.br",
-  "Jetour": "https://jetourbr.com"
+  "Jetour": "https://jetourbr.com",
+  "DFM": "https://www.dongfeng-global.com",
+  "BAIC": "https://www.baicglobal.com"
 };
 
 // Image Strategy:
@@ -3506,7 +3512,7 @@ export const CAR_DB: Car[] = [
   {
     model: "Jaecoo 5 Comfort", brand: "Jaecoo", price: 154990, range: 0, cat: "SUV",
     powertrain: 'HEV', combinedRangeKm: 1000, fuelConsumptionKml: 18.5, fuelType2: 'gasolina',
-    img: "/car-images/jaecoo-5-comfort.png",
+    img: "/car-images/jaecoo-5-comfort.jpg",
     power: 224, torque: 29.5, traction: 'FWD', battery: 1.83,
     features: [
       "Sistema híbrido pleno (SHS-H) — motor 1.5 a combustão + motor elétrico (224 cv combinados)",
@@ -3523,7 +3529,7 @@ export const CAR_DB: Car[] = [
   {
     model: "Jaecoo 5 Prestige", brand: "Jaecoo", price: 179990, range: 0, cat: "SUV",
     powertrain: 'HEV', combinedRangeKm: 1000, fuelConsumptionKml: 18.5, fuelType2: 'gasolina',
-    img: "/car-images/jaecoo-5-prestige.png",
+    img: "/car-images/jaecoo-5-prestige.jpg",
     power: 224, torque: 29.5, traction: 'FWD', battery: 1.83,
     features: [
       "Sistema híbrido pleno (SHS-H) de 224 cv de potência combinada",
@@ -3542,7 +3548,7 @@ export const CAR_DB: Car[] = [
   {
     model: "Box E2", brand: "DFM", price: 115900, range: 230, cat: "Urbano",
     powertrain: 'BEV',
-    img: "/car-images/dfm-box-e2.png",
+    img: "/car-images/dfm-box-e2.jpg",
     power: 95, torque: 16.3, traction: 'FWD', battery: 31.4,
     chargeAC: 6.6, chargeDC: 45,
     features: [
