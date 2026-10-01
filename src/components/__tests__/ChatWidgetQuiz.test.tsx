@@ -17,7 +17,7 @@ describe('computeQuizResults (offline quiz)', () => {
     );
     // Sem recarga em casa, HEVs lideram (Yaris/Cross/Kona/Haval) à frente dos PHEV
     expect(out).toContain('[HEV]');
-    expect(out).toMatch(/Yaris Cross.*Hybrid|Corolla Cross Hybrid|Kona Hybrid|Haval H6 HEV/);
+    expect(out).toMatch(/Yaris Cross.*Hybrid|Corolla Cross Hybrid|Kona Hybrid|Haval H6 HEV|Jaecoo 5|Omoda 5/);
   });
 
   it('surfaces an HEV with km/L reasoning for public-only charging', () => {

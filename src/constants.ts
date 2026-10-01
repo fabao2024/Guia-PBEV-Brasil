@@ -3501,4 +3501,80 @@ export const CAR_DB: Car[] = [
     fuelConsumptionKml: 33.5,
     fuelConsumptionKmlEthanol: 25.8, // ESTIMADO ÷1,30 — aguardando PBEV
   },
+
+  // JAECOO — Jaecoo 5 Comfort e Prestige (HEV Híbrido Pleno)
+  {
+    model: "Jaecoo 5 Comfort", brand: "Jaecoo", price: 154990, range: 0, cat: "SUV",
+    powertrain: 'HEV', combinedRangeKm: 1000, fuelConsumptionKml: 18.5, fuelType2: 'gasolina',
+    img: "/car-images/jaecoo-5-comfort.png",
+    power: 224, torque: 29.5, traction: 'FWD', battery: 1.83,
+    features: [
+      "Sistema híbrido pleno (SHS-H) — motor 1.5 a combustão + motor elétrico (224 cv combinados)",
+      "Sem necessidade de recarga na tomada (recarga regenerativa automática em frenagens)",
+      "Consumo médio de 18,5 km/l em ciclo urbano (gasolina)",
+      "Central multimídia de 13,2\" com Apple CarPlay e Android Auto sem fio",
+      "6 airbags e pacote de assistentes de condução (ADAS)",
+      "Ar-condicionado digital automático e faróis Full LED"
+    ],
+    pbeRating: 'A', energyMJkm: 0.52,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: null, chargeDC: null,
+    lengthMm: 4380, widthMm: 1860, heightMm: 1650, wheelbaseMm: 2630, groundClearanceMm: 200, weightKg: 1460, trunkLiters: 480,
+  },
+  {
+    model: "Jaecoo 5 Prestige", brand: "Jaecoo", price: 179990, range: 0, cat: "SUV",
+    powertrain: 'HEV', combinedRangeKm: 1000, fuelConsumptionKml: 18.5, fuelType2: 'gasolina',
+    img: "/car-images/jaecoo-5-prestige.png",
+    power: 224, torque: 29.5, traction: 'FWD', battery: 1.83,
+    features: [
+      "Sistema híbrido pleno (SHS-H) de 224 cv de potência combinada",
+      "Teto solar panorâmico elétrico",
+      "Painel de instrumentos digital de 10,25\" + multimídia de 13,2\"",
+      "Bancos em couro ecológico com ajustes elétricos e ventilação",
+      "Câmera 360° de alta definição com visão 3D",
+      "Pacote de segurança ADAS nível 2+ (ACC Stop&Go, AEB, leitor de placas)"
+    ],
+    pbeRating: 'A', energyMJkm: 0.52,
+    warrantyYears: 5, warrantyBatteryYears: 8, chargeAC: null, chargeDC: null,
+    lengthMm: 4380, widthMm: 1860, heightMm: 1650, wheelbaseMm: 2630, groundClearanceMm: 200, weightKg: 1480, trunkLiters: 480,
+  },
+
+  // DFM — Box E2 (BEV 100% elétrico)
+  {
+    model: "Box E2", brand: "DFM", price: 115900, range: 230, cat: "Urbano",
+    powertrain: 'BEV',
+    img: "/car-images/dfm-box-e2.png",
+    power: 95, torque: 16.3, traction: 'FWD', battery: 31.4,
+    chargeAC: 6.6, chargeDC: 45,
+    features: [
+      "Plataforma modular Quantum Architecture 3 para elétricos puros",
+      "Bateria Mach E LFP de 31,4 kWh com suporte a recarga rápida DC 45 kW",
+      "Motor elétrico frontal de 95 cv / 16,3 kgfm com aceleração instantânea",
+      "Central multimídia flutuante de 12,8\" com espelhamento sem fio",
+      "Design moderno com maçanetas retráteis e iluminação Full LED",
+      "Carregamento reverso V2L (Vehicle-to-Load) para alimentar aparelhos externos"
+    ],
+    pbeRating: 'A', energyMJkm: 0.42,
+    warrantyYears: 5, warrantyBatteryYears: 8,
+    lengthMm: 4030, widthMm: 1810, heightMm: 1570, wheelbaseMm: 2660, groundClearanceMm: 150, weightKg: 1260, trunkLiters: 326,
+  },
+
+  // BAIC — Arcfox T1 (BEV 100% elétrico)
+  {
+    model: "Arcfox T1", brand: "BAIC", price: 139900, range: 290, cat: "Compacto",
+    powertrain: 'BEV',
+    img: "/car-images/baic-arcfox-t1.png",
+    power: 120, torque: 18.4, traction: 'FWD', battery: 42.3,
+    chargeAC: 7.0, chargeDC: 50,
+    features: [
+      "Bateria LFP de 42,3 kWh com autonomia PBEV de 290 km",
+      "Motor elétrico de 120 cv e 18,4 kgfm de torque instantâneo",
+      "Recarga rápida DC de 50 kW (30% a 80% em 32 minutos)",
+      "Painel digital de 8,8\" + central multimídia HD de 10,25\"",
+      "Direção elétrica progressiva com 3 modos de condução",
+      "6 airbags, freio de estacionamento eletrônico com Auto Hold"
+    ],
+    pbeRating: 'A', energyMJkm: 0.45,
+    warrantyYears: 5, warrantyBatteryYears: 8,
+    lengthMm: 4120, widthMm: 1780, heightMm: 1550, wheelbaseMm: 2580, groundClearanceMm: 155, weightKg: 1380, trunkLiters: 310,
+  },
 ];

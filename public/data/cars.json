@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T12:25:04.910Z",
+  "generated_at": "2026-10-01T14:26:00.744Z",
   "total": 183,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "evidence": {
@@ -7989,7 +7989,7 @@
         "6 airbags e pacote de assistentes de condução (ADAS)",
         "Ar-condicionado digital automático e faróis Full LED"
       ],
-      "is_new": true,
+      "is_new": false,
       "discontinued": false,
       "slug": "jaecoo-jaecoo-5-comfort",
       "detail_url": "https://guiapbev.cloud/carro/jaecoo-jaecoo-5-comfort"
@@ -8032,7 +8032,7 @@
         "Câmera 360° de alta definição com visão 3D",
         "Pacote de segurança ADAS nível 2+ (ACC Stop&Go, AEB, leitor de placas)"
       ],
-      "is_new": true,
+      "is_new": false,
       "discontinued": false,
       "slug": "jaecoo-jaecoo-5-prestige",
       "detail_url": "https://guiapbev.cloud/carro/jaecoo-jaecoo-5-prestige"
@@ -8075,7 +8075,7 @@
         "Design moderno com maçanetas retráteis e iluminação Full LED",
         "Carregamento reverso V2L (Vehicle-to-Load) para alimentar aparelhos externos"
       ],
-      "is_new": true,
+      "is_new": false,
       "discontinued": false,
       "slug": "dfm-box-e2",
       "detail_url": "https://guiapbev.cloud/carro/dfm-box-e2"
@@ -8091,7 +8091,7 @@
       "fuel_consumption_kml": null,
       "fuel_consumption_kml_ethanol": null,
       "fuel_type_2": null,
-      "category": "Hatch",
+      "category": "Compacto",
       "image_url": "https://guiapbev.cloud/car-images/baic-arcfox-t1.png",
       "traction": "FWD",
       "power_cv": 120,
@@ -8118,7 +8118,7 @@
         "Direção elétrica progressiva com 3 modos de condução",
         "6 airbags, freio de estacionamento eletrônico com Auto Hold"
       ],
-      "is_new": true,
+      "is_new": false,
       "discontinued": false,
       "slug": "baic-arcfox-t1",
       "detail_url": "https://guiapbev.cloud/carro/baic-arcfox-t1"
