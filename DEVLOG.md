@@ -2,6 +2,16 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 26/09/2026 · Auditoria BYD: consumos Song Plus/Pro, King e Shark vs PBEV 14/08
+
+| Área | Mudança pública |
+|---|---|
+| Método | Linhas FF da `Tabela PBEV 2026_14_AGOd` extraídas do PDF oficial; PBEV como árbitro (precedente Atto 2). Nenhum número do catálogo precisou mudar. |
+| Confirmados | Pro GL 16,0/12,1 (0,53/57 km), Pro GS 15,9/11,7 (0,55/72 km), Premium 12,2 (0,67/87 km), King GL 17,1 (0,53/35 km), King GS 16,4 (0,49/78 km), Shark 8,7 (0,91/68 km) — todos idênticos ao catálogo. Proveniência `consumption` dos 6 promovida a `official_regulator` + pins de sustain/MJ nos testes. |
+| Rejeitados | "16,0" da imprensa para o Pro GS (Estadão/Autoesporte) e "16,8" da página BYD para o King GL — prevalece o PBEV. |
+| Ressalva Plus | Linha SONG PLUS GS DM da tabela (15,0/0,58/63 km) é da homologação anterior (18,3 kWh: 63 km a 290 Wh/km fecha; na 26,6 atual daria 422 Wh/km, implausível). Mantidos 99 km da ficha V2 e sustain 15,0 flagrado na ficha; sem MJ novo. Etiqueta Inmetro linkada no site BYD é de 2023 (28 km) — descartada. |
+| Verificação | Pins de arbitragem verdes, `tsc` limpo, build Vite (179 páginas), scanner de segredos e proveniência (879/1790) aprovados. Suíte 405/406 — 1 falha pré-existente em `AppPartnersCta` (só local; no CI passa). |
+
 ## 26/09/2026 · CS55 PHEV: resgate do preço e cadastro (179 veículos)
 
 | Área | Mudança pública |

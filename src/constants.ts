@@ -1233,6 +1233,7 @@ export const CAR_DB: Car[] = [
     features: [
       "Híbrido plug-in (DM-i 1.5 turbo) — roda com eletricidade ou gasolina",
       "Bateria Blade 26,6 kWh; autonomia elétrica PBEV de 99 km; combinada NEDC de até 1.150 km",
+      "Sustain 15,0 km/l da homologação PBEV anterior (versão 18,3 kWh) — linha 1.5T pendente na tabela",
       "240 cv / 30,6 kgfm — 0–100 km/h em 8,1 s",
       "Carregamento AC 6,6 kW / DC 18 kW",
       "Central multimídia giratória 15,6\" + head-up display W-HUD",

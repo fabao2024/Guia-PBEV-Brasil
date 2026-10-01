@@ -82,16 +82,28 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(gl.price).toBe(179990);
     expect(gl.range).toBe(57);
     expect(gl.electricRangeKm).toBe(57);
+    // PBEV 14/08/2026 (linha SONG PRO GL DM FLEX): etanol 12,1/10,7/11,4,
+    // gasolina 16,0/13,9/15,0, 0,53 MJ/km, elétrica 57 km.
+    expect(gl.fuelConsumptionKml).toBe(16.0);
+    expect(gl.fuelConsumptionKmlEthanol).toBe(12.1);
+    expect(gl.energyMJkm).toBeCloseTo(0.53, 5);
     const gs = byModel('Song Pro GS');
     expect(gs.powertrain).toBe('PHEV');
     expect(gs.price).toBe(199990);
     expect(gs.range).toBe(72);
     expect(gs.electricRangeKm).toBe(72);
+    // PBEV 14/08/2026 (linha SONG PRO GS DM FLEX): etanol 11,7/10,5/11,1,
+    // gasolina 15,9/13,5/14,7, 0,55 MJ/km, elétrica 72 km. Rejeitado o "16,0"
+    // da imprensa (Estadão/Autoesporte) — prevalece o PBEV.
+    expect(gs.fuelConsumptionKml).toBe(15.9);
+    expect(gs.fuelConsumptionKmlEthanol).toBe(11.7);
+    expect(gs.energyMJkm).toBeCloseTo(0.55, 5);
     // byd.com/br/car/shark (checked 2026-09-15): 437 cv, 0–100 em 5,7 s,
     // tração nas 4 rodas, reboque 2.500 kg.
     // Ficha técnica oficial BYD_Shark_V2 (rev. 09/07/2026): bateria 29,6 kWh,
     // elétrica PBEV 68 km (a página cita 57 km — prevalece a ficha),
     // AC 6,6 / DC 55 kW, 650 N.m, 0,91 MJ/km, 5.460/1.970/1.930 mm, 2.710 kg.
+    // PBEV 14/08/2026 (linha SHARK GS DM) confirma: 8,7 cidade, 0,91 MJ/km, 68 km.
     const shark = byModel('Shark');
     expect(shark.powertrain).toBe('PHEV');
     expect(shark.price).toBe(344990);
@@ -100,6 +112,8 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(shark.battery).toBe(29.6);
     expect(shark.power).toBe(437);
     expect(shark.traction).toBe('AWD');
+    expect(shark.fuelConsumptionKml).toBe(8.7);
+    expect(shark.energyMJkm).toBeCloseTo(0.91, 5);
   });
 
   it('BYD Song Plus, Premium and King GL should match official V2 fichas (jul/2026)', () => {
@@ -112,6 +126,11 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(plus.battery).toBe(26.6);
     expect(plus.power).toBe(240);
     expect(plus.chargeDC).toBe(18);
+    // Sustain 15,0 mantido: a linha SONG PLUS GS DM da PBEV 14/08 (15,0/0,58/63 km)
+    // é da homologação anterior (18,3 kWh — 63 km a 290 Wh/km fecha; 63 km na
+    // bateria 26,6 daria 422 Wh/km, implausível). Vale a ficha V2 (99 km); sem MJ novo.
+    expect(plus.fuelConsumptionKml).toBe(15.0);
+    expect(plus.energyMJkm).toBeUndefined();
     const premium = byModel('Song Plus Premium');
     expect(premium.powertrain).toBe('PHEV');
     expect(premium.price).toBe(299800);
@@ -119,6 +138,8 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(premium.power).toBe(324);
     expect(premium.traction).toBe('AWD');
     expect(premium.energyMJkm).toBe(0.67);
+    // PBEV 14/08/2026 (linha SONG PLUS PREM DM): 12,2 cidade, 0,67 MJ/km, 87 km.
+    expect(premium.fuelConsumptionKml).toBe(12.2);
     const king = byModel('King GL');
     expect(king.powertrain).toBe('PHEV');
     expect(king.price).toBe(147990);
@@ -126,6 +147,9 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(king.battery).toBe(8.3);
     expect(king.power).toBe(209);
     expect(king.energyMJkm).toBe(0.53);
+    // PBEV 14/08/2026 (linha KING GL DM): 17,1 cidade, 0,53 MJ/km, 35 km.
+    // Rejeitado o "16,8" do texto da página oficial — prevalece o PBEV.
+    expect(king.fuelConsumptionKml).toBe(17.1);
   });
 
   it('BYD King GS, Atto 2 GS and Atto 8 should match official fichas and PBEV table', () => {
@@ -141,6 +165,9 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(gs.range).toBe(78);
     expect(gs.battery).toBe(18.3);
     expect(gs.power).toBe(235);
+    // PBEV 14/08/2026 (linha KING GS DM): 16,4 cidade, 0,49 MJ/km, 78 km.
+    expect(gs.fuelConsumptionKml).toBe(16.4);
+    expect(gs.energyMJkm).toBeCloseTo(0.49, 5);
     const atto2 = byModel('Atto 2 GS');
     expect(atto2.powertrain).toBe('PHEV');
     expect(atto2.price).toBe(169990);

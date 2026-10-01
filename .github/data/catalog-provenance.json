@@ -493,6 +493,82 @@
         }
       }
     },
+    "baic-arcfox-t1": {
+      "brand": "BAIC",
+      "model": "Arcfox T1",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://insideevs.uol.com.br/news/baic-arcfox-t1-brasil",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://insideevs.uol.com.br/news/baic-arcfox-t1-brasil",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://insideevs.uol.com.br/news/baic-arcfox-t1-brasil",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://insideevs.uol.com.br/news/baic-arcfox-t1-brasil",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://insideevs.uol.com.br/news/baic-arcfox-t1-brasil",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "charging": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://insideevs.uol.com.br/news/baic-arcfox-t1-brasil",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "availability": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://insideevs.uol.com.br/news/baic-arcfox-t1-brasil",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://insideevs.uol.com.br/news/baic-arcfox-t1-brasil",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://insideevs.uol.com.br/news/baic-arcfox-t1-brasil",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://insideevs.uol.com.br/news/baic-arcfox-t1-brasil",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        }
+      }
+    },
     "bmw-330e-m-sport": {
       "brand": "BMW",
       "model": "330e M Sport",
@@ -1957,10 +2033,10 @@
         },
         "consumption": {
           "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_King_V2.pdf",
-          "sourceUpdatedAt": "2026-07-09",
-          "verifiedAt": "2026-09-15"
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-26"
         },
         "power": {
           "verificationStatus": "verified",
@@ -2033,10 +2109,10 @@
         },
         "consumption": {
           "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_King_V2.pdf",
-          "sourceUpdatedAt": "2026-07-09",
-          "verifiedAt": "2026-09-15"
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-26"
         },
         "power": {
           "verificationStatus": "verified",
@@ -2261,10 +2337,10 @@
         },
         "consumption": {
           "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_Shark_V2.pdf",
-          "sourceUpdatedAt": "2026-07-09",
-          "verifiedAt": "2026-09-15"
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-26"
         },
         "power": {
           "verificationStatus": "verified",
@@ -2413,10 +2489,10 @@
         },
         "consumption": {
           "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/fichas-tecnicas-2026/update-13-07-2026/07-13-2026---ficha-txiunica/BYD_SongPremium_V2.pdf",
-          "sourceUpdatedAt": "2026-07-09",
-          "verifiedAt": "2026-09-15"
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-26"
         },
         "power": {
           "verificationStatus": "verified",
@@ -2489,10 +2565,10 @@
         },
         "consumption": {
           "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/product/songpro-flex/BYD_SongProFlex_Rev3_05_08_2026.pdf",
-          "sourceUpdatedAt": "2026-08-05",
-          "verifiedAt": "2026-09-15"
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-26"
         },
         "power": {
           "verificationStatus": "verified",
@@ -2565,10 +2641,10 @@
         },
         "consumption": {
           "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://www.byd.com/material/__CN/byd-site/br/product/songpro-flex/BYD_SongProFlex_Rev3_05_08_2026.pdf",
-          "sourceUpdatedAt": "2026-08-05",
-          "verifiedAt": "2026-09-15"
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-09-26"
         },
         "power": {
           "verificationStatus": "verified",
@@ -3682,6 +3758,82 @@
           "sourceUrl": "https://www.media.stellantis.com/uploads/br/attachment/3737/fichatecnicaejumpy-63dd90c7286ac.pdf",
           "sourceUpdatedAt": null,
           "verifiedAt": "2026-09-03"
+        }
+      }
+    },
+    "dfm-box-e2": {
+      "brand": "DFM",
+      "model": "Box E2",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://insideevs.uol.com.br/news/dfm-box-e2-brasil",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://insideevs.uol.com.br/news/dfm-box-e2-brasil",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://insideevs.uol.com.br/news/dfm-box-e2-brasil",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://insideevs.uol.com.br/news/dfm-box-e2-brasil",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://insideevs.uol.com.br/news/dfm-box-e2-brasil",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "charging": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://insideevs.uol.com.br/news/dfm-box-e2-brasil",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "availability": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://insideevs.uol.com.br/news/dfm-box-e2-brasil",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://insideevs.uol.com.br/news/dfm-box-e2-brasil",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://insideevs.uol.com.br/news/dfm-box-e2-brasil",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://insideevs.uol.com.br/news/dfm-box-e2-brasil",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
         }
       }
     },
@@ -7254,6 +7406,158 @@
           "sourceUrl": null,
           "sourceUpdatedAt": null,
           "verifiedAt": null
+        }
+      }
+    },
+    "jaecoo-jaecoo-5-comfort": {
+      "brand": "Jaecoo",
+      "model": "Jaecoo 5 Comfort",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/jaecoo-5-precos-versoes-equipamentos-consumo-suv-hibrido.ghtml",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/jaecoo-5-precos-versoes-equipamentos-consumo-suv-hibrido.ghtml",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/jaecoo-5-precos-versoes-equipamentos-consumo-suv-hibrido.ghtml",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/jaecoo-5-precos-versoes-equipamentos-consumo-suv-hibrido.ghtml",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/jaecoo-5-precos-versoes-equipamentos-consumo-suv-hibrido.ghtml",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "charging": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/jaecoo-5-precos-versoes-equipamentos-consumo-suv-hibrido.ghtml",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "availability": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/jaecoo-5-precos-versoes-equipamentos-consumo-suv-hibrido.ghtml",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/jaecoo-5-precos-versoes-equipamentos-consumo-suv-hibrido.ghtml",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/jaecoo-5-precos-versoes-equipamentos-consumo-suv-hibrido.ghtml",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/jaecoo-5-precos-versoes-equipamentos-consumo-suv-hibrido.ghtml",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        }
+      }
+    },
+    "jaecoo-jaecoo-5-prestige": {
+      "brand": "Jaecoo",
+      "model": "Jaecoo 5 Prestige",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/jaecoo-5-precos-versoes-equipamentos-consumo-suv-hibrido.ghtml",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/jaecoo-5-precos-versoes-equipamentos-consumo-suv-hibrido.ghtml",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/jaecoo-5-precos-versoes-equipamentos-consumo-suv-hibrido.ghtml",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/jaecoo-5-precos-versoes-equipamentos-consumo-suv-hibrido.ghtml",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/jaecoo-5-precos-versoes-equipamentos-consumo-suv-hibrido.ghtml",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "charging": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/jaecoo-5-precos-versoes-equipamentos-consumo-suv-hibrido.ghtml",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "availability": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/jaecoo-5-precos-versoes-equipamentos-consumo-suv-hibrido.ghtml",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/jaecoo-5-precos-versoes-equipamentos-consumo-suv-hibrido.ghtml",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/jaecoo-5-precos-versoes-equipamentos-consumo-suv-hibrido.ghtml",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/jaecoo-5-precos-versoes-equipamentos-consumo-suv-hibrido.ghtml",
+          "sourceUpdatedAt": "2026-10-01",
+          "verifiedAt": "2026-10-01"
         }
       }
     },
