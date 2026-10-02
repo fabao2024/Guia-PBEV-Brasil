@@ -7,6 +7,7 @@ import { track } from '../../utils/analytics';
 
 vi.mock('../../utils/leads', () => ({
   submitLead: vi.fn(),
+  validateLeadForm: vi.fn().mockReturnValue(null),
 }));
 
 vi.mock('../../utils/analytics', () => ({
