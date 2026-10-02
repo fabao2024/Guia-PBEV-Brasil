@@ -2,6 +2,13 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 02/10/2026 · Foto oficial Yaris Cross Hybrid (XRE/XRX)
+
+| Área | Mudança pública |
+|---|---|
+| Foto | Referência quebrada `toyota-yaris-single.jpg` preenchida com foto oficial Toyota Comunica (release versão XR, 01/2026): estúdio frente 3/4, carro único, 1 foto para as 2 versões (só diferem em equipamentos). Catálogo oficial Toyota (PDF) descartado (só vista top-down e close-up de grade); foto dupla do release de lançamento descartada. Sem mudança em `CAR_DB`/`cars.json` (path já apontava o filename). |
+| Verificação | Pipeline `generate-car-images.py` + `--check` (76 fontes, 294 variantes), `tsc` limpo, build Vite (183 páginas), scanner de segredos aprovado. |
+
 ## 01/10/2026 · Manutenção mensal de outubro: ANEEL out/2026 e PBEV 25_AGO
 
 | Área | Mudança pública |

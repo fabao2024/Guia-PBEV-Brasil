@@ -1772,6 +1772,32 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
+  "/car-images/toyota-yaris-single.jpg": {
+    "width": 5760,
+    "height": 3240,
+    "variants": [
+      {
+        "src": "/car-images/optimized/toyota-yaris-single.jpg-320.webp",
+        "width": 320,
+        "height": 180
+      },
+      {
+        "src": "/car-images/optimized/toyota-yaris-single.jpg-640.webp",
+        "width": 640,
+        "height": 360
+      },
+      {
+        "src": "/car-images/optimized/toyota-yaris-single.jpg-960.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "/car-images/optimized/toyota-yaris-single.jpg-1280.webp",
+        "width": 1280,
+        "height": 720
+      }
+    ]
+  },
   "/car-images/volvo-ex90.jpg": {
     "width": 1920,
     "height": 1080,

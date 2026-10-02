@@ -2605,6 +2605,44 @@
       ]
     },
     {
+      "src": "/car-images/toyota-yaris-single.jpg",
+      "width": 5760,
+      "height": 3240,
+      "alpha": false,
+      "bytes": 1029445,
+      "sha256": "657b291824c84ebce7b0fded15dcdf4988a372f9aa3d2d8c6b351a5088915b01",
+      "variants": [
+        {
+          "src": "/car-images/optimized/toyota-yaris-single.jpg-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 4142,
+          "sha256": "d79cdf526720733842172993d4d0e9c17dae36b964f88b791922edef08110d58"
+        },
+        {
+          "src": "/car-images/optimized/toyota-yaris-single.jpg-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 10824,
+          "sha256": "4326634bdca942822c6f692c052b00ea2119f4116e0a34fd6723f6ebdffe0669"
+        },
+        {
+          "src": "/car-images/optimized/toyota-yaris-single.jpg-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 19150,
+          "sha256": "3b2e16581f2de6d218422edf62e26844e3c20d6920d9ffca3a9d0c84f53ca07b"
+        },
+        {
+          "src": "/car-images/optimized/toyota-yaris-single.jpg-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 28236,
+          "sha256": "1b5c86b26e3caad9521ba4a6d1dcfbc8ad50499fb88e8a0e24540d44598a7760"
+        }
+      ]
+    },
+    {
       "src": "/car-images/volvo-ex90.jpg",
       "width": 1920,
       "height": 1080,
