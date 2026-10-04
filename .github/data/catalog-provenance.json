@@ -9005,6 +9005,82 @@
         }
       }
     },
+    "leapmotor-b10-reev": {
+      "brand": "Leapmotor",
+      "model": "B10 REEV",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.cnnbrasil.com.br/auto/leapmotor-b10-reev-chega-ao-brasil-por-r-179-990-conheca-o-carro/",
+          "sourceUpdatedAt": "2026-09-29",
+          "verifiedAt": "2026-10-02"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/leapmotor-b10-reev-preco-equipamentos-consumo-e-autonomia.ghtml",
+          "sourceUpdatedAt": "2026-09-28",
+          "verifiedAt": "2026-10-02"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/leapmotor-b10-reev-preco-equipamentos-consumo-e-autonomia.ghtml",
+          "sourceUpdatedAt": "2026-09-28",
+          "verifiedAt": "2026-10-02"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/leapmotor-b10-reev-preco-equipamentos-consumo-e-autonomia.ghtml",
+          "sourceUpdatedAt": "2026-09-28",
+          "verifiedAt": "2026-10-02"
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/leapmotor-b10-reev-preco-equipamentos-consumo-e-autonomia.ghtml",
+          "sourceUpdatedAt": "2026-09-28",
+          "verifiedAt": "2026-10-02"
+        },
+        "charging": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/leapmotor-b10-reev-preco-equipamentos-consumo-e-autonomia.ghtml",
+          "sourceUpdatedAt": "2026-09-28",
+          "verifiedAt": "2026-10-02"
+        },
+        "availability": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.cnnbrasil.com.br/auto/leapmotor-b10-reev-chega-ao-brasil-por-r-179-990-conheca-o-carro/",
+          "sourceUpdatedAt": "2026-09-29",
+          "verifiedAt": "2026-10-02"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/leapmotor-b10-reev-preco-equipamentos-consumo-e-autonomia.ghtml",
+          "sourceUpdatedAt": "2026-09-28",
+          "verifiedAt": "2026-10-02"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://autoesporte.globo.com/carros/lancamentos-de-carros/noticia/2026/09/leapmotor-b10-reev-preco-equipamentos-consumo-e-autonomia.ghtml",
+          "sourceUpdatedAt": "2026-09-28",
+          "verifiedAt": "2026-10-02"
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
     "leapmotor-c10-bev": {
       "brand": "Leapmotor",
       "model": "C10 BEV",

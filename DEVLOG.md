@@ -2,6 +2,13 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 02/10/2026 · Leapmotor B10 REEV Ultra-Híbrido (184 veículos)
+
+| Área | Mudança pública |
+|---|---|
+| Catálogo | B10 REEV (R$ 179.990 lançamento, 218 cv RWD, bateria LFP 18,8 kWh, 900 km WLTP combinados, AC 6,6/DC 46 kW) — 13,5/12,3 km/l e 68 km elétricos PBEV (Quatro Rodas/Autoesporte); sem linha na tabela 25_AGO (só B10 BEV), sem MJ e sem peso — fail-closed. Foto Divulgação (CNN, frente 3/4, 1584px). Selo Novo (lançamento 28/09). |
+| Verificação | Pipeline `--check`, `tsc` limpo, build Vite (184 páginas), scanner de segredos e proveniência (928/1840) aprovados. |
+
 ## 02/10/2026 · Foto oficial Yaris Cross Hybrid (XRE/XRX)
 
 | Área | Mudança pública |

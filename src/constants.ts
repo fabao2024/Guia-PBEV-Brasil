@@ -15,6 +15,7 @@ const NEW_MODELS = new Set([
   'Jaecoo 5 Prestige',
   'Box E2',
   'Arcfox T1',
+  'B10 REEV',
 ]);
 
 export const isCarNew = (car: Car): boolean => NEW_MODELS.has(car.model);
@@ -789,6 +790,24 @@ export const CAR_DB: Car[] = [
     pbeRating: 'A', energyMJkm: 0.55,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 80,
     lengthMm: 4510, widthMm: 1880, heightMm: 1670, trunkLiters: 405,
+  },
+  {
+    model: "B10 REEV", brand: "Leapmotor", price: 179990, range: 68, cat: "SUV",
+    powertrain: 'REEV', electricRangeKm: 68, combinedRangeKm: 900, fuelConsumptionKml: 13.5, fuelType2: 'gasolina',
+    url: "https://www.leapmotor.com.br/b10.html",
+    img: "/car-images/leapmotor-b10-reev.jpg",
+    power: 218, torque: 24.5, traction: 'RWD', battery: 18.8,
+    features: [
+      "Elétrico com extensor de autonomia (1.5 a gasolina só gera energia) — 218 cv",
+      "Bateria LFP 18,8 kWh; autonomia elétrica PBEV de 68 km; combinada WLTP de 900 km",
+      "13,5 km/l cidade e 12,3 km/l estrada (gasolina, PBEV)",
+      "Recarga rápida DC 46 kW (30–80% em 18 min)",
+      "Central 14,6\" + Leap Pilot nível 2; 7 airbags e teto panorâmico Sky View",
+      "Tração traseira; garantia de 6 anos e 8 anos para a bateria"
+    ],
+    chargeAC: 6.6, chargeDC: 46,
+    warrantyYears: 6, warrantyBatteryYears: 8,
+    lengthMm: 4510, widthMm: 1880, heightMm: 1670, wheelbaseMm: 2735, trunkLiters: 350,
   },
   {
     model: "C10 BEV", brand: "Leapmotor", price: 204990, range: 338, cat: "SUV",
