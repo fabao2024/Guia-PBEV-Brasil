@@ -488,7 +488,7 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
       ['Ora 03 GT BEV63', 0.54, 295],
       ['MG4 Comfort', 0.5, 364],
       ['MG4 Luxury', 0.5, 364],
-      ['Zeekr X', 0.55, 332],
+      ['X Premium', 0.55, 332],
       ['EX30 Plus', 0.55, 250],
       ['EX40 (XC40)', 0.55, 364],
       // pacote C - fills
@@ -765,11 +765,11 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(zeekr001.power).toBe(544);
     expect(zeekr001.battery).toBe(100);
     expect(zeekr001.range).toBe(426);
-    const zeekr7x = byModel('7X');
+    const zeekr7x = byModel('7X Flagship');
     expect(zeekr7x.power).toBe(646);
     expect(zeekr7x.battery).toBe(100);
     expect(zeekr7x.range).toBe(423);
-    const zeekrX = byModel('Zeekr X');
+    const zeekrX = byModel('X Premium');
     expect(zeekrX.power).toBe(272);
     expect(zeekrX.battery).toBe(66);
     expect(zeekrX.range).toBe(332);

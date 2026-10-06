@@ -1928,6 +1928,58 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
+  "/car-images/zeekr-001-flagship.jpg": {
+    "width": 2784,
+    "height": 1392,
+    "variants": [
+      {
+        "src": "/car-images/optimized/zeekr-001-flagship.jpg-320.webp",
+        "width": 320,
+        "height": 160
+      },
+      {
+        "src": "/car-images/optimized/zeekr-001-flagship.jpg-640.webp",
+        "width": 640,
+        "height": 320
+      },
+      {
+        "src": "/car-images/optimized/zeekr-001-flagship.jpg-960.webp",
+        "width": 960,
+        "height": 480
+      },
+      {
+        "src": "/car-images/optimized/zeekr-001-flagship.jpg-1280.webp",
+        "width": 1280,
+        "height": 640
+      }
+    ]
+  },
+  "/car-images/zeekr-7x-premium.png": {
+    "width": 2780,
+    "height": 1564,
+    "variants": [
+      {
+        "src": "/car-images/optimized/zeekr-7x-premium.png-320.webp",
+        "width": 320,
+        "height": 180
+      },
+      {
+        "src": "/car-images/optimized/zeekr-7x-premium.png-640.webp",
+        "width": 640,
+        "height": 360
+      },
+      {
+        "src": "/car-images/optimized/zeekr-7x-premium.png-960.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "/car-images/optimized/zeekr-7x-premium.png-1280.webp",
+        "width": 1280,
+        "height": 720
+      }
+    ]
+  },
   "/car-images/zeekr-7x.png": {
     "width": 1703,
     "height": 851,
@@ -1949,6 +2001,32 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       },
       {
         "src": "/car-images/optimized/zeekr-7x.png-1280.webp",
+        "width": 1280,
+        "height": 640
+      }
+    ]
+  },
+  "/car-images/zeekr-x-flagship.jpg": {
+    "width": 2784,
+    "height": 1392,
+    "variants": [
+      {
+        "src": "/car-images/optimized/zeekr-x-flagship.jpg-320.webp",
+        "width": 320,
+        "height": 160
+      },
+      {
+        "src": "/car-images/optimized/zeekr-x-flagship.jpg-640.webp",
+        "width": 640,
+        "height": 320
+      },
+      {
+        "src": "/car-images/optimized/zeekr-x-flagship.jpg-960.webp",
+        "width": 960,
+        "height": 480
+      },
+      {
+        "src": "/car-images/optimized/zeekr-x-flagship.jpg-1280.webp",
         "width": 1280,
         "height": 640
       }

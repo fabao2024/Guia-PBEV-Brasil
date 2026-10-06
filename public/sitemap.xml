@@ -577,13 +577,25 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guiapbev.cloud/carro/zeekr-zeekr-x</loc>
+    <loc>https://guiapbev.cloud/carro/zeekr-x-premium</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guiapbev.cloud/carro/zeekr-7x</loc>
+    <loc>https://guiapbev.cloud/carro/zeekr-x-flagship</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://guiapbev.cloud/carro/zeekr-7x-flagship</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://guiapbev.cloud/carro/zeekr-7x-premium</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -788,6 +800,12 @@
   </url>
   <url>
     <loc>https://guiapbev.cloud/carro/zeekr-001-premium</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://guiapbev.cloud/carro/zeekr-001-flagship</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

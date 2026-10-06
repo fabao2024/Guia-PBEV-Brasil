@@ -2833,6 +2833,82 @@
       ]
     },
     {
+      "src": "/car-images/zeekr-001-flagship.jpg",
+      "width": 2784,
+      "height": 1392,
+      "alpha": false,
+      "bytes": 886405,
+      "sha256": "4ac7d255d0bd085ead230c0ab2f8c9ea2f5657b43207fb684a3c0687611d5d20",
+      "variants": [
+        {
+          "src": "/car-images/optimized/zeekr-001-flagship.jpg-320.webp",
+          "width": 320,
+          "height": 160,
+          "bytes": 3008,
+          "sha256": "39162fb569024cf41073e672aa4384ae566004352adfe677611e7bc0b6bb0976"
+        },
+        {
+          "src": "/car-images/optimized/zeekr-001-flagship.jpg-640.webp",
+          "width": 640,
+          "height": 320,
+          "bytes": 7670,
+          "sha256": "023fb80c61a07469d648ddad5d86c88a512dc307601622d3793f3d52c9bbb7b7"
+        },
+        {
+          "src": "/car-images/optimized/zeekr-001-flagship.jpg-960.webp",
+          "width": 960,
+          "height": 480,
+          "bytes": 13216,
+          "sha256": "8f1ed4654021a3fee782c109e7f3fd5b8aeb5d2adf2a719886bf1b65d3c64510"
+        },
+        {
+          "src": "/car-images/optimized/zeekr-001-flagship.jpg-1280.webp",
+          "width": 1280,
+          "height": 640,
+          "bytes": 19274,
+          "sha256": "b37582a32689d869eba08d048dd996140871d1b5f6cc647528e0e2ed06c7d5bb"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/zeekr-7x-premium.png",
+      "width": 2780,
+      "height": 1564,
+      "alpha": true,
+      "bytes": 1303219,
+      "sha256": "3d993a40a4ef4cae35d8c102541c716011831b22e2102b1a5de67b7c3e2429f2",
+      "variants": [
+        {
+          "src": "/car-images/optimized/zeekr-7x-premium.png-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 8488,
+          "sha256": "b107b69262ba5e4cfd753c74851a2a479a83929d8fbaaf790a475196afe890ae"
+        },
+        {
+          "src": "/car-images/optimized/zeekr-7x-premium.png-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 21016,
+          "sha256": "c86be49acdc49a09ea459a7e7c9e49f3e397fcb6b9ea6bf30d4d2fa4d9e138ba"
+        },
+        {
+          "src": "/car-images/optimized/zeekr-7x-premium.png-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 36694,
+          "sha256": "292d488fbd409972be19ab4b5fe44930e9266a5fb4493a7118f59da591ef4a24"
+        },
+        {
+          "src": "/car-images/optimized/zeekr-7x-premium.png-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 54432,
+          "sha256": "0908536f2cdf83edda5451c7f53fad8dd18024b34d24846710dc3dc272e988e0"
+        }
+      ]
+    },
+    {
       "src": "/car-images/zeekr-7x.png",
       "width": 1703,
       "height": 851,
@@ -2867,6 +2943,44 @@
           "height": 640,
           "bytes": 123574,
           "sha256": "058ad5b27b000cd1069f1f36fc008a2ccc2566229c3fd351ab5c9e7092a56168"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/zeekr-x-flagship.jpg",
+      "width": 2784,
+      "height": 1392,
+      "alpha": false,
+      "bytes": 927678,
+      "sha256": "98d91277281e493c58dc554646c256b47e06db43569689e4e22dbf7e969119d3",
+      "variants": [
+        {
+          "src": "/car-images/optimized/zeekr-x-flagship.jpg-320.webp",
+          "width": 320,
+          "height": 160,
+          "bytes": 2984,
+          "sha256": "741f4d3e8981a1bcd45d723f51398e32af11a0d998a23e815f63f4b11a58e8d4"
+        },
+        {
+          "src": "/car-images/optimized/zeekr-x-flagship.jpg-640.webp",
+          "width": 640,
+          "height": 320,
+          "bytes": 7634,
+          "sha256": "a13bf98e0b0d078bd9cf1be01404c82c2b2958d85c972be11152a494c00aecf6"
+        },
+        {
+          "src": "/car-images/optimized/zeekr-x-flagship.jpg-960.webp",
+          "width": 960,
+          "height": 480,
+          "bytes": 13340,
+          "sha256": "389bf37c6643bf8d01297b0172abdbb7bec6f6900b50ebddcac6badefa4e09b9"
+        },
+        {
+          "src": "/car-images/optimized/zeekr-x-flagship.jpg-1280.webp",
+          "width": 1280,
+          "height": 640,
+          "bytes": 19286,
+          "sha256": "d36ddce4491754eda8feb36d238a520877a2e201cb0935dda0cfe13a3272e1f5"
         }
       ]
     }

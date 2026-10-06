@@ -1883,25 +1883,43 @@ export const CAR_DB: Car[] = [
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 7.4, chargeDC: 130,
   },
   {
-    model: "Zeekr X", brand: "Zeekr", price: 272000, range: 332, cat: "SUV",
+    model: "X Premium", brand: "Zeekr", price: 298000, range: 332, cat: "SUV",
     img: "/car-images/zeekr-x.webp",
-    power: 272, torque: 39, traction: 'AWD', battery: 66,
+    power: 272, torque: 35, traction: 'RWD', battery: 66,
     features: [
-      "Bateria NMC 66 kWh – Plataforma SEA (Sustainable Experience Architecture) Geely",
+      "Bateria NMC 66 kWh - Plataforma SEA (Sustainable Experience Architecture) Geely",
       "Carregamento AC 11 kW / DC 150 kW",
       "Tela central 14,6\" com CarPlay e Android Auto",
       "6 airbags",
       "ADAS Nível 2+: ACC + LCC + AEB + BSM + câmera 360°",
-      "Tração AWD dual motor 272 cv de alto desempenho",
+      "Tração traseira RWD single motor 272 cv de alto desempenho",
       "Bancos aquecidos e ventilados + teto solar panorâmico",
       "Atualização OTA"
     ],
     pbeRating: 'A', energyMJkm: 0.55,
     warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 150,
-    lengthMm: 4432, widthMm: 1836, heightMm: 1572, wheelbaseMm: 2750, groundClearanceMm: 191, weightKg: 1855, trunkLiters: 362,
+    lengthMm: 4432, widthMm: 1836, heightMm: 1572, wheelbaseMm: 2750, groundClearanceMm: 191, 
+weightKg: 1855, trunkLiters: 362,
   },
   {
-    model: "7X", brand: "Zeekr", price: 448000, range: 423, cat: "SUV",
+    model: "X Flagship", brand: "Zeekr", price: 338000, range: 304, cat: "SUV",
+    url: "https://www.zeekrlife.com/pt-br/models/x",
+    img: "/car-images/zeekr-x-flagship.jpg",
+    power: 428, torque: 55, traction: 'AWD', battery: 66,
+    features: [
+      "AWD dual motor 428 cv / 55 kgfm — 0–100 km/h em 3,8 s",
+      "Bateria NMC 66 kWh; autonomia PBEV de 304 km",
+      "Carregamento AC 22 kW / DC 150 kW + V2L",
+      "Rodas 20\" em alumínio forjado + pneus autorreparáveis",
+      "Bancos com massagem + interior Azul Midnight/Branco Polar opcional",
+      "Teto panorâmico 1,21 m² + som Yamaha + atualização OTA"
+    ],
+    warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 22, chargeDC: 150,
+    lengthMm: 4432, widthMm: 1836, heightMm: 1572, wheelbaseMm: 2750, groundClearanceMm: 191,
+weightKg: 1960, trunkLiters: 362,
+  },
+  {
+    model: "7X Flagship", brand: "Zeekr", price: 448000, range: 423, cat: "SUV",
     img: "/car-images/zeekr-7x.png",
     power: 646, torque: 72.4, traction: 'AWD', battery: 100,
     features: [
@@ -1917,6 +1935,24 @@ export const CAR_DB: Car[] = [
     pbeRating: 'A', energyMJkm: 0.64,
     warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 200,
     lengthMm: 4787, widthMm: 1930, heightMm: 1650, wheelbaseMm: 2900, groundClearanceMm: 172, weightKg: 2460, trunkLiters: 616,
+  },
+  {
+    model: "7X Premium", brand: "Zeekr", price: 378000, range: 491, cat: "SUV",
+    url: "https://www.zeekrlife.com/pt-br/models/7x",
+    img: "/car-images/zeekr-7x-premium.png",
+    power: 421, torque: 44.9, traction: 'RWD', battery: 100,
+    features: [
+      "Motor traseiro único 421 cv — 0–100 km/h em 6,0 s",
+      "Bateria NMC CATL 100 kWh; autonomia PBEV de 491 km",
+      "Arquitetura 800V; recarga rápida 10–80% em 16 min",
+      "Rodas 19\"; sem portas elétricas e sem suspensão a ar",
+      "Central 16\" + painel 13\" com ZEEKR OS + HUD AR",
+      "Frunk 539 L VDA + porta-malas 616 L"
+    ],
+    pbeRating: 'A', energyMJkm: 0.55,
+    warrantyYears: 4, warrantyBatteryYears: 8,
+    lengthMm: 4787, widthMm: 1930, heightMm: 1650, wheelbaseMm: 2900, groundClearanceMm: 172,
+weightKg: 2340, trunkLiters: 616,
   },
   {
     model: "iX3", brand: "BMW", price: 582950, range: 570, cat: "Luxo",
@@ -2576,6 +2612,23 @@ export const CAR_DB: Car[] = [
     pbeRating: 'A', energyMJkm: 0.63,
     warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 200,
     lengthMm: 4955, widthMm: 1999, heightMm: 1560, wheelbaseMm: 2999, groundClearanceMm: 174, weightKg: 2353, trunkLiters: 539,
+  },
+  {
+    model: "001 Flagship", brand: "Zeekr", price: 542000, range: 426, cat: "Luxo",
+    url: "https://www.zeekrlife.com/pt-br/models/001",
+    img: "/car-images/zeekr-001-flagship.jpg",
+    power: 544, torque: 70, traction: 'AWD', battery: 100,
+    features: [
+      "AWD dual motor 544 cv — 0–100 km/h em 3,8 s",
+      "Bateria NMC 100 kWh; autonomia PBEV de 426 km",
+      "Carregamento AC 11 kW / DC 200 kW (ultrarrápido 800V)",
+      "Suspensão a ar com 5 níveis + amortecimento CDC",
+      "Rodas 22\" em alumínio forjado; altura 1548 mm",
+      "Bancos com ventilação e massagem + tela traseira 5,7\" + 3 zonas"
+    ],
+    pbeRating: 'A', energyMJkm: 0.63,
+    warrantyYears: 4, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 200,
+    lengthMm: 4955, widthMm: 1999, heightMm: 1548, wheelbaseMm: 2999, groundClearanceMm: 162, trunkLiters: 539,
   },
   {
     model: "i4 eDrive35", brand: "BMW", price: 449950, range: 422, cat: "Luxo", discontinued: true,

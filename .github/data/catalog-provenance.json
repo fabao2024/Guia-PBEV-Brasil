@@ -13945,9 +13945,85 @@
         }
       }
     },
-    "zeekr-7x": {
+    "zeekr-001-flagship": {
       "brand": "Zeekr",
-      "model": "7X",
+      "model": "001 Flagship",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.carrera.com.br/carros/novos/zeekr",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/001",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-31",
+          "verifiedAt": "2026-10-06"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/001",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/001",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "charging": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.datocms-assets.com/146515/1783707373-1733937996-ficha-tecnica-001_2026.pdf",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "availability": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/001",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.datocms-assets.com/146515/1783707373-1733937996-ficha-tecnica-001_2026.pdf",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.datocms-assets.com/146515/1783707373-1733937996-ficha-tecnica-001_2026.pdf",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
+    "zeekr-7x-flagship": {
+      "brand": "Zeekr",
+      "model": "7X Flagship",
       "fields": {
         "price": {
           "verificationStatus": "legacy_unverified",
@@ -14021,16 +14097,92 @@
         }
       }
     },
-    "zeekr-zeekr-x": {
+    "zeekr-7x-premium": {
       "brand": "Zeekr",
-      "model": "Zeekr X",
+      "model": "7X Premium",
       "fields": {
         "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.autodata.com.br/noticias/2026/06/23/zeekr-7x-premium-entra-em-pre-venda-no-brasil-por-r-378-mil/106966",
+          "sourceUpdatedAt": "2026-06-23",
+          "verifiedAt": "2026-10-06"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-31",
+          "verifiedAt": "2026-10-06"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-31",
+          "verifiedAt": "2026-10-06"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/7x",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/7x",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "charging": {
           "verificationStatus": "legacy_unverified",
           "sourceType": null,
           "sourceUrl": null,
           "sourceUpdatedAt": null,
           "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/7x",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.datocms-assets.com/146515/1778520978-ficha_tecnica_7x_web_site_sept_25.pdf",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.datocms-assets.com/146515/1778520978-ficha_tecnica_7x_web_site_sept_25.pdf",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://primoauto.com.br/zeekr-7x-ganha-versao-premium-por-r-378-mil-com-tracao-simples-e-mais-autonomia",
+          "sourceUpdatedAt": "2026-06-26",
+          "verifiedAt": "2026-10-06"
+        }
+      }
+    },
+    "zeekr-x-premium": {
+      "brand": "Zeekr",
+      "model": "X Premium",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/test-drive",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
         },
         "range_km": {
           "verificationStatus": "verified",
@@ -14094,6 +14246,82 @@
           "sourceUrl": "https://zeekr.cical.com.br/wp-content/uploads/2025/07/FICHA-TECNICA-X.pdf",
           "sourceUpdatedAt": null,
           "verifiedAt": "2026-09-03"
+        }
+      }
+    },
+    "zeekr-x-flagship": {
+      "brand": "Zeekr",
+      "model": "X Flagship",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://www.webmotors.com.br/zeekr/x/2025",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/x",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "consumption": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/x",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.datocms-assets.com/146515/1783707373-1748553035-ficha_tecnica_x-2026.pdf",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "charging": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.datocms-assets.com/146515/1783707373-1748553035-ficha_tecnica_x-2026.pdf",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "availability": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/x",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.datocms-assets.com/146515/1783707373-1748553035-ficha_tecnica_x-2026.pdf",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.datocms-assets.com/146515/1783707373-1748553035-ficha_tecnica_x-2026.pdf",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.datocms-assets.com/146515/1783707373-1748553035-ficha_tecnica_x-2026.pdf",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
         }
       }
     }
