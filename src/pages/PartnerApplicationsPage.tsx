@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { PartnerApplicationFormData } from '../types';
 import { track } from '../utils/analytics';
 import { attributionEventProps, getFirstTouchAttribution } from '../utils/attribution';
-import { submitPartnerApplication } from '../utils/partnerApplications';
+import { submitPartnerApplication, validatePartnerApplication } from '../utils/partnerApplications';
 import WhatsAppCta from '../components/WhatsAppCta';
 
 const SERVICE_CATEGORIES = [
@@ -113,9 +113,6 @@ export default function PartnerApplicationsPage() {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     setError('');
-    if (!form.serviceCategories.length) return rejectForm('missing_category', 'Selecione pelo menos uma categoria de atuação.');
-    if (!form.servesPf && !form.servesPj) return rejectForm('missing_audience', 'Informe se atende pessoa física, CNPJ/frota ou ambos.');
-    if (!form.lgpdAcceptance) return rejectForm('missing_consent', 'É necessário aceitar as regras de LGPD e uso dos dados.');
 
     const submission: PartnerApplicationFormData = {
       ...form,
@@ -131,6 +128,9 @@ export default function PartnerApplicationsPage() {
       freePilotLeadLimit: PILOT_CONTRACT.freePilotLeadLimit,
       matchCodes: deriveMatchCodes(form),
     };
+    const validationIssue = validatePartnerApplication(submission);
+    if (validationIssue) return rejectForm(`missing_${validationIssue.field}`, validationIssue.message);
+
     const conversionProps = { ...campaignProps, category_count: submission.serviceCategories.length, state: submission.state };
     track('partner_submit_attempt', conversionProps);
     setSubmitting(true);
@@ -227,24 +227,24 @@ export default function PartnerApplicationsPage() {
             <p className="mt-2 text-white/60">O cadastro leva cerca de 2 minutos. SLA, capacidade, cidades e termos operacionais serão validados depois com revisão humana.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-4">
-            <label><span className={labelClass}>Nome da empresa *</span><input required className={inputClass} value={form.companyName} onChange={e => updateField('companyName', e.target.value)} /></label>
-            <label><span className={labelClass}>Nome do responsável *</span><input required className={inputClass} value={form.contactName} onChange={e => updateField('contactName', e.target.value)} /></label>
-            <label><span className={labelClass}>Email profissional *</span><input required type="email" className={inputClass} value={form.email} onChange={e => updateField('email', e.target.value)} /></label>
-            <label><span className={labelClass}>WhatsApp comercial *</span><input required inputMode="tel" className={inputClass} value={form.whatsapp} onChange={e => updateField('whatsapp', e.target.value)} /></label>
-            <label><span className={labelClass}>Cidade sede *</span><input required className={inputClass} value={form.city} onChange={e => updateField('city', e.target.value)} /></label>
-            <label><span className={labelClass}>UF principal *</span><select required className={inputClass} value={form.state} onChange={e => updateField('state', e.target.value)}>{STATES.map(uf => <option key={uf} value={uf}>{uf}</option>)}</select></label>
+            <label><span className={labelClass}>Nome da empresa *</span><input required minLength={2} name="companyName" autoComplete="organization" className={inputClass} value={form.companyName} onChange={e => updateField('companyName', e.target.value)} /></label>
+            <label><span className={labelClass}>Nome do responsável *</span><input required minLength={2} name="contactName" autoComplete="name" className={inputClass} value={form.contactName} onChange={e => updateField('contactName', e.target.value)} /></label>
+            <label><span className={labelClass}>Email profissional *</span><input required minLength={5} name="email" autoComplete="email" type="email" className={inputClass} value={form.email} onChange={e => updateField('email', e.target.value)} /></label>
+            <label><span className={labelClass}>WhatsApp comercial *</span><input required minLength={8} name="whatsapp" autoComplete="tel" inputMode="tel" className={inputClass} value={form.whatsapp} onChange={e => updateField('whatsapp', e.target.value)} /></label>
+            <label><span className={labelClass}>Cidade sede *</span><input required minLength={2} name="city" autoComplete="address-level2" className={inputClass} value={form.city} onChange={e => updateField('city', e.target.value)} /></label>
+            <label><span className={labelClass}>UF principal *</span><select required name="state" autoComplete="address-level1" className={inputClass} value={form.state} onChange={e => updateField('state', e.target.value)}>{STATES.map(uf => <option key={uf} value={uf}>{uf}</option>)}</select></label>
           </div>
 
           <fieldset>
             <legend className="text-xl font-black mb-3">Categoria de atuação *</legend>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">{SERVICE_CATEGORIES.map(([value, label]) => <label key={value} className="flex items-center gap-3 rounded-xl border border-white/10 bg-black/20 p-3 text-sm font-bold"><input type="checkbox" checked={form.serviceCategories.includes(value)} onChange={() => toggleCategory(value)} />{label}</label>)}</div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">{SERVICE_CATEGORIES.map(([value, label]) => <label key={value} className="flex items-center gap-3 rounded-xl border border-white/10 bg-black/20 p-3 text-sm font-bold"><input type="checkbox" name="serviceCategories" checked={form.serviceCategories.includes(value)} onChange={() => toggleCategory(value)} />{label}</label>)}</div>
           </fieldset>
 
           <fieldset>
             <legend className="text-xl font-black mb-3">Quem sua empresa atende? *</legend>
             <div className="flex flex-wrap gap-4">
-              <label className="flex items-center gap-2 text-sm font-bold"><input type="checkbox" checked={form.servesPf} onChange={e => updateField('servesPf', e.target.checked)} /> Atende pessoa física</label>
-              <label className="flex items-center gap-2 text-sm font-bold"><input type="checkbox" checked={form.servesPj} onChange={e => updateField('servesPj', e.target.checked)} /> Atende CNPJ/frota</label>
+              <label className="flex items-center gap-2 text-sm font-bold"><input type="checkbox" name="servesPf" checked={form.servesPf} onChange={e => updateField('servesPf', e.target.checked)} /> Atende pessoa física</label>
+              <label className="flex items-center gap-2 text-sm font-bold"><input type="checkbox" name="servesPj" checked={form.servesPj} onChange={e => updateField('servesPj', e.target.checked)} /> Atende CNPJ/frota</label>
             </div>
           </fieldset>
 

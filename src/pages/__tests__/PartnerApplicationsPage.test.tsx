@@ -7,6 +7,7 @@ import { track } from '../../utils/analytics';
 
 vi.mock('../../utils/partnerApplications', () => ({
   submitPartnerApplication: vi.fn().mockResolvedValue({ status: 'submitted', application_id: 9 }),
+  validatePartnerApplication: vi.fn().mockReturnValue(null),
 }));
 
 vi.mock('../../utils/analytics', () => ({
