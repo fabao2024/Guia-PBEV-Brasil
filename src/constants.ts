@@ -16,6 +16,7 @@ const NEW_MODELS = new Set([
   'Box E2',
   'Arcfox T1',
   'B10 REEV',
+  'Tiggo 9 PHEV',
 ]);
 
 export const isCarNew = (car: Car): boolean => NEW_MODELS.has(car.model);
@@ -2122,6 +2123,24 @@ export const CAR_DB: Car[] = [
     energyMJkm: 0.62,
     fuelConsumptionKml: 14.4,
     chargeAC: 7, chargeDC: 50,
+  },
+  {
+    model: "Tiggo 9 PHEV", brand: "CAOA Chery", price: 299990, range: 108, cat: "SUV",
+    powertrain: 'PHEV', electricRangeKm: 108, combinedRangeKm: 1200, fuelConsumptionKml: 28, fuelType2: 'gasolina',
+    url: "https://caoachery.com.br/novos/tiggo-9-phev",
+    img: "/car-images/caoachery-tiggo9-phev.jpg",
+    power: 428, torque: 59.2, traction: 'AWD', battery: 34.5,
+    features: [
+      "SUV híbrido plug-in de 7 lugares (Super Hybrid) — 428 cv / 59,2 kgfm",
+      "Bateria CATL 34,5 kWh; autonomia elétrica PBEV de 108 km; combinada declarada acima de 1.200 km",
+      "28 km/l cidade e 25,3 km/l estrada (gasolina, ficha oficial)",
+      "Recarga AC 6,6 kW / DC 71 kW (30–80% em ~20 min) e função V2L",
+      "10 airbags, MAX DRIVE 2.5 (19 ADAS), multimídia 15,6\" + HUD",
+      "Tração integral AWD, rodas 20\" e 0–100 km/h em 7,93 s"
+    ],
+    chargeAC: 6.6, chargeDC: 71,
+    warrantyYears: 7, warrantyBatteryYears: 8,
+    lengthMm: 4810, widthMm: 1925, heightMm: 1741, wheelbaseMm: 2800, weightKg: 2255, trunkLiters: 448,
   },
   {
     model: "Outlander HPE-S PHEV", brand: "Mitsubishi", price: 324990, range: 58, cat: "SUV",

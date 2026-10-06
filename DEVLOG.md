@@ -2,6 +2,13 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 06/10/2026 · Tiggo 9 PHEV CAOA Chery (185 veículos)
+
+| Área | Mudança pública |
+|---|---|
+| Catálogo | Tiggo 9 PHEV (R$ 299.990, 7 lugares AWD, 1.5T + 3 elétricos, 428 cv / 59,2 kgfm — arbitrado 428 × 340 da NAZ pela ficha oficial; bateria CATL 34,5 kWh, 108 km elétricos PBEV, 28/25,3 km/l, AC 6,6/DC 71 kW + V2L, combinada declarada 1.200 km; 10 airbags, 15,6" + HUD; 4810/1925/1741/2800, 2255 kg, 448 L). Sem MJ (fail-closed). Foto MotorShow frente 3/4 (2560px; perfis laterais do site e foto com motorista rejeitados). Selo Novo (lançamento 05/10). |
+| Verificação | Invariante `combinedRangeKm` exigido para PHEV coberto (1200 declarados), pipeline `--check`, `tsc` limpo, build Vite (185 páginas), scanner de segredos e proveniência (938/1850) aprovados. |
+
 ## 02/10/2026 · Leapmotor B10 REEV Ultra-Híbrido (184 veículos)
 
 | Área | Mudança pública |

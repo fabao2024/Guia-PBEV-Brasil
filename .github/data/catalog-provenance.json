@@ -3381,6 +3381,82 @@
         }
       }
     },
+    "caoa-chery-tiggo-9-phev": {
+      "brand": "CAOA Chery",
+      "model": "Tiggo 9 PHEV",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://caoachery.com.br/novos/tiggo-9-phev",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://cloudfront.alpes.one/public/6ac/409/ecb/6ac409ecb1024231754500.pdf",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://cloudfront.alpes.one/public/6ac/409/ecb/6ac409ecb1024231754500.pdf",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://caoachery.com.br/novos/tiggo-9-phev",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://cloudfront.alpes.one/public/6ac/409/ecb/6ac409ecb1024231754500.pdf",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "charging": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://cloudfront.alpes.one/public/6ac/409/ecb/6ac409ecb1024231754500.pdf",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "availability": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://caoachery.com.br/novos/tiggo-9-phev",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://cloudfront.alpes.one/public/6ac/409/ecb/6ac409ecb1024231754500.pdf",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://cloudfront.alpes.one/public/6ac/409/ecb/6ac409ecb1024231754500.pdf",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://cloudfront.alpes.one/public/6ac/409/ecb/6ac409ecb1024231754500.pdf",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
+        }
+      }
+    },
     "chevrolet-blazer-ev-rs": {
       "brand": "Chevrolet",
       "model": "Blazer EV RS",
