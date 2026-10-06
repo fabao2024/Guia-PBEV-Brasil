@@ -103,6 +103,7 @@ export interface PartnerApplicationFormData {
   companyName: string;
   cnpj: string;
   website: string;
+  socialNetworks: string;
   contactName: string;
   contactRole: string;
   email: string;

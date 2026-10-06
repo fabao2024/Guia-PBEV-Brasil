@@ -78,7 +78,8 @@ describe('PartnerApplicationsPage', () => {
     const details = screen.getByRole('heading', { name: /como funciona/i });
     expect(form.compareDocumentPosition(pricing) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(form.compareDocumentPosition(details) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
-    expect(screen.queryByLabelText(/site/i)).not.toBeInTheDocument();
+    expect(screen.getByLabelText(/sites ou redes sociais/i)).toBeInTheDocument();
+    expect(screen.queryByLabelText(/^site\b/i)).not.toBeInTheDocument();
     expect(screen.queryByLabelText(/ufs atendidas/i)).not.toBeInTheDocument();
     expect(screen.queryByLabelText(/sla de primeiro contato/i)).not.toBeInTheDocument();
     expect(screen.queryByLabelText(/faixa viável por lead/i)).not.toBeInTheDocument();
@@ -110,6 +111,7 @@ describe('PartnerApplicationsPage', () => {
     expect(screen.queryByText(/os primeiros 2 leads aceitos são gratuitos/i)).not.toBeInTheDocument();
 
     fireEvent.change(screen.getByLabelText(/nome da empresa/i), { target: { value: 'Empresa Rodada Um Lead' } });
+    fireEvent.change(screen.getByLabelText(/sites ou redes sociais/i), { target: { value: 'Site: https://empresa_rodada_um.example\nInstagram: https://instagram.com/empresa_rodada_um' } });
     fireEvent.change(screen.getByLabelText(/nome do responsável/i), { target: { value: 'Maria Parceira' } });
     fireEvent.change(screen.getByLabelText(/email profissional/i), { target: { value: 'maria@example.com' } });
     fireEvent.change(screen.getByLabelText(/whatsapp comercial/i), { target: { value: '11988887777' } });
@@ -136,6 +138,7 @@ describe('PartnerApplicationsPage', () => {
 
     expect(screen.getByText(/leva cerca de 2 minutos/i)).toBeInTheDocument();
     fireEvent.change(screen.getByLabelText(/nome da empresa/i), { target: { value: 'Wallbox Teste Ltda' } });
+    fireEvent.change(screen.getByLabelText(/sites ou redes sociais/i), { target: { value: 'Site: https://wallbox.example.com\nInstagram: https://instagram.com/wallbox_teste' } });
     fireEvent.change(screen.getByLabelText(/nome do responsável/i), { target: { value: 'Maria Parceira' } });
     fireEvent.change(screen.getByLabelText(/email profissional/i), { target: { value: 'maria@wallbox.example.com' } });
     fireEvent.change(screen.getByLabelText(/whatsapp comercial/i), { target: { value: '11988887777' } });
@@ -152,6 +155,7 @@ describe('PartnerApplicationsPage', () => {
     await waitFor(() => expect(submitPartnerApplication).toHaveBeenCalledTimes(1));
     expect(submitPartnerApplication).toHaveBeenCalledWith(expect.objectContaining({
       companyName: 'Wallbox Teste Ltda',
+      socialNetworks: 'Site: https://wallbox.example.com\nInstagram: https://instagram.com/wallbox_teste',
       email: 'maria@wallbox.example.com',
       state: 'SP',
       serviceCategories: ['wallbox', 'energia_solar_recarga', 'limpeza_sistema_solar'],

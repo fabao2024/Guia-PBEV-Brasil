@@ -5,6 +5,7 @@ const application: PartnerApplicationFormData = {
   companyName: 'Wallbox Teste Ltda',
   cnpj: '',
   website: 'https://wallbox.example.com',
+  socialNetworks: 'Instagram: https://instagram.com/wallbox_teste\nFacebook: https://facebook.com/wallbox_teste',
   contactName: 'Maria Parceira',
   contactRole: '',
   email: 'maria@wallbox.example.com',

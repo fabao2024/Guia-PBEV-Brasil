@@ -23,7 +23,7 @@ const PILOT_CONTRACT = {
 
 function createInitialForm(): PartnerApplicationFormData {
   return {
-    companyName: '', cnpj: '', website: '', contactName: '', contactRole: '', email: '', whatsapp: '',
+    companyName: '', cnpj: '', website: '', socialNetworks: '', contactName: '', contactRole: '', email: '', whatsapp: '',
     city: '', state: 'SP', serviceCategories: [], coverageStates: ['SP'], coverageCities: '',
     servesPf: false, servesPj: false, servesRemote: false, evExperience: '', brandsSupported: '',
     monthlyCapacity: '', slaHours: '', crmTool: '', preferredDeliveryChannel: '',
@@ -228,6 +228,7 @@ export default function PartnerApplicationsPage() {
           </div>
           <div className="grid md:grid-cols-2 gap-4">
             <label><span className={labelClass}>Nome da empresa *</span><input required className={inputClass} value={form.companyName} onChange={e => updateField('companyName', e.target.value)} /></label>
+            <label className="md:col-span-2"><span className={labelClass}>Sites ou redes sociais *</span><textarea required rows={2} maxLength={300} placeholder={"Site: https://suaempresa.com.br\nInstagram, Facebook ou outra rede: link do perfil"} className={inputClass} value={form.socialNetworks} onChange={e => updateField('socialNetworks', e.target.value)} /></label>
             <label><span className={labelClass}>Nome do responsável *</span><input required className={inputClass} value={form.contactName} onChange={e => updateField('contactName', e.target.value)} /></label>
             <label><span className={labelClass}>Email profissional *</span><input required type="email" className={inputClass} value={form.email} onChange={e => updateField('email', e.target.value)} /></label>
             <label><span className={labelClass}>WhatsApp comercial *</span><input required inputMode="tel" className={inputClass} value={form.whatsapp} onChange={e => updateField('whatsapp', e.target.value)} /></label>
