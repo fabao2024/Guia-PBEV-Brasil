@@ -3,11 +3,11 @@
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
 ## 06/10/2026 · Zeekr: 7X Premium, X Flagship e 001 Flagship (188 veículos)
-
 | Área | Mudança pública |
 |---|---|
 | Catálogo | Renomeação explícita: `Zeekr X`→`X Premium`, `7X`→`7X Flagship` (slugs antigos quebram, sem redirect; sitemap regenerado). Novos: 7X Premium (R$ 378.000, 421 cv RWD, 491 km PBEV, 100 kWh, 2340 kg), X Flagship (R$ 338.000, 428 cv AWD, 304 km, AC 22/DC 150, 1960 kg) e 001 Flagship (R$ 542.000, 544 cv AWD, 426 km, ar + 22" forjadas). Correções no X Premium: tração RWD, torque 35 (343 Nm, ficha) e preço 272→298 mil (página oficial). Sem selo Novo (lançamentos fora da janela de 3 meses). Fotos oficiais distintas por versão (datocms/zeekrlife). |
 | Verificação | Pins de teste e `priceHistory` renomeados, pipeline `--check` (80 fontes, 310 variantes), `tsc` limpo, build Vite (188 páginas), scanner de segredos e proveniência (966/1880) aprovados. |
+| Correção 07/10 | 001 Flagship passa a reutilizar a foto do Premium (`zeekr-001.webp`; configurador global com placa "X" descartado); 7X Premium troca o preto-gêmeo do Flagship pelo verde frente 3/4 da galeria oficial (diferenciação por cor). |
 
 ## 06/10/2026 · Tiggo 9 PHEV CAOA Chery (185 veículos)
 

@@ -2616,7 +2616,7 @@ weightKg: 2340, trunkLiters: 616,
   {
     model: "001 Flagship", brand: "Zeekr", price: 542000, range: 426, cat: "Luxo",
     url: "https://www.zeekrlife.com/pt-br/models/001",
-    img: "/car-images/zeekr-001-flagship.jpg",
+    img: "/car-images/zeekr-001.webp",
     power: 544, torque: 70, traction: 'AWD', battery: 100,
     features: [
       "AWD dual motor 544 cv — 0–100 km/h em 3,8 s",

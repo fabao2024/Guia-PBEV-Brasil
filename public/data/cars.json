@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-06T20:52:47.203Z",
+  "generated_at": "2026-10-07T21:43:59.328Z",
   "total": 188,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "evidence": {
@@ -5778,7 +5778,7 @@
       "fuel_consumption_kml_ethanol": null,
       "fuel_type_2": null,
       "category": "Luxo",
-      "image_url": "https://guiapbev.cloud/car-images/zeekr-001-flagship.jpg",
+      "image_url": "https://guiapbev.cloud/car-images/zeekr-001.webp",
       "traction": "AWD",
       "power_cv": 544,
       "torque_kgfm": 70,
