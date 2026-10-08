@@ -17,6 +17,7 @@ const NEW_MODELS = new Set([
   'Arcfox T1',
   'B10 REEV',
   'Tiggo 9 PHEV',
+  'Haval H7 PHEV',
 ]);
 
 export const isCarNew = (car: Car): boolean => NEW_MODELS.has(car.model);
@@ -478,6 +479,25 @@ export const CAR_DB: Car[] = [
     fuelConsumptionKml: 12.5,
     fuelConsumptionKmlEthanol: 9.2,
     chargeAC: 6.6, chargeDC: 48,
+  },
+  {
+    model: "Haval H7 PHEV", brand: "GWM", price: 261000, range: 92, cat: "SUV",
+    powertrain: 'PHEV', electricRangeKm: 92, combinedRangeKm: 747, fuelType2: 'flex', // C derivado: tanque 55 L (ficha GWM) + 11,9 km/L Inmetro
+    url: "https://www.gwmmotors.com.br/pt/modelos/haval-h7",
+    img: "/car-images/gwm-haval-h7-phev.webp",
+    power: 370, torque: 77.5, traction: 'AWD', battery: 27.5,
+    features: [
+"Híbrido plug-in flex Hi4 AWD — 370 cv / 77,5 kgfm",
+"Bateria LFP 27,5 kWh; autonomia elétrica de 92 km (Inmetro), 130 km (WLTP)",
+"11,9 km/l cidade e 10,1 km/l estrada (gasolina, ficha); 7,7/6,9 no etanol",
+"Recarga AC 6,6 kW / DC 41 kW + V2L 6 kW/220 V",
+"6 airbags, ADAS 2+, câmera 540° e bloqueio do diferencial traseiro",
+"Multimídia 15,6\" + HUD 9\", teto solar panorâmico, rodas 19\""
+    ],
+    fuelConsumptionKml: 11.9,
+    fuelConsumptionKmlEthanol: 7.7,
+    chargeAC: 6.6, chargeDC: 41,
+    lengthMm: 4800, widthMm: 1950, heightMm: 1843, wheelbaseMm: 2738, groundClearanceMm: 220, weightKg: 2170, trunkLiters: 586,
   },
   {
     model: "Tank 300", brand: "GWM", price: 342000, range: 74, cat: "SUV",

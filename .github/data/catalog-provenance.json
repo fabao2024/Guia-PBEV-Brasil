@@ -6193,6 +6193,82 @@
         }
       }
     },
+    "gwm-haval-h7-phev": {
+      "brand": "GWM",
+      "model": "Haval H7 PHEV",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/modelos/haval-h7",
+          "sourceUpdatedAt": "2026-10-07",
+          "verifiedAt": "2026-10-07"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/content/dam/gwm/pages/br/pt/models/haval-h7/ficha-tecnica-haval-h7-gwm.pdf",
+          "sourceUpdatedAt": "2026-10-07",
+          "verifiedAt": "2026-10-07"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/content/dam/gwm/pages/br/pt/models/haval-h7/ficha-tecnica-haval-h7-gwm.pdf",
+          "sourceUpdatedAt": "2026-10-07",
+          "verifiedAt": "2026-10-07"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/modelos/haval-h7",
+          "sourceUpdatedAt": "2026-10-07",
+          "verifiedAt": "2026-10-07"
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/content/dam/gwm/pages/br/pt/models/haval-h7/ficha-tecnica-haval-h7-gwm.pdf",
+          "sourceUpdatedAt": "2026-10-07",
+          "verifiedAt": "2026-10-07"
+        },
+        "charging": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/content/dam/gwm/pages/br/pt/models/haval-h7/ficha-tecnica-haval-h7-gwm.pdf",
+          "sourceUpdatedAt": "2026-10-07",
+          "verifiedAt": "2026-10-07"
+        },
+        "availability": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/pt/modelos/haval-h7",
+          "sourceUpdatedAt": "2026-10-07",
+          "verifiedAt": "2026-10-07"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/content/dam/gwm/pages/br/pt/models/haval-h7/ficha-tecnica-haval-h7-gwm.pdf",
+          "sourceUpdatedAt": "2026-10-07",
+          "verifiedAt": "2026-10-07"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/content/dam/gwm/pages/br/pt/models/haval-h7/ficha-tecnica-haval-h7-gwm.pdf",
+          "sourceUpdatedAt": "2026-10-07",
+          "verifiedAt": "2026-10-07"
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gwmmotors.com.br/content/dam/gwm/pages/br/pt/models/haval-h7/ficha-tecnica-haval-h7-gwm.pdf",
+          "sourceUpdatedAt": "2026-10-07",
+          "verifiedAt": "2026-10-07"
+        }
+      }
+    },
     "gwm-ora-03-gt-bev63": {
       "brand": "GWM",
       "model": "Ora 03 GT BEV63",

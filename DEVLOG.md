@@ -2,6 +2,13 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 07/10/2026 · Haval H7 PHEV GWM (189 veículos)
+
+| Área | Mudança pública |
+|---|---|
+| Catálogo | Haval H7 PHEV Flex Hi4 AWD (R$ 261.000, 5 lugares, 1.5T + elétricos, 370 cv / 77,5 kgfm; bateria LFP 27,5 kWh, 92 km Inmetro / 130 km WLTP, 11,9/10,1 km/l gasolina e 7,7/6,9 etanol, AC 6,6/DC 41 kW + V2L, combinada derivada 747 km; 6 airbags, ADAS 2+, 540°, 15,6" + HUD 9", 19"; 4800/1950/1843/2738 — entre-eixos da ficha, não 2,80 da imprensa; 2170 kg, 586 L). Sem MJ (fail-closed). Foto galeria oficial frente 3/4 (1000px, abaixo do preferido; 360-viewer com halos e ação com motorista rejeitados). Selo Novo (lançamento 07/10). |
+| Verificação | Pipeline `--check`, `tsc` limpo, build Vite (189 páginas), scanner de segredos e proveniência (976/1890) aprovados. |
+
 ## 06/10/2026 · Zeekr: 7X Premium, X Flagship e 001 Flagship (188 veículos)
 | Área | Mudança pública |
 |---|---|
