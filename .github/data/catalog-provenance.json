@@ -5286,11 +5286,11 @@
       "model": "EX2 Max",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.geelybrasil.com.br/ofertas/oferta-geely-ex2-max",
+          "sourceUpdatedAt": "2026-10-05",
+          "verifiedAt": "2026-10-09"
         },
         "range_km": {
           "verificationStatus": "verified",
@@ -5362,11 +5362,11 @@
       "model": "EX2 Pro",
       "fields": {
         "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.geelybrasil.com.br/",
+          "sourceUpdatedAt": "2026-10-05",
+          "verifiedAt": "2026-10-09"
         },
         "range_km": {
           "verificationStatus": "verified",

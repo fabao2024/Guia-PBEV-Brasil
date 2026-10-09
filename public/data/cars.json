@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-08T17:57:33.193Z",
+  "generated_at": "2026-10-09T12:02:38.836Z",
   "total": 189,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "evidence": {
@@ -329,7 +329,7 @@
     {
       "model": "EX2 Max",
       "brand": "Geely",
-      "price": 136800,
+      "price": 137800,
       "range_km": 289,
       "powertrain": "BEV",
       "electric_range_km": null,
@@ -374,7 +374,7 @@
     {
       "model": "EX2 Pro",
       "brand": "Geely",
-      "price": 123800,
+      "price": 124600,
       "range_km": 289,
       "powertrain": "BEV",
       "electric_range_km": null,

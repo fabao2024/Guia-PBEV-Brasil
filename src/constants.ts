@@ -30,7 +30,7 @@ export const BRAND_URLS: Record<string, string> = {
   "CAOA Chery": "https://caoachery.com.br",
   "JAC": "https://jacmotors.com.br",
   "BYD": "https://www.byd.com/br",
-  "Geely": "https://global.geely.com",
+  "Geely": "https://www.geelybrasil.com.br",
   "Neta": "https://www.netaauto.com.br",
   "GWM": "https://www.gwmmotors.com.br",
   "Chevrolet": "https://www.chevrolet.com.br",
@@ -261,7 +261,7 @@ export const CAR_DB: Car[] = [
     lengthMm: 4270, widthMm: 1850, heightMm: 1575, wheelbaseMm: 2750, weightKg: 1700, trunkLiters: 340,
   },
   {
-    model: "EX2 Max", brand: "Geely", price: 136800, range: 289, cat: "Compacto",
+    model: "EX2 Max", brand: "Geely", price: 137800, range: 289, cat: "Compacto",
     img: "/car-images/geely-ex2-max.jpg",
     power: 116, torque: 15.3, traction: 'RWD', battery: 39.4,
     features: [
@@ -279,7 +279,7 @@ export const CAR_DB: Car[] = [
     lengthMm: 4135, widthMm: 1805, heightMm: 1580, wheelbaseMm: 2650, groundClearanceMm: 160, weightKg: 1300, trunkLiters: 375,
   },
   {
-    model: "EX2 Pro", brand: "Geely", price: 123800, range: 289, cat: "Compacto",
+    model: "EX2 Pro", brand: "Geely", price: 124600, range: 289, cat: "Compacto",
     img: "/car-images/geely-ex2-pro.webp",
     power: 116, torque: 15.3, traction: 'RWD', battery: 39.4,
     features: [

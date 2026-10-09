@@ -2,6 +2,14 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 09/10/2026 · Reajuste Geely EX2 (tabela PF) + redirect Brasil
+
+| Área | Mudança pública |
+|---|---|
+| Catálogo | EX2 Pro R$ 123.800 → **124.600** e EX2 Max R$ 136.800 → **137.800** (tabela PF à vista, reajuste out/2026 da Geely Brasil, válido até 31/10/2026; confirmado pela matéria Autoesporte 05/10/2026). Snapshots `2026-10` anexados (sem badge de variação, delta nulo). |
+| Link fabricante | `BRAND_URLS[Geely]`: `global.geely.com` → `https://www.geelybrasil.com.br` — botão "Ver no fabricante" do EX2 Pro/Max (sem `url` próprio) agora abre o site Brasil com UTM `guiapbev`. |
+| Verificação | `test:run` 406/406, `tsc` limpo, build Vite (189 páginas `/carro/`, títulos com R$ 124.600/137.800), scanner de segredos e proveniência (978/1890) aprovados. |
+
 ## 07/10/2026 · Haval H7 PHEV GWM (189 veículos)
 
 | Área | Mudança pública |
