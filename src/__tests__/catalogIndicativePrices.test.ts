@@ -1075,6 +1075,36 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(t24.traction).toBe('AWD');
   });
 
+  it('Jetour S08 Premium should match official jetourbr.com page and spec sheet', () => {
+    // jetourbr.com/carro/s08/ (checked 2026-10-13): S08 Premium R$ 259.900,
+    // PHEV 1.5 turbo + elétrico, 339 cv / 52 kgfm, LFP 18,4 kWh, 1.200 km
+    // combinados, 4810x1930x1705 mm, wb 2820, vão livre 180 mm.
+    // Ficha https://jetourbr.com/ficha-tecnica/s08.pdf: 11,5 km/l gasolina
+    // (PBEV), 28,7 km/l-e elétrico, PBE A, AC 6,6 kW / DC 40 kW, garantia
+    // 7 anos (bateria 8), peso 1998 kg, porta-malas 70–658 L (máx 1.708 L).
+    // Electric-only 62 km is Inmetro-homologated per launch-day specialist
+    // press (ficha lists combined range only); confirm on next PBEV table.
+    const s08 = byModel('S08 Premium');
+    expect(s08.powertrain).toBe('PHEV');
+    expect(s08.price).toBe(259900);
+    expect(s08.range).toBe(62);
+    expect(s08.electricRangeKm).toBe(62);
+    expect(s08.combinedRangeKm).toBe(1200);
+    expect(s08.power).toBe(339);
+    expect(s08.torque).toBe(52);
+    expect(s08.traction).toBe('FWD');
+    expect(s08.battery).toBe(18.4);
+    expect(s08.fuelConsumptionKml).toBe(11.5);
+    expect(s08.pbeRating).toBe('A');
+    expect(s08.chargeAC).toBe(6.6);
+    expect(s08.chargeDC).toBe(40);
+    expect(s08.lengthMm).toBe(4810);
+    expect(s08.wheelbaseMm).toBe(2820);
+    expect(s08.groundClearanceMm).toBe(180);
+    expect(s08.weightKg).toBe(1998);
+    expect(s08.trunkLiters).toBe(658);
+  });
+
   it('CAOA Changan CS55 PHEV should match launch pricing and maker-briefed specs (set/2026)', () => {
     // caoachangan.com.br/novos/cs55-phev (checked 2026-09-26): Ultra-Hybrid PHEV
     // Flex from R$ 189.990 (launch promo, solid black; +R$ 2.000 other colors),

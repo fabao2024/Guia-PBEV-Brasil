@@ -2,6 +2,13 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 13/10/2026 — Jetour S08 Premium PHEV (190 veículos)
+
+| Área | Mudança pública |
+|---|---|
+| Catálogo | S08 Premium (R$ 259.900, 7 lugares, 1.5T + elétrico, 339 cv / 52 kgfm; bateria LFP 18,4 kWh, 62 km elétricos Inmetro / combinada 1.200 km; 11,5 km/l gasolina e 28,7 km/l-e PBEV, PBE A; AC 6,6/DC 40 kW (30–80% em 18 min); garantia 7 anos, bateria 8; 4810/1930/1705/2820, vão livre 180, 1998 kg, 658 L). Sem MJ (fail-closed, fora da tabela 25_AGO). Foto oficial frente 3/4 da galeria jetourbr.com (1920px). 62 km via imprensa de lançamento citando Inmetro (página + ficha trazem só o combinado) — confirmar na próxima tabela PBEV. |
+| Verificação | Pinos de teste Jetour estendidos, pipeline `--check` (80 fontes, 310 variantes), `tsc` limpo, build Vite (190 páginas `/carro/`), scanner de segredos e proveniência (987/1900) aprovados. `test:run` 404/407 — 2 falhas pré-existentes de ambiente reproduzidas sem esta mudança (i18n não inicializa: `AppPartnersCta` + timeout do axe). |
+
 ## 09/10/2026 · Reajuste Geely EX2 (tabela PF) + redirect Brasil
 
 | Área | Mudança pública |

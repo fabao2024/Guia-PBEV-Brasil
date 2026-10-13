@@ -1783,6 +1783,44 @@
       ]
     },
     {
+      "src": "/car-images/jetour-s08-phev.jpg",
+      "width": 1920,
+      "height": 1280,
+      "alpha": false,
+      "bytes": 243378,
+      "sha256": "832963abcee5db0f70e32bb5de2706696c91f12f8df4cbf4adf2e700f05e1b66",
+      "variants": [
+        {
+          "src": "/car-images/optimized/jetour-s08-phev.jpg-320.webp",
+          "width": 320,
+          "height": 213,
+          "bytes": 6682,
+          "sha256": "7254d7386a1d4f2271d581ec7029e506035ca7aa3d48958985d1664947becb76"
+        },
+        {
+          "src": "/car-images/optimized/jetour-s08-phev.jpg-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 18284,
+          "sha256": "32f29f15eaa14d1039c57edaaa15822a525edc860778aef29904452fee84753b"
+        },
+        {
+          "src": "/car-images/optimized/jetour-s08-phev.jpg-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 32558,
+          "sha256": "f5bca599c6a0de22dcd0526e127233e79af14a09cd147a305b5d1c340670b380"
+        },
+        {
+          "src": "/car-images/optimized/jetour-s08-phev.jpg-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 49152,
+          "sha256": "823286f5ff05fd5e1b9d4c140709f0ed269d5092c8a6f4f5315c284620f65c87"
+        }
+      ]
+    },
+    {
       "src": "/car-images/kia-carnival-hev.jpg",
       "width": 1979,
       "height": 1337,

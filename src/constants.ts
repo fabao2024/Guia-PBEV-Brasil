@@ -2594,6 +2594,27 @@ weightKg: 2340, trunkLiters: 616,
     warrantyYears: 7, warrantyBatteryYears: 8,
     lengthMm: 4785, widthMm: 2006, heightMm: 1875, wheelbaseMm: 2800,
   },
+  {
+    model: "S08 Premium", brand: "Jetour", price: 259900, range: 62, cat: "SUV",
+    powertrain: 'PHEV', electricRangeKm: 62, combinedRangeKm: 1200, fuelType2: 'gasolina',
+    url: "https://jetourbr.com/carro/s08/",
+    img: "/car-images/jetour-s08-phev.jpg",
+    power: 339, torque: 52, traction: 'FWD', battery: 18.4,
+    features: [
+      "SUV híbrido plug-in (1.5 turbo + elétrico) de 7 lugares — 339 cv / 52 kgfm",
+      "Bateria LFP 18,4 kWh; autonomia elétrica de 62 km (Inmetro); combinada de 1.200 km",
+      "11,5 km/l (gasolina, PBEV) e 28,7 km/l-e no modo elétrico",
+      "Recarga AC 6,6 kW / DC 40 kW (30–80% em 18 min)",
+      "Central 15,6\" multidirecional + cluster 10,25\", 12 alto-falantes e câmera 540°",
+      "Bancos com aquecimento, ventilação, memória e massagem em 10 pontos"
+    ],
+    fuelConsumptionKml: 11.5,
+    pbeRating: 'A',
+    chargeAC: 6.6, chargeDC: 40,
+    warrantyYears: 7, warrantyBatteryYears: 8,
+    lengthMm: 4810, widthMm: 1930, heightMm: 1705, wheelbaseMm: 2820,
+    groundClearanceMm: 180, weightKg: 1998, trunkLiters: 658,
+  },
 
   // 3. LUXO & PERFORMANCE
   {

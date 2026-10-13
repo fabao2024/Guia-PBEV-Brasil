@@ -8093,6 +8093,82 @@
         }
       }
     },
+    "jetour-s08-premium": {
+      "brand": "Jetour",
+      "model": "S08 Premium",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://jetourbr.com/carro/s08/",
+          "sourceUpdatedAt": "2026-10-13",
+          "verifiedAt": "2026-10-13"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "specialist_media",
+          "sourceUrl": "https://www.noticiasautomotivas.com.br/novo-suv-da-jetour-reune-sete-lugares-bancos-com-massagem-e-tela-que-gira-para-os-ocupantes-o-preco-de-entrada-no-brasil-e-de-r-259-900",
+          "sourceUpdatedAt": "2026-10-13",
+          "verifiedAt": "2026-10-13"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://jetourbr.com/ficha-tecnica/s08.pdf",
+          "sourceUpdatedAt": "2026-10-13",
+          "verifiedAt": "2026-10-13"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://jetourbr.com/ficha-tecnica/s08.pdf",
+          "sourceUpdatedAt": "2026-10-13",
+          "verifiedAt": "2026-10-13"
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://jetourbr.com/ficha-tecnica/s08.pdf",
+          "sourceUpdatedAt": "2026-10-13",
+          "verifiedAt": "2026-10-13"
+        },
+        "charging": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://jetourbr.com/ficha-tecnica/s08.pdf",
+          "sourceUpdatedAt": "2026-10-13",
+          "verifiedAt": "2026-10-13"
+        },
+        "availability": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://jetourbr.com/carro/s08/",
+          "sourceUpdatedAt": "2026-10-13",
+          "verifiedAt": "2026-10-13"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://jetourbr.com/ficha-tecnica/s08.pdf",
+          "sourceUpdatedAt": "2026-10-13",
+          "verifiedAt": "2026-10-13"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://jetourbr.com/ficha-tecnica/s08.pdf",
+          "sourceUpdatedAt": "2026-10-13",
+          "verifiedAt": "2026-10-13"
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://jetourbr.com/ficha-tecnica/s08.pdf",
+          "sourceUpdatedAt": "2026-10-13",
+          "verifiedAt": "2026-10-13"
+        }
+      }
+    },
     "jetour-t1-advance": {
       "brand": "Jetour",
       "model": "T1 Advance",

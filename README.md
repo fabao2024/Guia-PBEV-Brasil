@@ -2,7 +2,7 @@
 <img width="1200" alt="Guia PBEV Banner" src="public/repo-banner.png" />
 </div>
 
-# Guia PBEV Brasil — Catálogo Oficial de Elétricos & IA
+# Guia PBEV Brasil — Catálogo Oficial de Eletrificados & IA
 
 **[🇺🇸 English](#-english) | [🇧🇷 Português](#-português)**
 
@@ -88,10 +88,10 @@ No [guiapbev.cloud](https://guiapbev.cloud), usuários inserem sua própria chav
 
 ### Métricas Atuais
 
-- **189 veículos** (BEV + híbridos) cadastrados (40 marcas)
+- **190 veículos** (BEV + híbridos) cadastrados (40 marcas)
 - **93 modelos** com certificação PBE/INMETRO oficial
 - **27 estados** com dados de IPVA 2026 e tarifas ANP/ANEEL
-- **406 testes** automatizados em 50 arquivos
+- **407 testes** automatizados em 50 arquivos
 - **Build**: ~5s (Vite/ESBuild)
 
 ### Documentação
@@ -179,7 +179,7 @@ npm run preview       # Preview production build
 
 ### Current Metrics
 
-- **189 vehicles** (BEV + hybrids) registered (40 brands)
+- **189 vehicles** (BEV + hybrids) registered (40 marcas)
 - **93 models** with official PBE/INMETRO certification
 - **27 states** with 2026 IPVA data and ANP/ANEEL tariffs
 - **406 automated tests** across 50 files
