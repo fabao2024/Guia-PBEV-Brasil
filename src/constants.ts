@@ -3412,6 +3412,47 @@ weightKg: 2340, trunkLiters: 616,
     warrantyYears: 7, warrantyBatteryYears: 7, chargeAC: 11, chargeDC: 150,
     lengthMm: 4535, widthMm: 1913, heightMm: 1329, wheelbaseMm: 2690, groundClearanceMm: 115.5, weightKg: 1985, trunkLiters: 249,
   },
+  // MG IM6: estreia da divisão premium IM (SAIC) no Brasil. Specs: ficha técnica
+  // MG Motor Brasil (out/26); autonomia Inmetro 348 km (Signature) e 400 km
+  // (Performance Signature). Potência DC não divulgada no Brasil — 153 kW e
+  // 396 kW conforme mgmotor.com.au/vehicles/im6 (800 V SiC). Peso, altura do
+  // solo e recarga AC não divulgados. Tabela oficial prevista para 22/10/2026 —
+  // TODO(precos): preços PROVISÓRIOS até divulgação da MG.
+  {
+    model: "IM6 Signature", brand: "MG Motor", price: 389900, range: 348, cat: "SUV",
+    img: "/car-images/mg-im6.jpg",
+    power: 295, torque: 45.9, traction: 'RWD', battery: 75,
+    features: [
+      "SUV elétrico premium — estreia da divisão IM da MG no Brasil",
+      "Bateria LFP 75 kWh (arquitetura 400 V); autonomia Inmetro de 348 km",
+      "Motor único traseiro: 295 cv / 45,9 kgfm (0-100 km/h em 6,4 s)",
+      "Direção nas quatro rodas com eixo traseiro esterçante (até 12°)",
+      "Tela única 26,3\" + central 10,5\", 20 alto-falantes, teto solar panorâmico",
+      "Porta-malas 665 L + frunk de 32 L",
+      "7 airbags e 5 estrelas Euro NCAP"
+    ],
+    pbeRating: 'A',
+    chargeDC: 153,
+    lengthMm: 4904, widthMm: 1988, heightMm: 1669, wheelbaseMm: 2950, trunkLiters: 665,
+  },
+  {
+    model: "IM6 Performance Signature", brand: "MG Motor", price: 478900, range: 400, cat: "SUV",
+    img: "/car-images/mg-im6.jpg",
+    power: 752, torque: 81.7, traction: 'AWD', battery: 100,
+    features: [
+      "SUV elétrico premium cupê — topo da linha da divisão IM no Brasil",
+      "Bateria NMC 100 kWh (arquitetura 800 V SiC); autonomia Inmetro de 400 km",
+      "AWD dual motor: 752 cv / 81,7 kgfm (0-100 km/h em 3,5 s)",
+      "Recarga DC 10-80% em 18 min (potência nominal 396 kW)",
+      "Suspensão pneumática e amortecedores adaptativos, rodas aro 21",
+      "Direção nas quatro rodas com eixo traseiro esterçante (até 12°)",
+      "Tela única 26,3\" + central 10,5\", 20 alto-falantes, teto solar panorâmico",
+      "7 airbags e 5 estrelas Euro NCAP"
+    ],
+    pbeRating: 'A',
+    chargeDC: 396,
+    lengthMm: 4904, widthMm: 1988, heightMm: 1669, wheelbaseMm: 2950, trunkLiters: 665,
+  },
   {
     model: "e-Vitara", brand: "Suzuki", price: 269990, range: 293, cat: "SUV",
     img: "/car-images/e-vitara.jpg",

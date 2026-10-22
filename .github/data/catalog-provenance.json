@@ -14476,6 +14476,158 @@
           "verifiedAt": "2026-10-06"
         }
       }
+    },
+    "mg-motor-im6-signature": {
+      "brand": "MG Motor",
+      "model": "IM6 Signature",
+      "fields": {
+        "price": {
+          "verificationStatus": "unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "specialist_media",
+          "sourceUrl": "https://www.uol.com.br/carros/noticias/redacao/2026/10/20/mg-im6-e-suv-de-752-cv-que-alia-potencia-e-conforto-contra-zeekr-e-byd.htm",
+          "sourceUpdatedAt": "2026-10-20",
+          "verifiedAt": "2026-10-22"
+        },
+        "consumption": {
+          "verificationStatus": "unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://motor1.uol.com.br/news/812155/mg-im6-estreia-suv-eletrico/",
+          "sourceUpdatedAt": "2026-10-16",
+          "verifiedAt": "2026-10-22"
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://motor1.uol.com.br/news/812155/mg-im6-estreia-suv-eletrico/",
+          "sourceUpdatedAt": "2026-10-16",
+          "verifiedAt": "2026-10-22"
+        },
+        "charging": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://mgmotor.com.au/vehicles/im6",
+          "sourceUpdatedAt": "2026-10-22",
+          "verifiedAt": "2026-10-22"
+        },
+        "availability": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://mgmotoroficial.com.br/model/im6",
+          "sourceUpdatedAt": "2026-10-22",
+          "verifiedAt": "2026-10-22"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://motor1.uol.com.br/news/812155/mg-im6-estreia-suv-eletrico/",
+          "sourceUpdatedAt": "2026-10-16",
+          "verifiedAt": "2026-10-22"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.uol.com.br/carros/noticias/redacao/2026/10/20/mg-im6-e-suv-de-752-cv-que-alia-potencia-e-conforto-contra-zeekr-e-byd.htm",
+          "sourceUpdatedAt": "2026-10-20",
+          "verifiedAt": "2026-10-22"
+        },
+        "weight": {
+          "verificationStatus": "unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
+    "mg-motor-im6-performance-signature": {
+      "brand": "MG Motor",
+      "model": "IM6 Performance Signature",
+      "fields": {
+        "price": {
+          "verificationStatus": "unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "specialist_media",
+          "sourceUrl": "https://www.uol.com.br/carros/noticias/redacao/2026/10/20/mg-im6-e-suv-de-752-cv-que-alia-potencia-e-conforto-contra-zeekr-e-byd.htm",
+          "sourceUpdatedAt": "2026-10-20",
+          "verifiedAt": "2026-10-22"
+        },
+        "consumption": {
+          "verificationStatus": "unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://motor1.uol.com.br/news/812155/mg-im6-estreia-suv-eletrico/",
+          "sourceUpdatedAt": "2026-10-16",
+          "verifiedAt": "2026-10-22"
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://motor1.uol.com.br/news/812155/mg-im6-estreia-suv-eletrico/",
+          "sourceUpdatedAt": "2026-10-16",
+          "verifiedAt": "2026-10-22"
+        },
+        "charging": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://mgmotor.com.au/vehicles/im6",
+          "sourceUpdatedAt": "2026-10-22",
+          "verifiedAt": "2026-10-22"
+        },
+        "availability": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://mgmotoroficial.com.br/model/im6",
+          "sourceUpdatedAt": "2026-10-22",
+          "verifiedAt": "2026-10-22"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://motor1.uol.com.br/news/812155/mg-im6-estreia-suv-eletrico/",
+          "sourceUpdatedAt": "2026-10-16",
+          "verifiedAt": "2026-10-22"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.uol.com.br/carros/noticias/redacao/2026/10/20/mg-im6-e-suv-de-752-cv-que-alia-potencia-e-conforto-contra-zeekr-e-byd.htm",
+          "sourceUpdatedAt": "2026-10-20",
+          "verifiedAt": "2026-10-22"
+        },
+        "weight": {
+          "verificationStatus": "unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
     }
   }
 }

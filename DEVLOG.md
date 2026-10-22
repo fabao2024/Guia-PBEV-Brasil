@@ -2,7 +2,14 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
-## 13/10/2026 — Jetour S08 Premium PHEV (190 veículos)
+## 22/10/2026 — MG IM6 Signature e Performance Signature (192 veículos; preços provisórios)
+
+| Área | Mudança pública |
+|---|---|
+| Catálogo | IM6 Signature (SUV elétrico premium, estreia da divisão IM no Brasil: RWD 295 cv / 45,9 kgfm, LFP 75 kWh 400 V, 348 km Inmetro / 450 WLTP, 6,4 s, DC 153 kW) e IM6 Performance Signature (AWD 752 cv / 81,7 kgfm, NMC 100 kWh 800 V SiC, 400 km Inmetro / 505 WLTP, 3,5 s, 18 min 10–80%, DC 396 kW, pneumática aro 21). Comuns: 4904/1988/1669/2950, 665 L + frunk 32 L, eixo traseiro esterçante 12°, tela 26,3" + 10,5", 20 alto-falantes, 7 airbags, 5★ Euro NCAP. **Preços PROVISÓRIOS (TODO): tabela oficial prevista para 22/10/2026** — substituir por `constants.ts` + teste + provenance quando divulgada. Peso, vão livre, recarga AC e consumo (MJ/km fora da tabela PBEV vigente) omitidos como fail-closed. |
+| Verificação | Specs via ficha MG Motor Brasil à imprensa (motor1.uol 16/10, UOL 20/10, antihype 19/10); potência DC não divulgada no Brasil — 153/396 kW de mgmotor.com.au/vehicles/im6 (oficial). Foto: render oficial de estúdio do configurador MG Motor Australia (white 3/4 dianteiro, 2950×2074) → `mg-im6.jpg` (81 kB, abaixo do limiar de 200 kB — servida sem variantes webp, como `zeekr-001.webp` nas duas versões do 001). `tsc` limpo, pipeline `--check` (80 fontes), build Vite (192 páginas `/carro/`), scanner de segredos e proveniência (999/1920, `partial` — price/consumption `unverified` + weight pendente nas 2 entradas) aprovados. `test:run` 406/408 — mesmas 2 falhas pré-existentes de ambiente da entrada de 13/10 (sem esta mudança). |
+
+
 
 | Área | Mudança pública |
 |---|---|
