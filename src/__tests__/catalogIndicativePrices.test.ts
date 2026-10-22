@@ -1105,6 +1105,53 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(s08.trunkLiters).toBe(658);
   });
 
+  it('MG IM6 Signature/Performance should match MG Motor Brasil ficha (out/2026)', () => {
+    // Ficha MG Motor Brasil à imprensa (out/2026, via motor1.uol.com.br 16/10 e
+    // uol.com.br/carros 20/10): IM6 estreia a divisão IM no Brasil.
+    // Signature: LFP 75 kWh 400 V, RWD 295 cv / 45,9 kgfm, 348 km Inmetro
+    // (450 WLTP), 6,4 s, 210 km/h. Performance Signature: NMC 100 kWh 800 V,
+    // AWD 752 cv / 81,7 kgfm, 400 km Inmetro (505 WLTP), 3,5 s, 239 km/h,
+    // pneumática + aro 21. Comuns: 4904x1988x1669 mm, wb 2950, 665 L (+32 L
+    // frunk), eixo traseiro esterçante 12°, tela 26,3" + 10,5", 20 alto-falantes,
+    // 7 airbags, 5* Euro NCAP, DC 10-80% em 18 min (Performance).
+    // DC 153 kW (Signature) e 396 kW (Performance): mgmotor.com.au/vehicles/im6
+    // (checked 2026-10-22; potência DC não divulgada no Brasil). Peso, vão livre
+    // e AC ainda não divulgados.
+    // TODO(precos): TABELA OFICIAL PREVISTA PARA 22/10/2026 — preços abaixo são
+    // PROVISÓRIOS (MG mira < R$ 500 mil; UK Performance £50.995) e devem ser
+    // substituídos pelos valores oficiais assim que divulgados.
+    const sig = byModel('IM6 Signature');
+    expect(sig.powertrain).toBeUndefined(); // BEV
+    expect(sig.price).toBe(389900); // PROVISÓRIO
+    expect(sig.range).toBe(348);
+    expect(sig.power).toBe(295);
+    expect(sig.torque).toBe(45.9);
+    expect(sig.traction).toBe('RWD');
+    expect(sig.battery).toBe(75);
+    expect(sig.pbeRating).toBe('A');
+    expect(sig.chargeDC).toBe(153);
+    expect(sig.lengthMm).toBe(4904);
+    expect(sig.widthMm).toBe(1988);
+    expect(sig.heightMm).toBe(1669);
+    expect(sig.wheelbaseMm).toBe(2950);
+    expect(sig.trunkLiters).toBe(665);
+
+    const perf = byModel('IM6 Performance Signature');
+    expect(perf.powertrain).toBeUndefined(); // BEV
+    expect(perf.price).toBe(478900); // PROVISÓRIO
+    expect(perf.range).toBe(400);
+    expect(perf.power).toBe(752);
+    expect(perf.torque).toBe(81.7);
+    expect(perf.traction).toBe('AWD');
+    expect(perf.battery).toBe(100);
+    expect(perf.pbeRating).toBe('A');
+    expect(perf.chargeDC).toBe(396);
+    expect(perf.lengthMm).toBe(4904);
+    expect(perf.trunkLiters).toBe(665);
+    expect(perf.img).toBe('/car-images/mg-im6.jpg');
+    expect(sig.img).toBe('/car-images/mg-im6.jpg');
+  });
+
   it('CAOA Changan CS55 PHEV should match launch pricing and maker-briefed specs (set/2026)', () => {
     // caoachangan.com.br/novos/cs55-phev (checked 2026-09-26): Ultra-Hybrid PHEV
     // Flex from R$ 189.990 (launch promo, solid black; +R$ 2.000 other colors),
