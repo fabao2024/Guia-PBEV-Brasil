@@ -3416,10 +3416,10 @@ weightKg: 2340, trunkLiters: 616,
   // MG Motor Brasil (out/26); autonomia Inmetro 348 km (Signature) e 400 km
   // (Performance Signature). Potência DC não divulgada no Brasil — 153 kW e
   // 396 kW conforme mgmotor.com.au/vehicles/im6 (800 V SiC). Peso, altura do
-  // solo e recarga AC não divulgados. Tabela oficial prevista para 22/10/2026 —
-  // TODO(precos): preços PROVISÓRIOS até divulgação da MG.
+  // solo e recarga AC não divulgados. Preços oficiais confirmados em 23/10/2026:
+  // https://mgmotoroficial.com.br/oferta/im6 (Signature / Performance).
   {
-    model: "IM6 Signature", brand: "MG Motor", price: 389900, range: 348, cat: "SUV",
+    model: "IM6 Signature", brand: "MG Motor", price: 368990, range: 348, cat: "SUV",
     img: "/car-images/mg-im6.jpg",
     power: 295, torque: 45.9, traction: 'RWD', battery: 75,
     features: [
@@ -3436,8 +3436,8 @@ weightKg: 2340, trunkLiters: 616,
     lengthMm: 4904, widthMm: 1988, heightMm: 1669, wheelbaseMm: 2950, trunkLiters: 665,
   },
   {
-    model: "IM6 Performance Signature", brand: "MG Motor", price: 478900, range: 400, cat: "SUV",
-    img: "/car-images/mg-im6.jpg",
+    model: "IM6 Performance Signature", brand: "MG Motor", price: 439990, range: 400, cat: "SUV",
+    img: "/car-images/mg-im6-performance.webp",
     power: 752, torque: 81.7, traction: 'AWD', battery: 100,
     features: [
       "SUV elétrico premium cupê — topo da linha da divisão IM no Brasil",

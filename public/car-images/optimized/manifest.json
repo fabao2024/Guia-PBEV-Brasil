@@ -2187,6 +2187,44 @@
       ]
     },
     {
+      "src": "/car-images/mg-im6-performance.webp",
+      "width": 1920,
+      "height": 1182,
+      "alpha": false,
+      "bytes": 332778,
+      "sha256": "b978f60a99aeb0717c9f004166741818516a39f800a3367a4dca23e7b9a0cd45",
+      "variants": [
+        {
+          "src": "/car-images/optimized/mg-im6-performance.webp-320.webp",
+          "width": 320,
+          "height": 197,
+          "bytes": 12110,
+          "sha256": "6d453cac9207c04cb192c3848b39500ec240e2c4843415ec26ff2fdda1757693"
+        },
+        {
+          "src": "/car-images/optimized/mg-im6-performance.webp-640.webp",
+          "width": 640,
+          "height": 394,
+          "bytes": 34618,
+          "sha256": "c6b3e21731fb15f43f731b8d4ab13e2b4573203f2374c296ff718b0ce2a6f45d"
+        },
+        {
+          "src": "/car-images/optimized/mg-im6-performance.webp-960.webp",
+          "width": 960,
+          "height": 591,
+          "bytes": 64862,
+          "sha256": "f49161f3a43bd182e66b2228d0704fcdcedc170258918fbf4123a22ae26813a9"
+        },
+        {
+          "src": "/car-images/optimized/mg-im6-performance.webp-1280.webp",
+          "width": 1280,
+          "height": 788,
+          "bytes": 104348,
+          "sha256": "9f7c79395971fc6b263a584a15412af139bcbb60c535639b6595a3c9f89d5f4c"
+        }
+      ]
+    },
+    {
       "src": "/car-images/mini-cooper-se.jpg",
       "width": 2250,
       "height": 1500,

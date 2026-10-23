@@ -2,6 +2,12 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 23/10/2026 — MG IM6: preços oficiais e imagens distintas por versão
+
+- Signature: **R$ 368.990**; Performance Signature: **R$ 439.990**, confirmados em [MG Motor Brasil — ofertas IM6](https://mgmotoroficial.com.br/oferta/im6). Removidos os avisos de preços provisórios do catálogo e atualizada a proveniência dos dois preços.
+- Signature mantém a imagem branca `mg-im6.jpg`; Performance passa a usar `mg-im6-performance.webp`, fotografia oficial cinza frente 3/4 de [MG Motor Brasil](https://mgmotoroficial.com.br/imagens/im6/im6-performance-frente.webp) (1920 × 1182). Recortes do configurador brasileiro descartados por bordas serrilhadas; original preservado e quatro variantes WebP geradas pelo pipeline.
+- Verificação: `npx tsc --noEmit`, pipeline de imagens `--check`, build e scanner de segredos aprovados. `npm run test:run`: 406/408, com falhas em `AppPartnersCta` (tradução/botão do consultor) e `accessibility` (timeout), já registradas na entrada anterior. `node .github/scripts/check-catalog-provenance.mjs`: `partial`, 1001/1920 campos verificados; lacunas restantes não foram mascaradas.
+
 ## 22/10/2026 — MG IM6 Signature e Performance Signature (192 veículos; preços provisórios)
 
 | Área | Mudança pública |

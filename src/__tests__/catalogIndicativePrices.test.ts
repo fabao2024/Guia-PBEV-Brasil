@@ -1117,12 +1117,10 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     // DC 153 kW (Signature) e 396 kW (Performance): mgmotor.com.au/vehicles/im6
     // (checked 2026-10-22; potência DC não divulgada no Brasil). Peso, vão livre
     // e AC ainda não divulgados.
-    // TODO(precos): TABELA OFICIAL PREVISTA PARA 22/10/2026 — preços abaixo são
-    // PROVISÓRIOS (MG mira < R$ 500 mil; UK Performance £50.995) e devem ser
-    // substituídos pelos valores oficiais assim que divulgados.
+    // Preços confirmados em mgmotoroficial.com.br/oferta/im6 em 23/10/2026.
     const sig = byModel('IM6 Signature');
     expect(sig.powertrain).toBeUndefined(); // BEV
-    expect(sig.price).toBe(389900); // PROVISÓRIO
+    expect(sig.price).toBe(368990);
     expect(sig.range).toBe(348);
     expect(sig.power).toBe(295);
     expect(sig.torque).toBe(45.9);
@@ -1138,7 +1136,7 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
 
     const perf = byModel('IM6 Performance Signature');
     expect(perf.powertrain).toBeUndefined(); // BEV
-    expect(perf.price).toBe(478900); // PROVISÓRIO
+    expect(perf.price).toBe(439990);
     expect(perf.range).toBe(400);
     expect(perf.power).toBe(752);
     expect(perf.torque).toBe(81.7);
@@ -1148,8 +1146,9 @@ describe('CAR_DB indicative prices per official manufacturer sites', () => {
     expect(perf.chargeDC).toBe(396);
     expect(perf.lengthMm).toBe(4904);
     expect(perf.trunkLiters).toBe(665);
-    expect(perf.img).toBe('/car-images/mg-im6.jpg');
+    expect(perf.img).toBe('/car-images/mg-im6-performance.webp');
     expect(sig.img).toBe('/car-images/mg-im6.jpg');
+    expect(perf.img).not.toBe(sig.img);
   });
 
   it('CAOA Changan CS55 PHEV should match launch pricing and maker-briefed specs (set/2026)', () => {

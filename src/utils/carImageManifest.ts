@@ -1486,6 +1486,32 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
+  "/car-images/mg-im6-performance.webp": {
+    "width": 1920,
+    "height": 1182,
+    "variants": [
+      {
+        "src": "/car-images/optimized/mg-im6-performance.webp-320.webp",
+        "width": 320,
+        "height": 197
+      },
+      {
+        "src": "/car-images/optimized/mg-im6-performance.webp-640.webp",
+        "width": 640,
+        "height": 394
+      },
+      {
+        "src": "/car-images/optimized/mg-im6-performance.webp-960.webp",
+        "width": 960,
+        "height": 591
+      },
+      {
+        "src": "/car-images/optimized/mg-im6-performance.webp-1280.webp",
+        "width": 1280,
+        "height": 788
+      }
+    ]
+  },
   "/car-images/mini-cooper-se.jpg": {
     "width": 2250,
     "height": 1500,

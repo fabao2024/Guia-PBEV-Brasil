@@ -14482,11 +14482,11 @@
       "model": "IM6 Signature",
       "fields": {
         "price": {
-          "verificationStatus": "unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://mgmotoroficial.com.br/oferta/im6",
+          "sourceUpdatedAt": "2026-10-23",
+          "verifiedAt": "2026-10-23"
         },
         "range_km": {
           "verificationStatus": "verified",
@@ -14558,11 +14558,11 @@
       "model": "IM6 Performance Signature",
       "fields": {
         "price": {
-          "verificationStatus": "unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://mgmotoroficial.com.br/oferta/im6",
+          "sourceUpdatedAt": "2026-10-23",
+          "verifiedAt": "2026-10-23"
         },
         "range_km": {
           "verificationStatus": "verified",

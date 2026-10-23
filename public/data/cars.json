@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T14:36:00.674Z",
+  "generated_at": "2026-10-23T11:40:39.574Z",
   "total": 192,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "evidence": {
@@ -7724,7 +7724,7 @@
     {
       "model": "IM6 Signature",
       "brand": "MG Motor",
-      "price": 389900,
+      "price": 368990,
       "range_km": 348,
       "powertrain": "BEV",
       "electric_range_km": null,
@@ -7768,7 +7768,7 @@
     {
       "model": "IM6 Performance Signature",
       "brand": "MG Motor",
-      "price": 478900,
+      "price": 439990,
       "range_km": 400,
       "powertrain": "BEV",
       "electric_range_km": null,
@@ -7777,7 +7777,7 @@
       "fuel_consumption_kml_ethanol": null,
       "fuel_type_2": null,
       "category": "SUV",
-      "image_url": "https://guiapbev.cloud/car-images/mg-im6.jpg",
+      "image_url": "https://guiapbev.cloud/car-images/mg-im6-performance.webp",
       "traction": "AWD",
       "power_cv": 752,
       "torque_kgfm": 81.7,
