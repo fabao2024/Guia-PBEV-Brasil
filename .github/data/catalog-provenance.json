@@ -493,79 +493,155 @@
         }
       }
     },
-    "baic-arcfox-t1": {
+    "baic-arcfox-t1-max": {
       "brand": "BAIC",
-      "model": "Arcfox T1",
+      "model": "Arcfox T1 Max",
       "fields": {
         "price": {
-          "verificationStatus": "verified",
-          "sourceType": "official_press_release",
-          "sourceUrl": "https://insideevs.uol.com.br/news/baic-arcfox-t1-brasil",
-          "sourceUpdatedAt": "2026-10-01",
-          "verifiedAt": "2026-10-01"
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         },
         "range_km": {
-          "verificationStatus": "verified",
-          "sourceType": "official_press_release",
-          "sourceUrl": "https://insideevs.uol.com.br/news/baic-arcfox-t1-brasil",
-          "sourceUpdatedAt": "2026-10-01",
-          "verifiedAt": "2026-10-01"
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         },
         "consumption": {
-          "verificationStatus": "verified",
-          "sourceType": "official_press_release",
-          "sourceUrl": "https://insideevs.uol.com.br/news/baic-arcfox-t1-brasil",
-          "sourceUpdatedAt": "2026-10-01",
-          "verifiedAt": "2026-10-01"
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         },
         "power": {
-          "verificationStatus": "verified",
-          "sourceType": "official_press_release",
-          "sourceUrl": "https://insideevs.uol.com.br/news/baic-arcfox-t1-brasil",
-          "sourceUpdatedAt": "2026-10-01",
-          "verifiedAt": "2026-10-01"
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         },
         "battery": {
-          "verificationStatus": "verified",
-          "sourceType": "official_press_release",
-          "sourceUrl": "https://insideevs.uol.com.br/news/baic-arcfox-t1-brasil",
-          "sourceUpdatedAt": "2026-10-01",
-          "verifiedAt": "2026-10-01"
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         },
         "charging": {
-          "verificationStatus": "verified",
-          "sourceType": "official_press_release",
-          "sourceUrl": "https://insideevs.uol.com.br/news/baic-arcfox-t1-brasil",
-          "sourceUpdatedAt": "2026-10-01",
-          "verifiedAt": "2026-10-01"
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         },
         "availability": {
-          "verificationStatus": "verified",
-          "sourceType": "official_press_release",
-          "sourceUrl": "https://insideevs.uol.com.br/news/baic-arcfox-t1-brasil",
-          "sourceUpdatedAt": "2026-10-01",
-          "verifiedAt": "2026-10-01"
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         },
         "dimensions": {
-          "verificationStatus": "verified",
-          "sourceType": "official_press_release",
-          "sourceUrl": "https://insideevs.uol.com.br/news/baic-arcfox-t1-brasil",
-          "sourceUpdatedAt": "2026-10-01",
-          "verifiedAt": "2026-10-01"
+          "verificationStatus": "legacy_unverified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.arcfoxglobal.com/models/55",
+          "sourceUpdatedAt": null,
+          "verifiedAt": "2026-10-31"
         },
         "trunk": {
-          "verificationStatus": "verified",
-          "sourceType": "official_press_release",
-          "sourceUrl": "https://insideevs.uol.com.br/news/baic-arcfox-t1-brasil",
-          "sourceUpdatedAt": "2026-10-01",
-          "verifiedAt": "2026-10-01"
+          "verificationStatus": "legacy_unverified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.arcfoxglobal.com/models/55",
+          "sourceUpdatedAt": null,
+          "verifiedAt": "2026-10-31"
         },
         "weight": {
-          "verificationStatus": "verified",
-          "sourceType": "official_press_release",
-          "sourceUrl": "https://insideevs.uol.com.br/news/baic-arcfox-t1-brasil",
-          "sourceUpdatedAt": "2026-10-01",
-          "verifiedAt": "2026-10-01"
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
+    "baic-arcfox-t1-pro": {
+      "brand": "BAIC",
+      "model": "Arcfox T1 Pro",
+      "fields": {
+        "price": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "range_km": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "consumption": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "power": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "battery": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.arcfoxglobal.com/models/55",
+          "sourceUpdatedAt": null,
+          "verifiedAt": "2026-10-31"
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.arcfoxglobal.com/models/55",
+          "sourceUpdatedAt": null,
+          "verifiedAt": "2026-10-31"
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         }
       }
     },
@@ -10449,6 +10525,158 @@
         }
       }
     },
+    "mg-motor-im6-performance-signature": {
+      "brand": "MG Motor",
+      "model": "IM6 Performance Signature",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://mgmotoroficial.com.br/oferta/im6",
+          "sourceUpdatedAt": "2026-10-23",
+          "verifiedAt": "2026-10-23"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "specialist_media",
+          "sourceUrl": "https://www.uol.com.br/carros/noticias/redacao/2026/10/20/mg-im6-e-suv-de-752-cv-que-alia-potencia-e-conforto-contra-zeekr-e-byd.htm",
+          "sourceUpdatedAt": "2026-10-20",
+          "verifiedAt": "2026-10-22"
+        },
+        "consumption": {
+          "verificationStatus": "unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://motor1.uol.com.br/news/812155/mg-im6-estreia-suv-eletrico/",
+          "sourceUpdatedAt": "2026-10-16",
+          "verifiedAt": "2026-10-22"
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://motor1.uol.com.br/news/812155/mg-im6-estreia-suv-eletrico/",
+          "sourceUpdatedAt": "2026-10-16",
+          "verifiedAt": "2026-10-22"
+        },
+        "charging": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://mgmotor.com.au/vehicles/im6",
+          "sourceUpdatedAt": "2026-10-22",
+          "verifiedAt": "2026-10-22"
+        },
+        "availability": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://mgmotoroficial.com.br/model/im6",
+          "sourceUpdatedAt": "2026-10-22",
+          "verifiedAt": "2026-10-22"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://motor1.uol.com.br/news/812155/mg-im6-estreia-suv-eletrico/",
+          "sourceUpdatedAt": "2026-10-16",
+          "verifiedAt": "2026-10-22"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.uol.com.br/carros/noticias/redacao/2026/10/20/mg-im6-e-suv-de-752-cv-que-alia-potencia-e-conforto-contra-zeekr-e-byd.htm",
+          "sourceUpdatedAt": "2026-10-20",
+          "verifiedAt": "2026-10-22"
+        },
+        "weight": {
+          "verificationStatus": "unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
+    "mg-motor-im6-signature": {
+      "brand": "MG Motor",
+      "model": "IM6 Signature",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://mgmotoroficial.com.br/oferta/im6",
+          "sourceUpdatedAt": "2026-10-23",
+          "verifiedAt": "2026-10-23"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "specialist_media",
+          "sourceUrl": "https://www.uol.com.br/carros/noticias/redacao/2026/10/20/mg-im6-e-suv-de-752-cv-que-alia-potencia-e-conforto-contra-zeekr-e-byd.htm",
+          "sourceUpdatedAt": "2026-10-20",
+          "verifiedAt": "2026-10-22"
+        },
+        "consumption": {
+          "verificationStatus": "unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://motor1.uol.com.br/news/812155/mg-im6-estreia-suv-eletrico/",
+          "sourceUpdatedAt": "2026-10-16",
+          "verifiedAt": "2026-10-22"
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://motor1.uol.com.br/news/812155/mg-im6-estreia-suv-eletrico/",
+          "sourceUpdatedAt": "2026-10-16",
+          "verifiedAt": "2026-10-22"
+        },
+        "charging": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://mgmotor.com.au/vehicles/im6",
+          "sourceUpdatedAt": "2026-10-22",
+          "verifiedAt": "2026-10-22"
+        },
+        "availability": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://mgmotoroficial.com.br/model/im6",
+          "sourceUpdatedAt": "2026-10-22",
+          "verifiedAt": "2026-10-22"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://motor1.uol.com.br/news/812155/mg-im6-estreia-suv-eletrico/",
+          "sourceUpdatedAt": "2026-10-16",
+          "verifiedAt": "2026-10-22"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.uol.com.br/carros/noticias/redacao/2026/10/20/mg-im6-e-suv-de-752-cv-que-alia-potencia-e-conforto-contra-zeekr-e-byd.htm",
+          "sourceUpdatedAt": "2026-10-20",
+          "verifiedAt": "2026-10-22"
+        },
+        "weight": {
+          "verificationStatus": "unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        }
+      }
+    },
     "mg-motor-mg4-comfort": {
       "brand": "MG Motor",
       "model": "MG4 Comfort",
@@ -14021,82 +14249,6 @@
         }
       }
     },
-    "zeekr-001-premium": {
-      "brand": "Zeekr",
-      "model": "001 Premium",
-      "fields": {
-        "price": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
-        },
-        "range_km": {
-          "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/001",
-          "sourceUpdatedAt": "2026-08-26",
-          "verifiedAt": "2026-08-26"
-        },
-        "consumption": {
-          "verificationStatus": "verified",
-          "sourceType": "official_regulator",
-          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
-          "sourceUpdatedAt": "2026-08-14",
-          "verifiedAt": "2026-08-25"
-        },
-        "power": {
-          "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/001",
-          "sourceUpdatedAt": "2026-08-26",
-          "verifiedAt": "2026-08-26"
-        },
-        "battery": {
-          "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/001",
-          "sourceUpdatedAt": "2026-08-26",
-          "verifiedAt": "2026-08-26"
-        },
-        "charging": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
-        },
-        "availability": {
-          "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/001",
-          "sourceUpdatedAt": "2026-08-26",
-          "verifiedAt": "2026-08-26"
-        },
-        "dimensions": {
-          "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://zeekr.cical.com.br/wp-content/uploads/2025/07/FICHA-TECNICA-001.pdf",
-          "sourceUpdatedAt": null,
-          "verifiedAt": "2026-09-03"
-        },
-        "trunk": {
-          "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://zeekr.cical.com.br/wp-content/uploads/2025/07/FICHA-TECNICA-001.pdf",
-          "sourceUpdatedAt": null,
-          "verifiedAt": "2026-09-03"
-        },
-        "weight": {
-          "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://zeekr.cical.com.br/wp-content/uploads/2025/07/FICHA-TECNICA-001.pdf",
-          "sourceUpdatedAt": null,
-          "verifiedAt": "2026-09-03"
-        }
-      }
-    },
     "zeekr-001-flagship": {
       "brand": "Zeekr",
       "model": "001 Flagship",
@@ -14170,6 +14322,82 @@
           "sourceUrl": null,
           "sourceUpdatedAt": null,
           "verifiedAt": null
+        }
+      }
+    },
+    "zeekr-001-premium": {
+      "brand": "Zeekr",
+      "model": "001 Premium",
+      "fields": {
+        "price": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/001",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/001",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/001",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "availability": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/001",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://zeekr.cical.com.br/wp-content/uploads/2025/07/FICHA-TECNICA-001.pdf",
+          "sourceUpdatedAt": null,
+          "verifiedAt": "2026-09-03"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://zeekr.cical.com.br/wp-content/uploads/2025/07/FICHA-TECNICA-001.pdf",
+          "sourceUpdatedAt": null,
+          "verifiedAt": "2026-09-03"
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://zeekr.cical.com.br/wp-content/uploads/2025/07/FICHA-TECNICA-001.pdf",
+          "sourceUpdatedAt": null,
+          "verifiedAt": "2026-09-03"
         }
       }
     },
@@ -14325,82 +14553,6 @@
         }
       }
     },
-    "zeekr-x-premium": {
-      "brand": "Zeekr",
-      "model": "X Premium",
-      "fields": {
-        "price": {
-          "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://www.zeekrlife.com/pt-br/test-drive",
-          "sourceUpdatedAt": "2026-10-06",
-          "verifiedAt": "2026-10-06"
-        },
-        "range_km": {
-          "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/x",
-          "sourceUpdatedAt": "2026-08-26",
-          "verifiedAt": "2026-08-26"
-        },
-        "consumption": {
-          "verificationStatus": "verified",
-          "sourceType": "official_regulator",
-          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
-          "sourceUpdatedAt": "2026-08-14",
-          "verifiedAt": "2026-08-25"
-        },
-        "power": {
-          "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/x",
-          "sourceUpdatedAt": "2026-08-26",
-          "verifiedAt": "2026-08-26"
-        },
-        "battery": {
-          "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/x",
-          "sourceUpdatedAt": "2026-08-26",
-          "verifiedAt": "2026-08-26"
-        },
-        "charging": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
-        },
-        "availability": {
-          "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/x",
-          "sourceUpdatedAt": "2026-08-26",
-          "verifiedAt": "2026-08-26"
-        },
-        "dimensions": {
-          "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://zeekr.cical.com.br/wp-content/uploads/2025/07/FICHA-TECNICA-X.pdf",
-          "sourceUpdatedAt": null,
-          "verifiedAt": "2026-09-03"
-        },
-        "trunk": {
-          "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://zeekr.cical.com.br/wp-content/uploads/2025/07/FICHA-TECNICA-X.pdf",
-          "sourceUpdatedAt": null,
-          "verifiedAt": "2026-09-03"
-        },
-        "weight": {
-          "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://zeekr.cical.com.br/wp-content/uploads/2025/07/FICHA-TECNICA-X.pdf",
-          "sourceUpdatedAt": null,
-          "verifiedAt": "2026-09-03"
-        }
-      }
-    },
     "zeekr-x-flagship": {
       "brand": "Zeekr",
       "model": "X Flagship",
@@ -14477,155 +14629,79 @@
         }
       }
     },
-    "mg-motor-im6-signature": {
-      "brand": "MG Motor",
-      "model": "IM6 Signature",
+    "zeekr-x-premium": {
+      "brand": "Zeekr",
+      "model": "X Premium",
       "fields": {
         "price": {
           "verificationStatus": "verified",
           "sourceType": "official_manufacturer",
-          "sourceUrl": "https://mgmotoroficial.com.br/oferta/im6",
-          "sourceUpdatedAt": "2026-10-23",
-          "verifiedAt": "2026-10-23"
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/test-drive",
+          "sourceUpdatedAt": "2026-10-06",
+          "verifiedAt": "2026-10-06"
         },
         "range_km": {
           "verificationStatus": "verified",
-          "sourceType": "specialist_media",
-          "sourceUrl": "https://www.uol.com.br/carros/noticias/redacao/2026/10/20/mg-im6-e-suv-de-752-cv-que-alia-potencia-e-conforto-contra-zeekr-e-byd.htm",
-          "sourceUpdatedAt": "2026-10-20",
-          "verifiedAt": "2026-10-22"
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/x",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "consumption": {
-          "verificationStatus": "unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-14",
+          "verifiedAt": "2026-08-25"
         },
         "power": {
           "verificationStatus": "verified",
           "sourceType": "official_manufacturer",
-          "sourceUrl": "https://motor1.uol.com.br/news/812155/mg-im6-estreia-suv-eletrico/",
-          "sourceUpdatedAt": "2026-10-16",
-          "verifiedAt": "2026-10-22"
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/x",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "battery": {
           "verificationStatus": "verified",
           "sourceType": "official_manufacturer",
-          "sourceUrl": "https://motor1.uol.com.br/news/812155/mg-im6-estreia-suv-eletrico/",
-          "sourceUpdatedAt": "2026-10-16",
-          "verifiedAt": "2026-10-22"
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/x",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "charging": {
-          "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://mgmotor.com.au/vehicles/im6",
-          "sourceUpdatedAt": "2026-10-22",
-          "verifiedAt": "2026-10-22"
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
         },
         "availability": {
           "verificationStatus": "verified",
           "sourceType": "official_manufacturer",
-          "sourceUrl": "https://mgmotoroficial.com.br/model/im6",
-          "sourceUpdatedAt": "2026-10-22",
-          "verifiedAt": "2026-10-22"
+          "sourceUrl": "https://www.zeekrlife.com/pt-br/models/x",
+          "sourceUpdatedAt": "2026-08-26",
+          "verifiedAt": "2026-08-26"
         },
         "dimensions": {
           "verificationStatus": "verified",
           "sourceType": "official_manufacturer",
-          "sourceUrl": "https://motor1.uol.com.br/news/812155/mg-im6-estreia-suv-eletrico/",
-          "sourceUpdatedAt": "2026-10-16",
-          "verifiedAt": "2026-10-22"
+          "sourceUrl": "https://zeekr.cical.com.br/wp-content/uploads/2025/07/FICHA-TECNICA-X.pdf",
+          "sourceUpdatedAt": null,
+          "verifiedAt": "2026-09-03"
         },
         "trunk": {
           "verificationStatus": "verified",
           "sourceType": "official_manufacturer",
-          "sourceUrl": "https://www.uol.com.br/carros/noticias/redacao/2026/10/20/mg-im6-e-suv-de-752-cv-que-alia-potencia-e-conforto-contra-zeekr-e-byd.htm",
-          "sourceUpdatedAt": "2026-10-20",
-          "verifiedAt": "2026-10-22"
+          "sourceUrl": "https://zeekr.cical.com.br/wp-content/uploads/2025/07/FICHA-TECNICA-X.pdf",
+          "sourceUpdatedAt": null,
+          "verifiedAt": "2026-09-03"
         },
         "weight": {
-          "verificationStatus": "unverified",
-          "sourceType": null,
-          "sourceUrl": null,
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://zeekr.cical.com.br/wp-content/uploads/2025/07/FICHA-TECNICA-X.pdf",
           "sourceUpdatedAt": null,
-          "verifiedAt": null
-        }
-      }
-    },
-    "mg-motor-im6-performance-signature": {
-      "brand": "MG Motor",
-      "model": "IM6 Performance Signature",
-      "fields": {
-        "price": {
-          "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://mgmotoroficial.com.br/oferta/im6",
-          "sourceUpdatedAt": "2026-10-23",
-          "verifiedAt": "2026-10-23"
-        },
-        "range_km": {
-          "verificationStatus": "verified",
-          "sourceType": "specialist_media",
-          "sourceUrl": "https://www.uol.com.br/carros/noticias/redacao/2026/10/20/mg-im6-e-suv-de-752-cv-que-alia-potencia-e-conforto-contra-zeekr-e-byd.htm",
-          "sourceUpdatedAt": "2026-10-20",
-          "verifiedAt": "2026-10-22"
-        },
-        "consumption": {
-          "verificationStatus": "unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
-        },
-        "power": {
-          "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://motor1.uol.com.br/news/812155/mg-im6-estreia-suv-eletrico/",
-          "sourceUpdatedAt": "2026-10-16",
-          "verifiedAt": "2026-10-22"
-        },
-        "battery": {
-          "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://motor1.uol.com.br/news/812155/mg-im6-estreia-suv-eletrico/",
-          "sourceUpdatedAt": "2026-10-16",
-          "verifiedAt": "2026-10-22"
-        },
-        "charging": {
-          "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://mgmotor.com.au/vehicles/im6",
-          "sourceUpdatedAt": "2026-10-22",
-          "verifiedAt": "2026-10-22"
-        },
-        "availability": {
-          "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://mgmotoroficial.com.br/model/im6",
-          "sourceUpdatedAt": "2026-10-22",
-          "verifiedAt": "2026-10-22"
-        },
-        "dimensions": {
-          "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://motor1.uol.com.br/news/812155/mg-im6-estreia-suv-eletrico/",
-          "sourceUpdatedAt": "2026-10-16",
-          "verifiedAt": "2026-10-22"
-        },
-        "trunk": {
-          "verificationStatus": "verified",
-          "sourceType": "official_manufacturer",
-          "sourceUrl": "https://www.uol.com.br/carros/noticias/redacao/2026/10/20/mg-im6-e-suv-de-752-cv-que-alia-potencia-e-conforto-contra-zeekr-e-byd.htm",
-          "sourceUpdatedAt": "2026-10-20",
-          "verifiedAt": "2026-10-22"
-        },
-        "weight": {
-          "verificationStatus": "unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verifiedAt": "2026-09-03"
         }
       }
     }

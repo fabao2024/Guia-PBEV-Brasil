@@ -14,7 +14,8 @@ const NEW_MODELS = new Set([
   'Jaecoo 5 Comfort',
   'Jaecoo 5 Prestige',
   'Box E2',
-  'Arcfox T1',
+  'Arcfox T1 Pro',
+  'Arcfox T1 Max',
   'B10 REEV',
   'Tiggo 9 PHEV',
   'Haval H7 PHEV',
@@ -3737,23 +3738,39 @@ weightKg: 2340, trunkLiters: 616,
     lengthMm: 4030, widthMm: 1810, heightMm: 1570, wheelbaseMm: 2660, groundClearanceMm: 150, weightKg: 1260, trunkLiters: 326,
   },
 
-  // BAIC — Arcfox T1 (BEV 100% elétrico)
+  // BAIC — Arcfox T1 (lançamento brasileiro de outubro de 2026)
   {
-    model: "Arcfox T1", brand: "BAIC", price: 139900, range: 290, cat: "Compacto",
+    model: "Arcfox T1 Pro", brand: "BAIC", price: 129900, range: 283, cat: "Compacto",
     powertrain: 'BEV',
     img: "/car-images/baic-arcfox-t1.png",
-    power: 120, torque: 18.4, traction: 'FWD', battery: 42.3,
-    chargeAC: 7.0, chargeDC: 50,
+    power: 95, torque: 17.9, traction: 'FWD', battery: 42.3,
+    lengthMm: 4337, widthMm: 1860, heightMm: 1572, wheelbaseMm: 2770, trunkLiters: 459,
     features: [
-      "Bateria LFP de 42,3 kWh com autonomia PBEV de 290 km",
-      "Motor elétrico de 120 cv e 18,4 kgfm de torque instantâneo",
-      "Recarga rápida DC de 50 kW (30% a 80% em 32 minutos)",
-      "Painel digital de 8,8\" + central multimídia HD de 10,25\"",
-      "Direção elétrica progressiva com 3 modos de condução",
-      "6 airbags, freio de estacionamento eletrônico com Auto Hold"
+      "Preço promocional de lançamento até 31/12/2026 ou 600 unidades",
+      "Bateria LFP de 42,3 kWh e autonomia PBEV de até 283 km",
+      "Motor elétrico de 95 cv e 17,9 kgfm",
+      "Painel digital de 8,8\" e central multimídia de 15,6\"",
+      "Rodas de aço de 17 polegadas com calotas",
+      "Câmera 360° com visão do chassi e sistema EZT para manobras",
+      "Ar-condicionado digital e conectividade Android Auto e Apple CarPlay sem fio"
     ],
-    pbeRating: 'A', energyMJkm: 0.45,
-    warrantyYears: 5, warrantyBatteryYears: 8,
-    lengthMm: 4120, widthMm: 1780, heightMm: 1550, wheelbaseMm: 2580, groundClearanceMm: 155, weightKg: 1380, trunkLiters: 310,
+  },
+  {
+    model: "Arcfox T1 Max", brand: "BAIC", price: 139900, range: 283, cat: "Compacto",
+    powertrain: 'BEV',
+    img: "/car-images/baic-arcfox-t1.png",
+    power: 95, torque: 17.9, traction: 'FWD', battery: 42.3,
+    lengthMm: 4337, widthMm: 1860, heightMm: 1572, wheelbaseMm: 2770, trunkLiters: 459,
+    features: [
+      "Bateria LFP de 42,3 kWh e autonomia PBEV de até 283 km",
+      "Motor elétrico de 95 cv e 17,9 kgfm",
+      "Painel digital de 8,8\" e central multimídia de 15,6\"",
+      "Rodas de liga leve de 18 polegadas e teto panorâmico",
+      "Porta-malas com acionamento elétrico",
+      "ADAS com frenagem autônoma, cruzeiro adaptativo e centralização de faixa",
+      "Carregador de celular por indução opcional",
+      "Câmera 360° com visão do chassi e sistema EZT para manobras",
+      "Ar-condicionado digital e conectividade Android Auto e Apple CarPlay sem fio"
+    ],
   },
 ];

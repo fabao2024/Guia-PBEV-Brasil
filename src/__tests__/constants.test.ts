@@ -3,6 +3,20 @@ import type { Car } from '../types';
 import { ALL_POWERTRAINS, DEFAULT_MIN_RANGE } from '../types';
 
 describe('CAR_DB data integrity', () => {
+  it('lists both Brazilian Arcfox T1 versions with launch specifications', () => {
+    const versions = CAR_DB.filter(car => car.brand === 'BAIC');
+    expect(versions.map(car => car.model)).toEqual(['Arcfox T1 Pro', 'Arcfox T1 Max']);
+    expect(versions.map(car => car.price)).toEqual([129900, 139900]);
+    for (const car of versions) {
+      expect(car.range).toBe(283);
+      expect(car.power).toBe(95);
+      expect(car.battery).toBe(42.3);
+      expect(car.features?.some(feature => feature.includes('EZT'))).toBe(true);
+      expect(car.features?.some(feature => feature.includes('estacionamento automático'))).toBe(false);
+    }
+    expect(versions[1].features?.some(feature => feature.includes('indução') && feature.includes('opcional'))).toBe(true);
+    expect(versions[1].features?.some(feature => feature.includes('frenagem autônoma'))).toBe(true);
+  });
   it('should have at least one car', () => {
     expect(CAR_DB.length).toBeGreaterThan(0);
   });

@@ -2,6 +2,13 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 31/10/2026 — BAIC Arcfox T1 Pro e Max
+
+- Equipamentos revisados com [Quatro Rodas](https://quatrorodas.abril.com.br/carros-eletricos/baic-arcfox-t1-custa-r129-900-com-item-de-carro-de-luxo-contra-byd-dolphin-e-geely-ex2/): câmera com visão do chassi, EZT e conectividade nas duas versões; ADAS e carregador por indução opcional na Max. Estacionamento automático e detalhes de ventilação e memória dos bancos aguardam esclarecimento devido a divergências entre fontes.
+- Catálogo separado nas duas versões brasileiras, com preço promocional da Pro e especificações de lançamento conforme [Motor1](https://motor1.uol.com.br/news/813779/baic-arcfox-t1-preco-brasil/) e [CNN Brasil](https://www.cnnbrasil.com.br/auto/baic-arcfox-t1-chega-a-partir-de-r-130-mil-contra-dolphin-ex2-e-aion-ut/). Dimensões e capacidade de bagagem consultadas na [Arcfox global](https://www.arcfoxglobal.com/models/55). Dados antigos sem confirmação foram removidos.
+- Proveniência anterior substituída por registros sem verificação até confirmação das fontes primárias brasileiras e da data de atualização da ficha global. A imagem existente permanece compartilhada: fotos oficiais identificadas por versão brasileira ainda precisam de confirmação.
+- Verificação: testes, typecheck e build com scanner de segredos; verificação de proveniência permanece parcial.
+
 ## 23/10/2026 — MG IM6: preços oficiais e imagens distintas por versão
 
 - Signature: **R$ 368.990**; Performance Signature: **R$ 439.990**, confirmados em [MG Motor Brasil — ofertas IM6](https://mgmotoroficial.com.br/oferta/im6). Removidos os avisos de preços provisórios do catálogo e atualizada a proveniência dos dois preços.
