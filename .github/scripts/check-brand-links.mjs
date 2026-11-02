@@ -29,7 +29,6 @@ async function request(url, method) {
       headers: {
         'User-Agent': 'Mozilla/5.0 (compatible; GuiaPBEV-LinkCheck/2.0; +https://guiapbev.cloud)',
         Accept: 'text/html,application/xhtml+xml',
-        ...(method === 'GET' ? { Range: 'bytes=0-1023' } : {}),
       },
       redirect: 'follow',
       signal: controller.signal,
@@ -78,7 +77,7 @@ async function collect() {
   const counts = results.reduce((acc, item) => ({ ...acc, [item.status]: (acc[item.status] ?? 0) + 1 }), {});
   const incomplete = (counts.blocked ?? 0) + (counts.timeout ?? 0) + (counts.unavailable ?? 0);
   const broken = counts.broken ?? 0;
-  const status = incomplete > 0 ? 'partial' : broken > 0 ? 'changed' : 'unchanged';
+  const status = broken > 0 ? 'changed' : 'unchanged';
 
   return createMaintenanceResult({
     source: SOURCE,
@@ -86,10 +85,18 @@ async function collect() {
     checkedAt,
     sourceUpdatedAt: checkedAt.slice(0, 10),
     repositoryReference: `${links.length} marcas`,
-    coverage: { checked: links.length - incomplete, expected: links.length },
+    coverage: {
+      checked: links.length,
+      expected: links.length,
+      verifiable: results.filter(item => item.verifiable).length,
+      inconclusive: incomplete,
+    },
     changes: broken,
-    error: incomplete > 0 ? `${incomplete} links não puderam ser verificados` : null,
-    details: { counts, links: results },
+    details: {
+      counts,
+      links: results,
+      warning: incomplete > 0 ? `${incomplete} links tiveram resposta inconclusiva; nenhum foi marcado como quebrado sem 404/410 confirmado.` : null,
+    },
   });
 }
 

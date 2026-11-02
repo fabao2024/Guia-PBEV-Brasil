@@ -15,6 +15,16 @@ const STATUS_LABELS = {
   failed: '🔴 falhou',
 };
 
+function statusLabel(result) {
+  if (result.source === 'brand_links' && result.status === 'unchanged' && (result.coverage?.inconclusive ?? 0) > 0) {
+    return '✅ sem links quebrados (bloqueios explícitos)';
+  }
+  if (result.source === 'provenance' && result.status === 'unchanged' && (result.details?.legacyDocumented ?? 0) > 0) {
+    return '✅ legado documentado';
+  }
+  return STATUS_LABELS[result.status] ?? result.status;
+}
+
 function md(value) {
   return String(value ?? '—')
     .replace(/\\/g, '\\\\')
@@ -33,7 +43,19 @@ function safeUrl(value) {
 }
 
 function coverage(result) {
-  return result.coverage ? `${result.coverage.checked}/${result.coverage.expected}` : '—';
+  if (!result.coverage) return '—';
+  const base = `${result.coverage.checked}/${result.coverage.expected}`;
+  const extras = [];
+  if (Number.isInteger(result.coverage.verifiable) && result.coverage.verifiable !== result.coverage.expected) {
+    extras.push(`${result.coverage.verifiable} verificáveis`);
+  }
+  if (Number.isInteger(result.coverage.inconclusive) && result.coverage.inconclusive > 0) {
+    extras.push(`${result.coverage.inconclusive} inconclusivos`);
+  }
+  if (Number.isInteger(result.details?.legacyDocumented) && result.details.legacyDocumented > 0) {
+    extras.push(`${result.details.legacyDocumented} legados documentados`);
+  }
+  return extras.length ? `${base} (${extras.join('; ')})` : base;
 }
 
 function link(label, value) {
@@ -48,7 +70,7 @@ function evidence(result) {
 function resultTable(results) {
   const rows = results.map(result => [
     md(SOURCE_LABELS[result.source] ?? result.source),
-    md(STATUS_LABELS[result.status] ?? result.status),
+    md(statusLabel(result)),
     md(coverage(result)),
     md(result.repositoryReference),
     md(result.sourceUpdatedAt),

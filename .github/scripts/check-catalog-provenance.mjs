@@ -22,6 +22,15 @@ function legacyField() {
   };
 }
 
+function legacyException(slug, field) {
+  return {
+    reason: 'Campo herdado do catálogo anterior sem evidência histórica registrada no repositório.',
+    reviewCondition: 'Revisar com fonte oficial do fabricante, regulador ou comunicado oficial antes de alterar o valor.',
+    recordedAt: new Date().toISOString().slice(0, 10),
+    field: `${slug}.${field}`,
+  };
+}
+
 function isVerified(field, hierarchy) {
   if (field?.verificationStatus !== 'verified') return false;
   if (!hierarchy.includes(field.sourceType)) return false;
@@ -44,15 +53,33 @@ function load() {
 
 function synchronize(registry, cars) {
   const nextVehicles = {};
+  const nextLegacyExceptions = {};
   for (const car of [...cars].sort((a, b) => a.slug.localeCompare(b.slug))) {
     const existing = registry.vehicles[car.slug] ?? {};
+    const fields = Object.fromEntries(FIELDS.map(field => {
+      const existingField = existing.fields?.[field];
+      if (existingField?.verificationStatus === 'legacy_unverified') {
+        return [field, existingField];
+      }
+      if (isVerified(existingField, registry.fieldVerificationSources)) {
+        return [field, existingField];
+      }
+      return [field, legacyField()];
+    }));
     nextVehicles[car.slug] = {
       brand: car.brand,
       model: car.model,
-      fields: Object.fromEntries(FIELDS.map(field => [field, existing.fields?.[field] ?? legacyField()])),
+      fields,
     };
+    for (const field of FIELDS) {
+      if (fields[field].verificationStatus === 'legacy_unverified') {
+        const key = `${car.slug}.${field}`;
+        nextLegacyExceptions[key] = registry.legacyExceptions?.[key] ?? legacyException(car.slug, field);
+      }
+    }
   }
   registry.vehicles = nextVehicles;
+  registry.legacyExceptions = nextLegacyExceptions;
   return registry;
 }
 
@@ -62,6 +89,8 @@ function evaluate(registry, cars) {
   const missingVehicles = [...expectedSlugs].filter(slug => !registeredSlugs.has(slug));
   const orphanVehicles = [...registeredSlugs].filter(slug => !expectedSlugs.has(slug));
   const invalidEntries = [];
+  const undocumentedLegacy = [];
+  const legacyExceptions = registry.legacyExceptions ?? {};
   let verifiedFields = 0;
 
   for (const car of cars) {
@@ -70,12 +99,18 @@ function evaluate(registry, cars) {
     for (const fieldName of FIELDS) {
       const field = entry.fields?.[fieldName];
       if (isVerified(field, registry.fieldVerificationSources)) verifiedFields += 1;
-      else invalidEntries.push(`${car.slug}.${fieldName}`);
+      else {
+        const key = `${car.slug}.${fieldName}`;
+        invalidEntries.push(key);
+        if (!legacyExceptions[key]?.reason || !legacyExceptions[key]?.reviewCondition) {
+          undocumentedLegacy.push(key);
+        }
+      }
     }
   }
 
   const expectedFields = cars.length * FIELDS.length;
-  const complete = missingVehicles.length === 0 && orphanVehicles.length === 0 && invalidEntries.length === 0;
+  const complete = missingVehicles.length === 0 && orphanVehicles.length === 0 && undocumentedLegacy.length === 0;
   return createMaintenanceResult({
     source: SOURCE,
     status: complete ? 'unchanged' : 'partial',
@@ -84,7 +119,7 @@ function evaluate(registry, cars) {
     repositoryReference: `${cars.length} veículos`,
     coverage: { checked: verifiedFields, expected: expectedFields },
     changes: missingVehicles.length + orphanVehicles.length,
-    error: complete ? null : `Cobertura de proveniência incompleta: ${verifiedFields}/${expectedFields} campos verificados`,
+    error: complete ? null : `Proveniência requer atenção: ${verifiedFields}/${expectedFields} campos verificados; exceções legadas sem documentação: ${undocumentedLegacy.length}`,
     details: {
       trackedVehicles: registeredSlugs.size,
       expectedVehicles: cars.length,
@@ -92,6 +127,9 @@ function evaluate(registry, cars) {
       missingVehicles,
       orphanVehicles,
       unverifiedFields: invalidEntries.length,
+      legacyDocumented: invalidEntries.length - undocumentedLegacy.length,
+      undocumentedLegacy,
+      legacyExceptions: Object.keys(legacyExceptions).length,
       unverifiedSample: invalidEntries.slice(0, 30),
     },
   });

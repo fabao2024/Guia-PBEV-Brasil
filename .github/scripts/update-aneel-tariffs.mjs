@@ -20,7 +20,9 @@ const AGENTS_BY_STATE = {
   GO: ['EQUATORIAL GO', 'CHESP'], MA: ['EQUATORIAL MA'], MG: ['CEMIG-D'], MS: ['EMS'],
   MT: ['EMT'], PA: ['EQUATORIAL PA'], PB: ['EPB'], PE: ['Neoenergia PE'],
   PI: ['EQUATORIAL PI'], PR: ['COPEL-DIS'], RJ: ['ENEL RJ', 'LIGHT SESA'],
-  RN: ['COSERN'], RO: ['ERO'], RR: ['ÂMBAR ENERGIA RR'],
+  RN: ['COSERN'], RO: ['ERO'],
+  // Rótulo vigente no dataset ANEEL; não confundir com o nome legado "ÂMBAR ENERGIA RR".
+  RR: ['Âmbar Roraima'],
   RS: ['CEEE-D', 'RGE'], SC: ['CELESC'], SE: ['ESE', 'SULGIPE'],
   SP: ['ELETROPAULO', 'EDP SP', 'CPFL-PAULISTA', 'CPFL-PIRATINING', 'ELEKTRO', 'CPFL Santa Cruz'],
   TO: ['ETO'],

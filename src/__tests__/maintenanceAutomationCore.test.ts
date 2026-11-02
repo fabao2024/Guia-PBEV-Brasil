@@ -221,6 +221,7 @@ describe('maintenance automation core', () => {
       reference: 'Tabela PBEV 2026_25_AGO.pdf',
       reviewStatus: 'manual_diff_applied',
     });
+    expect(registry.legacyExceptions).toBeDefined();
     expect(Object.keys(registry.vehicles).sort()).toEqual(cars.map((car: { slug: string }) => car.slug).sort());
     for (const entry of Object.values(registry.vehicles) as Array<{ fields: Record<string, unknown> }>) {
       expect(Object.keys(entry.fields)).toEqual([
@@ -235,6 +236,16 @@ describe('maintenance automation core', () => {
         'trunk',
         'weight',
       ]);
+    }
+    for (const [slug, entry] of Object.entries(registry.vehicles) as Array<[string, { fields: Record<string, { verificationStatus?: string }> }]>) {
+      for (const [field, value] of Object.entries(entry.fields)) {
+        if (value.verificationStatus === 'legacy_unverified') {
+          expect(registry.legacyExceptions[`${slug}.${field}`]).toMatchObject({
+            reason: expect.any(String),
+            reviewCondition: expect.any(String),
+          });
+        }
+      }
     }
   });
 
