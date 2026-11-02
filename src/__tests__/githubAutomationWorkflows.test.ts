@@ -142,11 +142,18 @@ describe('scheduled automation workflow hardening', () => {
   it('uses a single-pass XML entity decoder for RSS content', () => {
     expect(newsScript).toContain("from './security-utils.mjs'");
     expect(newsScript).not.toMatch(/\.replace\(\/&amp;\/g/);
+    expect(newsScript).toContain('motor1.uol.com.br/rss/news/all/');
+    expect(newsScript).toContain('automaistv.com.br/feed/');
   });
 
   it('loads the real BRAND_URLS registry and captures initialization failures', () => {
     expect(brandScript).toContain('BRAND_URLS');
     expect(brandScript).toContain('function loadLinks');
+    expect(brandScript).not.toContain('Range:');
+  });
+
+  it('uses the current ANEEL Roraima agent label', () => {
+    expect(aneelScript).toContain("RR: ['Âmbar Roraima']");
   });
 
   it('updates or reopens the unique monthly issue by hidden marker across all states', () => {

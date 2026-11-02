@@ -1,9 +1,9 @@
 // Tarifas residenciais B1 (TE + TUSD, sem ICMS, sem bandeira tarifária)
 // Fonte: dadosabertos.aneel.gov.br — tarifas-homologadas-distribuidoras-energia-eletrica.csv · recurso fcf2906c-7c32-4b9b-a637-054e7a5234f4
 // Referência: distribuidora principal por estado (maior cobertura populacional)
-// Atualizado em: 2026-10-01
+// Atualizado em: 2026-11-02
 
-export const ELECTRICITY_PRICES_UPDATED = 'out de 2026';
+export const ELECTRICITY_PRICES_UPDATED = 'nov de 2026';
 
 export const ELECTRICITY_PRICES_BY_STATE: Record<string, number> = {
   AC: 0.83, // Energisa Acre
@@ -14,12 +14,12 @@ export const ELECTRICITY_PRICES_BY_STATE: Record<string, number> = {
   CE: 0.70, // Enel CE (+4.30% abr/2026)
   DF: 0.83, // Neoenergia Brasília
   ES: 0.84, // EDP ES
-  GO: 0.86, // Equatorial GO + CHESP (média)
+  GO: 0.89, // Equatorial GO + CHESP (média)
   MA: 0.89, // Equatorial MA
   MG: 0.90, // CEMIG-D (~95% do estado)
   MS: 0.99, // Energisa MS (+11.75% abr/2026)
   MT: 0.90, // Energisa MT (+5.27% abr/2026)
-  PA: 0.98, // Equatorial PA
+  PA: 1.04, // Equatorial PA
   PB: 0.71, // Energisa PB
   PE: 0.80, // Neoenergia PE
   PI: 0.95, // Equatorial PI
@@ -31,7 +31,7 @@ export const ELECTRICITY_PRICES_BY_STATE: Record<string, number> = {
   RS: 0.88, // CEEE-D + RGE (~60% do estado)
   SC: 0.76, // CELESC (~95% do estado)
   SE: 0.74, // Energisa SE + Sulgipe (média, +5% abr/2026)
-  SP: 0.79, // Média de 7 distribuidoras (Enel SP +9,02% jul/2026, EDP, CPFL, Elektro…)
+  SP: 0.80, // Média de 7 distribuidoras (Enel SP +9,02% jul/2026, EDP, CPFL, Elektro…)
   TO: 0.99, // Energisa TO
 };
 

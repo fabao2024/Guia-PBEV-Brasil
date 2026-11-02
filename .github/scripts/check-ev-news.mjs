@@ -3,7 +3,7 @@
  * Notícias geram watchlist; somente fontes oficiais podem confirmar mutações do catálogo.
  */
 import { readFileSync } from 'node:fs';
-import { classifyNewsItem, createMaintenanceResult } from './maintenance-core.mjs';
+import { classifyNewsItem, createMaintenanceResult, fetchWithRetry } from './maintenance-core.mjs';
 import { collectorResultPath, writeCollectorResult } from './maintenance-io.mjs';
 import { decodeXmlEntities } from './security-utils.mjs';
 
@@ -11,8 +11,8 @@ const SOURCE = 'news';
 const FEEDS = [
   { name: 'Canaltech Carros', url: 'https://canaltech.com.br/rss/carros/' },
   { name: 'InsideEVs Brasil', url: 'https://insideevs.uol.com.br/rss/news/all/' },
-  { name: 'Electrosphere', url: 'https://electrosphere.com.br/feed/' },
-  { name: 'Mobility Channel', url: 'https://mobilitychannel.com.br/feed/' },
+  { name: 'Motor1 Brasil', url: 'https://motor1.uol.com.br/rss/news/all/' },
+  { name: 'AutoMais TV', url: 'https://www.automaistv.com.br/feed/' },
   { name: 'AutoEsporte', url: 'https://autoesporte.globo.com/rss/autoesporte/' },
   { name: 'Quatro Rodas', url: 'https://quatrorodas.abril.com.br/feed/' },
 ];
@@ -64,13 +64,14 @@ function findCatalogMatch(item) {
 }
 
 async function fetchFeed(feed) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
   try {
-    const response = await fetch(feed.url, {
+    const response = await fetchWithRetry(feed.url, {
       headers: { Accept: 'application/rss+xml, application/atom+xml, application/xml, text/xml', 'User-Agent': 'GuiaPBEV-Bot/2.0' },
       redirect: 'follow',
-      signal: controller.signal,
+    }, {
+      attempts: 3,
+      timeoutMs: REQUEST_TIMEOUT_MS,
+      retryDelayMs: 500,
     });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const xml = await response.text();
@@ -85,8 +86,6 @@ async function fetchFeed(feed) {
       error: String(error.message).slice(0, 160),
       items: [],
     };
-  } finally {
-    clearTimeout(timer);
   }
 }
 
@@ -125,7 +124,10 @@ async function collect() {
   }
 
   const failedFeeds = feedResults.filter(feed => feed.status !== 'reachable');
-  const status = failedFeeds.length > 0 ? 'partial' : findings.length > 0 ? 'changed' : 'unchanged';
+  const actionableFindings = findings.filter(item => item.classification === 'confirmed_new_model');
+  // Specialist-media findings are an auditable watchlist, not catalog mutations.
+  // Only an authoritative confirmed finding is actionable for this collector.
+  const status = failedFeeds.length > 0 ? 'partial' : actionableFindings.length > 0 ? 'changed' : 'unchanged';
   return createMaintenanceResult({
     source: SOURCE,
     status,
@@ -133,11 +135,12 @@ async function collect() {
     sourceUpdatedAt,
     repositoryReference: `${catalog.length} veículos`,
     coverage: { checked: healthy.length, expected: FEEDS.length },
-    changes: findings.filter(item => item.classification !== 'already_known').length,
+    changes: actionableFindings.length,
     error: failedFeeds.length ? `Cobertura RSS parcial: ${healthy.length}/${FEEDS.length} fontes` : null,
     details: {
       feeds: feedResults.map(({ name, url, status: feedStatus, error }) => ({ name, url, status: feedStatus, error: error ?? null })),
       findings: findings.slice(0, 30),
+      watchlistCount: findings.filter(item => item.classification === 'watchlist').length,
       rejected: rejected.slice(0, 30),
       sourceHierarchy: ['official_manufacturer', 'official_regulator', 'official_press_release', 'specialist_media', 'speculative_watchlist'],
     },
