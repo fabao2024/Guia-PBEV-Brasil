@@ -16,6 +16,8 @@ const NEW_MODELS = new Set([
   'Box E2',
   'Arcfox T1 Pro',
   'Arcfox T1 Max',
+  'Omoda E5 Elite',
+  'Omoda E5 Prestige',
   'B10 REEV',
   'Tiggo 9 PHEV',
   'Haval H7 PHEV',
@@ -888,6 +890,39 @@ export const CAR_DB: Car[] = [
     pbeRating: 'A', energyMJkm: 0.51,
     warrantyYears: 3, warrantyBatteryYears: 8, chargeAC: 11, chargeDC: 80,
     lengthMm: 4424, widthMm: 1830, heightMm: 1588, wheelbaseMm: 2630, weightKg: 1710, trunkLiters: 340,
+  },
+  {
+    model: "Omoda E5 Elite", brand: "Omoda", price: 149990, range: 278, cat: "SUV",
+    powertrain: 'BEV', img: "/car-images/omoda-e5-2027.jpg",
+    url: "https://www.omodajaecoo.com.br/novo-omoda-e5",
+    power: 210, torque: 29.4, traction: 'FWD', battery: 50.6, chargeAC: 6.6, chargeDC: 110,
+    lengthMm: 4540, widthMm: 1830, heightMm: 1580, wheelbaseMm: 2630,
+    warrantyYears: 7, warrantyBatteryYears: 8,
+    features: [
+      "Preço promocional para o lote inicial de lançamento",
+      "Bateria de 50,6 kWh e autonomia de 278 km informada pelo Inmetro",
+      "Rodas de 17 polegadas e tampa do porta-malas elétrica",
+      "Painel digital de 8\" e central multimídia de 12,3\"",
+      "Apple CarPlay e Android Auto sem fio; carregador de celular por indução",
+      "Sete airbags e função V2L"
+    ],
+  },
+  {
+    model: "Omoda E5 Prestige", brand: "Omoda", price: 179990, range: 320, cat: "SUV",
+    powertrain: 'BEV', img: "/car-images/omoda-e5-2027.jpg",
+    url: "https://www.omodajaecoo.com.br/novo-omoda-e5",
+    power: 210, torque: 29.4, traction: 'FWD', battery: 60.9, chargeAC: 11, chargeDC: 130,
+    lengthMm: 4540, widthMm: 1830, heightMm: 1580, wheelbaseMm: 2630,
+    warrantyYears: 7, warrantyBatteryYears: 8,
+    features: [
+      "Preço promocional para o lote inicial de lançamento",
+      "Bateria de 60,9 kWh e autonomia de 320 km informada pelo Inmetro",
+      "Rodas de 18 polegadas e teto solar elétrico",
+      "Painel digital de 8,8\" e central multimídia de 15,6\"",
+      "Bancos dianteiros com ajustes elétricos, aquecimento e ventilação",
+      "ADAS com piloto adaptativo e frenagem autônoma; câmera 540°",
+      "Sete airbags e função V2L"
+    ],
   },
   {
     model: "Omoda 7 Luxury", brand: "Omoda", price: 254990, range: 60, cat: "SUV",

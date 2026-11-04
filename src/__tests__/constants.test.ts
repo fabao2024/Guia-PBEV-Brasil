@@ -3,6 +3,15 @@ import type { Car } from '../types';
 import { ALL_POWERTRAINS, DEFAULT_MIN_RANGE } from '../types';
 
 describe('CAR_DB data integrity', () => {
+  it('distinguishes the new electric Omoda E5 versions from the SHS-H hybrids', () => {
+    const elite = CAR_DB.find(car => car.model === 'Omoda E5 Elite');
+    const prestige = CAR_DB.find(car => car.model === 'Omoda E5 Prestige');
+    expect(elite).toMatchObject({ powertrain: 'BEV', price: 149990, range: 278, battery: 50.6, power: 210, chargeAC: 6.6, chargeDC: 110 });
+    expect(prestige).toMatchObject({ powertrain: 'BEV', price: 179990, range: 320, battery: 60.9, power: 210, chargeAC: 11, chargeDC: 130 });
+    expect(elite?.img).toBe(prestige?.img);
+    expect(elite?.img).not.toBe(CAR_DB.find(car => car.model === 'Omoda E5')?.img);
+    expect(CAR_DB.find(car => car.model === 'Omoda 5 SHS-H Luxury')?.powertrain).toBe('HEV');
+  });
   it('lists both Brazilian Arcfox T1 versions with launch specifications', () => {
     const versions = CAR_DB.filter(car => car.brand === 'BAIC');
     expect(versions.map(car => car.model)).toEqual(['Arcfox T1 Pro', 'Arcfox T1 Max']);

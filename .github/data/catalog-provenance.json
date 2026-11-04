@@ -12273,6 +12273,38 @@
         }
       }
     },
+    "omoda-omoda-e5-elite": {
+      "brand": "Omoda",
+      "model": "Omoda E5 Elite",
+      "fields": {
+        "price": { "verificationStatus": "legacy_unverified", "sourceType": "specialist_media", "sourceUrl": "https://gurudoscarros.com.br/2026/11/04/novo-omoda-e5-chega-por-r-149-990-no-lote-inicial-e-tera-duas-versoes/", "sourceUpdatedAt": "2026-11-04", "verifiedAt": "2026-11-04" },
+        "range_km": { "verificationStatus": "legacy_unverified", "sourceType": "specialist_media", "sourceUrl": "https://gurudoscarros.com.br/2026/11/04/novo-omoda-e5-chega-por-r-149-990-no-lote-inicial-e-tera-duas-versoes/", "sourceUpdatedAt": "2026-11-04", "verifiedAt": "2026-11-04" },
+        "consumption": { "verificationStatus": "legacy_unverified", "sourceType": null, "sourceUrl": null, "sourceUpdatedAt": null, "verifiedAt": null },
+        "power": { "verificationStatus": "verified", "sourceType": "official_manufacturer", "sourceUrl": "https://omodajaecoo.com.br/noticias/novo-omoda-e5-e-apresentado-no-festival-interlagos-com-design-renovado-e-maior-potencia", "sourceUpdatedAt": "2026-08-27", "verifiedAt": "2026-11-04" },
+        "battery": { "verificationStatus": "legacy_unverified", "sourceType": "specialist_media", "sourceUrl": "https://gurudoscarros.com.br/2026/11/04/novo-omoda-e5-chega-por-r-149-990-no-lote-inicial-e-tera-duas-versoes/", "sourceUpdatedAt": "2026-11-04", "verifiedAt": "2026-11-04" },
+        "charging": { "verificationStatus": "legacy_unverified", "sourceType": "specialist_media", "sourceUrl": "https://gurudoscarros.com.br/2026/11/04/novo-omoda-e5-chega-por-r-149-990-no-lote-inicial-e-tera-duas-versoes/", "sourceUpdatedAt": "2026-11-04", "verifiedAt": "2026-11-04" },
+        "availability": { "verificationStatus": "legacy_unverified", "sourceType": "specialist_media", "sourceUrl": "https://gurudoscarros.com.br/2026/11/04/novo-omoda-e5-chega-por-r-149-990-no-lote-inicial-e-tera-duas-versoes/", "sourceUpdatedAt": "2026-11-04", "verifiedAt": "2026-11-04" },
+        "dimensions": { "verificationStatus": "verified", "sourceType": "official_manufacturer", "sourceUrl": "https://omodajaecoo.com.br/noticias/novo-omoda-e5-e-apresentado-no-festival-interlagos-com-design-renovado-e-maior-potencia", "sourceUpdatedAt": "2026-08-27", "verifiedAt": "2026-11-04" },
+        "trunk": { "verificationStatus": "legacy_unverified", "sourceType": "official_manufacturer", "sourceUrl": "https://omodajaecoo.com.br/noticias/novo-omoda-e5-e-apresentado-no-festival-interlagos-com-design-renovado-e-maior-potencia", "sourceUpdatedAt": "2026-08-27", "verifiedAt": "2026-11-04" },
+        "weight": { "verificationStatus": "legacy_unverified", "sourceType": null, "sourceUrl": null, "sourceUpdatedAt": null, "verifiedAt": null }
+      }
+    },
+    "omoda-omoda-e5-prestige": {
+      "brand": "Omoda",
+      "model": "Omoda E5 Prestige",
+      "fields": {
+        "price": { "verificationStatus": "legacy_unverified", "sourceType": "specialist_media", "sourceUrl": "https://gurudoscarros.com.br/2026/11/04/novo-omoda-e5-chega-por-r-149-990-no-lote-inicial-e-tera-duas-versoes/", "sourceUpdatedAt": "2026-11-04", "verifiedAt": "2026-11-04" },
+        "range_km": { "verificationStatus": "legacy_unverified", "sourceType": "specialist_media", "sourceUrl": "https://gurudoscarros.com.br/2026/11/04/novo-omoda-e5-chega-por-r-149-990-no-lote-inicial-e-tera-duas-versoes/", "sourceUpdatedAt": "2026-11-04", "verifiedAt": "2026-11-04" },
+        "consumption": { "verificationStatus": "legacy_unverified", "sourceType": null, "sourceUrl": null, "sourceUpdatedAt": null, "verifiedAt": null },
+        "power": { "verificationStatus": "verified", "sourceType": "official_manufacturer", "sourceUrl": "https://omodajaecoo.com.br/noticias/novo-omoda-e5-e-apresentado-no-festival-interlagos-com-design-renovado-e-maior-potencia", "sourceUpdatedAt": "2026-08-27", "verifiedAt": "2026-11-04" },
+        "battery": { "verificationStatus": "legacy_unverified", "sourceType": "specialist_media", "sourceUrl": "https://gurudoscarros.com.br/2026/11/04/novo-omoda-e5-chega-por-r-149-990-no-lote-inicial-e-tera-duas-versoes/", "sourceUpdatedAt": "2026-11-04", "verifiedAt": "2026-11-04" },
+        "charging": { "verificationStatus": "legacy_unverified", "sourceType": "specialist_media", "sourceUrl": "https://gurudoscarros.com.br/2026/11/04/novo-omoda-e5-chega-por-r-149-990-no-lote-inicial-e-tera-duas-versoes/", "sourceUpdatedAt": "2026-11-04", "verifiedAt": "2026-11-04" },
+        "availability": { "verificationStatus": "legacy_unverified", "sourceType": "specialist_media", "sourceUrl": "https://gurudoscarros.com.br/2026/11/04/novo-omoda-e5-chega-por-r-149-990-no-lote-inicial-e-tera-duas-versoes/", "sourceUpdatedAt": "2026-11-04", "verifiedAt": "2026-11-04" },
+        "dimensions": { "verificationStatus": "verified", "sourceType": "official_manufacturer", "sourceUrl": "https://omodajaecoo.com.br/noticias/novo-omoda-e5-e-apresentado-no-festival-interlagos-com-design-renovado-e-maior-potencia", "sourceUpdatedAt": "2026-08-27", "verifiedAt": "2026-11-04" },
+        "trunk": { "verificationStatus": "legacy_unverified", "sourceType": "official_manufacturer", "sourceUrl": "https://omodajaecoo.com.br/noticias/novo-omoda-e5-e-apresentado-no-festival-interlagos-com-design-renovado-e-maior-potencia", "sourceUpdatedAt": "2026-08-27", "verifiedAt": "2026-11-04" },
+        "weight": { "verificationStatus": "legacy_unverified", "sourceType": null, "sourceUrl": null, "sourceUpdatedAt": null, "verifiedAt": null }
+      }
+    },
     "omoda-omoda-e5": {
       "brand": "Omoda",
       "model": "Omoda E5",

@@ -2,6 +2,11 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 04/11/2026 — Novo Omoda E5 Elite e Prestige
+
+- Duas versões BEV adicionadas separadamente dos Omoda 5 SHS-H e do E5 anterior. Preços promocionais e detalhes por versão conforme [Guru dos Carros](https://gurudoscarros.com.br/2026/11/04/novo-omoda-e5-chega-por-r-149-990-no-lote-inicial-e-tera-duas-versoes/); especificações gerais e imagem do novo modelo conforme [Omoda & Jaecoo](https://omodajaecoo.com.br/noticias/novo-omoda-e5-e-apresentado-no-festival-interlagos-com-design-renovado-e-maior-potencia). Preços e autonomias aguardam fonte primária por versão; volume do porta-malas omitido até confirmação do padrão VDA.
+- Foto oficial compartilhada entre versões, distinta da geração anterior; pipeline de imagens e `--check` aprovados. Verificação de proveniência: parcial, com lacunas por confirmar. Build, scanner e typecheck aprovados; suíte completa com duas falhas já registradas em parceiros e acessibilidade.
+
 ## 31/10/2026 — BAIC Arcfox T1 Pro e Max
 
 - Equipamentos revisados com [Quatro Rodas](https://quatrorodas.abril.com.br/carros-eletricos/baic-arcfox-t1-custa-r129-900-com-item-de-carro-de-luxo-contra-byd-dolphin-e-geely-ex2/): câmera com visão do chassi, EZT e conectividade nas duas versões; ADAS e carregador por indução opcional na Max. Estacionamento automático e detalhes de ventilação e memória dos bancos aguardam esclarecimento devido a divergências entre fontes.
