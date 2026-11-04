@@ -14739,6 +14739,22 @@
     }
   },
   "legacyExceptions": {
+    "omoda-omoda-e5-elite.price": { "reason": "Preço promocional divulgado por imprensa especializada, sem fonte primária localizada.", "reviewCondition": "Confirmar oferta e prazo com a fabricante.", "recordedAt": "2026-11-04" },
+    "omoda-omoda-e5-elite.range_km": { "reason": "Autonomia Inmetro divulgada por imprensa especializada, sem tabela oficial localizada.", "reviewCondition": "Conferir tabela PBEV ou ficha oficial brasileira.", "recordedAt": "2026-11-04" },
+    "omoda-omoda-e5-elite.consumption": { "reason": "Consumo não informado no catálogo por ausência de fonte oficial.", "reviewCondition": "Consultar próxima tabela PBEV.", "recordedAt": "2026-11-04" },
+    "omoda-omoda-e5-elite.battery": { "reason": "Capacidade por versão informada pela imprensa, sem ficha oficial detalhada localizada.", "reviewCondition": "Conferir ficha oficial da versão Elite.", "recordedAt": "2026-11-04" },
+    "omoda-omoda-e5-elite.charging": { "reason": "Potências por versão informadas pela imprensa especializada.", "reviewCondition": "Conferir ficha oficial da versão Elite.", "recordedAt": "2026-11-04" },
+    "omoda-omoda-e5-elite.availability": { "reason": "Disponibilidade e condições do lote relatadas pela imprensa.", "reviewCondition": "Confirmar disponibilidade junto à fabricante.", "recordedAt": "2026-11-04" },
+    "omoda-omoda-e5-elite.trunk": { "reason": "Fabricante informa volume, mas não confirma medição VDA; campo omitido.", "reviewCondition": "Confirmar capacidade segundo padrão VDA.", "recordedAt": "2026-11-04" },
+    "omoda-omoda-e5-elite.weight": { "reason": "Peso em ordem de marcha não confirmado; campo omitido.", "reviewCondition": "Consultar ficha oficial da versão Elite.", "recordedAt": "2026-11-04" },
+    "omoda-omoda-e5-prestige.price": { "reason": "Preço promocional divulgado por imprensa especializada, sem fonte primária localizada.", "reviewCondition": "Confirmar oferta e prazo com a fabricante.", "recordedAt": "2026-11-04" },
+    "omoda-omoda-e5-prestige.range_km": { "reason": "Autonomia Inmetro divulgada por imprensa especializada, sem tabela oficial localizada.", "reviewCondition": "Conferir tabela PBEV ou ficha oficial brasileira.", "recordedAt": "2026-11-04" },
+    "omoda-omoda-e5-prestige.consumption": { "reason": "Consumo não informado no catálogo por ausência de fonte oficial.", "reviewCondition": "Consultar próxima tabela PBEV.", "recordedAt": "2026-11-04" },
+    "omoda-omoda-e5-prestige.battery": { "reason": "Capacidade por versão informada pela imprensa, sem ficha oficial detalhada localizada.", "reviewCondition": "Conferir ficha oficial da versão Prestige.", "recordedAt": "2026-11-04" },
+    "omoda-omoda-e5-prestige.charging": { "reason": "Potências por versão informadas pela imprensa especializada.", "reviewCondition": "Conferir ficha oficial da versão Prestige.", "recordedAt": "2026-11-04" },
+    "omoda-omoda-e5-prestige.availability": { "reason": "Disponibilidade e condições do lote relatadas pela imprensa.", "reviewCondition": "Confirmar disponibilidade junto à fabricante.", "recordedAt": "2026-11-04" },
+    "omoda-omoda-e5-prestige.trunk": { "reason": "Fabricante informa volume, mas não confirma medição VDA; campo omitido.", "reviewCondition": "Confirmar capacidade segundo padrão VDA.", "recordedAt": "2026-11-04" },
+    "omoda-omoda-e5-prestige.weight": { "reason": "Peso em ordem de marcha não confirmado; campo omitido.", "reviewCondition": "Consultar ficha oficial da versão Prestige.", "recordedAt": "2026-11-04" },
     "audi-a6-sportback-e-tron.power": {
       "reason": "Campo herdado do catálogo anterior sem evidência histórica registrada no repositório.",
       "reviewCondition": "Revisar com fonte oficial do fabricante, regulador ou comunicado oficial antes de alterar o valor.",
