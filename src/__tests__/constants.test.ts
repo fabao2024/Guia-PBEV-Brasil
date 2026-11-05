@@ -6,9 +6,15 @@ describe('CAR_DB data integrity', () => {
   it('distinguishes the new electric Omoda E5 versions from the SHS-H hybrids', () => {
     const elite = CAR_DB.find(car => car.model === 'Omoda E5 Elite');
     const prestige = CAR_DB.find(car => car.model === 'Omoda E5 Prestige');
-    expect(elite).toMatchObject({ powertrain: 'BEV', price: 149990, range: 278, battery: 50.6, power: 210, chargeAC: 6.6, chargeDC: 110 });
-    expect(prestige).toMatchObject({ powertrain: 'BEV', price: 179990, range: 320, battery: 60.9, power: 210, chargeAC: 11, chargeDC: 130 });
-    expect(elite?.img).toBe(prestige?.img);
+    expect(elite).toMatchObject({ powertrain: 'BEV', price: 149990, range: 278, battery: 50.6, power: 210, chargeAC: 6.6, chargeDC: 110, weightKg: 1660, lengthMm: 4545, heightMm: 1588, groundClearanceMm: 171 });
+    expect(prestige).toMatchObject({ powertrain: 'BEV', price: 179990, range: 320, battery: 60.9, power: 210, chargeAC: 11, chargeDC: 130, weightKg: 1742, lengthMm: 4545, heightMm: 1588, groundClearanceMm: 171 });
+    for (const car of [elite, prestige]) {
+      expect(car?.features?.some(feature => feature.includes('372 L') && feature.includes('declarado'))).toBe(true);
+      expect(car?.trunkLiters).toBe(372);
+    }
+    expect(elite?.features?.some(feature => feature.includes('câmera de ré'))).toBe(true);
+    expect(prestige?.features?.some(feature => feature.includes('massagem'))).toBe(true);
+    expect(elite?.img).not.toBe(prestige?.img);
     expect(elite?.img).not.toBe(CAR_DB.find(car => car.model === 'Omoda E5')?.img);
     expect(CAR_DB.find(car => car.model === 'Omoda 5 SHS-H Luxury')?.powertrain).toBe('HEV');
   });

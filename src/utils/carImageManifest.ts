@@ -1642,6 +1642,32 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
+  "/car-images/omoda-e5-prestige-2027.jpg": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/car-images/optimized/omoda-e5-prestige-2027.jpg-320.webp",
+        "width": 320,
+        "height": 180
+      },
+      {
+        "src": "/car-images/optimized/omoda-e5-prestige-2027.jpg-640.webp",
+        "width": 640,
+        "height": 360
+      },
+      {
+        "src": "/car-images/optimized/omoda-e5-prestige-2027.jpg-960.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "/car-images/optimized/omoda-e5-prestige-2027.jpg-1280.webp",
+        "width": 1280,
+        "height": 720
+      }
+    ]
+  },
   "/car-images/ora-03-gt-bev63.jpg": {
     "width": 2880,
     "height": 1920,

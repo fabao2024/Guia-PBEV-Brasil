@@ -26,6 +26,6 @@ export function dimensionProperties(car: Car): DimensionProperty[] {
   if (car.wheelbaseMm !== undefined) props.push({ name: 'Entre-eixos', value: `${car.wheelbaseMm} mm` });
   if (car.groundClearanceMm !== undefined) props.push({ name: 'Altura do solo (desalicerada)', value: `${car.groundClearanceMm} mm` });
   if (car.weightKg !== undefined) props.push({ name: 'Peso (ordem de marcha)', value: `${car.weightKg} kg` });
-  if (car.trunkLiters !== undefined) props.push({ name: 'Porta-malas (VDA)', value: `${car.trunkLiters} L` });
+  if (car.trunkLiters !== undefined) props.push({ name: 'Porta-malas', value: `${car.trunkLiters} L` });
   return props.map(p => ({ '@type': 'PropertyValue' as const, ...p }));
 }

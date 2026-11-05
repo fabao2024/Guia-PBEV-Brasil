@@ -50,7 +50,7 @@ export interface Car {
   wheelbaseMm?: number;          // mm — entre-eixos
   groundClearanceMm?: number;    // mm — altura do solo (desalicerado)
   weightKg?: number;             // kg — peso em ordem de marcha
-  trunkLiters?: number;          // L — porta-malas (VDA)
+  trunkLiters?: number;          // L — porta-malas declarado; método pode variar
 }
 
 export interface FilterState {

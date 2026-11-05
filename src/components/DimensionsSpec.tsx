@@ -54,7 +54,7 @@ export default function DimensionsSpec({ car, accent, headingLevel = 3, classNam
         ))}
       </div>
       <p className="text-[9px] mt-2" style={{ color: 'rgba(255,255,255,0.2)' }}>
-        {t('details.dimensionsNote', 'Largura sem espelhos · peso em ordem de marcha · porta-malas VDA · altura do solo desalicerada')}
+        {t('details.dimensionsNote', 'Largura sem espelhos · peso em ordem de marcha · porta-malas declarado pela fabricante (método pode variar) · altura do solo desalicerada')}
       </p>
     </section>
   );

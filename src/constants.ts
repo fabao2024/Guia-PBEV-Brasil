@@ -896,7 +896,7 @@ export const CAR_DB: Car[] = [
     powertrain: 'BEV', img: "/car-images/omoda-e5-2027.jpg",
     url: "https://www.omodajaecoo.com.br/novo-omoda-e5",
     power: 210, torque: 29.4, traction: 'FWD', battery: 50.6, chargeAC: 6.6, chargeDC: 110,
-    lengthMm: 4540, widthMm: 1830, heightMm: 1580, wheelbaseMm: 2630,
+    lengthMm: 4545, widthMm: 1830, heightMm: 1588, wheelbaseMm: 2630, groundClearanceMm: 171, weightKg: 1660, trunkLiters: 372,
     warrantyYears: 7, warrantyBatteryYears: 8,
     features: [
       "Preço promocional para o lote inicial de lançamento",
@@ -904,15 +904,19 @@ export const CAR_DB: Car[] = [
       "Rodas de 17 polegadas e tampa do porta-malas elétrica",
       "Painel digital de 8\" e central multimídia de 12,3\"",
       "Apple CarPlay e Android Auto sem fio; carregador de celular por indução",
-      "Sete airbags e função V2L"
+      "Porta-malas traseiro de 372 L declarado pela fabricante (método não informado)",
+      "Compartimento dianteiro de 32 L e 1.079 L com bancos rebatidos",
+      "Ar-condicionado automático de duas zonas, câmera de ré e som de seis alto-falantes",
+      "Sete airbags, sensores dianteiros e traseiros, assistentes de rampa e descida",
+      "Controle de estabilidade e tração, Auto Hold e função V2L"
     ],
   },
   {
     model: "Omoda E5 Prestige", brand: "Omoda", price: 179990, range: 320, cat: "SUV",
-    powertrain: 'BEV', img: "/car-images/omoda-e5-2027.jpg",
+    powertrain: 'BEV', img: "/car-images/omoda-e5-prestige-2027.jpg",
     url: "https://www.omodajaecoo.com.br/novo-omoda-e5",
     power: 210, torque: 29.4, traction: 'FWD', battery: 60.9, chargeAC: 11, chargeDC: 130,
-    lengthMm: 4540, widthMm: 1830, heightMm: 1580, wheelbaseMm: 2630,
+    lengthMm: 4545, widthMm: 1830, heightMm: 1588, wheelbaseMm: 2630, groundClearanceMm: 171, weightKg: 1742, trunkLiters: 372,
     warrantyYears: 7, warrantyBatteryYears: 8,
     features: [
       "Preço promocional para o lote inicial de lançamento",
@@ -921,7 +925,12 @@ export const CAR_DB: Car[] = [
       "Painel digital de 8,8\" e central multimídia de 15,6\"",
       "Bancos dianteiros com ajustes elétricos, aquecimento e ventilação",
       "ADAS com piloto adaptativo e frenagem autônoma; câmera 540°",
-      "Sete airbags e função V2L"
+      "Porta-malas traseiro de 372 L declarado pela fabricante (método não informado)",
+      "Compartimento dianteiro de 32 L e 1.079 L com bancos rebatidos",
+      "Banco do motorista com massagem e sistema de som Sony com oito alto-falantes",
+      "Ar-condicionado automático de duas zonas e carregador por indução de 50 W",
+      "Sete airbags, sensores dianteiros e traseiros, assistentes de rampa e descida",
+      "Controle de estabilidade e tração, Auto Hold e função V2L"
     ],
   },
   {

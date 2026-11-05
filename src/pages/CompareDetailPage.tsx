@@ -176,7 +176,7 @@ export default function CompareDetailPage() {
                 <CompareRow label="Recarga AC" a={carA.chargeAC} b={carB.chargeAC} suffix=" kW" />
                 <CompareRow label="Recarga DC" a={carA.chargeDC ?? undefined} b={carB.chargeDC ?? undefined} suffix=" kW" />
                 {(carA.trunkLiters !== undefined || carB.trunkLiters !== undefined) && (
-                  <CompareRow label="Porta-malas (VDA)" a={carA.trunkLiters} b={carB.trunkLiters} suffix=" L" />
+                  <CompareRow label="Porta-malas" a={carA.trunkLiters} b={carB.trunkLiters} suffix=" L" />
                 )}
                 {(carA.lengthMm !== undefined || carB.lengthMm !== undefined) && (
                   <CompareRow label="Comprimento" a={carA.lengthMm} b={carB.lengthMm} suffix=" mm" neutral />

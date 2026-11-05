@@ -2415,6 +2415,44 @@
       ]
     },
     {
+      "src": "/car-images/omoda-e5-prestige-2027.jpg",
+      "width": 1920,
+      "height": 1080,
+      "alpha": false,
+      "bytes": 271031,
+      "sha256": "5c542885f2c63e804a3f7b75e61082a01ec21e725ea1226c9e35efe83583c401",
+      "variants": [
+        {
+          "src": "/car-images/optimized/omoda-e5-prestige-2027.jpg-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 10312,
+          "sha256": "93b242a8b02386140f7ab092e15c1c561af638237f674f84528cf88d7e85a835"
+        },
+        {
+          "src": "/car-images/optimized/omoda-e5-prestige-2027.jpg-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 28896,
+          "sha256": "3144b12ddce72d0267a1153f9147e7df397ed353d8f018c6c411e2211ff3da09"
+        },
+        {
+          "src": "/car-images/optimized/omoda-e5-prestige-2027.jpg-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 52534,
+          "sha256": "90c23b2a4260df8e1658ac8b372b204756eafcf91ed2e67b8f34caed76f8cd9e"
+        },
+        {
+          "src": "/car-images/optimized/omoda-e5-prestige-2027.jpg-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 79462,
+          "sha256": "df633f0cb00123cdd19f2e930c6e030ffdfda307e0ef4b03ff4cc88e9cb0e271"
+        }
+      ]
+    },
+    {
       "src": "/car-images/ora-03-gt-bev63.jpg",
       "width": 2880,
       "height": 1920,
