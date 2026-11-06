@@ -2,6 +2,11 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 06/11/2026 — DFM Box Urban e Vigo Urban Plus
+
+- Corrigido o Box anterior com dados da [ficha brasileira preliminar da rede DFM](https://dfm.grupoleauto.com.br/fichas/dfm-box-urban-ficha-tecnica.pdf); adicionado o [Vigo Urban Plus](https://dfm.grupoleauto.com.br/fichas/dfm-vigo-urban-plus-ficha-tecnica.pdf). Ambos trazem aviso de pré-venda prevista e preços de referência sujeitos a confirmação, conforme páginas de [Box](https://dfm.grupoleauto.com.br/modelos/box) e [Vigo](https://dfm.grupoleauto.com.br/modelos/vigo). Outras versões não foram presumidas.
+- Foto do Vigo de [material da rede DFM](https://dfm.grupoleauto.com.br/assets/dfm-vigo-oficial.webp). Proveniência registra as fichas de concessionária e mantém os campos pendentes de verificação primária; consumo homologado não foi inventado. Pipeline de imagens e `--check`, build, scanner, typecheck e testes específicos aprovados. Proveniência: `unchanged`, 989/1960 campos verificados; suíte completa: 410/412, com as falhas locais já registradas em parceiros e acessibilidade.
+
 ## 04/11/2026 — Novo Omoda E5 Elite e Prestige
 
 - Equipamentos detalhados e capacidade de bagagem declarada pela fabricante adicionados. A [ficha oficial](https://cms.omodajaecoo.com.br/manual/pdf/Ficha_Tecnica_Completa_Novo_OMODA_E5.pdf) confirma os pesos de 1.660 e 1.742 kg, as dimensões exatas e os 372 L de bagagem. O volume não é identificado como VDA sem confirmação do método.

@@ -13,7 +13,6 @@ const NEW_MODELS = new Set([
   'Sealion 7',
   'Jaecoo 5 Comfort',
   'Jaecoo 5 Prestige',
-  'Box E2',
   'Arcfox T1 Pro',
   'Arcfox T1 Max',
   'Omoda E5 Elite',
@@ -3762,24 +3761,42 @@ weightKg: 2340, trunkLiters: 616,
     lengthMm: 4380, widthMm: 1860, heightMm: 1650, wheelbaseMm: 2630, groundClearanceMm: 200, weightKg: 1480, trunkLiters: 480,
   },
 
-  // DFM — Box E2 (BEV 100% elétrico)
+  // DFM — configurações brasileiras em preparação para pré-venda
   {
-    model: "Box E2", brand: "DFM", price: 115900, range: 230, cat: "Urbano",
+    model: "Box Urban", brand: "DFM", price: 135900, range: 275, cat: "Urbano",
     powertrain: 'BEV',
     img: "/car-images/dfm-box-e2.jpg",
-    power: 95, torque: 16.3, traction: 'FWD', battery: 31.4,
-    chargeAC: 6.6, chargeDC: 45,
+    url: "https://dfm.grupoleauto.com.br/modelos/box",
+    power: 95, torque: 16.32, traction: 'FWD', battery: 43.89,
+    chargeAC: 6.6, chargeDC: 88,
     features: [
-      "Plataforma modular Quantum Architecture 3 para elétricos puros",
-      "Bateria Mach E LFP de 31,4 kWh com suporte a recarga rápida DC 45 kW",
-      "Motor elétrico frontal de 95 cv / 16,3 kgfm com aceleração instantânea",
-      "Central multimídia flutuante de 12,8\" com espelhamento sem fio",
-      "Design moderno com maçanetas retráteis e iluminação Full LED",
-      "Carregamento reverso V2L (Vehicle-to-Load) para alimentar aparelhos externos"
+      "Pré-venda prevista; preço de referência sujeito a confirmação",
+      "Bateria LFP de 43,89 kWh; autonomia Inmetro de 275 km",
+      "Recarga DC de até 88 kW: 30% a 80% em cerca de 30 minutos",
+      "Central multimídia de 12\" e painel digital de 5\"",
+      "Seis airbags, câmera 360°, piloto adaptativo e frenagem autônoma",
+      "Banco do motorista com ajuste elétrico e memória; função V2L"
     ],
-    pbeRating: 'A', energyMJkm: 0.42,
-    warrantyYears: 5, warrantyBatteryYears: 8,
-    lengthMm: 4030, widthMm: 1810, heightMm: 1570, wheelbaseMm: 2660, groundClearanceMm: 150, weightKg: 1260, trunkLiters: 326,
+    warrantyYears: 7, warrantyBatteryYears: 10,
+    lengthMm: 4020, widthMm: 1810, heightMm: 1570, wheelbaseMm: 2663, weightKg: 1355, trunkLiters: 309,
+  },
+  {
+    model: "Vigo Urban Plus", brand: "DFM", price: 169900, range: 302, cat: "SUV",
+    powertrain: 'BEV', img: "/car-images/dfm-vigo-urban-plus.webp",
+    url: "https://dfm.grupoleauto.com.br/modelos/vigo",
+    power: 163, torque: 23.45, traction: 'FWD', battery: 51.87,
+    chargeAC: 6.6, chargeDC: 167,
+    features: [
+      "Pré-venda prevista; preço de referência sujeito a confirmação",
+      "Bateria LFP de 51,87 kWh; autonomia Inmetro de 302 km",
+      "Recarga DC de até 167 kW: 30% a 80% em cerca de 18 minutos",
+      "Porta-malas de 500 L e compartimento oculto adicional de 72 L",
+      "Teto panorâmico fixo, central de 12,8\" e painel de 8,88\"",
+      "Seis airbags, câmera 360°, piloto adaptativo e frenagem autônoma",
+      "Bancos dianteiros elétricos e função V2L"
+    ],
+    warrantyYears: 7, warrantyBatteryYears: 10,
+    lengthMm: 4306, widthMm: 1868, heightMm: 1645, wheelbaseMm: 2715, weightKg: 1532, trunkLiters: 500,
   },
 
   // BAIC — Arcfox T1 (lançamento brasileiro de outubro de 2026)

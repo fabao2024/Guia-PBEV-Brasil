@@ -3,6 +3,17 @@ import type { Car } from '../types';
 import { ALL_POWERTRAINS, DEFAULT_MIN_RANGE } from '../types';
 
 describe('CAR_DB data integrity', () => {
+  it('records the DFM Brazilian preview models and provisional prices', () => {
+    const box = CAR_DB.find(car => car.brand === 'DFM' && car.model === 'Box Urban');
+    const vigo = CAR_DB.find(car => car.brand === 'DFM' && car.model === 'Vigo Urban Plus');
+    expect(box).toMatchObject({ price: 135900, range: 275, battery: 43.89, power: 95, chargeDC: 88, weightKg: 1355, trunkLiters: 309 });
+    expect(vigo).toMatchObject({ price: 169900, range: 302, battery: 51.87, power: 163, chargeDC: 167, weightKg: 1532, trunkLiters: 500 });
+    for (const car of [box, vigo]) {
+      expect(car?.features?.some(feature => /pré-venda/i.test(feature))).toBe(true);
+      expect(car?.features?.some(feature => /referência/i.test(feature))).toBe(true);
+    }
+    expect(CAR_DB.some(car => car.brand === 'DFM' && car.model === 'Box E2')).toBe(false);
+  });
   it('distinguishes the new electric Omoda E5 versions from the SHS-H hybrids', () => {
     const elite = CAR_DB.find(car => car.model === 'Omoda E5 Elite');
     const prestige = CAR_DB.find(car => car.model === 'Omoda E5 Prestige');

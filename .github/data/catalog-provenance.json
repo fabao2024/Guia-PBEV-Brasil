@@ -3913,80 +3913,34 @@
         }
       }
     },
-    "dfm-box-e2": {
-      "brand": "DFM",
-      "model": "Box E2",
+    "dfm-box-urban": {
+      "brand": "DFM", "model": "Box Urban",
       "fields": {
-        "price": {
-          "verificationStatus": "verified",
-          "sourceType": "official_press_release",
-          "sourceUrl": "https://insideevs.uol.com.br/news/dfm-box-e2-brasil",
-          "sourceUpdatedAt": "2026-10-01",
-          "verifiedAt": "2026-10-01"
-        },
-        "range_km": {
-          "verificationStatus": "verified",
-          "sourceType": "official_press_release",
-          "sourceUrl": "https://insideevs.uol.com.br/news/dfm-box-e2-brasil",
-          "sourceUpdatedAt": "2026-10-01",
-          "verifiedAt": "2026-10-01"
-        },
-        "consumption": {
-          "verificationStatus": "verified",
-          "sourceType": "official_press_release",
-          "sourceUrl": "https://insideevs.uol.com.br/news/dfm-box-e2-brasil",
-          "sourceUpdatedAt": "2026-10-01",
-          "verifiedAt": "2026-10-01"
-        },
-        "power": {
-          "verificationStatus": "verified",
-          "sourceType": "official_press_release",
-          "sourceUrl": "https://insideevs.uol.com.br/news/dfm-box-e2-brasil",
-          "sourceUpdatedAt": "2026-10-01",
-          "verifiedAt": "2026-10-01"
-        },
-        "battery": {
-          "verificationStatus": "verified",
-          "sourceType": "official_press_release",
-          "sourceUrl": "https://insideevs.uol.com.br/news/dfm-box-e2-brasil",
-          "sourceUpdatedAt": "2026-10-01",
-          "verifiedAt": "2026-10-01"
-        },
-        "charging": {
-          "verificationStatus": "verified",
-          "sourceType": "official_press_release",
-          "sourceUrl": "https://insideevs.uol.com.br/news/dfm-box-e2-brasil",
-          "sourceUpdatedAt": "2026-10-01",
-          "verifiedAt": "2026-10-01"
-        },
-        "availability": {
-          "verificationStatus": "verified",
-          "sourceType": "official_press_release",
-          "sourceUrl": "https://insideevs.uol.com.br/news/dfm-box-e2-brasil",
-          "sourceUpdatedAt": "2026-10-01",
-          "verifiedAt": "2026-10-01"
-        },
-        "dimensions": {
-          "verificationStatus": "verified",
-          "sourceType": "official_press_release",
-          "sourceUrl": "https://insideevs.uol.com.br/news/dfm-box-e2-brasil",
-          "sourceUpdatedAt": "2026-10-01",
-          "verifiedAt": "2026-10-01"
-        },
-        "trunk": {
-          "verificationStatus": "verified",
-          "sourceType": "official_press_release",
-          "sourceUrl": "https://insideevs.uol.com.br/news/dfm-box-e2-brasil",
-          "sourceUpdatedAt": "2026-10-01",
-          "verifiedAt": "2026-10-01"
-        },
-        "weight": {
-          "verificationStatus": "verified",
-          "sourceType": "official_press_release",
-          "sourceUrl": "https://insideevs.uol.com.br/news/dfm-box-e2-brasil",
-          "sourceUpdatedAt": "2026-10-01",
-          "verifiedAt": "2026-10-01"
-        }
+        "price": { "verificationStatus": "legacy_unverified", "sourceType": null, "sourceUrl": "https://dfm.grupoleauto.com.br/modelos/box", "sourceUpdatedAt": null, "verifiedAt": "2026-11-06" },
+        "range_km": { "verificationStatus": "legacy_unverified", "sourceType": null, "sourceUrl": "https://dfm.grupoleauto.com.br/fichas/dfm-box-urban-ficha-tecnica.pdf", "sourceUpdatedAt": null, "verifiedAt": "2026-11-06" },
+        "consumption": { "verificationStatus": "legacy_unverified", "sourceType": null, "sourceUrl": null, "sourceUpdatedAt": null, "verifiedAt": null },
+        "power": { "verificationStatus": "legacy_unverified", "sourceType": null, "sourceUrl": "https://dfm.grupoleauto.com.br/fichas/dfm-box-urban-ficha-tecnica.pdf", "sourceUpdatedAt": null, "verifiedAt": "2026-11-06" },
+        "battery": { "verificationStatus": "legacy_unverified", "sourceType": null, "sourceUrl": "https://dfm.grupoleauto.com.br/fichas/dfm-box-urban-ficha-tecnica.pdf", "sourceUpdatedAt": null, "verifiedAt": "2026-11-06" },
+        "charging": { "verificationStatus": "legacy_unverified", "sourceType": null, "sourceUrl": "https://dfm.grupoleauto.com.br/fichas/dfm-box-urban-ficha-tecnica.pdf", "sourceUpdatedAt": null, "verifiedAt": "2026-11-06" },
+        "availability": { "verificationStatus": "legacy_unverified", "sourceType": null, "sourceUrl": "https://dfm.grupoleauto.com.br/modelos/box", "sourceUpdatedAt": null, "verifiedAt": "2026-11-06" },
+        "dimensions": { "verificationStatus": "legacy_unverified", "sourceType": null, "sourceUrl": "https://dfm.grupoleauto.com.br/fichas/dfm-box-urban-ficha-tecnica.pdf", "sourceUpdatedAt": null, "verifiedAt": "2026-11-06" },
+        "trunk": { "verificationStatus": "legacy_unverified", "sourceType": null, "sourceUrl": "https://dfm.grupoleauto.com.br/fichas/dfm-box-urban-ficha-tecnica.pdf", "sourceUpdatedAt": null, "verifiedAt": "2026-11-06" },
+        "weight": { "verificationStatus": "legacy_unverified", "sourceType": null, "sourceUrl": "https://dfm.grupoleauto.com.br/fichas/dfm-box-urban-ficha-tecnica.pdf", "sourceUpdatedAt": null, "verifiedAt": "2026-11-06" }
+      }
+    },
+    "dfm-vigo-urban-plus": {
+      "brand": "DFM", "model": "Vigo Urban Plus",
+      "fields": {
+        "price": { "verificationStatus": "legacy_unverified", "sourceType": null, "sourceUrl": "https://dfm.grupoleauto.com.br/modelos/vigo", "sourceUpdatedAt": null, "verifiedAt": "2026-11-06" },
+        "range_km": { "verificationStatus": "legacy_unverified", "sourceType": null, "sourceUrl": "https://dfm.grupoleauto.com.br/fichas/dfm-vigo-urban-plus-ficha-tecnica.pdf", "sourceUpdatedAt": null, "verifiedAt": "2026-11-06" },
+        "consumption": { "verificationStatus": "legacy_unverified", "sourceType": null, "sourceUrl": null, "sourceUpdatedAt": null, "verifiedAt": null },
+        "power": { "verificationStatus": "legacy_unverified", "sourceType": null, "sourceUrl": "https://dfm.grupoleauto.com.br/fichas/dfm-vigo-urban-plus-ficha-tecnica.pdf", "sourceUpdatedAt": null, "verifiedAt": "2026-11-06" },
+        "battery": { "verificationStatus": "legacy_unverified", "sourceType": null, "sourceUrl": "https://dfm.grupoleauto.com.br/fichas/dfm-vigo-urban-plus-ficha-tecnica.pdf", "sourceUpdatedAt": null, "verifiedAt": "2026-11-06" },
+        "charging": { "verificationStatus": "legacy_unverified", "sourceType": null, "sourceUrl": "https://dfm.grupoleauto.com.br/fichas/dfm-vigo-urban-plus-ficha-tecnica.pdf", "sourceUpdatedAt": null, "verifiedAt": "2026-11-06" },
+        "availability": { "verificationStatus": "legacy_unverified", "sourceType": null, "sourceUrl": "https://dfm.grupoleauto.com.br/modelos/vigo", "sourceUpdatedAt": null, "verifiedAt": "2026-11-06" },
+        "dimensions": { "verificationStatus": "legacy_unverified", "sourceType": null, "sourceUrl": "https://dfm.grupoleauto.com.br/fichas/dfm-vigo-urban-plus-ficha-tecnica.pdf", "sourceUpdatedAt": null, "verifiedAt": "2026-11-06" },
+        "trunk": { "verificationStatus": "legacy_unverified", "sourceType": null, "sourceUrl": "https://dfm.grupoleauto.com.br/fichas/dfm-vigo-urban-plus-ficha-tecnica.pdf", "sourceUpdatedAt": null, "verifiedAt": "2026-11-06" },
+        "weight": { "verificationStatus": "legacy_unverified", "sourceType": null, "sourceUrl": "https://dfm.grupoleauto.com.br/fichas/dfm-vigo-urban-plus-ficha-tecnica.pdf", "sourceUpdatedAt": null, "verifiedAt": "2026-11-06" }
       }
     },
     "farizon-f3e": {
@@ -14739,6 +14693,26 @@
     }
   },
   "legacyExceptions": {
+    "dfm-box-urban.price": { "reason": "Preço de referência preliminar publicado por concessionária.", "reviewCondition": "Confirmar tabela oficial e início da pré-venda." },
+    "dfm-box-urban.range_km": { "reason": "Ficha preliminar da rede de concessionárias informa autonomia Inmetro.", "reviewCondition": "Conferir tabela oficial PBEV." },
+    "dfm-box-urban.consumption": { "reason": "Consumo homologado não localizado e omitido.", "reviewCondition": "Consultar tabela oficial PBEV." },
+    "dfm-box-urban.power": { "reason": "Dado da ficha preliminar da rede de concessionárias.", "reviewCondition": "Confirmar ficha da fabricante para o Brasil." },
+    "dfm-box-urban.battery": { "reason": "Dado da ficha preliminar da rede de concessionárias.", "reviewCondition": "Confirmar ficha da fabricante para o Brasil." },
+    "dfm-box-urban.charging": { "reason": "Dado da ficha preliminar da rede de concessionárias.", "reviewCondition": "Confirmar ficha da fabricante para o Brasil." },
+    "dfm-box-urban.availability": { "reason": "Pré-venda anunciada como prevista pela concessionária.", "reviewCondition": "Confirmar abertura das vendas e entregas." },
+    "dfm-box-urban.dimensions": { "reason": "Dado da ficha preliminar da rede de concessionárias.", "reviewCondition": "Confirmar ficha da fabricante para o Brasil." },
+    "dfm-box-urban.trunk": { "reason": "Capacidade declarada em ficha preliminar da concessionária; método não informado.", "reviewCondition": "Confirmar ficha brasileira da fabricante e método de medição." },
+    "dfm-box-urban.weight": { "reason": "Dado da ficha preliminar da rede de concessionárias.", "reviewCondition": "Confirmar ficha da fabricante para o Brasil." },
+    "dfm-vigo-urban-plus.price": { "reason": "Preço de referência preliminar publicado por concessionária.", "reviewCondition": "Confirmar tabela oficial e início da pré-venda." },
+    "dfm-vigo-urban-plus.range_km": { "reason": "Ficha preliminar da rede de concessionárias informa autonomia Inmetro.", "reviewCondition": "Conferir tabela oficial PBEV." },
+    "dfm-vigo-urban-plus.consumption": { "reason": "Consumo homologado não localizado e omitido.", "reviewCondition": "Consultar tabela oficial PBEV." },
+    "dfm-vigo-urban-plus.power": { "reason": "Dado da ficha preliminar da rede de concessionárias.", "reviewCondition": "Confirmar ficha da fabricante para o Brasil." },
+    "dfm-vigo-urban-plus.battery": { "reason": "Dado da ficha preliminar da rede de concessionárias.", "reviewCondition": "Confirmar ficha da fabricante para o Brasil." },
+    "dfm-vigo-urban-plus.charging": { "reason": "Dado da ficha preliminar da rede de concessionárias.", "reviewCondition": "Confirmar ficha da fabricante para o Brasil." },
+    "dfm-vigo-urban-plus.availability": { "reason": "Pré-venda anunciada como prevista pela concessionária.", "reviewCondition": "Confirmar abertura das vendas e entregas." },
+    "dfm-vigo-urban-plus.dimensions": { "reason": "Dado da ficha preliminar da rede de concessionárias.", "reviewCondition": "Confirmar ficha da fabricante para o Brasil." },
+    "dfm-vigo-urban-plus.trunk": { "reason": "Capacidade declarada em ficha preliminar da concessionária; método não informado.", "reviewCondition": "Confirmar ficha brasileira da fabricante e método de medição." },
+    "dfm-vigo-urban-plus.weight": { "reason": "Dado da ficha preliminar da rede de concessionárias.", "reviewCondition": "Confirmar ficha da fabricante para o Brasil." },
     "omoda-omoda-e5-elite.price": { "reason": "Preço promocional divulgado por imprensa especializada, sem fonte primária localizada.", "reviewCondition": "Confirmar oferta e prazo com a fabricante.", "recordedAt": "2026-11-04" },
     "omoda-omoda-e5-elite.range_km": { "reason": "Autonomia Inmetro divulgada por imprensa especializada, sem tabela oficial localizada.", "reviewCondition": "Conferir tabela PBEV ou ficha oficial brasileira.", "recordedAt": "2026-11-04" },
     "omoda-omoda-e5-elite.consumption": { "reason": "Consumo não informado no catálogo por ausência de fonte oficial.", "reviewCondition": "Consultar próxima tabela PBEV.", "recordedAt": "2026-11-04" },
