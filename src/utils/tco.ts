@@ -1,5 +1,5 @@
 import { Car } from '../types';
-import { IPVA_BY_STATE, calcIpva } from '../constants/ipvaByState';
+import { IPVA_REFERENCE_YEAR, resolveIpva, IpvaEstimate } from './ipva';
 import {
   ETHANOL_FACTOR,
   calcMonthlyCost,
@@ -18,6 +18,7 @@ export interface TCOParams {
   blendedKwhPrice: number; // R$/kWh (blended AC+DC)
   fuelType: FuelType;      // tipo de combustível
   selectedState: string;
+  startYear?: number;      // exercício inicial (não é idade do veículo)
   customEvKwh?: number | null;   // override kWh/100km (já efetivo)
   customCombKmL?: number | null; // override km/L (já efetivo, com etanol ajustado se aplicável)
 }
@@ -62,6 +63,8 @@ function depreciatedValue(originalPrice: number, annualRate: number, year: numbe
 
 export interface TCOYearBreakdown {
   year: number;
+  calendarYear: number;
+  ipvaEstimate: IpvaEstimate;
   evValue: number;
   combValue: number;
   energyEV: number;
@@ -70,14 +73,16 @@ export interface TCOYearBreakdown {
   insuranceComb: number;
   maintEV: number;
   maintComb: number;
-  ipvaEV: number;
-  ipvaComb: number;
+  ipvaEV: number | null;
+  ipvaComb: number | null;
   totalEV: number;
   totalComb: number;
   savingsEV: number;
 }
 
 export interface TCOResult {
+  ipvaIncluded: boolean;
+  ipvaScenario: boolean;
   years: TCOYearBreakdown[];
   totalEV4y: number;
   totalComb4y: number;
@@ -92,8 +97,14 @@ export interface TCOResult {
 
 export function calcTCO(car: Car, params: TCOParams): TCOResult {
   const cat = TCO_BY_CATEGORY[car.cat] ?? TCO_BY_CATEGORY['Compacto'];
-  const ipvaStateInfo = IPVA_BY_STATE.find(s => s.abbr === params.selectedState)
-    ?? IPVA_BY_STATE.find(s => s.abbr === 'SP')!;
+  const startYear = params.startYear ?? IPVA_REFERENCE_YEAR;
+  const ipvaEstimates = Array.from({ length: 4 }, (_, i) => resolveIpva(car, params.selectedState, {
+    year: startYear + i,
+    baseValue: Math.round(depreciatedValue(car.price, EV_DEPR_ANNUAL, i + 1)),
+  }));
+  // Uma comparação parcial exclui IPVA de ambos os lados, em todos os anos.
+  const ipvaIncluded = ipvaEstimates.every(estimate => estimate.rate !== null);
+  const ipvaScenario = ipvaEstimates.some(estimate => estimate.status === 'conditional');
 
   const annualKms = params.kms * 12;
 
@@ -133,14 +144,16 @@ export function calcTCO(car: Car, params: TCOParams): TCOResult {
     const insuranceEV   = Math.round(evValue   * EV_INS_RATE);
     const insuranceComb = Math.round(combValue * COMB_INS_RATE);
 
-    const ipvaEV   = calcIpva(evValue, ipvaStateInfo);
-    const ipvaComb = Math.round(combValue * ipvaStateInfo.standardRate);
+    const ipvaEstimate = ipvaEstimates[y - 1];
+    const ipvaEV = ipvaIncluded ? ipvaEstimate.amount : null;
+    const standardRate = ipvaEstimate.standardRate;
+    const ipvaComb = ipvaIncluded && standardRate !== null ? Math.round(combValue * standardRate) : null;
 
-    const totalEV   = annualEnergyEV   + insuranceEV   + annualMaintEV   + ipvaEV;
-    const totalComb = annualEnergyComb + insuranceComb + annualMaintComb + ipvaComb;
+    const totalEV   = annualEnergyEV   + insuranceEV   + annualMaintEV   + (ipvaEV ?? 0);
+    const totalComb = annualEnergyComb + insuranceComb + annualMaintComb + (ipvaComb ?? 0);
 
     years.push({
-      year: y, evValue, combValue,
+      year: y, calendarYear: startYear + y - 1, ipvaEstimate, evValue, combValue,
       energyEV: annualEnergyEV, energyComb: annualEnergyComb,
       insuranceEV, insuranceComb,
       maintEV: annualMaintEV, maintComb: annualMaintComb,
@@ -162,6 +175,8 @@ export function calcTCO(car: Car, params: TCOParams): TCOResult {
   const netAdvantageEV = totalSavings4y - (residualValueComb - residualValueEV);
 
   return {
+    ipvaIncluded,
+    ipvaScenario,
     years,
     totalEV4y,
     totalComb4y,

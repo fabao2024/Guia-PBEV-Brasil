@@ -51,6 +51,14 @@ export interface Car {
   groundClearanceMm?: number;    // mm — altura do solo (desalicerado)
   weightKg?: number;             // kg — peso em ordem de marcha
   trunkLiters?: number;          // L — porta-malas declarado; método pode variar
+  /** Evidência técnica/fiscal específica da versão; não usar potência combinada em cv. */
+  taxProfile?: {
+    spClass?: 'general' | 'truck' | 'bus' | 'singleCabPickup';
+    electricMotorKw?: number;
+    voltageV?: number;
+    regenerativeBraking?: boolean;
+    sourceUrl: string;
+  };
 }
 
 export interface FilterState {

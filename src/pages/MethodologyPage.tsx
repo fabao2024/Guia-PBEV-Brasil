@@ -5,7 +5,7 @@ import { ArrowLeft, BookOpen, ExternalLink, Landmark, Fuel, Zap, Scale, Route as
 import { CATALOG_EVIDENCE } from '../constants/catalogEvidence';
 import { ELECTRICITY_PRICES_UPDATED } from '../constants/electricityPricesByState';
 import { FUEL_PRICES_UPDATED } from '../constants/fuelPricesByState';
-import { IPVA_BY_STATE, IPVA_DATA_UPDATED } from '../constants/ipvaByState';
+import { SP_IPVA_SOURCES, SP_IPVA_REVIEWED } from '../utils/ipva';
 import {
   TCO_BY_CATEGORY, ETHANOL_FACTOR, EV_MAINT_KM, COMB_MAINT_KM, HYBRID_MAINT_KM,
   EV_DEPR_ANNUAL, COMB_DEPR_ANNUAL, EV_INS_RATE, COMB_INS_RATE,
@@ -19,7 +19,6 @@ export default function MethodologyPage() {
   const helmetDesc = t('methodology.subtitle', 'Fontes de dados e fórmulas do Guia PBEV.');
   const canonicalUrl = 'https://guiapbev.cloud/metodologia/';
   const categories = Object.keys(TCO_BY_CATEGORY);
-  const conditionalExemptions = IPVA_BY_STATE.filter(s => s.exemptionThreshold !== undefined);
 
   return (
     <>
@@ -94,7 +93,7 @@ export default function MethodologyPage() {
               <li>{t('methodology.sourcesPrices', { through: CATALOG_EVIDENCE.marketHistoryThrough, disclaimer: CATALOG_EVIDENCE.priceDisclaimer, defaultValue: 'Preços — histórico até {{through}}. {{disclaimer}}' })}</li>
               <li>{t('methodology.sourcesAneel', { date: ELECTRICITY_PRICES_UPDATED, defaultValue: 'Eletricidade — tarifas homologadas ANEEL (B1 residencial). Referência {{date}}.' })}</li>
               <li>{t('methodology.sourcesAnp', { date: FUEL_PRICES_UPDATED, defaultValue: 'Combustível — preços ANP. Referência {{date}}.' })}</li>
-              <li>{t('methodology.sourcesIpva', { date: IPVA_DATA_UPDATED, defaultValue: 'IPVA — alíquotas por estado. Referência {{date}}.' })}</li>
+              <li>{t('methodology.sourcesIpva', { date: SP_IPVA_REVIEWED })}</li>
             </ul>
           </section>
 
@@ -174,20 +173,17 @@ export default function MethodologyPage() {
             </h2>
             <p className="text-sm text-[#a0a0a0] leading-relaxed mb-3">{t('methodology.ipvaIntro', '')}</p>
             <p className="text-sm font-mono text-[#72d7ff] bg-white/5 rounded-xl px-4 py-3 mb-4">{t('methodology.ipvaFormula', '')}</p>
-            {conditionalExemptions.length > 0 && (
-              <>
-                <h3 className="text-sm font-bold text-white mb-2">{t('methodology.ipvaExemptionTitle', 'Isenções condicionais')}</h3>
-                <p className="text-sm text-[#a0a0a0] leading-relaxed mb-2">{t('methodology.ipvaExemptionNote', '')}</p>
-                <ul className="text-sm text-white/80 space-y-1">
-                  {conditionalExemptions.map(s => (
-                    <li key={s.abbr}>
-                      <strong className="text-white">{s.abbr}</strong> —{' '}
-                      {t('methodology.ipvaOver', { value: `R$ ${fmt(s.exemptionThreshold ?? 0)}`, defaultValue: 'acima de {{value}}' })}
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
+            <div className="space-y-3 text-sm text-white/75">
+              <p>{t('ipva.reason.technical')}</p>
+              <p>{t('ipva.schedule')}</p>
+              <p>{t('ipva.baseDisclaimer')}</p>
+              <p>{t('ipva.otherBenefits')}</p>
+              <p>{t('ipva.paymentDisclaimer')}</p>
+              <p>{t('ipva.tcoScenario')}</p>
+              <p>{t('ipva.tcoPartial')}</p>
+              <p>{t('ipva.reviewed', { date: SP_IPVA_REVIEWED })}</p>
+              <ul className="space-y-2">{SP_IPVA_SOURCES.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer" className="text-[#72d7ff] underline">{source.label}</a></li>)}</ul>
+            </div>
           </section>
 
           <section aria-labelledby="meth-tco" className="mb-10 rounded-3xl border border-[#00b4ff]/20 bg-[#00b4ff]/[0.04] p-5 md:p-6">

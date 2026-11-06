@@ -1,48 +1,36 @@
 export interface IpvaStateInfo {
   name: string;
   abbr: string;
-  bevRate: number;        // 0–1, e.g. 0.04 = 4%. 0 = full exemption.
-  standardRate: number;   // combustion vehicle rate for this state
-  condition: string | null;
-  exemptionThreshold?: number; // max car price (BRL) for exemption to apply
 }
 
+// Lista de seleção, NÃO tabela fiscal. Regras auditadas: ../utils/ipva.ts.
+// As antigas alíquotas BEV, sem prova de elegibilidade, não devem ser reutilizadas.
 export const IPVA_BY_STATE: IpvaStateInfo[] = [
-  { abbr: 'AC', name: 'Acre',                  bevRate: 0,     standardRate: 0.02,  condition: null },
-  { abbr: 'AL', name: 'Alagoas',               bevRate: 0,     standardRate: 0.03,  condition: 'Apenas veículos 0 km' },
-  { abbr: 'AM', name: 'Amazonas',              bevRate: 0.015, standardRate: 0.03,  condition: '50% de desconto por 5 anos' },
-  { abbr: 'AP', name: 'Amapá',                 bevRate: 0,     standardRate: 0.03,  condition: 'Isenção no 1º ano' },
-  { abbr: 'BA', name: 'Bahia',                 bevRate: 0,     standardRate: 0.025, condition: null, exemptionThreshold: 300000 },
-  { abbr: 'CE', name: 'Ceará',                 bevRate: 0.03,  standardRate: 0.03,  condition: null },
-  { abbr: 'DF', name: 'Distrito Federal',      bevRate: 0,     standardRate: 0.035, condition: null },
-  { abbr: 'ES', name: 'Espírito Santo',        bevRate: 0.02,  standardRate: 0.02,  condition: null },
-  { abbr: 'GO', name: 'Goiás',                 bevRate: 0.03,  standardRate: 0.0375,condition: null },
-  { abbr: 'MA', name: 'Maranhão',              bevRate: 0,     standardRate: 0.03,  condition: null },
-  { abbr: 'MG', name: 'Minas Gerais',          bevRate: 0,     standardRate: 0.04,  condition: 'Apenas fabricados em MG' },
-  { abbr: 'MS', name: 'Mato Grosso do Sul',    bevRate: 0,     standardRate: 0.03,  condition: 'Isenção no 1º ano; 70% desc. após' },
-  { abbr: 'MT', name: 'Mato Grosso',           bevRate: 0.03,  standardRate: 0.03,  condition: null },
-  { abbr: 'PA', name: 'Pará',                  bevRate: 0,     standardRate: 0.025, condition: null, exemptionThreshold: 150000 },
-  { abbr: 'PB', name: 'Paraíba',               bevRate: 0,     standardRate: 0.025, condition: null },
-  { abbr: 'PE', name: 'Pernambuco',            bevRate: 0,     standardRate: 0.024, condition: null },
-  { abbr: 'PI', name: 'Piauí',                 bevRate: 0.01,  standardRate: 0.03,  condition: null },
-  { abbr: 'PR', name: 'Paraná',                bevRate: 0.019, standardRate: 0.019, condition: null },
-  { abbr: 'RJ', name: 'Rio de Janeiro',        bevRate: 0.005, standardRate: 0.04,  condition: null },
-  { abbr: 'RN', name: 'Rio Grande do Norte',   bevRate: 0,     standardRate: 0.03,  condition: null },
-  { abbr: 'RO', name: 'Rondônia',              bevRate: 0.03,  standardRate: 0.03,  condition: null },
-  { abbr: 'RR', name: 'Roraima',               bevRate: 0.03,  standardRate: 0.03,  condition: null },
-  { abbr: 'RS', name: 'Rio Grande do Sul',     bevRate: 0,     standardRate: 0.03,  condition: null },
-  { abbr: 'SC', name: 'Santa Catarina',        bevRate: 0.03,  standardRate: 0.02,  condition: null },
-  { abbr: 'SE', name: 'Sergipe',               bevRate: 0,     standardRate: 0.03,  condition: null },
-  { abbr: 'SP', name: 'São Paulo',             bevRate: 0.04,  standardRate: 0.04,  condition: null },
-  { abbr: 'TO', name: 'Tocantins',             bevRate: 0,     standardRate: 0.02,  condition: null },
+  { abbr: 'AC', name: 'Acre' },
+  { abbr: 'AL', name: 'Alagoas' },
+  { abbr: 'AM', name: 'Amazonas' },
+  { abbr: 'AP', name: 'Amapá' },
+  { abbr: 'BA', name: 'Bahia' },
+  { abbr: 'CE', name: 'Ceará' },
+  { abbr: 'DF', name: 'Distrito Federal' },
+  { abbr: 'ES', name: 'Espírito Santo' },
+  { abbr: 'GO', name: 'Goiás' },
+  { abbr: 'MA', name: 'Maranhão' },
+  { abbr: 'MG', name: 'Minas Gerais' },
+  { abbr: 'MS', name: 'Mato Grosso do Sul' },
+  { abbr: 'MT', name: 'Mato Grosso' },
+  { abbr: 'PA', name: 'Pará' },
+  { abbr: 'PB', name: 'Paraíba' },
+  { abbr: 'PE', name: 'Pernambuco' },
+  { abbr: 'PI', name: 'Piauí' },
+  { abbr: 'PR', name: 'Paraná' },
+  { abbr: 'RJ', name: 'Rio de Janeiro' },
+  { abbr: 'RN', name: 'Rio Grande do Norte' },
+  { abbr: 'RO', name: 'Rondônia' },
+  { abbr: 'RR', name: 'Roraima' },
+  { abbr: 'RS', name: 'Rio Grande do Sul' },
+  { abbr: 'SC', name: 'Santa Catarina' },
+  { abbr: 'SE', name: 'Sergipe' },
+  { abbr: 'SP', name: 'São Paulo' },
+  { abbr: 'TO', name: 'Tocantins' },
 ];
-
-export const STANDARD_COMBUSTION_IPVA_RATE = 0.04; // SP worst-case, used as comparison baseline
-export const IPVA_DATA_UPDATED = 'março/2026';
-
-export function calcIpva(price: number, state: IpvaStateInfo): number {
-  if (state.exemptionThreshold !== undefined && price > state.exemptionThreshold) {
-    return Math.round(price * state.standardRate);
-  }
-  return Math.round(price * state.bevRate);
-}

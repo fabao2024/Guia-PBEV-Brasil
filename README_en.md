@@ -11,7 +11,7 @@ Progressive Web App for the Brazilian electric vehicle (BEV) market: interactive
 ## Overview
 
 - **Catalog**: searchable, filterable BEV catalog sourced from the official PBEV/INMETRO labeling program, with per-vehicle detail pages and shareable comparisons.
-- **Tools**: savings simulator and total cost of ownership (TCO) with reproducible assumptions, IPVA calculator for all 27 Brazilian states, route planner with charging stops, offline recommendation quiz.
+- **Tools**: savings simulator and total cost of ownership (TCO) with reproducible assumptions, SP IPVA estimates by model and tax year (other states under review; partial TCO when tax unavailable), route planner with charging stops, offline recommendation quiz.
 - **AI assistant**: optional EV-specialized chat (user provides their own Gemini key, stored locally in the browser only).
 
 ## Documentation

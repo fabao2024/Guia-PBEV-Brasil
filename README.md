@@ -23,12 +23,12 @@ Progressive Web App (PWA) para o mercado de veículos elétricos (BEV) no Brasil
 | 📋 Catálogo | 125 modelos (BEV + híbridos) com filtros por preço, autonomia, categoria, marca, tração e propulsão |
 | 🔍 Busca full-text | Busca instantânea por modelo, marca ou categoria (Fuse.js, tolerante a erros) |
 | ⚖️ Comparação | Comparativo lado a lado de até 3 veículos |
-| 💰 Simulador de Economia | Calcula economia mensal vs. combustão com IPVA real por estado |
-| 📊 TCO 4 anos | Custo total de propriedade: energia, seguro, manutenção, IPVA e depreciação |
+| 💰 Simulador de Economia | Economia mensal vs. combustão; IPVA SP com condições por modelo somente no TCO ou na ficha do veículo |
+| 📊 TCO 4 anos | Energia, seguro, manutenção, IPVA estimado e depreciação; comparação parcial quando IPVA indisponível |
 | 🤖 Assistente IA | Chat especializado em EVs com dados PBEV (Gemini 3.5 Flash-Lite) |
 | 🏆 Quiz de Recomendação | Recomenda BEV ou híbrido por perfil (km/dia, orçamento, recarga, carroceria) — 100% offline, sem chave de API |
 | 🏅 Certificação PBE | Rating PBE/INMETRO (A–E) e consumo em MJ/km por modelo |
-| 🧾 IPVA 2026 | Calculadora de IPVA nos 27 estados com isenções para EVs |
+| 🧾 IPVA 2026 | Regras SP por modelo e exercício, com fontes e pendências explícitas; demais UFs em revisão |
 | 📱 PWA | Instalável no Android e iOS, funciona como app nativo |
 | 🌐 Bilíngue | Interface completa em PT-BR e EN com toggle e persistência |
 | ❤️ Favoritos | Lista de favoritos com persistência em localStorage |
@@ -90,7 +90,7 @@ No [guiapbev.cloud](https://guiapbev.cloud), usuários inserem sua própria chav
 
 - **196 veículos** (BEV + híbridos) cadastrados (40 marcas)
 - **93 modelos** com certificação PBE/INMETRO oficial
-- **27 estados** com dados de IPVA 2026 e tarifas ANP/ANEEL
+- **27 UFs** com referências ANP/ANEEL; IPVA SP revisado e demais UFs pendentes de auditoria
 - **407 testes** automatizados em 50 arquivos
 - **Build**: ~5s (Vite/ESBuild)
 
@@ -124,12 +124,12 @@ Progressive Web App (PWA) for the Brazilian Electric Vehicle (BEV) market. Inter
 | 📋 Catalog | 125 models (BEV + hybrids) with filters by price, range, category, brand, drivetrain and powertrain |
 | 🔍 Full-text Search | Instant search by model, brand or category (Fuse.js, typo-tolerant) |
 | ⚖️ Comparison | Side-by-side comparison of up to 3 vehicles |
-| 💰 Savings Simulator | Monthly savings vs. combustion with real state IPVA tax |
-| 📊 4-year TCO | Total cost of ownership: energy, insurance, maintenance, IPVA and depreciation |
+| 💰 Savings Simulator | Monthly savings vs. combustion; model-specific SP IPVA only in TCO or vehicle details |
+| 📊 4-year TCO | Energy, insurance, maintenance, estimated IPVA and depreciation; partial comparison when IPVA unavailable |
 | 🤖 AI Assistant | EV-specialized chat with PBEV data (Gemini 3.5 Flash-Lite) |
 | 🏆 Recommendation Quiz | Recommends the ideal EV by profile — 100% offline, no API key needed |
 | 🏅 PBE Certification | PBE/INMETRO rating (A–E) and energy consumption in MJ/km per model |
-| 🧾 IPVA 2026 | Vehicle tax calculator across all 27 Brazilian states with EV exemptions |
+| 🧾 IPVA 2026 | SP rules by model and tax year, with sources and explicit pending evidence; other states under review |
 | 📱 PWA | Installable on Android and iOS, works as a native app |
 | 🌐 Bilingual | Full PT-BR and EN interface with toggle and persistence |
 | ❤️ Favorites | Favorites list with localStorage persistence |
@@ -181,7 +181,7 @@ npm run preview       # Preview production build
 
 - **193 vehicles** (BEV + hybrids) registered (40 marcas)
 - **93 models** with official PBE/INMETRO certification
-- **27 states** with 2026 IPVA data and ANP/ANEEL tariffs
+- **27 states** with ANP/ANEEL references; SP IPVA reviewed, other states awaiting audit
 - **406 automated tests** across 50 files
 - **Build time**: ~5s (Vite/ESBuild)
 

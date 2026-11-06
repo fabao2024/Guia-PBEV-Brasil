@@ -1,5 +1,5 @@
 import { describe, expect, it, beforeEach } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import { HelmetProvider } from 'react-helmet-async';
 import { MemoryRouter } from 'react-router-dom';
 import MethodologyPage from '../MethodologyPage';
@@ -50,8 +50,10 @@ describe('MethodologyPage', () => {
     expect(screen.getByText(/2,5% do valor depreciado/i)).toBeInTheDocument();
     expect(screen.getByText(/1,3× maior/i)).toBeInTheDocument();
     expect(screen.getByText(/bateria × 0,93/i)).toBeInTheDocument();
-    expect(screen.getByText(/acima de R\$ 300\.000/i)).toBeInTheDocument();
-    expect(screen.getByText(/acima de R\$ 150\.000/i)).toBeInTheDocument();
+    expect(screen.getByText(/Teto de referência 2026: R\$ 261\.154,45/i)).toBeInTheDocument();
+    expect(screen.getByText(/Demais UFs pendentes de auditoria/i)).toBeInTheDocument();
+    expect(screen.getByText(/TCO parcial — IPVA indisponível/i)).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Portaria SRE 94/ })).toHaveAttribute('href', expect.stringContaining('fazenda.sp.gov.br'));
     expect(screen.getByRole('heading', { name: /híbridos/i })).toBeInTheDocument();
     expect(screen.getByText(/a cada 20\.000 km no EV/i)).toBeInTheDocument();
     expect(screen.getAllByText(/10\.000 km/i).length).toBeGreaterThanOrEqual(1);
@@ -61,7 +63,7 @@ describe('MethodologyPage', () => {
   it('renders methodology sections in english when language is en', async () => {
     const { rerender } = renderPage();
 
-    await i18n.changeLanguage('en');
+    await act(async () => { await i18n.changeLanguage('en'); });
     rerender(
       <HelmetProvider>
         <MemoryRouter initialEntries={['/metodologia']}>
@@ -72,9 +74,11 @@ describe('MethodologyPage', () => {
 
     expect(screen.getByRole('heading', { level: 1, name: /calculation methodology/i })).toBeInTheDocument();
     expect(screen.getByText(/9\.5% per year/i)).toBeInTheDocument();
-    expect(screen.getByText(/above R\$ 300,000/i)).toBeInTheDocument();
+    expect(screen.getByText(/2026 reference ceiling: R\$ 261,154.45/i)).toBeInTheDocument();
+    expect(screen.getByText(/Other states await audit/i)).toBeInTheDocument();
+    expect(screen.getByText(/Partial TCO — IPVA unavailable/i)).toBeInTheDocument();
     expect(screen.getByText(/battery × 0\.93/i)).toBeInTheDocument();
 
-    await i18n.changeLanguage('pt-BR');
+    await act(async () => { await i18n.changeLanguage('pt-BR'); });
   });
 });

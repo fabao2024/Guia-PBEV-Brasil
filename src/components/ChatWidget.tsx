@@ -12,25 +12,13 @@ import { traceLLMCall } from '../utils/tracing';
 import { track } from '../utils/analytics';
 import WhatsAppCta from './WhatsAppCta';
 import { useRateLimit } from '../hooks/useRateLimit';
-import { FUEL_PRICES_BY_STATE, FUEL_PRICES_UPDATED } from '../constants/fuelPricesByState';
-import { ELECTRICITY_PRICES_BY_STATE, ELECTRICITY_PRICES_UPDATED } from '../constants/electricityPricesByState';
-import { IPVA_BY_STATE } from '../constants/ipvaByState';
+import { buildStateDataSummary } from '../utils/stateDataSummary';
 import { LEAD_CAPTURE_ENABLED } from '../config/leadCapture';
 import { ELETRIBRASIL_MODEL } from '../config/aiModels';
 import { clearSessionApiKey, resolveSessionApiKey, saveSessionApiKey } from '../utils/apiKeyStorage';
 
 const API_KEY_STORAGE = 'gemini-api-key';
 const DEV_GEMINI_API_KEY = import.meta.env.DEV ? import.meta.env.VITE_GEMINI_API_KEY || '' : '';
-
-function buildStateDataSummary(): string {
-  const lines = IPVA_BY_STATE.map(s => {
-    const fuel = FUEL_PRICES_BY_STATE[s.abbr];
-    const elec = ELECTRICITY_PRICES_BY_STATE[s.abbr];
-    const ipva = s.bevRate === 0 ? 'Isento' : `${(s.bevRate * 100).toFixed(1)}%`;
-    return `${s.abbr} (${s.name}): gas R$${fuel?.gasoline.toFixed(2)}/L | etanol R$${fuel?.ethanol.toFixed(2)}/L | energia R$${elec?.toFixed(2)}/kWh | IPVA EV ${ipva}`;
-  });
-  return `Dados por Estado (ANP ${FUEL_PRICES_UPDATED} | ANEEL ${ELECTRICITY_PRICES_UPDATED}):\n${lines.join('\n')}`;
-}
 
 const QUIZ_OPTIONS: Record<number, { pt: string[]; en: string[] }> = {
   1: { pt: ['Até 60km', '60–120km', 'Mais de 120km'], en: ['Up to 60km', '60–120km', 'Over 120km'] },
@@ -323,7 +311,7 @@ function buildCarSummary(lang: string): string {
       : pt === 'BEV'
         ? `autonomia PBEV ${electricRange ?? '—'} km`
         : `autonomia elétrica ${electricRange ?? '—'} km${combinedRange ? `, total combinada ${combinedRange} km` : ''}${c.fuelConsumptionKml ? `, consumo ${c.fuelConsumptionKml} km/L` : ''}`;
-    return `${c.brand} ${c.model}: R$${c.price.toLocaleString('pt-BR')}, [${pt}] ${metrics}, ${c.cat}${c.power ? `, ${c.power}cv` : ''}${c.torque ? `, ${c.torque}kgfm` : ''}`;
+    return `${c.brand} ${c.model}: R$${c.price.toLocaleString('pt-BR')}, [${pt}] ${metrics}, ${c.cat}${c.power ? `, ${c.power}cv (combinados/sistema; não é potência elétrica fiscal)` : ''}${c.torque ? `, ${c.torque}kgfm` : ''}${pt !== 'BEV' ? `, combustível: ${c.fuelType2 ?? 'não informado'}, requisitos técnicos IPVA: ${c.taxProfile ? 'verificar ficha específica' : 'pendentes'}` : ''}`;
   }).join('\\n');
 
   if (isEn) {

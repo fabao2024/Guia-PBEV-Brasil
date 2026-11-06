@@ -20,8 +20,8 @@ Operações administrativas, dados pessoais, regras de matching, credenciais, in
 | Catálogo BEV | ✅ | Busca, filtros, imagens, ficha técnica e dados PBE/INMETRO |
 | Catálogo híbrido | 🚧 | Filtro por propulsão (BEV/PHEV/HEV/REEV) e 3 PHEV BYD com fonte oficial; HEV, REEV e demais marcas em lotes seguintes |
 | Comparação | ✅ | Comparação lado a lado com URLs compartilháveis |
-| Simulador de economia | ✅ | Energia, combustível, IPVA e premissas editáveis |
-| TCO | ✅ | Custo total de propriedade com cenários reproduzíveis |
+| Simulador de economia | ✅ | Energia, combustível e premissas editáveis; detalhes fiscais somente no TCO ou na ficha do veículo |
+| TCO | ✅ | IPVA SP por modelo e exercício civil, com pendências explícitas; comparação parcial quando o imposto é indisponível |
 | Quiz de recomendação | ✅ | Recomendação local baseada no perfil informado (km/dia, orçamento, recarga, carroceria, prioridade), com BEV e híbridos |
 | Planejamento de rota | ✅ | Estimativa de consumo e eletropostos ao longo do trajeto |
 | PWA | ✅ | Manifesto, instalação e experiência responsiva |
@@ -59,6 +59,7 @@ O frontend envia a candidatura a uma API externa por contrato versionado, inclui
 - publicar metodologia das estimativas de TCO e consumo;
 - melhorar Core Web Vitals e divisão de bundles;
 - exibir atualização e procedência dos dados de forma mais granular.
+- concluir a auditoria de IPVA das demais UFs e a evidência técnica por versão; regras SP de 2026 nas fichas e no TCO, com cenários sem benefício quando houver dados pendentes e TCO parcial quando o imposto não puder ser estimado.
 
 ### Médio prazo
 

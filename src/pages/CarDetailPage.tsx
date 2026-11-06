@@ -9,7 +9,9 @@ import {
   BatteryCharging, Zap, CheckCircle2, ArrowLeft, ArrowUpRight,
   Scale, Heart, Share2, ChevronDown, Award, Shield
 } from 'lucide-react';
-import { IPVA_BY_STATE, calcIpva, IPVA_DATA_UPDATED } from '../constants/ipvaByState';
+import { IPVA_BY_STATE } from '../constants/ipvaByState';
+import IpvaEstimate from '../components/IpvaEstimate';
+import { useSelectedState } from '../hooks/useSelectedState';
 import { getPriceDelta, getLastSnapshot } from '../constants/priceHistory';
 import { track } from '../utils/analytics';
 import { resolveCarImageUrl } from '../utils/imageUrl';
@@ -68,16 +70,9 @@ export default function CarDetailPage() {
   const { t } = useTranslation();
   const car = useMemo(() => slug ? findCarBySlug(slug, CAR_DB) : undefined, [slug]);
 
-  const [selectedState, setSelectedState] = useState<string>(
-    () => (typeof window !== 'undefined' ? localStorage.getItem('selectedState') : null) ?? 'SP'
-  );
+  const [selectedState, setSelectedState] = useSelectedState();
   const [copied, setCopied] = useState(false);
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('selectedState', selectedState);
-    }
-  }, [selectedState]);
 
   // Track page view
   useEffect(() => {
@@ -161,12 +156,8 @@ export default function CarDetailPage() {
   const primaryMetric = primaryCarMetric(car);
   const combinedRange = combinedRangeOf(car);
   const rangePercent = primaryMetric.progressValue;
-  const ipvaInfo = IPVA_BY_STATE.find(s => s.abbr === selectedState) ?? IPVA_BY_STATE.find(s => s.abbr === 'SP')!;
   const priceDelta = getPriceDelta(car.model, car.price);
   const lastSnapshot = getLastSnapshot(car.model);
-  const annualIpva = calcIpva(car.price, ipvaInfo);
-  const combustionIpva = Math.round(car.price * ipvaInfo.standardRate);
-  const ipvaSavings = combustionIpva - annualIpva;
 
   const getFallbackFeatures = (cat: string): string[] => {
     const key = cat === 'Compacto' ? 'compact' : cat === 'SUV' ? 'suv' : cat === 'Luxo' ? 'luxury' : cat === 'Comercial' ? 'commercial' : 'default';
@@ -564,6 +555,7 @@ export default function CarDetailPage() {
             </h2>
             <div className="relative mb-2">
               <select
+                aria-label={t('ipva.selectState')}
                 value={selectedState}
                 onChange={e => setSelectedState(e.target.value)}
                 className="w-full appearance-none text-sm font-medium rounded-xl px-4 py-2.5 pr-8 focus:outline-none transition-colors"
@@ -571,41 +563,13 @@ export default function CarDetailPage() {
               >
                 {IPVA_BY_STATE.map(s => (
                   <option key={s.abbr} value={s.abbr} style={{ background: '#1c1e26' }}>
-                    {s.abbr} — {s.name} · {s.bevRate === 0 ? 'Isento' : `${(s.bevRate * 100).toFixed(1)}%`}
+                    {s.abbr} — {s.name}
                   </option>
                 ))}
               </select>
               <ChevronDown className="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" style={{ color: 'rgba(255,255,255,0.4)' }} />
             </div>
-            <div
-              className="flex items-center justify-between rounded-xl px-4 py-3"
-              style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
-            >
-              <div>
-                <div className="text-[10px] uppercase tracking-widest mb-0.5" style={{ color: 'rgba(255,255,255,0.28)' }}>
-                  {t('ipva.annualIpva')}
-                </div>
-                <div className="text-xl font-black" style={{ color: annualIpva === 0 ? '#00e5a0' : 'white' }}>
-                  {annualIpva === 0 ? t('ipva.exempt') : `R$ ${annualIpva.toLocaleString('pt-BR')}`}
-                </div>
-                {ipvaSavings > 0 && (
-                  <div className="text-xs mt-0.5" style={{ color: '#00e5a0' }}>
-                    ↓ R$ {ipvaSavings.toLocaleString('pt-BR')} {t('ipva.savingsVsCombustion')}
-                  </div>
-                )}
-              </div>
-              <div className="text-right" style={{ color: 'rgba(255,255,255,0.35)' }}>
-                <div className="text-xs">{t('ipva.bevRate')} {(ipvaInfo.bevRate * 100).toFixed(1)}%</div>
-                {ipvaInfo.condition && (
-                  <div className="text-xs mt-1 max-w-[130px] leading-tight" style={{ color: 'rgba(255,255,255,0.28)' }}>
-                    {ipvaInfo.condition}
-                  </div>
-                )}
-              </div>
-            </div>
-            <p className="text-xs mt-2 text-right" style={{ color: 'rgba(255,255,255,0.2)' }}>
-              {'⚠'} Dados de {IPVA_DATA_UPDATED}. Consulte a Sefaz do seu estado.
-            </p>
+            <IpvaEstimate car={car} state={selectedState} />
           </section>
 
           {/* Divider */}
