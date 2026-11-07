@@ -48,7 +48,15 @@ Resumo pelo preço atual: **8 versões com isenção estimada, 3 acima do teto e
 
 Evidências versionadas em `src/constants/taxProfiles.ts`, vinculadas explicitamente em `CAR_DB`. A validação existente de proveniência do catálogo não cobre os novos campos fiscais: testes específicos verificam escopo, fontes e resultados dos modelos reais.
 
-Pendências retornam alíquota e valor indeterminados, não 4%. O calendário legal de 2027–2029 é exibido como informação, mas tetos futuros ausentes não geram valores tributários presumidos. No TCO, o imposto é excluído de ambos os veículos **somente nos exercícios pendentes**; exercícios calculáveis permanecem na tabela e nos totais. A soma de IPVA para todo o horizonte fica indeterminada se houver algum ano ausente. Totais operacionais e economia são explicitamente parciais. A exportação segue a mesma regra.
+O resolvedor fiscal estrito mantém alíquota e valor indeterminados nas pendências, não 4%. A ausência de teto futuro não confirma enquadramento nem isenção.
+
+### Projeção anual no TCO · revisão de 07/11/2026
+
+O TCO oferece a opção **“Projetar continuidade do benefício de IPVA”**, ativada inicialmente. Somente modelos com enquadramento estimado pelos dados de referência de SP/2026 podem usá-la. Para esses modelos, a tabela aplica 0% em 2026, 1% em 2027, 2% em 2028 e 3% em 2029; desde 2030 aplica a alíquota regular de 4%, sem perpetuar o benefício. A alíquota é mostrada ao lado do valor anual, também no PNG.
+
+Os exercícios com teto futuro ausente usam uma hipótese explícita de **continuidade do enquadramento**: não é divulgação de um teto legal, congelamento do teto de 2026 nem confirmação da Sefaz. A avaliação estrita permanece separada da projeção no resultado de cálculo. Alíquotas projetadas levam `*`, e totais, economia, custo/km e resultado líquido que dependem delas são identificados como condicionais. O valor anual projetado usa a base depreciada daquele exercício, não o preço integral repetido nos quatro anos.
+
+Desmarcar a opção remove as projeções. Nesse modo, ou quando não há projeção aplicável, o imposto é excluído dos dois lados **somente nos exercícios pendentes**. A soma de IPVA do horizonte fica indeterminada se faltar algum ano, e os resultados são parciais. Modelos com requisitos técnicos ausentes ou preço de referência acima do teto não ganham benefício presumido após depreciação. Outras UFs não herdam o calendário de SP. A exportação usa exatamente a opção selecionada na tela.
 
 A comparação com o teto preserva centavos: o TCO não arredonda uma base imediatamente acima do limite para dentro do benefício. O arredondamento monetário acontece depois da decisão de enquadramento.
 

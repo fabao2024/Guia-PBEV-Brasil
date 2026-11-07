@@ -10,7 +10,7 @@ import { SP_IPVA_REVIEWED } from '../utils/ipva';
 import { FUEL_PRICES_BY_STATE, FUEL_PRICES_UPDATED, getDefaultFuelPrice } from '../constants/fuelPricesByState';
 import { ELECTRICITY_PRICES_BY_STATE, ELECTRICITY_PRICES_UPDATED, getDefaultElectricityPrice } from '../constants/electricityPricesByState';
 import { track } from '../utils/analytics';
-import { calcTCO, TCOResult, FuelType, ETHANOL_FACTOR } from '../utils/tco';
+import { calcTCO, TCOResult, TCOYearBreakdown, FuelType, ETHANOL_FACTOR } from '../utils/tco';
 import {
   calcMonthlyCost,
   effectiveCarKmL,
@@ -24,6 +24,14 @@ function formatTcoValue(value: number | null): string {
     return value === null ? '—' : Math.round(value).toLocaleString('pt-BR');
 }
 
+/** Mesma alíquota exibida na tabela e no PNG; * identifica projeção, nunca isenção confirmada. */
+function formatTcoIpvaRate(year: TCOYearBreakdown, comparator = false): string | null {
+    const rate = comparator
+        ? (year.ipvaComb === null ? null : year.ipvaEstimate.standardRate)
+        : year.ipvaEstimate.rate ?? year.ipvaProjection?.rate ?? null;
+    return rate === null ? null : `${(rate * 100).toLocaleString('pt-BR', { maximumFractionDigits: 2 })}%${!comparator && year.ipvaProjection ? '*' : ''}`;
+}
+
 function sumTcoColumn(tco: TCOResult, key: keyof TCOResult['years'][number]): number | null {
     const values = tco.years.map(year => year[key]);
     return values.every((value): value is number => typeof value === 'number')
@@ -35,7 +43,7 @@ function drawTCOImage(car: Car, tco: TCOResult, selectedState: string, fuelType:
     const rowH = 34;
     const numDataRows = 4; // Energia, Seguro, Manutenção, IPVA
     const tableHeight = rowH + numDataRows * rowH * 2 + rowH; // header + data pairs + savings
-    const W = 900, H = tableTop + tableHeight + 180;
+    const W = 900, H = tableTop + tableHeight + 240;
     const canvas = document.createElement('canvas');
     canvas.width = W; canvas.height = H;
     const ctx = canvas.getContext('2d')!;
@@ -55,7 +63,9 @@ function drawTCOImage(car: Car, tco: TCOResult, selectedState: string, fuelType:
     ctx.font = 'bold 22px system-ui, sans-serif';
     const fuelLabel = fuelType === 'ethanol' ? 'Etanol' : 'Gasolina';
     const powertrainLabel = (car.powertrain ?? 'BEV') === 'BEV' ? 'EV' : 'Híbrido';
-    ctx.fillText(`${car.brand} ${car.model} — TCO ${tco.ipvaIncluded ? 'estimado' : 'parcial, IPVA incompleto'} (${fuelLabel})`, 32, 48);
+    const scenarioLabel = tco.ipvaProjected ? 'TCO CONDICIONAL' : tco.ipvaIncluded ? 'TCO estimado' : 'TCO PARCIAL';
+    const projectionMark = tco.ipvaProjected ? '*' : '';
+    ctx.fillText(`${car.brand} ${car.model} — ${scenarioLabel} (${fuelLabel})`, 32, 48, W - 64);
     ctx.fillStyle = '#00b4ff';
     ctx.font = '13px system-ui, sans-serif';
     ctx.fillText(`Custo Total de Propriedade vs. combustão equivalente (${car.cat}) · Estado: ${selectedState}`, 32, 70);
@@ -69,7 +79,7 @@ function drawTCOImage(car: Car, tco: TCOResult, selectedState: string, fuelType:
     ctx.fillText(`CUSTO/KM — ${powertrainLabel.toUpperCase()}`, 44, 106);
     ctx.fillStyle = '#00b4ff';
     ctx.font = 'bold 18px system-ui, sans-serif';
-    ctx.fillText(`R$ ${tco.costPerKmEV.toFixed(2).replace('.', ',')}`, 44, 128);
+    ctx.fillText(`R$ ${tco.costPerKmEV.toFixed(2).replace('.', ',')}${projectionMark}`, 44, 128);
 
     ctx.fillStyle = 'rgba(255,255,255,0.05)';
     ctx.roundRect(284, 88, 240, 52, 10);
@@ -79,7 +89,7 @@ function drawTCOImage(car: Car, tco: TCOResult, selectedState: string, fuelType:
     ctx.fillText(`CUSTO/KM — ${fuelLabel.toUpperCase()}`, 296, 106);
     ctx.fillStyle = 'rgba(255,255,255,0.7)';
     ctx.font = 'bold 18px system-ui, sans-serif';
-    ctx.fillText(`R$ ${tco.costPerKmComb.toFixed(2).replace('.', ',')}`, 296, 128);
+    ctx.fillText(`R$ ${tco.costPerKmComb.toFixed(2).replace('.', ',')}${projectionMark}`, 296, 128);
 
     ctx.fillStyle = 'rgba(0,229,160,0.12)';
     ctx.roundRect(536, 88, 332, 52, 10);
@@ -89,7 +99,7 @@ function drawTCOImage(car: Car, tco: TCOResult, selectedState: string, fuelType:
     ctx.fillText('ECONOMIA EM 4 ANOS', 548, 106);
     ctx.fillStyle = '#00e5a0';
     ctx.font = 'bold 22px system-ui, sans-serif';
-    ctx.fillText(`R$ ${tco.totalSavings4y.toLocaleString('pt-BR')}`, 548, 130);
+    ctx.fillText(`R$ ${tco.totalSavings4y.toLocaleString('pt-BR')}${projectionMark}`, 548, 130);
 
     // Table setup
     const colW = 140;
@@ -132,18 +142,28 @@ function drawTCOImage(car: Car, tco: TCOResult, selectedState: string, fuelType:
         const totalComb = sumTcoColumn(tco, row.combKey);
 
         [0, 1, 2, 3].forEach(yi => {
+            const year = tco.years[yi];
+            const isIpva = row.evKey === 'ipvaEV';
             const x = labelW + 32 + yi * colW + colW / 2;
             ctx.textAlign = 'center';
             ctx.fillStyle = '#00b4ff'; ctx.font = '11px system-ui, sans-serif';
-            ctx.fillText(formatTcoValue(tco.years[yi][row.evKey] as number | null), x, yEV + 22);
+            ctx.fillText(formatTcoValue(year[row.evKey] as number | null), x, yEV + (isIpva ? 15 : 22));
+            if (isIpva && formatTcoIpvaRate(year) !== null) {
+                ctx.font = '9px system-ui, sans-serif';
+                ctx.fillText(formatTcoIpvaRate(year)!, x, yEV + 29);
+            }
             ctx.fillStyle = 'rgba(255,255,255,0.35)'; ctx.font = '11px system-ui, sans-serif';
-            ctx.fillText(formatTcoValue(tco.years[yi][row.combKey] as number | null), x, yComb + 22);
+            ctx.fillText(formatTcoValue(year[row.combKey] as number | null), x, yComb + (isIpva ? 15 : 22));
+            if (isIpva && formatTcoIpvaRate(year, true) !== null) {
+                ctx.font = '9px system-ui, sans-serif';
+                ctx.fillText(formatTcoIpvaRate(year, true)!, x, yComb + 29);
+            }
         });
         const tx = labelW + 32 + 4 * colW + colW / 2;
         ctx.fillStyle = '#00b4ff'; ctx.font = 'bold 11px system-ui, sans-serif';
-        ctx.fillText(formatTcoValue(totalEV), tx, yEV + 22);
+        ctx.fillText(`${formatTcoValue(totalEV)}${row.evKey === 'ipvaEV' && totalEV !== null ? projectionMark : ''}`, tx, yEV + 22);
         ctx.fillStyle = 'rgba(255,255,255,0.35)'; ctx.font = '11px system-ui, sans-serif';
-        ctx.fillText(formatTcoValue(totalComb), tx, yComb + 22);
+        ctx.fillText(`${formatTcoValue(totalComb)}${row.combKey === 'ipvaComb' && totalComb !== null ? projectionMark : ''}`, tx, yComb + 22);
         ctx.textAlign = 'left';
     });
 
@@ -159,12 +179,12 @@ function drawTCOImage(car: Car, tco: TCOResult, selectedState: string, fuelType:
         ctx.textAlign = 'center';
         const x = labelW + 32 + yi * colW + colW / 2;
         ctx.fillStyle = '#00e5a0'; ctx.font = 'bold 11px system-ui, sans-serif';
-        ctx.fillText(`R$${Math.round(y.savingsEV).toLocaleString('pt-BR')}`, x, savingsY + 22);
+        ctx.fillText(`R$${Math.round(y.savingsEV).toLocaleString('pt-BR')}${y.ipvaProjection ? '*' : ''}`, x, savingsY + 22);
     });
     ctx.textAlign = 'center';
     const tx2 = labelW + 32 + 4 * colW + colW / 2;
     ctx.fillStyle = '#00e5a0'; ctx.font = 'bold 13px system-ui, sans-serif';
-    ctx.fillText(`R$${tco.totalSavings4y.toLocaleString('pt-BR')}`, tx2, savingsY + 22);
+    ctx.fillText(`R$${tco.totalSavings4y.toLocaleString('pt-BR')}${projectionMark}`, tx2, savingsY + 22);
     ctx.textAlign = 'left';
 
     // Footer
@@ -172,7 +192,8 @@ function drawTCOImage(car: Car, tco: TCOResult, selectedState: string, fuelType:
     ctx.font = '11px system-ui, sans-serif';
     const notes = [
         tco.ipvaIncluded ? 'IPVA estimado sobre depreciação, não valor fiscal. Cenário anual de uso particular.' : 'TCO PARCIAL: anos com — excluem IPVA de ambos os veículos; totais, economia e custo/km incluem só exercícios calculáveis.',
-        ...(tco.ipvaScenario ? ['Elegibilidade ou teto anual pendente: sem cálculo nesses exercícios. Não presumimos 4% nem isenção não comprovada.'] : []),
+        ...(tco.ipvaProjected ? ['* Continuidade do benefício: teto futuro não confirmado. Valores condicionais, não lançamento da Sefaz.', 'Totais, economia e custo/km com * incluem IPVA projetado; desligue a projeção para comparação parcial.'] : []),
+        ...(!tco.ipvaIncluded && tco.ipvaScenario ? ['Elegibilidade ou teto anual pendente: sem cálculo nesses exercícios. Não presumimos 4% nem isenção não comprovada.'] : []),
         'Sem benefícios pessoais, restituições municipais, descontos por pagamento ou proporcionalidade por mês de aquisição.',
         'SP: benefício híbrido exige etanol/flex, ≥40 kW elétricos, ≥150 V, recuperação de energia e teto anual.',
         'Calendário dos elegíveis: 2026 0%; 2027 1%; 2028 2%; 2029 3%. Tetos futuros não presumidos.',
@@ -201,6 +222,7 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [], onLea
     // ── Shared state ──────────────────────────────────────────────────────────
     const [selectedState, setSelectedState] = useSelectedState();
     const [tab, setTab] = useState<Tab>('savings');
+    const [projectIpvaBenefit, setProjectIpvaBenefit] = useState(true);
     const [kms, setKms] = useState<number>(1500);
     const [gasPrice, setGasPrice] = useState<number>(() => getDefaultFuelPrice(selectedState, 'gasoline'));
     const [kwhPrice, setKwhPrice] = useState<number>(() => getDefaultElectricityPrice(selectedState));
@@ -305,7 +327,7 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [], onLea
             cars.forEach((car, carI) => {
                 const origIdx = selectedCars.indexOf(car);
                 const slotIdx = origIdx >= 0 ? origIdx : carI;
-                const tco = calcTCO(car, { kms, gasPrice, gasolinePrice, blendedKwhPrice, fuelType, selectedState, customEvKwh: customEvKwh[slotIdx], customCombKmL: customCombKmL[slotIdx] });
+                const tco = calcTCO(car, { kms, gasPrice, gasolinePrice, blendedKwhPrice, fuelType, selectedState, projectIpvaBenefit, customEvKwh: customEvKwh[slotIdx], customCombKmL: customCombKmL[slotIdx] });
                 const dataUrl = drawTCOImage(car, tco, selectedState, fuelType);
                 const link = document.createElement('a');
                 link.download = `tco-${car.model.toLowerCase().replace(/\s+/g, '-')}.png`;
@@ -319,7 +341,7 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [], onLea
         } finally {
             setIsExporting(false);
         }
-    }, [selectedCars, kms, gasPrice, gasolinePrice, blendedKwhPrice, fuelType, selectedState, customEvKwh, customCombKmL]);
+    }, [selectedCars, kms, gasPrice, gasolinePrice, blendedKwhPrice, fuelType, selectedState, projectIpvaBenefit, customEvKwh, customCombKmL]);
 
     const fmtNum = (v: number) => Math.round(v).toLocaleString('pt-BR');
 
@@ -399,6 +421,13 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [], onLea
                                 <ChevronDown className="w-4 h-4 text-[#a0a0a0] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                             </div>
                             {tab === 'tco' && <p className="text-xs text-white/70 mt-2">{t('ipva.reviewed', { date: SP_IPVA_REVIEWED })}</p>}
+                            {tab === 'tco' && selectedState === 'SP' && <div className="mt-3 rounded-xl border border-amber-200/20 bg-amber-200/5 p-3">
+                                <label className="flex items-start gap-2 text-sm text-amber-100">
+                                    <input type="checkbox" checked={projectIpvaBenefit} onChange={event => setProjectIpvaBenefit(event.target.checked)} className="mt-1 accent-amber-200" />
+                                    <span>{t('ipva.projectBenefit')}</span>
+                                </label>
+                                <p className="mt-2 text-xs leading-relaxed text-white/70">{t('ipva.projectionHelp')}</p>
+                            </div>}
                         </div>
 
                         <div>
@@ -689,7 +718,8 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [], onLea
                                     </div>
                                 );
 
-                                const tco: TCOResult = calcTCO(car, { kms, gasPrice, gasolinePrice, blendedKwhPrice, fuelType, selectedState, customEvKwh: customEvKwh[idx], customCombKmL: customCombKmL[idx] });
+                                const tco: TCOResult = calcTCO(car, { kms, gasPrice, gasolinePrice, blendedKwhPrice, fuelType, selectedState, projectIpvaBenefit, customEvKwh: customEvKwh[idx], customCombKmL: customCombKmL[idx] });
+                                const projectionMark = tco.ipvaProjected ? '*' : '';
                                 const isBest = idx === bestIndex && tco.ipvaIncluded && !tco.ipvaScenario;
 
                                 const ROW_LABELS = [
@@ -716,7 +746,12 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [], onLea
                                         {/* TCO summary tiles — row 1: operating costs */}
                                         <div className="px-5 pb-4 space-y-2 text-sm text-amber-200" role="note">
                                             <p>{t(tco.ipvaIncluded ? 'ipva.tcoBasis' : 'ipva.tcoPartial')}</p>
-                                            {tco.ipvaScenario && <p>{t('ipva.tcoScenario')}</p>}
+                                            {tco.ipvaProjected && <>
+                                                <p className="font-bold">{t('ipva.projectionTitle')}</p>
+                                                <p>{t('ipva.projectionDisclaimer')}</p>
+                                                <p>{t('ipva.projectionTotals')}</p>
+                                            </>}
+                                            {!tco.ipvaIncluded && tco.ipvaScenario && <p>{t('ipva.tcoScenario')}</p>}
                                             <IpvaEstimate car={car} state={selectedState} />
                                         </div>
                                         <div className="px-5 pb-2 grid grid-cols-2 sm:grid-cols-4 gap-2.5">
@@ -726,15 +761,15 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [], onLea
                                             </div>
                                             <div className="rounded-xl px-3 py-2.5 text-center" style={{ background: 'rgba(0,180,255,0.07)', border: '1px solid rgba(0,180,255,0.18)' }}>
                                                 <p className="text-[10px] uppercase tracking-widest mb-0.5" style={{ color: 'rgba(0,180,255,0.6)' }}>{t('simulator.totalEV4y')}</p>
-                                                <p className="text-sm font-black" style={{ color: '#00b4ff' }}>{fmtNum(tco.totalEV4y)}</p>
+                                                <p className="text-sm font-black" style={{ color: '#00b4ff' }}>{fmtNum(tco.totalEV4y)}{projectionMark}</p>
                                             </div>
                                             <div className="bg-white/4 rounded-xl px-3 py-2.5 text-center">
                                                 <p className="text-[10px] uppercase tracking-widest text-white/30 mb-0.5">{t('simulator.totalComb4y')}</p>
-                                                <p className="text-sm font-black text-white/60">{fmtNum(tco.totalComb4y)}</p>
+                                                <p className="text-sm font-black text-white/60">{fmtNum(tco.totalComb4y)}{projectionMark}</p>
                                             </div>
                                             <div className="rounded-xl px-3 py-2.5 text-center" style={{ background: 'rgba(0,229,160,0.07)', border: '1px solid rgba(0,229,160,0.2)' }}>
                                                 <p className="text-[10px] uppercase tracking-widest mb-0.5 text-[#00e5a0]/60">{t('simulator.totalSavings4y')}</p>
-                                                <p className="text-sm font-black text-[#00e5a0]">{fmtNum(tco.totalSavings4y)}</p>
+                                                <p className="text-sm font-black text-[#00e5a0]">{fmtNum(tco.totalSavings4y)}{projectionMark}</p>
                                             </div>
                                         </div>
 
@@ -771,7 +806,7 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [], onLea
                                                             : tco.netAdvantageEV < -5000 ? { color: '#ff6464' }
                                                             : { color: '#ffb800' }
                                                         }>
-                                                            {tco.netAdvantageEV >= 0 ? '+' : ''}{fmtNum(tco.netAdvantageEV)}
+                                                            {tco.netAdvantageEV >= 0 ? '+' : ''}{fmtNum(tco.netAdvantageEV)}{projectionMark}
                                                         </p>
                                                     </div>
                                                 </div>
@@ -781,6 +816,7 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [], onLea
                                         {/* 4-year table */}
                                         <div className="overflow-x-auto px-5 pb-5">
                                             <table className="w-full text-xs min-w-[480px]">
+                                                <caption className="pb-3 text-left text-xs text-amber-200">{t(tco.ipvaProjected ? 'ipva.projectionTable' : 'ipva.annualRates')}</caption>
                                                 <thead>
                                                     <tr>
                                                         <th className="text-left text-[10px] uppercase tracking-widest text-white/25 py-2 pr-3 font-medium w-28">· R$</th>
@@ -809,10 +845,12 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [], onLea
                                                                 {tco.years.map(y => (
                                                                     <td key={y.year} className="text-center py-1 px-2 text-[#00b4ff] font-medium">
                                                                         {formatTcoValue(y[row.evKey] as number | null)}
+                                                                        {row.evKey === 'ipvaEV' && formatTcoIpvaRate(y) !== null && <span className={`mt-0.5 block text-[10px] ${y.ipvaProjection ? 'text-amber-200' : 'text-white/60'}`} title={t(y.ipvaProjection ? 'ipva.projectedRate' : 'ipva.annualRates')}>{formatTcoIpvaRate(y)}</span>}
                                                                     </td>
                                                                 ))}
                                                                 <td className="text-center py-1 px-2 text-[#00b4ff] font-bold">
                                                                     {formatTcoValue(sumTcoColumn(tco, row.evKey))}
+                                                                    {row.evKey === 'ipvaEV' && sumTcoColumn(tco, row.evKey) !== null && projectionMark}
                                                                 </td>
                                                             </tr>
                                                             {/* Combustion row */}
@@ -823,10 +861,12 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [], onLea
                                                                 {tco.years.map(y => (
                                                                     <td key={y.year} className="text-center py-1 px-2 text-white/35 font-medium">
                                                                         {formatTcoValue(y[row.combKey] as number | null)}
+                                                                        {row.combKey === 'ipvaComb' && formatTcoIpvaRate(y, true) !== null && <span className="mt-0.5 block text-[10px] text-white/60">{formatTcoIpvaRate(y, true)}</span>}
                                                                     </td>
                                                                 ))}
                                                                 <td className="text-center py-1 px-2 text-white/35">
                                                                     {formatTcoValue(sumTcoColumn(tco, row.combKey))}
+                                                                    {row.combKey === 'ipvaComb' && sumTcoColumn(tco, row.combKey) !== null && projectionMark}
                                                                 </td>
                                                             </tr>
                                                         </React.Fragment>
@@ -837,13 +877,13 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [], onLea
                                                         <td className="py-2 pr-3 font-black text-xs uppercase tracking-wider text-white">{ROW_LABELS[4]}</td>
                                                         {tco.years.map(y => (
                                                             <td key={y.year} className="text-center py-2 px-2">
-                                                                <div className="text-[#00b4ff] font-black">{fmtNum(y.totalEV)}</div>
-                                                                <div className="text-white/35 text-xs">{fmtNum(y.totalComb)}</div>
+                                                                <div className="text-[#00b4ff] font-black">{fmtNum(y.totalEV)}{y.ipvaProjection ? '*' : ''}</div>
+                                                                <div className="text-white/35 text-xs">{fmtNum(y.totalComb)}{y.ipvaProjection ? '*' : ''}</div>
                                                             </td>
                                                         ))}
                                                         <td className="text-center py-2 px-2">
-                                                            <div className="text-[#00b4ff] font-black">{fmtNum(tco.totalEV4y)}</div>
-                                                            <div className="text-white/35 text-xs">{fmtNum(tco.totalComb4y)}</div>
+                                                            <div className="text-[#00b4ff] font-black">{fmtNum(tco.totalEV4y)}{projectionMark}</div>
+                                                            <div className="text-white/35 text-xs">{fmtNum(tco.totalComb4y)}{projectionMark}</div>
                                                         </td>
                                                     </tr>
 
@@ -851,9 +891,9 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [], onLea
                                                     <tr className="border-t border-[#00e5a0]/20 bg-[#00e5a0]/5">
                                                         <td className="py-2 pr-3 font-black text-xs uppercase tracking-wider text-[#00e5a0]">{t('simulator.savingsRow')}</td>
                                                         {tco.years.map(y => (
-                                                            <td key={y.year} className="text-center py-2 px-2 font-black text-[#00e5a0]">{fmtNum(y.savingsEV)}</td>
+                                                            <td key={y.year} className="text-center py-2 px-2 font-black text-[#00e5a0]">{fmtNum(y.savingsEV)}{y.ipvaProjection ? '*' : ''}</td>
                                                         ))}
-                                                        <td className="text-center py-2 px-2 font-black text-[#00e5a0] text-sm">{fmtNum(tco.totalSavings4y)}</td>
+                                                        <td className="text-center py-2 px-2 font-black text-[#00e5a0] text-sm">{fmtNum(tco.totalSavings4y)}{projectionMark}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -989,7 +1029,7 @@ export default function SavingsSimulatorModal({ onClose, initialCars = [], onLea
                                             <p className="flex gap-2"><span className="text-[#00e5a0]">✓</span><span className="text-white/50"><strong className="text-white/70">Energia:</strong> mesmo cálculo da aba mensal, anualizado (×12).</span></p>
                                             <p className="flex gap-2"><span className="text-[#00e5a0]">✓</span><span className="text-white/50"><strong className="text-white/70">Seguro:</strong> 3,3% a.a. (EV) · 2,5% a.a. (combustão), sobre o valor depreciado de cada ano.</span></p>
                                             <p className="flex gap-2"><span className="text-[#00e5a0]">✓</span><span className="text-white/50"><strong className="text-white/70">Manutenção:</strong> proporcional ao km — revisão a cada 20.000 km (EV), 15.000 km (PHEV, custo de revisão combustão) e 10.000 km (combustão e HEV), sem troca de óleo para EV. Custo por revisão estimado pela categoria do veículo (ex.: Urbano EV ~R$ 600, SUV EV ~R$ 1.200, Luxo EV ~R$ 2.800), baseado em planos oficiais BYD e dados de mercado 2025. Valores aproximados — variam por marca, concessionária e região.</span></p>
-                                            <p className="text-white/70">{t('ipva.tcoBasis')} {t('ipva.tcoScenario')} {t('ipva.tcoPartial')}</p>
+                                            <p className="text-white/70">{t('ipva.tcoBasis')} {t('ipva.projectionHelp')} {t('ipva.projectionDisclaimer')} {t('ipva.projectionTotals')} {t('ipva.tcoScenario')} {t('ipva.tcoPartial')}</p>
                                             <p className="flex gap-2"><span className="text-[#00e5a0]">✓</span><span className="text-white/50"><strong className="text-white/70">Depreciação:</strong> EV 9,5% a.a. · Combustão 7,0% a.a. (linear, base para seguro e IPVA).</span></p>
                                         </div>
                                     </div>

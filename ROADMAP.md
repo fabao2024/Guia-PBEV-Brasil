@@ -21,7 +21,7 @@ Operações administrativas, dados pessoais, regras de matching, credenciais, in
 | Catálogo híbrido | 🚧 | Filtro por propulsão (BEV/PHEV/HEV/REEV) e 3 PHEV BYD com fonte oficial; HEV, REEV e demais marcas em lotes seguintes |
 | Comparação | ✅ | Comparação lado a lado com URLs compartilháveis |
 | Simulador de economia | ✅ | Energia, combustível e premissas editáveis; detalhes fiscais somente no TCO ou na ficha do veículo |
-| TCO | ✅ | IPVA SP por modelo e exercício civil, com pendências explícitas; comparação parcial quando o imposto é indisponível |
+| TCO | ✅ | IPVA SP por modelo e exercício civil, com alíquotas anuais na tabela/PNG, projeção condicional opcional e comparação parcial quando o imposto é indisponível |
 | Quiz de recomendação | ✅ | Recomendação local baseada no perfil informado (km/dia, orçamento, recarga, carroceria, prioridade), com BEV e híbridos |
 | Planejamento de rota | ✅ | Estimativa de consumo e eletropostos ao longo do trajeto |
 | PWA | ✅ | Manifesto, instalação e experiência responsiva |

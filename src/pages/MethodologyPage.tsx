@@ -180,6 +180,9 @@ export default function MethodologyPage() {
               <p>{t('ipva.otherBenefits')}</p>
               <p>{t('ipva.paymentDisclaimer')}</p>
               <p>{t('ipva.tcoScenario')}</p>
+              <p>{t('ipva.projectionHelp')}</p>
+              <p>{t('ipva.projectionDisclaimer')}</p>
+              <p>{t('ipva.projectionTotals')}</p>
               <p>{t('ipva.tcoPartial')}</p>
               <p>{t('ipva.reviewed', { date: SP_IPVA_REVIEWED })}</p>
               <ul className="space-y-2">{SP_IPVA_SOURCES.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer" className="text-[#72d7ff] underline">{source.label}</a></li>)}</ul>

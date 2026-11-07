@@ -19,6 +19,8 @@ export interface TCOParams {
   fuelType: FuelType;      // tipo de combustível
   selectedState: string;
   startYear?: number;      // exercício inicial (não é idade do veículo)
+  /** Projeta continuidade do enquadramento já estimado no exercício de referência. */
+  projectIpvaBenefit?: boolean;
   customEvKwh?: number | null;   // override kWh/100km (já efetivo)
   customCombKmL?: number | null; // override km/L (já efetivo, com etanol ajustado se aplicável)
 }
@@ -65,6 +67,8 @@ export interface TCOYearBreakdown {
   year: number;
   calendarYear: number;
   ipvaEstimate: IpvaEstimate;
+  /** Cenário separado do resultado fiscal: teto futuro ainda não confirmado. */
+  ipvaProjection: { rate: number; amount: number; assumption: 'continuedEligibility' } | null;
   evValue: number;
   combValue: number;
   energyEV: number;
@@ -81,9 +85,10 @@ export interface TCOYearBreakdown {
 }
 
 export interface TCOResult {
-  /** Cobertura completa do horizonte; false pode preservar exercícios calculáveis. */
+  /** Todos os exercícios têm estimativa ou projeção; false pode preservar anos calculáveis. */
   ipvaIncluded: boolean;
   ipvaScenario: boolean;
+  ipvaProjected: boolean;
   years: TCOYearBreakdown[];
   totalEV4y: number;
   totalComb4y: number;
@@ -104,8 +109,10 @@ export function calcTCO(car: Car, params: TCOParams): TCOResult {
     // Preservar centavos na comparação com o teto: arredondar só o imposto/exibição.
     baseValue: depreciatedValue(car.price, EV_DEPR_ANNUAL, i + 1),
   }));
-  // Em cada exercício pendente, excluir IPVA dos DOIS lados, sem apagar anos conhecidos.
-  const ipvaIncluded = ipvaEstimates.every(estimate => estimate.rate !== null);
+  // Só projetar continuidade para um modelo já enquadrado pelos dados de referência.
+  // Não congelar o teto de 2026, nem inventar enquadramento para modelos pendentes/acima dele.
+  const canProjectBenefit = params.projectIpvaBenefit !== false
+    && resolveIpva(car, params.selectedState).reason === 'eligible';
   const ipvaScenario = ipvaEstimates.some(estimate => estimate.status === 'conditional');
 
   const annualKms = params.kms * 12;
@@ -147,7 +154,11 @@ export function calcTCO(car: Car, params: TCOParams): TCOResult {
     const insuranceComb = Math.round(combValue * COMB_INS_RATE);
 
     const ipvaEstimate = ipvaEstimates[y - 1];
-    const ipvaEV = ipvaEstimate.amount;
+    const ipvaProjection: TCOYearBreakdown['ipvaProjection'] = canProjectBenefit
+      && ipvaEstimate.reason === 'futureCeiling' && ipvaEstimate.benefitRate !== null
+      ? { rate: ipvaEstimate.benefitRate, amount: Math.round(ipvaEstimate.baseValue * ipvaEstimate.benefitRate), assumption: 'continuedEligibility' }
+      : null;
+    const ipvaEV = ipvaEstimate.amount ?? ipvaProjection?.amount ?? null;
     const standardRate = ipvaEstimate.standardRate;
     const ipvaComb = ipvaEV !== null && standardRate !== null ? Math.round(combValue * standardRate) : null;
 
@@ -155,7 +166,7 @@ export function calcTCO(car: Car, params: TCOParams): TCOResult {
     const totalComb = annualEnergyComb + insuranceComb + annualMaintComb + (ipvaComb ?? 0);
 
     years.push({
-      year: y, calendarYear: startYear + y - 1, ipvaEstimate, evValue, combValue,
+      year: y, calendarYear: startYear + y - 1, ipvaEstimate, ipvaProjection, evValue, combValue,
       energyEV: annualEnergyEV, energyComb: annualEnergyComb,
       insuranceEV, insuranceComb,
       maintEV: annualMaintEV, maintComb: annualMaintComb,
@@ -177,8 +188,10 @@ export function calcTCO(car: Car, params: TCOParams): TCOResult {
   const netAdvantageEV = totalSavings4y - (residualValueComb - residualValueEV);
 
   return {
-    ipvaIncluded,
+    // Exercícios sem estimativa nem projeção excluem IPVA dos DOIS lados.
+    ipvaIncluded: years.every(year => year.ipvaEV !== null && year.ipvaComb !== null),
     ipvaScenario,
+    ipvaProjected: years.some(year => year.ipvaProjection !== null),
     years,
     totalEV4y,
     totalComb4y,

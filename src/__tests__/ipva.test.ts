@@ -119,7 +119,7 @@ describe('IPVA in TCO', () => {
     expect(result.years[0].ipvaEstimate).toMatchObject({ rate: 0.04, reason: 'threshold', baseValue: 261154.46 });
   });
   it('keeps the 2026 exemption separate from future unconfirmed ceilings', () => {
-    const result = calcTCO(hybrid, params);
+    const result = calcTCO(hybrid, { ...params, projectIpvaBenefit: false });
     expect(result.years.map(y => y.calendarYear)).toEqual([2026, 2027, 2028, 2029]);
     expect(result.years[0].ipvaEV).toBe(0);
     expect(result.years[1].ipvaEV).toBeNull();

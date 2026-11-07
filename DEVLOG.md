@@ -2,6 +2,13 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 07/11/2026 — Progressão anual de IPVA no TCO
+
+- Projeção anual opcional de continuidade do benefício para modelos com enquadramento estimado nos dados de SP/2026. Usa o calendário legal por exercício (2026: 0%; 2027: 1%; 2028: 2%; 2029: 3%; desde 2030: 4%) e a base depreciada de cada ano, sem repetir a isenção inicial no horizonte inteiro.
+- O resolvedor fiscal estrito permanece inalterado: teto futuro ausente continua sem confirmação. Projeções são registradas separadamente e marcadas com `*`; totais, economia, custo/km e resultado líquido dependentes delas são condicionais. A opção pode ser desligada para manter o TCO parcial. Dados técnicos pendentes, modelos acima do teto de referência e UFs não auditadas não recebem benefício presumido.
+- Tabela e PNG mostram alíquota e valor por exercício e seguem a mesma opção selecionada. Fontes, metodologia e orientação do consultor distinguem cálculo estrito de hipótese de continuidade. Detalhes fiscais continuam fora dos cards/home e da aba mensal.
+- Validação para publicação: suíte completa 533/533 e 124 testes direcionados aprovados; typecheck, build e scanner aprovados. Proveniência após build: `unchanged`, 989/1960. O timeout intermitente de acessibilidade registrado durante a revisão não ocorreu nesta execução. Publicação acompanhada pelo CI/deploy.
+
 ## 06/11/2026 — Revisão técnica dos híbridos e IPVA pendente
 
 - Triagem dos 74 híbridos e revisão documental dos 16 flex além do Corolla. Evidências brasileiras, escopo de versão, páginas dos manuais e lacunas em [`docs/ipva-sp-2026.md`](docs/ipva-sp-2026.md) e `src/constants/taxProfiles.ts`. Pelo preço cadastrado: 8 com isenção SP 2026 estimada, 3 acima do teto e 5 com evidência técnica pendente. Não representa concessão individual nem auditoria concluída das outras UFs.
