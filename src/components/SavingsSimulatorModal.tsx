@@ -55,7 +55,7 @@ function drawTCOImage(car: Car, tco: TCOResult, selectedState: string, fuelType:
     ctx.font = 'bold 22px system-ui, sans-serif';
     const fuelLabel = fuelType === 'ethanol' ? 'Etanol' : 'Gasolina';
     const powertrainLabel = (car.powertrain ?? 'BEV') === 'BEV' ? 'EV' : 'Híbrido';
-    ctx.fillText(`${car.brand} ${car.model} — TCO ${tco.ipvaIncluded ? 'estimado' : 'parcial, sem IPVA'} (${fuelLabel})`, 32, 48);
+    ctx.fillText(`${car.brand} ${car.model} — TCO ${tco.ipvaIncluded ? 'estimado' : 'parcial, IPVA incompleto'} (${fuelLabel})`, 32, 48);
     ctx.fillStyle = '#00b4ff';
     ctx.font = '13px system-ui, sans-serif';
     ctx.fillText(`Custo Total de Propriedade vs. combustão equivalente (${car.cat}) · Estado: ${selectedState}`, 32, 70);
@@ -171,8 +171,8 @@ function drawTCOImage(car: Car, tco: TCOResult, selectedState: string, fuelType:
     ctx.fillStyle = '#cbd5e1';
     ctx.font = '11px system-ui, sans-serif';
     const notes = [
-        tco.ipvaIncluded ? 'IPVA estimado sobre depreciação, não valor fiscal. Cenário anual de uso particular.' : 'TCO PARCIAL: IPVA excluído de ambos os veículos em todos os anos, inclusive dos totais, economia e custo/km.',
-        ...(tco.ipvaScenario ? ['Elegibilidade ou teto anual pendente: cenário sem benefício nesses exercícios. Não projetamos isenção não comprovada.'] : []),
+        tco.ipvaIncluded ? 'IPVA estimado sobre depreciação, não valor fiscal. Cenário anual de uso particular.' : 'TCO PARCIAL: anos com — excluem IPVA de ambos os veículos; totais, economia e custo/km incluem só exercícios calculáveis.',
+        ...(tco.ipvaScenario ? ['Elegibilidade ou teto anual pendente: sem cálculo nesses exercícios. Não presumimos 4% nem isenção não comprovada.'] : []),
         'Sem benefícios pessoais, restituições municipais, descontos por pagamento ou proporcionalidade por mês de aquisição.',
         'SP: benefício híbrido exige etanol/flex, ≥40 kW elétricos, ≥150 V, recuperação de energia e teto anual.',
         'Calendário dos elegíveis: 2026 0%; 2027 1%; 2028 2%; 2029 3%. Tetos futuros não presumidos.',

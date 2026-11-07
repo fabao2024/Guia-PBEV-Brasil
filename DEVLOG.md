@@ -2,7 +2,14 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
-## 06/11/2026 — IPVA SP por modelo e exercício
+## 06/11/2026 — Revisão técnica dos híbridos e IPVA pendente
+
+- Triagem dos 74 híbridos e revisão documental dos 16 flex além do Corolla. Evidências brasileiras, escopo de versão, páginas dos manuais e lacunas em [`docs/ipva-sp-2026.md`](docs/ipva-sp-2026.md) e `src/constants/taxProfiles.ts`. Pelo preço cadastrado: 8 com isenção SP 2026 estimada, 3 acima do teto e 5 com evidência técnica pendente. Não representa concessão individual nem auditoria concluída das outras UFs.
+- Corolla sedã/Cross, Yaris Cross, H6 PHEV19, H7 e CS55 passam a usar os dados elétricos comprovados; H6 PHEV35, GT e Tank 300 mantêm o impedimento do teto estimado. Song Pro GL/GS aguardam tensão; Atto 2 GS aguarda potência elétrica e tensão; HEV ONE/HEV2 aguardam fonte inequívoca de potência, pois o manual Flex MY27 troca as unidades na tabela. O combustível do Wey 07 foi preenchido como gasolina conforme manual oficial, p. 366.
+- Pendências técnicas e tetos futuros ausentes deixam alíquota/valor indeterminados: não equivalem a inelegibilidade nem a cobrança de 4%. Fichas exibem fontes e aplicação da evidência. TCO e PNG preservam exercícios calculáveis e excluem IPVA dos dois lados somente nos anos pendentes, com totais/economia explicitamente parciais. A comparação com o teto preserva centavos, sem arredondar uma base acima do limite para dentro da isenção. Consultor recebe a mesma avaliação por modelo. Home, cards e aba mensal continuam sem detalhes fiscais.
+- Validação para publicação em 07/11/2026: suíte completa 486/486 e 98 testes direcionados aprovados; typecheck, build e scanner aprovados. Proveniência após build: `unchanged`, 989/1960 (os campos fiscais têm evidência/testes próprios, fora do schema legado). O timeout intermitente de acessibilidade registrado na revisão anterior não ocorreu nesta execução. Publicação acompanhada pelo CI/deploy.
+
+## 06/11/2026 — IPVA SP por modelo e exercício (versão publicada antes da revisão técnica)
 
 - Motor único para ficha modal, página do veículo e TCO. Referência explícita 2026; UF compartilhada entre seletores dessas telas. Regras conforme [Lei 13.296/2008](https://www.al.sp.gov.br/repositorio/legislacao/lei/2008/lei-13296-23.12.2008.html), [Lei 18.065/2024](https://www.al.sp.gov.br/repositorio/legislacao/lei/2024/lei-18065-18.12.2024.html), [Portaria SRE 94/2024](https://legislacao.fazenda.sp.gov.br/Paginas/Portaria-SRE-94-de-2024.aspx) e [SIPET](https://www3.fazenda.sp.gov.br/SIPET/ServicosInstrucao/Instrucao/321).
 - Exibição restrita ao TCO e à ficha aberta ao selecionar o veículo. Cards e página inicial não exibem textos fiscais nem seletor de UF; a aba mensal/anual mantém apenas o estado para preços de energia e combustível, sem detalhes de IPVA. Cálculos e avisos fiscais preservados nas fichas e no TCO.

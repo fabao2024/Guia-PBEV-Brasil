@@ -18,6 +18,7 @@ it('shows IPVA only after opening a vehicle, not on the home grid or a home UF s
   fireEvent.click(screen.getByRole('button', { name: 'Ver ficha: Toyota Corolla Cross Hybrid' }));
   // A ficha é carregada por React.lazy; aguardar o chunk, não apenas um render.
   expect(await screen.findByText(/IPVA · SP · 2026/, {}, { timeout: 10000 })).toBeInTheDocument();
-  expect(screen.getByText(/Elegibilidade não determinada/)).toBeInTheDocument();
+  expect(screen.getByText(/Isenção estimada — não confirmada/)).toBeInTheDocument();
+  expect(screen.getByText(/IPVA · SP · 2026 · 0%/)).toBeInTheDocument();
   expect(screen.getByRole('combobox', { name: /Selecione o Estado/ })).toBeInTheDocument();
 }, 15000);

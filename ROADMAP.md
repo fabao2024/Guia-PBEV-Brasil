@@ -59,7 +59,7 @@ O frontend envia a candidatura a uma API externa por contrato versionado, inclui
 - publicar metodologia das estimativas de TCO e consumo;
 - melhorar Core Web Vitals e divisão de bundles;
 - exibir atualização e procedência dos dados de forma mais granular.
-- concluir a auditoria de IPVA das demais UFs e a evidência técnica por versão; regras SP de 2026 nas fichas e no TCO, com cenários sem benefício quando houver dados pendentes e TCO parcial quando o imposto não puder ser estimado.
+- concluir a auditoria de IPVA das demais UFs e a evidência técnica por versão; revisão dos 16 híbridos flex com fontes brasileiras em `docs/ipva-sp-2026.md`: 8 com isenção SP estimada pelo preço de catálogo, 3 acima do teto e 5 pendentes. Dados ou tetos ausentes não determinam 4%; TCO parcial exclui o imposto de ambos os veículos somente nos exercícios pendentes. As outras UFs e as cinco versões com lacunas seguem pendentes de auditoria/evidência.
 
 ### Médio prazo
 

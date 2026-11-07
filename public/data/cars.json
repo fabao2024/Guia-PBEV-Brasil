@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T11:30:24.962Z",
+  "generated_at": "2026-11-07T20:16:48.809Z",
   "total": 196,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "evidence": {
@@ -954,7 +954,7 @@
       "combined_range_km": 981,
       "fuel_consumption_kml": 10.8,
       "fuel_consumption_kml_ethanol": null,
-      "fuel_type_2": null,
+      "fuel_type_2": "gasolina",
       "category": "Luxo",
       "image_url": "https://guiapbev.cloud/car-images/gwm-wey-07.webp",
       "traction": "AWD",

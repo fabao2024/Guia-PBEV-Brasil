@@ -9,13 +9,22 @@ import '../i18n';
 const hybrid = CAR_DB.find(car => car.model === 'Corolla Cross Hybrid')!;
 const bev = CAR_DB.find(car => car.model === 'Kwid E-Tech')!;
 
-it('shows missing eligibility and a no-benefit scenario instead of claiming hybrid exemption', () => {
-  render(<IpvaEstimate car={hybrid} state="SP" />);
+it('shows pending eligibility without a determined rate or amount', () => {
+  render(<IpvaEstimate car={{ ...hybrid, taxProfile: undefined }} state="SP" />);
   expect(screen.getByText(/Elegibilidade não determinada/)).toBeInTheDocument();
   expect(screen.getByText(/40 kW/)).toBeInTheDocument();
   expect(screen.getByText(/não valor venal oficial/)).toBeInTheDocument();
   expect(screen.queryByText(/^Isento$/)).not.toBeInTheDocument();
+  expect(screen.getByText('IPVA · SP · 2026')).toBeInTheDocument();
+  expect(screen.queryByText(/^R\$ \d/)).not.toBeInTheDocument();
   expect(screen.getByRole('link', { name: /Portaria SRE/ })).toHaveAttribute('href', expect.stringContaining('fazenda.sp.gov.br'));
+});
+
+it('shows sourced exemption and the technical evidence for the selected version', () => {
+  render(<IpvaEstimate car={hybrid} state="SP" />);
+  expect(screen.getByText(/IPVA · SP · 2026 · 0%/)).toBeInTheDocument();
+  expect(screen.getByText('Isenção estimada — não confirmada')).toBeInTheDocument();
+  expect(screen.getAllByRole('link').some(link => link.getAttribute('href') === hybrid.taxProfile?.sourceUrl)).toBe(true);
 });
 
 it('updates the model and state without stale rates or SP fallback', () => {

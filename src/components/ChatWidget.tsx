@@ -12,7 +12,7 @@ import { traceLLMCall } from '../utils/tracing';
 import { track } from '../utils/analytics';
 import WhatsAppCta from './WhatsAppCta';
 import { useRateLimit } from '../hooks/useRateLimit';
-import { buildStateDataSummary } from '../utils/stateDataSummary';
+import { buildCarTaxSummary, buildStateDataSummary } from '../utils/stateDataSummary';
 import { LEAD_CAPTURE_ENABLED } from '../config/leadCapture';
 import { ELETRIBRASIL_MODEL } from '../config/aiModels';
 import { clearSessionApiKey, resolveSessionApiKey, saveSessionApiKey } from '../utils/apiKeyStorage';
@@ -311,7 +311,7 @@ function buildCarSummary(lang: string): string {
       : pt === 'BEV'
         ? `autonomia PBEV ${electricRange ?? '—'} km`
         : `autonomia elétrica ${electricRange ?? '—'} km${combinedRange ? `, total combinada ${combinedRange} km` : ''}${c.fuelConsumptionKml ? `, consumo ${c.fuelConsumptionKml} km/L` : ''}`;
-    return `${c.brand} ${c.model}: R$${c.price.toLocaleString('pt-BR')}, [${pt}] ${metrics}, ${c.cat}${c.power ? `, ${c.power}cv (combinados/sistema; não é potência elétrica fiscal)` : ''}${c.torque ? `, ${c.torque}kgfm` : ''}${pt !== 'BEV' ? `, combustível: ${c.fuelType2 ?? 'não informado'}, requisitos técnicos IPVA: ${c.taxProfile ? 'verificar ficha específica' : 'pendentes'}` : ''}`;
+    return `${c.brand} ${c.model}: R$${c.price.toLocaleString('pt-BR')}, [${pt}] ${metrics}, ${c.cat}${c.power ? `, ${c.power}cv (combinados/sistema; não é potência elétrica fiscal)` : ''}${c.torque ? `, ${c.torque}kgfm` : ''}${pt !== 'BEV' ? `, combustível: ${c.fuelType2 ?? 'não informado'}. ${buildCarTaxSummary(c)}` : ''}`;
   }).join('\\n');
 
   if (isEn) {

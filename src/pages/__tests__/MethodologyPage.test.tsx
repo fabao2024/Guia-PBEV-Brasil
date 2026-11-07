@@ -76,7 +76,7 @@ describe('MethodologyPage', () => {
     expect(screen.getByText(/9\.5% per year/i)).toBeInTheDocument();
     expect(screen.getByText(/2026 reference ceiling: R\$ 261,154.45/i)).toBeInTheDocument();
     expect(screen.getByText(/Other states await audit/i)).toBeInTheDocument();
-    expect(screen.getByText(/Partial TCO — IPVA unavailable/i)).toBeInTheDocument();
+    expect(screen.getByText(/Partial TCO — IPVA is unavailable/i)).toBeInTheDocument();
     expect(screen.getByText(/battery × 0\.93/i)).toBeInTheDocument();
 
     await act(async () => { await i18n.changeLanguage('pt-BR'); });

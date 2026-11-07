@@ -58,6 +58,10 @@ export interface Car {
     voltageV?: number;
     regenerativeBraking?: boolean;
     sourceUrl: string;
+    /** Escopo brasileiro/ano-modelo da evidência; não estender a versões antigas. */
+    scope?: string;
+    reviewedAt?: string;
+    sources?: { url: string; label: string }[];
   };
 }
 

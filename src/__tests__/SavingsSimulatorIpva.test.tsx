@@ -10,7 +10,7 @@ it('recomputes the selected UF and labels partial TCO without zero IPVA', () => 
   expect(screen.queryAllByText(/IPVA/)).toHaveLength(0);
   expect(screen.queryByText(/Elegibilidade não determinada/)).not.toBeInTheDocument();
   fireEvent.click(screen.getByRole('button', { name: 'Custo Total 4 Anos' }));
-  expect(screen.getByText(/Elegibilidade não determinada/)).toBeInTheDocument();
+  expect(screen.getByText(/Isenção estimada — não confirmada/)).toBeInTheDocument();
   fireEvent.change(screen.getByRole('combobox', { name: 'Selecione o Estado' }), { target: { value: 'MG' } });
   expect(screen.getByText('Cálculo indisponível')).toBeInTheDocument();
   expect(screen.getByText(/TCO parcial — IPVA indisponível/)).toBeInTheDocument();
@@ -19,16 +19,16 @@ it('recomputes the selected UF and labels partial TCO without zero IPVA', () => 
   expect(within(table).getByRole('columnheader', { name: '2029' })).toBeInTheDocument();
   expect(within(table).getAllByText('—')).toHaveLength(10);
   fireEvent.change(screen.getByRole('combobox', { name: 'Selecione o Estado' }), { target: { value: 'SP' } });
-  expect(screen.queryByText(/TCO parcial — IPVA indisponível/)).not.toBeInTheDocument();
-  expect(screen.getByText(/Cenário sem benefício nos exercícios/)).toBeInTheDocument();
-  expect(within(table).queryByText('—')).not.toBeInTheDocument();
+  expect(screen.getByText(/TCO parcial — IPVA indisponível/)).toBeInTheDocument();
+  expect(screen.getByText(/Elegibilidade ou teto pendente nos exercícios/)).toBeInTheDocument();
+  expect(within(table).getAllByText('—')).toHaveLength(8);
   fireEvent.click(screen.getByRole('button', { name: 'Economia Mensal/Anual' }));
   expect(screen.queryAllByText(/IPVA/)).toHaveLength(0);
   expect(screen.queryByText(/Elegibilidade não determinada/)).not.toBeInTheDocument();
 });
 
-it('includes partial-tax disclaimers and missing-value dashes in the exported image', () => {
-  localStorage.setItem('selectedState', 'MG');
+it.each([['MG', 10], ['SP', 8]] as const)('includes partial-tax disclaimers and missing-value dashes in the %s exported image', (state, dashes) => {
+  localStorage.setItem('selectedState', state);
   const fillText = vi.fn();
   const context = { fillRect: vi.fn(), fill: vi.fn(), roundRect: vi.fn(), strokeRect: vi.fn(), fillText, createLinearGradient: () => ({ addColorStop: vi.fn() }) };
   const getContext = vi.spyOn(HTMLCanvasElement.prototype, 'getContext').mockReturnValue(context as unknown as CanvasRenderingContext2D);
@@ -39,9 +39,10 @@ it('includes partial-tax disclaimers and missing-value dashes in the exported im
     fireEvent.click(screen.getByRole('button', { name: 'Custo Total 4 Anos' }));
     fireEvent.click(screen.getByRole('button', { name: /Exportar/ }));
     const texts = fillText.mock.calls.map(args => String(args[0]));
-    expect(texts.filter(text => text === '—')).toHaveLength(10);
+    expect(texts.filter(text => text === '—')).toHaveLength(dashes);
     expect(texts.some(text => text.includes('TCO PARCIAL'))).toBe(true);
     expect(texts.some(text => text.includes('Sem benefícios pessoais'))).toBe(true);
+    expect(texts.some(text => text.includes('cenário sem benefício'))).toBe(false);
     expect(click).toHaveBeenCalledOnce();
   } finally {
     getContext.mockRestore();

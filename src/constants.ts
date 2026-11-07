@@ -1,5 +1,6 @@
 
 import { Car } from './types';
+import { TAX_PROFILES } from './constants/taxProfiles';
 
 const NEW_MODELS = new Set([
   // Regra: só modelos lançados no mercado há no máximo 3 meses (revisão mensal).
@@ -390,6 +391,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Haval H6 HEV ONE", brand: "GWM", price: 199900, range: 0, cat: "SUV",
+    taxProfile: TAX_PROFILES['Haval H6 HEV ONE'],
     powertrain: 'HEV', fuelType2: 'flex',
     url: "https://www.gwmmotors.com.br/pt/experience/haval-h6",
     img: "/car-images/gwm-haval-h6-hev-one.webp",
@@ -407,6 +409,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Haval H6 HEV2", brand: "GWM", price: 225000, range: 0, cat: "SUV",
+    taxProfile: TAX_PROFILES['Haval H6 HEV2'],
     powertrain: 'HEV', fuelType2: 'flex',
     url: "https://www.gwmmotors.com.br/pt/experience/haval-h6",
     img: "/car-images/gwm-haval-h6.webp",
@@ -425,6 +428,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Haval H6 PHEV19", brand: "GWM", price: 250000, range: 77, cat: "SUV",
+    taxProfile: TAX_PROFILES['Haval H6 PHEV19'],
     powertrain: 'PHEV', electricRangeKm: 77, combinedRangeKm: 886, fuelType2: 'flex', // C derivado: tanque 55 L (ficha GWM) + 14,7 km/L Inmetro
     url: "https://www.gwmmotors.com.br/pt/experience/haval-h6",
     img: "/car-images/gwm-haval-h6-phev19.webp",
@@ -444,6 +448,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Haval H6 PHEV35", brand: "GWM", price: 290000, range: 126, cat: "SUV",
+    taxProfile: TAX_PROFILES['Haval H6 PHEV35'],
     powertrain: 'PHEV', electricRangeKm: 126, combinedRangeKm: 814, fuelType2: 'flex', // C derivado: tanque 55 L (ficha GWM) + 12,5 km/L Inmetro
     url: "https://www.gwmmotors.com.br/pt/experience/haval-h6",
     img: "/car-images/gwm-haval-h6-phev35.webp",
@@ -464,6 +469,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Haval H6 GT", brand: "GWM", price: 326000, range: 126, cat: "SUV",
+    taxProfile: TAX_PROFILES['Haval H6 GT'],
     powertrain: 'PHEV', electricRangeKm: 126, combinedRangeKm: 814, fuelType2: 'flex', // C derivado: tanque 55 L (ficha GWM) + 12,5 km/L Inmetro
     url: "https://www.gwmmotors.com.br/pt/modelos/haval-h6-gt",
     img: "/car-images/gwm-haval-h6-gt.webp",
@@ -484,6 +490,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Haval H7 PHEV", brand: "GWM", price: 261000, range: 92, cat: "SUV",
+    taxProfile: TAX_PROFILES['Haval H7 PHEV'],
     powertrain: 'PHEV', electricRangeKm: 92, combinedRangeKm: 747, fuelType2: 'flex', // C derivado: tanque 55 L (ficha GWM) + 11,9 km/L Inmetro
     url: "https://www.gwmmotors.com.br/pt/modelos/haval-h7",
     img: "/car-images/gwm-haval-h7-phev.webp",
@@ -503,6 +510,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Tank 300", brand: "GWM", price: 342000, range: 74, cat: "SUV",
+    taxProfile: TAX_PROFILES['Tank 300'],
     powertrain: 'PHEV', electricRangeKm: 74, combinedRangeKm: 599, fuelType2: 'flex', // C derivado: tanque 70 L (ficha GWM) + 7,5 km/L Inmetro
     url: "https://www.gwmmotors.com.br/pt/modelos/tank-300",
     img: "/car-images/gwm-tank-300.webp",
@@ -520,7 +528,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Wey 07", brand: "GWM", price: 429000, range: 128, cat: "Luxo",
-    powertrain: 'PHEV', electricRangeKm: 128, combinedRangeKm: 981, // C derivado: tanque 79 L (ficha GWM) + 10,8 km/L Inmetro
+    powertrain: 'PHEV', electricRangeKm: 128, combinedRangeKm: 981, fuelType2: 'gasolina', // Manual brasileiro Wey 07, p. 366
     url: "https://www.gwmmotors.com.br/pt/modelos/wey-07",
     img: "/car-images/gwm-wey-07.webp",
     power: 517, torque: 83.6, traction: 'AWD', battery: 42.5,
@@ -1225,6 +1233,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Song Pro GL", brand: "BYD", price: 179990, range: 57, cat: "SUV",
+    taxProfile: TAX_PROFILES['Song Pro GL'],
     powertrain: 'PHEV', electricRangeKm: 57, combinedRangeKm: 1075, fuelType2: 'flex',
     url: "https://www.byd.com/br/car/song-pro-flex",
     img: "/car-images/byd-song-pro-flex.webp",
@@ -1250,6 +1259,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Song Pro GS", brand: "BYD", price: 199990, range: 72, cat: "SUV",
+    taxProfile: TAX_PROFILES['Song Pro GS'],
     powertrain: 'PHEV', electricRangeKm: 72, combinedRangeKm: 1105, fuelType2: 'flex',
     url: "https://www.byd.com/br/car/song-pro-flex",
     img: "/car-images/byd-song-pro-flex.webp",
@@ -1411,6 +1421,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Corolla GLi Hybrid", brand: "Toyota", price: 194790, range: 0, cat: "Sedan",
+    taxProfile: TAX_PROFILES['Corolla GLi Hybrid'],
     powertrain: 'HEV', fuelType2: 'flex',
     url: "https://www.toyota.com.br/modelos/corolla-hybrid",
     img: "/car-images/toyota-corolla-sedan-hybrid.jpg",
@@ -1430,6 +1441,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Corolla Altis Hybrid", brand: "Toyota", price: 210090, range: 0, cat: "Sedan",
+    taxProfile: TAX_PROFILES['Corolla Altis Hybrid'],
     powertrain: 'HEV', fuelType2: 'flex',
     url: "https://www.toyota.com.br/modelos/corolla-hybrid",
     img: "/car-images/toyota-corolla-sedan-hybrid.jpg",
@@ -1502,6 +1514,7 @@ export const CAR_DB: Car[] = [
   },
   {
     model: "Atto 2 GS", brand: "BYD", price: 169990, range: 75, cat: "SUV",
+    taxProfile: TAX_PROFILES['Atto 2 GS'],
     powertrain: 'PHEV', electricRangeKm: 75, combinedRangeKm: 1045, fuelType2: 'flex',
     url: "https://www.byd.com/br/car/atto2",
     img: "/car-images/byd-atto-2.jpg",
@@ -2079,6 +2092,7 @@ weightKg: 2340, trunkLiters: 616,
   },
   {
     model: "Corolla Cross Hybrid", brand: "Toyota", price: 226120, range: 0, cat: "SUV",
+    taxProfile: TAX_PROFILES['Corolla Cross Hybrid'],
     powertrain: 'HEV', fuelType2: 'flex',
     url: "https://www.toyota.com.br/modelos/corolla-cross-hybrid",
     img: "/car-images/toyota-corolla-cross-hybrid.jpg",
@@ -2098,6 +2112,7 @@ weightKg: 2340, trunkLiters: 616,
   },
   {
     model: "Yaris Cross XRE Hybrid", brand: "Toyota", price: 172390, range: 0, cat: "SUV",
+    taxProfile: TAX_PROFILES['Yaris Cross XRE Hybrid'],
     powertrain: 'HEV', fuelType2: 'flex',
     url: "https://www.toyota.com.br/modelos/yaris-cross-hybrid",
     img: "/car-images/toyota-yaris-single.jpg",
@@ -2118,6 +2133,7 @@ weightKg: 2340, trunkLiters: 616,
   },
   {
     model: "Yaris Cross XRX Hybrid", brand: "Toyota", price: 189990, range: 0, cat: "SUV",
+    taxProfile: TAX_PROFILES['Yaris Cross XRX Hybrid'],
     powertrain: 'HEV', fuelType2: 'flex',
     url: "https://www.toyota.com.br/modelos/yaris-cross-hybrid",
     img: "/car-images/toyota-yaris-single.jpg",
@@ -3702,6 +3718,7 @@ weightKg: 2340, trunkLiters: 616,
   // CAOA CHANGAN — CS55 PHEV (híbrido plug-in flex, lançamento 15/09/2026)
   {
     model: "CS55 PHEV", brand: "CAOA Changan", price: 189990, range: 76, cat: "SUV",
+    taxProfile: TAX_PROFILES['CS55 PHEV'],
     powertrain: 'PHEV', electricRangeKm: 76, combinedRangeKm: 1200, fuelType2: 'flex', // C declarada 1.200 km (CAOA Changan)
     url: "https://caoachangan.com.br/novos/cs55-phev",
     img: "/car-images/caoa-changan-cs55-phev.webp",

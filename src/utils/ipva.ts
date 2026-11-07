@@ -61,6 +61,8 @@ export function resolveIpva(car: Car, state: string, options: { year?: number; b
   if (car.fuelType2 && !['flex', 'etanol'].includes(car.fuelType2)) return { ...regular, reason: 'fuel' };
   const benefitRate = spHybridRate(year);
   if (benefitRate === standardRate) return regular;
+  const ceiling = SP_CEILINGS[year];
+  if (ceiling !== undefined && baseValue > ceiling) return { ...regular, reason: 'threshold', benefitRate };
   const missing: string[] = [];
   if (!car.fuelType2) missing.push('fuelType2');
   if (!hasEvidence || !Number.isFinite(profile?.electricMotorKw)) missing.push('electricMotorKw');
@@ -70,9 +72,9 @@ export function resolveIpva(car: Car, state: string, options: { year?: number; b
     || (profile?.voltageV !== undefined && profile.voltageV < 150) || profile?.regenerativeBraking === false)) {
     return { ...regular, reason: 'technicalFail' };
   }
-  if (missing.length) return { ...regular, status: 'conditional', reason: 'technical', benefitRate, missing };
-  const ceiling = SP_CEILINGS[year];
-  if (ceiling === undefined) return { ...regular, status: 'conditional', reason: 'futureCeiling', benefitRate };
-  if (baseValue > ceiling) return { ...regular, reason: 'threshold', benefitRate };
+  // Uma pendência não comprova inelegibilidade. A alíquota geral é apenas referência.
+  const pending = { ...regular, rate: null, amount: null, status: 'conditional' as const, benefitRate };
+  if (missing.length) return { ...pending, reason: 'technical', missing };
+  if (ceiling === undefined) return { ...pending, reason: 'futureCeiling' };
   return { ...regular, rate: benefitRate, amount: Math.round(baseValue * benefitRate!), reason: 'eligible', benefitRate };
 }

@@ -81,6 +81,7 @@ export interface TCOYearBreakdown {
 }
 
 export interface TCOResult {
+  /** Cobertura completa do horizonte; false pode preservar exercícios calculáveis. */
   ipvaIncluded: boolean;
   ipvaScenario: boolean;
   years: TCOYearBreakdown[];
@@ -100,9 +101,10 @@ export function calcTCO(car: Car, params: TCOParams): TCOResult {
   const startYear = params.startYear ?? IPVA_REFERENCE_YEAR;
   const ipvaEstimates = Array.from({ length: 4 }, (_, i) => resolveIpva(car, params.selectedState, {
     year: startYear + i,
-    baseValue: Math.round(depreciatedValue(car.price, EV_DEPR_ANNUAL, i + 1)),
+    // Preservar centavos na comparação com o teto: arredondar só o imposto/exibição.
+    baseValue: depreciatedValue(car.price, EV_DEPR_ANNUAL, i + 1),
   }));
-  // Uma comparação parcial exclui IPVA de ambos os lados, em todos os anos.
+  // Em cada exercício pendente, excluir IPVA dos DOIS lados, sem apagar anos conhecidos.
   const ipvaIncluded = ipvaEstimates.every(estimate => estimate.rate !== null);
   const ipvaScenario = ipvaEstimates.some(estimate => estimate.status === 'conditional');
 
@@ -145,9 +147,9 @@ export function calcTCO(car: Car, params: TCOParams): TCOResult {
     const insuranceComb = Math.round(combValue * COMB_INS_RATE);
 
     const ipvaEstimate = ipvaEstimates[y - 1];
-    const ipvaEV = ipvaIncluded ? ipvaEstimate.amount : null;
+    const ipvaEV = ipvaEstimate.amount;
     const standardRate = ipvaEstimate.standardRate;
-    const ipvaComb = ipvaIncluded && standardRate !== null ? Math.round(combValue * standardRate) : null;
+    const ipvaComb = ipvaEV !== null && standardRate !== null ? Math.round(combValue * standardRate) : null;
 
     const totalEV   = annualEnergyEV   + insuranceEV   + annualMaintEV   + (ipvaEV ?? 0);
     const totalComb = annualEnergyComb + insuranceComb + annualMaintComb + (ipvaComb ?? 0);

@@ -14,6 +14,11 @@ export default function IpvaEstimate({ car, state }: { car: Car; state: string }
       {result.amount !== null && <p className="mt-1 font-bold text-white">{result.reason === 'eligible' ? t('ipva.estimatedExemption') : `R$ ${result.amount.toLocaleString(locale)}`}</p>}
       <p className="mt-1 leading-relaxed">{t(`ipva.reason.${result.reason}`)}</p>
       {result.missing.length > 0 && <p className="mt-1">{t('ipva.missing')}: {result.missing.map(key => t(`ipva.fields.${key}`)).join(', ')}.</p>}
+      {state === 'SP' && car.taxProfile && <div className="mt-2" onClick={event => event.stopPropagation()}>
+        {car.taxProfile.scope && <p>{t('ipva.technicalScope', { scope: car.taxProfile.scope })}</p>}
+        <p className="mt-1">{t('ipva.technicalSources')}:</p>
+        {(car.taxProfile.sources ?? [{ url: car.taxProfile.sourceUrl, label: t('ipva.technicalSources') }]).filter(source => /^https:\/\//.test(source.url)).map(source => <a key={source.url} href={source.url} target="_blank" rel="noopener noreferrer" className="mt-1 block text-[#72d7ff] underline">{source.label}</a>)}
+      </div>}
       <p className="mt-2 leading-relaxed">{t('ipva.baseDisclaimer')}</p>
       {state === 'SP' && <>
         <p className="mt-2 leading-relaxed">{t('ipva.otherBenefits')}</p>
