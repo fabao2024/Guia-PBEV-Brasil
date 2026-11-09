@@ -1,6 +1,7 @@
 import type { Eletroposto } from '../data/eletropostosData';
 import type { LatLng } from '../types/routePlanner';
 import { haversineKm } from './routeGeometry';
+import { isLocatedCharger, locationStatus } from './chargerLocations';
 
 /**
  * Bounding box da polyline + padding em km.
@@ -23,21 +24,23 @@ export function polylineBbox(
 
 /**
  * Funde listas dinâmicas (OCM, OSM) com a base estática.
- * Chargers dinâmicos dentro de `dedupeKm` de um estático são descartados.
- * Chargers dinâmicos entre si: o primeiro a chegar vence.
+ * Exclui registros sem evidência. Posições confirmadas precedem as aproximadas;
+ * depois vale a consulta mais recente; resultados dinâmicos desempatam no mesmo dia.
  */
 export function mergeChargerSources(
   staticList: Eletroposto[],
   dynamicList: Eletroposto[],
   dedupeKm = 0.2,
 ): Eletroposto[] {
-  if (dynamicList.length === 0) return staticList;
+  const candidates = [...dynamicList, ...staticList].filter(isLocatedCharger)
+    .sort((a, b) => Number(locationStatus(b) === 'confirmed') - Number(locationStatus(a) === 'confirmed') ||
+      (b.location!.consultedAt ?? '').localeCompare(a.location!.consultedAt ?? ''));
+  const result: Eletroposto[] = [];
 
-  const result: Eletroposto[] = [...staticList];
-
-  for (const dyn of dynamicList) {
+  for (const dyn of candidates) {
     const duplicate = result.some(
       (existing) =>
+        (existing.id === dyn.id || (existing.location?.sourceUrl === dyn.location?.sourceUrl)) ||
         haversineKm([existing.lat, existing.lng], [dyn.lat, dyn.lng]) <= dedupeKm,
     );
     if (!duplicate) result.push(dyn);

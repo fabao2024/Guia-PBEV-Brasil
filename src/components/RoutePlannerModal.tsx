@@ -10,7 +10,9 @@ import { useRoutePlanner, CONDITION_FACTORS } from '../hooks/useRoutePlanner';
 import type { ConditionTemp, ConditionTerrain, ConditionDriving } from '../hooks/useRoutePlanner';
 import { useNominatimAutocomplete } from '../hooks/useNominatimAutocomplete';
 import { matchStatusFromOcmCache, type OcmError } from '../services/ocmService';
-import { gmapsUrl, plugshareUrl, OPERADOR_COLOR, DEFAULT_OPERADOR_COLOR } from '../data/eletropostosData';
+import { plugshareUrl, OPERADOR_COLOR, DEFAULT_OPERADOR_COLOR } from '../data/eletropostosData';
+import { chargerMapsUrl, locationStatus } from '../utils/chargerLocations';
+import { createChargerPopup } from '../utils/chargerPopup';
 import type { Car } from '../types';
 import { electricRangeOf, powertrainOf } from '../utils/powertrain';
 import type { GeoSuggestion, ChargingStop, NearbyCharger, ChargerStatus } from '../types/routePlanner';
@@ -459,8 +461,9 @@ function ChargerItem({
   departurePct: number;
 }) {
   const color = OPERADOR_COLOR[c.operador] ?? DEFAULT_OPERADOR_COLOR;
+  const { t } = useTranslation();
   const app = OPERATOR_APPS[c.operador];
-  const maps = gmapsUrl(c.lat, c.lng, c.nome, c.operador);
+  const maps = chargerMapsUrl(c);
   const plugshare = plugshareUrl(c.lat, c.lng);
   const st = STATUS_CFG[status];
 
@@ -533,23 +536,27 @@ function ChargerItem({
       </div>
 
       {/* Links */}
+      <p className="text-amber-100/80 text-[10px]">{t(`chargingMap.${locationStatus(c)}`)} · {t('chargingMap.communityWarning')}</p>
       <div className="flex items-center gap-2 flex-wrap">
-        <a
+        {maps && <a
           href={maps}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-1 text-[10px] text-[#00b4ff] hover:text-white transition-colors"
         >
-          <MapPin className="w-3 h-3" /> Google Maps
-        </a>
-        <a
+          <MapPin className="w-3 h-3" /> {t(locationStatus(c) === 'confirmed' ? 'chargingMap.openMaps' : 'chargingMap.searchMaps')}
+        </a>}
+        {maps && <a
           href={plugshare}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-1 text-[10px] text-[#a0a0a0] hover:text-white transition-colors"
         >
-          <ExternalLink className="w-3 h-3" /> PlugShare
-        </a>
+          <ExternalLink className="w-3 h-3" /> {t('chargingMap.searchPlugshare')}
+        </a>}
+        {maps && c.location?.sourceUrl && <a href={c.location.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-[10px] text-[#72d7ff]">
+          {t('chargingMap.evidence')}: {c.location.source} · {c.location.externalId} · {c.location.consultedAt}
+        </a>}
         {app && (
           <a
             href={app.url}
@@ -672,8 +679,8 @@ function ChargingStopCard({
         />
       ) : (
         <div className="bg-[#1a0a00] border border-orange-500/20 rounded-lg p-3 text-center">
-          <p className="text-orange-400/80 text-xs font-semibold">Nenhum eletroposto DC em {radiusKm} km</p>
-          <p className="text-[#555] text-[10px] mt-1">Nossa base cobre 159 pontos. Use PlugShare para cobertura completa.</p>
+          <p className="text-orange-400/80 text-xs font-semibold">Nenhum ponto DC com fonte retornado em {radiusKm} km. A cobertura pode estar incompleta.</p>
+          <p className="text-[#999] text-[10px] mt-1">Registros sem fonte não entram no planejamento. Consulte outras fontes e confirme com o operador.</p>
           <a
             href={`https://www.plugshare.com/?latitude=${stop.position[0]}&longitude=${stop.position[1]}&radius=25000`}
             target="_blank" rel="noopener noreferrer"
@@ -989,7 +996,7 @@ function ConditionsPanel({
 
 // ─── Main Modal ───────────────────────────────────────────────────────────────
 export const RoutePlannerModal: React.FC<RoutePlannerModalProps> = ({ onClose }) => {
-  useTranslation();
+  const { t } = useTranslation();
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<import('leaflet').Map | null>(null);
   const leafletRef = useRef<typeof import('leaflet') | null>(null);
@@ -1094,9 +1101,9 @@ export const RoutePlannerModal: React.FC<RoutePlannerModalProps> = ({ onClose })
       mapInstanceRef.current = map;
       setMapReady(true);
 
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution:
-          '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/attributions">CARTO</a>',
+          '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         maxZoom: 19,
       }).addTo(map);
     });
@@ -1151,13 +1158,15 @@ export const RoutePlannerModal: React.FC<RoutePlannerModalProps> = ({ onClose })
         });
         (marker as unknown as { _isRoute: boolean })._isRoute = true;
 
-        const chargerInfo = stop.selectedCharger
-          ? `<div style="margin-top:4px;font-size:11px"><b>${stop.selectedCharger.potenciaDC} kW DC</b> · ${stop.selectedCharger.nome}</div><div style="font-size:10px;color:#aaa">${stop.selectedCharger.cidade}/${stop.selectedCharger.uf}</div>`
-          : `<div style="font-size:11px;color:#999;margin-top:3px">Nenhum eletroposto DC em ${chargerRadiusKm} km</div>`;
-
-        marker.bindPopup(
-          `<b>Parada ${stop.index}</b> — ${Math.round(stop.distanceFromStartKm)} km${chargerInfo}`
-        );
+        const popup = document.createElement('div');
+        popup.textContent = `Parada ${stop.index} — ${Math.round(stop.distanceFromStartKm)} km`;
+        if (stop.selectedCharger) popup.appendChild(createChargerPopup(stop.selectedCharger, t));
+        else {
+          const gap = document.createElement('p');
+          gap.textContent = `Nenhum ponto DC com fonte retornado em ${chargerRadiusKm} km. A cobertura pode estar incompleta.`;
+          popup.appendChild(gap);
+        }
+        marker.bindPopup(popup);
 
         // Click marker → highlight card + scroll panel
         marker.on('click', () => {
@@ -1172,7 +1181,7 @@ export const RoutePlannerModal: React.FC<RoutePlannerModalProps> = ({ onClose })
       map.fitBounds(routeLine.getBounds(), { padding: [30, 30] });
     });
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [result, mapReady, chargerRadiusKm]);
+  }, [result, mapReady, chargerRadiusKm, t]);
 
   const canCalculate = !!form.originLocation && !!form.destinationLocation && !!form.selectedCar;
 

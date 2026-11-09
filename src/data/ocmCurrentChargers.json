@@ -1,0 +1,3649 @@
+{
+  "version": 1,
+  "source": "Open Charge Map",
+  "retrievedAt": "2026-11-09",
+  "snapshotAt": "2026-11-09",
+  "upstreamUrl": "https://openchargemap.org/poi?countrycode=BR",
+  "scope": "recent-listings",
+  "completeCountry": false,
+  "counts": {
+    "input": 100,
+    "accepted": 100,
+    "excluded": 0,
+    "byUf": {
+      "RO": 1,
+      "SP": 1,
+      "unknown": 98
+    },
+    "byCurrent": {
+      "AC": 21,
+      "DC": 79
+    },
+    "byAccess": {
+      "membership": 98,
+      "public": 2
+    }
+  },
+  "stations": [
+    {
+      "id": 613509,
+      "nome": "Hotel Buona Vitta (BLU)",
+      "operador": "TriCharge (BR)",
+      "cidade": "Gramado",
+      "uf": "",
+      "lat": -29.378488,
+      "lng": -50.870605,
+      "potenciaDC": 60,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 60,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 60,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Ricardo Sturmhofel, 95670-000",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513509",
+        "sourceUrl": "https://openchargemap.org/poi/details/513509",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613510,
+      "nome": "Estalagem Vila Suzana",
+      "operador": "TriCharge (BR)",
+      "cidade": "Canela",
+      "uf": "",
+      "lat": -29.352885,
+      "lng": -50.82459,
+      "potenciaDC": null,
+      "conector": "Type 2 (Socket Only)",
+      "connections": [
+        {
+          "connector": "Type 2 (Socket Only)",
+          "current": "AC",
+          "powerKw": 7,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua João Wender, 95680-016",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513510",
+        "sourceUrl": "https://openchargemap.org/poi/details/513510",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613511,
+      "nome": "Volkswagen Torres",
+      "operador": "TriCharge (BR)",
+      "cidade": "Torres",
+      "uf": "",
+      "lat": -29.3349,
+      "lng": -49.7267,
+      "potenciaDC": 40,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 40,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Avenida Benjamin Constant, 550, 95560-000",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513511",
+        "sourceUrl": "https://openchargemap.org/poi/details/513511",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613512,
+      "nome": "Eletroposto Torres Garden",
+      "operador": "TriCharge (BR)",
+      "cidade": "Torres",
+      "uf": "",
+      "lat": -29.329688,
+      "lng": -49.74556,
+      "potenciaDC": 60,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 60,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 60,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Parque do Balonismo, 95560-000",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513512",
+        "sourceUrl": "https://openchargemap.org/poi/details/513512",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613513,
+      "nome": "Estação 300",
+      "operador": "TriCharge (BR)",
+      "cidade": "Bento Gonçalves",
+      "uf": "",
+      "lat": -29.167806,
+      "lng": -51.508997,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Marques de Souza, 95703-078",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513513",
+        "sourceUrl": "https://openchargemap.org/poi/details/513513",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613514,
+      "nome": "São João Bento Gonçalves",
+      "operador": "TriCharge (BR)",
+      "cidade": "Bento Gonçalves",
+      "uf": "",
+      "lat": -29.165726,
+      "lng": -51.515626,
+      "potenciaDC": 40,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 40,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Júlio de Castilhos, 95700-066",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513514",
+        "sourceUrl": "https://openchargemap.org/poi/details/513514",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613515,
+      "nome": "Baby Mania",
+      "operador": "TriCharge (BR)",
+      "cidade": "Caxias do Sul",
+      "uf": "",
+      "lat": -29.152369,
+      "lng": -51.165365,
+      "potenciaDC": 40,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 40,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Avenida Ruben Bento Alves, 95041-070",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "unknown",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513515",
+        "sourceUrl": "https://openchargemap.org/poi/details/513515",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613516,
+      "nome": "Família Nagdal",
+      "operador": "TriCharge (BR)",
+      "cidade": "Ipê",
+      "uf": "",
+      "lat": -28.788644,
+      "lng": -51.270547,
+      "potenciaDC": 40,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 40,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Ipê",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513516",
+        "sourceUrl": "https://openchargemap.org/poi/details/513516",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613517,
+      "nome": "CARREGA MAIS ELETROPOSTO",
+      "operador": "TriCharge (BR)",
+      "cidade": "Cruz Alta",
+      "uf": "",
+      "lat": -28.647251,
+      "lng": -53.588463,
+      "potenciaDC": 40,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 40,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Avenida Plácido de Castro, 726, 98035-038",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513517",
+        "sourceUrl": "https://openchargemap.org/poi/details/513517",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613518,
+      "nome": "Posto Potenza",
+      "operador": "TriCharge (BR)",
+      "cidade": "Vacaria",
+      "uf": "",
+      "lat": -28.4964,
+      "lng": -50.7721,
+      "potenciaDC": null,
+      "conector": "Type 2 (Socket Only)",
+      "connections": [
+        {
+          "connector": "Type 2 (Socket Only)",
+          "current": "AC",
+          "powerKw": 7,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Vacaria",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513518",
+        "sourceUrl": "https://openchargemap.org/poi/details/513518",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613519,
+      "nome": "GloboInfo EI",
+      "operador": "TriCharge (BR)",
+      "cidade": "Entre Ijuís",
+      "uf": "",
+      "lat": -28.493277,
+      "lng": -53.829438,
+      "potenciaDC": 40,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 40,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rodovia José Di Pietro",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513519",
+        "sourceUrl": "https://openchargemap.org/poi/details/513519",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613520,
+      "nome": "GloboInfo SA",
+      "operador": "TriCharge (BR)",
+      "cidade": "Santo Ângelo",
+      "uf": "",
+      "lat": -28.300586,
+      "lng": -54.272209,
+      "potenciaDC": 40,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 40,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Avenida Brasil, 98801-330",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513520",
+        "sourceUrl": "https://openchargemap.org/poi/details/513520",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613521,
+      "nome": "POSTO TRADIÇÃO SANTA MARTA F30",
+      "operador": "TriCharge (BR)",
+      "cidade": "Passo Fundo",
+      "uf": "",
+      "lat": -28.280113,
+      "lng": -52.42942,
+      "potenciaDC": 40,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 40,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Santa Marta, 99030-410",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513521",
+        "sourceUrl": "https://openchargemap.org/poi/details/513521",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613522,
+      "nome": "CD FSJ",
+      "operador": "TriCharge (BR)",
+      "cidade": "Passo Fundo",
+      "uf": "",
+      "lat": -28.268966,
+      "lng": -52.361719,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Passo Fundo",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513522",
+        "sourceUrl": "https://openchargemap.org/poi/details/513522",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613523,
+      "nome": "Fraron Eletropostos",
+      "operador": "TriCharge (BR)",
+      "cidade": "Passo Fundo",
+      "uf": "",
+      "lat": -28.268423,
+      "lng": -52.395331,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua São Lázaro, 99070-210",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513523",
+        "sourceUrl": "https://openchargemap.org/poi/details/513523",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613524,
+      "nome": "X Mobile 02 - Marr Sul",
+      "operador": "TriCharge (BR)",
+      "cidade": "Passo Fundo",
+      "uf": "",
+      "lat": -28.26821,
+      "lng": -52.438096,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rodovia Gilmar Mühl, 99030-410",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513524",
+        "sourceUrl": "https://openchargemap.org/poi/details/513524",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613525,
+      "nome": "Posto Sete de Setembro",
+      "operador": "TriCharge (BR)",
+      "cidade": "Passo Fundo",
+      "uf": "",
+      "lat": -28.264715,
+      "lng": -52.408721,
+      "potenciaDC": 60,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 60,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 60,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Avenida 7 de Setembro, 99010-050",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513525",
+        "sourceUrl": "https://openchargemap.org/poi/details/513525",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613526,
+      "nome": "X Mobile 01 - Intratec",
+      "operador": "TriCharge (BR)",
+      "cidade": "Passo Fundo",
+      "uf": "",
+      "lat": -28.2622,
+      "lng": -52.4083,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Morom, 1777, 99010-022",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513526",
+        "sourceUrl": "https://openchargemap.org/poi/details/513526",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613527,
+      "nome": "MBMoove",
+      "operador": "TriCharge (BR)",
+      "cidade": "Passo Fundo",
+      "uf": "",
+      "lat": -28.260593,
+      "lng": -52.400631,
+      "potenciaDC": 60,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 60,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 60,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Independência, 99010-040",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513527",
+        "sourceUrl": "https://openchargemap.org/poi/details/513527",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613528,
+      "nome": "Super Posto Vera Cruz",
+      "operador": "TriCharge (BR)",
+      "cidade": "Passo Fundo",
+      "uf": "",
+      "lat": -28.250384,
+      "lng": -52.422857,
+      "potenciaDC": 60,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 60,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 60,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Passo Fundo",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513528",
+        "sourceUrl": "https://openchargemap.org/poi/details/513528",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613529,
+      "nome": "X Mobile 04 - FSJ PF Cidade Nova",
+      "operador": "TriCharge (BR)",
+      "cidade": "Passo Fundo",
+      "uf": "",
+      "lat": -28.241724,
+      "lng": -52.417537,
+      "potenciaDC": 40,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 40,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Avenida Carlos Galves, 99040-590",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513529",
+        "sourceUrl": "https://openchargemap.org/poi/details/513529",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613530,
+      "nome": "Stochero",
+      "operador": "TriCharge (BR)",
+      "cidade": "Palmeira das Missões",
+      "uf": "",
+      "lat": -27.883916,
+      "lng": -53.195111,
+      "potenciaDC": 40,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 40,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Parada Stochero, 12.105, 98300-000",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513530",
+        "sourceUrl": "https://openchargemap.org/poi/details/513530",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613531,
+      "nome": "Carga Fácil",
+      "operador": "TriCharge (BR)",
+      "cidade": "Santa Rosa",
+      "uf": "",
+      "lat": -27.868589,
+      "lng": -54.490632,
+      "potenciaDC": 40,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 40,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Edvino Fenner, 98780-803",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513531",
+        "sourceUrl": "https://openchargemap.org/poi/details/513531",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613532,
+      "nome": "GloboInfo | Sicredi",
+      "operador": "TriCharge (BR)",
+      "cidade": "Três de Maio",
+      "uf": "",
+      "lat": -27.778557,
+      "lng": -54.235397,
+      "potenciaDC": 40,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 40,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Alcy Ramos Tomasi, 98910-000",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513532",
+        "sourceUrl": "https://openchargemap.org/poi/details/513532",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613533,
+      "nome": "GloboInfo TM | Unify",
+      "operador": "TriCharge (BR)",
+      "cidade": "Três de Maio",
+      "uf": "",
+      "lat": -27.772686,
+      "lng": -54.235772,
+      "potenciaDC": 40,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 40,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Horizontina, 98910-000",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513533",
+        "sourceUrl": "https://openchargemap.org/poi/details/513533",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613534,
+      "nome": "Posto Biasi",
+      "operador": "TriCharge (BR)",
+      "cidade": "São José do Ouro",
+      "uf": "",
+      "lat": -27.77,
+      "lng": -51.5959,
+      "potenciaDC": 30,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 30,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Elias Mendes de Araújo, 99870-000",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513534",
+        "sourceUrl": "https://openchargemap.org/poi/details/513534",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613535,
+      "nome": "Revon #2",
+      "operador": "TriCharge (BR)",
+      "cidade": "Três de Maio",
+      "uf": "",
+      "lat": -27.752803,
+      "lng": -54.247146,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "BR-472, 98910-000",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513535",
+        "sourceUrl": "https://openchargemap.org/poi/details/513535",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613536,
+      "nome": "GloboInfo BVB",
+      "operador": "TriCharge (BR)",
+      "cidade": "Boa Vista do Buricá",
+      "uf": "",
+      "lat": -27.670315,
+      "lng": -54.110617,
+      "potenciaDC": 45,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 45,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Avenida São José, 866, 98918-000",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513536",
+        "sourceUrl": "https://openchargemap.org/poi/details/513536",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613537,
+      "nome": "Autus Charger",
+      "operador": "TriCharge (BR)",
+      "cidade": "Erechim",
+      "uf": "",
+      "lat": -27.631942,
+      "lng": -52.276254,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Alemanha, 99700-018",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513537",
+        "sourceUrl": "https://openchargemap.org/poi/details/513537",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613538,
+      "nome": "MEA - Horizontina/RS",
+      "operador": "TriCharge (BR)",
+      "cidade": "Horizontina",
+      "uf": "",
+      "lat": -27.631627,
+      "lng": -54.309596,
+      "potenciaDC": 40,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 40,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua da Conceição, 98920-000",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513538",
+        "sourceUrl": "https://openchargemap.org/poi/details/513538",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613539,
+      "nome": "GloboInfo HZ",
+      "operador": "TriCharge (BR)",
+      "cidade": "Horizontina",
+      "uf": "",
+      "lat": -27.627948,
+      "lng": -54.305994,
+      "potenciaDC": 40,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 40,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Avenida Tucunduva, 98920-000",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513539",
+        "sourceUrl": "https://openchargemap.org/poi/details/513539",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613540,
+      "nome": "GloboInfo PM",
+      "operador": "TriCharge (BR)",
+      "cidade": "Porto Mauá",
+      "uf": "",
+      "lat": -27.578736,
+      "lng": -54.669744,
+      "potenciaDC": 40,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 40,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Borges de Medeiros",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513540",
+        "sourceUrl": "https://openchargemap.org/poi/details/513540",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613541,
+      "nome": "Posto Mahalo",
+      "operador": "TriCharge (BR)",
+      "cidade": "Florianópolis",
+      "uf": "",
+      "lat": -27.450711,
+      "lng": -48.457894,
+      "potenciaDC": 30,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 30,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rodovia José Carlos Daux, 88052-800",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513541",
+        "sourceUrl": "https://openchargemap.org/poi/details/513541",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613542,
+      "nome": "Machadinho #2",
+      "operador": "TriCharge (BR)",
+      "cidade": "Concórdia",
+      "uf": "",
+      "lat": -27.420623,
+      "lng": -51.775313,
+      "potenciaDC": null,
+      "conector": "Type 2 (Socket Only)",
+      "connections": [
+        {
+          "connector": "Type 2 (Socket Only)",
+          "current": "AC",
+          "powerKw": 7,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua das Flores, 89667-000",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513542",
+        "sourceUrl": "https://openchargemap.org/poi/details/513542",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613543,
+      "nome": "GOLDEN SOLAR",
+      "operador": "TriCharge (BR)",
+      "cidade": "Rio do Sul",
+      "uf": "",
+      "lat": -27.245308,
+      "lng": -49.645092,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rodovia Vereador Carlos Probst, 3480, 89167-570",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513543",
+        "sourceUrl": "https://openchargemap.org/poi/details/513543",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613544,
+      "nome": "Eletroposto Parque Joaçaba",
+      "operador": "TriCharge (BR)",
+      "cidade": "Joaçaba",
+      "uf": "",
+      "lat": -27.168598,
+      "lng": -51.512309,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Luiz Specht, 89600-000",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "unknown",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513544",
+        "sourceUrl": "https://openchargemap.org/poi/details/513544",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613545,
+      "nome": "Eletroposto Mercado DMarket",
+      "operador": "TriCharge (BR)",
+      "cidade": "Balneário Camboriú",
+      "uf": "",
+      "lat": -26.9907,
+      "lng": -48.6352,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua 906, 88330-590",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513545",
+        "sourceUrl": "https://openchargemap.org/poi/details/513545",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613546,
+      "nome": "CR Meschke - 240 kW (01)",
+      "operador": "TriCharge (BR)",
+      "cidade": "Balneário Camboriú",
+      "uf": "",
+      "lat": -26.980663,
+      "lng": -48.640961,
+      "potenciaDC": 240,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 240,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 240,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Libéria, 88338-270",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513546",
+        "sourceUrl": "https://openchargemap.org/poi/details/513546",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613547,
+      "nome": "Go.Energy",
+      "operador": "TriCharge (BR)",
+      "cidade": "Indaial",
+      "uf": "",
+      "lat": -26.891664,
+      "lng": -49.242697,
+      "potenciaDC": 40,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 40,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 40,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Indaial",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513547",
+        "sourceUrl": "https://openchargemap.org/poi/details/513547",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613548,
+      "nome": "Posto Xanxerê",
+      "operador": "TriCharge (BR)",
+      "cidade": "Perímetro Urbano de Xanxerê",
+      "uf": "",
+      "lat": -26.885286,
+      "lng": -52.408992,
+      "potenciaDC": 60,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 60,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 60,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rodovia Ulysses Guimarães, 89820-000",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513548",
+        "sourceUrl": "https://openchargemap.org/poi/details/513548",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613549,
+      "nome": "Mercado Gentil",
+      "operador": "TriCharge (BR)",
+      "cidade": "Perímetro Urbano de Xanxerê",
+      "uf": "",
+      "lat": -26.8711,
+      "lng": -52.4008,
+      "potenciaDC": 40,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 40,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Perímetro Urbano de Xanxerê",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513549",
+        "sourceUrl": "https://openchargemap.org/poi/details/513549",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613550,
+      "nome": "Foco Energia",
+      "operador": "TriCharge (BR)",
+      "cidade": "Maravilha",
+      "uf": "",
+      "lat": -26.771897,
+      "lng": -53.208124,
+      "potenciaDC": 60,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 60,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 60,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Ângelo Pissatto, 89874-000",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513550",
+        "sourceUrl": "https://openchargemap.org/poi/details/513550",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613551,
+      "nome": "Dubom Supermercados",
+      "operador": "TriCharge (BR)",
+      "cidade": "Barra Velha",
+      "uf": "",
+      "lat": -26.634843,
+      "lng": -48.685913,
+      "potenciaDC": 40,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 40,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua José Gomes de Lucena, 89390-000",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513551",
+        "sourceUrl": "https://openchargemap.org/poi/details/513551",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613552,
+      "nome": "Recarga beny",
+      "operador": "TriCharge (BR)",
+      "cidade": "Curitiba",
+      "uf": "",
+      "lat": -25.428192,
+      "lng": -49.269849,
+      "potenciaDC": 30,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 30,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Curitiba",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513552",
+        "sourceUrl": "https://openchargemap.org/poi/details/513552",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613553,
+      "nome": "Hotel Laghetto 1",
+      "operador": "TriCharge (BR)",
+      "cidade": "São Paulo",
+      "uf": "",
+      "lat": -23.576471,
+      "lng": -46.645735,
+      "potenciaDC": null,
+      "conector": "Type 2 (Socket Only)",
+      "connections": [
+        {
+          "connector": "Type 2 (Socket Only)",
+          "current": "AC",
+          "powerKw": 7,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Coronel Oscar Porto, 04003-004",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513553",
+        "sourceUrl": "https://openchargemap.org/poi/details/513553",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613554,
+      "nome": "POSTO SAKURA",
+      "operador": "TriCharge (BR)",
+      "cidade": "São Paulo",
+      "uf": "",
+      "lat": -23.57153,
+      "lng": -46.514195,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Alto Belo, 550, 03478-040",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513554",
+        "sourceUrl": "https://openchargemap.org/poi/details/513554",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613555,
+      "nome": "QUADRA 1",
+      "operador": "TriCharge (BR)",
+      "cidade": "São Paulo",
+      "uf": "",
+      "lat": -23.511403,
+      "lng": -46.700651,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Avenida José Maria de Faria, 05038-001",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "unknown",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513555",
+        "sourceUrl": "https://openchargemap.org/poi/details/513555",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613556,
+      "nome": "01_DC_SOROCABA",
+      "operador": "TriCharge (BR)",
+      "cidade": "Sorocaba",
+      "uf": "",
+      "lat": -23.399794,
+      "lng": -47.380191,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Esidro Sanches, 18105-100",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513556",
+        "sourceUrl": "https://openchargemap.org/poi/details/513556",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613557,
+      "nome": "Condomínio Home Ways",
+      "operador": "TriCharge (BR)",
+      "cidade": "Rio de Janeiro",
+      "uf": "",
+      "lat": -23.019863,
+      "lng": -43.484804,
+      "potenciaDC": null,
+      "conector": "Type 2 (Socket Only)",
+      "connections": [
+        {
+          "connector": "Type 2 (Socket Only)",
+          "current": "AC",
+          "powerKw": 7,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Avenida José Luiz Ferraz, 22790-587",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "unknown",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513557",
+        "sourceUrl": "https://openchargemap.org/poi/details/513557",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613558,
+      "nome": "Condomínio Yellow Bali",
+      "operador": "TriCharge (BR)",
+      "cidade": "Rio de Janeiro",
+      "uf": "",
+      "lat": -23.010553,
+      "lng": -43.43876,
+      "potenciaDC": null,
+      "conector": "Type 2 (Socket Only)",
+      "connections": [
+        {
+          "connector": "Type 2 (Socket Only)",
+          "current": "AC",
+          "powerKw": 7,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rio de Janeiro",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513558",
+        "sourceUrl": "https://openchargemap.org/poi/details/513558",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613559,
+      "nome": "Condomínio Villa Toscana",
+      "operador": "TriCharge (BR)",
+      "cidade": "Rio de Janeiro",
+      "uf": "",
+      "lat": -22.971446,
+      "lng": -43.395638,
+      "potenciaDC": null,
+      "conector": "Type 2 (Socket Only)",
+      "connections": [
+        {
+          "connector": "Type 2 (Socket Only)",
+          "current": "AC",
+          "powerKw": 7,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Flex, 22775-060",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513559",
+        "sourceUrl": "https://openchargemap.org/poi/details/513559",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613560,
+      "nome": "Condomínio Villa Luna",
+      "operador": "TriCharge (BR)",
+      "cidade": "Rio de Janeiro",
+      "uf": "",
+      "lat": -22.970214,
+      "lng": -43.394125,
+      "potenciaDC": null,
+      "conector": "Type 2 (Socket Only)",
+      "connections": [
+        {
+          "connector": "Type 2 (Socket Only)",
+          "current": "AC",
+          "powerKw": 7,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Queirós Júnior, 22775-060",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513560",
+        "sourceUrl": "https://openchargemap.org/poi/details/513560",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613561,
+      "nome": "Condomínio Mansões D'Araguaia",
+      "operador": "TriCharge (BR)",
+      "cidade": "Rio de Janeiro",
+      "uf": "",
+      "lat": -22.937444,
+      "lng": -43.345672,
+      "potenciaDC": null,
+      "conector": "Type 2 (Socket Only)",
+      "connections": [
+        {
+          "connector": "Type 2 (Socket Only)",
+          "current": "AC",
+          "powerKw": 7,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Araguaia, 22760-401",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513561",
+        "sourceUrl": "https://openchargemap.org/poi/details/513561",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613562,
+      "nome": "Condomínio Fórum Offices",
+      "operador": "TriCharge (BR)",
+      "cidade": "Rio de Janeiro",
+      "uf": "",
+      "lat": -22.926928,
+      "lng": -43.37562,
+      "potenciaDC": null,
+      "conector": "Type 2 (Socket Only)",
+      "connections": [
+        {
+          "connector": "Type 2 (Socket Only)",
+          "current": "AC",
+          "powerKw": 7,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Professora Francisca Piragibe, 22710-195",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513562",
+        "sourceUrl": "https://openchargemap.org/poi/details/513562",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613563,
+      "nome": "R - 01/02_SpeedVoltRoyal",
+      "operador": "TriCharge (BR)",
+      "cidade": "Campinas",
+      "uf": "",
+      "lat": -22.9068,
+      "lng": -47.0628,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua 13 de Maio, 13010-070",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513563",
+        "sourceUrl": "https://openchargemap.org/poi/details/513563",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613564,
+      "nome": "H - 12_AC_CHURRASCARIA_02",
+      "operador": "TriCharge (BR)",
+      "cidade": "Campinas",
+      "uf": "",
+      "lat": -22.898955,
+      "lng": -47.017717,
+      "potenciaDC": null,
+      "conector": "Type 2 (Socket Only)",
+      "connections": [
+        {
+          "connector": "Type 2 (Socket Only)",
+          "current": "AC",
+          "powerKw": 7,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Buriti, 13101-501",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513564",
+        "sourceUrl": "https://openchargemap.org/poi/details/513564",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613565,
+      "nome": "H - 03_AC_OAKBERRY",
+      "operador": "TriCharge (BR)",
+      "cidade": "Campinas",
+      "uf": "",
+      "lat": -22.898575,
+      "lng": -47.020207,
+      "potenciaDC": null,
+      "conector": "Type 2 (Socket Only)",
+      "connections": [
+        {
+          "connector": "Type 2 (Socket Only)",
+          "current": "AC",
+          "powerKw": 7,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Buriti, 13092-572",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513565",
+        "sourceUrl": "https://openchargemap.org/poi/details/513565",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613566,
+      "nome": "H - 11_AC_BAR_DA_PISCINA",
+      "operador": "TriCharge (BR)",
+      "cidade": "Campinas",
+      "uf": "",
+      "lat": -22.897196,
+      "lng": -47.020473,
+      "potenciaDC": null,
+      "conector": "Type 2 (Socket Only)",
+      "connections": [
+        {
+          "connector": "Type 2 (Socket Only)",
+          "current": "AC",
+          "powerKw": 7,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Osvaldo Von Zuben, 13092-572",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513566",
+        "sourceUrl": "https://openchargemap.org/poi/details/513566",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613567,
+      "nome": "H - 13_AC_CAMPO DE FUTEBOL_02",
+      "operador": "TriCharge (BR)",
+      "cidade": "Campinas",
+      "uf": "",
+      "lat": -22.896391,
+      "lng": -47.018479,
+      "potenciaDC": null,
+      "conector": "Type 2 (Socket Only)",
+      "connections": [
+        {
+          "connector": "Type 2 (Socket Only)",
+          "current": "AC",
+          "powerKw": 7,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Antônio Marchilli, 13101-501",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513567",
+        "sourceUrl": "https://openchargemap.org/poi/details/513567",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613568,
+      "nome": "H - 17_AC_EST_COBERTO_02",
+      "operador": "TriCharge (BR)",
+      "cidade": "Campinas",
+      "uf": "",
+      "lat": -22.896231,
+      "lng": -47.020566,
+      "potenciaDC": null,
+      "conector": "Type 2 (Socket Only)",
+      "connections": [
+        {
+          "connector": "Type 2 (Socket Only)",
+          "current": "AC",
+          "powerKw": 7,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Osvaldo Von Zuben, 13092-572",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513568",
+        "sourceUrl": "https://openchargemap.org/poi/details/513568",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613569,
+      "nome": "Posto Santa Rita",
+      "operador": "TriCharge (BR)",
+      "cidade": "Aparecida",
+      "uf": "",
+      "lat": -22.853314,
+      "lng": -45.234783,
+      "potenciaDC": 120,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 120,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 120,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Avenida Getúlio Vargas, 12570-000",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513569",
+        "sourceUrl": "https://openchargemap.org/poi/details/513569",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613570,
+      "nome": "SunLife Eletropostos | 80 kw - Cipetran",
+      "operador": "TriCharge (BR)",
+      "cidade": "Volta Redonda",
+      "uf": "",
+      "lat": -22.508735,
+      "lng": -44.12368,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Avenida Goiás, 27275-420",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513570",
+        "sourceUrl": "https://openchargemap.org/poi/details/513570",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613571,
+      "nome": "Sun mega",
+      "operador": "TriCharge (BR)",
+      "cidade": "Valença",
+      "uf": "",
+      "lat": -22.228787,
+      "lng": -43.709073,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Valença",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "unknown",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513571",
+        "sourceUrl": "https://openchargemap.org/poi/details/513571",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613572,
+      "nome": "Churrascaria Varanda de Quintana",
+      "operador": "TriCharge (BR)",
+      "cidade": "Quintana",
+      "uf": "",
+      "lat": -22.072834,
+      "lng": -50.307101,
+      "potenciaDC": null,
+      "conector": "Type 2 (Socket Only)",
+      "connections": [
+        {
+          "connector": "Type 2 (Socket Only)",
+          "current": "AC",
+          "powerKw": 11,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Quintana",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513572",
+        "sourceUrl": "https://openchargemap.org/poi/details/513572",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613573,
+      "nome": "Power Plug 80KW - Posto Universitario - São Pedro",
+      "operador": "TriCharge (BR)",
+      "cidade": "Juiz de Fora",
+      "uf": "",
+      "lat": -21.767626,
+      "lng": -43.368502,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Juiz de Fora",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513573",
+        "sourceUrl": "https://openchargemap.org/poi/details/513573",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613574,
+      "nome": "Restaurante Panela de Minas - Barbacena - Power Plug",
+      "operador": "TriCharge (BR)",
+      "cidade": "Barbacena",
+      "uf": "",
+      "lat": -21.298699,
+      "lng": -43.628052,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Barbacena",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513574",
+        "sourceUrl": "https://openchargemap.org/poi/details/513574",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613575,
+      "nome": "Lavaggio",
+      "operador": "TriCharge (BR)",
+      "cidade": "Nova Lima",
+      "uf": "",
+      "lat": -20.062584,
+      "lng": -43.981208,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Vancouver, 34007-634",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513575",
+        "sourceUrl": "https://openchargemap.org/poi/details/513575",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613576,
+      "nome": "BJM CHARGE - Sarzedo",
+      "operador": "TriCharge (BR)",
+      "cidade": "Sarzedo",
+      "uf": "",
+      "lat": -20.043616,
+      "lng": -44.14694,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua dos Rodoviários, 32450-000",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "unknown",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513576",
+        "sourceUrl": "https://openchargemap.org/poi/details/513576",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613577,
+      "nome": "Máximo Jambreiro",
+      "operador": "TriCharge (BR)",
+      "cidade": "Nova Lima",
+      "uf": "",
+      "lat": -20.000087,
+      "lng": -43.889989,
+      "potenciaDC": null,
+      "conector": "Type 2 (Socket Only)",
+      "connections": [
+        {
+          "connector": "Type 2 (Socket Only)",
+          "current": "AC",
+          "powerKw": 7,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Nova Lima",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513577",
+        "sourceUrl": "https://openchargemap.org/poi/details/513577",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613578,
+      "nome": "BJM CHARGE - Garapão Olhos D'água",
+      "operador": "TriCharge (BR)",
+      "cidade": "Belo Horizonte",
+      "uf": "",
+      "lat": -19.990893,
+      "lng": -43.967669,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Anel Rodoviário Celso Mello de Azevedo, 30575-847",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "unknown",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513578",
+        "sourceUrl": "https://openchargemap.org/poi/details/513578",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613579,
+      "nome": "Barbearia Mendonça",
+      "operador": "TriCharge (BR)",
+      "cidade": "Nova Lima",
+      "uf": "",
+      "lat": -19.989887,
+      "lng": -43.853634,
+      "potenciaDC": null,
+      "conector": "Type 2 (Socket Only)",
+      "connections": [
+        {
+          "connector": "Type 2 (Socket Only)",
+          "current": "AC",
+          "powerKw": 7,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Lauro Magalhães Santeiro, 34001-363",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513579",
+        "sourceUrl": "https://openchargemap.org/poi/details/513579",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613580,
+      "nome": "BJM CHARGE - Milionários",
+      "operador": "TriCharge (BR)",
+      "cidade": "Belo Horizonte",
+      "uf": "",
+      "lat": -19.984578,
+      "lng": -44.003483,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Dona Luiza, 30620-090",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "unknown",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513580",
+        "sourceUrl": "https://openchargemap.org/poi/details/513580",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613581,
+      "nome": "BJM CHARGE - Posto Ipiranga Via Shopping",
+      "operador": "TriCharge (BR)",
+      "cidade": "Belo Horizonte",
+      "uf": "",
+      "lat": -19.974037,
+      "lng": -44.019548,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Ângelo Macedo, 30640-460",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "unknown",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513581",
+        "sourceUrl": "https://openchargemap.org/poi/details/513581",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613582,
+      "nome": "BJM Charge - Teresa Cristina 02",
+      "operador": "TriCharge (BR)",
+      "cidade": "Contagem",
+      "uf": "",
+      "lat": -19.971698,
+      "lng": -44.02303,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua José do Patrocínio, 30640-070",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "unknown",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513582",
+        "sourceUrl": "https://openchargemap.org/poi/details/513582",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613583,
+      "nome": "BJM CHARGE - QG INCONFIDENTES",
+      "operador": "TriCharge (BR)",
+      "cidade": "Contagem",
+      "uf": "",
+      "lat": -19.958283,
+      "lng": -44.036989,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Avelino Camargos, 32260-340",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "unknown",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513583",
+        "sourceUrl": "https://openchargemap.org/poi/details/513583",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613584,
+      "nome": "BJM CHARGE - Garapão Betânia",
+      "operador": "TriCharge (BR)",
+      "cidade": "Belo Horizonte",
+      "uf": "",
+      "lat": -19.955824,
+      "lng": -43.986505,
+      "potenciaDC": 88,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 88,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 88,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Avenida Dom João VI, 30580-353",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "unknown",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513584",
+        "sourceUrl": "https://openchargemap.org/poi/details/513584",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613585,
+      "nome": "BJM CHARGE - União Street Mall",
+      "operador": "TriCharge (BR)",
+      "cidade": "Contagem",
+      "uf": "",
+      "lat": -19.95196,
+      "lng": -44.040775,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Lino de Moro, 32265-380",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "unknown",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513585",
+        "sourceUrl": "https://openchargemap.org/poi/details/513585",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613586,
+      "nome": "BJM CHARGE - Garapão Barão H. Melo",
+      "operador": "TriCharge (BR)",
+      "cidade": "Belo Horizonte",
+      "uf": "",
+      "lat": -19.935091,
+      "lng": -43.971869,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Maria Macedo, 30431-285",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "unknown",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513586",
+        "sourceUrl": "https://openchargemap.org/poi/details/513586",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613587,
+      "nome": "BJM CHARGE - Vera Cruz",
+      "operador": "TriCharge (BR)",
+      "cidade": "Belo Horizonte",
+      "uf": "",
+      "lat": -19.911533,
+      "lng": -43.899727,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Leopoldo Gomes, 30285-110",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "unknown",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513587",
+        "sourceUrl": "https://openchargemap.org/poi/details/513587",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613588,
+      "nome": "BJM CHARGE - Catalão 445",
+      "operador": "TriCharge (BR)",
+      "cidade": "Belo Horizonte",
+      "uf": "",
+      "lat": -19.905091,
+      "lng": -43.964786,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Avenida Presidente Carlos Luz, 445, 31230-000",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "unknown",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513588",
+        "sourceUrl": "https://openchargemap.org/poi/details/513588",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613589,
+      "nome": "BJM Charge - Tancredo Neves",
+      "operador": "TriCharge (BR)",
+      "cidade": "Belo Horizonte",
+      "uf": "",
+      "lat": -19.903167,
+      "lng": -43.990312,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Avenida Presidente Tancredo Neves, 30810-090",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "unknown",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513589",
+        "sourceUrl": "https://openchargemap.org/poi/details/513589",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613590,
+      "nome": "BJM CHARGE - Garapão Quintas Colonais",
+      "operador": "TriCharge (BR)",
+      "cidade": "Contagem",
+      "uf": "",
+      "lat": -19.890158,
+      "lng": -44.086124,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Maria de Lourdes Frias, 32044-450",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "unknown",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513590",
+        "sourceUrl": "https://openchargemap.org/poi/details/513590",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613591,
+      "nome": "BJM Charge - Sebastião de Brito",
+      "operador": "TriCharge (BR)",
+      "cidade": "Belo Horizonte",
+      "uf": "",
+      "lat": -19.862163,
+      "lng": -43.94103,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Avenida Sebastião de Brito, 31420-160",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "unknown",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513591",
+        "sourceUrl": "https://openchargemap.org/poi/details/513591",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613592,
+      "nome": "BJM CHARGE - Waldomiro Lobo",
+      "operador": "TriCharge (BR)",
+      "cidade": "Belo Horizonte",
+      "uf": "",
+      "lat": -19.846063,
+      "lng": -43.921101,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Avenida Waldomiro Lobo, 177, 31814-620",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "unknown",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513592",
+        "sourceUrl": "https://openchargemap.org/poi/details/513592",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613593,
+      "nome": "MP ELETROPOSTO",
+      "operador": "TriCharge (BR)",
+      "cidade": "Caratinga",
+      "uf": "",
+      "lat": -19.748115,
+      "lng": -42.133245,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Niterói, 35300-571",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513593",
+        "sourceUrl": "https://openchargemap.org/poi/details/513593",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613594,
+      "nome": "America Shopping - JJVM BRASIL 60KW",
+      "operador": "TriCharge (BR)",
+      "cidade": "Goiânia",
+      "uf": "",
+      "lat": -16.654814,
+      "lng": -49.384142,
+      "potenciaDC": 60,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 60,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 60,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Ciclovia dos Romeiros, 74493-970",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513594",
+        "sourceUrl": "https://openchargemap.org/poi/details/513594",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613595,
+      "nome": "Eletroposto To Nem Aí",
+      "operador": "TriCharge (BR)",
+      "cidade": "Salvador",
+      "uf": "",
+      "lat": -12.931991,
+      "lng": -38.431417,
+      "potenciaDC": 40,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 40,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Avenida Oceano Atlântico, 41250-010",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513595",
+        "sourceUrl": "https://openchargemap.org/poi/details/513595",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613596,
+      "nome": "Eletroposto Vapt Vupt - CATU-BA",
+      "operador": "TriCharge (BR)",
+      "cidade": "Catu",
+      "uf": "",
+      "lat": -12.381262,
+      "lng": -38.383219,
+      "potenciaDC": 40,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 40,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua José Visco, 48110-000",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513596",
+        "sourceUrl": "https://openchargemap.org/poi/details/513596",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613597,
+      "nome": "Eletroposto Posto Alfa",
+      "operador": "TriCharge (BR)",
+      "cidade": "Alagoinhas",
+      "uf": "",
+      "lat": -12.1345,
+      "lng": -38.421519,
+      "potenciaDC": 40,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 40,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Alagoinhas",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513597",
+        "sourceUrl": "https://openchargemap.org/poi/details/513597",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613598,
+      "nome": "VoltStations Eletropostos ⚡",
+      "operador": "TriCharge (BR)",
+      "cidade": "Caruaru",
+      "uf": "",
+      "lat": -8.282329,
+      "lng": -35.972194,
+      "potenciaDC": 60,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 60,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 60,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Tiradentes, 55012-025",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513598",
+        "sourceUrl": "https://openchargemap.org/poi/details/513598",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613599,
+      "nome": "VoltStations Eletropostos 2⚡",
+      "operador": "TriCharge (BR)",
+      "cidade": "Caruaru",
+      "uf": "",
+      "lat": -8.26408,
+      "lng": -35.964021,
+      "potenciaDC": 60,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 60,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 60,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Caruaru",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "unknown",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513599",
+        "sourceUrl": "https://openchargemap.org/poi/details/513599",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613600,
+      "nome": "Verano #03",
+      "operador": "TriCharge (BR)",
+      "cidade": "Cabo de Santo Agostinho",
+      "uf": "",
+      "lat": -8.249227,
+      "lng": -34.946069,
+      "potenciaDC": null,
+      "conector": "Type 2 (Socket Only)",
+      "connections": [
+        {
+          "connector": "Type 2 (Socket Only)",
+          "current": "AC",
+          "powerKw": 22,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Vitória Régia, 54495-610",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513600",
+        "sourceUrl": "https://openchargemap.org/poi/details/513600",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613601,
+      "nome": "Energy Station",
+      "operador": "TriCharge (BR)",
+      "cidade": "Jaboatão dos Guararapes",
+      "uf": "",
+      "lat": -8.167048,
+      "lng": -34.921742,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Avenida Barreto de Menezes, 54360-160",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513601",
+        "sourceUrl": "https://openchargemap.org/poi/details/513601",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613602,
+      "nome": "Pronto Eletroposto",
+      "operador": "TriCharge (BR)",
+      "cidade": "Boa Vista",
+      "uf": "",
+      "lat": 2.820616,
+      "lng": -60.694527,
+      "potenciaDC": 40,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 40,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Lourenço Belfort, 69304-600",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513602",
+        "sourceUrl": "https://openchargemap.org/poi/details/513602",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "TriCharge"
+      }
+    },
+    {
+      "id": 613644,
+      "nome": "OCPI Site",
+      "operador": "Spott (BR)",
+      "cidade": "São Paulo",
+      "uf": "",
+      "lat": -23.577538,
+      "lng": -46.673024,
+      "potenciaDC": 60,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 60,
+          "quantity": 1,
+          "unavailable": true
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Avenida Nove de Julho, 4939, 01407-000",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "unavailable",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513644",
+        "sourceUrl": "https://openchargemap.org/poi/details/513644",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "Spott"
+      }
+    },
+    {
+      "id": 613645,
+      "nome": "Club Athletico Paulistano",
+      "operador": "Spott (BR)",
+      "cidade": "São Paulo",
+      "uf": "",
+      "lat": -23.567763,
+      "lng": -46.668836,
+      "potenciaDC": null,
+      "conector": "Type 2 (Tethered Connector)",
+      "connections": [
+        {
+          "connector": "Type 2 (Tethered Connector)",
+          "current": "AC",
+          "powerKw": 7,
+          "quantity": 1,
+          "unavailable": true
+        },
+        {
+          "connector": "Type 2 (Tethered Connector)",
+          "current": "AC",
+          "powerKw": 7,
+          "quantity": 1
+        },
+        {
+          "connector": "Type 2 (Tethered Connector)",
+          "current": "AC",
+          "powerKw": 7,
+          "quantity": 1
+        },
+        {
+          "connector": "Type 2 (Tethered Connector)",
+          "current": "AC",
+          "powerKw": 7,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rua Honduras, 1400, 01428-900",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "unavailable",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513645",
+        "sourceUrl": "https://openchargemap.org/poi/details/513645",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "Spott"
+      }
+    },
+    {
+      "id": 613709,
+      "nome": "Liber Energia - Loja Equus",
+      "operador": "Yellotmob (Brasil)",
+      "cidade": "Passa Quatro",
+      "uf": "",
+      "lat": -22.389523,
+      "lng": -44.9625,
+      "potenciaDC": null,
+      "conector": "Type 2 (Tethered Connector)",
+      "connections": [
+        {
+          "connector": "Type 2 (Tethered Connector)",
+          "current": "AC",
+          "powerKw": 7,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "Rod. Cardeal Mota, 0 - Centro, 37460-000",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513709",
+        "sourceUrl": "https://openchargemap.org/poi/details/513709",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "YellotMob"
+      }
+    },
+    {
+      "id": 613710,
+      "nome": "Avenida do Rio Bonito, 2002",
+      "operador": "",
+      "cidade": "",
+      "uf": "SP",
+      "lat": -23.695222503765905,
+      "lng": -46.701610346314055,
+      "potenciaDC": 80,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 80,
+          "quantity": 2
+        }
+      ],
+      "reportedPoints": 2,
+      "address": "Avenida do Rio Bonito, Interlagos, 04776-003",
+      "access": "public",
+      "usage": "pay-at-location",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513710",
+        "sourceUrl": "https://openchargemap.org/poi/details/513710",
+        "consultedAt": "2026-11-09",
+        "license": "CC BY 4.0",
+        "attribution": "Open Charge Map Contributors"
+      }
+    },
+    {
+      "id": 613761,
+      "nome": "Rua da Prainha",
+      "operador": "",
+      "cidade": "",
+      "uf": "RO",
+      "lat": -9.773232930120159,
+      "lng": -66.35101394025003,
+      "potenciaDC": 40,
+      "conector": "CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 40,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": 1,
+      "address": "Rua da Prainha, 76847-000",
+      "access": "public",
+      "usage": "pay-at-location",
+      "reportedStatus": "reported-operational",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513761",
+        "sourceUrl": "https://openchargemap.org/poi/details/513761",
+        "consultedAt": "2026-11-09",
+        "license": "CC BY 4.0",
+        "attribution": "Open Charge Map Contributors"
+      }
+    },
+    {
+      "id": 613822,
+      "nome": "MultCharge - HUB ANASTÁCIO GBT 60KW",
+      "operador": "Multcharge (BR)",
+      "cidade": "São Paulo",
+      "uf": "",
+      "lat": -23.513374,
+      "lng": -46.722076,
+      "potenciaDC": 60,
+      "conector": "GB-T DC - GB/T 20234.3 + CCS (Type 2)",
+      "connections": [
+        {
+          "connector": "GB-T DC - GB/T 20234.3",
+          "current": "DC",
+          "powerKw": 60,
+          "quantity": 1
+        },
+        {
+          "connector": "CCS (Type 2)",
+          "current": "DC",
+          "powerKw": 60,
+          "quantity": 1
+        }
+      ],
+      "reportedPoints": null,
+      "address": "RUA BOTOCUDO, 234, 05093-030",
+      "access": "membership",
+      "usage": "membership-required",
+      "reportedStatus": "unknown",
+      "location": {
+        "status": "approximate",
+        "source": "Open Charge Map",
+        "externalId": "513822",
+        "sourceUrl": "https://openchargemap.org/poi/details/513822",
+        "consultedAt": "2026-11-09",
+        "license": "CC0",
+        "attribution": "Multcharge"
+      }
+    }
+  ]
+}

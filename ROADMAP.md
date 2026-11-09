@@ -55,6 +55,7 @@ O frontend envia a candidatura a uma API externa por contrato versionado, inclui
 
 ### Curto prazo
 
+- concluir a revisão individual das localizações do Mapa EV: 159 legados sem evidência em quarentena; arquivo OCM histórico complementado por 94 fichas adicionais consultadas em novembro e 396 registros do extrato OSM/Geofabrik de 08/11/2026, total local de 1.787 registros. Extrato completo e checksum verificados; campos ausentes e 33 centros de áreas aproximados explícitos. Datas de arquivo, consulta, extrato e atualização não se confundem; fontes podem repetir um local físico. Sincronização OCM nacional depende de chave autorizada e permanece pendente. Abertura independente das APIs, agrupamentos e critérios DC mais restritos nas rotas preservados. Sem publicação; ver `docs/mapa-ev-localizacoes.md`.
 - ampliar testes de acessibilidade das rotas de catálogo, comparação e parceiros;
 - publicar metodologia das estimativas de TCO e consumo;
 - melhorar Core Web Vitals e divisão de bundles;

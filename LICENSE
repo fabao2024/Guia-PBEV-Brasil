@@ -18,3 +18,8 @@ No additional restrictions — You may not apply legal terms or technological
 measures that legally restrict others from doing anything the license permits.
 
 Full license text: https://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Third-party charging-location data is not relicensed under this project license.
+OpenStreetMap-derived datasets retain ODbL 1.0; Open Charge Map records retain
+their respective provider licenses (CC BY 4.0 or CC0). The NonCommercial term
+above does not add a restriction to those datasets. See THIRD_PARTY_DATA.md.
