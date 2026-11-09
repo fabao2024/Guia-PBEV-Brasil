@@ -93,6 +93,7 @@ export default function MethodologyPage() {
               <li>{t('methodology.sourcesPrices', { through: CATALOG_EVIDENCE.marketHistoryThrough, disclaimer: CATALOG_EVIDENCE.priceDisclaimer, defaultValue: 'Preços — histórico até {{through}}. {{disclaimer}}' })}</li>
               <li>{t('methodology.sourcesAneel', { date: ELECTRICITY_PRICES_UPDATED, defaultValue: 'Eletricidade — tarifas homologadas ANEEL (B1 residencial). Referência {{date}}.' })}</li>
               <li>{t('methodology.sourcesAnp', { date: FUEL_PRICES_UPDATED, defaultValue: 'Combustível — preços ANP. Referência {{date}}.' })}</li>
+              <li>{t('methodology.sourcesChargers')}</li>
               <li>{t('methodology.sourcesIpva', { date: SP_IPVA_REVIEWED })}</li>
             </ul>
           </section>

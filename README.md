@@ -109,6 +109,8 @@ O deploy é automático via GitHub Actions a cada push na branch `main`. Para de
 
 [Creative Commons BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) — uso não-comercial permitido com atribuição. Uso comercial requer autorização prévia.
 
+Exceção: dados de eletropostos de terceiros mantêm suas licenças de origem — OSM/Geofabrik sob ODbL 1.0 e OCM sob CC BY 4.0 ou CC0 por fornecedor, sem restrição BY-NC adicional. Ver [avisos de dados de terceiros](THIRD_PARTY_DATA.md).
+
 ---
 
 ## 🇺🇸 English
@@ -199,3 +201,5 @@ Automated via GitHub Actions on every push to `main`. For infrastructure details
 ### License
 
 [Creative Commons BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) — non-commercial use allowed with attribution. Commercial use requires prior authorization.
+
+Exception: third-party charging-location data retains its source licenses — OSM/Geofabrik under ODbL 1.0 and OCM under each provider's CC BY 4.0 or CC0, with no additional BY-NC restriction. See [third-party data notices](THIRD_PARTY_DATA.md).

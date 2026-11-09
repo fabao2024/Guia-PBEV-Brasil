@@ -3,7 +3,7 @@
  *
  * fetchChargersStatus: status de pontos já conhecidos (disponível/manutenção).
  * fetchDcChargers:     descobre todos os DC chargers numa bbox — expande a
- *                      cobertura do planejador além da base estática de 160 pontos.
+ *                      cobertura do planejador com referências individuais.
  *
  * StatusTypeID relevantes:
  *   50  → Operational          → disponível
@@ -14,7 +14,9 @@
  *  null / outros                → desconhecido
  */
 
-import type { Eletroposto, ConnectorType } from '../data/eletropostosData';
+import type { Eletroposto } from '../data/eletropostosData';
+import { importOcmCharger } from '../utils/chargerImport';
+import { toRouteCharger } from '../utils/chargerCatalog';
 import { clearSessionApiKey, resolveSessionApiKey, saveSessionApiKey } from '../utils/apiKeyStorage';
 
 export type ChargerStatus = 'available' | 'maintenance' | 'unknown';
@@ -27,35 +29,16 @@ const OCM_KEY_ENV = import.meta.env.DEV
   : '';
 const OCM_BASE = 'https://api.openchargemap.io/v3/poi';
 
-// IDs dinâmicos OCM: offset para não colidir com estáticos (1-999)
-const OCM_ID_OFFSET = 100_000;
-
-const BR_FULL_TO_UF: Record<string, string> = {
-  'Acre':'AC','Alagoas':'AL','Amapá':'AP','Amazonas':'AM','Bahia':'BA',
-  'Ceará':'CE','Distrito Federal':'DF','Espírito Santo':'ES','Goiás':'GO',
-  'Maranhão':'MA','Mato Grosso':'MT','Mato Grosso do Sul':'MS','Minas Gerais':'MG',
-  'Pará':'PA','Paraíba':'PB','Paraná':'PR','Pernambuco':'PE','Piauí':'PI',
-  'Rio de Janeiro':'RJ','Rio Grande do Norte':'RN','Rio Grande do Sul':'RS',
-  'Rondônia':'RO','Roraima':'RR','Santa Catarina':'SC','São Paulo':'SP',
-  'Sergipe':'SE','Tocantins':'TO',
-};
-
-const VALID_UF = new Set(Object.values(BR_FULL_TO_UF));
-
-function resolveUf(province: string | undefined): string {
-  if (!province) return '';
-  const up = province.toUpperCase();
-  if (VALID_UF.has(up)) return up;
-  return BR_FULL_TO_UF[province] ?? '';
-}
-
 interface OcmConnection {
+  ConnectionTypeID?: number;
   CurrentTypeID?: number;  // 30 = DC
   PowerKW?: number;
-  ConnectionType?: { Title?: string };
+  ConnectionType?: { ID?: number; Title?: string };
+  CurrentType?: { ID?: number };
 }
 
 interface OcmPoiFull {
+  [key: string]: unknown;
   ID: number;
   AddressInfo: {
     Title: string;
@@ -63,59 +46,40 @@ interface OcmPoiFull {
     StateOrProvince?: string;
     Latitude: number;
     Longitude: number;
+    CountryID?: number;
+    Country?: { ID?: number };
   };
-  OperatorInfo?: { Title?: string };
+  DataProviderID?: number;
+  DataProvider?: { ID?: number; Title?: string; License?: string; IsOpenDataLicensed?: boolean };
+  OperatorID?: number;
+  OperatorInfo?: { ID?: number; Title?: string };
   StatusType?: { ID: number };
   Connections?: OcmConnection[];
 }
 
-function ocmConnectorType(connections: OcmConnection[]): ConnectorType | null {
-  const dcConns = connections.filter((c) => c.CurrentTypeID === 30);
-  if (dcConns.length === 0) return null;
-
-  let hasCcs2 = false;
-  let hasChademo = false;
-  let hasTesla = false;
-  let hasGbt = false;
-
-  for (const c of dcConns) {
-    const t = (c.ConnectionType?.Title ?? '').toLowerCase();
-    if (t.includes('ccs') || t.includes('type 2 combo') || t.includes('iec 62196-3')) hasCcs2 = true;
-    if (t.includes('chademo')) hasChademo = true;
-    if (t.includes('tesla')) hasTesla = true;
-    if (t.includes('gb/t')) hasGbt = true;
-  }
-
-  if (hasCcs2 && hasChademo) return 'CCS2+CHAdeMO';
-  if (hasCcs2) return 'CCS2';
-  if (hasChademo) return 'CHAdeMO';
-  if (hasTesla) return 'Supercharger';
-  if (hasGbt) return 'GB/T';
-  return 'CCS2'; // fallback para DC sem tipo explícito
-}
-
 function ocmPoiToEletroposto(poi: OcmPoiFull): Eletroposto | null {
-  const { ID, AddressInfo, OperatorInfo, Connections } = poi;
-  if (!Connections || Connections.length === 0) return null;
-
-  const connector = ocmConnectorType(Connections);
-  if (!connector) return null;
-
-  const dcConns = Connections.filter((c) => c.CurrentTypeID === 30);
-  const maxKw = Math.max(0, ...dcConns.map((c) => c.PowerKW ?? 0));
-  if (maxKw < 30 && maxKw !== 0) return null; // potência informada mas < 30 kW
-
-  return {
-    id: OCM_ID_OFFSET + ID,
-    nome: AddressInfo.Title,
-    operador: OperatorInfo?.Title ?? 'OCM',
-    cidade: AddressInfo.Town ?? '',
-    uf: resolveUf(AddressInfo.StateOrProvince),
-    lat: AddressInfo.Latitude,
-    lng: AddressInfo.Longitude,
-    potenciaDC: maxKw > 0 ? maxKw : 30,
-    conector: connector,
-  };
+  const providerId = poi.DataProviderID ?? poi.DataProvider?.ID;
+  // OCM's published contributor terms apply to provider 1; other feeds need explicit license metadata.
+  const provider = providerId === 1
+    ? { ID: 1, Title: 'Open Charge Map Contributors', IsOpenDataLicensed: true, License: 'CC BY 4.0' }
+    : poi.DataProvider;
+  const operatorId = poi.OperatorID ?? poi.OperatorInfo?.ID ?? 1;
+  const connections = poi.Connections ?? [];
+  const site = importOcmCharger({
+    ...poi, DataProviderID: providerId, OperatorID: operatorId,
+    AddressInfo: { ...poi.AddressInfo, CountryID: poi.AddressInfo?.CountryID ?? poi.AddressInfo?.Country?.ID },
+    Connections: connections.map(connection => ({ ...connection,
+      ConnectionTypeID: connection.ConnectionTypeID ?? connection.ConnectionType?.ID,
+      CurrentTypeID: connection.CurrentTypeID ?? connection.CurrentType?.ID,
+    })),
+  }, {
+    consultedAt: new Date().toISOString().slice(0, 10), providers: provider ? [provider] : [],
+    operators: poi.OperatorInfo ? [{ ID: operatorId, Title: poi.OperatorInfo.Title }] : [],
+    connectionTypes: connections.filter(connection => connection.ConnectionType?.Title).map(connection => ({
+      ID: connection.ConnectionTypeID ?? connection.ConnectionType?.ID, Title: connection.ConnectionType!.Title,
+    })),
+  });
+  return site ? toRouteCharger(site) : null;
 }
 
 export function resolveOcmKey(): string {

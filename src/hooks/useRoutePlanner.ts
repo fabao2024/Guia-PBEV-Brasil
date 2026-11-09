@@ -2,6 +2,7 @@ import { useState, useCallback, useMemo } from 'react';
 import { useORSRoute } from './useORSRoute';
 import { buildChargingStops } from '../utils/routeGeometry';
 import { ELETROPOSTOS } from '../data/eletropostosData';
+import { LOCAL_ROUTE_CHARGERS } from '../data/localChargers';
 import { CAR_DB } from '../constants';
 import { electricRangeOf } from '../utils/powertrain';
 import { resolveOcmKey, saveOcmKey, clearOcmKey, fetchDcChargers } from '../services/ocmService';
@@ -254,7 +255,7 @@ export function useRoutePlanner(): RoutePlannerReturn {
     }
 
     // Enriquece a base estática com chargers externos (OCM + OSM) em paralelo.
-    // Ambas as chamadas são não-bloqueantes: falha silenciosa → usa apenas estáticos.
+    // Falhas não autorizam usar pontos legados sem evidência: merge filtra as fontes.
     const bbox = polylineBbox(routeData.polyline, chargerRadiusKm);
     const [ocmResults, osmResults] = await Promise.allSettled([
       fetchDcChargers(bbox, ocmApiKey),
@@ -262,7 +263,7 @@ export function useRoutePlanner(): RoutePlannerReturn {
     ]);
     const ocmChargers = ocmResults.status === 'fulfilled' ? ocmResults.value : [];
     const osmChargers = osmResults.status === 'fulfilled' ? osmResults.value : [];
-    const allChargers = mergeChargerSources(ELETROPOSTOS, [...ocmChargers, ...osmChargers]);
+    const allChargers = mergeChargerSources([...LOCAL_ROUTE_CHARGERS, ...ELETROPOSTOS], [...ocmChargers, ...osmChargers]);
 
     // Usa o range ajustado pelas condições + SoC de saída/chegada para calcular as paradas
     const chargingStops = buildChargingStops(

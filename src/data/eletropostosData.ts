@@ -1,11 +1,24 @@
 /**
  * Eletropostos individuais — Brasil
- * Fonte: dados públicos dos operadores (sites, apps e press releases) · referência mar/2026
- * Posições aproximadas à área do local declarado pelo operador.
- * Inclui apenas pontos com carga DC disponível (≥ 30 kW).
+ * Base legada (referência declarada: mar/2026), sem evidência individual.
+ * Nomes, operadores, potências e coordenadas NÃO estão comprovados.
+ * Preservada para revisão; não deve ser usada como destino ou fallback de rotas.
  */
 
 export type ConnectorType = 'CCS2' | 'CHAdeMO' | 'CCS2+CHAdeMO' | 'CCS2+Type2' | 'Supercharger' | 'GB/T';
+
+export interface ChargerLocation {
+  status: 'confirmed' | 'approximate' | 'unverified';
+  source?: string;
+  sourceUrl?: string;
+  externalId?: string;
+  consultedAt?: string; // consulta à fonte; não comprova inspeção física
+  sourceUpdatedAt?: string; // atualização declarada pelo provedor, não inspeção física
+  positionMethod?: 'source-point' | 'area-center';
+  verifiedAt?: string; // somente quando a posição física tiver evidência
+  license?: string;
+  attribution?: string;
+}
 
 export interface Eletroposto {
   id: number;
@@ -17,9 +30,12 @@ export interface Eletroposto {
   lng: number;
   potenciaDC: number;   // kW máximo DC
   conector: ConnectorType;
+  address?: string;
+  location?: ChargerLocation;
+  usage?: 'membership-required' | 'pay-at-location';
 }
 
-export const ELETROPOSTOS: Eletroposto[] = [
+const LEGACY_ELETROPOSTOS: Eletroposto[] = [
 
   // ═══════════════════════════════════════════════════════════════════════
   // SÃO PAULO — CAPITAL
@@ -238,6 +254,10 @@ export const ELETROPOSTOS: Eletroposto[] = [
   { id:159, nome:'Shell Recharge Rio Branco',             operador:'Shell Recharge',  cidade:'Rio Branco',         uf:'AC', lat:-9.9753,  lng:-67.8249, potenciaDC:150, conector:'CCS2+CHAdeMO' },
 ];
 
+export const ELETROPOSTOS: Eletroposto[] = LEGACY_ELETROPOSTOS.map(e => ({
+  ...e, location: { status: 'unverified' },
+}));
+
 export const OPERADORES = [...new Set(ELETROPOSTOS.map(e => e.operador))].sort();
 
 /** Cor por operador para o mapa */
@@ -265,16 +285,7 @@ export const OPERADOR_COLOR: Record<string, string> = {
 export const DEFAULT_OPERADOR_COLOR = '#888888';
 
 /**
- * Abre Google Maps com pin fixado nas coordenadas exatas do eletroposto.
- * "loc:lat,lng" é o único formato que garante pin sem busca textual.
- */
-export const gmapsUrl = (lat: number, lng: number, _nome: string, _operador: string) =>
-  `https://maps.google.com/maps?q=loc:${lat},${lng}&z=19`;
-
-/**
- * Abre PlugShare centralizado nas coords do ponto (zoom 20 = máximo).
- * Sem o ID interno do PlugShare não é possível selecionar o item diretamente;
- * com zoom alto o pino fica visível na tela imediatamente.
+ * Pesquisa regional no PlugShare; não seleciona nem comprova uma estação.
  */
 export const plugshareUrl = (lat: number, lng: number) =>
-  `https://www.plugshare.com/?latitude=${lat}&longitude=${lng}&zoomLevel=20`;
+  `https://www.plugshare.com/?latitude=${lat}&longitude=${lng}&zoomLevel=13`;

@@ -78,15 +78,7 @@ export function findNearbyChargers(
 ): NearbyCharger[] {
   return chargers
     .map((c) => ({
-      id: c.id,
-      nome: c.nome,
-      operador: c.operador,
-      cidade: c.cidade,
-      uf: c.uf,
-      lat: c.lat,
-      lng: c.lng,
-      potenciaDC: c.potenciaDC,
-      conector: c.conector,
+      ...c,
       distanceKm: haversineKm(point, [c.lat, c.lng]),
     }))
     .filter((c) => c.distanceKm <= radiusKm)
@@ -288,15 +280,7 @@ export function buildChargingStops(
     // ─── Parada necessária ───────────────────────────────────────────────────
     const stopPosition = polyline[best.polylineIdx];
     const selectedCharger: NearbyCharger = {
-      id: best.charger.id,
-      nome: best.charger.nome,
-      operador: best.charger.operador,
-      cidade: best.charger.cidade,
-      uf: best.charger.uf,
-      lat: best.charger.lat,
-      lng: best.charger.lng,
-      potenciaDC: best.charger.potenciaDC,
-      conector: best.charger.conector,
+      ...best.charger,
       distanceKm: best.lateralDistKm,
     };
     const nearbyChargers = findNearbyChargers(stopPosition, chargers, radiusKm)

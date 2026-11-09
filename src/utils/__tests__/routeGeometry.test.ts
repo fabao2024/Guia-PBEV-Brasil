@@ -177,6 +177,16 @@ describe('segmentRoute()', () => {
 describe('findNearbyChargers()', () => {
   const allChargers = [CHARGER_SJC, CHARGER_MANAUS];
 
+  it('preserva evidência e endereço nas alternativas e na estação selecionada', () => {
+    const charger: Eletroposto = { ...CHARGER_SJC, address: 'Rua de teste, 1', location: {
+      status: 'approximate', source: 'OSM', sourceUrl: 'https://www.openstreetmap.org/node/123', externalId: 'node/123', consultedAt: '2026-11-09',
+    } };
+    expect(findNearbyChargers([-23.2, -45.9], [charger], 20)[0]).toMatchObject({ location: charger.location, address: charger.address });
+    const stops = buildChargingStops(DUTRA_POLYLINE, 250, [charger, CHARGER_RESENDE], 30, 80, 15);
+    const selected = stops.map(stop => stop.selectedCharger).find(c => c?.id === charger.id);
+    expect(selected).toMatchObject({ location: charger.location, address: charger.address });
+  });
+
   it('retorna eletroposto dentro do raio', () => {
     const result = findNearbyChargers([-23.2000, -45.9000], allChargers, 20);
     expect(result.some((c) => c.id === CHARGER_SJC.id)).toBe(true);

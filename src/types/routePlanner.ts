@@ -1,4 +1,5 @@
 import type { Car } from '../types';
+import type { Eletroposto } from '../data/eletropostosData';
 
 /** Coordenada geográfica no formato Leaflet [lat, lng] */
 export type LatLng = [number, number];
@@ -24,16 +25,7 @@ export interface GeoSuggestion {
 }
 
 /** Eletroposto próximo de uma parada de recarga */
-export interface NearbyCharger {
-  id: number;
-  nome: string;
-  operador: string;
-  cidade: string;
-  uf: string;
-  lat: number;
-  lng: number;
-  potenciaDC: number;
-  conector: string;
+export interface NearbyCharger extends Eletroposto {
   distanceKm: number;
 }
 
