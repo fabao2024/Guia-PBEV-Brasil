@@ -723,6 +723,120 @@
       ]
     },
     {
+      "src": "/car-images/denza-b5-gl.jpg",
+      "width": 3840,
+      "height": 2161,
+      "alpha": false,
+      "bytes": 483733,
+      "sha256": "5bf6a8d1dac15a34f609264733f376c7a9acf0d664233ec47a2f780eb747177e",
+      "variants": [
+        {
+          "src": "/car-images/optimized/denza-b5-gl.jpg-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 3828,
+          "sha256": "dd5634f834c547e1fa47392c38052e783f6a21c80e4e9c52713df5022f5a0f27"
+        },
+        {
+          "src": "/car-images/optimized/denza-b5-gl.jpg-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 9788,
+          "sha256": "f599424b2264521647f99f180983c969ff1147cfdd8a2209df02b3b5754c9d00"
+        },
+        {
+          "src": "/car-images/optimized/denza-b5-gl.jpg-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 17456,
+          "sha256": "f3aedc0c8d002160ac52b436ff2decf11e69fa034a4c9f5d511eb8808b4e45d1"
+        },
+        {
+          "src": "/car-images/optimized/denza-b5-gl.jpg-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 26334,
+          "sha256": "db8160eef75aa52a4782a94401b69d33e7eeef7e66dce77017989b17f58f0abe"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/denza-d9-ev.png",
+      "width": 2400,
+      "height": 1200,
+      "alpha": false,
+      "bytes": 1203923,
+      "sha256": "7a59babb2ffa887c1bd74a4e9b7527f59a21f9bfe3b41aef859c79c05bc25e15",
+      "variants": [
+        {
+          "src": "/car-images/optimized/denza-d9-ev.png-320.webp",
+          "width": 320,
+          "height": 160,
+          "bytes": 12324,
+          "sha256": "98111e81c2ff042d1a5962c57b1c756dce1cde3c5939cd4851122fa7c6fb08f6"
+        },
+        {
+          "src": "/car-images/optimized/denza-d9-ev.png-640.webp",
+          "width": 640,
+          "height": 320,
+          "bytes": 39310,
+          "sha256": "0d5030db83d38c80c545fad0f581277b8b4e6c46a33e4a418888fa3ea9485546"
+        },
+        {
+          "src": "/car-images/optimized/denza-d9-ev.png-960.webp",
+          "width": 960,
+          "height": 480,
+          "bytes": 76476,
+          "sha256": "f84e8c4c956da95488b3cf891cb39b5b5d66f0f5422b98a4dd3b5041d160403e"
+        },
+        {
+          "src": "/car-images/optimized/denza-d9-ev.png-1280.webp",
+          "width": 1280,
+          "height": 640,
+          "bytes": 121534,
+          "sha256": "08be818d0881eabf8f3ba4434cf432867655a7ba77b34c78183534d50196e53e"
+        }
+      ]
+    },
+    {
+      "src": "/car-images/denza-z9gt-ev.jpg",
+      "width": 7008,
+      "height": 4672,
+      "alpha": false,
+      "bytes": 748719,
+      "sha256": "4426777bb0575c461f4087948e7d6c5e9a6541a99455402c8391937472729ee2",
+      "variants": [
+        {
+          "src": "/car-images/optimized/denza-z9gt-ev.jpg-320.webp",
+          "width": 320,
+          "height": 213,
+          "bytes": 9048,
+          "sha256": "2e8d1c2df87d3163bf1955eb5d0c59732cff7a06601cac633494e6a5cc14973b"
+        },
+        {
+          "src": "/car-images/optimized/denza-z9gt-ev.jpg-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 31412,
+          "sha256": "36e4a9998ef17a864f3aecc90810cf5e9f292bb07a8416e8cba87cce27788f5f"
+        },
+        {
+          "src": "/car-images/optimized/denza-z9gt-ev.jpg-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 66794,
+          "sha256": "06b5351d1b7b9b089d2589895ba1b6f50823e27c7735d3fd84d0e44cec88a4e8"
+        },
+        {
+          "src": "/car-images/optimized/denza-z9gt-ev.jpg-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 113190,
+          "sha256": "84b1eaf05e72498042690d26cc26869499cead8b5262899ee2ce0e55da02bf38"
+        }
+      ]
+    },
+    {
       "src": "/car-images/dolphin-gs.jpg",
       "width": 2880,
       "height": 1620,

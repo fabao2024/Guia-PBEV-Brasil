@@ -1,8 +1,47 @@
-import { CAR_DB } from '../constants';
+import { BRAND_URLS, CAR_DB } from '../constants';
 import type { Car } from '../types';
 import { ALL_POWERTRAINS, DEFAULT_MIN_RANGE } from '../types';
 
 describe('CAR_DB data integrity', () => {
+  it('lists only the Brazilian DENZA versions under a brand separate from BYD', () => {
+    const denza = CAR_DB.filter(car => car.brand === 'DENZA');
+    expect(denza.map(car => car.model)).toEqual(['B5 GL', 'B5 GS', 'Z9GT EV', 'D9 EV']);
+    expect(BRAND_URLS.DENZA).toBe('https://www.denza.com/br');
+    expect(CAR_DB.some(car => car.brand === 'BYD' && /Denza|B5|Z9GT|D9/i.test(car.model))).toBe(false);
+    for (const car of denza) {
+      expect(car.url).toMatch(/^https:\/\/www\.denza\.com\/br\//);
+      expect(car.img).toMatch(/^\/car-images\/denza-/);
+      expect(car.discontinued).not.toBe(true);
+    }
+  });
+
+  it('keeps B5 GL and GS PBEV ranges, equipment and official configurator prices distinct', () => {
+    const gl = CAR_DB.find(car => car.brand === 'DENZA' && car.model === 'B5 GL');
+    const gs = CAR_DB.find(car => car.brand === 'DENZA' && car.model === 'B5 GS');
+    expect(gl).toMatchObject({ cat: 'SUV', powertrain: 'PHEV', price: 405000, range: 81,
+      electricRangeKm: 81, combinedRangeKm: 745, fuelConsumptionKml: 8, battery: 31.8,
+      weightKg: 2897, lengthMm: 4888, chargeAC: 11, chargeDC: 100 });
+    expect(gs).toMatchObject({ cat: 'SUV', powertrain: 'PHEV', price: 505000, range: 74,
+      electricRangeKm: 74, combinedRangeKm: 771, fuelConsumptionKml: 8.4, battery: 31.8,
+      weightKg: 3055, lengthMm: 4921, chargeAC: 11, chargeDC: 100 });
+    expect(gl?.features?.some(feature => feature.includes('DiSus-P'))).toBe(false);
+    expect(gs?.features?.some(feature => feature.includes('DiSus-P'))).toBe(true);
+    expect(gl?.img).not.toBe(gs?.img);
+    // Altura máxima ajustável não é o vão livre estático sem carga do campo.
+    expect(gs?.groundClearanceMm).toBeUndefined();
+  });
+
+  it('uses Brazilian electric DENZA specifications rather than international range cycles', () => {
+    const z9 = CAR_DB.find(car => car.brand === 'DENZA' && car.model === 'Z9GT EV');
+    const d9 = CAR_DB.find(car => car.brand === 'DENZA' && car.model === 'D9 EV');
+    expect(z9).toMatchObject({ powertrain: 'BEV', price: 670000, range: 476, battery: 122.4,
+      power: 1156, chargeAC: 11, weightKg: 2930, trunkLiters: 495 });
+    expect(d9).toMatchObject({ powertrain: 'BEV', price: 750000, range: 421, battery: 115,
+      power: 557, chargeAC: 7, chargeDC: 1196, weightKg: 2995, trunkLiters: 689 });
+    // Potência da estação Flash não comprova o pico de entrada do Z9GT.
+    expect(z9?.chargeDC).toBeUndefined();
+  });
+
   it('records the DFM Brazilian preview models and provisional prices', () => {
     const box = CAR_DB.find(car => car.brand === 'DFM' && car.model === 'Box Urban');
     const vigo = CAR_DB.find(car => car.brand === 'DFM' && car.model === 'Vigo Urban Plus');

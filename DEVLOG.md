@@ -2,6 +2,15 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 10/11/2026 — DENZA como marca independente no catálogo (validação local)
+
+- Incluídos B5 GL e GS como SUVs PHEV, Z9GT EV e D9 EV na categoria Luxo, sem agrupar a marca à BYD. Somente versões brasileiras com ficha e oferta confirmadas; Z e B3 permanecem fora. Fontes, divergências e imagens oficiais em `docs/catalogo-denza.md` e no registro de proveniência por campo.
+- Autonomias elétricas PBEV de 81/74/476/421 km, separadas de NEDC. Autonomia total dos B5 identificada como estimativa calculada; potência oficial em kW convertida para cv. Diferenças GL/GS preservadas e lacunas não preenchidas por suposição: consumo do D9, pico DC do Z9GT, garantia específica da bateria e vão livre estático.
+- Preços do configurador oficial: R$ 405 mil / R$ 505 mil / R$ 670 mil / R$ 750 mil. Divergência do B5 GS com os R$ 449 mil ainda citados na imprensa documentada. D9 incluído após cruzar o configurador com entregas/emplacamentos, apesar do texto residual “em breve” na página comercial.
+- Gerador das métricas corrigido para atualizar também o bloco inglês que havia ficado com a palavra “marcas”; catálogo passa a 200 versões de 41 marcas. Metadados estáticos deixam de chamar o B5 PHEV de elétrico e distinguem híbridos sem tomada por consumo. Arquivos de catálogo e sitemap gerados, sem edição manual.
+- Validação direcionada: 51 testes em cinco arquivos, typecheck, build, scanner de segredos e proveniência após build (`unchanged`, 1028/2000) aprovados. As quatro rotas estáticas e suas imagens responderam HTTP 200 em conferência local. Imagens geradas e conferidas com `--check`, Pillow 12.3.0; 85 originais acima do limiar e 330 variantes no pipeline completo.
+- Primeira execução ampliada, com teste de manifesto de imagens conferido separadamente: 605/607 testes aprovados; timeout de acessibilidade do catálogo e botão do consultor não encontrado no teste do formulário de limpeza solar. Reexecução da suíte inteira, sem tarefas pesadas simultâneas: 565/567 testes executados aprovados, as mesmas duas falhas e erro de inicialização do worker de `tcoIpvaProjection.test.ts`. Resultados da árvore local, que também contém outras alterações ainda não publicadas. A suíte completa não está aprovada; nenhum limite foi aumentado e nenhum teste foi silenciado. Integração e deploy dependem do CI.
+
 ## 09/11/2026 — Fontes de novembro do Mapa EV (local, não publicada)
 
 - Consultadas individualmente as 100 fichas listadas no catálogo público brasileiro OCM: 94 adicionais ao conjunto anterior, total local de 1.391 registros com fonte. Licenças por fornecedor, coordenadas, acesso e características elétricas validadas na importação. O arquivo é explicitamente uma amostra recente, não uma base nacional completa; data de consulta não foi usada como data de atualização/instalação.

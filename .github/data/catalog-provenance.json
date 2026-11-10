@@ -37,6 +37,343 @@
     }
   },
   "vehicles": {
+    "denza-b5-gl": {
+      "brand": "DENZA",
+      "model": "B5 GL",
+      "notes": "Revisão brasileira em docs/catalogo-denza.md. Datas dos PDFs são metadados de modificação; configurador e etiquetas sem data publicada usam a data de observação, não uma atualização declarada pela fonte.",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/car/denza/br/CX202001.json",
+          "sourceUpdatedAt": "2026-11-10",
+          "verifiedAt": "2026-11-10",
+          "sourceDateKind": "observed",
+          "notes": "B5 GL, ano-modelo 26/27, formattedPrice R$ 405.000,00; consulta do payload público do configurador."
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/denza-site/denza-brazil/DENZA%20B5%20GL%20DM%20PBEV.jpg",
+          "sourceUpdatedAt": "2026-11-10",
+          "verifiedAt": "2026-11-10",
+          "sourceDateKind": "observed"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/denza-site/denza-brazil/DENZA%20B5%20GL%20DM%20PBEV.jpg",
+          "sourceUpdatedAt": "2026-11-10",
+          "verifiedAt": "2026-11-10",
+          "sourceDateKind": "observed",
+          "notes": "Gasolina em modo híbrido: cidade 8,0 km/L; estrada 8,1 km/L. Não usar km/L equivalente do modo elétrico. Autonomia total estimada: round(81 + 83 × 8,0) = 745 km; tanque na ficha oficial."
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/b5compress/Catalogo_b5.pdf",
+          "sourceUpdatedAt": "2026-10-30",
+          "verifiedAt": "2026-11-10",
+          "notes": "505 kW combinados × 1,35962 = aproximadamente 687 cv; 760 Nm / 9,80665 = 77,5 kgfm."
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/b5compress/Catalogo_b5.pdf",
+          "sourceUpdatedAt": "2026-10-30",
+          "verifiedAt": "2026-11-10"
+        },
+        "charging": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/b5compress/Catalogo_b5.pdf",
+          "sourceUpdatedAt": "2026-10-30",
+          "verifiedAt": "2026-11-10"
+        },
+        "availability": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/car/denza/br/CX202001.json",
+          "sourceUpdatedAt": "2026-11-10",
+          "verifiedAt": "2026-11-10",
+          "sourceDateKind": "observed"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/b5compress/Catalogo_b5.pdf",
+          "sourceUpdatedAt": "2026-10-30",
+          "verifiedAt": "2026-11-10",
+          "notes": "Coluna GL; altura máxima do solo não registrada como vão livre estático sem carga."
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/b5compress/Catalogo_b5.pdf",
+          "sourceUpdatedAt": "2026-10-30",
+          "verifiedAt": "2026-11-10"
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/b5compress/Catalogo_b5.pdf",
+          "sourceUpdatedAt": "2026-10-30",
+          "verifiedAt": "2026-11-10"
+        }
+      }
+    },
+    "denza-b5-gs": {
+      "brand": "DENZA",
+      "model": "B5 GS",
+      "notes": "Revisão brasileira em docs/catalogo-denza.md. Datas dos PDFs são metadados de modificação; configurador e etiquetas sem data publicada usam a data de observação, não uma atualização declarada pela fonte.",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/car/denza/br/CX202001.json",
+          "sourceUpdatedAt": "2026-11-10",
+          "verifiedAt": "2026-11-10",
+          "sourceDateKind": "observed",
+          "notes": "B5 GS, ano-modelo 26/27: formattedPrice R$ 505.000,00 em todos os SKUs consultados. Difere dos R$ 449.000 citados na imprensa; prevalece o configurador oficial atual, sem afirmar equivalência de condições comerciais."
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/denza-site/denza-brazil/informa%C3%A7%C3%A3o-veicular/DENZA%20B5%20GS%20DM%20PBEV.png",
+          "sourceUpdatedAt": "2026-11-10",
+          "verifiedAt": "2026-11-10",
+          "sourceDateKind": "observed"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/denza-site/denza-brazil/informa%C3%A7%C3%A3o-veicular/DENZA%20B5%20GS%20DM%20PBEV.png",
+          "sourceUpdatedAt": "2026-11-10",
+          "verifiedAt": "2026-11-10",
+          "sourceDateKind": "observed",
+          "notes": "Gasolina em modo híbrido: cidade 8,4 km/L; estrada 7,9 km/L. Autonomia total estimada: round(74 + 83 × 8,4) = 771 km; tanque na ficha oficial."
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/b5compress/Catalogo_b5.pdf",
+          "sourceUpdatedAt": "2026-10-30",
+          "verifiedAt": "2026-11-10",
+          "notes": "505 kW combinados convertidos para aproximadamente 687 cv; não confundir cv com hp."
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/b5compress/Catalogo_b5.pdf",
+          "sourceUpdatedAt": "2026-10-30",
+          "verifiedAt": "2026-11-10"
+        },
+        "charging": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/b5compress/Catalogo_b5.pdf",
+          "sourceUpdatedAt": "2026-10-30",
+          "verifiedAt": "2026-11-10"
+        },
+        "availability": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/car/denza/br/CX202001.json",
+          "sourceUpdatedAt": "2026-11-10",
+          "verifiedAt": "2026-11-10",
+          "sourceDateKind": "observed"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/b5compress/Catalogo_b5.pdf",
+          "sourceUpdatedAt": "2026-10-30",
+          "verifiedAt": "2026-11-10",
+          "notes": "Coluna GS; 310 mm são altura máxima ajustável, não vão livre estático sem carga."
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/b5compress/Catalogo_b5.pdf",
+          "sourceUpdatedAt": "2026-10-30",
+          "verifiedAt": "2026-11-10"
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/b5compress/Catalogo_b5.pdf",
+          "sourceUpdatedAt": "2026-10-30",
+          "verifiedAt": "2026-11-10"
+        }
+      }
+    },
+    "denza-z9gt-ev": {
+      "brand": "DENZA",
+      "model": "Z9GT EV",
+      "notes": "Revisão brasileira em docs/catalogo-denza.md. Datas dos PDFs são metadados de modificação; configurador e etiqueta sem data publicada usam a data de observação, não uma atualização declarada pela fonte.",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/car/denza/br/CX201003.json",
+          "sourceUpdatedAt": "2026-11-10",
+          "verifiedAt": "2026-11-10",
+          "sourceDateKind": "observed"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/manuten%C3%A7%C3%A3o/DENZA%20Z9%20GT%201210EV%20PBEV.png",
+          "sourceUpdatedAt": "2026-11-10",
+          "verifiedAt": "2026-11-10",
+          "sourceDateKind": "observed"
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/manuten%C3%A7%C3%A3o/DENZA%20Z9%20GT%201210EV%20PBEV.png",
+          "sourceUpdatedAt": "2026-11-10",
+          "verifiedAt": "2026-11-10",
+          "sourceDateKind": "observed",
+          "notes": "Etiqueta conferida: 26,4/25,8 km/L equivalente; nenhum consumo em MJ/km inventado a partir dessa unidade."
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/z9gt/maintenance/ficha_tecnica_denzaZ9GT.pdf",
+          "sourceUpdatedAt": "2026-10-19",
+          "verifiedAt": "2026-11-10",
+          "notes": "850 kW × 1,35962 = aproximadamente 1.156 cv; 1.210 Nm / 9,80665 = 123,4 kgfm."
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/z9gt/maintenance/ficha_tecnica_denzaZ9GT.pdf",
+          "sourceUpdatedAt": "2026-10-19",
+          "verifiedAt": "2026-11-10"
+        },
+        "charging": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/z9gt/maintenance/ficha_tecnica_denzaZ9GT.pdf",
+          "sourceUpdatedAt": "2026-10-19",
+          "verifiedAt": "2026-11-10",
+          "notes": "AC 11 kW. Ficha publica tempos Flash em laboratório e potência da estação acima de 1.300 kW, não um pico DC do veículo: chargeDC permanece ausente."
+        },
+        "availability": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/car/denza/br/CX201003.json",
+          "sourceUpdatedAt": "2026-11-10",
+          "verifiedAt": "2026-11-10",
+          "sourceDateKind": "observed"
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/z9gt/maintenance/ficha_tecnica_denzaZ9GT.pdf",
+          "sourceUpdatedAt": "2026-10-19",
+          "verifiedAt": "2026-11-10"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/z9gt/maintenance/ficha_tecnica_denzaZ9GT.pdf",
+          "sourceUpdatedAt": "2026-10-19",
+          "verifiedAt": "2026-11-10"
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/z9gt/maintenance/ficha_tecnica_denzaZ9GT.pdf",
+          "sourceUpdatedAt": "2026-10-19",
+          "verifiedAt": "2026-11-10"
+        }
+      }
+    },
+    "denza-d9-ev": {
+      "brand": "DENZA",
+      "model": "D9 EV",
+      "notes": "Revisão brasileira em docs/catalogo-denza.md. Datas dos PDFs são metadados de modificação; configurador sem data publicada usa a data de observação, não uma atualização declarada pela fonte. Consumo ausente permanece pendente.",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/car/denza/br/CX206004.json",
+          "sourceUpdatedAt": "2026-11-10",
+          "verifiedAt": "2026-11-10",
+          "sourceDateKind": "observed"
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/d9/maintenance/ficha_tecnica_DenzaD9.pdf",
+          "sourceUpdatedAt": "2026-10-16",
+          "verifiedAt": "2026-11-10",
+          "notes": "421 km PBEV declarados explicitamente na ficha brasileira; não são os 650 km NEDC. Etiqueta separada não localizada na página oficial consultada."
+        },
+        "consumption": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/d9/maintenance/ficha_tecnica_DenzaD9.pdf",
+          "sourceUpdatedAt": "2026-10-16",
+          "verifiedAt": "2026-11-10",
+          "notes": "410 kW × 1,35962 = aproximadamente 557 cv; 445 Nm / 9,80665 = 45,4 kgfm."
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/d9/maintenance/ficha_tecnica_DenzaD9.pdf",
+          "sourceUpdatedAt": "2026-10-16",
+          "verifiedAt": "2026-11-10"
+        },
+        "charging": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/d9/maintenance/ficha_tecnica_DenzaD9.pdf",
+          "sourceUpdatedAt": "2026-10-16",
+          "verifiedAt": "2026-11-10",
+          "notes": "Ficha brasileira explicita AC 7 kW e DC 1.196 kW; tempos Flash sujeitos às condições de laboratório e à infraestrutura compatível."
+        },
+        "availability": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/car/denza/br/CX206004.json",
+          "sourceUpdatedAt": "2026-11-10",
+          "verifiedAt": "2026-11-10",
+          "sourceDateKind": "observed",
+          "notes": "D9 EV configurável com preço em reais. Página comercial ainda exibe em breve; oferta e entregas cruzadas com imprensa brasileira e anúncios de concessionárias, citados na revisão pública."
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/d9/maintenance/ficha_tecnica_DenzaD9.pdf",
+          "sourceUpdatedAt": "2026-10-16",
+          "verifiedAt": "2026-11-10"
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/d9/maintenance/ficha_tecnica_DenzaD9.pdf",
+          "sourceUpdatedAt": "2026-10-16",
+          "verifiedAt": "2026-11-10"
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/material/__CN/denza-site/denza-brazil/d9/maintenance/ficha_tecnica_DenzaD9.pdf",
+          "sourceUpdatedAt": "2026-10-16",
+          "verifiedAt": "2026-11-10"
+        }
+      }
+    },
     "audi-a6-sportback-e-tron": {
       "brand": "Audi",
       "model": "A6 Sportback e-tron",
@@ -14693,6 +15030,12 @@
     }
   },
   "legacyExceptions": {
+    "denza-d9-ev.consumption": {
+      "reason": "Consumo energético do D9 EV brasileiro não localizado na ficha ou em etiqueta individual consultada; energyMJkm permanece ausente. O status legacy_unverified é a categoria de pendência disponível no schema, não uma alegação de dado herdado.",
+      "reviewCondition": "Revisar quando a DENZA ou o Inmetro publicar a etiqueta PBEV ou o consumo energético da versão brasileira D9 EV.",
+      "recordedAt": "2026-11-10",
+      "field": "denza-d9-ev.consumption"
+    },
     "dfm-box-urban.price": { "reason": "Preço de referência preliminar publicado por concessionária.", "reviewCondition": "Confirmar tabela oficial e início da pré-venda." },
     "dfm-box-urban.range_km": { "reason": "Ficha preliminar da rede de concessionárias informa autonomia Inmetro.", "reviewCondition": "Conferir tabela oficial PBEV." },
     "dfm-box-urban.consumption": { "reason": "Consumo homologado não localizado e omitido.", "reviewCondition": "Consultar tabela oficial PBEV." },

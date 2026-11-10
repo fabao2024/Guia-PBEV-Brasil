@@ -135,9 +135,9 @@ const updatedReadme = readme
       : `**${CAR_DB.length} veículos** BEV cadastrados (${brands} marcas)`
   )
   .replace(
-    /\*\*\d+(?: BEV vehicles\*\* registered| vehicles\*\* \(BEV \+ hybrids\) registered) \(\d+ brands\)/,
+    /\*\*\d+(?: BEV vehicles\*\* registered| vehicles\*\* \(BEV \+ hybrids\) registered) \(\d+ (?:brands|marcas)\)/,
     hybridCount > 0
-      ? `**${CAR_DB.length} vehicles** (BEV + hybrids) registered (${catalogLabel})`
+      ? `**${CAR_DB.length} vehicles** (BEV + hybrids) registered (${brands} brands)`
       : `**${CAR_DB.length} BEV vehicles** registered (${brands} brands)`
   );
 if (updatedReadme !== readme) {
