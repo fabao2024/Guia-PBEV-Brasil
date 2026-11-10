@@ -35,6 +35,8 @@ interface FixtureCar {
   power_cv: number;
   battery_kwh?: number;
   image_url: string;
+  powertrain?: 'BEV' | 'PHEV' | 'HEV' | 'REEV';
+  fuel_consumption_kml?: number;
 }
 
 function buildFixtureCars(): FixtureCar[] {
@@ -63,7 +65,7 @@ function buildFixtureCars(): FixtureCar[] {
   ];
 }
 
-function runTool(cars: FixtureCar[]): string {
+function runTool(cars: FixtureCar[], slug = 'byd-dolphin-gs'): string {
   const workdir = mkdtempSync(join(tmpdir(), 'pbev-static-routes-'));
   const distDir = join(workdir, 'dist');
   mkdirSync(join(distDir, 'data'), { recursive: true });
@@ -76,7 +78,7 @@ function runTool(cars: FixtureCar[]): string {
 
   try {
     execFileSync(process.execPath, [TOOL_PATH], { cwd: workdir, stdio: 'pipe' });
-    return readFileSync(join(distDir, 'carro', 'byd-dolphin-gs', 'index.html'), 'utf8');
+    return readFileSync(join(distDir, 'carro', slug, 'index.html'), 'utf8');
   } finally {
     rmSync(workdir, { recursive: true, force: true });
   }
@@ -126,6 +128,30 @@ describe('static car route pages', () => {
     } finally {
       rmSync(workdir, { recursive: true, force: true });
     }
+  });
+
+  it('identifies the DENZA B5 as a plug-in hybrid in static search and social metadata', () => {
+    const b5: FixtureCar = {
+      slug: 'denza-b5-gl', brand: 'DENZA', model: 'B5 GL', price: 405000,
+      range_km: 81, category: 'SUV', power_cv: 687, battery_kwh: 31.8,
+      powertrain: 'PHEV', image_url: 'https://guiapbev.cloud/car-images/denza-b5-gl.jpg',
+    };
+    const html = runTool([b5], b5.slug);
+    expect(html).toContain('81 km elétricos PBEV');
+    expect(html.match(/suv híbrido plug-in/g)).toHaveLength(3);
+    expect(html).toContain('autonomia elétrica PBEV 81 km');
+    expect(html).not.toContain('suv elétrico');
+    expect(html).toContain('Compare com outros eletrificados');
+  });
+
+  it('uses fuel economy rather than zero electric range for a non-plug-in hybrid', () => {
+    const hev: FixtureCar = {
+      ...fixtureCars[0], powertrain: 'HEV', range_km: 0, fuel_consumption_kml: 17.5,
+    };
+    const html = runTool([hev]);
+    expect(html).toContain('17,5 km/l Inmetro');
+    expect(html).toContain('híbrido sem tomada');
+    expect(html).not.toContain('0 km PBEV');
   });
 });
 

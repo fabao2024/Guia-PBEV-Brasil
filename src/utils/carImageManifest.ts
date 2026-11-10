@@ -486,6 +486,84 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
+  "/car-images/denza-b5-gl.jpg": {
+    "width": 3840,
+    "height": 2161,
+    "variants": [
+      {
+        "src": "/car-images/optimized/denza-b5-gl.jpg-320.webp",
+        "width": 320,
+        "height": 180
+      },
+      {
+        "src": "/car-images/optimized/denza-b5-gl.jpg-640.webp",
+        "width": 640,
+        "height": 360
+      },
+      {
+        "src": "/car-images/optimized/denza-b5-gl.jpg-960.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "/car-images/optimized/denza-b5-gl.jpg-1280.webp",
+        "width": 1280,
+        "height": 720
+      }
+    ]
+  },
+  "/car-images/denza-d9-ev.png": {
+    "width": 2400,
+    "height": 1200,
+    "variants": [
+      {
+        "src": "/car-images/optimized/denza-d9-ev.png-320.webp",
+        "width": 320,
+        "height": 160
+      },
+      {
+        "src": "/car-images/optimized/denza-d9-ev.png-640.webp",
+        "width": 640,
+        "height": 320
+      },
+      {
+        "src": "/car-images/optimized/denza-d9-ev.png-960.webp",
+        "width": 960,
+        "height": 480
+      },
+      {
+        "src": "/car-images/optimized/denza-d9-ev.png-1280.webp",
+        "width": 1280,
+        "height": 640
+      }
+    ]
+  },
+  "/car-images/denza-z9gt-ev.jpg": {
+    "width": 7008,
+    "height": 4672,
+    "variants": [
+      {
+        "src": "/car-images/optimized/denza-z9gt-ev.jpg-320.webp",
+        "width": 320,
+        "height": 213
+      },
+      {
+        "src": "/car-images/optimized/denza-z9gt-ev.jpg-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      {
+        "src": "/car-images/optimized/denza-z9gt-ev.jpg-960.webp",
+        "width": 960,
+        "height": 640
+      },
+      {
+        "src": "/car-images/optimized/denza-z9gt-ev.jpg-1280.webp",
+        "width": 1280,
+        "height": 853
+      }
+    ]
+  },
   "/car-images/dolphin-gs.jpg": {
     "width": 2880,
     "height": 1620,

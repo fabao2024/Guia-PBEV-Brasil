@@ -94,9 +94,21 @@ for (const car of carsData.cars) {
   const brand = String(car.brand);
   const model = String(car.model);
   const priceLabel = Number(car.price).toLocaleString('pt-BR');
-  const title = `${brand} ${model} — R$ ${priceLabel} | ${car.range_km} km PBEV | Guia PBEV Brasil`;
+  const powertrain = car.powertrain ?? 'BEV';
+  const propulsionLabel = {
+    BEV: 'elétrico', PHEV: 'híbrido plug-in', HEV: 'híbrido sem tomada', REEV: 'elétrico com extensor de autonomia',
+  }[powertrain];
+  const fuelEconomy = car.fuel_consumption_kml == null ? '—' : Number(car.fuel_consumption_kml).toLocaleString('pt-BR');
+  const metric = powertrain === 'HEV'
+    ? `${fuelEconomy} km/l Inmetro`
+    : `${car.range_km} km ${powertrain === 'BEV' ? 'PBEV' : 'elétricos PBEV'}`;
+  const title = `${brand} ${model} — R$ ${priceLabel} | ${metric} | Guia PBEV Brasil`;
   const batterySegment = car.battery_kwh ? `, bateria ${car.battery_kwh} kWh` : '';
-  const description = `${brand} ${model}: autonomia PBEV ${car.range_km} km, ${String(car.category).toLowerCase()} elétrico, ${car.power_cv} cv${batterySegment}. Preço estimado R$ ${priceLabel}. Compare com outros elétricos no Guia PBEV Brasil.`;
+  const rangeSegment = powertrain === 'HEV'
+    ? `consumo Inmetro ${fuelEconomy} km/l`
+    : `autonomia ${powertrain === 'BEV' ? '' : 'elétrica '}PBEV ${car.range_km} km`;
+  const comparisonLabel = powertrain === 'BEV' ? 'elétricos' : 'eletrificados';
+  const description = `${brand} ${model}: ${rangeSegment}, ${String(car.category).toLowerCase()} ${propulsionLabel}, ${car.power_cv} cv${batterySegment}. Preço estimado R$ ${priceLabel}. Compare com outros ${comparisonLabel} no Guia PBEV Brasil.`;
   const canonicalUrl = `${SITE_ORIGIN}/carro/${slug}`;
   const imageUrl = String(car.image_url);
 
