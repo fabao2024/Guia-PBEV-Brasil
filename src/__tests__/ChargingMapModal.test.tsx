@@ -3,7 +3,10 @@ import { ChargingMapModal } from '../components/ChargingMapModal';
 import { searchOsmChargers } from '../services/overpassService';
 import { SOURCED_CHARGERS } from '../data/sourcedChargers';
 import { CHARGER_SOURCE_SUMMARIES, LOCAL_MAP_CHARGERS } from '../data/localChargers';
+import { stubExternalFrames } from '../test/stubExternalFrames';
 import '../i18n';
+
+stubExternalFrames();
 
 const mocks = vi.hoisted(() => {
   const layers: unknown[] = [];
@@ -32,6 +35,33 @@ beforeEach(() => {
   mocks.map.latLngToLayerPoint.mockImplementation(([lat, lng]) => ({ x: lng * 1000, y: lat * 1000 }));
   LOCAL_MAP_CHARGERS.splice(0, LOCAL_MAP_CHARGERS.length, ...SOURCED_CHARGERS);
   CHARGER_SOURCE_SUMMARIES.splice(0, CHARGER_SOURCE_SUMMARIES.length, { id: 'ocm-archive', kind: 'archive', source: 'Open Charge Map', retrievedAt: '2026-11-09', snapshotAt: '2026-04-22', count: 7 });
+});
+
+it('opens locally without Carregados requests and preserves local filters and selection across source changes', async () => {
+  const { container } = render(<ChargingMapModal onClose={vi.fn()} />);
+  const local = screen.getByRole('button', { name: 'Base local' });
+  const other = screen.getByRole('button', { name: 'Carregados · mapa externo' });
+  expect(local).toHaveAttribute('aria-pressed', 'true');
+  expect(container.querySelector('iframe')).toBeNull();
+  await waitFor(() => expect(screen.getByLabelText('Abrir estação')).toBeEnabled());
+  fireEvent.change(screen.getByLabelText('Operador informado'), { target: { value: 'Copel' } });
+  fireEvent.change(screen.getByLabelText('Abrir estação'), { target: { value: String(SOURCED_CHARGERS[1].id) } });
+  fireEvent.click(other);
+  expect(other).toHaveAttribute('aria-pressed', 'true');
+  expect(screen.queryByRole('button', { name: 'Buscar nesta área' })).not.toBeInTheDocument();
+  expect(container.querySelector('iframe')).toBeNull();
+  fireEvent.click(screen.getByRole('button', { name: 'Carregar mapa Carregados' }));
+  expect(container.querySelectorAll('iframe')).toHaveLength(1);
+  fireEvent.click(local);
+  expect(container.querySelector('iframe')).toBeNull();
+  expect(screen.getByLabelText('Operador informado')).toHaveValue('Copel');
+  expect(screen.getByLabelText('Abrir estação')).toHaveValue(String(SOURCED_CHARGERS[1].id));
+  expect(screen.getByText('1 aproximadas · 0 confirmadas')).toBeInTheDocument();
+  expect(mocks.map.remove).not.toHaveBeenCalled();
+  expect(searchOsmChargers).not.toHaveBeenCalled();
+  fireEvent.click(other);
+  expect(container.querySelector('iframe')).toBeNull();
+  expect(screen.getByRole('button', { name: 'Carregar mapa Carregados' })).toBeInTheDocument();
 });
 
 it('distinguishes the archive date, public-listing observation and OSM extract rather than calling everything an April export', () => {

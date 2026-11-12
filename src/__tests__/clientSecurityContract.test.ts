@@ -12,7 +12,8 @@ describe('client security contract', () => {
     expect(csp).toContain("default-src 'self'");
     expect(csp).toContain("object-src 'none'");
     expect(csp).toContain("base-uri 'self'");
-    expect(csp).toContain("frame-src 'none'");
+    const frameSources = csp.match(/(?:^|;)\s*frame-src\s+([^;]+)/)?.[1].trim().split(/\s+/);
+    expect(frameSources).toEqual(['https://carregados.com.br/embed']);
     expect(csp).toContain("form-action 'self'");
     expect(csp).toContain('sha256-5OcJ12dVr6l3S4BuDU0rmUjKlq0ZfmCLqGWcAHY1sDA=');
     expect(csp).toContain('sha256-XVj80uUSzt3JWa6FTzTaafmEiRYXOb5edzL/N5F/s6U=');

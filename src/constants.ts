@@ -16,6 +16,7 @@ const NEW_MODELS = new Set([
   'Jaecoo 5 Prestige',
   'Arcfox T1 Pro',
   'Arcfox T1 Max',
+  'Arcfox T5',
   'Omoda E5 Elite',
   'Omoda E5 Prestige',
   'B10 REEV',
@@ -3911,7 +3912,7 @@ weightKg: 2340, trunkLiters: 616,
     lengthMm: 4306, widthMm: 1868, heightMm: 1645, wheelbaseMm: 2715, weightKg: 1532, trunkLiters: 500,
   },
 
-  // BAIC — Arcfox T1 (lançamento brasileiro de outubro de 2026)
+  // BAIC — versões brasileiras; fontes e pendências do T5 em docs/catalogo-baic-t5.md.
   {
     model: "Arcfox T1 Pro", brand: "BAIC", price: 129900, range: 283, cat: "Compacto",
     powertrain: 'BEV',
@@ -3944,6 +3945,25 @@ weightKg: 2340, trunkLiters: 616,
       "Carregador de celular por indução opcional",
       "Câmera 360° com visão do chassi e sistema EZT para manobras",
       "Ar-condicionado digital e conectividade Android Auto e Apple CarPlay sem fio"
+    ],
+  },
+  {
+    model: "Arcfox T5", brand: "BAIC", price: 219990, range: 362, cat: "SUV",
+    powertrain: 'BEV',
+    img: "/car-images/baic-arcfox-t5.webp",
+    url: "https://www.arcfoxglobal.com/models/56",
+    power: 252, torque: 32.6, traction: 'FWD', battery: 64.8, chargeDC: 210,
+    lengthMm: 4690, widthMm: 1936, heightMm: 1650, wheelbaseMm: 2845,
+    features: [
+      "Preço promocional de pré-venda até 31/12/2026 ou 50 unidades; sujeito a confirmação",
+      "Bateria LFP de 64,8 kWh; autonomia Inmetro de 362 km divulgada pela imprensa no lançamento",
+      "Motor elétrico dianteiro de 252 cv e 32,6 kgfm",
+      "Recarga DC de até 210 kW: 30% a 80% em cerca de 18 minutos, em condições compatíveis",
+      "Central multimídia de 15,6\" e head-up display de 22,8\"",
+      "Bancos dianteiros com aquecimento, ventilação e massagem; som com 18 alto-falantes",
+      "Cruzeiro adaptativo, frenagem autônoma de emergência e câmeras panorâmicas",
+      "Dimensões de referência conforme o site global oficial da Arcfox",
+      "Ficha brasileira e etiqueta PBEV pendentes de conferência em fonte primária"
     ],
   },
 ];

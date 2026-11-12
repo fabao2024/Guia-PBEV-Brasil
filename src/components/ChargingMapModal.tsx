@@ -11,6 +11,7 @@ import { filterMapChargers, mergeMapChargers } from '../utils/chargerCatalog';
 import { isLocatedCharger, locationStatus, validCoordinates } from '../utils/chargerLocations';
 import { createChargerPopup } from '../utils/chargerPopup';
 import { CHARGER_MARKER_SIZE, CHARGER_MARKER_ANCHOR, chargerMarkerLabel, createChargerMarkerElement, createChargerMarkerTooltip, groupChargerMarkers } from '../utils/chargerMarkers';
+import { CarregadosMapPanel } from './CarregadosMapPanel';
 
 interface ChargingMapModalProps {
   onClose: () => void;
@@ -22,6 +23,7 @@ export const ChargingMapModal: React.FC<ChargingMapModalProps> = ({ onClose }) =
   const mapInstanceRef = useRef<import('leaflet').Map | null>(null);
   const leafletRef = useRef<typeof import('leaflet') | null>(null);
   const [mapReady, setMapReady] = useState(false);
+  const [provider, setProvider] = useState<'local' | 'carregados'>('local');
   const [minKw, setMinKw] = useState(0);
   const [current, setCurrent] = useState('all');
   const [access, setAccess] = useState('all');
@@ -149,6 +151,10 @@ export const ChargingMapModal: React.FC<ChargingMapModalProps> = ({ onClose }) =
     return () => observer.disconnect();
   }, [mapReady]);
 
+  useEffect(() => {
+    if (provider === 'local' && mapReady) mapInstanceRef.current?.invalidateSize({ pan: false });
+  }, [provider, mapReady]);
+
   // Update markers whenever filters change
   useEffect(() => {
     const map = mapInstanceRef.current;
@@ -254,7 +260,7 @@ export const ChargingMapModal: React.FC<ChargingMapModalProps> = ({ onClose }) =
             </div>
             <div>
               <h2 id="charging-map-title" className="text-white font-black text-base leading-none">{t('chargingMap.title')}</h2>
-              <p className="text-[#888] text-[11px] mt-0.5">{t('chargingMap.subtitle')}</p>
+              <p className="text-[#888] text-[11px] mt-0.5">{t(provider === 'local' ? 'chargingMap.subtitle' : 'chargingMap.carregados.subtitle')}</p>
             </div>
           </div>
           <button onClick={onClose} aria-label={t('chargingMap.close')} className="text-[#999] hover:text-white hover:bg-white/10 p-2 rounded-xl transition-colors">
@@ -262,7 +268,18 @@ export const ChargingMapModal: React.FC<ChargingMapModalProps> = ({ onClose }) =
           </button>
         </div>
 
-        <div className="max-h-[38%] flex-shrink-0 overflow-y-auto overscroll-contain custom-scrollbar-dark">
+        <div role="group" aria-label={t('chargingMap.mapProvider')} className="grid shrink-0 grid-cols-2 gap-1 border-b border-white/10 bg-[#0a0b12] px-3 py-1.5">
+          <button type="button" aria-pressed={provider === 'local'} onClick={() => setProvider('local')}
+            className={`min-h-11 rounded-lg px-2 text-xs font-bold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00b4ff] ${provider === 'local' ? 'bg-[#00b4ff]/15 text-[#72d7ff] ring-1 ring-inset ring-[#00b4ff]/40' : 'text-white/65 hover:bg-white/5 hover:text-white'}`}>
+            {t('chargingMap.localProvider')}
+          </button>
+          <button type="button" aria-pressed={provider === 'carregados'} onClick={() => setProvider('carregados')}
+            className={`min-h-11 rounded-lg px-2 text-xs font-bold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8ec79] ${provider === 'carregados' ? 'bg-[#b8ec79]/10 text-[#b8ec79] ring-1 ring-inset ring-[#b8ec79]/40' : 'text-white/75 hover:bg-white/5 hover:text-[#b8ec79]'}`}>
+            {t('chargingMap.carregadosProvider')}
+          </button>
+        </div>
+
+        <div hidden={provider !== 'local'} className="max-h-[32%] md:max-h-[38%] flex-shrink-0 overflow-y-auto overscroll-contain custom-scrollbar-dark">
         <details className="border-b border-amber-400/20 bg-amber-400/5 text-amber-100/90 text-xs leading-relaxed flex-shrink-0">
           <summary className="px-4 py-2 cursor-pointer font-semibold">{t('chargingMap.compactWarning')}</summary>
           <div className="px-4 pb-3 max-h-24 overflow-y-auto">{t('chargingMap.reviewNotice', { count: legacy.length })} {t('chargingMap.communityWarning')} {t('chargingMap.recordNote')} {t('chargingMap.sourceDatesNotice')}</div>
@@ -362,13 +379,13 @@ export const ChargingMapModal: React.FC<ChargingMapModalProps> = ({ onClose }) =
         </div>
 
         {/* Map */}
-        <div className="flex-1 min-h-40 relative overflow-hidden">
+        <div hidden={provider !== 'local'} className="flex-1 min-h-32 sm:min-h-40 relative overflow-hidden">
           <div ref={mapRef} className="w-full h-full" />
           {!filtered.length && <p className="pointer-events-none absolute bottom-6 left-4 right-4 z-[500] rounded-xl border border-white/15 bg-[#0f1115]/95 p-3 text-xs text-white/80">{t('chargingMap.empty')}</p>}
         </div>
 
         {/* Legend */}
-        <div className="max-h-[22%] overflow-y-auto flex flex-wrap items-center gap-x-4 gap-y-1.5 px-4 py-2.5 border-t border-white/5 bg-[#0a0b12]/60 flex-shrink-0">
+        <div hidden={provider !== 'local'} className={`${provider === 'local' ? 'flex' : 'hidden'} max-h-[22%] overflow-y-auto flex-wrap items-center gap-x-4 gap-y-1.5 px-4 py-2.5 border-t border-white/5 bg-[#0a0b12]/60 flex-shrink-0`}>
           {!reviewMode && <>
             <span className="sr-only">{t('chargingMap.localSnapshot', { count: LOCAL_MAP_CHARGERS.length, date: LOCAL_CHARGER_RETRIEVED_AT })}</span>
             <p className="text-[11px] text-white/70">{t('chargingMap.localSnapshotShort', { count: LOCAL_MAP_CHARGERS.length, date: LOCAL_CHARGER_RETRIEVED_AT })}</p>
@@ -380,6 +397,7 @@ export const ChargingMapModal: React.FC<ChargingMapModalProps> = ({ onClose }) =
           <span className="text-[10px] text-white/65">{t('chargingMap.markerLegend')}</span>
           <span className="ml-auto text-[10px] text-white/60">{t(reviewMode ? 'chargingMap.reviewSource' : CHARGER_SOURCE_SUMMARIES.some(source => source.source === 'OpenStreetMap') ? 'chargingMap.sourceWithOsm' : 'chargingMap.source')}</span>
         </div>
+        {provider === 'carregados' && <CarregadosMapPanel />}
       </div>
 
     </div>

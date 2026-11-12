@@ -830,6 +830,94 @@
         }
       }
     },
+    "baic-arcfox-t5": {
+      "brand": "BAIC",
+      "model": "Arcfox T5",
+      "notes": "Fontes e divergências em docs/catalogo-baic-t5.md; consulta em 2026-11-12. legacy_unverified representa pendência de fonte primária no schema atual, não dado herdado. Imagem cedida pela Arcfox à rede Carrera: https://conheca.carrera.com.br/baic/img/t5n-lateral.webp (1600 × 900).",
+      "fields": {
+        "price": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": "specialist_media",
+          "sourceUrl": "https://quatrorodas.abril.com.br/noticias/baic-arcfox-t5-lancamento/",
+          "sourceUpdatedAt": "2026-11-11",
+          "verifiedAt": null,
+          "notes": "R$ 219.990 promocionais de pré-venda: 50 unidades ou até 31/12/2026. Bônus condicionado não deduzido. Confirmar oferta primária."
+        },
+        "range_km": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": "specialist_media",
+          "sourceUrl": "https://quatrorodas.abril.com.br/noticias/baic-arcfox-t5-lancamento/",
+          "sourceUpdatedAt": "2026-11-11",
+          "verifiedAt": null,
+          "notes": "362 km atribuídos ao Inmetro pela imprensa no lançamento; etiqueta individual pendente. Não usar 660 km CLTC da página preliminar da rede."
+        },
+        "consumption": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null,
+          "notes": "energyMJkm e classificação PBE omitidos; consumo homologado não localizado."
+        },
+        "power": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": "specialist_media",
+          "sourceUrl": "https://quatrorodas.abril.com.br/noticias/baic-arcfox-t5-lancamento/",
+          "sourceUpdatedAt": "2026-11-11",
+          "verifiedAt": null,
+          "notes": "252 cv e 32,6 kgfm; motor dianteiro corroborado pelo G1. Ficha brasileira primária pendente."
+        },
+        "battery": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": "specialist_media",
+          "sourceUrl": "https://quatrorodas.abril.com.br/noticias/baic-arcfox-t5-lancamento/",
+          "sourceUpdatedAt": "2026-11-11",
+          "verifiedAt": null,
+          "notes": "LFP de 64,8 kWh informada no lançamento brasileiro; não transferir baterias de outras versões globais."
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": "specialist_media",
+          "sourceUrl": "https://quatrorodas.abril.com.br/noticias/baic-arcfox-t5-lancamento/",
+          "sourceUpdatedAt": "2026-11-11",
+          "verifiedAt": null,
+          "notes": "DC até 210 kW; G1 corrobora 30–80% em cerca de 18 min. Potência AC não confirmada e omitida."
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": "specialist_media",
+          "sourceUrl": "https://quatrorodas.abril.com.br/noticias/baic-arcfox-t5-lancamento/",
+          "sourceUpdatedAt": "2026-11-11",
+          "verifiedAt": null,
+          "notes": "Pré-venda brasileira divulgada pela imprensa, que utiliza o sufixo Max; catálogo usa Arcfox T5, nome da página oficial global, sem confirmação primária do sufixo. Não implica entrega imediata ou oferta de versões REEV."
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.arcfoxglobal.com/models/56",
+          "sourceUpdatedAt": "2026-11-12",
+          "verifiedAt": "2026-11-12",
+          "sourceDateKind": "observed",
+          "notes": "Referência global oficial adotada no catálogo: comprimento 4690 mm, largura 1936 mm, altura 1650 mm e entre-eixos 2845 mm. Verificação da transcrição da página global, não da homologação brasileira. Divergência com os 4.760 mm publicados pela imprensa brasileira preservada em docs/catalogo-baic-t5.md. Vão livre e massa não incluídos."
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null,
+          "notes": "Capacidade omitida por ausência de fonte primária brasileira com método de medição."
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified",
+          "sourceType": null,
+          "sourceUrl": null,
+          "sourceUpdatedAt": null,
+          "verifiedAt": null,
+          "notes": "Massa brasileira não confirmada; não usar os 1975 kg da página global."
+        }
+      }
+    },
     "baic-arcfox-t1-max": {
       "brand": "BAIC",
       "model": "Arcfox T1 Max",
@@ -15030,6 +15118,15 @@
     }
   },
   "legacyExceptions": {
+    "baic-arcfox-t5.price": { "reason": "Preço promocional de pré-venda publicado pela imprensa, ainda sem fonte primária localizada.", "reviewCondition": "Confirmar valor, limite de unidades e validade em oferta oficial brasileira.", "recordedAt": "2026-11-12" },
+    "baic-arcfox-t5.range_km": { "reason": "362 km Inmetro informados pela imprensa no lançamento; etiqueta individual não localizada.", "reviewCondition": "Conferir etiqueta ou tabela PBEV da versão brasileira T5.", "recordedAt": "2026-11-12" },
+    "baic-arcfox-t5.consumption": { "reason": "Consumo homologado não localizado e omitido.", "reviewCondition": "Consultar etiqueta ou tabela PBEV brasileira.", "recordedAt": "2026-11-12" },
+    "baic-arcfox-t5.power": { "reason": "Potência e torque informados pela imprensa no lançamento.", "reviewCondition": "Conferir ficha brasileira primária do T5, inclusive torque e tração.", "recordedAt": "2026-11-12" },
+    "baic-arcfox-t5.battery": { "reason": "Capacidade informada pela imprensa no lançamento.", "reviewCondition": "Confirmar capacidade e química da bateria na ficha brasileira primária.", "recordedAt": "2026-11-12" },
+    "baic-arcfox-t5.charging": { "reason": "Pico DC e tempo publicados pela imprensa; AC não confirmado e omitido.", "reviewCondition": "Conferir potências AC/DC e condições de recarga na ficha brasileira primária.", "recordedAt": "2026-11-12" },
+    "baic-arcfox-t5.availability": { "reason": "Pré-venda divulgada pela imprensa; sufixo Max não confirmado em fonte primária e não adotado no catálogo.", "reviewCondition": "Confirmar versão, disponibilidade e condições diretamente com a fabricante.", "recordedAt": "2026-11-12" },
+    "baic-arcfox-t5.trunk": { "reason": "Bagagem omitida por ausência de fonte primária brasileira com método identificado.", "reviewCondition": "Confirmar volume e método na ficha brasileira oficial.", "recordedAt": "2026-11-12" },
+    "baic-arcfox-t5.weight": { "reason": "Massa omitida; não transferir valor da versão global.", "reviewCondition": "Confirmar peso em ordem de marcha da versão brasileira em fonte primária.", "recordedAt": "2026-11-12" },
     "denza-d9-ev.consumption": {
       "reason": "Consumo energético do D9 EV brasileiro não localizado na ficha ou em etiqueta individual consultada; energyMJkm permanece ausente. O status legacy_unverified é a categoria de pendência disponível no schema, não uma alegação de dado herdado.",
       "reviewCondition": "Revisar quando a DENZA ou o Inmetro publicar a etiqueta PBEV ou o consumo energético da versão brasileira D9 EV.",
