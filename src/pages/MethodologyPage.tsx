@@ -6,6 +6,7 @@ import { CATALOG_EVIDENCE } from '../constants/catalogEvidence';
 import { ELECTRICITY_PRICES_UPDATED } from '../constants/electricityPricesByState';
 import { FUEL_PRICES_UPDATED } from '../constants/fuelPricesByState';
 import { SP_IPVA_SOURCES, SP_IPVA_REVIEWED } from '../utils/ipva';
+import { CARREGADOS_REFERENCE } from '../data/carregadosReference';
 import {
   TCO_BY_CATEGORY, ETHANOL_FACTOR, EV_MAINT_KM, COMB_MAINT_KM, HYBRID_MAINT_KM,
   EV_DEPR_ANNUAL, COMB_DEPR_ANNUAL, EV_INS_RATE, COMB_INS_RATE,
@@ -94,6 +95,12 @@ export default function MethodologyPage() {
               <li>{t('methodology.sourcesAneel', { date: ELECTRICITY_PRICES_UPDATED, defaultValue: 'Eletricidade — tarifas homologadas ANEEL (B1 residencial). Referência {{date}}.' })}</li>
               <li>{t('methodology.sourcesAnp', { date: FUEL_PRICES_UPDATED, defaultValue: 'Combustível — preços ANP. Referência {{date}}.' })}</li>
               <li>{t('methodology.sourcesChargers')}</li>
+              <li>
+                {t('methodology.sourcesCarregados', { date: CARREGADOS_REFERENCE.consultedAt })}{' '}
+                <a href={CARREGADOS_REFERENCE.marketUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-1 font-semibold text-[#72d7ff] underline underline-offset-4 hover:text-white">
+                  {t('chargingMap.carregados.marketSource')}<ExternalLink aria-hidden="true" className="h-3 w-3" />
+                </a>
+              </li>
               <li>{t('methodology.sourcesIpva', { date: SP_IPVA_REVIEWED })}</li>
             </ul>
           </section>

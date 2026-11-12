@@ -2,6 +2,32 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 12/11/2026 — Preparação da publicação conjunta do catálogo e Mapa EV
+
+- Revisadas em conjunto as mudanças pendentes: Arcfox T5 sem sufixo não confirmado, foto e proveniência, visualização externa Carregados com ativação explícita, traduções, créditos e instruções públicas. A integração à `main` fica condicionada ao CI aprovado; resultados anteriores de validação local permanecem no histórico.
+- Instalação limpa com dependências travadas e Node 22. TypeScript, build com a mesma flag pública de interesse usada na publicação, scanner de segredos, pipeline de imagens e `--check` aprovados. Proveniência após build: `unchanged`, 1029/2010 campos verificados, com pendências documentadas.
+- Suíte local mais recente: **614/616 testes**, com as duas falhas intermitentes já registradas no catálogo/acessibilidade e na espera do botão do consultor no teste de formulário. Inicialização explícita das traduções foi experimentada, não resolveu essas falhas e não foi mantida. Nenhum teste, asserção ou limite foi desativado ou ampliado; o resultado local não é declarado aprovado.
+
+## 12/11/2026 — Nome Arcfox T5 sem sufixo não confirmado
+
+- Nome do catálogo e dos lançamentos alterado para **Arcfox T5**, sob BAIC, conforme a página oficial global. O sufixo “Max” citado pela imprensa não foi confirmado em fonte primária; essa distinção permanece documentada, sem mudar preço ou especificações. Menções anteriores neste histórico descrevem as etapas antes da correção.
+- Slug e rota gerados passam a `baic-arcfox-t5`; foto original renomeada para `baic-arcfox-t5.webp`, sem alteração de conteúdo. Proveniência e exceções migradas para a nova chave; teste impede manter a entrada antiga. JSON, sitemap e página estática regenerados, sem arquivo ou rota estática antiga no build local. Nenhuma das versões T1 foi renomeada.
+- TDD: quatro testes falharam antes da alteração; 28 testes direcionados passaram depois. TypeScript, pipeline de imagens e `--check`, build e scanner aprovados. `node .github/scripts/check-catalog-provenance.mjs` após build: `unchanged`, 1029/2010 campos verificados. Artefatos conferidos para nome, slug, foto, sitemap e ausência da rota antiga.
+- Suíte completa: **615/616 testes**, com timeout intermitente já registrado na auditoria de acessibilidade do catálogo. Reexecução isolada de acessibilidade: **4/4 aprovados**, sem mudar o limite ou silenciar testes; a suíte completa desta etapa não é declarada aprovada. Sem commit ou publicação.
+
+## 12/11/2026 — Dimensões globais oficiais do Arcfox T5
+
+- Adotadas no T5 Max as quatro dimensões da página oficial global da Arcfox: 4.690 × 1.936 × 1.650 mm e entre-eixos de 2.845 mm. A ficha identifica a origem global e `docs/catalogo-baic-t5.md` preserva a divergência com os 4.760 mm divulgados pela imprensa brasileira; não se declara homologação nacional dessas medidas. Peso, vão livre e demais campos pendentes permanecem ausentes.
+- Proveniência de dimensões registra fonte primária e data de observação, sem inventar data de atualização da página. Testes alterados primeiro falharam com as medidas ausentes; após a inclusão, 28 testes direcionados e a suíte completa de **616/616 testes em 69 arquivos** passaram. TypeScript, build e scanner aprovados; `node .github/scripts/check-catalog-provenance.mjs` após build: `unchanged`, 1029/2010 campos verificados. Sem commit ou publicação.
+
+## 12/11/2026 — BAIC Arcfox T5 Max (validação local)
+
+- Incluído o SUV BEV brasileiro na marca BAIC e nos lançamentos: preço promocional de pré-venda de R$ 219.990, limitado a 50 unidades ou 31/12/2026; 362 km Inmetro divulgados pela imprensa no lançamento, 252 cv, 32,6 kgfm, bateria LFP de 64,8 kWh e DC de até 210 kW. Fontes, limites da oferta e divergências em `docs/catalogo-baic-t5.md`.
+- Ficha brasileira e etiqueta individual não localizadas em fonte primária: pendências por campo preservadas no registro de proveniência, sem promover reportagens a evidência oficial. Medidas, massa, bagagem, AC, consumo homologado e garantias não preenchidos por suposição; nenhuma versão REEV global incluída.
+- Imagem oficial cedida pela Arcfox à rede Carrera, de perfil e sem pessoas, mantida no WebP original de 1600 × 900 (81.960 bytes). Pipeline de imagens e `--check` aprovados com Pillow 12.3.0; original abaixo do limiar de variantes. Catálogo, sitemap e métricas gerados: 201 versões de 41 marcas.
+- TDD do novo modelo: teste falhou antes do cadastro e passou após a inclusão. Validação direcionada de 27 testes, TypeScript, build e scanner aprovados. `node .github/scripts/check-catalog-provenance.mjs` após build: `unchanged`, 1028/2010 campos verificados, com as dez pendências novas documentadas.
+- Suíte completa final em execução serial: **615/615 testes em 69 arquivos**. A primeira execução teve a falha intermitente já registrada do botão do consultor no teste do formulário; passou isoladamente e na reexecução completa, sem alteração ou silenciamento do teste. HTTP local confirmou página estática com barra e `index.html`, foto original e JSON; o preview sem barra usa o fallback SPA genérico. Sem commit, push ou publicação.
+
 ## 10/11/2026 — DENZA como marca independente no catálogo (validação local)
 
 - Incluídos B5 GL e GS como SUVs PHEV, Z9GT EV e D9 EV na categoria Luxo, sem agrupar a marca à BYD. Somente versões brasileiras com ficha e oferta confirmadas; Z e B3 permanecem fora. Fontes, divergências e imagens oficiais em `docs/catalogo-denza.md` e no registro de proveniência por campo.
@@ -10,6 +36,14 @@ Notas técnicas selecionadas do produto público. Este documento não registra i
 - Gerador das métricas corrigido para atualizar também o bloco inglês que havia ficado com a palavra “marcas”; catálogo passa a 200 versões de 41 marcas. Metadados estáticos deixam de chamar o B5 PHEV de elétrico e distinguem híbridos sem tomada por consumo. Arquivos de catálogo e sitemap gerados, sem edição manual.
 - Validação direcionada: 51 testes em cinco arquivos, typecheck, build, scanner de segredos e proveniência após build (`unchanged`, 1028/2000) aprovados. As quatro rotas estáticas e suas imagens responderam HTTP 200 em conferência local. Imagens geradas e conferidas com `--check`, Pillow 12.3.0; 85 originais acima do limiar e 330 variantes no pipeline completo.
 - Primeira execução ampliada, com teste de manifesto de imagens conferido separadamente: 605/607 testes aprovados; timeout de acessibilidade do catálogo e botão do consultor não encontrado no teste do formulário de limpeza solar. Reexecução da suíte inteira, sem tarefas pesadas simultâneas: 565/567 testes executados aprovados, as mesmas duas falhas e erro de inicialização do worker de `tcoIpvaProjection.test.ts`. Resultados da árvore local, que também contém outras alterações ainda não publicadas. A suíte completa não está aprovada; nenhum limite foi aumentado e nenhum teste foi silenciado. Integração e deploy dependem do CI.
+
+## 09/11/2026 — Carregados como fonte complementar (local, não publicada)
+
+- Alternância entre a base local do Mapa EV e o iframe oficial Carregados. Conteúdo externo só é criado após clique explícito em carregar, com aviso/link de privacidade; ao voltar, o iframe é removido e filtros/seleção locais permanecem preservados. Link direto disponível independentemente do carregamento externo. Nenhum dado de carro, localização do visitante ou filtro local é repassado pela integração.
+- Referência de mercado consultada em 09/11/2026: 12.775 estações, incluindo 9.900 públicas/públicas rápidas, com fonte/data visíveis e sem atualização automática. O total diferente divulgado pela página de incorporação não foi tratado como equivalente. Indicadores e mapa externo não são somados aos 1.787 registros locais nem alimentam o planejador.
+- API pública Carregados omite coordenadas; termos gerais exigem autorização escrita para extração automatizada. Não foi importada base de estações, feito coletor em massa ou atribuído ao conteúdo externo qualquer licença OCM/OSM/do projeto. CSP libera apenas o caminho oficial de iframe; sandbox sem formulários/navegação superior, sem geolocalização, câmera ou microfone. Sem dependências adicionais, commit ou publicação.
+- Validação direcionada: 25 testes em três arquivos aprovados, incluindo acessibilidade do painel inicial, tradução, foco, ativação, alternativa em erro, preservação da seleção e contrato CSP. Typecheck, build, scanner e proveniência após build aprovados (`unchanged`, 989/1960). Conferência real em navegador: nenhuma conexão Carregados antes do clique explícito; iframe oficial HTTP 200 e mapa renderizado, sem overflow em 390 × 844 e 360 × 640. Ao voltar, iframe removido e seleção local preservada; os 1.787 registros locais, teclado/toque e home sem detalhes fiscais continuam conferidos.
+- Suíte completa final: **604/604 testes aprovados em 67 arquivos**, incluindo a auditoria de acessibilidade do catálogo que havia apresentado timeout em etapas anteriores. Nenhum teste foi silenciado ou teve seu limite aumentado. Sem commit, push ou publicação nesta etapa.
 
 ## 09/11/2026 — Fontes de novembro do Mapa EV (local, não publicada)
 

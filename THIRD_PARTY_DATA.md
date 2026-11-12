@@ -24,6 +24,16 @@ Quando obtido, o snapshot `src/data/osmChargers.json` e os dados da busca OSM co
 - Extratos distribuídos por **Geofabrik GmbH**, a partir de dados dos contribuidores OpenStreetMap: <https://download.geofabrik.de/south-america/brazil.html>.
 - Dados OSM permanecem em arquivo identificável, separados dos arquivos OCM e do catálogo de veículos. Não se atribui BY-NC ao conjunto OSM.
 
+## Carregados — mapa externo e referência citada
+
+O Mapa EV oferece o [iframe oficial Carregados](https://carregados.com.br/compartilhar), hospedado pela própria plataforma, como visualização complementar opcional. Ele só é criado após o visitante escolher a fonte e clicar em carregar; ao voltar à base local, o iframe é removido. As estações desse mapa **não foram copiadas para o repositório**, não aumentam a contagem local e não alimentam o planejador do Guia PBEV.
+
+A referência agregada de [dados de mercado](https://carregados.com.br/dados-sobre-o-mercado-eletrico), consultada em 09/11/2026, é citada com atribuição e data: 12.775 estações, incluindo 9.900 públicas/públicas rápidas. Não é um contador ao vivo, nem soma ou comparação direta de cobertura com os registros OCM/OSM. A página de incorporação anuncia outro total; os critérios/datas não foram reconciliados. Nenhum coletor automático Carregados foi adicionado.
+
+A [API pública documentada](https://carregados.com.br/docs/api.md) omite coordenadas de estações; os [termos gerais](https://carregados.com.br/termos-e-condicoes) exigem autorização escrita para extração automatizada. A disponibilidade do iframe não é licença para redistribuir a base. A Carregados conserva seus direitos e suas [políticas de privacidade](https://carregados.com.br/politica-de-privacidade). Ao carregar, o navegador se conecta ao terceiro; não repassamos localização do visitante, veículo selecionado nem filtros locais. Não se atribui BY-NC, CC BY, CC0 ou ODbL ao conteúdo Carregados.
+
+The optional Carregados view uses its official third-party embed, not a redistributed station dataset. Cited market aggregates retain attribution and an observation date. External content and counts are independent from the local OCM/OSM dataset and route planner. Loading the embed connects the visitor's browser to Carregados under its own policies; no visitor location, selected vehicle or local filters are passed by this integration.
+
 ## Transformações e limites / Changes and limitations
 
 Os importadores selecionam campos públicos de locais e conexões, normalizam nomes de campos/unidades e descartam registros sem coordenadas ou condições mínimas de reutilização. Coordenadas de nós não são reposicionadas. Para áreas OSM com geometria completa, um centro de área é calculado e marcado como aproximação. Identidades, contatos, comentários e mídia de contribuidores não são redistribuídos. Contagens são de registros de locais, não de conectores disponíveis ou endereços fisicamente confirmados.

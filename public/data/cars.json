@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-10T15:30:18.986Z",
-  "total": 200,
+  "generated_at": "2026-11-12T19:40:52.783Z",
+  "total": 201,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "evidence": {
     "official_source": "PBEV/Inmetro",
@@ -8888,6 +8888,52 @@
       "discontinued": false,
       "slug": "baic-arcfox-t1-max",
       "detail_url": "https://guiapbev.cloud/carro/baic-arcfox-t1-max"
+    },
+    {
+      "model": "Arcfox T5",
+      "brand": "BAIC",
+      "price": 219990,
+      "range_km": 362,
+      "powertrain": "BEV",
+      "electric_range_km": null,
+      "combined_range_km": null,
+      "fuel_consumption_kml": null,
+      "fuel_consumption_kml_ethanol": null,
+      "fuel_type_2": null,
+      "category": "SUV",
+      "image_url": "https://guiapbev.cloud/car-images/baic-arcfox-t5.webp",
+      "traction": "FWD",
+      "power_cv": 252,
+      "torque_kgfm": 32.6,
+      "battery_kwh": 64.8,
+      "charge_ac_kw": null,
+      "charge_dc_kw": 210,
+      "warranty_years": null,
+      "warranty_battery_years": null,
+      "pbe_rating": null,
+      "energy_mj_km": null,
+      "length_mm": 4690,
+      "width_mm": 1936,
+      "height_mm": 1650,
+      "wheelbase_mm": 2845,
+      "ground_clearance_mm": null,
+      "weight_kg": null,
+      "trunk_liters": null,
+      "features": [
+        "Preço promocional de pré-venda até 31/12/2026 ou 50 unidades; sujeito a confirmação",
+        "Bateria LFP de 64,8 kWh; autonomia Inmetro de 362 km divulgada pela imprensa no lançamento",
+        "Motor elétrico dianteiro de 252 cv e 32,6 kgfm",
+        "Recarga DC de até 210 kW: 30% a 80% em cerca de 18 minutos, em condições compatíveis",
+        "Central multimídia de 15,6\" e head-up display de 22,8\"",
+        "Bancos dianteiros com aquecimento, ventilação e massagem; som com 18 alto-falantes",
+        "Cruzeiro adaptativo, frenagem autônoma de emergência e câmeras panorâmicas",
+        "Dimensões de referência conforme o site global oficial da Arcfox",
+        "Ficha brasileira e etiqueta PBEV pendentes de conferência em fonte primária"
+      ],
+      "is_new": true,
+      "discontinued": false,
+      "slug": "baic-arcfox-t5",
+      "detail_url": "https://guiapbev.cloud/carro/baic-arcfox-t5"
     }
   ]
 }

@@ -1,4 +1,4 @@
-import { BRAND_URLS, CAR_DB } from '../constants';
+import { BRAND_URLS, CAR_DB, isCarNew } from '../constants';
 import type { Car } from '../types';
 import { ALL_POWERTRAINS, DEFAULT_MIN_RANGE } from '../types';
 
@@ -69,7 +69,7 @@ describe('CAR_DB data integrity', () => {
     expect(CAR_DB.find(car => car.model === 'Omoda 5 SHS-H Luxury')?.powertrain).toBe('HEV');
   });
   it('lists both Brazilian Arcfox T1 versions with launch specifications', () => {
-    const versions = CAR_DB.filter(car => car.brand === 'BAIC');
+    const versions = CAR_DB.filter(car => car.brand === 'BAIC' && car.model.startsWith('Arcfox T1 '));
     expect(versions.map(car => car.model)).toEqual(['Arcfox T1 Pro', 'Arcfox T1 Max']);
     expect(versions.map(car => car.price)).toEqual([129900, 139900]);
     for (const car of versions) {
@@ -81,6 +81,25 @@ describe('CAR_DB data integrity', () => {
     }
     expect(versions[1].features?.some(feature => feature.includes('indução') && feature.includes('opcional'))).toBe(true);
     expect(versions[1].features?.some(feature => feature.includes('frenagem autônoma'))).toBe(true);
+  });
+  it('lists only the Brazilian Arcfox T5 without an unconfirmed trim suffix', () => {
+    const versions = CAR_DB.filter(car => car.brand === 'BAIC' && car.model.startsWith('Arcfox T5'));
+    expect(versions).toHaveLength(1);
+    const car = versions[0];
+    expect(car).toMatchObject({ model: 'Arcfox T5', cat: 'SUV', powertrain: 'BEV',
+      price: 219990, range: 362, power: 252, torque: 32.6, battery: 64.8,
+      traction: 'FWD', chargeDC: 210, img: '/car-images/baic-arcfox-t5.webp',
+      lengthMm: 4690, widthMm: 1936, heightMm: 1650, wheelbaseMm: 2845 });
+    expect(isCarNew(car)).toBe(true);
+    expect(car.features?.some(feature => /pré-venda/i.test(feature) && feature.includes('50 unidades') && feature.includes('31/12/2026'))).toBe(true);
+    expect(car.features?.some(feature => feature.includes('362 km') && feature.includes('Inmetro') && feature.includes('imprensa'))).toBe(true);
+    expect(car.features?.some(feature => /660|CLTC|7,5 s/.test(feature))).toBe(false);
+    expect(car.features?.some(feature => feature.includes('Dimensões') && feature.includes('global oficial'))).toBe(true);
+    // A adoção das quatro dimensões globais não autoriza completar outros campos.
+    for (const field of ['chargeAC', 'energyMJkm', 'weightKg', 'trunkLiters', 'groundClearanceMm',
+      'warrantyYears', 'warrantyBatteryYears'] as const) {
+      expect(car[field], field).toBeUndefined();
+    }
   });
   it('should have at least one car', () => {
     expect(CAR_DB.length).toBeGreaterThan(0);
