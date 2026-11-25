@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, readFileSync, rmSync, mkdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdtempSync, readFileSync, rmSync, mkdirSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
@@ -66,10 +66,26 @@ function buildFixtureCars(): FixtureCar[] {
       power_cv: 65,
       image_url: 'https://guiapbev.cloud/car-images/kwid.jpg',
     },
+    {
+      slug: 'mg-motor-mg4-urban',
+      brand: 'MG Motor',
+      model: 'MG4 Urban',
+      price: 149800,
+      range_km: 350,
+      category: 'Compacto',
+      power_cv: 170,
+      battery_kwh: 51,
+      image_url: 'https://guiapbev.cloud/car-images/mg4-urban.jpg',
+    },
   ];
 }
 
-function runTool(cars: FixtureCar[], slug = 'byd-dolphin-gs', announcedCars: object[] = []): string {
+function runTool(
+  cars: FixtureCar[],
+  slug = 'byd-dolphin-gs',
+  announcedCars: object[] = [],
+  routePath = `carro/${slug}/index.html`,
+): string | null {
   const workdir = mkdtempSync(join(tmpdir(), 'pbev-static-routes-'));
   const distDir = join(workdir, 'dist');
   mkdirSync(join(distDir, 'data'), { recursive: true });
@@ -82,7 +98,8 @@ function runTool(cars: FixtureCar[], slug = 'byd-dolphin-gs', announcedCars: obj
 
   try {
     execFileSync(process.execPath, [TOOL_PATH], { cwd: workdir, stdio: 'pipe' });
-    return readFileSync(join(distDir, 'carro', slug, 'index.html'), 'utf8');
+    const outputPath = join(distDir, routePath);
+    return existsSync(outputPath) ? readFileSync(outputPath, 'utf8') : null;
   } finally {
     rmSync(workdir, { recursive: true, force: true });
   }
@@ -182,6 +199,30 @@ describe('static car route pages', () => {
     expect(html).toContain('motor a combustão: 147 cv');
     expect(html).toContain('potência combinada não confirmada');
     expect(html).not.toMatch(/331 cv|207 cv|184 cv combinados/);
+  });
+
+  it('pre-renders direct comparison routes only for same-category cars', () => {
+    const comparisonHtml = runTool(
+      fixtureCars,
+      'byd-dolphin-gs',
+      [],
+      'comparar/byd-dolphin-gs/mg-motor-mg4-urban/index.html',
+    );
+    expect(comparisonHtml).toContain(
+      '<title>BYD Dolphin GS vs MG Motor MG4 Urban — Comparativo PBEV Brasil</title>',
+    );
+    expect(comparisonHtml).toContain(
+      'rel="canonical" href="https://guiapbev.cloud/comparar/byd-dolphin-gs/mg-motor-mg4-urban"',
+    );
+    expect(comparisonHtml).toContain('Dados oficiais INMETRO.');
+
+    const crossCategoryHtml = runTool(
+      fixtureCars,
+      'byd-dolphin-gs',
+      [],
+      'comparar/byd-dolphin-gs/renault-kwid-e-tech/index.html',
+    );
+    expect(crossCategoryHtml).toBeNull();
   });
 });
 

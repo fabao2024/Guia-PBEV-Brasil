@@ -50,8 +50,9 @@ const carRoutes = [...CAR_DB, ...ANNOUNCED_CARS].map(car =>
   url(`${BASE_URL}/carro/${toSlug(car.brand, car.model)}`, '0.8', 'monthly')
 );
 
-// Comparison routes remain client-side only until they have a matching static-page
-// generation loop and a verified direct HTTP fallback. Do not advertise them here.
+// Comparison routes are pre-rendered for same-category catalog pairs by the
+// static route generator, but are intentionally omitted from the sitemap: the
+// Cartesian pair set is for direct shared links, not broad search discovery.
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${[...staticRoutes, ...carRoutes].join('\n')}

@@ -206,3 +206,58 @@ for (const car of allCars) {
 }
 
 console.log(`Created static car pages: ${allCars.length} routes under /carro/`);
+
+// Pre-render direct comparison routes for same-category catalog cars. The app
+// owns the interactive comparison, but GitHub Pages needs a physical
+// /comparar/<a>/<b>/index.html for shared links and social crawlers to receive
+// HTTP 200 plus the CompareDetailPage metadata contract instead of 404.html.
+// Keep announced cars out: they are not part of CAR_DB comparison links.
+const powertrainLabels = {
+  BEV: '100% elétrico',
+  PHEV: 'híbrido plug-in',
+  HEV: 'híbrido sem tomada',
+  REEV: 'elétrico com extensor de autonomia',
+};
+const carsByCategory = new Map();
+for (const car of carsData.cars) {
+  const category = String(car.category || '');
+  if (!carsByCategory.has(category)) carsByCategory.set(category, []);
+  carsByCategory.get(category).push(car);
+}
+
+let comparisonRouteCount = 0;
+for (const categoryCars of carsByCategory.values()) {
+  for (const carA of categoryCars) {
+    for (const carB of categoryCars) {
+      if (carA.slug === carB.slug) continue;
+
+      const slugA = String(carA.slug);
+      const slugB = String(carB.slug);
+      const title = `${carA.brand} ${carA.model} vs ${carB.brand} ${carB.model} — Comparativo PBEV Brasil`;
+      const labelA = powertrainLabels[carA.powertrain ?? 'BEV'] ?? 'eletrificado';
+      const labelB = powertrainLabels[carB.powertrain ?? 'BEV'] ?? 'eletrificado';
+      const description = `Compare ${carA.brand} ${carA.model} (${labelA}) e ${carB.brand} ${carB.model} (${labelB}): autonomia elétrica, autonomia total combinada quando aplicável, consumo, potência, bateria, carregamento e preço. Dados oficiais INMETRO.`;
+      const canonicalUrl = `${SITE_ORIGIN}/comparar/${slugA}/${slugB}`;
+      const imageUrl = String(carA.image_url);
+
+      let html = baseHtml;
+      html = replaceOrThrow(html, /<title>[^<]*<\/title>/, `<title>${escapeHtml(title)}</title>`, `title of comparison ${slugA}/${slugB}`);
+      html = replaceOrThrow(html, /<meta name="description" content="[^"]*">/, `<meta name="description" content="${escapeHtml(description)}">`, `description of comparison ${slugA}/${slugB}`);
+      html = replaceOrThrow(html, /<link rel="canonical" href="[^"]*">/, `<link rel="canonical" href="${canonicalUrl}">`, `canonical of comparison ${slugA}/${slugB}`);
+      html = replaceOrThrow(html, /<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${escapeHtml(title)}">`, `og:title of comparison ${slugA}/${slugB}`);
+      html = replaceOrThrow(html, /<meta property="og:description" content="[^"]*">/, `<meta property="og:description" content="${escapeHtml(description)}">`, `og:description of comparison ${slugA}/${slugB}`);
+      html = replaceOrThrow(html, /<meta property="og:url" content="[^"]*">/, `<meta property="og:url" content="${canonicalUrl}">`, `og:url of comparison ${slugA}/${slugB}`);
+      html = replaceOrInsert(html, /<meta property="og:image" content="[^"]*">/, `<meta property="og:image" content="${escapeHtml(imageUrl)}">`, `og:image of comparison ${slugA}/${slugB}`);
+      html = replaceOrThrow(html, /<meta name="twitter:title" content="[^"]*">/, `<meta name="twitter:title" content="${escapeHtml(title)}">`, `twitter:title of comparison ${slugA}/${slugB}`);
+      html = replaceOrThrow(html, /<meta name="twitter:description" content="[^"]*">/, `<meta name="twitter:description" content="${escapeHtml(description)}">`, `twitter:description of comparison ${slugA}/${slugB}`);
+      html = replaceOrInsert(html, /<meta name="twitter:image" content="[^"]*">/, `<meta name="twitter:image" content="${escapeHtml(imageUrl)}">`, `twitter:image of comparison ${slugA}/${slugB}`);
+
+      const target = join(distDir, 'comparar', slugA, slugB, 'index.html');
+      mkdirSync(dirname(target), { recursive: true });
+      writeFileSync(target, html, 'utf8');
+      comparisonRouteCount += 1;
+    }
+  }
+}
+
+console.log(`Created static comparison pages: ${comparisonRouteCount} same-category routes under /comparar/`);
