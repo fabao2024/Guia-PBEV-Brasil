@@ -761,6 +761,44 @@
       ]
     },
     {
+      "src": "/car-images/denza-bao-3.jpg",
+      "width": 3000,
+      "height": 1577,
+      "alpha": false,
+      "bytes": 801638,
+      "sha256": "22dba7e7f4ce9394d715be4b5bc30faf7f64e79812c3ac266d5fc654f0729970",
+      "variants": [
+        {
+          "src": "/car-images/optimized/denza-bao-3.jpg-320.webp",
+          "width": 320,
+          "height": 168,
+          "bytes": 3916,
+          "sha256": "a9e9cf22eed3414a3997f4af008b97e42a6a0d4e624bb5b4f64d0288ed4677be"
+        },
+        {
+          "src": "/car-images/optimized/denza-bao-3.jpg-640.webp",
+          "width": 640,
+          "height": 336,
+          "bytes": 10534,
+          "sha256": "f1ead67a9d1333a39a8fc81f647543ab2954889f2c2fabd93dcc2189d587691a"
+        },
+        {
+          "src": "/car-images/optimized/denza-bao-3.jpg-960.webp",
+          "width": 960,
+          "height": 505,
+          "bytes": 19372,
+          "sha256": "acfbc6dbcfb64ad539c7ef619b42d96b72239e3e065cdf494437f65d7887547e"
+        },
+        {
+          "src": "/car-images/optimized/denza-bao-3.jpg-1280.webp",
+          "width": 1280,
+          "height": 673,
+          "bytes": 30162,
+          "sha256": "d242cbd19e32a69d6f1901bb22c4ffbebe0c986097c2b638b6c497256f5493b8"
+        }
+      ]
+    },
+    {
       "src": "/car-images/denza-d9-ev.png",
       "width": 2400,
       "height": 1200,

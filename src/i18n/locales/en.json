@@ -1,4 +1,25 @@
 {
+  "announced": {
+    "badge": "Upcoming",
+    "section": "Upcoming vehicles — price not announced",
+    "sectionNote": "Excluded from price rankings and financial calculations until an official price is announced.",
+    "presaleDate": "Pre-sales expected from {{date}}",
+    "price": "Price to be announced",
+    "cardNote": "Excluded from price rankings and financial simulations until an official price is announced. The expected date requires confirmation.",
+    "noCalculations": "Without an official price, this vehicle is excluded from financial comparisons, TCO, IPVA estimates and savings simulations. The expected date does not confirm stock or deliveries.",
+    "viewDetails": "Explore this model",
+    "back": "Back to the catalog",
+    "specs": "Specifications announced for Brazil",
+    "power": "Power",
+    "traction": "Drive",
+    "battery": "Announced battery",
+    "range": "Announced range",
+    "evidenceNote": "The official page confirms 354 cv. The 86.3 kWh battery, rear-wheel drive and 427 km attributed to PBEV were reported to the press; primary Brazilian specifications and label are still pending. This is not independent verification of certification.",
+    "equipment": "Highlights and limitations",
+    "sources": "Sources and updates",
+    "reviewed": "Reviewed on {{date}}. Forecasts require confirmation; availability never changes automatically based on the date.",
+    "official": "{{brand}} official website"
+  },
   "categories": {
     "Urbano": "Urban",
     "Compacto": "Compact",

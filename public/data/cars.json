@@ -1,6 +1,7 @@
 {
-  "generated_at": "2026-11-25T11:55:34.913Z",
+  "generated_at": "2026-11-25T14:24:33.445Z",
   "total": 202,
+  "announced_total": 1,
   "base_image_url": "https://guiapbev.cloud/car-images",
   "evidence": {
     "official_source": "PBEV/Inmetro",
@@ -8982,6 +8983,49 @@
       "discontinued": false,
       "slug": "baic-arcfox-t5",
       "detail_url": "https://guiapbev.cloud/carro/baic-arcfox-t5"
+    }
+  ],
+  "announced_cars": [
+    {
+      "model": "BAO 3",
+      "brand": "DENZA",
+      "price": null,
+      "price_status": "unannounced",
+      "announced_on": "2026-11-24",
+      "presale_starts_on": "2026-12-01",
+      "reviewed_on": "2026-11-25",
+      "category": "SUV",
+      "powertrain": "BEV",
+      "range_km": 427,
+      "battery_kwh": 86.3,
+      "power_cv": 354,
+      "torque_kgfm": 27.5,
+      "traction": "RWD",
+      "supports_dc_charging": true,
+      "specification_note": "427 km atribuídos ao PBEV e bateria de 86,3 kWh divulgados à imprensa; ficha e etiqueta brasileiras primárias ainda pendentes. Não representa verificação independente da homologação.",
+      "sources": [
+        {
+          "label": "Página oficial DENZA Brasil",
+          "url": "https://www.denza.com/br/denza-bao3.html",
+          "type": "official_manufacturer"
+        },
+        {
+          "label": "g1 — apresentação brasileira, 25/11/2026",
+          "url": "https://g1.globo.com/carros/noticia/2026/11/25/denza-bao-3-conheca-o-suv-eletrico-de-mais-de-r-400-mil-que-promete-recarga-em-9-minutos.ghtml",
+          "type": "specialist_media"
+        }
+      ],
+      "features": [
+        "SUV 100% elétrico; configuração brasileira com motor traseiro de 354 cv",
+        "Bateria Blade 2.0; capacidade de 86,3 kWh e autonomia de 427 km informadas à imprensa",
+        "Compatibilidade com Flash Charging; pico AC/DC não confirmado e não inferido da estação",
+        "Central multimídia DiLINK de 15,6 polegadas, Apple CarPlay e Android Auto",
+        "Sistema de amortecimento inteligente DiSus-C, conforme página oficial brasileira",
+        "Preço a divulgar; início da pré-venda previsto para 01/12/2026, sujeito a confirmação"
+      ],
+      "image_url": "https://guiapbev.cloud/car-images/denza-bao-3.jpg",
+      "slug": "denza-bao-3",
+      "detail_url": "https://guiapbev.cloud/carro/denza-bao-3"
     }
   ]
 }

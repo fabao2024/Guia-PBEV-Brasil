@@ -65,14 +65,14 @@ function buildFixtureCars(): FixtureCar[] {
   ];
 }
 
-function runTool(cars: FixtureCar[], slug = 'byd-dolphin-gs'): string {
+function runTool(cars: FixtureCar[], slug = 'byd-dolphin-gs', announcedCars: object[] = []): string {
   const workdir = mkdtempSync(join(tmpdir(), 'pbev-static-routes-'));
   const distDir = join(workdir, 'dist');
   mkdirSync(join(distDir, 'data'), { recursive: true });
   writeFileSync(join(distDir, 'index.html'), FIXTURE_INDEX_HTML, 'utf8');
   writeFileSync(
     join(distDir, 'data', 'cars.json'),
-    JSON.stringify({ total: cars.length, cars }),
+    JSON.stringify({ total: cars.length, cars, announced_cars: announcedCars }),
     'utf8',
   );
 
@@ -87,6 +87,18 @@ function runTool(cars: FixtureCar[], slug = 'byd-dolphin-gs'): string {
 describe('static car route pages', () => {
   const fixtureCars = buildFixtureCars();
   let generatedHtml = '';
+
+  it('gera a rota de pré-lançamento sem preço zero nem oferta imediata', () => {
+    const html = runTool(fixtureCars, 'denza-bao-3', [{
+      slug: 'denza-bao-3', brand: 'DENZA', model: 'BAO 3', price: null,
+      price_status: 'unannounced', presale_starts_on: '2026-12-01',
+      image_url: 'https://guiapbev.cloud/car-images/denza-bao-3.jpg',
+    }]);
+    expect(html).toContain('DENZA BAO 3');
+    expect(html).toContain('Preço a divulgar');
+    expect(html).toContain('01/12/2026');
+    expect(html).not.toMatch(/R\$ 0|InStock|"offers"|homologad/);
+  });
 
   it('generates one pre-rendered page per catalog car with crawler metadata', () => {
     generatedHtml = runTool(fixtureCars);

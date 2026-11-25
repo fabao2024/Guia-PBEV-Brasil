@@ -11,7 +11,9 @@ Revisão de fontes públicas em **10/11/2026**. DENZA é uma marca própria nos 
 | Z9GT EV | BEV | Luxo (shooting brake) | R$ 670.000 | 476 km |
 | D9 EV | BEV | Luxo (minivan de sete lugares) | R$ 750.000 | 421 km |
 
-Z e B3 não foram incluídos: anúncio, exposição, testes ou presença no site não bastam para comprovar oferta de uma versão brasileira com preço e ficha correspondentes.
+Z e B3 não foram incluídos nesta revisão de 10/11: anúncio, exposição, testes ou presença no site não bastam para comprovar oferta de uma versão brasileira com preço e ficha correspondentes.
+
+**Atualização de 25/11/2026:** o **BAO 3** foi cadastrado separadamente como pré-lançamento **sem preço divulgado**, com pré-venda prevista para 01/12. Não integra a tabela de versões com preço acima nem os cálculos financeiros. Fontes, imagem, pendências e contrato em [catalogo-denza-bao3.md](catalogo-denza-bao3.md).
 
 ## Fontes oficiais e divergências
 

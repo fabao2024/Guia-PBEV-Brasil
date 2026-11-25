@@ -512,6 +512,32 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
+  "/car-images/denza-bao-3.jpg": {
+    "width": 3000,
+    "height": 1577,
+    "variants": [
+      {
+        "src": "/car-images/optimized/denza-bao-3.jpg-320.webp",
+        "width": 320,
+        "height": 168
+      },
+      {
+        "src": "/car-images/optimized/denza-bao-3.jpg-640.webp",
+        "width": 640,
+        "height": 336
+      },
+      {
+        "src": "/car-images/optimized/denza-bao-3.jpg-960.webp",
+        "width": 960,
+        "height": 505
+      },
+      {
+        "src": "/car-images/optimized/denza-bao-3.jpg-1280.webp",
+        "width": 1280,
+        "height": 673
+      }
+    ]
+  },
   "/car-images/denza-d9-ev.png": {
     "width": 2400,
     "height": 1200,

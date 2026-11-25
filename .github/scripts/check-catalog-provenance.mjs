@@ -42,7 +42,7 @@ function isVerified(field, hierarchy) {
 function load() {
   const registry = JSON.parse(readFileSync(REGISTRY_FILE, 'utf8'));
   const carsPayload = JSON.parse(readFileSync(CARS_FILE, 'utf8'));
-  const cars = carsPayload.cars ?? [];
+  const cars = [...(carsPayload.cars ?? []), ...(carsPayload.announced_cars ?? [])];
   if (registry.schemaVersion !== 1 || !Array.isArray(registry.sourceHierarchy)
       || !Array.isArray(registry.fieldVerificationSources) || !registry.vehicles) {
     throw new Error('Schema do registro de proveniência inválido');

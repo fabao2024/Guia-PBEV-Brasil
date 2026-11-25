@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useEffect, useRef, lazy, Suspense } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
-import CarDetailPage from './pages/CarDetailPage';
+import CarDetailPage from './pages/CatalogCarDetailPage';
 import CompareDetailPage from './pages/CompareDetailPage';
 import PartnerApplicationsPage from './pages/PartnerApplicationsPage';
 import MethodologyPage from './pages/MethodologyPage';
@@ -9,6 +9,9 @@ import { useTranslation } from 'react-i18next';
 import { CAR_DB, isCarNew, BRAND_URLS } from './constants';
 import Sidebar from './components/Sidebar';
 import CarCard from './components/CarCard';
+import AnnouncedCarCard from './components/AnnouncedCarCard';
+import { ANNOUNCED_CARS } from './constants/announcedVehicles';
+import { selectAnnouncedCars } from './utils/announcedVehicles';
 import WhatsAppCta from './components/WhatsAppCta';
 import LanguageToggle from './components/LanguageToggle';
 import MobileHeaderMenu from './components/MobileHeaderMenu';
@@ -32,15 +35,18 @@ import { useSearch } from './hooks/useSearch';
 import { useJsonLd } from './hooks/useJsonLd';
 import { Car, LeadInterest, ALL_POWERTRAINS, DEFAULT_MIN_RANGE } from './types';
 import { track } from './utils/analytics';
+import { toSlug } from './utils/slug';
 import { sortCars, type RankMode } from './utils/ranking';
 import { carMetaDescription, electricRangeOf, powertrainOf } from './utils/powertrain';
 import DataEvidence from './components/DataEvidence';
+
+const CATALOG_ENTRIES = [...CAR_DB, ...ANNOUNCED_CARS];
 
 export default function App() {
   const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
-  const { filters, setFilters, allBrands, resetFilters } = useCarFilter(CAR_DB);
+  const { filters, setFilters, allBrands, resetFilters } = useCarFilter(CATALOG_ENTRIES);
   const { favorites, showFavoritesOnly, setShowFavoritesOnly, toggleFavorite } = useFavorites();
   const {
     compareList,
@@ -151,10 +157,10 @@ export default function App() {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: 'Catálogo de Veículos Eletrificados PBEV Brasil',
-    description: `${CAR_DB.length} veículos eletrificados homologados e disponíveis no Brasil`,
-    numberOfItems: CAR_DB.length,
+    description: `${CATALOG_ENTRIES.length} veículos eletrificados no catálogo, incluindo pré-lançamentos identificados separadamente`,
+    numberOfItems: CATALOG_ENTRIES.length,
     url: 'https://guiapbev.cloud/',
-    itemListElement: CAR_DB.map((car, i) => ({
+    itemListElement: [...CAR_DB.map((car, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       item: {
@@ -170,7 +176,15 @@ export default function App() {
           url: BRAND_URLS[car.brand] ?? 'https://guiapbev.cloud/',
         },
       },
-    })),
+    })), ...ANNOUNCED_CARS.map((car, i) => ({
+      '@type': 'ListItem', position: CAR_DB.length + i + 1,
+      item: {
+        '@type': 'Car', name: `${car.brand} ${car.model}`,
+        brand: { '@type': 'Brand', name: car.brand },
+        description: 'Pré-lançamento; preço a divulgar; disponibilidade sujeita a confirmação',
+        url: `https://guiapbev.cloud/carro/${toSlug(car.brand, car.model)}`,
+      },
+    }))],
   }), []);
   useJsonLd(catalogSchema);
 
@@ -197,6 +211,11 @@ export default function App() {
   }, [filters, showFavoritesOnly, favorites, searchResults]);
 
   const rankedCars = useMemo(() => sortCars(filteredCars, rankMode), [filteredCars, rankMode]);
+  const announcedCars = useMemo(
+    () => selectAnnouncedCars(ANNOUNCED_CARS, filters, query, showFavoritesOnly, favorites),
+    [filters, query, showFavoritesOnly, favorites],
+  );
+  const resultCount = filteredCars.length + announcedCars.length;
 
   // Combined reset for filters, favorites mode and search
   const handleResetFilters = () => {
@@ -222,7 +241,7 @@ export default function App() {
 
   const helmetDesc = selectedCar
     ? `${carMetaDescription(selectedCar)}. Compare com outros veículos eletrificados no Guia PBEV Brasil.`
-    : `Catálogo público com ${CAR_DB.length} veículos eletrificados homologados no Brasil pelo PBEV/Inmetro. Compare autonomia elétrica, autonomia combinada, consumo, preço e especificações.`;
+    : `Catálogo público com ${CAR_DB.length} veículos eletrificados e ${ANNOUNCED_CARS.length} pré-lançamento sem preço divulgado. Compare dados disponíveis, com fontes e previsões identificadas.`;
 
   const helmetImage = selectedCar && selectedCar.img.startsWith('/car-images/')
     ? `https://guiapbev.cloud${selectedCar.img}`
@@ -442,8 +461,8 @@ export default function App() {
           {/* Dashboard stats strip + partners CTA */}
           <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-4 mt-1">
             {[
-              { value: filteredCars.length, total: CAR_DB.length, label: t('header.vehiclesInDb'), accent: true },
-              { value: new Set(filteredCars.map(c => c.brand)).size, total: allBrands.length, label: t('sidebar.brands'), accent: false },
+              { value: resultCount, total: CATALOG_ENTRIES.length, label: t('header.vehiclesInDb'), accent: true },
+              { value: new Set([...filteredCars, ...announcedCars].map(c => c.brand)).size, total: allBrands.length, label: t('sidebar.brands'), accent: false },
             ].map((stat, i) => (
               <div
                 key={i}
@@ -499,8 +518,8 @@ export default function App() {
             </div>
             {isSearching && (
               <p className="text-xs text-[#a0a0a0] mt-1.5 ml-1">
-                {filteredCars.length > 0
-                  ? t('search.resultsFor', { count: filteredCars.length, query: query.trim() })
+                {resultCount > 0
+                  ? t('search.resultsFor', { count: resultCount, query: query.trim() })
                   : t('search.noResults', { query: query.trim() })}
               </p>
             )}
@@ -627,7 +646,17 @@ export default function App() {
             </div>
           )}
 
-          {/* Grid */}
+          {announcedCars.length > 0 && (
+            <section aria-labelledby="announced-catalog" className="mb-6">
+              <h2 id="announced-catalog" className="font-display text-lg font-bold text-[#ff8c52]">{t('announced.section')}</h2>
+              <p className="mb-4 mt-1 text-xs leading-relaxed text-white/60">{t('announced.sectionNote')}</p>
+              <div className="grid gap-4">
+                {announcedCars.map(car => <AnnouncedCarCard key={`${car.brand}-${car.model}`} car={car} />)}
+              </div>
+            </section>
+          )}
+
+          {/* Grid — apenas modelos com preço participam do ranking e da comparação. */}
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-3 sm:gap-6 pb-20">
             {rankedCars.map((car, index) => (
               <div
@@ -648,7 +677,7 @@ export default function App() {
           </div>
 
           {/* Empty State */}
-          {filteredCars.length === 0 && (
+          {resultCount === 0 && (
             <div className="flex flex-col items-center justify-center py-32 text-center animate-in fade-in zoom-in duration-300">
               <div className="bg-[#121212] p-8 rounded-full mb-6 shadow-[0_0_30px_rgba(0,180,255,0.1)] border border-white/5 relative">
                 <div className="absolute inset-0 bg-[#00b4ff]/10 rounded-full blur-xl"></div>

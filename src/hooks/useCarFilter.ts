@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { FilterState, Car, ALL_POWERTRAINS, DEFAULT_MIN_RANGE } from '../types';
 
-export function useCarFilter(initialCars: Car[]) {
+export function useCarFilter(initialCars: Pick<Car, 'brand'>[]) {
     const [filters, setFilters] = useState<FilterState>({
         maxPrice: 1500000,
         minRange: DEFAULT_MIN_RANGE,

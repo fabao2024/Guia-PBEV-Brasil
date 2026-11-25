@@ -2,6 +2,20 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 25/11/2026 — DENZA BAO 3 sem preço divulgado (validação local)
+
+| Item | Detalhe |
+|---|---|
+| Modelo | BAO 3 brasileiro, DENZA, SUV BEV de 354 cv. Pré-venda prevista para 01/12/2026; preço ainda não anunciado. Sem estimativa de preço, preço zero ou promessa de entrega/estoque. |
+| Evidências | Site brasileiro confirma nome, potência e Flash Charging; 86,3 kWh, RWD, 27,5 kgfm e 427 km atribuídos ao PBEV vêm da imprensa. Etiqueta/ficha primária ainda pendentes, explicitamente identificadas na ficha. Não usados 510 cv/AWD da versão global, pico da estação ou dimensões/garantias sem confirmação. Fontes e limites em `docs/catalogo-denza-bao3.md`. |
+| Segurança dos cálculos | `AnnouncedCar` exige preço `null` e fica em `ANNOUNCED_CARS`, separado do contrato numérico `Car`/`CAR_DB`. Não entra em TCO, IPVA, simuladores, quiz ou ranking financeiro. Teto de orçamento restritivo exclui anúncios sem preço. Consultor recebe contexto separado com esses limites. |
+| Catálogo | Seção de pré-lançamentos com busca/filtros e ficha própria `/carro/denza-bao-3/`; metadados sem `Offer`, preço fictício ou `InStock`. Nenhuma promoção automática por data. JSON aditivo preserva `cars`/`total` e adiciona `announced_cars`/`announced_total`: 202 modelos com preço e 1 anúncio. |
+| Foto | Imagem oficial brasileira, JPG original 3000 × 1577, veículo inteiro em três quartos dianteiros; sem corte ou ampliação. Pipeline com Pillow 12.3.0 e `--check` aprovados: 87 originais acima do limiar e 338 variantes no conjunto completo. |
+| Validação direcionada | TDD iniciado com falhas antes da implementação. 62 testes direcionados em nove arquivos, TypeScript, build e scanner aprovados. `node .github/scripts/check-catalog-provenance.mjs` após build: `unchanged`, 1040/2030 campos verificados; nove pendências novas documentadas. A primeira suíte completa expôs duas compatibilidades ajustadas: resumo do anúncio sem menção fiscal na home, preservando o contrato de IPVA somente na ficha, e asserção de proveniência ampliada para incluir todos os anúncios sem reduzir os campos exigidos. |
+| Suíte completa final | Reexecução serial: 626/628 testes aprovados em 73 arquivos. Permanecem os dois cenários já documentados em 24/11 e 12/11: timeout da auditoria de acessibilidade do catálogo e botão do consultor não encontrado no teste do formulário de limpeza solar. Todos os testes novos, proveniência e visibilidade fiscal passaram. Suíte completa não declarada aprovada; nenhum teste ou limite foi silenciado/relaxado. |
+| Navegador | Busca por “Bao3”, navegação à ficha, foto carregada, título sem preço e schema `Car` sem oferta conferidos em Chrome; sem erros de JavaScript ou overflow em 1440, 390 e 360 px. Rota estática do build conferida com hidratação; auditoria axe-core da ficha sem violações WCAG A/AA, com CSP de produção preservada. |
+| Estado | Commit autorizado na branch `feat/catalog-denza-bao3`, baseada na `main` que já contém o GS9, com envio da branch ao GitHub. Sem integração à `main` nem publicação do site nesta etapa. |
+
 ## 24/11/2026 — GAC GS9 Ultra (validação local)
 
 | Item | Detalhe |

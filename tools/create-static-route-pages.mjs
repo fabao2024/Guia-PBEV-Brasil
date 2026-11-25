@@ -85,7 +85,8 @@ if (!Array.isArray(carsData.cars) || carsData.cars.length === 0) {
   throw new Error('Build cars data is empty or malformed');
 }
 
-for (const car of carsData.cars) {
+const allCars = [...carsData.cars, ...(carsData.announced_cars ?? [])];
+for (const car of allCars) {
   const slug = String(car.slug || '');
   if (!slug || /[^a-z0-9-]/.test(slug)) {
     throw new Error(`Invalid car slug in cars.json: "${slug}"`);
@@ -93,7 +94,14 @@ for (const car of carsData.cars) {
 
   const brand = String(car.brand);
   const model = String(car.model);
-  const priceLabel = Number(car.price).toLocaleString('pt-BR');
+  const announced = car.price_status === 'unannounced';
+  if (!announced && (!Number.isFinite(car.price) || car.price <= 0)) {
+    throw new Error(`Invalid price for priced catalog car: ${slug}`);
+  }
+  if (announced && (car.price !== null || !/^\d{4}-\d{2}-\d{2}$/.test(car.presale_starts_on ?? ''))) {
+    throw new Error(`Invalid announced car: ${slug}`);
+  }
+  const priceLabel = announced ? 'Preço a divulgar' : Number(car.price).toLocaleString('pt-BR');
   const powertrain = car.powertrain ?? 'BEV';
   const propulsionLabel = {
     BEV: 'elétrico', PHEV: 'híbrido plug-in', HEV: 'híbrido sem tomada', REEV: 'elétrico com extensor de autonomia',
@@ -102,13 +110,18 @@ for (const car of carsData.cars) {
   const metric = powertrain === 'HEV'
     ? `${fuelEconomy} km/l Inmetro`
     : `${car.range_km} km ${powertrain === 'BEV' ? 'PBEV' : 'elétricos PBEV'}`;
-  const title = `${brand} ${model} — R$ ${priceLabel} | ${metric} | Guia PBEV Brasil`;
+  const title = announced
+    ? `${brand} ${model} — Preço a divulgar | Guia PBEV Brasil`
+    : `${brand} ${model} — R$ ${priceLabel} | ${metric} | Guia PBEV Brasil`;
   const batterySegment = car.battery_kwh ? `, bateria ${car.battery_kwh} kWh` : '';
   const rangeSegment = powertrain === 'HEV'
     ? `consumo Inmetro ${fuelEconomy} km/l`
     : `autonomia ${powertrain === 'BEV' ? '' : 'elétrica '}PBEV ${car.range_km} km`;
   const comparisonLabel = powertrain === 'BEV' ? 'elétricos' : 'eletrificados';
-  const description = `${brand} ${model}: ${rangeSegment}, ${String(car.category).toLowerCase()} ${propulsionLabel}, ${car.power_cv} cv${batterySegment}. Preço estimado R$ ${priceLabel}. Compare com outros ${comparisonLabel} no Guia PBEV Brasil.`;
+  const presaleDate = announced ? car.presale_starts_on.split('-').reverse().join('/') : '';
+  const description = announced
+    ? `${brand} ${model}: Pré-venda prevista para ${presaleDate}. Preço a divulgar.`
+    : `${brand} ${model}: ${rangeSegment}, ${String(car.category).toLowerCase()} ${propulsionLabel}, ${car.power_cv} cv${batterySegment}. Preço estimado R$ ${priceLabel}. Compare com outros ${comparisonLabel} no Guia PBEV Brasil.`;
   const canonicalUrl = `${SITE_ORIGIN}/carro/${slug}`;
   const imageUrl = String(car.image_url);
 
@@ -187,4 +200,4 @@ for (const car of carsData.cars) {
   writeFileSync(target, html, 'utf8');
 }
 
-console.log(`Created static car pages: ${carsData.cars.length} routes under /carro/`);
+console.log(`Created static car pages: ${allCars.length} routes under /carro/`);

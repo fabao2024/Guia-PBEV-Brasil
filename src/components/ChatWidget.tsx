@@ -5,6 +5,7 @@ import { GoogleGenAI, type Chat } from '@google/genai';
 import { MessageSquare, X, Send, Sparkles, User, Bot, Globe, Settings, ExternalLink, Key, Trash2 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { CAR_DB } from '../constants';
+import { ANNOUNCED_CARS } from '../constants/announcedVehicles';
 import { Car, ChatMessage, powertrainOf } from '../types';
 import { combinedRangeOf, electricRangeOf } from '../utils/powertrain';
 import { sanitizeChatInput, validateChatInput } from '../utils/sanitize';
@@ -313,6 +314,9 @@ function buildCarSummary(lang: string): string {
         : `autonomia elétrica ${electricRange ?? '—'} km${combinedRange ? `, total combinada ${combinedRange} km` : ''}${c.fuelConsumptionKml ? `, consumo ${c.fuelConsumptionKml} km/L` : ''}`;
     return `${c.brand} ${c.model}: R$${c.price.toLocaleString('pt-BR')}, [${pt}] ${metrics}, ${c.cat}${c.power ? `, ${c.power}cv (combinados/sistema; não é potência elétrica fiscal)` : ''}${c.torque ? `, ${c.torque}kgfm` : ''}${pt !== 'BEV' ? `, combustível: ${c.fuelType2 ?? 'não informado'}. ${buildCarTaxSummary(c)}` : ''}`;
   }).join('\\n');
+  const announcedList = ANNOUNCED_CARS.map(car =>
+    `${car.brand} ${car.model}: ${isEn ? 'price not announced; expected pre-sales' : 'preço a divulgar; pré-venda prevista'} ${car.presaleStartsOn}; ${car.power}cv; ${car.traction}; ${car.range}km/${car.battery}kWh ${isEn ? 'reported to the press, primary specification/label pending' : 'divulgados à imprensa, ficha/etiqueta primária pendente'}. ${car.url}`,
+  ).join('\\n');
 
   if (isEn) {
     return `Total: ${totalCars} vehicles
@@ -322,7 +326,10 @@ Price range: R$${priceRange.min.toLocaleString('pt-BR')} - R$${priceRange.max.to
 Range (electric where applicable): ${rangeRange.min}km - ${rangeRange.max}km
 
 Vehicle list:
-${carList}`;
+${carList}
+
+Upcoming, separate from the priced catalog (never infer price, immediate availability, budget fit, savings, IPVA or TCO):
+${announcedList}`;
   }
 
   return `Total: ${totalCars} veículos
@@ -332,7 +339,10 @@ Faixa de preço: R$${priceRange.min.toLocaleString('pt-BR')} - R$${priceRange.ma
 Faixa de autonomia elétrica: ${rangeRange.min}km - ${rangeRange.max}km
 
 Lista de veículos:
-${carList}`;
+${carList}
+
+Pré-lançamentos separados do catálogo com preço (nunca inferir preço, estoque imediato, adequação ao orçamento, economia, IPVA ou TCO):
+${announcedList}`;
 }
 
 // ── RAG: query decomposition + metadata filtering ────────────────────────────

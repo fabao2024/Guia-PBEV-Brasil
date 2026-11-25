@@ -11,6 +11,7 @@ import { writeFileSync, readFileSync, mkdirSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { CAR_DB, isCarNew } from './src/constants';
+import { ANNOUNCED_CARS } from './src/constants/announcedVehicles';
 import { CATALOG_EVIDENCE } from './src/constants/catalogEvidence';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -45,7 +46,7 @@ const staticRoutes = [
   url(`${BASE_URL}/privacy.html`, '0.3', 'yearly'),
 ];
 
-const carRoutes = CAR_DB.map(car =>
+const carRoutes = [...CAR_DB, ...ANNOUNCED_CARS].map(car =>
   url(`${BASE_URL}/carro/${toSlug(car.brand, car.model)}`, '0.8', 'monthly')
 );
 
@@ -69,6 +70,7 @@ mkdirSync(dataDir, { recursive: true });
 const carsJson = {
   generated_at: new Date().toISOString(),
   total: CAR_DB.length,
+  announced_total: ANNOUNCED_CARS.length,
   base_image_url: 'https://guiapbev.cloud/car-images',
   evidence: {
     official_source: CATALOG_EVIDENCE.officialSourceLabel,
@@ -114,6 +116,19 @@ const carsJson = {
     slug:                   toSlug(car.brand, car.model),
     detail_url:             `https://guiapbev.cloud/carro/${toSlug(car.brand, car.model)}`,
   })),
+  // Contrato aditivo: não inserir null/zero no array de veículos com preço.
+  announced_cars: ANNOUNCED_CARS.map(car => ({
+    model: car.model, brand: car.brand, price: null, price_status: car.priceStatus,
+    announced_on: car.announcedOn, presale_starts_on: car.presaleStartsOn,
+    reviewed_on: car.reviewedOn, category: car.cat, powertrain: car.powertrain,
+    range_km: car.range, battery_kwh: car.battery, power_cv: car.power,
+    torque_kgfm: car.torque, traction: car.traction,
+    supports_dc_charging: car.supportsDcCharging ?? false,
+    specification_note: car.specificationNote, sources: car.sources, features: car.features,
+    image_url: car.img.startsWith('http') ? car.img : `${BASE_URL}${car.img}`,
+    slug: toSlug(car.brand, car.model),
+    detail_url: `${BASE_URL}/carro/${toSlug(car.brand, car.model)}`,
+  })),
 };
 
 const jsonPath = resolve(dataDir, 'cars.json');
@@ -127,7 +142,7 @@ const hybridCount = CAR_DB.filter(c => (c.powertrain ?? 'BEV') !== 'BEV').length
 const catalogLabel = hybridCount > 0 ? `${brands} marcas` : `${brands} marcas`;
 const readmePath = resolve(__dirname, 'README.md');
 const readme = readFileSync(readmePath, 'utf-8');
-const updatedReadme = readme
+let updatedReadme = readme
   .replace(
     /\*\*\d+ veículos\*\*(?: BEV cadastrados| \(BEV \+ híbridos\) cadastrados) \(\d+ marcas\)/,
     hybridCount > 0
@@ -140,6 +155,14 @@ const updatedReadme = readme
       ? `**${CAR_DB.length} vehicles** (BEV + hybrids) registered (${brands} brands)`
       : `**${CAR_DB.length} BEV vehicles** registered (${brands} brands)`
   );
+const announcedPt = `- **${ANNOUNCED_CARS.length} pré-lançamento(s)** sem preço divulgado, separado(s) dos cálculos financeiros`;
+const announcedEn = `- **${ANNOUNCED_CARS.length} upcoming vehicle(s)** without announced prices, excluded from financial calculations`;
+updatedReadme = /- \*\*\d+ pré-lançamento\(s\)\*\*/.test(updatedReadme)
+  ? updatedReadme.replace(/- \*\*\d+ pré-lançamento\(s\)\*\*[^\n]*/, announcedPt)
+  : updatedReadme.replace(/(- \*\*\d+ veículos\*\*[^\n]*\n)/, `$1${announcedPt}\n`);
+updatedReadme = /- \*\*\d+ upcoming vehicle\(s\)\*\*/.test(updatedReadme)
+  ? updatedReadme.replace(/- \*\*\d+ upcoming vehicle\(s\)\*\*[^\n]*/, announcedEn)
+  : updatedReadme.replace(/(- \*\*\d+ vehicles\*\*[^\n]*\n)/, `$1${announcedEn}\n`);
 if (updatedReadme !== readme) {
   writeFileSync(readmePath, updatedReadme, 'utf-8');
   console.log(`✅ README.md atualizado — ${CAR_DB.length} veículos, ${brands} marcas`);
