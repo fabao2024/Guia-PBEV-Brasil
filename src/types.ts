@@ -31,6 +31,11 @@ export interface Car {
   /** Combustível do motor a combustão (híbridos). */
   fuelType2?: 'gasolina' | 'etanol' | 'flex' | 'diesel';
   power?: number; // cv
+  /** Natureza de `power`; ausente preserva o contrato legado, sem inferir combinada. */
+  powerBasis?: 'electric_motor' | 'combined';
+  combustionPowerCv?: number;
+  electricMotorPowerCv?: number; // somente o motor elétrico de tração, não o gerador
+  combinedPowerCv?: number | null; // null = não confirmada; nunca somar os motores
   torque?: number; // kgfm
   traction?: 'FWD' | 'RWD' | 'AWD';
   battery?: number; // kWh

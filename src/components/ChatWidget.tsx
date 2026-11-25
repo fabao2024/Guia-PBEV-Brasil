@@ -8,6 +8,7 @@ import { CAR_DB } from '../constants';
 import { ANNOUNCED_CARS } from '../constants/announcedVehicles';
 import { Car, ChatMessage, powertrainOf } from '../types';
 import { combinedRangeOf, electricRangeOf } from '../utils/powertrain';
+import { hasPowerBreakdown, motorPowerSummary } from '../utils/power';
 import { sanitizeChatInput, validateChatInput } from '../utils/sanitize';
 import { traceLLMCall } from '../utils/tracing';
 import { track } from '../utils/analytics';
@@ -312,7 +313,7 @@ function buildCarSummary(lang: string): string {
       : pt === 'BEV'
         ? `autonomia PBEV ${electricRange ?? '—'} km`
         : `autonomia elétrica ${electricRange ?? '—'} km${combinedRange ? `, total combinada ${combinedRange} km` : ''}${c.fuelConsumptionKml ? `, consumo ${c.fuelConsumptionKml} km/L` : ''}`;
-    return `${c.brand} ${c.model}: R$${c.price.toLocaleString('pt-BR')}, [${pt}] ${metrics}, ${c.cat}${c.power ? `, ${c.power}cv (combinados/sistema; não é potência elétrica fiscal)` : ''}${c.torque ? `, ${c.torque}kgfm` : ''}${pt !== 'BEV' ? `, combustível: ${c.fuelType2 ?? 'não informado'}. ${buildCarTaxSummary(c)}` : ''}`;
+    return `${c.brand} ${c.model}: R$${c.price.toLocaleString('pt-BR')}, [${pt}] ${metrics}, ${c.cat}${hasPowerBreakdown(c) ? `, ${motorPowerSummary(c)}` : c.power ? `, ${c.power}cv (combinados/sistema; não é potência elétrica fiscal)` : ''}${c.torque ? `, ${c.torque}kgfm` : ''}${pt !== 'BEV' ? `, combustível: ${c.fuelType2 ?? 'não informado'}. ${buildCarTaxSummary(c)}` : ''}`;
   }).join('\\n');
   const announcedList = ANNOUNCED_CARS.map(car =>
     `${car.brand} ${car.model}: ${isEn ? 'price not announced; expected pre-sales' : 'preço a divulgar; pré-venda prevista'} ${car.presaleStartsOn}; ${car.power}cv; ${car.traction}; ${car.range}km/${car.battery}kWh ${isEn ? 'reported to the press, primary specification/label pending' : 'divulgados à imprensa, ficha/etiqueta primária pendente'}. ${car.url}`,
@@ -478,7 +479,7 @@ function buildRagContext(query: string, lang: string): string | null {
       : pt === 'BEV'
         ? `autonomia PBEV ${electricRange ?? '—'} km`
         : `autonomia elétrica ${electricRange ?? '—'} km${combinedRange ? `, total combinada ${combinedRange} km` : ''}`;
-    return `- ${c.brand} ${c.model}: R$${c.price.toLocaleString('pt-BR')}, [${pt}] ${metrics}, ${c.cat}${c.traction ? `, ${c.traction}` : ''}${c.power ? `, ${c.power}cv` : ''}`;
+    return `- ${c.brand} ${c.model}: R$${c.price.toLocaleString('pt-BR')}, [${pt}] ${metrics}, ${c.cat}${c.traction ? `, ${c.traction}` : ''}${hasPowerBreakdown(c) ? `, ${motorPowerSummary(c)}` : c.power ? `, ${c.power}cv` : ''}`;
   }).join('\\n');
 
   return isEn

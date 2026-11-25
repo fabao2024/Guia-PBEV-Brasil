@@ -7,6 +7,8 @@ import { ArrowLeft, Zap, BatteryCharging, CheckCircle2, XCircle } from 'lucide-r
 import { resolveCarImageUrl } from '../utils/imageUrl';
 import { combinedRangeOf, electricRangeOf, powertrainLabel, powertrainOf } from '../utils/powertrain';
 import DataEvidence from '../components/DataEvidence';
+import { useTranslation } from 'react-i18next';
+import { hasPowerBreakdown, powerLabelKey } from '../utils/power';
 
 function imgSrc(car: (typeof CAR_DB)[0]): string {
   return resolveCarImageUrl(car.img, 800);
@@ -54,6 +56,7 @@ function CompareRow({ label, a, b, higherIsBetter = true, suffix = '', neutral =
 }
 
 export default function CompareDetailPage() {
+  const { t } = useTranslation();
   const { slugA, slugB } = useParams<{ slugA: string; slugB: string }>();
 
   const carA = useMemo(() => (slugA ? findCarBySlug(slugA, CAR_DB) : undefined), [slugA]);
@@ -170,7 +173,18 @@ export default function CompareDetailPage() {
                 )}
                 <CompareRow label="Autonomia elétrica" a={electricRangeOf(carA)} b={electricRangeOf(carB)} suffix=" km" />
                 <CompareRow label="Autonomia total combinada (PHEV/REEV)" a={combinedRangeOf(carA)} b={combinedRangeOf(carB)} suffix=" km" />
-                <CompareRow label="Potência" a={carA.power} b={carB.power} suffix=" cv" />
+                <CompareRow label="Potência" a={carA.power} b={carB.power} suffix=" cv"
+                  neutral={carA.powerBasis !== carB.powerBasis} />
+                {(hasPowerBreakdown(carA) || hasPowerBreakdown(carB)) && (
+                  <>
+                    <CompareRow label={t('details.powerBasis')} a={t(powerLabelKey(carA))} b={t(powerLabelKey(carB))} neutral />
+                    <CompareRow label={t('details.electricPower')} a={carA.electricMotorPowerCv} b={carB.electricMotorPowerCv} suffix=" cv" />
+                    <CompareRow label={t('details.combustionPower')} a={carA.combustionPowerCv} b={carB.combustionPowerCv} suffix=" cv" />
+                    <CompareRow label={t('details.combinedPower')}
+                      a={carA.combinedPowerCv === null ? t('details.powerUnconfirmed') : carA.combinedPowerCv}
+                      b={carB.combinedPowerCv === null ? t('details.powerUnconfirmed') : carB.combinedPowerCv} suffix=" cv" />
+                  </>
+                )}
                 <CompareRow label="Torque" a={carA.torque} b={carB.torque} suffix=" kgfm" />
                 <CompareRow label="Bateria" a={carA.battery} b={carB.battery} suffix=" kWh" />
                 <CompareRow label="Recarga AC" a={carA.chargeAC} b={carB.chargeAC} suffix=" kW" />

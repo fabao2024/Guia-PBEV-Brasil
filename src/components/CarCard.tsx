@@ -7,6 +7,7 @@ import { getPriceDelta } from '../constants/priceHistory';
 import { toSlug } from '../utils/slug';
 import { getCarImageDimensions, resolveCarImageSrcSet, resolveCarImageUrl } from '../utils/imageUrl';
 import { powertrainOf, primaryCarMetric, combinedRangeOf } from '../utils/powertrain';
+import { powerLabelKey } from '../utils/power';
 import { Check, ImageOff, Heart, BatteryCharging, Fuel, Scale, ArrowUpRight } from 'lucide-react';
 
 interface CarCardProps {
@@ -269,7 +270,7 @@ const CarCard: React.FC<CarCardProps> = ({
             style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)' }}
           >
             <div className="text-[10px] uppercase tracking-widest mb-0.5" style={{ color: 'rgba(255,255,255,0.25)' }}>
-              {t('details.power', 'Potência')}
+              {t(powerLabelKey(car))}
             </div>
             <div className="font-display text-sm font-bold text-white leading-none">
               {estimatedPower}

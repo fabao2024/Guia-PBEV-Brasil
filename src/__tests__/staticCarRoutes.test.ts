@@ -33,6 +33,10 @@ interface FixtureCar {
   range_km: number;
   category: string;
   power_cv: number;
+  power_basis?: 'electric_motor' | 'combined';
+  combustion_power_cv?: number;
+  electric_motor_power_cv?: number;
+  combined_power_cv?: number | null;
   battery_kwh?: number;
   image_url: string;
   powertrain?: 'BEV' | 'PHEV' | 'HEV' | 'REEV';
@@ -164,6 +168,20 @@ describe('static car route pages', () => {
     expect(html).toContain('17,5 km/l Inmetro');
     expect(html).toContain('híbrido sem tomada');
     expect(html).not.toContain('0 km PBEV');
+  });
+
+  it('qualifica os 184 cv Honda como elétricos nos metadados estáticos', () => {
+    const car: FixtureCar = {
+      ...fixtureCars[0], brand: 'Honda', model: 'CR-V Advanced Hybrid',
+      powertrain: 'HEV', range_km: 0, fuel_consumption_kml: 14.2,
+      power_cv: 184, power_basis: 'electric_motor', combustion_power_cv: 147,
+      electric_motor_power_cv: 184, combined_power_cv: null,
+    };
+    const html = runTool([car]);
+    expect(html).toContain('motor elétrico de tração: 184 cv');
+    expect(html).toContain('motor a combustão: 147 cv');
+    expect(html).toContain('potência combinada não confirmada');
+    expect(html).not.toMatch(/331 cv|207 cv|184 cv combinados/);
   });
 });
 

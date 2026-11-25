@@ -5,6 +5,7 @@ import { Car } from '../types';
 import { X, Check, Minus, Map, Battery, Car as CarIcon, DollarSign, Zap, Gauge, Activity, Sparkles, RefreshCw, Plus, Ruler } from 'lucide-react';
 import { resolveCarImageUrl } from '../utils/imageUrl';
 import { combinedRangeOf, electricRangeOf, powertrainOf, primaryCarMetric } from '../utils/powertrain';
+import { hasPowerBreakdown, powerLabelKey } from '../utils/power';
 
 interface ComparisonModalProps {
    cars: Car[];
@@ -47,6 +48,10 @@ function getRecommendations(cars: Car[], allCars: Car[]): Car[] {
 export default function ComparisonModal({ cars, allCars, onClose, onRemove, onAdd }: ComparisonModalProps) {
    const { t } = useTranslation();
    const [suggestionIdx, setSuggestionIdx] = useState(0);
+   const powerRows = cars.some(hasPowerBreakdown) ? [
+      { key: 'combustionPower', value: (car: Car) => car.combustionPowerCv },
+      { key: 'combinedPower', value: (car: Car) => car.combinedPowerCv },
+   ] : [];
 
    const recommendations = useMemo(() => getRecommendations(cars, allCars), [cars, allCars]);
 
@@ -123,6 +128,11 @@ export default function ComparisonModal({ cars, allCars, onClose, onRemove, onAd
                      <div className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.price')}</div>
                      <div className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">Métrica principal</div>
                      <div className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.power')}</div>
+                     {powerRows.map(row => (
+                        <div key={row.key} className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">
+                           {t(`details.${row.key}`)}
+                        </div>
+                     ))}
                      <div className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.torque')}</div>
                      <div className="font-black text-[#666666] text-[10px] sm:text-xs uppercase tracking-widest h-10 flex items-center">{t('comparison.battery', 'Bateria')}</div>
                      {dimRows.map(row => (
@@ -182,12 +192,19 @@ export default function ComparisonModal({ cars, allCars, onClose, onRemove, onAd
                            <span className="text-[9px] text-[#666] ml-5">{primaryCarMetric(car).label}{combinedRangeOf(car) ? ` · total combinada ${combinedRangeOf(car)} km` : ''}</span>
                         </div>
 
-                        <div className="h-10 flex items-center">
+                        <div className="h-10 flex flex-col justify-center">
                            <span className="font-bold text-white flex items-center gap-1.5">
                               <Gauge className="w-4 h-4 text-[#00b4ff]" />
                               {car.power ? `${car.power} cv` : <span className="text-[#666666] font-bold uppercase tracking-widest text-xs">{t('details.notAvailable')}</span>}
                            </span>
+                           {car.powerBasis && <span className="text-[10px] text-white/60">{t(powerLabelKey(car))}</span>}
                         </div>
+                        {powerRows.map(row => (
+                           <div key={row.key} className="h-10 flex items-center text-sm font-bold text-white">
+                              {row.value(car) != null ? `${row.value(car)} cv`
+                                 : row.value(car) === null ? t('details.powerUnconfirmed') : t('details.notAvailable')}
+                           </div>
+                        ))}
 
                         <div className="h-10 flex items-center">
                            <span className="font-bold text-white flex items-center gap-1.5">

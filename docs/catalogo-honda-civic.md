@@ -2,6 +2,8 @@
 
 Consulta em **25/11/2026**, referente à versão brasileira **2025/2026** identificada pela página Honda. Sem alteração de nome, slug ou quantidade de veículos.
 
+Complemento da revisão de potências dos três modelos Honda em [catalogo-honda-hybrid-potencias.md](catalogo-honda-hybrid-potencias.md): campos distintos por motor e combinada explicitamente não confirmada.
+
 ## Fontes e limites
 
 - [Página indicada pelo usuário](https://www.honda.com.br/automoveis/civic): visual reestilizado, Google integrado e ano/modelo 2025/2026. O acesso direto retornou HTTP 403, inclusive no navegador; texto e catálogo foram consultados pela indexação pública das URLs oficiais. O preço dinâmico não ficou legível. Não se declara leitura direta bem-sucedida nem preço vigente confirmado.

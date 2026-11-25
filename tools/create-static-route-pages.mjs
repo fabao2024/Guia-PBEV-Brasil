@@ -118,10 +118,15 @@ for (const car of allCars) {
     ? `consumo Inmetro ${fuelEconomy} km/l`
     : `autonomia ${powertrain === 'BEV' ? '' : 'elétrica '}PBEV ${car.range_km} km`;
   const comparisonLabel = powertrain === 'BEV' ? 'elétricos' : 'eletrificados';
+  const powerSegment = car.power_basis === 'electric_motor'
+    ? `motor elétrico de tração: ${car.electric_motor_power_cv ?? car.power_cv} cv`
+      + (car.combustion_power_cv != null ? `, motor a combustão: ${car.combustion_power_cv} cv` : '')
+      + (car.combined_power_cv != null ? `, potência combinada: ${car.combined_power_cv} cv` : ', potência combinada não confirmada')
+    : `${car.power_cv} cv${car.power_basis === 'combined' ? ' combinados' : ''}`;
   const presaleDate = announced ? car.presale_starts_on.split('-').reverse().join('/') : '';
   const description = announced
     ? `${brand} ${model}: Pré-venda prevista para ${presaleDate}. Preço a divulgar.`
-    : `${brand} ${model}: ${rangeSegment}, ${String(car.category).toLowerCase()} ${propulsionLabel}, ${car.power_cv} cv${batterySegment}. Preço estimado R$ ${priceLabel}. Compare com outros ${comparisonLabel} no Guia PBEV Brasil.`;
+    : `${brand} ${model}: ${rangeSegment}, ${String(car.category).toLowerCase()} ${propulsionLabel}, ${powerSegment}${batterySegment}. Preço estimado R$ ${priceLabel}. Compare com outros ${comparisonLabel} no Guia PBEV Brasil.`;
   const canonicalUrl = `${SITE_ORIGIN}/carro/${slug}`;
   const imageUrl = String(car.image_url);
 

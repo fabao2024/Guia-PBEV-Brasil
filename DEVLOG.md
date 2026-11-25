@@ -2,6 +2,16 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 25/11/2026 — Potências dos Honda Civic, CR-V e Accord híbridos (validação local)
+
+- Separadas potência elétrica de tração, potência térmica e potência combinada nos três modelos brasileiros. Fontes primárias Honda confirmam respectivamente 184/143 cv no Civic, 184/147 cv no CR-V e 184/146 cv no Accord; escopos e comunicados datados em `docs/catalogo-honda-hybrid-potencias.md`.
+- Os 184 cv deixam de aparecer como potência de natureza indefinida. Campo legado preservado com `powerBasis: 'electric_motor'`; CR-V e Accord deixam de acionar os fallbacks indevidos de 118/111 cv derivados do preço. Combinada explicitamente `null`/“Não confirmada”: 207 cv reportados pela imprensa não foram promovidos a confirmação primária. Nenhuma soma dos motores ou potência extra atribuída ao gerador.
+- Cards, fichas/modal, comparadores, metadados estáticos, schema e contexto do consultor distinguem os motores. Comparação genérica com bases diferentes não marca vencedor. Painel compacto PT/EN mantém o visual existente; schema omite combinada desconhecida. Export JSON aditivo qualifica `power_cv` com quatro campos opcionais, sem alterar os 199 demais registros, preços, cálculos ou o anúncio sem preço do Bao 3.
+- TDD: 11 cenários falharam antes da implementação; validação ampliada com 75 testes direcionados em nove arquivos aprovada, assim como TypeScript, build, scanner e proveniência após build (`unchanged`, 1050/2030 campos verificados). Suíte completa serial: **645/647 testes em 75 arquivos**; permanecem apenas as duas falhas já documentadas: timeout do catálogo em `accessibility.test.tsx` e botão `/consultor ia/i` ausente em `AppPartnersCta.test.tsx`. Nenhum teste ou limite foi silenciado/relaxado; não se declara aprovação integral. Reexecução dos 21 testes de potência/metadados estáticos aprovada após tornar inequívoco o seletor da linha genérica de potência na comparação.
+- Navegador: fichas HTTP 200 dos três modelos, dados por motor e ausência de combinada no schema conferidos. Painéis dentro da largura em 1440, 390 e 360 px; auditoria axe-core do novo painel sem violações WCAG A/AA e nenhum erro de execução. Comparação CR-V/Dolphin Mini identifica bases distintas e combinada pendente; overflow decorativo móvel preexistente da ficha não foi alterado.
+- Revisão pré-commit: reexecutados e aprovados os 75 testes direcionados, TypeScript, build, scanner e proveniência (`unchanged`, 1050/2030). Resultado integral de 645/647 preservado acima, sem declarar a suíte completa aprovada.
+- Estado: commit autorizado na branch `fix/honda-hybrid-power`, com envio da branch ao GitHub. Revisão anterior do Civic preservada sobre a `main` atualizada com Bao 3; sem integração à `main` nem publicação do site nesta etapa. Sem alteração no bot.
+
 ## 25/11/2026 — DENZA BAO 3 sem preço divulgado (validação local)
 
 | Item | Detalhe |

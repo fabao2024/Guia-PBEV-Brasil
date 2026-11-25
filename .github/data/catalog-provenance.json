@@ -7342,6 +7342,7 @@
     "honda-accord-advanced-hybrid": {
       "brand": "Honda",
       "model": "Accord Advanced Hybrid",
+      "notes": "Potências por motor revisadas em docs/catalogo-honda-hybrid-potencias.md. Não interpretar os 184 cv elétricos como potência combinada.",
       "fields": {
         "price": {
           "verificationStatus": "verified",
@@ -7365,11 +7366,12 @@
           "verifiedAt": "2026-09-18"
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://saladeimprensa.honda.com.br/releases/accord-advanced-hybrid-conectividade-aprimorada",
+          "sourceUpdatedAt": "2025-09-26",
+          "verifiedAt": "2026-11-25",
+          "notes": "Motor elétrico de tração 184 cv; motor 2.0 DI a gasolina 146 cv. Potência combinada não confirmada em fonte primária brasileira, mantida null; 207 cv citados pela imprensa não promovidos a evidência oficial."
         },
         "battery": {
           "verificationStatus": "legacy_unverified",
@@ -7447,7 +7449,8 @@
           "sourceType": "official_press_release",
           "sourceUrl": "https://saladeimprensa.honda.com.br/releases/lancamento-civic-advanced-hybrid-onde-inovacao-encontra-sofisticacao",
           "sourceUpdatedAt": "2025-06-30",
-          "verifiedAt": "2026-11-25"
+          "verifiedAt": "2026-11-25",
+          "notes": "Motor elétrico de tração 184 cv; motor 2.0 DI a gasolina 143 cv. Combinada não confirmada em fonte primária brasileira, mantida null; não somar 327 cv. Ver docs/catalogo-honda-hybrid-potencias.md."
         },
         "battery": {
           "verificationStatus": "verified",
@@ -7498,6 +7501,7 @@
     "honda-cr-v-advanced-hybrid": {
       "brand": "Honda",
       "model": "CR-V Advanced Hybrid",
+      "notes": "Revisão de potência, geração brasileira lançada em 2024. Ver docs/catalogo-honda-hybrid-potencias.md; os demais campos legados não foram revalidados.",
       "fields": {
         "price": {
           "verificationStatus": "legacy_unverified",
@@ -7521,11 +7525,12 @@
           "verifiedAt": null
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://saladeimprensa.honda.com.br/releases/honda-cr-v-advanced-hybrid-nova-geracao-estreia-no-brasil-com-tecnologia-hibrida-avancada",
+          "sourceUpdatedAt": "2024-02-26",
+          "verifiedAt": "2026-11-25",
+          "notes": "Motor elétrico de tração 184 cv; motor 2.0 DI a gasolina 147 cv. Potência combinada não confirmada em fonte primária brasileira, mantida null; 207 cv citados pela imprensa não promovidos a evidência oficial."
         },
         "battery": {
           "verificationStatus": "legacy_unverified",
@@ -17785,12 +17790,6 @@
       "recordedAt": "2026-11-02",
       "field": "gwm-wey-07.availability"
     },
-    "honda-accord-advanced-hybrid.power": {
-      "reason": "Campo herdado do catálogo anterior sem evidência histórica registrada no repositório.",
-      "reviewCondition": "Revisar com fonte oficial do fabricante, regulador ou comunicado oficial antes de alterar o valor.",
-      "recordedAt": "2026-11-02",
-      "field": "honda-accord-advanced-hybrid.power"
-    },
     "honda-accord-advanced-hybrid.battery": {
       "reason": "Campo herdado do catálogo anterior sem evidência histórica registrada no repositório.",
       "reviewCondition": "Revisar com fonte oficial do fabricante, regulador ou comunicado oficial antes de alterar o valor.",
@@ -17856,12 +17855,6 @@
       "reviewCondition": "Revisar com fonte oficial do fabricante, regulador ou comunicado oficial antes de alterar o valor.",
       "recordedAt": "2026-11-02",
       "field": "honda-cr-v-advanced-hybrid.consumption"
-    },
-    "honda-cr-v-advanced-hybrid.power": {
-      "reason": "Campo herdado do catálogo anterior sem evidência histórica registrada no repositório.",
-      "reviewCondition": "Revisar com fonte oficial do fabricante, regulador ou comunicado oficial antes de alterar o valor.",
-      "recordedAt": "2026-11-02",
-      "field": "honda-cr-v-advanced-hybrid.power"
     },
     "honda-cr-v-advanced-hybrid.battery": {
       "reason": "Campo herdado do catálogo anterior sem evidência histórica registrada no repositório.",
