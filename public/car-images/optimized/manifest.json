@@ -1690,6 +1690,44 @@
       ]
     },
     {
+      "src": "/car-images/honda-civic-hybrid.jpg",
+      "width": 6000,
+      "height": 4000,
+      "alpha": false,
+      "bytes": 1260845,
+      "sha256": "2fe26a7096529718147317233b000f6b7b6148789a81597a080aeda54135cfe8",
+      "variants": [
+        {
+          "src": "/car-images/optimized/honda-civic-hybrid.jpg-320.webp",
+          "width": 320,
+          "height": 213,
+          "bytes": 6612,
+          "sha256": "6ddd12ff0b64cc825ee8169305eb575c532564962117f9834c35ea09f835c329"
+        },
+        {
+          "src": "/car-images/optimized/honda-civic-hybrid.jpg-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 18728,
+          "sha256": "e18b081cd0c7ce0b8b2c255684085e1c0aea0e541603d41b43183d3a1be900cf"
+        },
+        {
+          "src": "/car-images/optimized/honda-civic-hybrid.jpg-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 34874,
+          "sha256": "7a24dd412a8621f41a4c42ecec6058c74f4666bb37e9f4e396c50d317be8cdf3"
+        },
+        {
+          "src": "/car-images/optimized/honda-civic-hybrid.jpg-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 54068,
+          "sha256": "b49b6b38d06e0a7dcc851ba04a1b2f83cf6805ce36f8fc2e3d86694d5542da5b"
+        }
+      ]
+    },
+    {
       "src": "/car-images/id4.jpg",
       "width": 960,
       "height": 554,
