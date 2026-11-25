@@ -96,6 +96,13 @@
     "toastRemoved": "Removed from favorites"
   },
   "details": {
+    "electricPower": "Electric traction motor",
+    "combustionPower": "Combustion engine",
+    "combinedPower": "Combined system power",
+    "powerBasis": "Power basis",
+    "powerBreakdown": "Power by motor",
+    "powerUnconfirmed": "Unconfirmed",
+    "powerBreakdownNote": "Individual power ratings are not added together. In these Honda e:HEV models, the second electric motor acts as a generator, not an additional traction unit.",
     "close": "Close vehicle details",
     "imageUnavailable": "Image+Unavailable",
     "exteriorMain": "Main Exterior",

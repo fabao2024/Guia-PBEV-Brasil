@@ -1147,6 +1147,32 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
+  "/car-images/honda-civic-hybrid.jpg": {
+    "width": 6000,
+    "height": 4000,
+    "variants": [
+      {
+        "src": "/car-images/optimized/honda-civic-hybrid.jpg-320.webp",
+        "width": 320,
+        "height": 213
+      },
+      {
+        "src": "/car-images/optimized/honda-civic-hybrid.jpg-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      {
+        "src": "/car-images/optimized/honda-civic-hybrid.jpg-960.webp",
+        "width": 960,
+        "height": 640
+      },
+      {
+        "src": "/car-images/optimized/honda-civic-hybrid.jpg-1280.webp",
+        "width": 1280,
+        "height": 853
+      }
+    ]
+  },
   "/car-images/id4.jpg": {
     "width": 960,
     "height": 554,

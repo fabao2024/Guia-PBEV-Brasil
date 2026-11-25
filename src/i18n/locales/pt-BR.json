@@ -96,6 +96,13 @@
     "toastRemoved": "Removido dos favoritos"
   },
   "details": {
+    "electricPower": "Motor elétrico de tração",
+    "combustionPower": "Motor a combustão",
+    "combinedPower": "Potência combinada",
+    "powerBasis": "Base da potência",
+    "powerBreakdown": "Potência por motor",
+    "powerUnconfirmed": "Não confirmada",
+    "powerBreakdownNote": "As potências individuais não são somadas. Nestes Honda e:HEV, o segundo motor elétrico atua como gerador; não é uma unidade adicional de tração.",
     "close": "Fechar ficha técnica",
     "imageUnavailable": "Imagem+Indisponível",
     "exteriorMain": "Exterior Principal",

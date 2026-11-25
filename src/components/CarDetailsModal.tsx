@@ -16,6 +16,8 @@ import { getCarUrl } from '../utils/slug';
 import { hasDimensions, dimensionProperties } from '../utils/dimensions';
 import DimensionsSpec from './DimensionsSpec';
 import DataEvidence from './DataEvidence';
+import MotorPowerDetails from './MotorPowerDetails';
+import { powerLabelKey, powerProperties } from '../utils/power';
 
 interface CarDetailsModalProps {
     car: Car;
@@ -109,7 +111,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
         { '@type': 'PropertyValue', name: primaryMetric.label, value: `${primaryMetric.value} ${primaryMetric.unit}` },
         ...(combinedRange ? [{ '@type': 'PropertyValue', name: 'Autonomia total combinada', value: `${combinedRange} km`, unitCode: 'KMT' }] : []),
         ...(car.fuelConsumptionKml ? [{ '@type': 'PropertyValue', name: 'Consumo de combustível', value: `${car.fuelConsumptionKml} km/l` }] : []),
-        ...(car.power ? [{ '@type': 'PropertyValue', name: 'Potência', value: `${car.power} cv`, unitCode: 'HWP' }] : []),
+        ...powerProperties(car),
         ...(car.battery ? [{ '@type': 'PropertyValue', name: 'Bateria', value: `${car.battery} kWh` }] : []),
         ...(car.traction ? [{ '@type': 'PropertyValue', name: 'Tração', value: car.traction }] : []),
         ...(hasDimensions(car) ? dimensionProperties(car) : []),
@@ -364,6 +366,8 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                         </div>
                     </div>
 
+                    <MotorPowerDetails car={car} />
+
                     {/* Power + Traction + Torque + Battery chips */}
                     <div className="grid grid-cols-2 gap-2 mb-5">
                         <div
@@ -371,7 +375,7 @@ export default function CarDetailsModal({ car, onClose, isSelectedForCompare, on
                             style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
                         >
                             <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: 'rgba(255,255,255,0.28)' }}>
-                                {t('details.power', 'Potência')}
+                                {t(powerLabelKey(car))}
                             </div>
                             <div className="text-xl font-black text-white leading-none">
                                 {estimatedPower}

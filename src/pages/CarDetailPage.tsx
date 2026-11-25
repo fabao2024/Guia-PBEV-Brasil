@@ -19,6 +19,8 @@ import { hasDimensions, dimensionProperties } from '../utils/dimensions';
 import { carMetaDescription, combinedRangeOf, powertrainLabel, powertrainOf, primaryCarMetric } from '../utils/powertrain';
 import DimensionsSpec from '../components/DimensionsSpec';
 import DataEvidence from '../components/DataEvidence';
+import MotorPowerDetails from '../components/MotorPowerDetails';
+import { powerLabelKey, powerProperties } from '../utils/power';
 
 const CAT_ACCENT: Record<string, { color: string; bg: string }> = {
   Luxo:      { color: '#f5c842', bg: 'rgba(245,200,66,0.07)'  },
@@ -118,7 +120,7 @@ export default function CarDetailPage() {
         { '@type': 'PropertyValue', name: primaryCarMetric(car).label, value: `${primaryCarMetric(car).value} ${primaryCarMetric(car).unit}` },
         ...(combinedRangeOf(car) ? [{ '@type': 'PropertyValue', name: 'Autonomia total combinada', value: `${combinedRangeOf(car)} km`, unitCode: 'KMT' }] : []),
         ...(car.fuelConsumptionKml ? [{ '@type': 'PropertyValue', name: 'Consumo de combustível', value: `${car.fuelConsumptionKml} km/l` }] : []),
-        ...(car.power ? [{ '@type': 'PropertyValue', name: 'Potência', value: `${car.power} cv`, unitCode: 'HWP' }] : []),
+        ...powerProperties(car),
         ...(car.battery ? [{ '@type': 'PropertyValue', name: 'Bateria', value: `${car.battery} kWh` }] : []),
         ...(car.traction ? [{ '@type': 'PropertyValue', name: 'Tração', value: car.traction }] : []),
         ...(hasDimensions(car) ? dimensionProperties(car) : []),
@@ -380,7 +382,7 @@ export default function CarDetailPage() {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               <div className="rounded-xl px-4 py-3" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
                 <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: 'rgba(255,255,255,0.28)' }}>
-                  {t('details.power', 'Potência')}
+                  {t(powerLabelKey(car))}
                 </div>
                 <div className="text-xl font-black text-white leading-none">
                   {estimatedPower}<span className="text-sm font-normal ml-1" style={{ color: 'rgba(255,255,255,0.35)' }}>cv</span>
@@ -448,6 +450,8 @@ export default function CarDetailPage() {
               )}
             </div>
           </section>
+
+          <MotorPowerDetails car={car} />
 
           {/* Warranty & Charging */}
           {(car.warrantyYears || car.chargeAC || car.chargeDC !== undefined) && (() => {

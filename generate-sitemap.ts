@@ -95,6 +95,12 @@ const carsJson = {
     image_url:              car.img.startsWith('http') ? car.img : `https://guiapbev.cloud${car.img}`,
     traction:               car.traction      ?? null,
     power_cv:               car.power         ?? null,
+    ...(car.powerBasis ? {
+      power_basis: car.powerBasis,
+      combustion_power_cv: car.combustionPowerCv ?? null,
+      electric_motor_power_cv: car.electricMotorPowerCv ?? null,
+      combined_power_cv: car.combinedPowerCv ?? null,
+    } : {}),
     torque_kgfm:            car.torque        ?? null,
     battery_kwh:            car.battery       ?? null,
     charge_ac_kw:           car.chargeAC      ?? null,
