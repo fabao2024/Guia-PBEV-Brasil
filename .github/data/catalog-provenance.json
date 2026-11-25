@@ -7356,6 +7356,7 @@
     "honda-civic-advanced-hybrid": {
       "brand": "Honda",
       "model": "Civic Advanced Hybrid",
+      "notes": "Revisão brasileira 2025/2026 em docs/catalogo-honda-civic.md. Catálogo e página consultados pela indexação pública após 403 direto; comunicado acessível diretamente. Datas do PDF conforme publicação indexada, página comercial com data de observação; preço e massa não confirmados.",
       "fields": {
         "price": {
           "verificationStatus": "legacy_unverified",
@@ -7365,60 +7366,63 @@
           "verifiedAt": null
         },
         "range_km": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.honda.com.br/automoveis/sites/hab/files/2025-07/Cat%C3%A1logo_do_Ve%C3%ADculo_Civic_Advanced_Hybrid_2025.pdf",
+          "sourceUpdatedAt": "2025-07-08",
+          "verifiedAt": "2026-11-25",
+          "notes": "HEV sem tomada. Zero é sentinela interna de autonomia plug-in não aplicável, não alcance homologado ou ausência de funcionamento EV."
         },
         "consumption": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.honda.com.br/automoveis/sites/hab/files/2025-07/Cat%C3%A1logo_do_Ve%C3%ADculo_Civic_Advanced_Hybrid_2025.pdf",
+          "sourceUpdatedAt": "2025-07-08",
+          "verifiedAt": "2026-11-25"
         },
         "power": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://saladeimprensa.honda.com.br/releases/lancamento-civic-advanced-hybrid-onde-inovacao-encontra-sofisticacao",
+          "sourceUpdatedAt": "2025-06-30",
+          "verifiedAt": "2026-11-25"
         },
         "battery": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.honda.com.br/automoveis/sites/hab/files/2025-07/Cat%C3%A1logo_do_Ve%C3%ADculo_Civic_Advanced_Hybrid_2025.pdf",
+          "sourceUpdatedAt": "2025-07-08",
+          "verifiedAt": "2026-11-25"
         },
         "charging": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.honda.com.br/automoveis/sites/hab/files/2025-07/Cat%C3%A1logo_do_Ve%C3%ADculo_Civic_Advanced_Hybrid_2025.pdf",
+          "sourceUpdatedAt": "2025-07-08",
+          "verifiedAt": "2026-11-25"
         },
         "availability": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.honda.com.br/automoveis/civic",
+          "sourceUpdatedAt": "2026-11-25",
+          "verifiedAt": "2026-11-25",
+          "sourceDateKind": "observed",
+          "notes": "Versão brasileira 2025/2026 apresentada na página oficial indexada; não comprova estoque, prazo de entrega ou preço vigente."
         },
         "dimensions": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.honda.com.br/automoveis/sites/hab/files/2025-07/Cat%C3%A1logo_do_Ve%C3%ADculo_Civic_Advanced_Hybrid_2025.pdf",
+          "sourceUpdatedAt": "2025-07-08",
+          "verifiedAt": "2026-11-25"
         },
         "trunk": {
-          "verificationStatus": "legacy_unverified",
-          "sourceType": null,
-          "sourceUrl": null,
-          "sourceUpdatedAt": null,
-          "verifiedAt": null
+          "verificationStatus": "verified",
+          "sourceType": "official_press_release",
+          "sourceUrl": "https://saladeimprensa.honda.com.br/releases/lancamento-civic-advanced-hybrid-onde-inovacao-encontra-sofisticacao",
+          "sourceUpdatedAt": "2025-06-30",
+          "verifiedAt": "2026-11-25"
         },
         "weight": {
           "verificationStatus": "legacy_unverified",
@@ -17753,62 +17757,14 @@
       "field": "honda-accord-advanced-hybrid.weight"
     },
     "honda-civic-advanced-hybrid.price": {
-      "reason": "Campo herdado do catálogo anterior sem evidência histórica registrada no repositório.",
-      "reviewCondition": "Revisar com fonte oficial do fabricante, regulador ou comunicado oficial antes de alterar o valor.",
+      "reason": "R$ 266.500 indicativos herdados, sem confirmação vigente. Página Honda retornou 403 e o preço dinâmico não ficou legível no índice; R$ 265.900 do comunicado de junho/2025 são preço de lançamento, não atualização de novembro/2026. Ver docs/catalogo-honda-civic.md.",
+      "reviewCondition": "Confirmar preço público vigente na página/configurador Honda ou em tabela oficial datada antes de alterar o valor.",
       "recordedAt": "2026-11-02",
       "field": "honda-civic-advanced-hybrid.price"
     },
-    "honda-civic-advanced-hybrid.range_km": {
-      "reason": "Campo herdado do catálogo anterior sem evidência histórica registrada no repositório.",
-      "reviewCondition": "Revisar com fonte oficial do fabricante, regulador ou comunicado oficial antes de alterar o valor.",
-      "recordedAt": "2026-11-02",
-      "field": "honda-civic-advanced-hybrid.range_km"
-    },
-    "honda-civic-advanced-hybrid.consumption": {
-      "reason": "Campo herdado do catálogo anterior sem evidência histórica registrada no repositório.",
-      "reviewCondition": "Revisar com fonte oficial do fabricante, regulador ou comunicado oficial antes de alterar o valor.",
-      "recordedAt": "2026-11-02",
-      "field": "honda-civic-advanced-hybrid.consumption"
-    },
-    "honda-civic-advanced-hybrid.power": {
-      "reason": "Campo herdado do catálogo anterior sem evidência histórica registrada no repositório.",
-      "reviewCondition": "Revisar com fonte oficial do fabricante, regulador ou comunicado oficial antes de alterar o valor.",
-      "recordedAt": "2026-11-02",
-      "field": "honda-civic-advanced-hybrid.power"
-    },
-    "honda-civic-advanced-hybrid.battery": {
-      "reason": "Campo herdado do catálogo anterior sem evidência histórica registrada no repositório.",
-      "reviewCondition": "Revisar com fonte oficial do fabricante, regulador ou comunicado oficial antes de alterar o valor.",
-      "recordedAt": "2026-11-02",
-      "field": "honda-civic-advanced-hybrid.battery"
-    },
-    "honda-civic-advanced-hybrid.charging": {
-      "reason": "Campo herdado do catálogo anterior sem evidência histórica registrada no repositório.",
-      "reviewCondition": "Revisar com fonte oficial do fabricante, regulador ou comunicado oficial antes de alterar o valor.",
-      "recordedAt": "2026-11-02",
-      "field": "honda-civic-advanced-hybrid.charging"
-    },
-    "honda-civic-advanced-hybrid.availability": {
-      "reason": "Campo herdado do catálogo anterior sem evidência histórica registrada no repositório.",
-      "reviewCondition": "Revisar com fonte oficial do fabricante, regulador ou comunicado oficial antes de alterar o valor.",
-      "recordedAt": "2026-11-02",
-      "field": "honda-civic-advanced-hybrid.availability"
-    },
-    "honda-civic-advanced-hybrid.dimensions": {
-      "reason": "Campo herdado do catálogo anterior sem evidência histórica registrada no repositório.",
-      "reviewCondition": "Revisar com fonte oficial do fabricante, regulador ou comunicado oficial antes de alterar o valor.",
-      "recordedAt": "2026-11-02",
-      "field": "honda-civic-advanced-hybrid.dimensions"
-    },
-    "honda-civic-advanced-hybrid.trunk": {
-      "reason": "Campo herdado do catálogo anterior sem evidência histórica registrada no repositório.",
-      "reviewCondition": "Revisar com fonte oficial do fabricante, regulador ou comunicado oficial antes de alterar o valor.",
-      "recordedAt": "2026-11-02",
-      "field": "honda-civic-advanced-hybrid.trunk"
-    },
     "honda-civic-advanced-hybrid.weight": {
-      "reason": "Campo herdado do catálogo anterior sem evidência histórica registrada no repositório.",
-      "reviewCondition": "Revisar com fonte oficial do fabricante, regulador ou comunicado oficial antes de alterar o valor.",
+      "reason": "Massa legada de 1.449 kg preservada, ausente do catálogo oficial consultado em 25/11/2026; não confirmada para o Civic reestilizado 2025/2026. Ver docs/catalogo-honda-civic.md.",
+      "reviewCondition": "Confirmar massa em ordem de marcha em ficha primária brasileira da versão 2025/2026 antes de alterar ou declarar verificada.",
       "recordedAt": "2026-11-02",
       "field": "honda-civic-advanced-hybrid.weight"
     },

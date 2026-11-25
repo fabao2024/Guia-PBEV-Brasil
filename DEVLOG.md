@@ -2,6 +2,17 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 25/11/2026 — Honda Civic Advanced Hybrid (validação local)
+
+- Revisado o modelo brasileiro 2025/2026 a partir da página Honda, catálogo oficial de julho/2025 e comunicado da marca. Preenchidos 184 cv e 32,1 kgfm do motor elétrico, bateria de 1,05 kWh e comprimento de 4.687 mm; sem somar potência térmica/elétrica. O card deixa de usar o fallback de 89 cv estimado pelo preço.
+- Mantidos HEV a gasolina, consumo urbano de 18,4 km/L e ausência de tomada; rodoviário de 15,9 km/L, Google, Bose e garantias detalhados na ficha. Cobertura híbrida de 8 anos/160.000 km e geral de 3 anos no catálogo de 2025; ressalva de 6 anos apenas para fabricação a partir de 2026, conforme condições Honda.
+- Preço legado de R$ 266.500 e massa de 1.449 kg permanecem com exceções de proveniência. A página e o PDF retornaram 403 direto e foram consultados pela indexação oficial; o comunicado foi acessado diretamente. Preço de lançamento de R$ 265.900 não adotado como vigente. Fontes, datas, limites e crédito da nova foto original Honda em `docs/catalogo-honda-civic.md`.
+- Foto oficial JPEG 6000 × 4000, sem corte ou recompressão manual, substituída no mesmo caminho. Pipeline e `--check` com Pillow 12.3.0 aprovados: 87 originais acima do limiar, 338 variantes. JSON regenerado: somente o Civic alterado, 201 demais registros preservados, total de 202 versões. Proveniência após build: `unchanged`, 1047/2020 campos verificados. Metadados estáticos confirmam 184 cv e 1,05 kWh; as quatro variantes estão no build.
+- TDD: quatro testes novos falharam antes do ajuste; 80 testes direcionados passaram depois, assim como TypeScript, build e scanner de segredos. Primeira suíte completa: 618/621; duas falhas já conhecidas (acessibilidade do catálogo e botão do consultor) e manifesto lido antes da conclusão do pipeline de imagens. Reexecução final serial após a geração: **619/621 testes em 70 arquivos**, manifesto aprovado; permanecem apenas o timeout do catálogo em `accessibility.test.tsx` e o botão `/consultor ia/i` ausente em `AppPartnersCta.test.tsx`. Suíte completa não declarada aprovada; nenhum teste foi silenciado ou teve limites relaxados.
+- Navegador: ficha HTTP 200, foto responsiva carregada, dados/ressalvas visíveis e schema de 184 cv; sem erros de execução. Conteúdo dentro da largura em 1440, 390 e 360 px. Há overflow móvel no brilho decorativo preexistente de 800 px da ficha, reproduzido também no Kwid E-Tech; não foi alterado neste ajuste de dados.
+- Revisão pré-commit: 83 testes direcionados em cinco arquivos (incluindo manifesto de imagens), TypeScript, build, scanner e proveniência (`unchanged`, 1047/2020) novamente aprovados. Resultado integral de 619/621 preservado acima, sem declarar a suíte completa aprovada.
+- Estado: commit autorizado na branch `fix/catalog-honda-civic`, com envio da branch ao GitHub; sem integração à `main` nem publicação do site nesta etapa. Sem alteração no bot.
+
 ## 24/11/2026 — GAC GS9 Ultra (validação local)
 
 | Item | Detalhe |
