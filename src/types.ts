@@ -76,6 +76,20 @@ export interface FilterState {
   powertrains: PowertrainType[];
 }
 
+/** Pré-lançamento sem preço: não é um Car elegível para cálculos financeiros. */
+export interface AnnouncedCar extends Omit<Car, 'price' | 'features' | 'url'> {
+  price: null;
+  priceStatus: 'unannounced';
+  announcedOn: string;
+  presaleStartsOn: string;
+  reviewedOn: string;
+  supportsDcCharging?: boolean;
+  features: string[];
+  url: string;
+  specificationNote: string;
+  sources: { label: string; url: string; type: 'official_manufacturer' | 'specialist_media' }[];
+}
+
 /** Resolve o powertrain efetivo (legado sem campo = BEV). */
 export const powertrainOf = (car: Car): PowertrainType => car.powertrain ?? 'BEV';
 

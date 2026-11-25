@@ -210,7 +210,8 @@ describe('maintenance automation core', () => {
   });
 
   it('tracks provenance for every vehicle and critical catalog field', () => {
-    const cars = JSON.parse(readFileSync(resolve(process.cwd(), 'public/data/cars.json'), 'utf8')).cars;
+    const payload = JSON.parse(readFileSync(resolve(process.cwd(), 'public/data/cars.json'), 'utf8'));
+    const cars = [...payload.cars, ...(payload.announced_cars ?? [])];
     const registry = JSON.parse(readFileSync(resolve(process.cwd(), '.github/data/catalog-provenance.json'), 'utf8'));
     expect(registry.fieldVerificationSources).toEqual([
       'official_manufacturer',

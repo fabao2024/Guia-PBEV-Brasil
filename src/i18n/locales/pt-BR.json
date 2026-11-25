@@ -1,4 +1,25 @@
 {
+  "announced": {
+    "badge": "Pré-lançamento",
+    "section": "Pré-lançamentos sem preço divulgado",
+    "sectionNote": "Fora dos rankings de preço e dos cálculos financeiros até divulgação oficial.",
+    "presaleDate": "Pré-venda prevista para {{date}}",
+    "price": "Preço a divulgar",
+    "cardNote": "Não participa de rankings de preço ou simulações financeiras até divulgação oficial. A data prevista está sujeita a confirmação.",
+    "noCalculations": "Sem preço oficial, este modelo não participa de comparações financeiras, TCO, estimativas de IPVA ou simulações de economia. A data prevista não confirma estoque ou entregas.",
+    "viewDetails": "Conhecer o modelo",
+    "back": "Voltar ao catálogo",
+    "specs": "Dados divulgados para o Brasil",
+    "power": "Potência",
+    "traction": "Tração",
+    "battery": "Bateria divulgada",
+    "range": "Autonomia divulgada",
+    "evidenceNote": "Potência de 354 cv confirmada na página oficial. Bateria de 86,3 kWh, tração traseira e 427 km atribuídos ao PBEV foram divulgados à imprensa; ficha e etiqueta brasileiras primárias ainda pendentes. Não representam verificação independente da homologação.",
+    "equipment": "Destaques e limites",
+    "sources": "Fontes e atualização",
+    "reviewed": "Conferido em {{date}}. Previsões sujeitas a confirmação; nenhuma disponibilidade muda automaticamente pela data.",
+    "official": "Site oficial {{brand}}"
+  },
   "categories": {
     "Urbano": "Urbano",
     "Compacto": "Compacto",

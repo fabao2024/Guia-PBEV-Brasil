@@ -37,6 +37,68 @@
     }
   },
   "vehicles": {
+    "denza-bao-3": {
+      "brand": "DENZA",
+      "model": "BAO 3",
+      "notes": "Pré-lançamento sem preço em announced_cars, separado do catálogo financeiro. Fontes e limites em docs/catalogo-denza-bao3.md. No schema atual, legacy_unverified registra pendência primária, não origem histórica. Página oficial e imagem consultadas em 25/11/2026; previsões não promovem disponibilidade automaticamente.",
+      "fields": {
+        "price": {
+          "verificationStatus": "legacy_unverified", "sourceType": null,
+          "sourceUrl": null, "sourceUpdatedAt": null, "verifiedAt": null,
+          "notes": "Não divulgado. price=null; nenhuma estimativa de R$ 350/400 mil adotada."
+        },
+        "range_km": {
+          "verificationStatus": "legacy_unverified", "sourceType": "specialist_media",
+          "sourceUrl": "https://g1.globo.com/carros/noticia/2026/11/25/denza-bao-3-conheca-o-suv-eletrico-de-mais-de-r-400-mil-que-promete-recarga-em-9-minutos.ghtml",
+          "sourceUpdatedAt": "2026-11-25", "verifiedAt": null,
+          "notes": "427 km atribuídos ao PBEV pela imprensa na apresentação brasileira; ficha/etiqueta individual primária pendente. UI explicita limite da evidência."
+        },
+        "consumption": {
+          "verificationStatus": "legacy_unverified", "sourceType": null,
+          "sourceUrl": null, "sourceUpdatedAt": null, "verifiedAt": null,
+          "notes": "Consumo e classificação PBE ausentes; não calculados dividindo capacidade nominal por autonomia."
+        },
+        "power": {
+          "verificationStatus": "verified", "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/br/denza-bao3.html",
+          "sourceUpdatedAt": "2026-11-25", "verifiedAt": "2026-11-25", "sourceDateKind": "observed",
+          "notes": "Meta description oficial brasileira explicita SUV elétrico de 354 cv. Tração RWD e torque de 270 Nm/27,5 kgfm vêm do g1 e ainda requerem ficha primária. Não usar 510 cv/AWD da versão global."
+        },
+        "battery": {
+          "verificationStatus": "legacy_unverified", "sourceType": "specialist_media",
+          "sourceUrl": "https://g1.globo.com/carros/noticia/2026/11/25/denza-bao-3-conheca-o-suv-eletrico-de-mais-de-r-400-mil-que-promete-recarga-em-9-minutos.ghtml",
+          "sourceUpdatedAt": "2026-11-25", "verifiedAt": null,
+          "notes": "86,3 kWh informados à imprensa para a versão brasileira; Blade 2.0 mencionada também na página oficial. Não transferir 75,6 kWh da versão AWD."
+        },
+        "charging": {
+          "verificationStatus": "legacy_unverified", "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.denza.com/br/denza-bao3.html",
+          "sourceUpdatedAt": "2026-11-25", "verifiedAt": null,
+          "notes": "Página oficial confirma Flash Charging, mas pico do veículo AC/DC não localizado. supportsDcCharging=true não é potência; nenhum kW ou tempo inferido da estação."
+        },
+        "availability": {
+          "verificationStatus": "legacy_unverified", "sourceType": "specialist_media",
+          "sourceUrl": "https://g1.globo.com/carros/noticia/2026/11/25/denza-bao-3-conheca-o-suv-eletrico-de-mais-de-r-400-mil-que-promete-recarga-em-9-minutos.ghtml",
+          "sourceUpdatedAt": "2026-11-25", "verifiedAt": null,
+          "notes": "Apresentação de 24/11 e pré-venda prevista para 01/12/2026; entregas previstas para janeiro de 2027. Página oficial comprova modelo, não oferta com preço nem estoque."
+        },
+        "dimensions": {
+          "verificationStatus": "legacy_unverified", "sourceType": null,
+          "sourceUrl": null, "sourceUpdatedAt": null, "verifiedAt": null,
+          "notes": "Dimensões omitidas até ficha brasileira oficial; não copiar medidas globais ou dados divergentes de reportagens."
+        },
+        "trunk": {
+          "verificationStatus": "legacy_unverified", "sourceType": null,
+          "sourceUrl": null, "sourceUpdatedAt": null, "verifiedAt": null,
+          "notes": "Volume e método não confirmados em fonte primária; não somar porta-malas, frunk e compartimento externo."
+        },
+        "weight": {
+          "verificationStatus": "legacy_unverified", "sourceType": null,
+          "sourceUrl": null, "sourceUpdatedAt": null, "verifiedAt": null,
+          "notes": "Peso brasileiro não localizado em fonte primária; omitido."
+        }
+      }
+    },
     "gac-gs9-ultra": {
       "brand": "GAC",
       "model": "GS9 Ultra",
@@ -15215,6 +15277,15 @@
     }
   },
   "legacyExceptions": {
+    "denza-bao-3.price": { "reason": "Preço ainda não divulgado; ausência representada por null, sem oferta ou estimativa.", "reviewCondition": "Confirmar preço oficial na abertura da pré-venda e promover manualmente ao catálogo com preço.", "recordedAt": "2026-11-25" },
+    "denza-bao-3.range_km": { "reason": "427 km atribuídos ao PBEV pela imprensa; etiqueta primária pendente.", "reviewCondition": "Conferir ficha/etiqueta ou tabela Inmetro da versão brasileira RWD.", "recordedAt": "2026-11-25" },
+    "denza-bao-3.consumption": { "reason": "Consumo e classificação homologados não localizados; campos omitidos.", "reviewCondition": "Conferir etiqueta Inmetro brasileira antes de preencher.", "recordedAt": "2026-11-25" },
+    "denza-bao-3.battery": { "reason": "86,3 kWh informados à imprensa, sem ficha técnica primária localizada.", "reviewCondition": "Confirmar capacidade e distinção nominal/útil da versão brasileira.", "recordedAt": "2026-11-25" },
+    "denza-bao-3.charging": { "reason": "Compatibilidade Flash oficial não comprova potências máximas AC/DC.", "reviewCondition": "Localizar ficha brasileira com pico aceito pelo veículo, sem usar potência da estação.", "recordedAt": "2026-11-25" },
+    "denza-bao-3.availability": { "reason": "Pré-venda futura de 01/12/2026 divulgada à imprensa; sem preço nem estoque confirmado.", "reviewCondition": "Revalidar condições brasileiras quando a pré-venda for aberta; não alterar status pelo relógio.", "recordedAt": "2026-11-25" },
+    "denza-bao-3.dimensions": { "reason": "Medidas omitidas por ausência de ficha primária brasileira.", "reviewCondition": "Conferir dimensões da versão RWD brasileira em fonte oficial.", "recordedAt": "2026-11-25" },
+    "denza-bao-3.trunk": { "reason": "Bagagem omitida por ausência de fonte primária e método.", "reviewCondition": "Confirmar volume traseiro com bancos em uso, sem soma de compartimentos.", "recordedAt": "2026-11-25" },
+    "denza-bao-3.weight": { "reason": "Massa em ordem de marcha brasileira não confirmada.", "reviewCondition": "Conferir ficha oficial da versão RWD brasileira.", "recordedAt": "2026-11-25" },
     "baic-arcfox-t5.price": { "reason": "Preço promocional de pré-venda publicado pela imprensa, ainda sem fonte primária localizada.", "reviewCondition": "Confirmar valor, limite de unidades e validade em oferta oficial brasileira.", "recordedAt": "2026-11-12" },
     "baic-arcfox-t5.range_km": { "reason": "362 km Inmetro informados pela imprensa no lançamento; etiqueta individual não localizada.", "reviewCondition": "Conferir etiqueta ou tabela PBEV da versão brasileira T5.", "recordedAt": "2026-11-12" },
     "baic-arcfox-t5.consumption": { "reason": "Consumo homologado não localizado e omitido.", "reviewCondition": "Consultar etiqueta ou tabela PBEV brasileira.", "recordedAt": "2026-11-12" },
