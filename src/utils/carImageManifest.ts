@@ -887,6 +887,32 @@ export const optimizedCarImages: Record<string, CarImageMetadata> = {
       }
     ]
   },
+  "/car-images/gac-gs9-ultra.webp": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/car-images/optimized/gac-gs9-ultra.webp-320.webp",
+        "width": 320,
+        "height": 180
+      },
+      {
+        "src": "/car-images/optimized/gac-gs9-ultra.webp-640.webp",
+        "width": 640,
+        "height": 360
+      },
+      {
+        "src": "/car-images/optimized/gac-gs9-ultra.webp-960.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "/car-images/optimized/gac-gs9-ultra.webp-1280.webp",
+        "width": 1280,
+        "height": 720
+      }
+    ]
+  },
   "/car-images/geely-ex5-emi.jpg": {
     "width": 5000,
     "height": 3335,

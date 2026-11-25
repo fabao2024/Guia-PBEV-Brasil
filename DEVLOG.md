@@ -2,6 +2,20 @@
 
 Notas técnicas selecionadas do produto público. Este documento não registra infraestrutura privada, dashboards administrativos, parceiros individuais, credenciais, dados pessoais ou runbooks operacionais.
 
+## 24/11/2026 — GAC GS9 Ultra (validação local)
+
+| Item | Detalhe |
+|---|---|
+| Catálogo | Incluído o SUV brasileiro de seis lugares como REEV (PHEV com extensor), com 500 cv, 62,5 kgfm, AWD e bateria declarada de 44,5 kWh; recarga AC 6 / DC 140 kW. |
+| Dados e fontes | Autonomia elétrica Inmetro de 114 km, gasolina 10,3 km/L urbano e 0,74 MJ/km. Autonomia total estimada de 732 km identificada como cálculo, não homologação. Dez campos de proveniência registrados; fontes e divergências em `docs/catalogo-gac-gs9.md`. |
+| Preço | R$ 379.990 na referência oficial de novembro, campanha 10–30/11/2026 limitada a 20 unidades. Garantias mantidas conforme ficha e tabela de híbridos; divergência no parágrafo comercial documentada. |
+| Imagem | Original oficial GAC, WebP 1920 × 1080, sem corte ou recompressão manual. Variantes responsivas e manifestos gerados com Pillow 12.3.0. |
+| Artefatos | JSON, sitemap, rota estática `/carro/gac-gs9-ultra/` e métricas regenerados: 202 versões de 41 marcas, incluindo descontinuados. |
+| Validação | TDD: teste novo falhou antes do cadastro; 26 testes de integridade aprovados depois. TypeScript, build e scanner de segredos aprovados; `node .github/scripts/check-catalog-provenance.mjs` após build: `unchanged`, 1039/2020 campos verificados. Pipeline de imagens e `--check` aprovados (86 originais acima do limiar, 334 variantes). Sem selo de lançamento: estreia em 18/08/2026 fora da janela editorial de três meses. |
+| Regressão completa | 615/617 testes aprovados em 69 arquivos. Falhas nos mesmos dois cenários registrados em 12/11: timeout da auditoria de acessibilidade do catálogo e botão do consultor não encontrado no teste do formulário de limpeza solar. Suíte completa não declarada aprovada; nenhum limite, teste ou asserção foi relaxado. |
+| Revisão pré-commit (25/11) | Reexecutados e aprovados os 26 testes de integridade, TypeScript, build, scanner e proveniência (`unchanged`, 1039/2020). Resultado da suíte completa de 24/11 preservado acima, sem declará-la integralmente aprovada. |
+| Estado | Commit autorizado na branch `feat/catalog-gac-gs9`, com envio da branch ao GitHub; sem integração à `main` nem publicação do site nesta etapa. |
+
 ## 12/11/2026 — Preparação da publicação conjunta do catálogo e Mapa EV
 
 - Revisadas em conjunto as mudanças pendentes: Arcfox T5 sem sufixo não confirmado, foto e proveniência, visualização externa Carregados com ativação explícita, traduções, créditos e instruções públicas. A integração à `main` fica condicionada ao CI aprovado; resultados anteriores de validação local permanecem no histórico.

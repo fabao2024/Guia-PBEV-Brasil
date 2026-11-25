@@ -37,6 +37,103 @@
     }
   },
   "vehicles": {
+    "gac-gs9-ultra": {
+      "brand": "GAC",
+      "model": "GS9 Ultra",
+      "notes": "Fontes e limites em docs/catalogo-gac-gs9.md. PHEV + REEV conforme GAC; catalogado como REEV, nunca BEV. Datas sem publicação explícita são de observação.",
+      "fields": {
+        "price": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://br-www-resouce-cdn.gacgroup.com/static/BR/tenant/cms/material/202611/1794946155517-Texto-legal---novembro-2026.pdf",
+          "sourceUpdatedAt": "2026-11-24",
+          "verifiedAt": "2026-11-24",
+          "sourceDateKind": "observed",
+          "notes": "Página 3: preço público sugerido de R$ 379.990 na campanha 10–30/11/2026, limitada a 20 unidades. Não é o preço histórico de lançamento de R$ 399.990 nem o custo total financiado."
+        },
+        "range_km": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf",
+          "sourceUpdatedAt": "2026-11-24",
+          "verifiedAt": "2026-11-24",
+          "sourceDateKind": "observed",
+          "notes": "Página 6, GAC GS9 ULTRA 1.5-16V: autonomia elétrica de 114 km. Não usar alcance CLTC/NEDC."
+        },
+        "consumption": {
+          "verificationStatus": "verified",
+          "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf",
+          "sourceUpdatedAt": "2026-11-24",
+          "verifiedAt": "2026-11-24",
+          "sourceDateKind": "observed",
+          "notes": "Página 6: gasolina cidade 10,3, estrada 10,6 e combinado 10,5 km/L; energia 0,74 MJ/km e classe A. Não confundir com 26,8/27,9 km/L equivalente elétrico. Autonomia total estimada: 114 + 60 × 10,3 = 732 km; tanque de 60 L na ficha GAC https://www.gacgroup.com/pt-br/configuration/gac-gs9/2026. Não é autonomia total homologada."
+        },
+        "power": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gacgroup.com/pt-br/configuration/gac-gs9/2026",
+          "sourceUpdatedAt": "2026-11-24",
+          "verifiedAt": "2026-11-24",
+          "sourceDateKind": "observed",
+          "notes": "Potência combinada declarada de 500 cv; torque de 613 Nm / 9,80665 = 62,5 kgfm. Não somar picos dos motores isolados."
+        },
+        "battery": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gacgroup.com/pt-br/configuration/gac-gs9/2026",
+          "sourceUpdatedAt": "2026-11-24",
+          "verifiedAt": "2026-11-24",
+          "sourceDateKind": "observed",
+          "notes": "44,5 kWh declarados; capacidade útil e química não inferidas."
+        },
+        "charging": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gacgroup.com/pt-br/configuration/gac-gs9/2026",
+          "sourceUpdatedAt": "2026-11-24",
+          "verifiedAt": "2026-11-24",
+          "sourceDateKind": "observed",
+          "notes": "AC 6 kW e DC 140 kW; sem tempo de recarga inferido."
+        },
+        "availability": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gacgroup.com/pt-br/todos-os-modelos-gac-hibrido/gs9-hyperhybrid",
+          "sourceUpdatedAt": "2026-11-24",
+          "verifiedAt": "2026-11-24",
+          "sourceDateKind": "observed",
+          "notes": "Versão Ultra brasileira na ficha e campanha oficial de novembro; disponibilidade de estoque sujeita à concessionária."
+        },
+        "dimensions": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gacgroup.com/pt-br/configuration/gac-gs9/2026",
+          "sourceUpdatedAt": "2026-11-24",
+          "verifiedAt": "2026-11-24",
+          "sourceDateKind": "observed",
+          "notes": "5060 × 1950 × 1760 mm; entre-eixos 2930 mm. Vão livre não publicado nesta ficha."
+        },
+        "trunk": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gacgroup.com/pt-br/configuration/gac-gs9/2026",
+          "sourceUpdatedAt": "2026-11-24",
+          "verifiedAt": "2026-11-24",
+          "sourceDateKind": "observed",
+          "notes": "255 L declarados com seis assentos em uso; não usar os 1005 L com terceira fileira rebatida nem declarar padrão VDA não informado."
+        },
+        "weight": {
+          "verificationStatus": "verified",
+          "sourceType": "official_manufacturer",
+          "sourceUrl": "https://www.gacgroup.com/pt-br/configuration/gac-gs9/2026",
+          "sourceUpdatedAt": "2026-11-24",
+          "verifiedAt": "2026-11-24",
+          "sourceDateKind": "observed",
+          "notes": "Peso declarado de 2365 kg."
+        }
+      }
+    },
     "denza-b5-gl": {
       "brand": "DENZA",
       "model": "B5 GL",
