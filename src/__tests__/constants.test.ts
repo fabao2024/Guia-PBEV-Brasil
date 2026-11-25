@@ -3,6 +3,29 @@ import type { Car } from '../types';
 import { ALL_POWERTRAINS, DEFAULT_MIN_RANGE } from '../types';
 
 describe('CAR_DB data integrity', () => {
+  it('lists the Brazilian GS9 Ultra as a REEV with qualified Inmetro range and consumption', () => {
+    const versions = CAR_DB.filter(car => car.brand === 'GAC' && car.model.startsWith('GS9'));
+    expect(versions).toHaveLength(1);
+    const car = versions[0];
+    expect(car).toMatchObject({ model: 'GS9 Ultra', cat: 'SUV', powertrain: 'REEV',
+      price: 379990, range: 114, electricRangeKm: 114, combinedRangeKm: 732,
+      fuelType2: 'gasolina', fuelConsumptionKml: 10.3, energyMJkm: 0.74,
+      power: 500, torque: 62.5, traction: 'AWD', battery: 44.5,
+      chargeAC: 6, chargeDC: 140, pbeRating: 'A',
+      lengthMm: 5060, widthMm: 1950, heightMm: 1760, wheelbaseMm: 2930,
+      weightKg: 2365, trunkLiters: 255, warrantyYears: 5, warrantyBatteryYears: 8,
+      img: '/car-images/gac-gs9-ultra.webp',
+      url: 'https://www.gacgroup.com/pt-br/todos-os-modelos-gac-hibrido/gs9-hyperhybrid' });
+    // Lançado em 18/08/2026: fora da janela editorial de três meses em novembro.
+    expect(isCarNew(car)).toBe(false);
+    expect(car.features?.some(feature => feature.includes('732 km') && feature.includes('estimada'))).toBe(true);
+    expect(car.features?.some(feature => feature.includes('30/11/2026') && feature.includes('20 unidades'))).toBe(true);
+    // Não confundir km/L equivalente do modo elétrico com gasolina nem preencher vão livre sem fonte.
+    expect(car.fuelConsumptionKml).not.toBe(26.8);
+    expect(car.groundClearanceMm).toBeUndefined();
+    expect(car.fuelConsumptionKmlEthanol).toBeUndefined();
+  });
+
   it('lists only the Brazilian DENZA versions under a brand separate from BYD', () => {
     const denza = CAR_DB.filter(car => car.brand === 'DENZA');
     expect(denza.map(car => car.model)).toEqual(['B5 GL', 'B5 GS', 'Z9GT EV', 'D9 EV']);
