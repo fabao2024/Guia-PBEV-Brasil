@@ -32,7 +32,8 @@ describe('potências Honda e:HEV — motores não são somados', () => {
       });
       expect(car.price).toBeGreaterThan(0);
     }
-    expect(payload.cars.filter((car: { power_basis?: string }) => car.power_basis)).toHaveLength(3);
+    expect(payload.cars.filter((car: { power_basis?: string }) => car.power_basis))
+      .toHaveLength(CAR_DB.filter(car => car.powerBasis).length);
     expect(payload.total).toBe(CAR_DB.length);
     expect(payload.announced_cars.find((car: { slug: string }) => car.slug === 'denza-bao-3').price).toBeNull();
   });

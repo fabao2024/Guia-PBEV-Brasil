@@ -18,7 +18,7 @@ Operações administrativas, dados pessoais, regras de matching, credenciais, in
 | Área pública | Estado | Resumo |
 |---|---:|---|
 | Catálogo BEV | ✅ | Busca, filtros, imagens, ficha técnica e dados PBE/INMETRO |
-| Catálogo híbrido | 🚧 | Filtro por propulsão (BEV/PHEV/HEV/REEV) e 3 PHEV BYD com fonte oficial; HEV, REEV e demais marcas em lotes seguintes |
+| Catálogo híbrido | 🚧 | Filtro por propulsão (BEV/PHEV/HEV/REEV), versões de múltiplas marcas e expansão/revisão documental por versão |
 | Comparação | ✅ | Comparação lado a lado com URLs compartilháveis |
 | Simulador de economia | ✅ | Energia, combustível e premissas editáveis; detalhes fiscais somente no TCO ou na ficha do veículo |
 | TCO | ✅ | IPVA SP por modelo e exercício civil, com alíquotas anuais na tabela/PNG, projeção condicional opcional e comparação parcial quando o imposto é indisponível |
@@ -55,6 +55,7 @@ O frontend envia a candidatura a uma API externa por contrato versionado, inclui
 
 ### Curto prazo
 
+- revisar a evidência do RAV4 XSE Plug-in Hybrid brasileiro de 329 cv: consumo de gasolina em sustentação e autonomia total com base rastreável antes de incluí-lo nos simuladores; não reutilizar dados da geração de 306 cv. RAV4 S/SX HEV preparados localmente, com referências regionais de preço e fontes em `docs/catalogo-toyota-rav4.md`; publicação ainda não verificada.
 - concluir a revisão individual das localizações do Mapa EV: 159 legados sem evidência em quarentena; arquivo OCM histórico complementado por 94 fichas adicionais consultadas em novembro e 396 registros do extrato OSM/Geofabrik de 08/11/2026, total local de 1.787 registros. Extrato completo e checksum verificados; campos ausentes e 33 centros de áreas aproximados explícitos. Datas de arquivo, consulta, extrato e atualização não se confundem; fontes podem repetir um local físico. Sincronização OCM nacional depende de chave autorizada e permanece pendente. Abertura independente das APIs, agrupamentos e critérios DC mais restritos nas rotas preservados. Sem publicação; ver `docs/mapa-ev-localizacoes.md`.
 - ampliar testes de acessibilidade das rotas de catálogo, comparação e parceiros;
 - validar e publicar a visualização complementar Carregados no Mapa EV: iframe oficial opt-in, indicadores agregados citados com data e contagens separadas; sem importação da base ou integração de pontos externos no planejador. Dados nativos com coordenadas dependem de export e redistribuição autorizados. Implementação local, sem publicação.

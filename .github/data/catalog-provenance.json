@@ -37,6 +37,140 @@
     }
   },
   "vehicles": {
+    "toyota-rav4-s-hybrid": {
+      "brand": "Toyota",
+      "model": "RAV4 S Hybrid",
+      "notes": "Linha brasileira HEV 2026, não S Connect nem XSE PHEV. Fontes, acesso direto Toyota 403, consulta do PDF pela indexação, preço regional e divergências em docs/catalogo-toyota-rav4.md.",
+      "fields": {
+        "price": {
+          "verificationStatus": "legacy_unverified", "sourceType": null,
+          "sourceUrl": "https://stefanimotors.com.br/novos/rav4",
+          "sourceUpdatedAt": null, "verifiedAt": null,
+          "notes": "R$ 317.190 observado em 26/11/2026 na rede autorizada: cor Cinza Titan, pintura sólida, base Brasília, à vista com frete. Não representa preço nacional vigente confirmado pela fábrica. Oferta local R$ 299.990 não adotada."
+        },
+        "range_km": {
+          "verificationStatus": "verified", "sourceType": "official_manufacturer",
+          "sourceUrl": "https://media.toyota.com.br/816f3b05-1ce9-49fc-98cc-935aa1dea606.pdf",
+          "sourceUpdatedAt": "2026-11-26", "verifiedAt": "2026-11-26", "sourceDateKind": "observed",
+          "notes": "Ficha consultada pela indexação pública; acesso direto 403. HEV, autonomia EV N/A: range=0 é convenção interna, não alcance total. Nenhuma autonomia elétrica ou total presumida."
+        },
+        "consumption": {
+          "verificationStatus": "verified", "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-31", "verifiedAt": "2026-11-26",
+          "notes": "Tabela 25/08, página 4, linhas S/SX HYBRID: gasolina 16,1 cidade, 13,5 estrada e 14,8 combinado; 1,42 MJ/km e classe B, sem Conpet. CONNECT é outra linha (15,3/14,1 e 1,43). Coluna Combustão no regulador diverge da classificação HEV da Toyota; prevalece fabricante na propulsão."
+        },
+        "power": {
+          "verificationStatus": "verified", "sourceType": "official_manufacturer",
+          "sourceUrl": "https://media.toyota.com.br/816f3b05-1ce9-49fc-98cc-935aa1dea606.pdf",
+          "sourceUpdatedAt": "2026-11-26", "verifiedAt": "2026-11-26", "sourceDateKind": "observed",
+          "notes": "239 cv combinados, não soma dos motores. PDF via indexação (direto 403), corroborado na rede Toyota. Torque térmico não adotado como combinado."
+        },
+        "battery": {
+          "verificationStatus": "verified", "sourceType": "official_manufacturer",
+          "sourceUrl": "https://media.toyota.com.br/816f3b05-1ce9-49fc-98cc-935aa1dea606.pdf",
+          "sourceUpdatedAt": "2026-11-26", "verifiedAt": "2026-11-26", "sourceDateKind": "observed",
+          "notes": "1,1 kWh declarados, íon de lítio; consulta pela indexação, acesso direto 403. Não confundir com 22,7 kWh do XSE; capacidade útil não inferida."
+        },
+        "charging": {
+          "verificationStatus": "verified", "sourceType": "official_manufacturer",
+          "sourceUrl": "https://media.toyota.com.br/816f3b05-1ce9-49fc-98cc-935aa1dea606.pdf",
+          "sourceUpdatedAt": "2026-11-26", "verifiedAt": "2026-11-26", "sourceDateKind": "observed",
+          "notes": "HEV sem recarga externa; campos AC/DC omitidos. Ficha via indexação, acesso direto 403; 11/50 kW pertencem ao XSE PHEV."
+        },
+        "availability": {
+          "verificationStatus": "verified", "sourceType": "official_press_release",
+          "sourceUrl": "https://www.toyotacomunica.com.br/novo-toyota-rav4-estreia-no-brasil-com-duas-versoes-hibridas-full-maistecnologia-e-preco-a-partir-de-r-317-mil/",
+          "sourceUpdatedAt": "2026-04-14", "verifiedAt": "2026-11-26",
+          "notes": "Lançamento brasileiro S/SX, consultado pela indexação (direto 403/503), com oferta pública atual corroborada em https://stefanimotors.com.br/novos/rav4. Não prova estoque ou entrega. Fora da janela editorial de três meses."
+        },
+        "dimensions": {
+          "verificationStatus": "verified", "sourceType": "official_manufacturer",
+          "sourceUrl": "https://media.toyota.com.br/c16025eb-11ec-48b7-86e5-c8dde161ecfc.pdf",
+          "sourceUpdatedAt": "2026-11-26", "verifiedAt": "2026-11-26", "sourceDateKind": "observed",
+          "notes": "Ficha brasileira HEV S/SX: 4600 × 1855 × 1695 mm, entre-eixos 2690 mm; indexação pública (direto 403), corroborada em https://www.toyotasulpar.com.br/novos/toyota-rav4. Vão livre omitido."
+        },
+        "trunk": {
+          "verificationStatus": "verified", "sourceType": "official_manufacturer",
+          "sourceUrl": "https://media.toyota.com.br/816f3b05-1ce9-49fc-98cc-935aa1dea606.pdf",
+          "sourceUpdatedAt": "2026-11-26", "verifiedAt": "2026-11-26", "sourceDateKind": "observed",
+          "notes": "514 L declarados para S, ficha via indexação (direto 403), corroborados na rede Toyota. Não afirmar método VDA."
+        },
+        "weight": {
+          "verificationStatus": "verified", "sourceType": "official_manufacturer",
+          "sourceUrl": "https://media.toyota.com.br/816f3b05-1ce9-49fc-98cc-935aa1dea606.pdf",
+          "sourceUpdatedAt": "2026-11-26", "verifiedAt": "2026-11-26", "sourceDateKind": "observed",
+          "notes": "1755 kg em ordem de marcha para S; ficha via indexação (direto 403), corroborada na rede Toyota."
+        }
+      }
+    },
+    "toyota-rav4-sx-hybrid": {
+      "brand": "Toyota",
+      "model": "RAV4 SX Hybrid",
+      "notes": "Linha brasileira HEV 2026, não SX Connect nem XSE PHEV. Fontes, acesso direto Toyota 403, consulta do PDF pela indexação, preço regional e divergências em docs/catalogo-toyota-rav4.md.",
+      "fields": {
+        "price": {
+          "verificationStatus": "legacy_unverified", "sourceType": null,
+          "sourceUrl": "https://stefanimotors.com.br/novos/rav4",
+          "sourceUpdatedAt": null, "verifiedAt": null,
+          "notes": "R$ 349.290 observado em 26/11/2026 na rede autorizada: cor Cinza Titan, pintura sólida, base Brasília, à vista com frete. Não representa preço nacional vigente confirmado pela fábrica."
+        },
+        "range_km": {
+          "verificationStatus": "verified", "sourceType": "official_manufacturer",
+          "sourceUrl": "https://media.toyota.com.br/816f3b05-1ce9-49fc-98cc-935aa1dea606.pdf",
+          "sourceUpdatedAt": "2026-11-26", "verifiedAt": "2026-11-26", "sourceDateKind": "observed",
+          "notes": "Ficha consultada pela indexação pública; acesso direto 403. HEV, autonomia EV N/A: range=0 é convenção interna, não alcance total. Nenhuma autonomia elétrica ou total presumida."
+        },
+        "consumption": {
+          "verificationStatus": "verified", "sourceType": "official_regulator",
+          "sourceUrl": "https://www.gov.br/inmetro/pt-br/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/veiculos-automotivos-pbe-veicular/mascara-pbev-2026_19_jan-rev01.pdf/@@download/file",
+          "sourceUpdatedAt": "2026-08-31", "verifiedAt": "2026-11-26",
+          "notes": "Tabela 25/08, página 4, linhas S/SX HYBRID: gasolina 16,1 cidade, 13,5 estrada e 14,8 combinado; 1,42 MJ/km e classe B, sem Conpet. CONNECT é outra linha (15,3/14,1 e 1,43). Coluna Combustão no regulador diverge da classificação HEV da Toyota; prevalece fabricante na propulsão."
+        },
+        "power": {
+          "verificationStatus": "verified", "sourceType": "official_manufacturer",
+          "sourceUrl": "https://media.toyota.com.br/816f3b05-1ce9-49fc-98cc-935aa1dea606.pdf",
+          "sourceUpdatedAt": "2026-11-26", "verifiedAt": "2026-11-26", "sourceDateKind": "observed",
+          "notes": "239 cv combinados, não soma dos motores. PDF via indexação (direto 403), corroborado na rede Toyota. Torque térmico não adotado como combinado."
+        },
+        "battery": {
+          "verificationStatus": "verified", "sourceType": "official_manufacturer",
+          "sourceUrl": "https://media.toyota.com.br/816f3b05-1ce9-49fc-98cc-935aa1dea606.pdf",
+          "sourceUpdatedAt": "2026-11-26", "verifiedAt": "2026-11-26", "sourceDateKind": "observed",
+          "notes": "1,1 kWh declarados, íon de lítio; consulta pela indexação, acesso direto 403. Não confundir com 22,7 kWh do XSE; capacidade útil não inferida."
+        },
+        "charging": {
+          "verificationStatus": "verified", "sourceType": "official_manufacturer",
+          "sourceUrl": "https://media.toyota.com.br/816f3b05-1ce9-49fc-98cc-935aa1dea606.pdf",
+          "sourceUpdatedAt": "2026-11-26", "verifiedAt": "2026-11-26", "sourceDateKind": "observed",
+          "notes": "HEV sem recarga externa; campos AC/DC omitidos. Ficha via indexação, acesso direto 403; 11/50 kW pertencem ao XSE PHEV."
+        },
+        "availability": {
+          "verificationStatus": "verified", "sourceType": "official_press_release",
+          "sourceUrl": "https://www.toyotacomunica.com.br/novo-toyota-rav4-estreia-no-brasil-com-duas-versoes-hibridas-full-maistecnologia-e-preco-a-partir-de-r-317-mil/",
+          "sourceUpdatedAt": "2026-04-14", "verifiedAt": "2026-11-26",
+          "notes": "Lançamento brasileiro S/SX, consultado pela indexação (direto 403/503), com oferta pública atual corroborada em https://stefanimotors.com.br/novos/rav4. Não prova estoque ou entrega. Fora da janela editorial de três meses."
+        },
+        "dimensions": {
+          "verificationStatus": "verified", "sourceType": "official_manufacturer",
+          "sourceUrl": "https://media.toyota.com.br/c16025eb-11ec-48b7-86e5-c8dde161ecfc.pdf",
+          "sourceUpdatedAt": "2026-11-26", "verifiedAt": "2026-11-26", "sourceDateKind": "observed",
+          "notes": "Ficha brasileira HEV S/SX: 4600 × 1855 × 1695 mm, entre-eixos 2690 mm; indexação pública (direto 403), corroborada em https://www.toyotasulpar.com.br/novos/toyota-rav4. Vão livre omitido."
+        },
+        "trunk": {
+          "verificationStatus": "verified", "sourceType": "official_manufacturer",
+          "sourceUrl": "https://media.toyota.com.br/816f3b05-1ce9-49fc-98cc-935aa1dea606.pdf",
+          "sourceUpdatedAt": "2026-11-26", "verifiedAt": "2026-11-26", "sourceDateKind": "observed",
+          "notes": "456 L declarados para SX, ficha via indexação (direto 403), corroborados em https://stefanimotors.com.br/novos/rav4. Ficha HEV anterior e Sulpar informam 489 L; divergência preservada na documentação. Método VDA não confirmado."
+        },
+        "weight": {
+          "verificationStatus": "verified", "sourceType": "official_manufacturer",
+          "sourceUrl": "https://media.toyota.com.br/816f3b05-1ce9-49fc-98cc-935aa1dea606.pdf",
+          "sourceUpdatedAt": "2026-11-26", "verifiedAt": "2026-11-26", "sourceDateKind": "observed",
+          "notes": "1770 kg em ordem de marcha para SX; ficha via indexação (direto 403), corroborada na rede Toyota."
+        }
+      }
+    },
     "denza-bao-3": {
       "brand": "DENZA",
       "model": "BAO 3",
@@ -15286,6 +15420,18 @@
     }
   },
   "legacyExceptions": {
+    "toyota-rav4-s-hybrid.price": {
+      "reason": "Preço público indicativo da rede autorizada, base Brasília e pintura sólida; confirmação central vigente pela Toyota pendente. legacy_unverified indica pendência primária, não origem histórica.",
+      "reviewCondition": "Confirmar preço-base vigente e região/cor diretamente na Toyota antes de promover a verified; não substituir por oferta temporária local.",
+      "recordedAt": "2026-11-26",
+      "field": "toyota-rav4-s-hybrid.price"
+    },
+    "toyota-rav4-sx-hybrid.price": {
+      "reason": "Preço público indicativo da rede autorizada, base Brasília e pintura sólida; confirmação central vigente pela Toyota pendente. legacy_unverified indica pendência primária, não origem histórica.",
+      "reviewCondition": "Confirmar preço-base vigente e região/cor diretamente na Toyota antes de promover a verified; não substituir por oferta temporária local.",
+      "recordedAt": "2026-11-26",
+      "field": "toyota-rav4-sx-hybrid.price"
+    },
     "denza-bao-3.price": { "reason": "Preço ainda não divulgado; ausência representada por null, sem oferta ou estimativa.", "reviewCondition": "Confirmar preço oficial na abertura da pré-venda e promover manualmente ao catálogo com preço.", "recordedAt": "2026-11-25" },
     "denza-bao-3.range_km": { "reason": "427 km atribuídos ao PBEV pela imprensa; etiqueta primária pendente.", "reviewCondition": "Conferir ficha/etiqueta ou tabela Inmetro da versão brasileira RWD.", "recordedAt": "2026-11-25" },
     "denza-bao-3.consumption": { "reason": "Consumo e classificação homologados não localizados; campos omitidos.", "reviewCondition": "Conferir etiqueta Inmetro brasileira antes de preencher.", "recordedAt": "2026-11-25" },
